@@ -32,6 +32,8 @@ FILTRO = RAIZ / "scripts" / "atributos.lua"
 CACHE = RAIZ / ".atributos-cache"
 
 TIENE_TEX = shutil.which("xelatex") is not None
+# pandoc propio o el que trae Quarto
+PANDOC = [shutil.which("pandoc")] if shutil.which("pandoc") else [shutil.which("quarto") or "quarto", "pandoc"]
 TIENE_CAIRO = shutil.which("pdftocairo") is not None
 
 
@@ -100,7 +102,7 @@ def quitar_comentarios(s):
 
 def texto_plano(s):
     """Versión en texto de un fragmento LaTeX corto (para títulos y descripciones)."""
-    r = subprocess.run(["pandoc", "-f", "latex", "-t", "plain", "--wrap=none"],
+    r = subprocess.run(PANDOC + ["-f", "latex", "-t", "plain", "--wrap=none"],
                        input=s, capture_output=True, text=True)
     return re.sub(r"\s+", " ", r.stdout).strip()
 
@@ -343,7 +345,7 @@ def preparar(tex, slug, carpeta_tex, destino_img):
 
 
 def a_markdown(latex):
-    r = subprocess.run(["pandoc", "-f", "latex", "-t", "markdown-raw_html-native_spans-simple_tables-multiline_tables-grid_tables+pipe_tables",
+    r = subprocess.run(PANDOC + ["-f", "latex", "-t", "markdown-raw_html-native_spans-simple_tables-multiline_tables-grid_tables+pipe_tables",
                         "--wrap=none", "--shift-heading-level-by=1", "--lua-filter", str(FILTRO)],
                        input=latex, capture_output=True, text=True)
     if r.returncode != 0:
@@ -477,6 +479,9 @@ def main():
 
     (SALIDA / "serie.json").write_text(json.dumps({"estudios": estudios, "libro": libro},
                                                   ensure_ascii=False, indent=2))
+    if not estudios:
+        log("ERROR: no se generó ninguna página de la serie")
+        sys.exit(1)
 
 
 if __name__ == "__main__":
