@@ -1,9 +1,7 @@
-<!doctype html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+
 <title>Lector · Primera Línea</title>
+<meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Estudia un pasaje en cuatro lecturas: histórica, filológica, teológica y literaria, con pasajes paralelos.">
 <meta name="theme-color" content="#2350b8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0f1422" media="(prefers-color-scheme: dark)">
@@ -323,11 +321,14 @@ main,.sec,.search,.hero,.lineas,.linea{grid-template-columns:minmax(0,1fr)}
 .rz-fam li{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;font-size:.9rem;color:var(--muted)}
 .rz-fam li.yo .lx-ln{border-color:var(--accent);background:var(--accent-soft)}
 .rz-fam details summary{cursor:pointer;color:var(--accent);font-weight:700;font-size:.85rem}
-.word .rz-mini{border-top:1px solid var(--line);margin-top:6px;padding-top:8px;display:grid;gap:3px;font-size:.85rem;color:var(--muted)}
-.word .rz-mini b{color:var(--ink)}
-.word .rz-mini .rz-tri{font-size:1.25rem}
-.word .rz-mini .rzf{font-family:var(--heb);font-size:1rem;color:var(--ink)}
-.word .rz-mini .rzf.grc{font-family:var(--grk)}
+.rz-mini{border-top:1px solid var(--line);margin-top:6px;padding-top:8px;display:grid;gap:3px;font-size:.85rem;color:var(--muted)}
+.rz-mini b{color:var(--ink)}
+.rz-mini .rz-tri{font-size:1.25rem}
+.rz-mini .rzi{white-space:nowrap}
+.rz-mini .rzf{font-family:var(--heb);font-size:1rem;color:var(--ink)}
+.rz-mini .rzf.grc{font-family:var(--grk)}
+.lx details{font-size:.85rem}
+.lx details summary{cursor:pointer;color:var(--muted)}
 .lx details{font-size:.85rem}
 .lx details summary{cursor:pointer;color:var(--muted)}
 .lx-volver{all:unset;cursor:pointer;color:var(--accent);font-weight:700;font-size:.85rem}
@@ -376,10 +377,75 @@ main,.sec,.search,.hero,.lineas,.linea{grid-template-columns:minmax(0,1fr)}
 }
 @media (max-width:699px){.vistas .lg{display:none}}
 body.cmp-view main{padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
+
+/* Estudio: buscador, versículo y cuatro recuadros */
+#inicio.solo{display:grid;gap:22px;max-width:1100px;margin:0 auto;grid-template-columns:minmax(0,1fr)}
+#inicio.solo .col-l{display:grid;gap:18px;max-width:760px}
+.res{display:grid;gap:18px}
+.rverse{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:20px 22px;display:grid;gap:10px;box-shadow:0 10px 30px rgba(19,26,44,.05)}
+.rverse .ref{font-weight:800;font-size:1.1rem}
+.rverse .orig{font-size:1.5rem;line-height:1.8;color:var(--ink)}
+.rverse .orig.heb{font-family:var(--heb);direction:rtl;text-align:right}
+.rverse .orig.grc{font-family:var(--grk)}
+.rverse .es{font:400 1.2rem/1.6 var(--serif);color:var(--ink)}
+.rverse .ver{font-size:.8rem;color:var(--muted)}
+.rverse .acts{display:flex;flex-wrap:wrap;gap:8px}
+.rverse .acts .btn{text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.cuatro{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (min-width:1000px){.cuatro{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:520px){.cuatro{grid-template-columns:minmax(0,1fr)}}
+.rc{all:unset;box-sizing:border-box;cursor:pointer;display:grid;gap:8px;align-content:start;min-height:150px;background:var(--surface);border:1px solid var(--line);border-top:5px solid var(--cc);border-radius:18px;padding:16px 18px;transition:transform .15s, box-shadow .15s}
+.rc:hover,.rc:focus-visible{transform:translateY(-2px);box-shadow:0 12px 28px rgba(19,26,44,.10)}
+.rc:focus-visible{outline:2px solid var(--cc);outline-offset:2px}
+.rc .k{font:800 .72rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--cc)}
+.rc b{font-size:1.05rem;color:var(--ink)}
+.rc span{font-size:.9rem;color:var(--muted)}
+.rc .ab{font:700 .8rem var(--sans);color:var(--cc);margin-top:auto}
+.rc[data-k="historico"]{--cc:var(--c-hist)} .rc[data-k="filologico"]{--cc:var(--c-filo)} .rc[data-k="teologico"]{--cc:var(--c-teo)} .rc[data-k="literario"]{--cc:var(--c-lit)}
+.rc.wait b{color:var(--muted)}
+dialog.dlg{border:0;padding:0;border-radius:22px;width:min(860px,calc(100vw - 32px));max-height:min(88vh,920px);background:var(--surface);color:var(--ink);box-shadow:0 30px 80px rgba(0,0,0,.35);overflow:hidden}
+dialog.dlg[open]{display:flex;flex-direction:column}
+dialog.dlg::backdrop{background:rgba(10,14,26,.55)}
+.dlg-h{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line);border-top:5px solid var(--cc)}
+.dlg-h .k{font:800 .72rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--cc)}
+.dlg-h h2{font-size:1.15rem;margin:0}
+.dlg-h .sp{flex:1}
+.dlg-h button{border:1px solid var(--line);background:var(--bg);border-radius:10px;width:38px;height:38px;font-size:1.1rem;color:var(--ink);cursor:pointer}
+.dlg-b{overflow:auto;padding:18px 22px 22px;display:grid;gap:14px;-webkit-overflow-scrolling:touch}
+.dlg-f{display:flex;justify-content:space-between;gap:10px;padding:12px 20px;border-top:1px solid var(--line);background:var(--bg)}
+dialog.dlg[data-k="historico"]{--cc:var(--c-hist)} dialog.dlg[data-k="filologico"]{--cc:var(--c-filo)} dialog.dlg[data-k="teologico"]{--cc:var(--c-teo)} dialog.dlg[data-k="literario"]{--cc:var(--c-lit)}
+@media (max-width:640px){dialog.dlg{width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;border-radius:0;margin:0}}
+.ficha{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:8px 14px;margin:0}
+.ficha dt{font-weight:800;color:var(--ink)}
+.ficha dd{margin:0;color:var(--muted)}
+@media (max-width:520px){.ficha{grid-template-columns:minmax(0,1fr)} .ficha dd{margin-bottom:6px}}
+.pw{display:grid;gap:10px}
+.pw .w{border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;gap:4px;background:var(--bg)}
+.pw .w .o{font-size:1.45rem;line-height:1.4}
+.pw .w .o.heb{font-family:var(--heb);direction:rtl;text-align:right}
+.pw .w .o.grc{font-family:var(--grk)}
+.pw .w .l{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline}
+.pw .w .l i{color:var(--ink)}
+.pw .w small{color:var(--muted)}
+.pw .w .num{font:700 .7rem var(--sans);color:var(--accent);border:1px solid var(--line);border-radius:999px;padding:1px 8px;background:var(--surface)}
+.hemi{display:grid;gap:6px;background:var(--bg);border-radius:12px;padding:10px 14px}
+.hemi .he{font-family:var(--heb);direction:rtl;text-align:right;font-size:1.3rem}
+.hemi b{font-size:.75rem;color:var(--c-lit)}
+.crefs{display:grid;gap:8px}
+.crefs div{display:grid;gap:2px}
+.crefs b{color:var(--accent)}
+.crefs span{color:var(--muted);font-size:.95rem}
+.com-tabs{display:flex;flex-wrap:wrap;gap:8px}
+.com-tabs button{border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:5px 12px;font-size:.84rem;font-weight:700;color:var(--muted);min-height:34px;cursor:pointer}
+.com-tabs button[aria-pressed="true"]{border-color:var(--cc);color:var(--ink)}
+.com-tx{font-size:.98rem;line-height:1.65;color:var(--ink);white-space:pre-line}
+.com-tx[lang="en"]{font-family:var(--sans)}
+.privado{border:1px dashed var(--line);border-radius:14px;padding:12px 14px;display:grid;gap:8px;font-size:.9rem;color:var(--muted)}
+.privado .row{display:flex;gap:8px;flex-wrap:wrap}
+.privado input{flex:1;min-width:200px;border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:var(--surface);color:var(--ink)}
 </style>
 
-</head>
-<body class="home-view">
+<script>document.body.classList.add("home-view")</script>
 
 <header class="bar"><div class="bar-in">
   <a class="home" href="../index.html" id="home-link"><img src="iconos/icono-192.png" alt=""><span>Primera Línea</span></a>
@@ -401,12 +467,12 @@ body.cmp-view main{padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
 
 <main>
   <!-- Inicio -->
-  <section id="inicio" class="sec duo">
+  <section id="inicio" class="sec solo">
     <div class="col-l">
     <div class="hero">
       <span class="label">Histórico · Filológico · Teológico · Literario</span>
       <h1>Lector de Versículos</h1>
-      <p>Elige un estudio o escribe un pasaje. Cada estudio se lee en cuatro lecturas, con los pasajes que lo iluminan desde el resto de la Biblia.</p>
+      <p>Escribe un pasaje de la Biblia y estúdialo en cuatro lecturas: histórica, filológica, teológica y literaria.</p>
     </div>
     <form class="search" id="f" autocomplete="off">
       <label for="q" class="label" style="position:absolute;left:-9999px">Pasaje</label>
@@ -422,8 +488,23 @@ body.cmp-view main{padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
       <span>Toca el botón Compartir de Safari y luego «Agregar a pantalla de inicio».</span>
     </div>
     </div>
-    <div class="col-r"><div class="lineas" id="lineas"></div></div>
+    </div>
+    <div class="res" id="res" hidden>
+      <section class="rverse" id="r-verse" aria-live="polite"></section>
+      <div class="cuatro" id="cuatro">
+        <button type="button" class="rc" data-k="historico"><span class="k">Histórico</span><b>…</b><span></span><span class="ab">Abrir estudio →</span></button>
+        <button type="button" class="rc" data-k="filologico"><span class="k">Filológico</span><b>…</b><span></span><span class="ab">Abrir estudio →</span></button>
+        <button type="button" class="rc" data-k="teologico"><span class="k">Teológico</span><b>…</b><span></span><span class="ab">Abrir estudio →</span></button>
+        <button type="button" class="rc" data-k="literario"><span class="k">Literario</span><b>…</b><span></span><span class="ab">Abrir estudio →</span></button>
+      </div>
+      <p class="nt" id="r-fuente"></p>
+    </div>
   </section>
+  <dialog class="dlg" id="dlg" aria-labelledby="dlg-t">
+    <div class="dlg-h"><span><span class="k" id="dlg-k"></span><h2 id="dlg-t"></h2></span><span class="sp"></span><button type="button" id="dlg-x" aria-label="Cerrar">✕</button></div>
+    <div class="dlg-b panel" id="dlg-b"></div>
+    <div class="dlg-f"><button type="button" class="btn ghost" id="dlg-prev"></button><button type="button" class="btn primary" id="dlg-next"></button></div>
+  </dialog>
 
   <!-- Estudio -->
   <section id="estudio" class="sec duo" hidden>
@@ -516,6 +597,7 @@ body.cmp-view main{padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
 </main>
 <p class="toast" id="toast" role="status" hidden></p>
 
+<script src="config.js"></script>
 <script>
 (function(){
   var KEYS = ["historico","filologico","teologico","literario"];
@@ -586,7 +668,19 @@ body.cmp-view main{padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
       return limpio(t);
     });
   }
+  // API.Bible (opcional, ver config.js): versiones con derechos leídas en vivo por medio de un intermediario
+  var AB=(window.LECTOR_CONFIG||{}).apibible||{}, abCache={}, abCopy={};
+  function deApiBible(clave, r){
+    var id=clave.slice(3), url=AB.proxy.replace(/\/$/,"")+"/v1/bibles/"+id+"/verses/"+USFM[libroNr(r)-1]+"."+r.cap+"."+r.ver+"?content-type=text&include-notes=false&include-titles=false&include-chapter-numbers=false&include-verse-numbers=false";
+    if(!abCache[url]) abCache[url]=fetch(url).then(function(x){ if(!x.ok) throw new Error(x.status); return x.json(); }).catch(function(e){ delete abCache[url]; throw e; });
+    return abCache[url].then(function(j){
+      var d=j.data||{}; abCopy[clave]=d.copyright||"";
+      try{ if(j.meta && j.meta.fumsToken && window.fums) window.fums("trackView", j.meta.fumsToken); }catch(e){}
+      return limpio(d.content||"").replace(/^\s*\[?\d+\]?\s*/,"").replace(/\s+/g," ").trim();
+    });
+  }
   function versiculo(clave, r){
+    if(clave.indexOf("ab:")===0) return deApiBible(clave, r);
     var d=state.data, dr=d && parseRef(d.referencia);
     if(d && d.textos && d.textos[clave] && dr && dr.libro===r.libro && dr.cap===r.cap && dr.ver===r.ver){ return Promise.resolve(d.textos[clave]); }
     if(MORFO[clave]){ return tokensDe(clave, r).then(function(t){ return t ? textoTokens(t) : deGetBible(clave, r); }); }
@@ -624,7 +718,7 @@ body.cmp-view main{padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
   var CLS={he:"vt he",grc:"vt grc",syr:"vt syr"};
   function pintarTexto(box, clave, r, c){
     box.className="vt wait"; box.textContent="Cargando…";
-    versiculo(clave, r).then(function(t){ box.className=CLS[c]||"vt"; box.lang=c; box.textContent=t; })
+    versiculo(clave, r).then(function(t){ box.className=CLS[c]||"vt"; box.lang=c; box.textContent=t; notaCopy(box, clave); })
       .catch(function(){
         box.className="vt wait";
         box.textContent = window.claude
@@ -891,10 +985,10 @@ body.cmp-view main{padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
       var t=el("span","rz-tri"+(he?"":" grc"), he?raizTri(R.l):R.l); t.lang=pref==="H"?"he":"grc"; if(he) t.dir="rtl";
       h.append(t, document.createTextNode(" · "+(R.x||"")+" · "+raiz+(s!==raiz?" (esta palabra: "+s+")":"")));
       box.append(h);
-      var fam=(R.fz||[]).filter(function(y){ return y!==s; });
+      var fam=ordenFam(R.fz||[], L).filter(function(y){ return y!==s; });
       if(fam.length){
         var f=el("div"); f.append(el("b",null,"Familia: "));
-        var fs=el("span","rzf"+(he?"":" grc"), fam.slice(0,6).map(function(y){ return L[y].l; }).join(" · ")); fs.lang=t.lang; f.append(fs);
+        fam.slice(0,6).forEach(function(y,i){ f.append(itemFam(L[y], he, i)); });
         if(fam.length>6) f.append(document.createTextNode(" y "+(fam.length-6)+" más"));
         box.append(f);
       }
@@ -1050,10 +1144,7 @@ body.cmp-view main{padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
     ev.preventDefault(); $("miss").hidden=true;
     var ref=($("q").value||"").trim();
     if(!ref){ status(false,"Escribe un pasaje, por ejemplo Isaías 57:15.",true); return; }
-    var hit=buscarEstudio(ref);
-    if(hit){ status(false,""); abrir(hit.id); return; }
-    if(sample){ generar(ref); return; }
-    status(false,""); sinEstudio(ref);
+    estudiar(ref);
   });
 
   $("volver").addEventListener("click", function(){ detener(); if(location.hash){ history.pushState("",document.title,location.pathname+location.search); } verInicio(); });
@@ -1061,7 +1152,8 @@ body.cmp-view main{padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
   function ruta(){
     var id=(location.hash||"").replace(/^#/,"");
     if(id==="comparar"){ verComparar(); return; }
-    if(id && /^[a-z0-9-]+$/.test(id)){ abrir(id); } else { verInicio(); }
+    verInicio();
+    if(/^e\//.test(id)){ var ref=decodeURIComponent(id.slice(2)); if(!state.est || state.est.r.libro+" "+state.est.r.cap+":"+state.est.r.ver!==ref) estudiar(ref); }
   }
 
   // Compartir
@@ -1210,6 +1302,354 @@ body.cmp-view main{padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
     if(window.claude && claude.use){ claude.use("sample").then(function(s){ sample=s||null; if(sample && state.cmp && state.cmp.sinNotas){ $("cmp-guia").hidden=false; } }).catch(function(){}); }
   }catch(e){}
 
+  // ======================================================================
+  // Estudio automático: cualquier versículo, cuatro lecturas armadas con los datos de la app
+  // (texto original con Strong y morfología, léxico, atributos, géneros, divisiones del texto,
+  // pasajes paralelos) y los comentarios: libres en vivo (inglés) y los propios en modo privado.
+  // ======================================================================
+  var EST={};
+  function estJSON(n){ return jsonDe("estudio/"+n+".json", EST); }
+  var USFM=["GEN","EXO","LEV","NUM","DEU","JOS","JDG","RUT","1SA","2SA","1KI","2KI","1CH","2CH","EZR","NEH","EST","JOB","PSA","PRO","ECC","SNG","ISA","JER","LAM","EZK","DAN","HOS","JOL","AMO","OBA","JON","MIC","NAM","HAB","ZEP","HAG","ZEC","MAL","MAT","MRK","LUK","JHN","ACT","ROM","1CO","2CO","GAL","EPH","PHP","COL","1TH","2TH","1TI","2TI","TIT","PHM","HEB","JAS","1PE","2PE","1JN","2JN","3JN","JUD","REV"];
+  var GEN_DESC={
+    "Narrativa histórica":"Relato de hechos con narrador, personajes, escenas y diálogos. Se lee atendiendo a la trama, a lo que hace Dios en la historia y a cómo el episodio se enlaza con el resto del libro.",
+    "Ley narrativa":"Leyes e instrucciones insertas en el relato del pacto. Se leen como palabra de Dios a un pueblo concreto, en su contexto histórico, y en su cumplimiento dentro de toda la Escritura.",
+    "Poesía hebrea":"Poesía construida sobre el paralelismo: cada línea se completa con la siguiente, que repite, contrasta o desarrolla la idea. Abundan las imágenes y la concisión.",
+    "Sabiduría poética":"Enseñanza en verso, en proverbios, diálogos o reflexiones, sobre cómo vivir delante de Dios. Su clave es el temor de Jehová.",
+    "Profecía poética":"Oráculos en verso: anuncios de juicio y de salvación, a menudo introducidos por fórmulas como «así dice Jehová», con imágenes intensas.",
+    "Epístolas":"Cartas a iglesias o personas con un argumento: saludo, enseñanza, exhortación y despedida. Se leen siguiendo los conectores y el hilo del razonamiento.",
+    "Discurso profético en prosa":"Mensajes, visiones y relatos proféticos en prosa, con fechas, destinatarios y acciones simbólicas.",
+    "Apocalíptico":"Visiones con símbolos (números, bestias, colores) que revelan el gobierno de Dios sobre la historia y su victoria final.",
+    "Discurso directo":"Discursos pronunciados por un personaje (Moisés, Jesús), con su auditorio y su ocasión; la estructura sigue al orador."
+  };
+  var CONECT={G1063:"γάρ, «porque»: explica o fundamenta lo anterior",G3767:"οὖν, «pues, por tanto»: saca una conclusión",G235:"ἀλλά, «sino, pero»: contrasta",G3754:"ὅτι, «que, porque»: introduce contenido o causa",G2443:"ἵνα, «para que»: expresa propósito",G1352:"διό, «por lo cual»: conclusión",G5620:"ὥστε, «de modo que»: consecuencia",G1161:"δέ, «y, pero»: avanza o contrasta",G2531:"καθώς, «como»: comparación",G1487:"εἰ, «si»: condición"};
+  var CUERPO={H3027:"mano",H2220:"brazo",H5869:"ojos",H6310:"boca",H241:"oído",H6440:"rostro",H3225:"diestra",H639:"nariz (ira)",G5495:"mano",G3788:"ojos",G4750:"boca"};
+  var MERISMOS=[["H8064","H776","«los cielos y la tierra»"],["G3772","G1093","«el cielo y la tierra»"],["H3117","H3915","«día y noche»"]];
+
+  function refTxt(nl,c,v){ return libroDe("biblias/valera", nl).then(function(b){ return limpio(((b[String(c)]||{})[String(v)])||""); }).catch(function(){ return ""; }); }
+  function aNum(s){ var p=s.split(":"); return [+p[0],+p[1],+p[2]]; }
+  function antes(a,b){ return a[0]<b[0] || (a[0]===b[0] && a[1]<b[1]); }
+  function generoDe(L, nl, cap){
+    var b=L.libros[String(nl)]||{}, g={cat:b.cat, sub:b.sub};
+    (b.tramos||[]).forEach(function(t){ if(cap>=t[0] && cap<=t[1]){ g.cat=t[2]; g.sub=t[3]; } });
+    return g;
+  }
+  function seccionDe(P, nl, c, v){
+    return (P.secciones[String(nl)]||[]).filter(function(x){ return !antes([c,v],[x[0],x[1]]) && !antes([x[2],x[3]],[c,v]); })[0]||null;
+  }
+  function parrafoDe(P, nl, c, v){
+    var m=P.parrafos[String(nl)]; if(!m) return null;
+    var ks=Object.keys(m).map(function(k){ var p=k.split(":"); return [+p[0],+p[1],m[k]]; }).sort(function(a,b){ return a[0]-b[0]||a[1]-b[1]; });
+    var ini=[1,1], fin=null;
+    for(var i=0;i<ks.length;i++){ var k=ks[i]; if(antes([k[0],k[1]],[c,v])){ ini=[k[0],k[1]+1]; } else { fin=k; break; } }
+    return fin ? {ini:ini, fin:[fin[0],fin[1]], tipo:fin[2]} : null;
+  }
+  function rango(r, a, b){ return r.libro+" "+a[0]+":"+a[1]+(a[0]===b[0] ? (a[1]===b[1]?"":"-"+b[1]) : "-"+b[0]+":"+b[1]); }
+  function segPrincipal(m){ // segmento con la palabra principal en códigos hebreos de Open Scriptures
+    var segs=(m||"").slice(1).split("/"); for(var i=0;i<segs.length;i++){ if(/^[NVA]/.test(segs[i])) return segs[i]; } return segs[segs.length-1]||"";
+  }
+  function esContenido(t, he){
+    if(!t[1]) return false;
+    if(he){ var s=segPrincipal(t[2]); return /^(N[cg]|V|A)/.test(s); }
+    return /^(N-(?!PRI)|V-|A-)/.test(t[2]||"");
+  }
+
+  function estudiar(ref){
+    var r=parseRef(ref), st=$("st"); st.textContent=""; st.classList.remove("err");
+    if(!r){ status(false,"Escribe el libro, el capítulo y el versículo, por ejemplo Isaías 57:15.",true); return; }
+    var nl=libroNr(r), he=esAT(r), orig=he?"codex":"sbl";
+    $("q").value=r.libro+" "+r.cap+":"+r.ver;
+    var h="#e/"+encodeURIComponent(r.libro+" "+r.cap+":"+r.ver); if(location.hash!==h) history.replaceState(null,"",location.pathname+location.search+h);
+    status(true," Preparando el estudio…");
+    var E={r:r, nl:nl, he:he};
+    state.est=E; $("res").hidden=false;
+    document.querySelectorAll("#cuatro .rc").forEach(function(b){ b.classList.add("wait"); b.querySelector("b").textContent="Preparando…"; b.querySelectorAll("span")[1].textContent=""; });
+    Promise.all([
+      versiculo("valera", r).catch(function(){ return ""; }),
+      tokensDe(orig, r),
+      estJSON("libros"), estJSON("atributos"), estJSON("pericopas"), estJSON("conteos"),
+      lexico(he?"H":"G"),
+      libroDe("morfo/"+(he?"he":"sbl"), nl).catch(function(){ return {}; }),
+      paralelosLocales(r),
+      jsonDe("estudio/capitulos/g"+grupoDe(nl)+".json", EST).then(function(j){ return ((j[String(nl)]||{})[String(r.cap)])||null; }).catch(function(){ return null; })
+    ]).then(function(x){
+      if(state.est!==E) return;
+      E.texto=x[0]; E.toks=x[1]||[]; E.L=x[2]; E.A=x[3]; E.P=x[4]; E.C=x[5]; E.LX=x[6]; E.libro=x[7]; E.par=x[8]; E.cap=x[9];
+      E.textoOrig=E.toks.length ? textoTokens(E.toks) : "";
+      armarFilologico(E); armarTeologico(E); armarLiterario(E); armarHistorico(E);
+      pintarResultado(E); status(false,"");
+    }).catch(function(e){ status(false,"No se pudo preparar el estudio. Revisa tu conexión e inténtalo de nuevo.",true); });
+  }
+  function grupoDe(nl){ var g=1; GRUPOS.forEach(function(x,i){ if(nl>=x[0] && nl<=x[1]) g=i+1; }); return g; }
+
+  // ---------- Filológico ----------
+  function armarFilologico(E){
+    var vistos={}, cand=[];
+    E.toks.forEach(function(t,i){
+      if(!esContenido(t, E.he) || vistos[t[1]]) return; vistos[t[1]]=1;
+      cand.push({t:t, i:i, n:E.C[t[1]]||0, e:E.LX[t[1]]||{}});
+    });
+    var util=cand.filter(function(c){ return c.n && c.n<2000; }); if(util.length<3) util=cand;
+    var elegidas=util.slice().sort(function(a,b){ return a.n-b.n; }).slice(0,6).sort(function(a,b){ return a.i-b.i; });
+    E.filo={palabras:elegidas};
+    E.filoResumen=elegidas.length ? "Palabras clave del texto "+(E.he?"hebreo (Códice de Leningrado)":"griego (SBL Greek New Testament)")+": "+elegidas.map(function(c){ return (c.e.l||c.t[0])+(c.e.x?" ("+c.e.x+")":""); }).join(", ")+"." : "No hay texto original con análisis para este versículo.";
+  }
+  // ---------- Teológico ----------
+  function armarTeologico(E){
+    var A=E.A, deidad={}; A.deidad.forEach(function(s){ deidad[s]=1; });
+    var porS={}; A.atributos.forEach(function(a){ a.H.concat(a.G).forEach(function(s){ porS[s]=porS[s]||a; }); });
+    var capT=(E.libro[String(E.r.cap)])||{}, cerca=[];
+    for(var dv=-2; dv<=2; dv++){ (capT[String(E.r.ver+dv)]||[]).forEach(function(t){ cerca.push(t[1]); }); }
+    var ss=E.toks.map(function(t){ return t[1]; });
+    var formula=(ss.indexOf("H3541")>=0 && ss.indexOf("H559")>=0) || ss.indexOf("H5002")>=0;
+    var tieneDios=ss.some(function(x){ return deidad[x]; }) || formula || cerca.some(function(x){ return deidad[x]; });
+    var hallado=null, palabra=null, contexto=null, otros=[];
+    if(tieneDios){
+      var dpos=[]; E.toks.forEach(function(t,j){ if(deidad[t[1]]) dpos.push(j); });
+      var cands=[]; E.toks.forEach(function(t,j){ var a=porS[t[1]]; if(!a) return; var dist=dpos.length ? Math.min.apply(null, dpos.map(function(d){ return Math.abs(d-j); })) : 9; cands.push({a:a, t:t, j:j, dist:dist}); });
+      // primero las palabras dichas junto a un nombre de Dios; «palabra» (dabar, logos) solo si va pegada a él
+      cands=cands.filter(function(c){ return !(c.a.id==="revelacion" && c.dist>3); });
+      cands.sort(function(x,y){ return (x.dist>4)-(y.dist>4) || x.j-y.j; });
+      cands.forEach(function(c){ if(!hallado){ hallado=c.a; palabra=c.t; } else if(c.a!==hallado && otros.indexOf(c.a)<0) otros.push(c.a); });
+    }
+    E.atrOtros=otros;
+    if(!hallado){ // el atributo del contexto: el mismo capítulo
+      var cap=(E.libro[String(E.r.cap)])||{}, vs=Object.keys(cap).map(Number).sort(function(a,b){ return Math.abs(a-E.r.ver)-Math.abs(b-E.r.ver); });
+      for(var i=0;i<vs.length && !hallado;i++){
+        var tk=cap[String(vs[i])]||[], di=[]; tk.forEach(function(t,j){ if(deidad[t[1]]) di.push(j); });
+        if(!di.length) continue;
+        tk.forEach(function(t,j){ if(!hallado && porS[t[1]] && di.some(function(d){ return Math.abs(d-j)<=3; })){ hallado=porS[t[1]]; palabra=t; contexto=vs[i]; } });
+      }
+    }
+    if(contexto===E.r.ver) contexto=null;
+    E.atr=hallado; E.atrPalabra=palabra; E.atrContexto=contexto; E.tieneDios=tieneDios;
+  }
+  // ---------- Literario ----------
+  function armarLiterario(E){
+    var g=generoDe(E.L, E.nl, E.r.cap), formas=[], ss=E.toks.map(function(t){ return t[1]; }), tiene=function(s){ return ss.indexOf(s)>=0; };
+    var deidad={}; E.A.deidad.forEach(function(s){ deidad[s]=1; });
+    if((tiene("H3541") && tiene("H559")) || tiene("H5002")) formas.push({id:"formula", texto:"Aparece la fórmula profética («así dice Jehová» o «dice Jehová»), que marca el texto como palabra recibida de Dios."});
+    var titulos=E.toks.filter(function(t){ return deidad[t[1]] || t[1]==="H6918"; }).map(function(t){ return (E.LX[t[1]]||{}).l||t[0]; });
+    titulos=titulos.filter(function(x,i){ return titulos.indexOf(x)===i; });
+    if(titulos.length>=2) formas.push({id:"epitetos", texto:"Varios nombres y títulos de Dios en el mismo versículo: "+titulos.join(", ")+"."});
+    MERISMOS.forEach(function(m){ if(tiene(m[0]) && tiene(m[1])) formas.push({id:"merismo", texto:"Merismo: "+m[2]+" expresa la totalidad."}); });
+    if(/\?/.test(E.texto)) formas.push({id:"pregunta", texto:"El versículo contiene una pregunta; revisa si es retórica (afirma algo sin esperar respuesta)."});
+    if(E.toks.some(function(t){ return deidad[t[1]]; })){
+      var partes=E.toks.filter(function(t){ return CUERPO[t[1]]; }).map(function(t){ return CUERPO[t[1]]; });
+      if(partes.length) formas.push({id:"antropomorfismo", texto:"Se habla de Dios con rasgos humanos ("+partes.filter(function(x,i){ return partes.indexOf(x)===i; }).join(", ")+")."});
+    }
+    var cnt={}; E.toks.forEach(function(t){ if(esContenido(t,E.he) && !deidad[t[1]]) cnt[t[1]]=(cnt[t[1]]||0)+1; });
+    Object.keys(cnt).forEach(function(s){ if(cnt[s]>=2) formas.push({id:"palabra_clave", texto:"Palabra repetida: "+((E.LX[s]||{}).l||s)+" ("+((E.LX[s]||{}).x||s)+") aparece "+cnt[s]+" veces en el versículo."}); });
+    var rasgos=[];
+    if(E.he){
+      var k=-1; E.toks.forEach(function(t,i){ if(k<0 && /֑/.test(t[0])) k=i; });
+      if(k>=0 && k<E.toks.length-1) E.hemi=[textoTokens(E.toks.slice(0,k+1)), textoTokens(E.toks.slice(k+1))];
+      if(E.hemi) rasgos.push((g.cat==="Poesía"?"El acento atnaj divide el versículo en dos líneas (A ‖ B): compara cómo la segunda repite, contrasta o desarrolla la primera.":"El acento atnaj marca la pausa principal del versículo y lo divide en dos partes."));
+    } else {
+      var con=[]; E.toks.forEach(function(t){ if(CONECT[t[1]] && con.indexOf(CONECT[t[1]])<0) con.push(CONECT[t[1]]); });
+      if(con.length) rasgos.push("Conectores del griego: "+con.join("; ")+".");
+    }
+    var sec=seccionDe(E.P, E.nl, E.r.cap, E.r.ver), par=E.he ? parrafoDe(E.P, E.nl, E.r.cap, E.r.ver) : null;
+    E.sec=sec; E.parr=par;
+    var est=[];
+    if(sec) est.push("El versículo pertenece a la sección "+rango(E.r,[sec[0],sec[1]],[sec[2],sec[3]])+".");
+    if(par) est.push("En el texto masorético forma parte del párrafo "+rango(E.r,par.ini,par.fin)+", que termina con una "+(par.tipo==="p"?"petujá («פ», párrafo abierto: cambio mayor de tema)":"setumá («ס», párrafo cerrado: pausa menor")+".");
+    E.lit={categoria:g.cat, subgenero:g.sub, resumen:GEN_DESC[g.sub]||"", rasgos:rasgos, formas:formas,
+      quiasmo:{nota:"El quiasmo requiere estudiar la perícopa completa en el original; no se señala de forma automática."},
+      estructura:est.join(" ")};
+  }
+  // ---------- Histórico ----------
+  function armarHistorico(E){ E.hist=E.L.libros[String(E.nl)]||{}; }
+
+  // ---------- Recuadros ----------
+  function pintarResultado(E){
+    var v=$("r-verse"); v.textContent="";
+    v.append(el("span","ref",E.r.libro+" "+E.r.cap+":"+E.r.ver));
+    if(E.textoOrig){ var o=el("p","orig "+(E.he?"heb":"grc"),E.textoOrig); o.lang=E.he?"he":"grc"; v.append(o); }
+    v.append(el("p","es",E.texto||"")); v.append(el("p","ver","Reina-Valera 1909"+(E.textoOrig?" · "+(E.he?"Códice de Leningrado (WLC)":"SBL Greek New Testament"):"")));
+    var acts=el("div","acts");
+    var c=el("button","btn ghost","Comparación filológica"); c.type="button"; c.onclick=function(){ verComparar(); comparar(E.r.libro+" "+E.r.cap+":"+E.r.ver); }; acts.append(c);
+    var a1=el("a","btn ghost","Biblia Paralela"); a1.href=linkBP(E.r); a1.target="_blank"; a1.rel="noopener"; acts.append(a1);
+    var sh=el("button","btn ghost","Compartir"); sh.type="button"; sh.onclick=compartir; acts.append(sh);
+    v.append(acts);
+    var res={
+      historico:[E.r.libro, (E.sec ? "Sección "+rango(E.r,[E.sec[0],E.sec[1]],[E.sec[2],E.sec[3]]) : "Capítulo "+E.r.cap)+" · "+(E.hist.fecha||"").split(";")[0]],
+      filologico:[E.filo.palabras.length ? E.filo.palabras.slice(0,3).map(function(x){ return x.e.l||x.t[0]; }).join(" · ") : "Sin texto original", E.filo.palabras.length+" palabras clave con raíz, forma y sentido"],
+      teologico:[E.atr ? E.atr.n : "Atributo por precisar", E.atr ? (E.atrContexto ? "Del contexto (v. "+E.atrContexto+")" : "Revelado en este versículo") : "Pasajes paralelos y coherencia bíblica"],
+      literario:[E.lit.categoria||"", E.lit.subgenero+(E.lit.formas.length ? " · "+E.lit.formas.length+(E.lit.formas.length===1?" rasgo":" rasgos") : "")]
+    };
+    document.querySelectorAll("#cuatro .rc").forEach(function(b){ var k=b.dataset.k, sp=b.querySelectorAll("span"); b.classList.remove("wait"); b.querySelector("b").textContent=res[k][0]; sp[1].textContent=res[k][1]; });
+    $("r-fuente").textContent="Estudio armado automáticamente con los textos y datos de la app: Reina-Valera 1909; Códice de Leningrado (Open Scriptures, CC BY 4.0); SBL Greek New Testament (CC BY 4.0); diccionario de Strong; Treasury of Scripture Knowledge; introducciones redactadas a partir de los comentarios de la biblioteca. Los comentarios en inglés se leen en vivo de la Free Use Bible API (dominio público).";
+    document.title=E.r.libro+" "+E.r.cap+":"+E.r.ver+" · Lector";
+    $("res").scrollIntoView({behavior:"smooth", block:"start"});
+  }
+
+  // ---------- Ventana emergente ----------
+  var DLG_ORDEN=["historico","filologico","teologico","literario"];
+  function abrirLectura(k){
+    var E=state.est; if(!E || !E.L) return;
+    var d=$("dlg"), b=$("dlg-b"); d.dataset.k=k; b.textContent=""; b.scrollTop=0;
+    $("dlg-k").textContent=SHORT[k]; $("dlg-t").textContent=E.r.libro+" "+E.r.cap+":"+E.r.ver;
+    ({historico:verHistorico, filologico:verFilologico, teologico:verTeologico, literario:verLiterario})[k](b, E);
+    if(E.cap && E.cap[k]){
+      b.append(el("h3",null,"Resumen del capítulo "+E.r.cap)); b.append(el("p",null,E.cap[k]));
+      if(Array.isArray(E.cap.fuentes) && E.cap.fuentes.length){ var ol=el("ol","apa"); E.cap.fuentes.forEach(function(f){ ol.append(el("li",null,f)); }); var dt=el("details"); dt.append(el("summary",null,"Fuentes del resumen (APA)"), ol); b.append(dt); }
+    }
+    var i=DLG_ORDEN.indexOf(k), pv=$("dlg-prev"), nx=$("dlg-next");
+    pv.hidden=i===0; pv.textContent=i>0?"← "+SHORT[DLG_ORDEN[i-1]]:""; pv.onclick=function(){ abrirLectura(DLG_ORDEN[i-1]); };
+    nx.textContent=i<3?SHORT[DLG_ORDEN[i+1]]+" →":"Cerrar"; nx.onclick=function(){ i<3 ? abrirLectura(DLG_ORDEN[i+1]) : d.close(); };
+    if(!d.open){ try{ d.showModal(); }catch(e){ d.setAttribute("open",""); } }
+  }
+  document.querySelectorAll("#cuatro .rc").forEach(function(btn){ btn.addEventListener("click", function(){ abrirLectura(btn.dataset.k); }); });
+  $("dlg-x").addEventListener("click", function(){ $("dlg").close(); });
+  $("dlg").addEventListener("click", function(ev){ if(ev.target===$("dlg")) $("dlg").close(); });
+
+  function ficha(pares){ var dl=el("dl","ficha"); pares.forEach(function(p){ if(!p[1]) return; dl.append(el("dt",null,p[0]), el("dd",null,p[1])); }); return dl; }
+
+  function verHistorico(b, E){
+    var h=E.hist;
+    b.append(el("h3",null,"El libro de "+E.r.libro));
+    b.append(ficha([["Autor",h.autor],["Fecha",h.fecha],["Contexto",h.contexto],["Tema",h.tema]]));
+    if(E.sec){
+      b.append(el("h3",null,"El pasaje en su contexto"));
+      b.append(el("p",null,"Sección "+rango(E.r,[E.sec[0],E.sec[1]],[E.sec[2],E.sec[3]])+"."+(E.parr ? " Párrafo masorético: "+rango(E.r,E.parr.ini,E.parr.fin)+"." : "")));
+    }
+    b.append(el("h3",null,"Comentarios"));
+    comentarios(b, E);
+    var f=el("p","nt","Introducción redactada a partir de: "+E.L.fuentes.join(" · ")); b.append(f);
+  }
+  function verFilologico(b, E){
+    b.append(el("p","lead",E.filoResumen));
+    var box=el("div","pw");
+    E.filo.palabras.forEach(function(c){
+      var t=c.t, e=c.e, w=el("div","w");
+      var o=el("span","o "+(E.he?"heb":"grc"),t[0].replace(/[׃׀,.;:·]+$/,"")); o.lang=E.he?"he":"grc"; w.append(o);
+      var l=el("div","l"); l.append(el("b",null,e.l||""), el("i",null,e.x||""), el("span","num",t[1])); w.append(l);
+      var mo=E.he?morfHe(t[2]):morfGr(t[2]); if(mo) w.append(el("small",null,mo+"."));
+      if(e.es && e.es.length) w.append(el("span",null,"Reina-Valera lo traduce: "+e.es.slice(0,6).join(", ")+"."));
+      var rel={prim:"raíz primitiva",igual:"de la misma raíz que",de:"deriva de",ref:"forma reforzada de",afin:"emparentada con",aram:"arameo, corresponde a",heb:"de origen hebreo",ext:"de origen extranjero",nousada:"de una raíz que no aparece en la Biblia"}[e.rel];
+      if(rel){ var raiz=(e.r&&e.r[0]&&E.LX[e.r[0]]) ? " "+E.LX[e.r[0]].l+" ("+E.LX[e.r[0]].x+", "+e.r[0]+")" : ""; w.append(el("span",null,"Origen: "+rel+(e.rel==="prim"?"":raiz)+".")); }
+      var rq=raizDe(t[1], E.LX);
+      if(rq){
+        var R=E.LX[rq], rm=el("div","rz-mini"), rh=el("div");
+        rh.append(el("b",null,E.he?"Raíz ":"Palabra base "));
+        var rt=el("span","rz-tri"+(E.he?"":" grc"), E.he?raizTri(R.l):R.l); rt.lang=E.he?"he":"grc"; if(E.he) rt.dir="rtl";
+        rh.append(rt, document.createTextNode(" · "+(R.x||"")+" · "+rq+(R.rel==="prim"?(E.he?" (raíz primitiva)":" (palabra primaria)"):"")));
+        rm.append(rh);
+        var fq=ordenFam(R.fz||[], E.LX).filter(function(y){ return y!==t[1]; });
+        if(fq.length){
+          var rf=el("div"); rf.append(el("b",null,"Familia de la raíz: "));
+          fq.slice(0,8).forEach(function(y,i){ rf.append(itemFam(E.LX[y], E.he, i)); });
+          if(fq.length>8) rf.append(document.createTextNode(" y "+(fq.length-8)+" más"));
+          rm.append(rf);
+        }
+        w.append(rm);
+      }
+      if(c.n) w.append(el("small",null,"Aparece "+c.n+" veces en "+(E.he?"el Antiguo Testamento hebreo":"el Nuevo Testamento griego")+"."));
+      if(e.df){ var dd=el("small",null,"Strong: "+e.df.trim()); dd.lang="en"; w.append(dd); }
+      box.append(w);
+    });
+    b.append(box);
+    var bt=el("button","btn ghost","Analizar todas las palabras en la comparación filológica"); bt.type="button";
+    bt.onclick=function(){ $("dlg").close(); verComparar(); comparar(E.r.libro+" "+E.r.cap+":"+E.r.ver); }; b.append(bt);
+    b.append(el("p","nt","Evita la falacia de la raíz: el sentido de una palabra lo fija su uso en el pasaje, no solo su etimología (Carson, 2013)."));
+  }
+  function verTeologico(b, E){
+    var a=E.atr, s={}, corto=function(n){ return n.replace(/\s*\(.*\)$/,""); };
+    if(a){
+      var pl=E.atrPalabra, lx=E.LX[pl[1]]||{};
+      s.atributo=a.n;
+      s.descripcion=a.d+(E.atrContexto ? " No se nombra en este versículo, pero sí en el v. "+E.atrContexto+" del mismo capítulo con la palabra " : " En este versículo lo expresa la palabra ")+(lx.l||pl[0])+" ("+(lx.x||"")+", "+pl[1]+").";
+      s.relacionados=a.rel.concat((E.atrOtros||[]).map(function(o){ return corto(o.n); }).filter(function(n){ return a.rel.indexOf(n)<0; }));
+      s.coherencia_atributos=a.coh.slice();
+      (E.atrOtros||[]).forEach(function(o){ s.coherencia_atributos.push("También en este versículo · "+corto(o.n)+": "+o.d); });
+    } else {
+      s.atributo="Por precisar";
+      s.descripcion=E.tieneDios ? "El versículo nombra a Dios, pero no usa una de las palabras con que la app reconoce sus atributos. Lee los pasajes paralelos para ver qué revela de él el resto de la Escritura." : "El versículo no nombra directamente a Dios. Los pasajes paralelos muestran cómo el resto de la Escritura ilumina su sentido.";
+    }
+    renderTeologico(b, s);
+    if(a){
+      b.append(el("h3",null,"Coherencia en toda la Escritura"));
+      var cr=el("div","crefs"); b.append(cr);
+      var actual=E.nl+":"+E.r.cap+":"+E.r.ver;
+      a.at.concat(a.nt).filter(function(x){ return x!==actual; }).forEach(function(x){
+        var p=aNum(x), row=el("div"), sp=el("span",null,"…"); row.append(el("b",null,nombreRef(x)), sp); cr.append(row);
+        refTxt(p[0],p[1],p[2]).then(function(t){ sp.textContent=t; });
+      });
+      b.append(el("p","nt","Pasajes del Antiguo y del Nuevo Testamento donde la Escritura revela el mismo atributo."));
+    }
+    b.append(el("h3",null,"La Biblia interpreta la Biblia · Pasajes paralelos"));
+    if(E.par && E.par.length){ var pr=el("div","crefs"); E.par.forEach(function(x){ var row=el("div"); row.append(el("b",null,x.ref), el("span",null,x.razon)); pr.append(row); }); b.append(pr); b.append(el("p","nt","Treasury of Scripture Knowledge (dominio público)."));}
+    else b.append(el("p","nt","No hay pasajes paralelos registrados para este versículo."));
+  }
+  function verLiterario(b, E){
+    renderLiterario(b, E.lit);
+    if(E.hemi){
+      var hm=el("div","hemi");
+      var A=el("div"); A.append(el("b",null,"A")); var a=el("p","he",E.hemi[0]); a.lang="he"; A.append(a);
+      var B=el("div"); B.append(el("b",null,"B")); var bb=el("p","he",E.hemi[1]); bb.lang="he"; B.append(bb);
+      hm.append(A,B);
+      var lit=b.querySelector("h3.lit"); if(lit && lit.nextSibling) b.insertBefore(hm, lit.nextSibling.nextSibling); else b.append(hm);
+    }
+  }
+
+  // ---------- Comentarios ----------
+  var HAO="https://bible.helloao.org/api/c/", haoCache={};
+  var LIBRES_COM=[["keil-delitzsch","Keil y Delitzsch",true],["jamieson-fausset-brown","Jamieson, Fausset y Brown"],["matthew-henry","Matthew Henry"],["john-gill","John Gill"],["john-calvin","Juan Calvino"],["adam-clarke","Adam Clarke"],["tyndale","Tyndale Open Study Notes"]];
+  var PROPIOS=[["salamanca","Biblia Comentada (Profesores de Salamanca)"],["jfb","Jamieson, Fausset y Brown (español)"],["henry","Matthew Henry (español)"],["macarthur","MacArthur (notas)"]];
+  function comentarios(b, E){
+    var tabs=el("div","com-tabs"), tx=el("div","com-tx"), fuente=el("p","nt");
+    b.append(tabs, tx, fuente);
+    var token=leerToken(), lista=[];
+    if(token) PROPIOS.forEach(function(p){ lista.push({tipo:"propio", id:p[0], n:p[1]}); });
+    LIBRES_COM.forEach(function(c){ if(!(c[2] && !E.he)) lista.push({tipo:"libre", id:c[0], n:c[1]}); });
+    function elegir(it, btn){
+      tabs.querySelectorAll("button").forEach(function(x){ x.setAttribute("aria-pressed","false"); }); btn.setAttribute("aria-pressed","true");
+      tx.textContent="Cargando…"; tx.removeAttribute("lang"); fuente.textContent="";
+      (it.tipo==="libre" ? comLibre(it, E) : comPropio(it, E, token)).then(function(o){
+        tx.textContent=o.texto||"Este comentario no trata este versículo."; if(o.lang) tx.lang=o.lang; fuente.textContent=o.fuente||"";
+      }).catch(function(){ tx.textContent = it.tipo==="libre" ? "Los comentarios en inglés se leen en vivo y necesitan conexión a internet." : "No se pudo leer tu comentario privado. Revisa tu clave."; });
+    }
+    lista.forEach(function(it,i){ var bt=el("button",null,it.n+(it.tipo==="libre"?" (inglés)":"")); bt.type="button"; bt.onclick=function(){ elegir(it, bt); }; tabs.append(bt); if(i===0) elegir(it, bt); });
+    b.append(cajaPrivada());
+  }
+  function comLibre(it, E){
+    var url=HAO+it.id+"/"+USFM[E.nl-1]+"/"+E.r.cap+".json";
+    if(!haoCache[url]) haoCache[url]=fetch(url).then(function(x){ if(!x.ok) throw new Error(x.status); return x.json(); }).catch(function(e){ delete haoCache[url]; throw e; });
+    return haoCache[url].then(function(j){
+      var items=((j.chapter||{}).content||[]).filter(function(c){ return c.type==="verse"; }), elegido=null;
+      items.forEach(function(c){ if(c.number<=E.r.ver) elegido=c; });
+      var t=elegido ? plano(elegido.content) : "";
+      if(!t && j.chapter && j.chapter.introduction && E.r.ver===1) t=j.chapter.introduction;
+      var desde=elegido && elegido.number!==E.r.ver ? " (comentario que comienza en el v. "+elegido.number+")" : "";
+      return {texto:t, lang:"en", fuente:(j.commentary&&j.commentary.name||it.n)+desde+" · Free Use Bible API · "+(it.id==="tyndale"?"CC BY-SA 4.0":"dominio público")};
+    });
+  }
+
+  // ---------- Modo privado: comentarios propios en el repositorio privado de GitHub ----------
+  var REPO_PRIV="danilo-ds7/primera-linea-biblioteca", privCache={};
+  function leerToken(){ try{ return localStorage.getItem("lector-gh")||""; }catch(e){ return ""; } }
+  function cajaPrivada(){
+    var box=el("div","privado"), tk=leerToken();
+    box.append(el("b",null,"Mis comentarios (modo privado)"));
+    box.append(el("span",null, tk ? "Tus comentarios en español están activos en este dispositivo." : "Para ver tus comentarios en español, guarda aquí tu clave personal de GitHub (solo lectura del repositorio privado). Se guarda únicamente en este dispositivo."));
+    var row=el("div","row"), inp=el("input"); inp.type="password"; inp.placeholder= tk ? "Clave guardada" : "Clave de GitHub (github_pat_…)"; inp.autocomplete="off";
+    var g=el("button","btn ghost", tk ? "Quitar clave" : "Guardar"); g.type="button";
+    g.onclick=function(){ try{ if(tk){ localStorage.removeItem("lector-gh"); } else if(inp.value.trim()){ localStorage.setItem("lector-gh", inp.value.trim()); } }catch(e){} privCache={}; abrirLectura("historico"); };
+    if(!tk) row.append(inp); row.append(g); box.append(row);
+    return box;
+  }
+  function comPropio(it, E, token){
+    var path="app-privado/comentarios/"+it.id+"/g"+grupoDe(E.nl)+".json";
+    if(!privCache[path]) privCache[path]=fetch("https://api.github.com/repos/"+REPO_PRIV+"/contents/"+encodeURI(path)+"?ref=app-privado", {headers:{"Authorization":"Bearer "+token, "Accept":"application/vnd.github.raw+json"}})
+      .then(function(x){ if(!x.ok) throw new Error(x.status); return x.json(); }).catch(function(e){ delete privCache[path]; throw e; });
+    return privCache[path].then(function(j){
+      var lista=(j[String(E.nl)]||[]), c=E.r.cap, v=E.r.ver;
+      var hits=lista.filter(function(x){ return !antes([c,v],[x[0],x[1]]) && !antes([x[2],x[3]],[c,v]); });
+      if(!hits.length){ hits=lista.filter(function(x){ return x[0]===c && x[1]===0; }); }
+      return {texto:hits.map(function(x){ return x[4]; }).join("\n\n"), lang:"es", fuente:it.n+" · uso privado"};
+    });
+  }
+
   // ---------- Modo de lectura: claro, medio u oscuro ----------
   var COLOR_BARRA={claro:"#2350b8",medio:"#e8e3d8",oscuro:"#0f1422"};
   function aplicarModo(m, guardar){
@@ -1244,7 +1684,8 @@ body.cmp-view main{padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
   $("v-estudio").addEventListener("click", function(){
     salirComparar();
     if(location.hash==="#comparar"){ history.replaceState(null,"",location.pathname+location.search); }
-    if(state.data && location.hash){ verEstudio(state.data, state.generado); } else { verInicio(); }
+    verInicio();
+    if(state.est){ var h="#e/"+encodeURIComponent(state.est.r.libro+" "+state.est.r.cap+":"+state.est.r.ver); history.replaceState(null,"",location.pathname+location.search+h); }
   });
 
   // ---------- Comparación filológica ----------
@@ -1272,6 +1713,13 @@ body.cmp-view main{padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
     {k:"vulgate", n:"Vulgata Clementina", c:"la"}
   ];
   var CLAVE_PAR={he:"orig",grc:"orig",syr:"syr",es:"es",en:"en",la:"la"};
+  // Versiones de API.Bible configuradas en config.js
+  if(AB.proxy && Array.isArray(AB.biblias) && AB.biblias.length){
+    AB.biblias.forEach(function(b){ var o={k:"ab:"+b.id, n:b.n, c:b.c||"es"}; VERS_CMP.push(o); VERSIONES.push(o); });
+    try{ window.fumsData=window.fumsData||[]; window.fums=window.fums||function(){ window.fumsData.push(arguments); };
+      var fs=document.createElement("script"); fs.src="https://pkg.api.bible/fumsV3.min.js"; fs.async=true; document.head.appendChild(fs); }catch(e){}
+  }
+  function notaCopy(box, k){ if(k.indexOf("ab:")===0 && abCopy[k]){ var n=el("small","nt",abCopy[k]+" · API.Bible"); n.style.display="block"; n.style.marginTop="6px"; box.append(n); } }
   var NOTAS=null;
   function notas(){ if(!NOTAS) NOTAS=fetch("comparaciones/notas.json").then(function(x){ return x.ok?x.json():{}; }).catch(function(){ return {}; }); return NOTAS; }
 
@@ -1473,12 +1921,21 @@ body.cmp-view main{padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
   // Raíz al estilo BDB (calculada con scripts/raices.py desde la derivación de Strong):
   // rz = raíz a la que llega la palabra; fz = familia completa en la entrada de la raíz.
   function raizDe(s, L){ var e=L[s]; if(!e) return null; return e.rz || (e.fz ? s : null); }
-  function raizTri(l){ return (l||"").replace(/[^א-ת]/g,"").split("").join("־"); }
+  // Familia: primero las palabras comunes y después los nombres propios (en Strong, transliteración con mayúscula).
+  function ordenFam(fam, L){ var nom=function(y){ var x=(L[y]||{}).x||""; return /^[A-ZʼʻĀ-Ž]/.test(x)?1:0; }; return fam.slice().sort(function(a,b){ return nom(a)-nom(b); }); }
+  // Una palabra de la familia, aislada para que el hebreo (de derecha a izquierda) no desordene la línea.
+  function itemFam(g, he, i){
+    var sp=el("span","rzi"); if(i) sp.append(el("span","sep"," · "));
+    var b=document.createElement("bdi"); b.className="rzf"+(he?"":" grc"); b.textContent=g.l; b.lang=he?"he":"grc"; sp.append(b);
+    var gl=glosa(g,1); if(gl) sp.append(document.createTextNode(" ("+gl+")"));
+    return sp;
+  }
+  function raizTri(l){ return (l||"").replace(/[^א-ת]/g,"").split("").join("-"); }
   var VACIAS=["no","mas","más","porque","así","pero","han","y","e","de","que","la","el","los","las","en","a","se","con","por","para","su","sus","lo","le","les","del","al","como","o","ni","un","una","este","esta","es","fue"];
   function glosa(e, n){ return e && e.es ? e.es.filter(function(x){ return VACIAS.indexOf(x)<0; }).slice(0,n||3).join(", ") : ""; }
   function bloqueRaiz(s, L){
     var raiz=raizDe(s, L); if(!raiz) return null;
-    var R=L[raiz], he=s[0]==="H", fam=(R.fz||[]);
+    var R=L[raiz], he=s[0]==="H", fam=ordenFam(R.fz||[], L);
     var box=el("div","rz"), h=el("div","rz-h");
     h.append(el("span","lx-k", he?"Raíz:":"Palabra base:"));
     var t=el("span","rz-tri"+(he?"":" grc"), he?raizTri(R.l):(R.l||raiz)); t.lang=he?"he":"grc"; if(he) t.dir="rtl";
@@ -1724,7 +2181,7 @@ body.cmp-view main{padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
       return tokensDe(k, cc.r).then(function(toks){
         box.className="ctx "+(o.c==="he"?"he":o.c==="grc"?"grc":o.c==="syr"?"syr":""); box.lang=o.c;
         box.dataset.texto=t; box.dataset.c=o.c; cc.toks[i]=toks;
-        repintar(); if(toks) pintarParalelos();
+        repintar(); if(toks) pintarParalelos(); notaCopy(box.parentNode, k);
       });
     }).catch(function(){
       if(state.cmp!==cc) return;
@@ -1801,10 +2258,9 @@ body.cmp-view main{padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
   });
 
   // Arranque
-  cargar("estudios/index.json").then(function(idx){ state.indice=idx; renderInicio(); ruta(); })
-    .catch(function(){ state.indice={lineas:[],estudios:[]}; renderInicio(); status(false,"No se pudo cargar la lista de estudios. Revisa tu conexión.",true); });
+  state.indice={lineas:[],estudios:[]};
+  ruta();
 })();
 </script>
 
-</body>
-</html>
+</body></html>
