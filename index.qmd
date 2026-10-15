@@ -205,8 +205,8 @@ El lugar de Israel en el plan de Dios: las promesas hechas a los patriarcas y la
 </div>
 </article>
 <article class="card">
-<div class="art photo festiv">
-<img src="images/lineas/festividades.jpg" alt="Biblia abierta en Juan 14:6" loading="lazy">
+<div class="art photo">
+<img src="images/lineas/festividades.jpg" alt="Mesa de fiesta al aire libre, con luces, comida y un laúd" loading="lazy">
 </div>
 <div class="txt">
 [Calendario bíblico]{.label}
