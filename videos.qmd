@@ -1,0 +1,28 @@
+---
+title: "Videos"
+subtitle: "Estudios breves publicados en Instagram y YouTube"
+---
+
+<!--
+CÓMO AGREGAR UN VIDEO
+
+1) Video de YouTube (o Vimeo): pega el enlace en esta línea, sin los símbolos de comentario.
+
+{{< video https://www.youtube.com/watch?v=CODIGO_DEL_VIDEO title="Título del video" >}}
+
+2) Reel o publicación de Instagram:
+   en Instagram abre la publicación → menú ··· → "Insertar" → "Copiar código de inserción".
+   Pega ese código dentro de un bloque así:
+
+```{=html}
+AQUÍ VA EL CÓDIGO QUE COPIASTE DE INSTAGRAM
+```
+-->
+
+## La lámpara (*ner*) del Salmo 119
+
+Descripción breve del video. Enlace al estudio completo: [La santidad de Dios](estudios/plantilla-estudio.qmd).
+
+::: {.callout-tip}
+Aquí aparecerá el video cuando pegues su enlace o su código de inserción.
+:::

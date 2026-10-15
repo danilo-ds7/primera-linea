@@ -1,0 +1,34 @@
+---
+title: "Atributos de Dios"
+subtitle: "Conocer al Autor de la Escritura en sus perfecciones eternas"
+body-classes: serie-atributos
+listing:
+  id: lista-atributos
+  contents: atributos
+  sort: "order"
+  type: grid
+  template: scripts/atributos.ejs
+  fields: [title, subtitle, description, numero]
+  categories: false
+  sort-ui: false
+  filter-ui: false
+---
+
+Primero conocer al Autor de la Biblia: el Dios de Israel y sus atributos. La armonía perfecta de sus atributos es como un paraguas que da coherencia a todo lo que la Escritura dice sobre cada tema. Cada estudio parte de un texto ancla, analiza el hebreo y el griego, y lee el atributo con Pablo.
+
+Cada estudio se puede leer aquí o descargar en PDF, junto con la presentación que lo acompaña.
+
+```{=html}
+<a class="libro" href="atributos/pdf/la-gloria-de-dios-libro.pdf" download>
+  <span class="libro-tapa" aria-hidden="true"><span class="heb" lang="he">כָּבוֹד</span></span>
+  <span class="libro-txt">
+    <span class="label">Libro</span>
+    <b>La gloria de Dios</b>
+    <span>Conocer a Dios en sus atributos. Reúne los estudios publicados hasta hoy.</span>
+    <span class="libro-btn">Descargar el libro (PDF)</span>
+  </span>
+</a>
+```
+
+::: {#lista-atributos}
+:::

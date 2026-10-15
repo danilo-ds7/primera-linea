@@ -1,0 +1,7 @@
+```{=html}
+<div class="attr-grid">
+<% for (const item of items) { %>
+<a class="attr-card" href="<%- item.path %>" <%= metadataAttrs(item) %>><span class="attr-num"><%= item.numero %></span><h3><%= item.title %></h3><% if (item.subtitle) { %><span class="attr-sub"><%= item.subtitle %></span><% } %><% if (item.description) { %><p><%= item.description %></p><% } %><span class="attr-leer">Leer el estudio →</span></a>
+<% } %>
+</div>
+```

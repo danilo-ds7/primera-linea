@@ -1,0 +1,46 @@
+---
+title: "Plantilla de estudio: la santidad de Dios"
+description: "Ejemplo de cómo se escribe un estudio en Quarto: término hebreo, texto bíblico y cita en formato APA."
+date: 2026-10-13
+categories: [Atributos de Dios, Hebreo]
+---
+
+::: {.callout-note}
+Esta es una página de ejemplo. Reemplaza el texto por tu estudio; la estructura ya queda lista.
+:::
+
+[קָדוֹשׁ]{.estudio-hebreo lang="he"}
+
+## El término
+
+*Qadósh* se traduce como "santo". Aquí va el análisis de la raíz, sus usos y su campo semántico.
+
+## El texto
+
+> Y el uno al otro daba voces, diciendo: Santo, santo, santo, Jehová de los ejércitos: toda la tierra está llena de su gloria.
+>
+> --- Isaías 6:3, Reina-Valera 1909
+
+## Lectura en el Nuevo Testamento
+
+Aquí va cómo el Nuevo Testamento retoma el atributo, con la mirada paulina.
+
+## Aplicación
+
+El registro expositivo: qué significa para la vida diaria.
+
+Pink trata la santidad como uno de los atributos centrales de Dios [@pink1930].
+
+<!--
+Ejemplos de enlaces y citas:
+- Enlace a otra página:   [texto](https://sitio.com)
+- Enlace a otro estudio:  [La misericordia](misericordia.qmd)
+- Cita con página:        [@pink1930, p. 45]
+- Cita narrativa:         @pink1930 sostiene que...
+- PDF para descargar:     [Descargar el estudio en PDF](santidad.pdf)  (pon el PDF en esta misma carpeta)
+-->
+
+## Referencias
+
+::: {#refs}
+:::

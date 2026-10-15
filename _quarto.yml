@@ -1,0 +1,53 @@
+project:
+  type: website
+  output-dir: _site
+  pre-render: scripts/atributos.py   # convierte los estudios LaTeX en páginas y PDF
+  resources:
+    - "app/**"
+    - "atributos/pdf/**"
+    - "atributos/img/**"
+  render:
+    - "*.qmd"
+    - "estudios/*.qmd"
+    - "atributos/*.qmd"
+
+website:
+  title: "Primera Línea"
+  site-url: "https://danilo-ds7.github.io/primera-linea"
+  navbar:
+    left:
+      - href: index.qmd#predicacion
+        text: Predicación
+      - text: Estudios
+        menu:
+          - href: atributos.qmd
+            text: Atributos de Dios
+          - href: estudios.qmd
+            text: Todos los estudios
+      - href: metodologia.qmd
+        text: Metodología
+      - href: videos.qmd
+        text: Videos
+      - href: podcast.qmd
+        text: Podcast
+      - href: app/index.html
+        text: Lector
+      - href: index.qmd#contacto
+        text: Contacto
+    right:
+      - icon: instagram
+        href: https://www.instagram.com/danilo_gomez_correa/
+  page-footer:
+    left: "© 2026 Danilo Gómez Correa · Primera Línea"
+    right: "*Soli Deo gloria*"
+
+format:
+  html:
+    theme: [cosmo, styles.scss]
+    lang: es
+    section-divs: false
+    anchor-sections: false
+    toc: false
+
+bibliography: referencias.bib
+csl: apa.csl

@@ -1,0 +1,11 @@
+---
+title: "Estudios"
+subtitle: "Ensayos, fichas filológicas y series temáticas"
+listing:
+  contents: [estudios, atributos]
+  type: default
+  sort: "date desc"
+  categories: true
+  fields: [date, title, description, categories, reading-time]
+  date-format: "D [de] MMMM, YYYY"
+---

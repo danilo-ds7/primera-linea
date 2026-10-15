@@ -1,0 +1,28 @@
+---
+title: "Podcast"
+subtitle: "Estudios en audio"
+---
+
+<!--
+CÓMO AGREGAR UN EPISODIO
+
+Spotify: abre el episodio → "Compartir" → "Insertar episodio" → "Copiar".
+Apple Podcasts y otros funcionan igual: copia su código de inserción.
+Pégalo dentro de un bloque así (sin los símbolos de comentario):
+
+```{=html}
+AQUÍ VA EL CÓDIGO DE SPOTIFY
+```
+
+Si el audio es un archivo propio (.mp3), ponlo en la carpeta audio/ y usa:
+
+<audio controls src="audio/episodio-01.mp3"></audio>
+-->
+
+## Episodio 1 · Título del episodio
+
+Resumen del episodio y [enlace al estudio relacionado](estudios/plantilla-estudio.qmd).
+
+::: {.callout-tip}
+Aquí aparecerá el reproductor cuando pegues el código de inserción.
+:::

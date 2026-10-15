@@ -1,0 +1,382 @@
+---
+title: "Primera Línea"
+page-layout: custom
+body-classes: inicio
+---
+
+<!-- PORTADA ------------------------------------------------------------>
+
+:::::: {.hero .g #inicio}
+::::: {.wrap .hero-grid}
+:::: {.hero-text}
+[Estudios bíblicos y teológicos]{.label}
+
+# Danilo Gómez Correa
+
+[La Escritura explicada *por el conocimiento del Dios de la Biblia.*]{.sub}
+
+[Ensayos, estudios y videos breves sobre los atributos de Dios, las festividades santas y la cristología.]{.lead}
+
+[[Explorar los estudios](estudios.qmd){.btn .primary} [Ver los videos](videos.qmd){.btn .ghost}]{.cta}
+
+::::
+:::: {.hero-media}
+```{=html}
+<img class="hero-img" src="images/predica2.jpg" alt="Danilo predicando desde el púlpito">
+<div class="hero-badge"><img class="avatar" src="images/retrato.jpg" alt="Retrato de Danilo Gómez Correa"><div><b>Danilo Gómez Correa</b><span>Estudiante · Israel Institute of Biblical Studies</span></div></div>
+<span class="gen heb" lang="he" aria-hidden="true">בְּרֵאשִׁית</span>
+```
+::::
+:::::
+::::::
+
+<!-- VERSÍCULO -------------------------------------------------------->
+
+:::: {.scroll-band .g}
+::: {.wrap .verse}
+<div>
+[נֵר־לְרַגְלִי דְבָרֶךָ וְאוֹר לִנְתִיבָתִי]{.orig .heb lang="he"}
+
+[Lámpara es a mis pies tu palabra, y lumbrera a mi camino.]{.tr}
+
+[Salmo 119:105 · Reina-Valera 1909]{.ref}
+
+[El salmista usa [נֵר]{.heb lang="he"} (*ner*), la lámpara de aceite de barro que iluminaba apenas el paso siguiente. Así ilumina la Palabra: paso a paso.]{.note}
+</div>
+<div class="lampbox" aria-hidden="true">
+```{=html}
+<svg viewBox="0 0 420 260">
+        <defs><radialGradient id="g2" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#F2913F" stop-opacity=".35"/><stop offset="1" stop-color="#F2913F" stop-opacity="0"/></radialGradient></defs>
+        <circle cx="120" cy="120" r="120" fill="url(#g2)"/>
+        <g transform="translate(110 150)">
+          <path d="M10 40 C40 78 230 78 270 40 C250 14 190 2 140 2 C80 2 34 14 10 40Z" fill="#9A6236"/>
+          <path d="M10 40 C40 58 230 58 270 40" stroke="#5E3818" stroke-width="3" fill="none"/>
+          <ellipse cx="140" cy="18" rx="30" ry="9" fill="#4A2C15"/>
+          <circle cx="140" cy="18" r="4" fill="#2A1808"/>
+          <path d="M270 40 c22-2 32-20 20-30" stroke="#9A6236" stroke-width="8" fill="none" stroke-linecap="round"/>
+          <path d="M16 32 C0 28 -8 16 0 8 C10 16 18 22 28 24Z" fill="#9A6236"/>
+          <path class="fl" d="M2 10 C-18 -24 6 -56 2 -84 C30 -52 34 -20 12 10Z" fill="#F7B84F"/>
+          <path d="M4 6 C-4 -12 4 -32 4 -46 C16 -28 16 -10 10 6Z" fill="#FFF0C2"/>
+        </g>
+      </svg>
+```
+</div>
+:::
+::::
+
+<!-- SOBRE MÍ ------------------------------------------------------>
+
+:::: {.band .g #sobre}
+::: {.wrap .about}
+<div class="photos">
+<img class="about-img" src="images/familia.jpg" alt="Danilo junto a su familia al aire libre">
+<span class="cap">Con mi familia en Sukkot</span>
+</div>
+<div>
+[Sobre mí]{.label}
+
+## La Biblia se explica a sí misma
+
+[Soy Danilo Gómez Correa y estudio en el Israel Institute of Biblical Studies. Mi punto de partida es conocer al Dios de Israel, el Dios de la Biblia: quién es Él y cuáles son sus atributos. Ese conocimiento es el que hace posible estudiar la Escritura y explicarla de manera coherente, porque toda ella procede de un mismo Autor.]{.body}
+
+[Por eso, más que detenerme en un versículo aislado, busco la coherencia interna de la Biblia: cómo cada pasaje se ilumina con el resto de la Escritura. Para eso sigo un método histórico, filológico, teológico y literario, bajo un mismo principio: la Biblia interpreta la Biblia. Pero, por sobre todo, busco ser guiado por el Espíritu de Dios. Primera Línea es el lugar donde ordeno y comparto lo que voy aprendiendo.]{.body}
+
+> Empero Dios nos lo reveló a nosotros por el Espíritu: porque el Espíritu todo lo escudriña, aun lo profundo de Dios.
+> [1 Corintios 2:10 · Reina-Valera 1909]{.cite}
+
+[[Israel Institute of Biblical Studies]{} [Hebreo bíblico]{} [Griego koiné]{} [Exposición bíblica]{}]{.facts}
+</div>
+:::
+::::
+
+<!-- MÉTODO ------------------------------------------------------------->
+
+:::: {.band .g .flush #metodo}
+::: {.wrap}
+<div class="head">
+<div>
+[Método de estudio]{.label}
+
+## La Biblia interpreta la Biblia
+</div>
+
+Cada estudio busca dar a conocer al Dios de Israel en sus perfecciones eternas y en su armonía perfecta.
+</div>
+
+```{=html}
+<div class="enfoque" aria-label="Cómo abordo el estudio">
+  <div class="e flip" role="button" tabindex="0" aria-pressed="false" aria-label="Conocer al Autor: mostrar versículo"><div class="inner"><div class="face front"><span class="en">1</span><h3>Conocer al Autor</h3><p>El estudio empieza por quien inspiró la Escritura: el Dios de la Biblia, el Dios de Israel. Primero entender quién es Él y cuáles son sus atributos, tal como Él mismo los revela.</p><span class="hint">Toca para ver el versículo ↻</span></div><div class="face back"><span class="en">1</span><blockquote>«Mas alábese en esto el que se hubiere de alabar: en entenderme y conocerme, que yo soy Jehová, que hago misericordia, juicio y justicia en la tierra; porque estas cosas quiero, dice Jehová.»</blockquote><cite>Jeremías 9:24 · Reina-Valera 1960</cite><span class="hint">Toca para volver ↻</span></div></div></div>
+  <div class="e flip" role="button" tabindex="0" aria-pressed="false" aria-label="Su armonía perfecta: mostrar versículo"><div class="inner"><div class="face front"><span class="en">2</span><h3>Su armonía perfecta</h3><p>Los atributos de Dios no compiten entre sí: su santidad, su justicia, su misericordia y su fidelidad actúan en perfecta armonía. Esa armonía es como un paraguas que cubre toda la Escritura.</p><span class="hint">Toca para ver el versículo ↻</span></div><div class="face back"><span class="en">2</span><blockquote>«La misericordia y la verdad se encontraron; la justicia y la paz se besaron.»</blockquote><cite>Salmos 85:10 · Reina-Valera 1960</cite><span class="hint">Toca para volver ↻</span></div></div></div>
+  <div class="e flip" role="button" tabindex="0" aria-pressed="false" aria-label="Una Escritura coherente: mostrar versículo"><div class="inner"><div class="face front"><span class="en">3</span><h3>Una Escritura coherente</h3><p>Lo que la Biblia dice sobre cualquier tema concuerda con el carácter de Dios. Por eso cada pasaje se lee en coherencia con quién es Él y con el resto de la Escritura.</p><span class="hint">Toca para ver el versículo ↻</span></div><div class="face back"><span class="en">3</span><blockquote>«La suma de tu palabra es verdad, y eterno es todo juicio de tu justicia.»</blockquote><cite>Salmos 119:160 · Reina-Valera 1960</cite><span class="hint">Toca para volver ↻</span></div></div></div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+document.querySelectorAll('.enfoque .flip, .method .mflip').forEach(function(c){
+  function t(){var on=c.classList.toggle('is-flipped');c.setAttribute('aria-pressed',on?'true':'false');}
+  c.addEventListener('click',t);
+  c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t();}});
+});
+});
+</script>
+<p class="enfoque-sub">Para eso, cada pasaje se estudia con cuatro métodos:</p>
+<div class="method">
+  <div class="m mflip" role="button" tabindex="0" aria-pressed="false" aria-label="Método histórico: ver definición"><div class="inner"><div class="face front"><span class="mk">Histórico</span><h3>El contexto</h3><p>Quién escribe, a quién, cuándo y en qué situación del pueblo de Dios.</p><span class="hint">Toca para ver la definición ↻</span></div><div class="face back"><span class="mk">Definición</span><h3>Método histórico</h3><p>El análisis histórico estudia el contexto en que se escribió el texto: quién lo escribió, a quién, cuándo y en qué circunstancias sociales, políticas y religiosas. Así se entiende qué significó para sus primeros lectores.</p><span class="hint">Toca para volver ↻</span></div></div></div>
+  <div class="m mflip" role="button" tabindex="0" aria-pressed="false" aria-label="Método filológico: ver definición"><div class="inner"><div class="face front"><span class="mk">Filológico</span><h3>Las palabras</h3><p>El hebreo y el griego detrás de la traducción: raíz, forma y uso en otros pasajes.</p><span class="hint">Toca para ver la definición ↻</span></div><div class="face back"><span class="mk">Definición</span><h3>Método filológico</h3><p>El análisis filológico estudia el texto en sus lenguas originales, hebreo, arameo y griego: el significado de cada palabra, su raíz, su forma gramatical y cómo se usa en el resto de la Escritura.</p><span class="hint">Toca para volver ↻</span></div></div></div>
+  <div class="m mflip" role="button" tabindex="0" aria-pressed="false" aria-label="Método teológico: ver definición"><div class="inner"><div class="face front"><span class="mk">Teológico</span><h3>La revelación</h3><p>Qué enseña el pasaje sobre Dios y cómo encaja en el conjunto de la doctrina bíblica.</p><span class="hint">Toca para ver la definición ↻</span></div><div class="face back"><span class="mk">Definición</span><h3>Método teológico</h3><p>El análisis teológico explora lo que el texto enseña sobre Dios, sus doctrinas, principios y mensaje, y lo lee en armonía con el conjunto de la Escritura, sin contradecir lo que ella enseña con claridad.</p><span class="hint">Toca para volver ↻</span></div></div></div>
+  <div class="m mflip" role="button" tabindex="0" aria-pressed="false" aria-label="Método literario: ver definición"><div class="inner"><div class="face front"><span class="mk">Literario</span><h3>La forma</h3><p>Género, estructura, paralelismos y el lugar del texto dentro del libro y del canon.</p><span class="hint">Toca para ver la definición ↻</span></div><div class="face back"><span class="mk">Definición</span><h3>Método literario</h3><p>El análisis literario estudia el texto como obra escrita: su género, estilo, estructura y recursos como el paralelismo, y el lugar que ocupa dentro del libro y del canon bíblico.</p><span class="hint">Toca para volver ↻</span></div></div></div>
+</div>
+<p class="principle"><span>Principio</span>La Escritura se explica con la Escritura: los pasajes claros gobiernan y dan luz a los menos claros, de Génesis a Apocalipsis.</p>
+<p class="metodo-link"><a class="btn ghost" href="metodologia.html">Ver la metodología completa</a></p>
+```
+:::
+::::
+
+<!-- PREDICACIÓN ----------------------------------------------------->
+
+:::: {.band .g #predicacion .flush}
+::: {.wrap .preach .nophoto .onecol}
+<div>
+[Enseñanza]{.label}
+
+## Del estudio al púlpito
+
+[Lo que estudio termina en la exposición de la Palabra frente a la congregación. Busco mostrar cómo un pasaje se conecta con el resto de la Biblia, para que quien escucha pueda abrir su Biblia y comprobarlo.]{.body}
+
+> Y éstos eran más nobles que los que estaban en Tesalónica, pues recibieron la palabra con toda solicitud, escudriñando cada día las Escrituras para ver si estas cosas eran así.
+> [Hechos 17:11 · Reina-Valera 1960]{.cite}
+
+[Con esto busco mostrar al Dios de la Biblia, al Dios de Israel, en sus perfecciones eternas: que sea exaltado, admirado, honrado y, principalmente, temido por sus maravillas y sus proezas. Ir del estudio al púlpito es exhibir, honrar y engrandecer a Dios en toda su magnitud, y comprender esa multiforme sabiduría de Dios que sincroniza todo el universo.]{.body}
+
+> Alabadle por sus proezas; alabadle conforme a la muchedumbre de su grandeza.
+> [Salmos 150:2 · Reina-Valera 1960]{.cite}
+
+</div>
+:::
+::::
+
+<!-- LÍNEAS DE ESTUDIO -------------------------------------------------->
+
+:::: {.band .g #estudios .flush}
+::: {.wrap}
+<div class="head">
+<div>
+[Líneas de estudio]{.label}
+
+## Mis líneas de estudio
+</div>
+
+Cada estudio combina un registro académico, con fuentes y referencias APA, y un registro expositivo para quien quiere llevarlo a la vida diaria.
+</div>
+
+<div class="lines four">
+<article class="card">
+<div class="art" aria-hidden="true">
+```{=html}
+<svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="250" fill="#1B2440"/>
+            <g stroke="#E4B65C" stroke-opacity=".35" stroke-width="1.5">
+              <line x1="200" y1="125" x2="200" y2="0"/><line x1="200" y1="125" x2="320" y2="10"/><line x1="200" y1="125" x2="400" y2="70"/><line x1="200" y1="125" x2="400" y2="190"/><line x1="200" y1="125" x2="320" y2="250"/><line x1="200" y1="125" x2="200" y2="250"/><line x1="200" y1="125" x2="80" y2="250"/><line x1="200" y1="125" x2="0" y2="190"/><line x1="200" y1="125" x2="0" y2="70"/><line x1="200" y1="125" x2="80" y2="10"/>
+            </g>
+            <circle cx="200" cy="125" r="70" fill="#E4B65C" fill-opacity=".12"/>
+            <text x="200" y="145" text-anchor="middle" font-family="Noto Serif Hebrew, serif" font-size="54" fill="#E4B65C">קָדוֹשׁ</text>
+          </svg>
+```
+</div>
+<div class="txt">
+[Serie]{.label}
+
+### Atributos de Dios
+
+Siguiendo la idea de A. W. Pink, cada atributo se lee desde la literatura hebrea y desde la manera en que Pablo lo desarrolla.
+
+[Ver los estudios →](atributos.qmd){.card-link}
+</div>
+</article>
+<article class="card">
+<div class="art" aria-hidden="true">
+```{=html}
+<svg viewBox="0 0 600 375" preserveAspectRatio="xMidYMid slice">
+<rect width="600" height="375" fill="#1B2440"/>
+<path d="M40 300 Q300 40 560 300" stroke="#E4B65C" stroke-opacity=".35" stroke-width="2" fill="none"/>
+<g fill="#F3E7C8">
+<circle cx="70" cy="262" r="16"/><circle cx="160" cy="176" r="16"/><circle cx="300" cy="140" r="16"/><circle cx="440" cy="176" r="16"/><circle cx="530" cy="262" r="16"/>
+</g>
+<g fill="#1B2440"><circle cx="78" cy="256" r="15"/><circle cx="440" cy="176" r="0"/><circle cx="537" cy="256" r="15"/></g>
+<g font-family="Cormorant Garamond, Georgia, serif" font-size="22" fill="#EEE7D7" text-anchor="middle" font-style="italic">
+<text x="70" y="306">Pésaj</text><text x="160" y="222">Shavuot</text><text x="300" y="104">Yom Teruá</text><text x="440" y="222">Yom Kipur</text><text x="530" y="306">Sukkot</text>
+</g>
+<text x="300" y="350" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="15" letter-spacing="3" fill="#E4B65C">LEVÍTICO 23 · LAS FIESTAS SOLEMNES</text>
+</svg>
+```
+</div>
+<div class="txt">
+[Calendario bíblico]{.label}
+
+### Festividades santas
+
+Las fiestas de Levítico 23, de Pésaj a Sukkot: su sentido en Israel y cómo apuntan a la obra de Cristo.
+</div>
+</article>
+<article class="card">
+<div class="art" aria-hidden="true">
+```{=html}
+<svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
+<rect width="400" height="250" fill="#1B2440"/>
+<circle cx="200" cy="112" r="78" fill="none" stroke="#E4B65C" stroke-opacity=".45" stroke-width="2"/>
+<circle cx="200" cy="112" r="60" fill="#E4B65C" fill-opacity=".08"/>
+<g stroke="#E4B65C" stroke-width="7" stroke-linecap="round" fill="none">
+<line x1="200" y1="62" x2="200" y2="166"/><line x1="166" y1="84" x2="234" y2="144"/><line x1="234" y1="84" x2="166" y2="144"/>
+<path d="M200 62 h18 a18 18 0 0 1 0 36 h-18"/>
+</g>
+<g font-family="GFS Didot, Georgia, serif" font-size="30" fill="#EEE7D7"><text x="118" y="124" text-anchor="middle">Α</text><text x="282" y="124" text-anchor="middle">Ω</text></g>
+<text x="200" y="226" text-anchor="middle" font-family="GFS Didot, Georgia, serif" font-size="26" fill="#E4B65C">ἐγώ εἰμι</text>
+</svg>
+```
+</div>
+<div class="txt">
+[Persona y obra]{.label}
+
+### Jesús, el Mesías prometido
+
+Jesús como el Mesías anunciado a Israel y Dios encarnado: sus títulos, sus declaraciones «Yo soy» y su lugar en el plan de Dios.
+</div>
+</article>
+<article class="card">
+<div class="art" aria-hidden="true">
+```{=html}
+<svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
+<rect width="400" height="250" fill="#1B2440"/>
+<circle cx="200" cy="112" r="82" fill="#E4B65C" fill-opacity=".08"/>
+<g stroke="#E4B65C" stroke-width="5" stroke-linecap="round" fill="none">
+<line x1="200" y1="62" x2="200" y2="178"/>
+<path d="M200 168 C200 120 140 120 140 62"/><path d="M200 168 C200 120 260 120 260 62"/>
+<path d="M200 168 C200 100 170 100 170 62"/><path d="M200 168 C200 100 230 100 230 62"/>
+<path d="M200 168 C200 140 110 140 110 62"/><path d="M200 168 C200 140 290 140 290 62"/>
+<line x1="168" y1="182" x2="232" y2="182"/>
+</g>
+<g fill="#F7B84F"><circle cx="110" cy="54" r="5"/><circle cx="140" cy="54" r="5"/><circle cx="170" cy="54" r="5"/><circle cx="200" cy="54" r="5"/><circle cx="230" cy="54" r="5"/><circle cx="260" cy="54" r="5"/><circle cx="290" cy="54" r="5"/></g>
+<text x="200" y="230" text-anchor="middle" font-family="Noto Serif Hebrew, serif" font-size="30" fill="#E4B65C">יִשְׂרָאֵל</text>
+</svg>
+```
+</div>
+<div class="txt">
+[Pueblo y promesa]{.label}
+
+### Israel y su restauración
+
+El lugar de Israel en el plan de Dios: las promesas hechas a los patriarcas y la restauración que anuncian los profetas.
+</div>
+</article>
+</div>
+
+<div class="bonus-wrap">
+<article class="card bonus">
+<div class="art" aria-hidden="true">
+```{=html}
+<svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
+<rect width="400" height="250" fill="#1B2440"/>
+<rect x="120" y="40" width="160" height="170" rx="6" fill="#E4B65C" fill-opacity=".1" stroke="#E4B65C" stroke-opacity=".5" stroke-width="2"/>
+<g stroke="#EEE7D7" stroke-opacity=".35" stroke-width="3" stroke-linecap="round">
+<line x1="142" y1="112" x2="258" y2="112"/><line x1="142" y1="132" x2="250" y2="132"/><line x1="142" y1="152" x2="258" y2="152"/><line x1="142" y1="172" x2="226" y2="172"/>
+</g>
+<text x="200" y="88" text-anchor="middle" font-family="GFS Didot, Georgia, serif" font-size="30" fill="#E4B65C">Παῦλος</text>
+<path d="M286 196 L326 120" stroke="#E4B65C" stroke-width="4" stroke-linecap="round"/><path d="M326 120 l8 -16 l-2 18 z" fill="#E4B65C"/>
+</svg>
+```
+</div>
+<div class="txt">
+[Bonus · Epístolas]{.label}
+
+### Palabras difíciles de Pablo
+
+Un análisis de los escritos de Pablo, en especial de aquellos pasajes «difíciles de entender» de los que habla Pedro (2 Pedro 3:16).
+</div>
+</article>
+</div>
+:::
+::::
+
+<!-- PROYECTO BIBLIA FILOLÓGICA ------------------------------------------->
+
+:::: {.band .g .flush}
+::: {.wrap .app}
+<div>
+[Proyecto · Prototipo]{.label}
+
+## Biblia filológica
+
+[Una aplicación para leer varias versiones de la Biblia en paralelo y ver, en cada pasaje, el término original que hay detrás de la traducción.]{.d}
+
+[[Abrir la Biblia filológica](app/index.html#comparar){.btn .primary} [Ir al Lector de estudios](app/index.html){.btn .ghost}]{.cta .cta-bf}
+</div>
+
+```{=html}
+<a class="window-link" href="app/index.html#comparar" aria-label="Abrir la Biblia filológica en Juan 1:1">
+<div class="window" aria-label="Vista previa de la aplicación con Juan 1:1 en tres versiones">
+  <div class="bar"><i></i><i></i><i></i><b>Juan 1:1</b></div>
+  <div class="cols">
+    <div class="grk"><span class="v">Griego</span><p lang="grc">Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν <span class="mark-w">πρὸς τὸν θεόν</span>, καὶ θεὸς ἦν ὁ λόγος.</p></div>
+    <div><span class="v">Reina-Valera 1909</span><p>En el principio era el Verbo, y el Verbo era <span class="mark-w">con Dios</span>, y el Verbo era Dios.</p></div>
+    <div><span class="v">King James</span><p lang="en">In the beginning was the Word, and the Word was <span class="mark-w">with God</span>, and the Word was God.</p></div>
+  </div>
+  <p class="gloss"><b>πρός + acusativo</b> sugiere orientación hacia alguien: el Verbo estaba «frente a» Dios, en relación personal con Él.</p>
+</div>
+</a>
+```
+:::
+::::
+
+<!-- VIDEOS ------------------------------------------------------------>
+
+:::: {.band .g #videos .flush}
+::: {.wrap}
+<div class="head">
+<div>
+[Videos]{.label}
+
+## Estudios en un minuto
+</div>
+
+Explicaciones breves que publico en Instagram. Cada video lleva al estudio completo en este sitio.
+</div>
+
+```{=html}
+<div class="vids">
+  <div class="phone"><div class="scr v1"><span class="big heb" lang="he">נֵר</span><span class="play" aria-hidden="true"></span><h3>Título del video</h3><small>Enlace de Instagram por agregar</small></div></div>
+  <div class="phone"><div class="scr v2"><span class="big grk" lang="grc">λόγος</span><span class="play" aria-hidden="true"></span><h3>Título del video</h3><small>Enlace de Instagram por agregar</small></div></div>
+  <div class="phone"><div class="scr v3"><span class="big heb" lang="he">חֶסֶד</span><span class="play" aria-hidden="true"></span><h3>Título del video</h3><small>Enlace de Instagram por agregar</small></div></div>
+</div>
+```
+
+[[Ver todos los videos](videos.qmd){.btn .primary} [Escuchar el podcast](podcast.qmd){.btn .ghost}]{.insta}
+:::
+::::
+
+<!-- CONTACTO ----------------------------------------------------------->
+
+:::: {.band .contact .g #contacto}
+::: {.wrap .ct}
+<div>
+[Contacto]{.label}
+
+## Conversemos sobre el texto
+
+Para compartir un estudio, comentar un pasaje o invitarme a tu comunidad.
+</div>
+<div class="chans">
+<div class="chan"><span>Instagram</span><span class="v"><a href="https://www.instagram.com/danilo_gomez_correa/">&#64;danilo_gomez_correa</a></span></div>
+<div class="chan"><span>Correo</span><span class="v">tu-correo@ejemplo.com</span></div>
+</div>
+:::
+::::
+
+```{=html}
+<script>
+(function(){
+  document.querySelectorAll('.flip').forEach(function(b){b.addEventListener('click',function(){var on=b.classList.toggle('on');b.setAttribute('aria-pressed',on)})});
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.fl').forEach(function(f,i){f.style.transformBox='fill-box';f.style.transformOrigin='50% 100%';
+    if(!reduce)f.animate([{transform:'scaleY(1) skewX(0deg)'},{transform:'scaleY(1.08) skewX(-3deg)'},{transform:'scaleY(.95) skewX(2deg)'},{transform:'scaleY(1) skewX(0deg)'}],{duration:1500+i*300,iterations:Infinity,easing:'ease-in-out'})});
+})();
+</script>
+```

@@ -1,0 +1,185 @@
+---
+title: "Metodología"
+subtitle: "Métodos de investigación bíblica: textual, literario, histórico y teológico"
+body-classes: metodologia
+toc: true
+toc-title: "En esta página"
+---
+
+## Cómo abordo el estudio
+
+El estudio bíblico de este sitio parte por conocer a quien creó la Escritura: Dios. Antes de analizar un pasaje, busco entender al Dios de la Biblia, el Dios de Israel: sus características, sus atributos y la manera en que Él mismo se da a conocer.
+
+> Mas alábese en esto el que se hubiere de alabar: en entenderme y conocerme, que yo soy Jehová, que hago misericordia, juicio y justicia en la tierra; porque estas cosas quiero, dice Jehová.
+>
+> --- Jeremías 9:24, Reina-Valera 1960
+
+Cuando se conoce a Dios, se ve que sus atributos están en perfecta armonía: su santidad no anula su misericordia, ni su justicia contradice su fidelidad. Esa armonía funciona como un paraguas que cubre toda la Escritura. Lo que la Biblia enseña sobre cualquier tema tiene que ser coherente con el carácter del Dios que la inspiró.
+
+```{=html}
+<div class="enfoque" aria-label="Cómo abordo el estudio">
+  <div class="e flip" role="button" tabindex="0" aria-pressed="false" aria-label="Conocer al Autor: mostrar versículo"><div class="inner"><div class="face front"><span class="en">1</span><h3>Conocer al Autor</h3><p>Los atributos de Dios, tal como Él los revela en la Escritura.</p><span class="hint">Toca para ver el versículo ↻</span></div><div class="face back"><span class="en">1</span><blockquote>«Mas alábese en esto el que se hubiere de alabar: en entenderme y conocerme, que yo soy Jehová, que hago misericordia, juicio y justicia en la tierra; porque estas cosas quiero, dice Jehová.»</blockquote><cite>Jeremías 9:24 · Reina-Valera 1960</cite><span class="hint">Toca para volver ↻</span></div></div></div>
+  <div class="e flip" role="button" tabindex="0" aria-pressed="false" aria-label="Su armonía perfecta: mostrar versículo"><div class="inner"><div class="face front"><span class="en">2</span><h3>Su armonía perfecta</h3><p>Sus atributos actúan juntos, sin contradecirse: un paraguas sobre toda la Biblia.</p><span class="hint">Toca para ver el versículo ↻</span></div><div class="face back"><span class="en">2</span><blockquote>«La misericordia y la verdad se encontraron; la justicia y la paz se besaron.»</blockquote><cite>Salmos 85:10 · Reina-Valera 1960</cite><span class="hint">Toca para volver ↻</span></div></div></div>
+  <div class="e flip" role="button" tabindex="0" aria-pressed="false" aria-label="Una Escritura coherente: mostrar versículo"><div class="inner"><div class="face front"><span class="en">3</span><h3>Una Escritura coherente</h3><p>Cada tema se lee en coherencia con el carácter de Dios y con el resto de la Escritura.</p><span class="hint">Toca para ver el versículo ↻</span></div><div class="face back"><span class="en">3</span><blockquote>«La suma de tu palabra es verdad, y eterno es todo juicio de tu justicia.»</blockquote><cite>Salmos 119:160 · Reina-Valera 1960</cite><span class="hint">Toca para volver ↻</span></div></div></div>
+</div>
+<script>
+document.querySelectorAll('.enfoque .flip').forEach(function(c){
+  function t(){var on=c.classList.toggle('is-flipped');c.setAttribute('aria-pressed',on?'true':'false');}
+  c.addEventListener('click',t);
+  c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t();}});
+});
+</script>
+```
+
+De ahí sale el segundo principio, la **coherencia interna** de la Escritura: la Biblia se interpreta con la Biblia. Los pasajes claros gobiernan y dan luz a los menos claros, y ninguna interpretación de un texto puede contradecir lo que la Escritura enseña con claridad en otra parte.
+
+Los métodos que siguen (textual, literario, histórico y teológico) son las herramientas con que se aplica esta forma de estudiar.
+
+## Qué es la investigación bíblica
+
+La investigación bíblica es un proceso académico y sistemático de estudio profundo de los textos bíblicos, con el fin de comprender su significado y su contexto histórico, cultural y literario. Para ello se apoya en varias disciplinas: la exégesis, la interpretación bíblica, la crítica textual, la arqueología y la historia [@fee2002].
+
+> Procura con diligencia presentarte a Dios aprobado, como obrero que no tiene de qué avergonzarse, que usa bien la palabra de verdad.
+>
+> --- 2 Timoteo 2:15, Reina-Valera 1960
+
+Todos los métodos se aplican bajo un mismo principio: la Biblia interpreta la Biblia. Ningún pasaje se lee aislado; cada texto se contrasta con el resto de la Escritura.
+
+```{=html}
+<div class="method">
+  <div class="m"><span class="mk">Textual</span><h3>Las palabras</h3><p>Los manuscritos y el significado original de cada término en hebreo, arameo y griego.</p></div>
+  <div class="m"><span class="mk">Literario</span><h3>La forma</h3><p>Género, estilo, estructura narrativa y técnicas que usa el autor.</p></div>
+  <div class="m"><span class="mk">Histórico</span><h3>El contexto</h3><p>Las circunstancias sociales, políticas y religiosas en que se escribió el texto.</p></div>
+  <div class="m"><span class="mk">Teológico</span><h3>La revelación</h3><p>Lo que el texto enseña, en armonía con el conjunto de la Escritura.</p></div>
+</div>
+```
+
+## Análisis textual
+
+El análisis textual examina y compara los manuscritos y fragmentos de manuscritos (MSS) de los textos bíblicos para identificar cuáles son los más antiguos o más cercanos al original. Incluye además el estudio del significado de las palabras en sus idiomas originales (hebreo, arameo y griego) y de cómo se usaban en el contexto histórico y cultural en que se escribieron [@aland1987]. En este sitio corresponde a la lectura **filológica**.
+
+### Hitos en la transmisión del texto
+
+| Año | Fuente | Traducción o texto | Qué aporta |
+|---|---|---|---|
+| Siglo III a. C. | Textos hebreos | Septuaginta | Traducción al griego hecha por sabios judíos en Alejandría. |
+| Siglo II d. C. | Textos hebreos y griegos | Peshitta | Traducción al siríaco, usada en las iglesias del Medio Oriente. |
+| c. 170 d. C. | Libros del Nuevo Testamento | Fragmento de Muratori | La lista más antigua conocida de libros del Nuevo Testamento. |
+| 382 d. C. | Textos hebreos y griegos | Vulgata latina | Traducción de Jerónimo; Biblia estándar de la Iglesia latina por siglos. |
+| Siglo IX d. C. | Textos hebreos | Texto masorético | Manuscritos con vocales y cantilación añadidas por los masoretas; base de las versiones modernas del Antiguo Testamento. |
+| 1516 | Nuevo Testamento griego | Textus Receptus | Edición de Erasmo, base de las traducciones protestantes clásicas. |
+| 1569 | Textos hebreos y griegos | Biblia del Oso | Traducción de Casiodoro de Reina, revisada por Cipriano de Valera en 1602. |
+| 1947–1956 | Manuscritos del Mar Muerto | — | Copias del Antiguo Testamento anteriores al texto masorético, halladas en Qumrán. |
+
+### Ejemplo: 1 Juan 5:7-8 (*Comma Johanneum*)
+
+La frase «en el cielo: el Padre, la Palabra y el Espíritu Santo; y estos tres son uno» no aparece en los grandes códices griegos (Sinaítico, Vaticano, Alejandrino) ni en la Peshitta o las versiones coptas. Aparece en algunos manuscritos latinos desde el siglo VIII y pasó al Textus Receptus, de donde la tomaron la King James y la Biblia de Ginebra. Las ediciones críticas modernas generalmente la omiten.
+
+| Tipo de fuente | Ejemplos | ¿Incluye la frase? |
+|---|---|---|
+| Manuscritos griegos | Sinaítico, Vaticano, Alejandrino | No |
+| Manuscritos latinos | Vulgata Clementina y algunas ediciones de la Vulgata | Sí, desde el siglo VIII |
+| Traducciones antiguas | Peshitta, versiones coptas | No |
+| Textus Receptus | King James, Biblia de Ginebra | Sí |
+| Ediciones críticas modernas | NVI, NASB y otras | Generalmente no |
+
+### Actividad: ¿cuál versión es la correcta?
+
+| Referencia | Reina-Valera 1960 | Otra versión |
+|---|---|---|
+| Apocalipsis 22:14 | Bienaventurados los que lavan sus ropas, para tener derecho al árbol de la vida, y para entrar por las puertas en la ciudad. | Bienaventurados los que guardan sus mandamientos, para que su potencia sea en el árbol de la vida, y que entren por las puertas en la ciudad. (Reina-Valera 1909) |
+| Juan 1:1 | En el principio era el Verbo, y el Verbo era con Dios, y el Verbo era Dios. | En [el] principio la Palabra era, y la Palabra estaba con Dios, y la Palabra era un dios. (Traducción del Nuevo Mundo) |
+| 1 Reyes 17:6 | Y los cuervos le traían pan y carne por la mañana, y pan y carne por la tarde; y bebía del arroyo. | Los árabes le traían pan y carne cada mañana, y pan y carne cada tarde; y bebía del arroyo. (Versión Israelita Nazarena) |
+
+## Análisis literario
+
+La crítica literaria estudia los textos bíblicos como obras literarias: su estilo, su género, su estructura narrativa y las técnicas que emplean sus autores. Así muestra cómo esos elementos contribuyen al significado del texto y orientan su interpretación [@fee2002].
+
+### Las tres categorías del texto bíblico
+
+| Categoría | Divisiones | Qué se observa |
+|---|---|---|
+| Narrativa (43 %) | Narrativa histórica; ley narrativa. | Estructura y patrón narrativo. |
+| Poesía (32 %) | Poesía hebrea; sabiduría poética; profecía poética. | Paralelismo (sinónimo, antitético, sintético), acróstico, quiasmo y disposición masorética de las *shirot*. |
+| Discurso en prosa (25 %) | Epístolas; discurso profético en prosa; apocalíptico; discurso directo. | Argumento y estructura retórica. |
+
+### Géneros en un mismo episodio: el cruce del mar
+
+| Narrativa | Poesía | Discurso en prosa |
+|---|---|---|
+| Relata hechos en orden cronológico. | Usa lenguaje figurado, ritmo y paralelismo. | Comunica una enseñanza de forma directa. |
+| Éxodo 14:21-22: Moisés extiende su mano, el viento divide las aguas e Israel pasa en seco. | Éxodo 15:7-8: el cántico de Moisés describe las aguas amontonadas al soplo de Dios. | Éxodo 14:13-14: Moisés exhorta al pueblo a no temer y a estar quieto, porque Jehová peleará por ellos. |
+
+### Estructura narrativa: José y Daniel
+
+| Etapa | José | Daniel |
+|---|---|---|
+| Introducción | Génesis 37:3 | Daniel 1:1, 6 |
+| Desafío o injusticia | Génesis 37:23-28 | Daniel 1:3-8 |
+| Intervención divina | Génesis 39:2-3; 41:38 | Daniel 1:17; 2:19 |
+| Ascenso al poder | Génesis 41:41 | Daniel 2:48 |
+| Resolución | Génesis 50:19-20 | Daniel 6:25-26 |
+
+### Un patrón que se repite: deseo, pecado y sufrimiento
+
+| Etapa | Adán y Eva | Acán | David |
+|---|---|---|---|
+| Deseo | Génesis 3:6a | Josué 7:21 | 2 Samuel 11:2 |
+| Pecado | Génesis 3:6b | Josué 7:1 | 2 Samuel 11:4, 14-15 |
+| Sufrimiento | Génesis 3:7, 16-17, 23 | Josué 7:24 | 2 Samuel 12:14, 18 |
+| Muchos sufren | Génesis 3:17, 23 | Josué 7:12 | 2 Samuel 12:10 |
+
+## Análisis histórico
+
+La crítica histórica estudia el contexto histórico y cultural en que se escribieron los textos: las circunstancias sociales, económicas, políticas y religiosas de la época. Así se entiende mejor su contenido, su propósito y su mensaje [@zaldivar2016].
+
+### Ejemplo: 1 Corintios 10:23-33
+
+| Paso | Contenido |
+|---|---|
+| 1. Texto y contexto | Autor: el apóstol Pablo. Fecha: aproximadamente 53-55 d. C. Destinatarios: la iglesia de Corinto, ciudad griega de gran actividad comercial y diversidad cultural y religiosa. |
+| 2. Contenido | Vv. 23-24: no todo lo lícito edifica; hay que buscar el bien del otro. Vv. 25-26: la carne del mercado. Vv. 27-30: cómo comportarse al comer en casa de no creyentes. Vv. 31-33: hacerlo todo para la gloria de Dios, sin ser tropiezo. |
+| 3. Macroentorno | Corinto, bajo dominio romano, tenía templos a Apolo, Afrodita y Asclepio. La carne sacrificada a los ídolos se vendía en los mercados. |
+| 4. Microentorno | Una iglesia de judíos y gentiles, con divisiones internas y dudas de conciencia sobre los banquetes y la carne sacrificada. Pablo, su fundador, conocía bien esas tensiones. |
+| 5. Interpretación | La libertad en Cristo se ejerce con responsabilidad: primero la voluntad de Dios, luego el bien del prójimo dentro de su contexto cultural. Los principios de Pablo siguen vigentes. |
+
+## Análisis teológico
+
+El análisis teológico explora las enseñanzas del texto: sus doctrinas, sus principios éticos y su mensaje. Parte de que la Escritura se interpreta en armonía con el conjunto de la fe, de modo que ninguna interpretación de un pasaje debe contradecir lo que se enseña con claridad en otras partes de la Biblia.
+
+Su objetivo es identificar **el atributo de Dios revelado** en el pasaje y mostrar su **coherencia interna**: primero entre los atributos de Dios y luego en toda la Biblia, armonizando las supuestas contradicciones.
+
+### Ejemplo: Eclesiastés 9:5-7 y 1 Samuel 28:3-25
+
+> Porque los que viven saben que han de morir; pero los muertos nada saben, ni tienen más paga; porque su memoria es puesta en olvido.
+>
+> --- Eclesiastés 9:5, Reina-Valera 1960
+
+| Aspecto | Eclesiastés 9:5-7 | 1 Samuel 28:3-25 |
+|---|---|---|
+| Análisis textual | La expresión «debajo del sol» indica una perspectiva terrenal; afirma con certeza la muerte y sus efectos. | Narra en detalle el encuentro de Saúl con la adivina y sus reacciones. |
+| Contexto literario | Libro de sabiduría. | Narrativa histórica de la caída de Saúl. |
+| Contexto histórico | Atribuido a Salomón, en un período de reflexión. | Reinado de Saúl, antes de la batalla final contra los filisteos. |
+| Aparente contradicción | Los muertos nada saben ni participan en la vida. | Samuel, ya muerto, parece hablar con Saúl. |
+| Armonización | La muerte pone fin a la actividad humana «debajo del sol». | El episodio se explica por la desesperación de Saúl y la acción de la adivina, y confirma el juicio de Dios sobre su desobediencia. |
+
+## Los cuatro métodos, comparados
+
+| Método | Fortalezas | Debilidades | Uso sugerido |
+|---|---|---|---|
+| Textual | Alta precisión; aclara variantes y profundiza en el significado original. | Depende de los manuscritos disponibles y exige dominio de lenguas antiguas. | Verificar el texto y comprender a fondo sus palabras. |
+| Literario | Revela la belleza y complejidad del texto. | Puede pasar por alto el contexto histórico. | Apreciar la composición y el estilo. |
+| Histórico | Profundiza en el macro y microentorno real del texto. | A veces es especulativo por falta de datos. | Situar los hechos bíblicos en su tiempo. |
+| Teológico | Profundiza la comprensión doctrinal. | Requiere una formación teológica sólida. | Estudios doctrinales y predicación. |
+
+## Herramientas
+
+- [Biblia Paralela](https://bibliaparalela.com/): versiones e idiomas originales lado a lado.
+- [e-Sword](https://www.e-sword.net/): software de estudio bíblico gratuito.
+- [Sefaria](https://www.sefaria.org/texts): textos judíos en hebreo y traducción.
+- [Leon Levy Dead Sea Scrolls Digital Library](https://www.deadseascrolls.org.il/): imágenes de los manuscritos del Mar Muerto.
+
+## Referencias
+
+::: {#refs}
+:::

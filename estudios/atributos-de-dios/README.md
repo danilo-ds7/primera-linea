@@ -12,3 +12,14 @@ Compilar siempre con **XeLaTeX** (3 pasadas) desde la carpeta del archivo.
 
 En cada atributo, `head.tex` y `body.tex` son piezas que usa la presentación. `crops/` y `papiro*.jpg` son las imágenes, y `fonts/` las fuentes hebreas y griegas.
 Las referencias (APA 7) van dentro de cada `.tex`; no hay archivo `.bib`.
+
+## Publicación en el sitio
+
+Al subir cambios a esta carpeta, GitHub Actions compila los PDF y publica cada estudio en la sección
+**Atributos de Dios** del sitio (`scripts/atributos.py`). No hay que tocar nada del sitio:
+
+- Cada atributo va en su propia carpeta `NN_Nombre/` (el número fija el orden; `00` es la introducción).
+- El `.tex` con clase `article` (u otra que no sea `beamer`) es el **capítulo**: se publica como página web y como PDF.
+- El `.tex` con clase `beamer` es la **presentación**: se publica como PDF descargable.
+- `Libro/` se compila como el libro completo *La gloria de Dios*.
+- Los PDF no se suben al repositorio: se generan solos.

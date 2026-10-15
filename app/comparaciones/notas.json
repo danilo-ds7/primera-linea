@@ -1,0 +1,41 @@
+{
+  "43:1:1": [
+    {
+      "titulo": "ἐν ἀρχῇ",
+      "orig": "εν αρχη", "es": "En el principio", "en": "In the beginning", "la": "In principio", "syr": "ܒܪܫܝܬ",
+      "nota": "<b>ἐν ἀρχῇ</b> (en arjḗ) son las mismas palabras con que la Septuaginta abre Génesis 1:1. Juan comienza su evangelio con un eco de la creación."
+    },
+    {
+      "titulo": "πρὸς τὸν θεόν",
+      "orig": "προς τον θεον", "es": "con Dios", "en": "with God", "la": "apud Deum", "syr": "ܠܘܬ ܐܠܗܐ",
+      "nota": "<b>πρός + acusativo</b> sugiere orientación hacia alguien: el Verbo estaba «frente a» Dios, en relación personal con Él."
+    },
+    {
+      "titulo": "θεὸς ἦν ὁ λόγος",
+      "orig": "θεος ην ο λογος", "es": "el Verbo era Dios", "en": "the Word was God", "la": "Deus erat Verbum",
+      "nota": "<b>θεὸς ἦν ὁ λόγος</b> (theós ēn ho lógos): θεός va primero y sin artículo; ὁ λόγος lleva artículo y es el sujeto. El orden pone el énfasis en lo que el Verbo es."
+    }
+  ],
+  "23:57:15": [
+    {
+      "titulo": "רָם וְנִשָּׂא",
+      "orig": "רם ונשא", "es": "el Alto y Sublime", "en": "the high and lofty One", "la": "Excelsus, et Sublimis",
+      "nota": "<b>רָם וְנִשָּׂא</b> (ram venisá), «alto y elevado». La misma pareja describe el trono en Isaías 6:1 y al Siervo en 52:13."
+    },
+    {
+      "titulo": "שֹׁכֵן עַד",
+      "orig": "שכן עד", "es": "el que habita la eternidad", "en": "that inhabiteth eternity", "la": "habitans æternitatem",
+      "nota": "<b>שֹׁכֵן עַד</b> (shojén ad): participio de <i>shakán</i>, «establecerse, habitar» (Brown et al., 1906, s.v. שָׁכַן), raíz de <i>mishkán</i>, el Tabernáculo."
+    },
+    {
+      "titulo": "דַּכָּא",
+      "orig": "ואת־דכא", "es": "con el quebrantado", "en": "with him also that is of a contrite", "la": "cum contrito",
+      "nota": "<b>דַּכָּא</b> (daká), «molido, aplastado». La misma raíz describe a los «quebrantados» de corazón en Salmo 34:18 y el corazón «contrito» de Salmo 51:17."
+    },
+    {
+      "titulo": "לְהַחֲיוֹת",
+      "orig": "להחיות", "es": ["para hacer vivir", "para vivificar"], "en": "to revive", "la": "vivificet",
+      "nota": "<b>לְהַחֲיוֹת</b> (lehajayót): forma causativa de <i>jayá</i>, «vivir»: Dios hace vivir. Se repite dos veces y cierra el versículo."
+    }
+  ]
+}

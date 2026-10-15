@@ -1,0 +1,233 @@
+{
+ "referencia": "Isaías 57:15",
+ "version": "Reina-Valera 1960",
+ "texto": "Porque así dijo el Alto y Sublime, el que habita la eternidad, y cuyo nombre es el Santo: Yo habito en la altura y la santidad, y con el quebrantado y humilde de espíritu, para hacer vivir el espíritu de los humildes, y para vivificar el corazón de los quebrantados.",
+ "original": {
+  "idioma": "hebreo",
+  "texto": "כִּי כֹה אָמַר רָם וְנִשָּׂא שֹׁכֵן עַד וְקָדוֹשׁ שְׁמוֹ",
+  "transliteracion": "ki jo amar ram venisá shojén ad vekadósh shemó"
+ },
+ "historico": {
+  "resumen": "El oráculo pertenece a la sección final de Isaías (capítulos 56 al 66), dirigida a un pueblo que espera la restauración prometida y que todavía lucha con la idolatría.",
+  "puntos": [
+   "Los versículos anteriores (57:3-13) denuncian los cultos en los lugares altos: «sobre el monte alto y empinado pusiste tu cama» (57:7).",
+   "Frente a esos altares en las alturas, Dios se presenta como el verdaderamente Alto, que no necesita monte ni altar hecho por manos humanas.",
+   "El versículo abre una palabra de consuelo (57:14-21) para quienes vuelven a Dios con humildad."
+  ]
+ },
+ "filologico": {
+  "resumen": "Las palabras clave unen la majestad de Dios con su cercanía.",
+  "palabras": [
+   {
+    "original": "רָם וְנִשָּׂא",
+    "transliteracion": "ram venisá",
+    "significado": "Alto y Sublime",
+    "nota": "La misma pareja aparece en la visión de Isaías 6:1 y se aplica al Siervo en 52:13."
+   },
+   {
+    "original": "שֹׁכֵן",
+    "transliteracion": "shojén",
+    "significado": "el que habita",
+    "nota": "Raíz shakán, «establecerse, habitar» (Brown et al., 1906, s.v. שָׁכַן); de ella viene mishkán, el Tabernáculo. Compárese Jeremías 7:3, 7."
+   },
+   {
+    "original": "עַד",
+    "transliteracion": "ad",
+    "significado": "eternidad",
+    "nota": "Dios no habita en un lugar del tiempo; habita la perpetuidad misma."
+   },
+   {
+    "original": "דַּכָּא",
+    "transliteracion": "daká",
+    "significado": "quebrantado",
+    "nota": "Literalmente «molido, aplastado». Comparar con Salmo 34:18 y 51:17."
+   },
+   {
+    "original": "לְהַחֲיוֹת",
+    "transliteracion": "lehajayót",
+    "significado": "para hacer vivir",
+    "nota": "Forma causativa de jayá, vivir: Dios da vida. Se repite dos veces en el versículo."
+   }
+  ]
+ },
+ "teologico": {
+  "atributo": "Santidad",
+  "descripcion": "Dios se revela como «el Santo»: apartado y por encima de todo, y a la vez presente con el quebrantado para darle vida.",
+  "resumen": "El versículo muestra que la santidad de Dios no lo aleja del humilde: el mismo que habita la altura habita con el quebrantado.",
+  "relacionados": [
+   "Eternidad",
+   "Trascendencia",
+   "Cercanía",
+   "Gracia que da vida"
+  ],
+  "coherencia_atributos": [
+   "Santidad y cercanía: el Santo no se contamina al acercarse al humilde; es su santidad la que lo vivifica (57:15b).",
+   "Trascendencia y presencia: habita la eternidad, y ningún templo lo contiene (1 Reyes 8:27), pero se inclina a mirar la tierra (Salmo 113:5-6).",
+   "Santidad y misericordia: el Dios que no tiene por inocente al culpable es también misericordioso y piadoso (Éxodo 34:6-7)."
+  ],
+  "coherencia_biblica": [
+   {
+    "ref": "Isaías 6:1-3",
+    "nota": "La misma pareja «alto y sublime» con el triple «Santo» (kadosh, kadosh, kadosh), que Apocalipsis 4:8 repite."
+   },
+   {
+    "ref": "Jeremías 7:3, 7",
+    "nota": "Dios promete hacer «morar» a su pueblo en ese lugar si enmienda su conducta; es la misma raíz shakán (Brown et al., 1906, s.v. שָׁכַן), repetida en 7:3, 7 y 12."
+   },
+   {
+    "ref": "Isaías 66:1-2",
+    "nota": "El cielo es su trono, pero mira al pobre y humilde de espíritu: el libro repite la idea al cerrar."
+   },
+   {
+    "ref": "Salmo 34:18; 51:17",
+    "nota": "El Santo está cercano al quebrantado: el mismo vocabulario (daká) en los Salmos."
+   },
+   {
+    "ref": "Levítico 11:44; 1 Pedro 1:15-16",
+    "nota": "La santidad de Dios es el fundamento de la santidad de su pueblo en ambos Testamentos."
+   },
+   {
+    "ref": "Juan 1:14",
+    "nota": "El Verbo habitó entre nosotros: la morada del Santo con el humilde llega a su plenitud en Cristo."
+   }
+  ],
+  "armonizacion": "Supuesta tensión: si Dios es santo e inaccesible (Éxodo 33:20; 1 Timoteo 6:16), ¿cómo habita con el hombre? La Escritura lo armoniza así: Dios habita con el humilde por iniciativa suya y para darle vida, no porque el hombre suba a Él (Isaías 57:15; Salmo 113:5-6)."
+ },
+ "literario": {
+  "categoria": "Poesía",
+  "subgenero": "Profecía poética",
+  "resumen": "Es un oráculo profético en verso, introducido por la fórmula «así dijo» y construido sobre el paralelismo hebreo.",
+  "formas": [
+   {
+    "id": "par_sinonimo",
+    "texto": "«para hacer vivir el espíritu de los humildes» / «para vivificar el corazón de los quebrantados»: la segunda línea repite la idea con otras palabras (kéfel lashón; Rashbam sobre Génesis 49:11). Compárese con Isaías 6:7, «es quitada tu culpa, y limpio tu pecado», otro paralelismo sinónimo."
+   },
+   {
+    "id": "par_antitetico",
+    "texto": "«en la altura y la santidad» frente a «con el quebrantado y humilde de espíritu»: dos moradas opuestas."
+   },
+   {
+    "id": "quiasmo",
+    "texto": "daká · shefal-rúaj · rúaj shefalim · nidkaím. Ver el detalle más abajo."
+   },
+   {
+    "id": "formula",
+    "texto": "«Porque así dijo» (ki jo amar) abre el oráculo y lo presenta como palabra de Dios."
+   },
+   {
+    "id": "palabra_clave",
+    "texto": "La raíz shakán, «habitar», aparece dos veces: shojén ad, «el que habita la eternidad», y eshkón, «yo habito»."
+   },
+   {
+    "id": "anafora",
+    "texto": "Las dos últimas líneas empiezan igual: lehajayót … ulehajayót, «para hacer vivir … y para vivificar»."
+   },
+   {
+    "id": "epitetos",
+    "texto": "«el Alto y Sublime», «el que habita la eternidad», «el Santo»."
+   },
+   {
+    "id": "bisagra",
+    "texto": "Cierra el juicio de 57:3-13 y abre el consuelo de 57:14-21."
+   },
+   {
+    "id": "gancho",
+    "texto": "Nisá, «sublime», ya apareció en 57:7, en el «monte alto y empinado» (har gavóah venisá) de los ídolos. El único Sublime es Dios."
+   },
+   {
+    "id": "peshat",
+    "texto": "En su sentido llano: Dios, siendo el Altísimo, vive con el humilde para restaurarlo."
+   },
+   {
+    "id": "guezera_shava",
+    "texto": "El par rum / nasá une el versículo con Isaías 6:1 (la visión del trono) y 52:13 (el Siervo exaltado)."
+   },
+   {
+    "id": "analogia",
+    "texto": "Salmo 34:18 y 51:17 usan la misma raíz daká para el corazón quebrantado."
+   },
+   {
+    "id": "tipologia",
+    "texto": "Juan 1:14: el Verbo «habitó» (eskénosen) entre nosotros, eco del habitar de Dios (shakán)."
+   }
+  ],
+  "quiasmo": {
+   "tipo": "Quiasmo (A B B′ A′)",
+   "lineas": [
+    {
+     "letra": "A",
+     "texto": "con el quebrantado",
+     "original": "אֶת־דַּכָּא",
+     "nota": "daká"
+    },
+    {
+     "letra": "B",
+     "texto": "y humilde de espíritu",
+     "original": "וּשְׁפַל־רוּחַ",
+     "nota": "shefal-rúaj"
+    },
+    {
+     "letra": "B′",
+     "texto": "para hacer vivir el espíritu de los humildes",
+     "original": "לְהַחֲיוֹת רוּחַ שְׁפָלִים",
+     "nota": "rúaj shefalim"
+    },
+    {
+     "letra": "A′",
+     "texto": "y para vivificar el corazón de los quebrantados",
+     "original": "וּלְהַחֲיוֹת לֵב נִדְכָּאִים",
+     "nota": "lev nidkaím"
+    }
+   ],
+   "centro": "En el centro se tocan «humilde de espíritu» y «espíritu de los humildes»: el mismo par de palabras invertido. El cruce pone en el eje la acción de Dios, «hacer vivir».",
+   "efecto": "Los extremos (quebrantado … quebrantados) encierran la frase: Dios rodea al quebrantado y lo devuelve a la vida. El cruce solo se ve completo en hebreo, por eso conviene leerlo en el original."
+  },
+  "estructura": "El versículo es bisagra del capítulo: cierra el juicio contra los cultos en los montes altos (57:3-13) y abre la promesa de consuelo y paz (57:14-21). El único Alto desciende hacia el humilde, en contraste con los ídolos buscados en el «monte alto» (57:7)."
+ },
+ "paralelos": [
+  {
+   "ref": "Isaías 66:1-2",
+   "razon": "El cielo es su trono, pero mira al pobre y humilde de espíritu."
+  },
+  {
+   "ref": "Salmo 34:18",
+   "razon": "Cercano está Jehová a los quebrantados de corazón."
+  },
+  {
+   "ref": "Salmo 51:17",
+   "razon": "Al corazón contrito y humillado no despreciarás tú, oh Dios."
+  },
+  {
+   "ref": "Isaías 6:1-3",
+   "razon": "La visión del Señor «alto y sublime» y el triple «Santo»."
+  },
+  {
+   "ref": "Mateo 5:3",
+   "razon": "Bienaventurados los pobres en espíritu."
+  },
+  {
+   "ref": "Juan 1:14",
+   "razon": "El Verbo habitó entre nosotros: Dios mora con su pueblo."
+  }
+ ],
+ "referencias": [
+  "Brown, F., Driver, S. R., & Briggs, C. A. (1906). A Hebrew and English lexicon of the Old Testament. Clarendon Press. https://www.sefaria.org/BDB",
+  "Rashbam. (s.f.). Comentario sobre Génesis 49:11. Sefaria. https://www.sefaria.org/Rashbam_on_Genesis.49.11"
+ ],
+ "nota": "Estudio preparado por Danilo Gómez Correa. Verifica las citas con tu Biblia.",
+ "id": "isaias-57-15",
+ "linea": "Atributos de Dios",
+ "titulo": "El Alto que habita con el humilde",
+ "textos": {
+  "valera": "Porque así dijo el Alto y Sublime, el que habita la eternidad, y cuyo nombre es el Santo: Yo habito en la altura y la santidad, y con el quebrantado y humilde de espíritu, para hacer vivir el espíritu de los humildes, y para vivificar el corazón de los quebrantados.",
+  "sse": "Porque así dijo el Alto y sublime, el que habita en eternidad, y cuyo nombre es el Santo: Que tengo por morada la altura y la santidad; y con el quebrantado y abatido de espíritu habito, para hacer vivir el espíritu de los abatidos, y para hacer vivir el corazón de los quebrantados.",
+  "kjv": "For thus saith the high and lofty One that inhabiteth eternity, whose name is Holy; I dwell in the high and holy place, with him also that is of a contrite and humble spirit, to revive the spirit of the humble, and to revive the heart of the contrite ones.",
+  "asv": "For thus saith the high and lofty One that inhabiteth eternity, whose name is Holy: I dwell in the high and holy place, with him also that is of a contrite and humble spirit, to revive the spirit of the humble, and to revive the heart of the contrite.",
+  "douayrheims": "For thus saith the High and the Eminent that inhabiteth eternity: and his name is Holy, who dwelleth in the high and holy place, and with a contrite and humble spirit, to revive the spirit of the humble, and to revive the heart of the contrite.",
+  "vulgate": "Quia hæc dicit Excelsus, et Sublimis, habitans æternitatem, et sanctum nomen ejus: in excelso et in sancto habitans, et cum contrito et humili spiritu: ut vivificet spiritum humilium, et vivificet cor contritorum.",
+  "codex": "כִּי֩ כֹ֨ה אָמַ֜ר רָ֣ם וְנִשָּׂ֗א שֹׁכֵ֥ן עַד֙ וְקָד֣וֹשׁ שְׁמ֔וֹ מָר֥וֹם וְקָד֖וֹשׁ אֶשְׁכּ֑וֹן וְאֶת־דַּכָּא֙ וּשְׁפַל־ר֔וּחַ לְהַחֲיוֹת֙ ר֣וּחַ שְׁפָלִ֔ים וּֽלְהַחֲי֖וֹת לֵ֥ב נִדְכָּאִֽים׃",
+  "aleppo": "כי כה אמר רם ונשא שכן עד וקדוש שמו—מרום וקדוש אשכון ואת דכא ושפל רוח להחיות רוח שפלים ולהחיות לב נדכאים",
+  "lxx": "τάδε λέγει κύριος ὁ ὕψιστος ὁ ἐν ὑψηλοῖς κατοικῶν τὸν αἰῶνα ἅγιος ἐν ἁγίοις ὄνομα αὐτῷ κύριος ὕψιστος ἐν ἁγίοις ἀναπαυόμενος καὶ ὀλιγοψύχοις διδοὺς μακροθυμίαν καὶ διδοὺς ζωὴν τοῖς συντετριμμένοις τὴν καρδίαν"
+ },
+ "textos_fuente": "getbible.net (dominio público), Isaías 57:15, consultado el 14-10-2026"
+}

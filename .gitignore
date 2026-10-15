@@ -14,3 +14,14 @@
 *.fdb_latexmk
 *.synctex.gz
 .DS_Store
+
+/.quarto/
+**/*.quarto_ipynb
+
+# Sitio generado (lo construye GitHub Actions)
+/_site/
+/.atributos-cache/
+# Páginas, PDF y figuras de la serie: se generan desde los .tex (scripts/atributos.py)
+/atributos/
+# PDF compilados junto a los .tex
+/estudios/atributos-de-dios/**/*.pdf
