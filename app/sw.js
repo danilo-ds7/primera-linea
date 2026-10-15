@@ -1,6 +1,6 @@
 // Guarda la app y los estudios para usarlos sin conexión.
 // Al publicar cambios, sube la versión (lector-v2 → lector-v3) para que los celulares descarguen lo nuevo.
-var CACHE = "lector-v3";
+var CACHE = "lector-v4";
 var BASE = ["./", "index.html", "manifest.webmanifest", "estudios/index.json", "comparaciones/notas.json",
   "iconos/icono-192.png", "iconos/apple-touch-icon.png", "iconos/favicon-32.png"];
 

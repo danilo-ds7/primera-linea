@@ -313,6 +313,21 @@ main,.sec,.search,.hero,.lineas,.linea{grid-template-columns:minmax(0,1fr)}
 .lx-ln .o.grc{font-family:var(--grk)}
 .lx-ln small{color:var(--accent);font-weight:700;font-size:.72rem}
 .lx-def{color:var(--ink)}
+/* Raíz al estilo BDB: la raíz encabeza y debajo va su familia */
+.rz{border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:var(--bg);display:grid;gap:8px}
+.rz-h{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
+.rz-tri{font:600 1.7rem/1.2 var(--heb);color:var(--gold);letter-spacing:.04em}
+.rz-tri.grc{font-family:var(--grk);font-size:1.4rem;letter-spacing:0}
+.rz-g{margin:0;color:var(--muted);font-size:.92rem}
+.rz-fam{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.rz-fam li{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;font-size:.9rem;color:var(--muted)}
+.rz-fam li.yo .lx-ln{border-color:var(--accent);background:var(--accent-soft)}
+.rz-fam details summary{cursor:pointer;color:var(--accent);font-weight:700;font-size:.85rem}
+.word .rz-mini{border-top:1px solid var(--line);margin-top:6px;padding-top:8px;display:grid;gap:3px;font-size:.85rem;color:var(--muted)}
+.word .rz-mini b{color:var(--ink)}
+.word .rz-mini .rz-tri{font-size:1.25rem}
+.word .rz-mini .rzf{font-family:var(--heb);font-size:1rem;color:var(--ink)}
+.word .rz-mini .rzf.grc{font-family:var(--grk)}
 .lx details{font-size:.85rem}
 .lx details summary{cursor:pointer;color:var(--muted)}
 .lx-volver{all:unset;cursor:pointer;color:var(--accent);font-weight:700;font-size:.85rem}
@@ -858,6 +873,34 @@ body.cmp-view main{padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
 
 
 
+  // Lectura filológica del estudio: raíz y familia de cada palabra, tomadas de Strong (no de la guía).
+  var LEMAS={};
+  function claveLema(l, he){ return he ? (l||"").replace(/[^א-ת]/g,"") : norm(l).replace(/[^a-zα-ω]/g,""); }
+  function porLema(pref, L){
+    if(!LEMAS[pref]){ var m={}; Object.keys(L).forEach(function(s){ var k=claveLema(L[s].l, pref==="H"); if(k && !m[k]) m[k]=s; }); LEMAS[pref]=m; }
+    return LEMAS[pref];
+  }
+  function raizEnEstudio(c, x, d){
+    var he=isHeb(x.original), pref=he?"H":"G";
+    lexico(pref).then(function(L){
+      var s=(x.strong||"").toUpperCase().replace(/[^HG0-9]/g,"");
+      if(!L[s] || s[0]!==pref) s=porLema(pref, L)[claveLema(x.original, he)]||"";
+      var raiz=s && raizDe(s, L); if(!raiz) return;
+      var R=L[raiz], box=el("div","rz-mini"), h=el("div");
+      h.append(el("b",null,(he?"Raíz ":"Palabra base ")));
+      var t=el("span","rz-tri"+(he?"":" grc"), he?raizTri(R.l):R.l); t.lang=pref==="H"?"he":"grc"; if(he) t.dir="rtl";
+      h.append(t, document.createTextNode(" · "+(R.x||"")+" · "+raiz+(s!==raiz?" (esta palabra: "+s+")":"")));
+      box.append(h);
+      var fam=(R.fz||[]).filter(function(y){ return y!==s; });
+      if(fam.length){
+        var f=el("div"); f.append(el("b",null,"Familia: "));
+        var fs=el("span","rzf"+(he?"":" grc"), fam.slice(0,6).map(function(y){ return L[y].l; }).join(" · ")); fs.lang=t.lang; f.append(fs);
+        if(fam.length>6) f.append(document.createTextNode(" y "+(fam.length-6)+" más"));
+        box.append(f);
+      }
+      c.append(box);
+    });
+  }
   function renderPanel(){
     var d=state.data, k=state.tab, p=$("panel"), s=(d[k]||{});
     p.textContent=""; p.setAttribute("aria-labelledby","t-"+k);
@@ -883,6 +926,7 @@ body.cmp-view main{padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
           var c=el("div","word");
           var o=el("span","o "+(isHeb(x.original)?"heb":"grc"), x.original||""); o.lang=isHeb(x.original)?"he":"grc";
           c.append(o, el("span","t",x.transliteracion||""), el("span","m",x.significado||""), el("span","n",x.nota||""));
+          raizEnEstudio(c, x, d);
           w.append(c);
         });
         p.append(w);
@@ -1062,11 +1106,12 @@ body.cmp-view main{padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
     historico: function(){ return [
       "Haz SOLO la lectura histórica: autor, fecha, destinatarios, contexto del libro y entorno sociocultural del pasaje.",
       '{"historico":{"resumen":"2-3 oraciones","puntos":["3 o 4 puntos"]},'+COLA ]; },
-    filologico: function(orig){ return [
+    filologico: function(orig, toks){ return [
       "Haz SOLO la lectura filológica: las palabras clave en el idioma original, su significado y su uso en otros pasajes. Evita la falacia de la raíz: la etimología no fija el sentido en el pasaje.",
       orig ? "Texto original: «"+orig+"». Da su transliteración completa en original.transliteracion." : "No hay texto original disponible: deja original.transliteracion vacío.",
+      toks && toks.length ? "Palabras del versículo con su número Strong: "+toks.map(function(t){ return t[0].replace(/[\s׀]+$/,"")+"="+t[1]; }).join(", ")+". En 'strong' copia el número de la palabra tal como aparece en esta lista (no inventes otro). La raíz y su familia las agrega la app desde Strong, al estilo de BDB; en 'nota' puedes comentar cómo la familia de la raíz ilumina el sentido, sin forzarlo." : "",
       "Entre 3 y 5 palabras.",
-      '{"original":{"transliteracion":"..."},"filologico":{"resumen":"1-2 oraciones","palabras":[{"original":"...","transliteracion":"...","significado":"...","nota":"uso en otros pasajes"}]},'+COLA ]; },
+      '{"original":{"transliteracion":"..."},"filologico":{"resumen":"1-2 oraciones","palabras":[{"original":"...","strong":"H0000 o G0000","transliteracion":"...","significado":"...","nota":"uso en otros pasajes"}]},'+COLA ]; },
     teologico: function(){ return [
       "Haz SOLO la lectura teológica: su objetivo es identificar cuál es el atributo de Dios revelado en el pasaje y mostrar su coherencia interna, (1) entre sus atributos (cómo ese atributo se armoniza con los demás) y (2) en toda la Biblia (el mismo atributo revelado en otros pasajes de ambos Testamentos). Si hay una supuesta contradicción, explica cómo la Escritura la armoniza.",
       "Entre 4 y 5 pasajes en coherencia_biblica, de ambos Testamentos.",
@@ -1090,7 +1135,7 @@ body.cmp-view main{padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
   // Estudios generados que ya se completaron: se guardan en este navegador para abrirlos al instante
   function claveGuardada(r){ return "lector-estudio:"+libroNr(r)+":"+r.cap+":"+r.ver; }
   function leerGuardado(r){ try{ var t=localStorage.getItem(claveGuardada(r)); return t?JSON.parse(t):null; }catch(e){ return null; } }
-  function guardar(r, d){ try{ var c=Object.assign({},d); delete c._pend; delete c._err; localStorage.setItem(claveGuardada(r), JSON.stringify(c)); }catch(e){} }
+  function guardar(r, d){ try{ var c=Object.assign({},d); delete c._pend; delete c._err; delete c._toks; localStorage.setItem(claveGuardada(r), JSON.stringify(c)); }catch(e){} }
 
   // Pasajes paralelos del Treasury of Scripture Knowledge, con su texto en Reina-Valera 1909
   function paralelosLocales(r){
@@ -1116,7 +1161,7 @@ body.cmp-view main{padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
     var c=new AbortController(); vivos.push(c);
     d._pend[k]=true; delete d._err[k];
     var orig = d.original && d.original.texto || "";
-    var p = comun(d.referencia, d.texto)+"\n"+PEDIDOS[k](orig).join("\n");
+    var p = comun(d.referencia, d.texto)+"\n"+PEDIDOS[k](orig, d._toks).filter(Boolean).join("\n");
     return sample.json(p, { signal:c.signal, cache:{gcTime:86400000} }).then(function(res){
       if(!res || typeof res!=="object" || !res[k]) throw {code:"invalid_json"};
       d[k]=res[k];
@@ -1150,7 +1195,8 @@ body.cmp-view main{padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
     status(true," Abriendo "+r.libro+" "+r.cap+":"+r.ver+"…");
     var texto=await versiculo("valera", r).catch(function(){ return ""; });
     var orig=await versiculo(esAT(r)?"codex":"sbl", r).catch(function(){ return ""; });
-    var d={ referencia:r.libro+" "+r.cap+":"+r.ver, version:"Reina-Valera 1909", texto:texto,
+    var toks=await tokensDe(esAT(r)?"codex":"sbl", r).catch(function(){ return null; });
+    var d={ _toks:toks||null, referencia:r.libro+" "+r.cap+":"+r.ver, version:"Reina-Valera 1909", texto:texto,
             original: orig ? {texto:orig, transliteracion:""} : null,
             paralelos:[], referencias:[], _pend:{}, _err:{}, _notas:[],
             _notaBase:"Pasajes paralelos: Treasury of Scripture Knowledge (dominio público)." };
@@ -1424,6 +1470,37 @@ body.cmp-view main{padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
     }
     return cad;
   }
+  // Raíz al estilo BDB (calculada con scripts/raices.py desde la derivación de Strong):
+  // rz = raíz a la que llega la palabra; fz = familia completa en la entrada de la raíz.
+  function raizDe(s, L){ var e=L[s]; if(!e) return null; return e.rz || (e.fz ? s : null); }
+  function raizTri(l){ return (l||"").replace(/[^א-ת]/g,"").split("").join("־"); }
+  var VACIAS=["no","mas","más","porque","así","pero","han","y","e","de","que","la","el","los","las","en","a","se","con","por","para","su","sus","lo","le","les","del","al","como","o","ni","un","una","este","esta","es","fue"];
+  function glosa(e, n){ return e && e.es ? e.es.filter(function(x){ return VACIAS.indexOf(x)<0; }).slice(0,n||3).join(", ") : ""; }
+  function bloqueRaiz(s, L){
+    var raiz=raizDe(s, L); if(!raiz) return null;
+    var R=L[raiz], he=s[0]==="H", fam=(R.fz||[]);
+    var box=el("div","rz"), h=el("div","rz-h");
+    h.append(el("span","lx-k", he?"Raíz:":"Palabra base:"));
+    var t=el("span","rz-tri"+(he?"":" grc"), he?raizTri(R.l):(R.l||raiz)); t.lang=he?"he":"grc"; if(he) t.dir="rtl";
+    h.append(t, chipLex(raiz, R));
+    if(R.rel==="prim") h.append(el("span","sep", he?"raíz primitiva":"palabra primaria"));
+    box.append(h);
+    var g=glosa(R,4); if(g) box.append(el("p","rz-g","Reina-Valera traduce la raíz: "+g+"."));
+    if(fam.length){
+      box.append(el("span","lx-k","Familia de la raíz ("+fam.length+(fam.length===1?" palabra":" palabras")+"):"));
+      var ul=el("ul","rz-fam");
+      function item(x){ var li=el("li", x===s?"yo":null); li.append(chipLex(x, L[x])); var gx=glosa(L[x],3); if(gx) li.append(document.createTextNode(gx)); return li; }
+      fam.slice(0,12).forEach(function(x){ ul.append(item(x)); });
+      if(fam.length>12){
+        var li=el("li"), det=el("details"), sm=el("summary",null,"Ver las "+(fam.length-12)+" restantes"), ul2=el("ul","rz-fam");
+        fam.slice(12).forEach(function(x){ ul2.append(item(x)); });
+        det.append(sm, ul2); li.append(det); ul.append(li);
+      }
+      box.append(ul);
+    }
+    box.append(el("small",null,"Método de BDB: la raíz encabeza y debajo se agrupan las palabras que derivan de ella, según la derivación de Strong."));
+    return box;
+  }
   function verEntrada(s){
     var cc=state.cmp; if(!cc) return;
     entrada(s).then(function(e){
@@ -1468,14 +1545,17 @@ body.cmp-view main{padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
         var ult=L[cad[cad.length-1]]; if(ult && ult.rel==="prim") c.append(el("span","sep","(raíz primitiva)"));
         cuerpo.append(c);
       }
-      // Familia: palabras de la misma raíz
-      var raiz=cad.length ? cad[cad.length-1] : w.s, fam=((L[raiz]||{}).h||[]).filter(function(x){ return x!==w.s; });
-      if(raiz!==w.s) fam=[raiz].concat(fam.filter(function(x){ return x!==raiz; }));
-      if(fam.length){
-        var fm=el("div","lx-raiz"); fm.append(el("span","lx-k","Familia de la raíz: "));
-        fam.slice(0,12).forEach(function(x){ fm.append(chipLex(x, L[x])); });
-        if(fam.length>12) fm.append(el("span","sep","y "+(fam.length-12)+" más"));
-        cuerpo.append(fm);
+      // Raíz y familia completa, al estilo BDB
+      var br=bloqueRaiz(w.s, L);
+      if(br){ cuerpo.append(br); }
+      else {
+        var fam=((L[w.s]||{}).h||[]);
+        if(fam.length){
+          var fm=el("div","lx-raiz"); fm.append(el("span","lx-k","Palabras que derivan de esta: "));
+          fam.slice(0,12).forEach(function(x){ fm.append(chipLex(x, L[x])); });
+          if(fam.length>12) fm.append(el("span","sep","y "+(fam.length-12)+" más"));
+          cuerpo.append(fm);
+        }
       }
       // Definición de Strong
       if(e.df){
