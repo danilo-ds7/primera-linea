@@ -205,8 +205,8 @@ El lugar de Israel en el plan de Dios: las promesas hechas a los patriarcas y la
 </div>
 </article>
 <article class="card">
-<div class="art photo">
-<img src="images/lineas/festividades.jpg" alt="Camino que serpentea por el desierto de Judea" loading="lazy">
+<div class="art photo festiv">
+<img src="images/lineas/festividades.jpg" alt="Biblia abierta en Juan 14:6" loading="lazy">
 </div>
 <div class="txt">
 [Calendario bíblico]{.label}
@@ -222,8 +222,8 @@ Las fiestas de Levítico 23, de Pésaj a Sukkot: su sentido en Israel y cómo ap
 
 <div class="bonus-wrap">
 <article class="card bonus">
-<div class="art photo pablo">
-<img src="images/lineas/pablo.jpg" alt="Biblia abierta en Juan 14:6" loading="lazy">
+<div class="art photo">
+<img src="images/lineas/pablo.jpg" alt="Camino que serpentea por el desierto de Judea" loading="lazy">
 </div>
 <div class="txt">
 [Bonus · Epístolas]{.label}
