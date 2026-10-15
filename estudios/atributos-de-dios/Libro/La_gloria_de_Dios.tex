@@ -1,0 +1,76 @@
+\input{preambulo}
+\begin{document}
+\frontmatter
+\pagestyle{empty}
+% ---------------- Portada ----------------
+\begin{titlepage}
+\begin{tikzpicture}[remember picture,overlay]
+ \fill[azulo] (current page.north west) rectangle ([yshift=-11cm]current page.north east);
+ \fill[azulp] ([yshift=-11cm]current page.north west) rectangle ([yshift=-11.35cm]current page.north east);
+ \node[anchor=north west,text=white,font=\fontsize{40}{46}\selectfont\bfseries,align=left] at ([xshift=2.5cm,yshift=-3.6cm]current page.north west) {La gloria de Dios};
+ \node[anchor=north west,text=celeste!60!white,font=\LARGE,align=left] at ([xshift=2.5cm,yshift=-5.6cm]current page.north west) {Conocer a Dios en sus atributos};
+ \node[anchor=north east,text=celeste!70!white,font=\Huge] at ([xshift=-2.5cm,yshift=-7.8cm]current page.north east) {\hebl{הַשְׂכֵּל וְיָדֹעַ אוֹתִי}};
+ \node[anchor=north west,text=azulo,font=\large\itshape,text width=15cm,align=left] at ([xshift=2.5cm,yshift=-13.5cm]current page.north west)
+   {“Mas alábese en esto el que se hubiere de alabar: en entenderme y conocerme…”};
+ \node[anchor=north west,text=azulp,font=\normalsize\bfseries] at ([xshift=2.5cm,yshift=-15.3cm]current page.north west) {Jeremías 9:24};
+ \node[anchor=south west,text=grisaz,font=\normalsize,text width=15cm,align=left] at ([xshift=2.5cm,yshift=3cm]current page.south west)
+   {Una lectura hebrea, paulina y expositiva de los atributos de Dios,\\ con el apoyo de A.\,W. Pink, \emph{Los atributos de Dios}.};
+\end{tikzpicture}
+\end{titlepage}
+% ---------------- Convenciones ----------------
+\chapter*{Nota sobre el texto}
+\begin{itemize}
+\item \textbf{Citas bíblicas.} Se transcriben textualmente de la Reina-Valera 1960 y aparecen en cuadros. Donde esa versión dice “Jehová”, aquí se escribe \SENOR{}, que traduce el Nombre divino YHWH, tal como la lectura judía lo pronuncia: \emph{Adonay}, “Señor”.
+\item \textbf{Obra de apoyo.} A. W. Pink, \emph{Los atributos de Dios} (Chapel Library, 2020), se cita con autor, año y página.
+\item \textbf{Interpretaciones.} Lo que es lectura tradicional, tipológica o propia de este libro se señala como \emph{precisión}.
+\end{itemize}
+\tableofcontents
+\mainmatter
+\pagestyle{fancy}
+% ---------------- Capítulos ----------------
+\chapter*{Introducción}\addcontentsline{toc}{chapter}{Introducción}\markboth{Introducción}{}
+\setcounter{section}{0}\renewcommand{\thesection}{\arabic{section}}
+\input{capitulos/00_introduccion}
+\renewcommand{\thesection}{\thechapter.\arabic{section}}
+% ===== Parte I. Ser (Uno · Amor · Espíritu) =====
+% \part{Ser}
+% \chapter{...}\input{capitulos/01_uno}
+% \chapter{...}\input{capitulos/02_amor}
+% \chapter{...}\input{capitulos/03_espiritu}
+% ===== Parte II. Identidad =====
+\setcounter{part}{1}
+\part{Identidad}
+\chapter[Santo]{Santo, santo, santo}
+\input{capitulos/04_santo}
+% \chapter{...}\input{capitulos/05_eterno}  ...
+% ===== Parte III. Relación (Sabiduría · Verdadero · Misericordioso · Fiel · Celo · Ira santa · Bondad · Paciencia · Gracia) =====
+\part{Relación}
+% \chapter{...}\input{capitulos/12_sabiduria} ... 16_celo
+\chapter[Ira santa]{La ira santa de Dios}
+\input{capitulos/17_ira}
+% ===== Conclusión =====
+\backmatter
+\chapter*{Referencias}\addcontentsline{toc}{chapter}{Referencias}\markboth{Referencias}{}
+\refapa{Bauer, W., Danker, F.~W., Arndt, W.~F., \& Gingrich, F.~W. (2000). \emph{A Greek-English lexicon of the New Testament and other early Christian literature} (3.ª ed.). University of Chicago Press.}
+\refapa{Berkhof, L. (1938). \emph{Systematic theology}. Eerdmans.}
+\refapa{Berlin, A. (2002). \emph{Lamentations: A commentary}. Westminster John Knox Press.}
+\refapa{Charnock, S. (1996). \emph{The existence and attributes of God} (Vols. 1--2). Baker Books. (Obra original publicada en 1682)}
+\refapa{Dodd, C.~H. (1935). \emph{The Bible and the Greeks}. Hodder \& Stoughton.}
+\refapa{Dunn, J.~D.~G. (1998). \emph{The theology of Paul the apostle}. Eerdmans.}
+\refapa{Elliger, K., \& Rudolph, W. (Eds.). (1997). \emph{Biblia Hebraica Stuttgartensia} (5.ª ed.). Deutsche Bibelgesellschaft.}
+\refapa{Grudem, W. (2007). \emph{Teología sistemática: Una introducción a la doctrina bíblica}. Editorial Vida.}
+\refapa{Hays, R.~B. (1989). \emph{Echoes of Scripture in the letters of Paul}. Yale University Press.}
+\refapa{Koehler, L., \& Baumgartner, W. (2001). \emph{The Hebrew and Aramaic lexicon of the Old Testament} (M.~E.~J. Richardson, Trad.; Ed. de estudio). Brill.}
+\refapa{Marshall, B. J., Armstrong, J. A., McGechie, D. B., \& Glancy, R. J. (1985). Attempt to fulfil Koch's postulates for pyloric \emph{Campylobacter}. \emph{Medical Journal of Australia, 142}(8), 436--439.}
+\refapa{Moo, D.~J. (1996). \emph{The epistle to the Romans}. Eerdmans.}
+\refapa{Morris, L. (1955). \emph{The apostolic preaching of the cross}. Tyndale Press.}
+\refapa{Nestle, E., \& Aland, K. (Eds.). (2012). \emph{Novum Testamentum Graece} (28.ª ed.). Deutsche Bibelgesellschaft.}
+\refapa{Oswalt, J.~N. (1986). \emph{The book of Isaiah: Chapters 1--39}. Eerdmans.}
+\refapa{Otto, R. (1980). \emph{Lo santo: Lo racional y lo irracional en la idea de Dios} (F. Vela, Trad.). Alianza Editorial. (Obra original publicada en 1917)}
+\refapa{Pink, A. W. (2020). \emph{Los atributos de Dios} (E. Rodríguez Cruz, Trad.). Chapel Library. (Obra original publicada en 1930)}
+\refapa{Rahlfs, A., \& Hanhart, R. (Eds.). (2006). \emph{Septuaginta} (Ed. rev.). Deutsche Bibelgesellschaft.}
+\refapa{Robertson, O.~P. (1990). \emph{The books of Nahum, Habakkuk, and Zephaniah}. Eerdmans.}
+\refapa{\emph{Santa Biblia: Reina-Valera 1960}. (1960). Sociedades Bíblicas en América Latina.}
+\refapa{Strong, J. (1890). \emph{The exhaustive concordance of the Bible}. Hunt \& Eaton.}
+\refapa{Trench, R.~C. (1880). \emph{Synonyms of the New Testament} (9.ª ed.). Macmillan.}
+\end{document}

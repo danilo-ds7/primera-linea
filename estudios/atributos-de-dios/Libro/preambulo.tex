@@ -1,0 +1,57 @@
+\documentclass[11pt,letterpaper,oneside,openany]{book}
+\usepackage{fontspec}
+\setmainfont{texgyrepagella}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
+\usepackage[bidi=default]{babel}
+\babelprovide[import,main]{spanish}
+\babelprovide[import]{hebrew}
+\babelprovide[import]{ancientgreek}
+\babelfont[hebrew]{rm}[Path=fonts/,BoldFont=NotoHebrewSerif-700.ttf]{NotoHebrewSerif-400.ttf}
+\babelfont[ancientgreek]{rm}[Path=fonts/]{GFSPorson.otf}
+\newcommand{\heb}[1]{\mbox{\foreignlanguage{hebrew}{#1}}}
+\newcommand{\hebl}[1]{\foreignlanguage{hebrew}{#1}}
+\newcommand{\grc}[1]{\foreignlanguage{ancientgreek}{#1}}
+\usepackage[margin=2.5cm,headheight=14pt]{geometry}
+\usepackage{microtype,ragged2e,booktabs,graphicx,xcolor,csquotes,array}
+\newcolumntype{P}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+\usepackage[hidelinks]{hyperref}\usepackage{xurl}\urlstyle{same}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}\usetikzlibrary{arrows.meta,positioning,calc,decorations.pathreplacing}
+\usepackage{titlesec,fancyhdr,caption}\usepackage[titles]{tocloft}
+\definecolor{azulp}{RGB}{21,67,124}\definecolor{azulo}{RGB}{11,31,58}
+\definecolor{celeste}{RGB}{86,148,214}\definecolor{azulcl}{RGB}{234,241,250}\definecolor{grisaz}{RGB}{84,101,124}
+\titleformat{\chapter}[display]{\normalfont\color{azulp}}{}{0pt}{\Huge\bfseries}[\vspace{4pt}{\color{celeste}\titlerule[1.2pt]}]
+\titlespacing*{\chapter}{0pt}{0pt}{24pt}
+\titleformat{\section}{\Large\bfseries\color{azulp}}{\thesection.}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{azulo}}{\thesubsection}{0.6em}{}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small\itshape\color{grisaz}\leftmark}\fancyhead[R]{\small\color{grisaz}\thepage}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}\renewcommand{\sectionmark}[1]{}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\parindent}{1.27cm}\linespread{1.15}
+\captionsetup{font=small,labelfont={bf,color=azulp}}
+\setlocalecaption{spanish}{table}{Tabla}
+\setlength{\emergencystretch}{2.5em}
+% --- Versos bíblicos: cuadro de un solo color (texto RVR1960 textual) ---
+\newtcolorbox{verso}[1]{enhanced,breakable,colback=azulcl,colframe=azulp,boxrule=0.9pt,arc=2pt,
+  left=10pt,right=10pt,top=6pt,bottom=6pt,before skip=10pt,after skip=6pt,fontupper=\itshape,
+  after upper={\par\hfill{\upshape\bfseries\small\textcolor{azulp}{(#1, RVR1960)}}}}
+% --- Apartado filológico (sin cuadro de color) ---
+\newenvironment{filologia}[1]{\par\smallskip\noindent{\small\bfseries\color{azulp}Apartado filológico}\enspace{\small\color{grisaz}#1}\par\nopagebreak\smallskip\small\noindent
+  \renewcommand{\arraystretch}{1.25}\begin{tabular}{@{}P{3.6cm} P{2.1cm} P{9.9cm}@{}}\toprule
+  \textbf{Término} & \textbf{Raíz} & \textbf{Sentido y comentario}\\\midrule}
+ {\bottomrule\end{tabular}\par\medskip}
+\newcommand{\precision}[1]{\par\smallskip{\small\color{grisaz}\textbf{Precisión.} #1}\par\smallskip}
+\newcommand{\refapa}[1]{\par\hangindent=1.27cm\hangafter=1\noindent #1\par\vspace{4pt}}
+\newcommand{\destacar}[1]{\textbf{\textcolor{azulp}{#1}}}
+
+\newcommand{\SENOR}{SEÑOR}
+
+% --- Añadidos para los capítulos de atributos (desde 04_Santo) ---
+\colorlet{azul}{azulp}\colorlet{azuloscuro}{azulo}\colorlet{gris}{grisaz}
+\definecolor{dorado}{RGB}{196,154,60}\definecolor{papiro}{RGB}{246,239,220}
+\newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+% Verso(s) hebreo(s) centrado(s) antes del cuadro RVR1960
+\newcommand{\hebverso}[1]{\par\smallskip{\centering\begin{otherlanguage}{hebrew}\large #1\end{otherlanguage}\par}\smallskip}
+% Apartado filológico en prosa (cuando no es una tabla término-raíz-sentido)
+\newenvironment{filologiatexto}[1]{\par\smallskip\noindent{\small\bfseries\color{azulp}Apartado filológico}\enspace{\small\color{grisaz}#1}\par\nopagebreak\smallskip\small\noindent\ignorespaces}{\par\medskip}
+\titleformat{\part}[display]{\centering\normalfont\color{azulp}}{\Large\bfseries\partname~\thepart}{12pt}{\Huge\bfseries}[\vspace{6pt}{\color{dorado}\titlerule[1.2pt]}]

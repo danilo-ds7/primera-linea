@@ -1,0 +1,66 @@
+\documentclass[hyperref={bookmarks=false},aspectratio=169]{beamer}
+\usepackage{hyperref,ragged2e,amsmath,amssymb,url,bm}
+\usepackage{graphicx,booktabs,array}
+\newcolumntype{P}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,shapes.geometric,decorations.pathreplacing,matrix}
+\usepackage{pgfplots}\pgfplotsset{compat=1.18}
+\graphicspath{{crops/}}
+\usetheme{Goettingen}
+\definecolor{azulp}{RGB}{16,42,86}
+\definecolor{azulo}{RGB}{8,20,45}
+\definecolor{celeste}{RGB}{201,160,48}
+\definecolor{azulcl}{RGB}{250,244,228}
+\definecolor{grisaz}{RGB}{60,70,92}
+\setbeamercolor{structure}{fg=azulp}
+\setbeamertemplate{sidebar canvas right}[vertical shading][top=azulp!92!black,bottom=azulo]
+\setbeamercolor{title in sidebar}{fg=celeste}
+\setbeamercolor{author in sidebar}{fg=azulcl}
+\setbeamercolor{section in sidebar}{fg=celeste}
+\setbeamercolor{section in sidebar shaded}{fg=azulcl!55!azulp}
+\setbeamercolor{subsection in sidebar}{fg=azulcl}
+\setbeamercolor{subsection in sidebar shaded}{fg=azulcl!55!azulp}
+\let\raggedright\justifying
+\setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth,height=\paperheight]{papiro_crema.jpg}}
+\setbeamercolor{normal text}{fg=azulo}
+\setbeamercolor{frametitle}{fg=azulp}
+\setbeamerfont{frametitle}{series=\bfseries}
+\setbeamertemplate{section in toc shaded}{\leavevmode{\color{grisaz!85!black}\inserttocsection}\par}
+\setbeamercolor{title}{fg=azulp}
+\setbeamercolor{subtitle}{fg=grisaz}
+\setbeamercolor{item projected}{bg=azulp,fg=azulcl}
+\setbeamertemplate{itemize item}{\small\textcolor{celeste!80!azulp}{$\blacktriangleright$}}
+\setbeamertemplate{navigation symbols}{}
+\usepackage[bidi=default]{babel}
+\babelprovide[import,main]{spanish}
+\babelprovide[import]{hebrew}
+\babelprovide[import]{ancientgreek}
+\babelfont[hebrew]{sf}[Path=fonts/, BoldFont=NotoHebrewSans-700.ttf]{NotoHebrewSans-400.ttf}
+\babelfont[hebrew]{rm}[Path=fonts/, BoldFont=NotoHebrewSans-700.ttf]{NotoHebrewSans-400.ttf}
+\babelfont[ancientgreek]{sf}[Path=fonts/]{GFSPorson.otf}
+\babelfont[ancientgreek]{rm}[Path=fonts/]{GFSPorson.otf}
+\newcommand{\heb}[1]{\mbox{\foreignlanguage{hebrew}{#1}}}
+\newcommand{\grc}[1]{\foreignlanguage{ancientgreek}{#1}}
+\usepackage[most]{tcolorbox}
+\newtcolorbox{cita}[1][]{enhanced, colback=azulcl, colframe=celeste,
+  boxrule=0pt, leftrule=2.5pt, arc=0pt, left=6pt, right=6pt, top=4pt, bottom=4pt,
+  before skip=4pt, after skip=6pt, fontupper=\small\itshape, #1}
+\newcommand{\fuente}[1]{\par\hfill{\upshape\bfseries\footnotesize\textcolor{azulp}{#1}}}
+\newcommand{\imagen}[3][0.80]{%
+  \centering\includegraphics[height=#1\textheight,width=\linewidth,keepaspectratio]{#2}\par\vspace{2pt}
+  {\fontsize{5}{6}\selectfont\color{grisaz}{\raggedleft\textit{Nota.} #3\par}}}
+\makeatletter
+\newcommand{\fotolado}[2]{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north east,inner sep=0pt] (foto) at ([xshift=-\beamer@sidebarwidth]current page.north east)
+      {\includegraphics[height=\paperheight]{#1}};
+  \end{tikzpicture}}
+\makeatother
+\newcommand{\refapa}[1]{\par\hangindent=1.2em\hangafter=1\noindent #1\par\vspace{3pt}}
+\usepackage{xurl}\urlstyle{same}
+\newcommand{\destacar}[1]{\textbf{\textcolor{azulp}{#1}}}
+\tikzset{caja/.style={draw=azulp,line width=0.8pt,fill=azulcl,fill opacity=0.88,text opacity=1,rounded corners=3pt,inner sep=5pt,font=\scriptsize}}
+
+\newcommand{\SENOR}{SEÑOR}
+\setbeamertemplate{frametitle}{\vspace*{3pt}{\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\insertframetitle}\par\vspace{1pt}{\color{celeste}\rule{2.4cm}{1.6pt}}}
+\setbeamertemplate{itemize item}{\small\textcolor{celeste}{$\blacktriangleright$}}

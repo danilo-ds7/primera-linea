@@ -1,0 +1,43 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage{fontspec}
+\setmainfont{texgyrepagella}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
+\usepackage[bidi=default]{babel}
+\babelprovide[import,main]{spanish}
+\babelprovide[import]{hebrew}
+\babelprovide[import]{ancientgreek}
+\babelfont[hebrew]{rm}[Path=fonts/,BoldFont=NotoHebrewSerif-700.ttf]{NotoHebrewSerif-400.ttf}
+\babelfont[ancientgreek]{rm}[Path=fonts/]{GFSPorson.otf}
+\newcommand{\heb}[1]{\mbox{\foreignlanguage{hebrew}{#1}}}
+\newcommand{\hebl}[1]{\foreignlanguage{hebrew}{#1}}
+\newcommand{\grc}[1]{\foreignlanguage{ancientgreek}{#1}}
+\usepackage[margin=2.5cm,headheight=14pt]{geometry}
+\usepackage{microtype,ragged2e,booktabs,graphicx,xcolor,csquotes,array}
+\newcolumntype{P}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+\usepackage[hidelinks]{hyperref}\usepackage{xurl}\urlstyle{same}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}\usetikzlibrary{arrows.meta,positioning,calc,decorations.pathreplacing}
+\usepackage{titlesec,fancyhdr,caption}
+\definecolor{tierraroja}{RGB}{122,40,18}\definecolor{caferojizo}{RGB}{58,18,8}
+\definecolor{mostaza}{RGB}{214,160,58}\definecolor{papiro}{RGB}{243,228,192}\definecolor{sepia}{RGB}{98,66,44}
+\titleformat{\section}{\Large\bfseries\color{tierraroja}}{\thesection.}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{caferojizo}}{\thesubsection}{0.6em}{}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small\itshape\color{sepia}\leftmark}\fancyhead[R]{\small\color{sepia}\thepage}
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\parindent}{1.27cm}\linespread{1.15}
+\captionsetup{font=small,labelfont={bf,color=tierraroja}}
+\setlocalecaption{spanish}{table}{Tabla}
+\setlength{\emergencystretch}{2.5em}
+% --- Versos bíblicos: cuadro de un solo color (texto RVR1960 textual) ---
+\newtcolorbox{verso}[1]{enhanced,breakable,colback=papiro,colframe=tierraroja,boxrule=0.9pt,arc=2pt,
+  left=10pt,right=10pt,top=6pt,bottom=6pt,before skip=10pt,after skip=6pt,fontupper=\itshape,
+  after upper={\par\hfill{\upshape\bfseries\small\textcolor{tierraroja}{(#1, RVR1960)}}}}
+% --- Apartado filológico (sin cuadro de color) ---
+\newenvironment{filologia}[1]{\par\smallskip\noindent{\small\bfseries\color{tierraroja}Apartado filológico}\enspace{\small\color{sepia}#1}\par\nopagebreak\smallskip\small\noindent
+  \renewcommand{\arraystretch}{1.25}\begin{tabular}{@{}P{3.6cm} P{2.1cm} P{9.9cm}@{}}\toprule
+  \textbf{Término} & \textbf{Raíz} & \textbf{Sentido y comentario}\\\midrule}
+ {\bottomrule\end{tabular}\par\medskip}
+\newcommand{\precision}[1]{\par\smallskip{\small\color{sepia}\textbf{Precisión.} #1}\par\smallskip}
+\newcommand{\refapa}[1]{\par\hangindent=1.27cm\hangafter=1\noindent #1\par\vspace{4pt}}
+\newcommand{\destacar}[1]{\textbf{\textcolor{tierraroja}{#1}}}

@@ -1,0 +1,803 @@
+\documentclass[hyperref={bookmarks=false},aspectratio=169]{beamer}
+\usepackage{hyperref,ragged2e,amsmath,amssymb,url,bm}
+\usepackage{graphicx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,shapes.geometric,decorations.pathreplacing,matrix}
+\graphicspath{{crops/}}
+\usetheme{Goettingen}
+% --- Paleta: azul profundo, dorado y papiro crema ---
+\definecolor{azul}{HTML}{15437C}
+\definecolor{azuloscuro}{HTML}{0B1F3A}
+\definecolor{celeste}{HTML}{5694D6}
+\definecolor{dorado}{RGB}{196,154,60}
+\definecolor{papiro}{RGB}{246,239,220}
+\definecolor{gris}{RGB}{70,78,96}
+\setbeamercolor{structure}{fg=azul}
+\setbeamertemplate{sidebar canvas right}[vertical shading][top=azul,bottom=azuloscuro]
+\setbeamercolor{title in sidebar}{fg=dorado}
+\setbeamercolor{author in sidebar}{fg=papiro}
+\setbeamercolor{section in sidebar}{fg=papiro}
+\setbeamercolor{section in sidebar shaded}{fg=dorado!70!papiro}
+\setbeamercolor{subsection in sidebar}{fg=papiro}
+\setbeamercolor{subsection in sidebar shaded}{fg=dorado!70!papiro}
+\let\raggedright\justifying
+\setlength{\RaggedRightRightskip}{0pt plus 1fil}
+\setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth,height=\paperheight]{papiro.jpg}}
+\setbeamercolor{normal text}{fg=black!88!azuloscuro}
+\setbeamercolor{frametitle}{fg=azul}
+\setbeamerfont{frametitle}{series=\bfseries}
+\setbeamertemplate{section in toc shaded}{\leavevmode{\color{gris}\inserttocsection}\par}
+\setbeamercolor{title}{fg=azul}
+\setbeamercolor{subtitle}{fg=gris}
+\setbeamercolor{item projected}{bg=azul,fg=papiro}
+\setbeamertemplate{itemize item}{\small\textcolor{dorado}{$\blacktriangleright$}}
+\setbeamertemplate{navigation symbols}{}
+% --- Español + hebreo + griego (XeLaTeX) ---
+\usepackage[bidi=default]{babel}
+\babelprovide[import,main]{spanish}
+\babelprovide[import]{hebrew}
+\babelprovide[import]{ancientgreek}
+\babelfont[hebrew]{sf}[Path=fonts/, BoldFont=NotoHebrewSans-700.ttf]{NotoHebrewSans-400.ttf}
+\babelfont[hebrew]{rm}[Path=fonts/, BoldFont=NotoHebrewSans-700.ttf]{NotoHebrewSans-400.ttf}
+\babelfont[ancientgreek]{sf}[Path=fonts/]{GFSPorson.otf}
+\babelfont[ancientgreek]{rm}[Path=fonts/]{GFSPorson.otf}
+\newcommand{\heb}[1]{\mbox{\foreignlanguage{hebrew}{#1}}}
+\newcommand{\grc}[1]{\foreignlanguage{ancientgreek}{#1}}
+\newcommand{\SENOR}{S{\fontsize{0.78em}{1em}\selectfont EÑOR}}
+% --- Citas (cuadro de un solo color), imágenes, referencias ---
+\usepackage[most]{tcolorbox}
+\newtcolorbox{cita}[1][]{enhanced, colback=azul!7!papiro, opacityback=0.85, colframe=azul,
+  boxrule=0pt, leftrule=2.5pt, arc=0pt, left=6pt, right=6pt, top=4pt, bottom=4pt,
+  before skip=4pt, after skip=6pt, fontupper=\small\itshape, #1}
+\newcommand{\fuente}[1]{\par\hfill{\upshape\bfseries\footnotesize\textcolor{azul}{#1}}}
+\makeatletter
+\newcommand{\fotolado}[2]{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north east,inner sep=0pt] (foto) at ([xshift=-\beamer@sidebarwidth]current page.north east)
+      {\includegraphics[height=\paperheight]{#1}};
+    \node[anchor=south east,inner sep=2pt,text=papiro,fill=azuloscuro,fill opacity=0.6,text opacity=1,
+      font=\fontsize{4.5}{5.5}\selectfont,align=right,text width=4.2cm] at ([xshift=-3pt,yshift=3pt]foto.south east)
+      {\textit{Nota.} #2};
+  \end{tikzpicture}}
+\makeatother
+\newcommand{\refapa}[1]{\par{\RaggedRight\hangindent=1.2em\hangafter=1\noindent #1\par}\vspace{3pt}}
+\usepackage{xurl}\urlstyle{same}
+\newcommand{\destacar}[1]{\textbf{\textcolor{azul}{#1}}}
+\newcommand{\precision}[1]{{\footnotesize\color{gris}\textbf{Precisión:} #1}}
+\tikzset{caja/.style={draw=azul,line width=0.8pt,fill=papiro,fill opacity=0.92,text opacity=1,rounded corners=3pt,inner sep=5pt,font=\scriptsize}}
+\title[La ira santa]{\bfseries{La ira santa de Dios}}
+\subtitle{``¿Quién permanecerá delante de su ira?'' (Nah 1:6)}
+\author{}\institute{}\date{}
+\titlegraphic{\includegraphics[width=0.80\linewidth,height=0.36\textheight,keepaspectratio]{portada.jpg}\\[-1pt]
+  {\fontsize{5}{6}\selectfont\color{gris}\textit{Nota.} Elaboración propia: Nah 1:3 en texto hebreo consonántico (BHS).}}
+\AtBeginSection[]{\begin{frame}\frametitle{Contenidos}\tableofcontents[currentsection]\end{frame}}
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}\frametitle{Contenidos}\tableofcontents\end{frame}
+
+% ------------------------------------------------------------------
+\section{Nahúm 1}
+
+\begin{frame}{Una verdad incómoda}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.52\textwidth}\small
+Desde Génesis hasta Apocalipsis la Biblia grita una verdad incómoda: \destacar{Dios es santo y reacciona contra el pecado}.
+\begin{itemize}
+\item La palabra ``ira'' aparece en la Biblia más de 600 veces.
+\item En la Septuaginta, solo la expresión ``la ira de Dios'' aparece 223 veces.
+\item Pink advierte que hay en la Escritura más referencias a la ira, el furor y la indignación de Dios que a su amor y ternura (Pink, 1930/2020).
+\end{itemize}
+\precision{las dos cifras vienen de tu documento; conviene verificarlas en e-Sword, porque cambian según la versión y según qué palabras se cuenten.}
+\end{column}
+\begin{column}{0.46\textwidth}
+\begin{cita}Dios es juez justo, Y Dios está airado contra el impío todos los días.\fuente{(Sal 7:11 [7:12], RVR1960)}\end{cita}
+\begin{center}\heb{וְאֵל זֹעֵם בְּכָל־יוֹם}\end{center}
+\scriptsize\heb{זֹעֵם} (\emph{zo'em}), de \heb{זעם}: ``estar indignado''. Es un participio: la indignación de Dios contra el mal no es un arrebato, sino una disposición constante.
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Nahúm y Nínive}
+\small Nahúm anuncia la caída de Nínive, capital de Asiria, el imperio que había destruido el reino del norte (2~R 17:6). Un siglo antes, Nínive se había arrepentido con Jonás.
+\par\medskip
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+ \draw[line width=1.6pt,azul,-{Latex[length=3mm]}] (0,0) -- (11.6,0);
+ \foreach \x/\t/\b/\r in {0.8/{Jonás}/{Nínive se arrepiente; Dios ``se arrepintió del mal''}/{Jon 3:10; 4:2},
+                          3.8/{Caída de Samaria}/{Asiria lleva cautivo a Israel}/{2 R 17:6 (722 a.\,e.\,c.)},
+                          6.8/{Nahúm}/{después de la caída de Tebas (No-amón)}/{Nah 3:8 (663 a.\,e.\,c.)},
+                          9.9/{Caída de Nínive}/{se cumple el anuncio}/{612 a.\,e.\,c.}}{
+  \fill[dorado] (\x,0) circle (4pt);
+  \node[above=5pt,font=\scriptsize\bfseries,text=azul] at (\x,0) {\t};
+  \node[below=6pt,text width=2.4cm,align=center] at (\x,0) {\b\\{\tiny\color{gris}(\r)}};}
+\end{tikzpicture}\par\medskip
+\RaggedRight Jonás se quejó citando la fórmula de Éx 34:6: ``sabía yo que tú eres Dios clemente y piadoso, tardo en enojarte'' (Jon 4:2). Nahúm repite la misma fórmula, pero la completa con Éx 34:7: ``tardo para la ira\ldots{} y no tendrá por inocente al culpable'' (Nah 1:3).
+\par\smallskip\precision{las fechas son las que aceptan la mayoría de los comentaristas (Robertson, 1990); Nahúm no fecha su libro.}
+\end{frame}
+
+\begin{frame}{Texto ancla: Nah 1:2--3}
+\begin{cita}\SENOR{} es Dios celoso y vengador; \SENOR{} es vengador y lleno de indignación; se venga de sus adversarios, y guarda enojo para sus enemigos. \SENOR{} es tardo para la ira y grande en poder, y no tendrá por inocente al culpable. \SENOR{} marcha en la tempestad y el torbellino, y las nubes son el polvo de sus pies.\fuente{(Nah 1:2--3, RVR1960)}\end{cita}
+\begin{center}
+\heb{אֵל קַנּוֹא וְנֹקֵם יְהוָה נֹקֵם יְהוָה וּבַעַל חֵמָה}\\[2pt]
+\heb{יְהוָה אֶרֶךְ אַפַּיִם וּגְדָל־כֹּחַ וְנַקֵּה לֹא יְנַקֶּה}
+\end{center}
+\footnotesize\textbf{Nota sobre el texto.} La RVR1960 escribe ``Jehová'' donde el hebreo tiene el tetragrama \heb{יהוה}; en esta serie se escribe \SENOR.
+\end{frame}
+
+\begin{frame}{Texto ancla: Nah 1:6--7}
+\fotolado{panel_nahum1.jpg}{Elaboración propia: Nah 1:6 en texto hebreo consonántico (BHS).}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.58\textwidth}
+\begin{cita}¿Quién permanecerá delante de su ira? ¿y quién quedará en pie en el ardor de su enojo? Su ira se derrama como fuego, y por él se hienden las peñas.\fuente{(Nah 1:6, RVR1960)}\end{cita}
+\begin{cita}\SENOR{} es bueno, fortaleza en el día de la angustia; y conoce a los que en él confían.\fuente{(Nah 1:7, RVR1960)}\end{cita}
+\small El mismo poema que muestra la ira muestra la bondad. Las dos preguntas del v.~6 no tienen respuesta humana; el v.~7 da la única salida: refugiarse en él.
+\end{column}
+\begin{column}{0.40\textwidth}\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Filología de Nah 1:2--3}
+\renewcommand{\arraystretch}{1.2}\scriptsize
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.9cm}>{\RaggedRight\arraybackslash}p{1.3cm}>{\RaggedRight\arraybackslash}p{7.5cm}@{}}
+\toprule
+\textbf{Término} & \textbf{Raíz} & \textbf{Sentido} \\ \midrule
+\heb{קַנּוֹא} \emph{qanno} & \heb{קנא} & ``celoso'': el celo del esposo que no tolera rival (Éx 20:5). La ira nace del celo por lo que es suyo. \\
+\heb{נֹקֵם} \emph{noqem} & \heb{נקם} & ``vengador'', tres veces en el v.~2. No es revancha personal: es la reparación que el juez debe a la justicia (Dt 32:35). \\
+\heb{בַּעַל חֵמָה} \emph{ba'al jemá} & \heb{יחם} & literalmente ``señor de furor'' (RVR1960: ``lleno de indignación''). \emph{Jemá} es calor, ardor. \\
+\heb{נוֹטֵר} \emph{noter} & \heb{נטר} & ``guarda'' (enojo): lo mantiene en reserva; no lo descarga de inmediato. \\
+\heb{אֶרֶךְ אַפַּיִם} \emph{érej appáyim} & \heb{ארך}, \heb{אנף} & ``largo de narices'': lento para la ira. Es la fórmula de Éx 34:6. \\
+\heb{וְנַקֵּה לֹא יְנַקֶּה} \emph{venaqqé lo yenaqqé} & \heb{נקה} & ``y absolver, no absolverá'': el infinitivo absoluto refuerza la negación. Cita Éx 34:7. \\
+\bottomrule
+\end{tabular}\par\medskip
+\small\RaggedRight La paciencia de Dios (\emph{érej appáyim}) y su justicia (\emph{lo yenaqqé}) aparecen en el mismo verso. La ira de Dios es \destacar{lenta}, pero \destacar{no se anula}.
+\end{frame}
+
+\begin{frame}{Filología de Nah 1:6}
+\begin{center}\heb{לִפְנֵי זַעְמוֹ מִי יַעֲמוֹד וּמִי יָקוּם בַּחֲרוֹן אַפּוֹ}\\ \heb{חֲמָתוֹ נִתְּכָה כָאֵשׁ וְהַצֻּרִים נִתְּצוּ מִמֶּנּוּ}\end{center}
+\renewcommand{\arraystretch}{1.2}\scriptsize
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.6cm}>{\RaggedRight\arraybackslash}p{1.2cm}>{\RaggedRight\arraybackslash}p{7.9cm}@{}}
+\toprule
+\textbf{Término} & \textbf{Raíz} & \textbf{Sentido} \\ \midrule
+\heb{זַעַם} \emph{za'am} & \heb{זעם} & ``indignación'': la ira que denuncia y condena. \\
+\heb{חֲרוֹן אַף} \emph{jarón af} & \heb{חרה} & ``ardor de nariz'': la ira que se enciende. \\
+\heb{נִתְּכָה} \emph{nittejá} & \heb{נתך} & ``se derrama'', verbo usado para el metal fundido (Ez 22:20--22). \\
+\heb{מִי יַעֲמוֹד} \emph{mi ya'amod} & \heb{עמד} & ``¿quién permanecerá de pie?'': pregunta retórica; la respuesta es ``nadie''. \\
+\bottomrule
+\end{tabular}\par\medskip
+\centering
+\begin{tikzpicture}[font=\scriptsize,node distance=0.55cm]
+ \node[caja,text width=3.1cm,align=center] (a) {``¿Quién permanecerá delante de su ira?''\\ \emph{Nah 1:6}};
+ \node[caja,text width=3.1cm,align=center,right=of a] (b) {``¿quién podrá estar en pie cuando él se manifieste?''\\ \emph{Mal 3:2}};
+ \node[caja,text width=3.1cm,align=center,right=of b,draw=dorado,line width=1.2pt] (c) {``¿quién podrá sostenerse en pie?''\\ \emph{Ap 6:17}};
+ \draw[-{Latex[length=2.5mm]},dorado,line width=1.1pt](a)--(b); \draw[-{Latex[length=2.5mm]},dorado,line width=1.1pt](b)--(c);
+\end{tikzpicture}\par\smallskip
+\precision{Nah 1:2--8 forma un acróstico parcial (de \heb{א} a \heb{כ}), reconocido por los comentaristas (Robertson, 1990): el poema recorre el alfabeto como quien dice ``todo'' sobre la ira de Dios.}
+\end{frame}
+
+\begin{frame}{Bondad y severidad}
+\begin{cita}Mira, pues, la bondad y la severidad de Dios; la severidad ciertamente para con los que cayeron, pero la bondad para contigo, si permaneces en esa bondad; pues de otra manera tú también serás cortado.\fuente{(Ro 11:22, RVR1960)}\end{cita}
+\scriptsize\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.6cm}>{\RaggedRight\arraybackslash}p{4.6cm}>{\RaggedRight\arraybackslash}p{4.6cm}@{}}
+\toprule
+& \textbf{Severidad} & \textbf{Bondad} \\ \midrule
+Griego & \grc{ἀποτομία} \emph{apotomía}: de \grc{ἀποτέμνω}, ``cortar de raíz''; un corte tajante & \grc{χρηστότης} \emph{jrēstótēs}: benignidad, bondad que se hace útil al otro \\
+En Nahúm & ``guarda enojo para sus enemigos'' (1:2) & ``\SENOR{} es bueno, fortaleza en el día de la angustia'' (1:7) \\
+En Pablo & ``para con los que cayeron'' & ``para contigo, si permaneces'' \\
+\bottomrule
+\end{tabular}\par\medskip
+\small\RaggedRight Pablo, judío que lee a Israel en Cristo, pide mirar las dos caras a la vez. Separar la bondad de la severidad deforma a Dios.
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{La palabra}
+
+\begin{frame}{El vocabulario hebreo de la ira}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+ \node[draw=dorado,line width=2pt,fill=azul,text=papiro,circle,minimum size=2.1cm,align=center,font=\small\bfseries] (c) at (0,0) {IRA\\[-1pt]{\tiny de Dios}};
+ \foreach \ang/\h/\tr/\s/\r in {90/{אַף}/{af}/{nariz; ira que se enciende}/{Sal 95:11},
+   30/{חֵמָה}/{jemá}/{calor, furor}/{Nah 1:6},
+   -30/{חָרוֹן}/{jarón}/{ardor, incendio}/{Éx 15:7},
+   -90/{עֶבְרָה}/{evrá}/{furia que se desborda}/{Sof 1:15},
+   -150/{קֶצֶף}/{qétsef}/{enojo, indignación}/{Nm 16:46},
+   150/{זַעַם}/{za'am}/{indignación que condena}/{Nah 1:6}}{
+  \node[caja,text width=2.3cm,align=center] (n) at (\ang:2.75cm) {\heb{\h} \emph{\tr}\\ \s\\ {\tiny\color{gris}\r}};
+  \draw[dorado,line width=1.1pt] (c) -- (n);}
+\end{tikzpicture}\par\smallskip
+\small\RaggedRight El hebreo no tiene una sola palabra para la ira de Dios: tiene un campo entero, casi siempre con imágenes \destacar{físicas} (nariz, calor, fuego, desborde). Sentidos según Koehler y Baumgartner (2001).
+\end{frame}
+
+\begin{frame}{``Largo de narices''}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\begin{cita}\SENOR, tardo para la ira y grande en misericordia, que perdona la iniquidad y la rebelión, aunque de ningún modo tendrá por inocente al culpable; que visita la maldad de los padres sobre los hijos hasta los terceros y hasta los cuartos.\fuente{(Nm 14:18, RVR1960)}\end{cita}
+\begin{center}\heb{יְהוָה אֶרֶךְ אַפַּיִם וְרַב־חֶסֶד}\end{center}
+\end{column}
+\begin{column}{0.48\textwidth}\small
+\begin{itemize}
+\item \heb{אַף} (\emph{af}) es la nariz. Cuando alguien se enoja, la nariz resopla y se ``enciende'': \heb{וַיִּחַר אַף} (\emph{vayyíjar af}), ``se encendió la ira'' (Nm 12:9).
+\item \emph{Érej appáyim}, ``largo de narices'', describe al que tarda en encenderse.
+\item Moisés intercede citando a Dios mismo (Éx 34:6--7): pide perdón apelando a la paciencia, sin negar la justicia.
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Del hebreo a Pablo}
+\centering
+\begin{tikzpicture}[font=\scriptsize,node distance=0.7cm]
+ \node[caja,text width=3.1cm,align=center] (h) {\textbf{Hebreo}\\ \heb{אַף} \emph{af}, \heb{חָרוֹן} \emph{jarón}\\ \heb{חֵמָה} \emph{jemá}};
+ \node[caja,text width=3.1cm,align=center,right=of h] (l) {\textbf{Septuaginta (LXX)}\\ \grc{ὀργή} \emph{orgē}\\ \grc{θυμός} \emph{thymós}};
+ \node[caja,text width=3.1cm,align=center,right=of l] (p) {\textbf{Pablo}\\ \grc{ὀργή} (Ro 1:18; 5:9)\\ \grc{ὀργὴ καὶ θυμός} (Ro 2:8)};
+ \draw[-{Latex[length=2.5mm]},dorado,line width=1.2pt] (h)--(l);
+ \draw[-{Latex[length=2.5mm]},dorado,line width=1.2pt] (l)--(p);
+ \node[below=0.35cm of l,text width=11cm,align=center,font=\scriptsize\itshape,text=gris] {La LXX traduce el campo hebreo con \emph{orgē} y \emph{thymós}; Pablo hereda el vocabulario y casi siempre usa \emph{orgē}.};
+\end{tikzpicture}\par\medskip
+\scriptsize\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.4cm}>{\RaggedRight\arraybackslash}p{9.4cm}@{}}
+\toprule
+\grc{ὀργή} \emph{orgē} & ira como disposición firme y decidida; en Pablo, con frecuencia el juicio escatológico: ``la ira'' sin más (Ro 5:9; 1~Ts 1:10) (BDAG). \\
+\grc{θυμός} \emph{thymós} & el ardor, el estallido de la pasión; en Pablo aparece sobre todo en listas de vicios humanos (Gá 5:20). \\
+\bottomrule
+\end{tabular}\par\smallskip
+\precision{la distinción ``\emph{orgē} = estable / \emph{thymós} = estallido'' viene de Trench (1880); el uso real no es rígido y ambos aparecen juntos en Ro 2:8.}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Definición}
+
+\begin{frame}{Qué NO es la ira de Dios}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}\small
+\begin{itemize}
+\item No es pérdida de control ni explosión emocional (D.~A. Carson).
+\item No es caprichosa, impulsiva ni irracional.
+\item No es venganza humana ni temperamento explosivo.
+\item Es una reacción \destacar{decidida, voluntaria y justa} contra todo lo que deshonra a Dios y destruye su creación.
+\end{itemize}
+\end{column}
+\begin{column}{0.48\textwidth}
+\begin{cita}Por esto, mis amados hermanos, todo hombre sea pronto para oír, tardo para hablar, tardo para airarse; porque la ira del hombre no obra la justicia de Dios.\fuente{(Stg 1:19--20, RVR1960)}\end{cita}
+\scriptsize\grc{ὀργὴ γὰρ ἀνδρὸς δικαιοσύνην θεοῦ οὐκ ἐργάζεται}. La ira humana (\grc{ὀργὴ ἀνδρός}) no produce la justicia de Dios; la ira de Dios, en cambio, \emph{es} su justicia en acción.
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Qué SÍ es la ira de Dios}
+\begin{tcolorbox}[colback=papiro,colframe=azul,boxrule=1pt,arc=3pt,fonttitle=\bfseries\small,title=Definición]
+\small La ira de Dios es la respuesta \destacar{santa, justa y deliberada} de Dios ante el pecado. Surge de su santidad y de su justicia ofendidas, es continua y a la vez futura, y no niega su amor ni su misericordia.
+\end{tcolorbox}
+\scriptsize\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.4cm}>{\RaggedRight\arraybackslash}p{5.6cm}>{\RaggedRight\arraybackslash}p{3.6cm}@{}}
+\toprule
+\textbf{Rasgo} & \textbf{Qué afirma} & \textbf{Textos} \\ \midrule
+Santa & nace de su santidad, no de un temperamento & Is 6:3; Hab 1:13 \\
+Justa & da a cada uno lo que corresponde & Gn 18:25; Ro 2:5--6 \\
+Presente & ``se revela'' (en presente) & Ro 1:18 \\
+Futura & ``el día de la ira'' & Ro 2:5; Ap 6:17 \\
+Lenta & tarda en encenderse & Nah 1:3; Nm 14:18 \\
+\bottomrule
+\end{tabular}\par\smallskip
+\begin{center}\footnotesize
+\begin{tabular}{ll}
+\textbf{Clasificación:} & Relación con el ser humano (¿cómo se revela?)\\
+\textbf{Tipo:} & incomunicable como juicio (Ro 12:19); reflejo limitado en el creyente (Ef 4:26)\\
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}{¿Perfección o reacción?}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.48\textwidth}\small
+\begin{itemize}
+\item Tu documento la llama \destacar{atributo secundario}: no es parte esencial de su ser como el amor o la santidad, sino una respuesta santa y justa al pecado.
+\item Pink la llama \destacar{perfección divina}, tanto como su fidelidad, su poder o su misericordia (Pink, 1930/2020).
+\item Las dos ideas se concilian: lo eterno es la santidad y la justicia; la ira es esa misma perfección cuando encuentra el pecado.
+\end{itemize}
+\end{column}
+\begin{column}{0.50\textwidth}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+ \node[caja,text width=1.5cm,align=center] (s) at (-2.05,1.4) {\textbf{Santidad}\\ eterna\\ \emph{Is 6:3}};
+ \node[caja,text width=1.5cm,align=center,fill=gris!18] (p) at (0,1.4) {\textbf{pecado}\\ del hombre\\ \emph{Ro 1:18}};
+ \node[caja,text width=1.5cm,align=center] (j) at (2.05,1.4) {\textbf{Justicia}\\ eterna\\ \emph{Dt 32:4}};
+ \node[draw=dorado,line width=1.6pt,fill=azul,text=papiro,rounded corners=3pt,text width=3.2cm,align=center,inner sep=5pt] (i) at (0,-0.9) {\textbf{IRA SANTA}\\ la santidad y la justicia frente al pecado};
+ \draw[-{Latex[length=2.5mm]},dorado,line width=1.1pt] (s)--(i);
+ \draw[-{Latex[length=2.5mm]},dorado,line width=1.1pt] (j)--(i);
+ \draw[-{Latex[length=2.5mm]},gris,line width=1.1pt] (p)--(i);
+\end{tikzpicture}\par\smallskip
+\precision{la conciliación es propia; la serie define todos los atributos como perfecciones eternas. Confírmame cómo quieres formularlo.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{La ira entre los atributos}
+\centering
+\begin{tikzpicture}
+ \foreach \x/\n/\t/\d/\r in {0/1/{Santidad}/{Separación absoluta del pecado y perfección moral.}/{Is 6:3},
+   3.1/2/{Justicia}/{Exige que el pecado sea castigado; no puede dejarlo impune.}/{Dt 32:4},
+   6.2/3/{Amor}/{Busca el bien del hombre aun cuando no lo merece.}/{1 Jn 4:8},
+   9.3/4/{Misericordia}/{Detiene el castigo y da tiempo para el arrepentimiento.}/{Sal 103:8}}{
+  \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][2.2cm][t]{2.5cm}{\RaggedRight
+    {\small\textbf{\textcolor{azul}{\t}}}\\[4pt]\scriptsize \d\par\vfill{\tiny\color{gris}(\r)}}};
+  \node[circle,fill=azul,text=papiro,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
+ \node[draw=dorado,line width=1.6pt,fill=azul,text=papiro,rounded corners=3pt,text width=6.4cm,align=center,inner sep=5pt,font=\scriptsize] (ira) at (4.65,-3.6) {\textbf{5. La ira de Dios}: respuesta santa y justa al pecado\\ ``Dios está airado contra el impío todos los días'' (Sal 7:11)};
+ \foreach \n in {1,2,3,4}\draw[-{Latex[length=2mm]},dorado,line width=0.9pt] (b\n.south) -- (ira.north);
+\end{tikzpicture}\par\medskip
+\small\RaggedRight La ira no compite con los demás atributos: la santidad la origina, la justicia la mide, y el amor y la misericordia la demoran y le abren una salida.
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Pink}
+
+\begin{frame}{Teología: la exposición de Pink}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.55\textwidth}\small
+Recorrido de Pink sobre la ira (Pink, 1930/2020):
+\begin{enumerate}
+\item Es una perfección del carácter divino, tan real como su fidelidad, su poder o su misericordia.
+\item La Escritura habla de ella más veces que de su amor y su ternura.
+\item Es el aborrecimiento eterno de Dios hacia toda injusticia; un Dios que no se airara contra el pecado no sería santo.
+\item Se ve en la ley, en la historia y, sobre todo, en la cruz.
+\item Meditarla sirve para tres cosas: ver la gravedad del pecado, temer a Dios con reverencia y agradecer la liberación (1~Ts 1:10).
+\end{enumerate}
+\end{column}
+\begin{column}{0.43\textwidth}
+\begin{cita}¿Quién conoce el poder de tu ira, Y tu indignación según que debes ser temido?\fuente{(Sal 90:11, RVR1960)}\end{cita}
+\begin{cita}y esperar de los cielos a su Hijo, al cual resucitó de los muertos, a Jesús, quien nos libra de la ira venidera.\fuente{(1~Ts 1:10, RVR1960)}\end{cita}
+\precision{resumo el recorrido de Pink con mis palabras; indícame el número de capítulo en tu edición de Chapel Library.}
+\end{column}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{En Israel}
+
+\begin{frame}{Hechos históricos de la ira de Dios}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+ \draw[line width=1.6pt,azul,-{Latex[length=3mm]}] (-0.3,0) -- (12.0,0);
+ \foreach \x/\t/\b/\r/\pos in {0.3/{Edén}/{expulsión de Adán y Eva}/{Gn 3}/above,
+   1.9/{Diluvio}/{tras siglos de paciencia}/{Gn 6--9}/below,
+   3.5/{Sodoma}/{``¿no ha de hacer lo que es justo?''}/{Gn 18--19}/above,
+   5.1/{Mar Rojo}/{``Enviaste tu ira''}/{Éx 15:6--7}/below,
+   6.7/{María; Coré}/{la ira contra los de casa}/{Nm 12; 16}/above,
+   8.3/{Desierto}/{la generación que no entró}/{Nm 32; Sal 95}/below,
+   10.0/{Jerusalén}/{``el día de su furor''}/{Lam 2 (587 a.\,e.\,c.)}/above}{
+  \fill[dorado] (\x,0) circle (4pt);
+  \node[\pos=7pt,text width=1.9cm,align=center] at (\x,0) {\textbf{\textcolor{azul}{\t}}\\ \b\\ {\tiny\color{gris}(\r)}};}
+\end{tikzpicture}\par\medskip
+\small\RaggedRight La ira de Dios en Israel no es una idea: tiene lugares, nombres y fechas. Y en casi todos los episodios aparece también un intercesor o un camino de escape.
+\end{frame}
+
+\begin{frame}{En el Mar Rojo}
+\begin{cita}Tu diestra, oh \SENOR, ha sido magnificada en poder; Tu diestra, oh \SENOR, ha quebrantado al enemigo. Y con la grandeza de tu poder has derribado a los que se levantaron contra ti. Enviaste tu ira; los consumió como a hojarasca.\fuente{(Éx 15:6--7, RVR1960)}\end{cita}
+\begin{center}\heb{תְּשַׁלַּח חֲרֹנְךָ יֹאכְלֵמוֹ כַּקַּשׁ}\end{center}
+\scriptsize\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.6cm}>{\RaggedRight\arraybackslash}p{1.2cm}>{\RaggedRight\arraybackslash}p{7.9cm}@{}}
+\toprule
+\heb{חֲרֹנְךָ} \emph{jaronja} & \heb{חרה} & ``tu ardor'' (RVR1960: ``tu ira''): la ira como fuego. \\
+\heb{תְּשַׁלַּח} \emph{teshallaj} & \heb{שׁלח} & ``envías'': la ira es un enviado de Dios, no un descontrol. \\
+\heb{קַשׁ} \emph{qash} & --- & ``hojarasca, paja'': lo que el fuego consume sin resistencia. \\
+\bottomrule
+\end{tabular}\par\medskip
+\small\RaggedRight Es el primer canto de Israel, y la ira de Dios aparece en él como \destacar{salvación}: la ira que destruye al opresor libra al oprimido.
+\end{frame}
+
+\begin{frame}{Contra los de casa}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.49\textwidth}
+\begin{cita}Entonces la ira de \SENOR{} se encendió contra ellos; y se fue.\fuente{(Nm 12:9, RVR1960)}\end{cita}
+\scriptsize María y Aarón murmuran contra Moisés. \heb{וַיִּחַר אַף יְהוָה בָּם} (\emph{vayyíjar af Adonay bam}): ``se encendió la nariz del \SENOR''.
+\begin{cita}Abrió la tierra su boca, y los tragó a ellos, a sus casas, a todos los hombres de Coré, y a todos sus bienes. Y ellos, con todo lo que tenían, descendieron vivos al Seol, y los cubrió la tierra, y perecieron de en medio de la congregación.\fuente{(Nm 16:32--33, RVR1960)}\end{cita}
+\end{column}
+\begin{column}{0.49\textwidth}
+\begin{cita}Porque es tiempo de que el juicio comience por la casa de Dios; y si primero comienza por nosotros, ¿cuál será el fin de aquellos que no obedecen al evangelio de Dios?\fuente{(1~P 4:17, RVR1960)}\end{cita}
+\scriptsize\grc{κρίμα} (\emph{krima}; Strong G2917): ``juicio'', la sentencia y su ejecución. Es el resultado de \grc{κρίνω}, ``juzgar''. Pedro aplica al pueblo de Dios lo que Israel vivió en el desierto: el juicio empieza por casa.\par\smallskip
+\precision{1~Pedro no es de Pablo; lo incluyo porque está en tu lista.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Un encuentro: Aarón}
+\fotolado{panel_numeros16.jpg}{Elaboración propia: Nm 17:13 (16:48 en la RVR1960) en texto hebreo consonántico (BHS).}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.58\textwidth}
+\begin{cita}Y dijo Moisés a Aarón: Toma el incensario, y pon en él fuego del altar, y sobre él pon incienso, y ve pronto a la congregación, y haz expiación por ellos, porque el furor ha salido de la presencia de \SENOR; la mortandad ha comenzado. Entonces tomó Aarón el incensario, como dijo Moisés, y corrió en medio de la congregación; y he aquí que la mortandad había comenzado en el pueblo; y él puso incienso, e hizo expiación por el pueblo, y se puso entre los muertos y los vivos; y cesó la mortandad.\fuente{(Nm 16:46--48 [17:11--13], RVR1960)}\end{cita}
+\scriptsize ``Al día siguiente'' (16:41) de la rebelión de Coré, todo el pueblo murmura. Dios dice: ``los consumiré en un momento'' (16:45).
+\end{column}
+\begin{column}{0.40\textwidth}\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Filología de Nm 16:46--48 [17:11--13]}
+\renewcommand{\arraystretch}{1.2}\scriptsize
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.9cm}>{\RaggedRight\arraybackslash}p{1.2cm}>{\RaggedRight\arraybackslash}p{7.6cm}@{}}
+\toprule
+\textbf{Término} & \textbf{Raíz} & \textbf{Sentido} \\ \midrule
+\heb{הַקֶּצֶף} \emph{haqqétsef} & \heb{קצף} & ``el furor'' que ``salió'' de la presencia del \SENOR: la ira casi personificada. \\
+\heb{הַנָּגֶף} \emph{hannégef} & \heb{נגף} & ``el golpe, la plaga'' (RVR1960: ``la mortandad''). \\
+\heb{וְכַפֵּר} \emph{vejapper} & \heb{כפר} & ``y haz expiación'': la misma raíz de \emph{Yom Kippur}. \\
+\heb{וַיַּעֲמֹד בֵּין} \emph{vayya'amod beyn} & \heb{עמד} & ``y se puso de pie entre'': el sacerdote ocupa el espacio entre la ira y el pueblo. \\
+\heb{וַתֵּעָצַר} \emph{vatte'atsar} & \heb{עצר} & ``y fue detenida'' la plaga. \\
+\bottomrule
+\end{tabular}\par\medskip
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+ \node[caja,text width=2.4cm,align=center,fill=gris!20] (m) at (0,0) {\textbf{los muertos}\\ 14\,700 (16:49)};
+ \node[draw=dorado,line width=1.6pt,fill=azul,text=papiro,rounded corners=3pt,text width=3.0cm,align=center,inner sep=5pt] (a) at (4.6,0) {\textbf{Aarón}\\ incensario con fuego del altar\\ ``hizo expiación''};
+ \node[caja,text width=2.4cm,align=center,fill=celeste!15] (v) at (9.2,0) {\textbf{los vivos}\\ ``cesó la mortandad''};
+ \draw[-{Latex[length=2.5mm]},gris,line width=1.2pt] (a)--node[above=2pt,font=\tiny,text width=1.2cm,align=center]{la ira avanza}(m);
+ \draw[{Bar[width=3mm]}-,dorado,line width=1.4pt] (a)--node[above=2pt,font=\tiny,text width=1.2cm,align=center]{se detiene}(v);
+\end{tikzpicture}\par\smallskip
+\precision{ver en Aarón una figura de Cristo, que se pone entre la ira y el pueblo, es una lectura tipológica propia; el texto de Números no la hace.}
+\end{frame}
+
+\begin{frame}{La generación que no entró}
+\begin{cita}Y la ira de \SENOR{} se encendió contra Israel, y los hizo andar errantes cuarenta años por el desierto, hasta que fue acabada toda aquella generación que había hecho mal delante de \SENOR. Y he aquí, vosotros habéis sucedido en lugar de vuestros padres, prole de hombres pecadores, para añadir aún a la ira de \SENOR{} contra Israel. Si os volviereis de en pos de él, él volverá otra vez a dejaros en el desierto, y destruiréis a todo este pueblo.\fuente{(Nm 32:13--15, RVR1960)}\end{cita}
+\scriptsize\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.0cm}>{\RaggedRight\arraybackslash}p{6.0cm}>{\RaggedRight\arraybackslash}p{3.7cm}@{}}
+\toprule
+\textbf{Texto} & \textbf{RVR1960} & \textbf{Hebreo} \\ \midrule
+Dt 1:34--35 & ``se enojó, y juró diciendo: No verá hombre alguno de estos, de esta mala generación, la buena tierra'' & \heb{וַיִּקְצֹף וַיִּשָּׁבַע} \emph{vayyiqtsof vayyishava}: ``se indignó y juró'' \\
+Sal 95:10--11 & ``Cuarenta años estuve disgustado con la nación\ldots{} Por tanto, juré en mi furor Que no entrarían en mi reposo.'' & \heb{נִשְׁבַּעְתִּי בְאַפִּי} \emph{nishbati ve'appi}: ``juré en mi nariz'' \\
+\bottomrule
+\end{tabular}\par\smallskip
+\small\RaggedRight Moisés habla a los hijos de esa generación: la ira de Dios es también una advertencia para los que vienen después.
+\end{frame}
+
+\begin{frame}{Sodoma: el Juez de toda la tierra}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.53\textwidth}
+\begin{cita}Lejos de ti el hacer tal, que hagas morir al justo con el impío, y que sea el justo tratado como el impío; nunca tal hagas. El Juez de toda la tierra, ¿no ha de hacer lo que es justo?\fuente{(Gn 18:25, RVR1960)}\end{cita}
+\begin{center}\heb{הֲשֹׁפֵט כָּל־הָאָרֶץ לֹא יַעֲשֶׂה מִשְׁפָּט}\end{center}
+\end{column}
+\begin{column}{0.45\textwidth}\small
+\begin{itemize}
+\item ``El clamor contra Sodoma y Gomorra se aumenta más y más'' (Gn 18:20): Dios no juzga sin examinar.
+\item Abraham intercede seis veces, de cincuenta a diez justos (Gn 18:24--32).
+\item ``No la destruiré, respondió, por amor a los diez'' (Gn 18:32).
+\end{itemize}
+\scriptsize\heb{שֹׁפֵט} \emph{shofet}, ``juez''; \heb{מִשְׁפָּט} \emph{mishpat}, ``juicio, derecho''. Las dos palabras vienen de la raíz \heb{שׁפט}: el Juez hará juicio.
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Lamentaciones: el día de su furor}
+\begin{cita}¡Cómo oscureció el Señor en su furor a la hija de Sion! Derribó del cielo a la tierra la hermosura de Israel, Y no se acordó del estrado de sus pies en el día de su furor.\fuente{(Lam 2:1, RVR1960)}\end{cita}
+\begin{cita}Quitó su tienda como enramada de huerto; Destruyó el lugar en donde se congregaban; \SENOR{} ha hecho olvidar las fiestas solemnes y los días de reposo en Sion, Y en el ardor de su ira ha desechado al rey y al sacerdote.\fuente{(Lam 2:6, RVR1960)}\end{cita}
+\scriptsize\heb{אֵיכָה יָעִיב בְּאַפּוֹ} (\emph{ejá ya'iv be'appó}): ``¡Cómo nubló en su ira!''. Lamentaciones 2 es un acróstico: cada verso comienza con una letra del alfabeto. El dolor se ordena de \heb{א} a \heb{ת}. La ira llega al templo, a las fiestas, al rey y al sacerdote: nada santo protege a quien vive sin el Santo.
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Yom Kipur}
+
+\begin{frame}{El Día de la Expiación}
+\begin{cita}A los diez días de este mes séptimo será el día de expiación; tendréis santa convocación, y afligiréis vuestras almas, y ofreceréis ofrenda encendida a \SENOR. Ningún trabajo haréis en este día; porque es día de expiación, para reconciliaros delante de \SENOR{} vuestro Dios. Porque toda persona que no se afligiere en este mismo día, será cortada de su pueblo.\fuente{(Lv 23:27--29, RVR1960)}\end{cita}
+\begin{cita}Porque en este día se hará expiación por vosotros, y seréis limpios de todos vuestros pecados delante de \SENOR.\fuente{(Lv 16:30, RVR1960)}\end{cita}
+\small Levítico 16: el sumo sacerdote entra una vez al año al Lugar Santísimo con sangre para cubrir el pecado del pueblo.
+\end{frame}
+
+\begin{frame}{Filología: expiar, afligirse, ser cortado}
+\renewcommand{\arraystretch}{1.22}\scriptsize
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.8cm}>{\RaggedRight\arraybackslash}p{1.2cm}>{\RaggedRight\arraybackslash}p{7.7cm}@{}}
+\toprule
+\textbf{Término} & \textbf{Raíz} & \textbf{Sentido} \\ \midrule
+\heb{כָּפַר} / \heb{כִּפֶּר} \emph{kafar} / \emph{kipper} & \heb{כפר} & ``cubrir, limpiar, purgar la culpa''. En \emph{Yom Kippur} la sangre rociada cubría el pecado y permitía la comunión con Dios. \\
+\heb{יוֹם הַכִּפֻּרִים} \emph{Yom hakkippurim} & \heb{כפר} & ``día de las expiaciones'' (Lv 23:27): el plural intensifica. \\
+\heb{כַּפֹּרֶת} \emph{kapporet} & \heb{כפר} & la tapa del arca, el propiciatorio, donde se rociaba la sangre (Lv 16:14). \\
+\heb{תְעֻנֶּה} \emph{te'unné} & \heb{ענה} & ``afligirse'': ayunar, humillarse, reconocer el pecado. \\
+\heb{וְנִכְרְתָה} \emph{venijretá} & \heb{כרת} & ``será cortada'': excluida de la comunidad del pacto y expuesta al juicio. \\
+\bottomrule
+\end{tabular}\par\medskip
+\small\RaggedRight
+\textbf{Sentido teológico.} Afligirse era la actitud que Dios exigía para recibir el beneficio de la expiación. Quien no se afligía despreciaba el sacrificio y la santidad de Dios. Ser cortado es una manifestación directa de la ira: el que rechaza el camino que Dios proveyó para aplacarla queda bajo condenación.
+\end{frame}
+
+\begin{frame}{Tres atributos en un día}
+\centering
+\begin{tikzpicture}
+ \foreach \x/\n/\t/\d in {0/1/{Santidad}/{El pecado no puede entrar al Lugar Santísimo.},
+   4.0/2/{Justicia}/{La sangre es derramada por la culpa.},
+   8.0/3/{Amor y misericordia}/{Dios provee un sustituto.}}{
+  \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][1.5cm][t]{3.3cm}{\RaggedRight
+    {\small\textbf{\textcolor{azul}{\t}}}\\[4pt]\scriptsize \d}};
+  \node[circle,fill=azul,text=papiro,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
+\end{tikzpicture}\par\medskip
+\begin{cita}Porque la ley, teniendo la sombra de los bienes venideros, no la imagen misma de las cosas, nunca puede, por los mismos sacrificios que se ofrecen continuamente cada año, hacer perfectos a los que se acercan. [\ldots] porque la sangre de los toros y de los machos cabríos no puede quitar los pecados.\fuente{(He 10:1, 4, RVR1960)}\end{cita}
+\small\RaggedRight Pero esa expiación era \destacar{insuficiente y temporal}: debía repetirse cada año.
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{En Cristo}
+
+\begin{frame}{Pablo: la ira se revela}
+\fotolado{panel_romanos1.jpg}{Elaboración propia: Ro 1:18 en escritura uncial (texto NA28).}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.58\textwidth}
+\begin{cita}Porque la ira de Dios se revela desde el cielo contra toda impiedad e injusticia de los hombres que detienen con injusticia la verdad.\fuente{(Ro 1:18, RVR1960)}\end{cita}
+\scriptsize\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{1.1cm}>{\RaggedRight\arraybackslash}p{5.6cm}@{}}
+\toprule
+Ro 1:17 & \grc{δικαιοσύνη γὰρ θεοῦ ἐν αὐτῷ ἀποκαλύπτεται} \\
+Ro 1:18 & \grc{ἀποκαλύπτεται γὰρ ὀργὴ θεοῦ ἀπ᾽ οὐρανοῦ} \\
+\bottomrule
+\end{tabular}\par\smallskip
+\grc{ἀποκαλύπτεται}, ``se revela'', en presente y repetido: la justicia y la ira de Dios se revelan una al lado de la otra. \grc{κατεχόντων}: ``los que retienen, suprimen'' la verdad.
+\end{column}
+\begin{column}{0.40\textwidth}\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{``Los entregó''}
+\begin{cita}Pues habiendo conocido a Dios, no le glorificaron como a Dios, ni le dieron gracias, sino que se envanecieron en sus razonamientos, y su necio corazón fue entenebrecido.\fuente{(Ro 1:21, RVR1960)}\end{cita}
+\centering
+\begin{tikzpicture}[font=\scriptsize,node distance=0.4cm]
+ \node[caja,text width=2.3cm,align=center] (a) {detienen la verdad\\ \emph{1:18}};
+ \node[caja,text width=2.3cm,align=center,right=of a] (b) {no glorifican ni dan gracias\\ \emph{1:21}};
+ \node[caja,text width=2.3cm,align=center,right=of b,fill=azul!12] (c) {\grc{παρέδωκεν} ``los entregó''\\ \emph{1:24, 26, 28}};
+ \node[caja,text width=2.3cm,align=center,right=of c,fill=gris!18] (d) {atesoran ira para el día de la ira\\ \emph{2:5}};
+ \foreach \i/\j in {a/b,b/c,c/d}\draw[-{Latex[length=2mm]},dorado,line width=1pt](\i)--(\j);
+\end{tikzpicture}\par\medskip
+\small\RaggedRight
+\begin{itemize}
+\item La ira presente de Dios no es primero fuego del cielo: es \destacar{entregar} al hombre a lo que eligió. Pablo lo dice tres veces.
+\item Por eso, aunque la cruz proveyó una salvación suficiente, no todos están cubiertos por esa sangre: muchos siguen suprimiendo la verdad.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{La justicia y la paz se besaron}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.46\textwidth}
+\begin{cita}La misericordia y la verdad se encontraron; La justicia y la paz se besaron.\fuente{(Sal 85:10 [85:11], RVR1960)}\end{cita}
+\begin{center}\heb{חֶסֶד־וֶאֱמֶת נִפְגָּשׁוּ}\\ \heb{צֶדֶק וְשָׁלוֹם נָשָׁקוּ}\end{center}
+\scriptsize\heb{נִפְגָּשׁוּ} (\emph{nifgashu}), ``se encontraron''; \heb{נָשָׁקוּ} (\emph{nashaqu}), ``se besaron''. La justicia (\emph{tsédeq}) contiene la ira; la paz (\emph{shalom}) nace de la misericordia (\emph{jésed}).
+\end{column}
+\begin{column}{0.52\textwidth}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+ \node[caja,text width=2.5cm,align=center] (j) at (-1.55,1.6) {Dios es \textbf{justo}\\ $\Rightarrow$ debe castigar};
+ \node[caja,text width=2.5cm,align=center] (a) at (1.55,1.6) {Dios es \textbf{amor}\\ $\Rightarrow$ debe perdonar};
+ \node[draw=dorado,line width=1.6pt,fill=azul,text=papiro,rounded corners=3pt,text width=4.4cm,align=center,inner sep=5pt] (m) at (0,-0.6) {\textbf{en el madero}\\ se castiga el pecado\\ y se perdona al pecador};
+ \draw[-{Latex[length=2.5mm]},dorado,line width=1.2pt] (j)--(m);
+ \draw[-{Latex[length=2.5mm]},dorado,line width=1.2pt] (a)--(m);
+\end{tikzpicture}\par\smallskip
+\precision{el Salmo 85 habla del regreso de Israel a su tierra; su aplicación a la cruz es una lectura cristológica (comentario tuyo).}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{La propiciación}
+\begin{cita}por cuanto todos pecaron, y están destituidos de la gloria de Dios, siendo justificados gratuitamente por su gracia, mediante la redención que es en Cristo Jesús, a quien Dios puso como propiciación por medio de la fe en su sangre, para manifestar su justicia, a causa de haber pasado por alto, en su paciencia, los pecados pasados, con la mira de manifestar en este tiempo su justicia, a fin de que él sea el justo, y el que justifica al que es de la fe de Jesús.\fuente{(Ro 3:23--26, RVR1960)}\end{cita}
+\scriptsize\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.6cm}>{\RaggedRight\arraybackslash}p{9.2cm}@{}}
+\toprule
+\grc{ἱλαστήριον} \emph{hilastērion} & ``propiciación'': lo que aplaca la ira y hace favorable. En la LXX es la tapa del arca, \heb{כַּפֹּרֶת} (Éx 25:17; Lv 16:14). Cristo es el verdadero lugar y sacrificio que satisface la ira santa de Dios. \\
+\grc{ἐν τῇ ἀνοχῇ} & ``en su paciencia'' (v.~25): la ira detenida en el pasado esperaba la cruz. \\
+\bottomrule
+\end{tabular}\par\smallskip
+\precision{Dodd (1935) tradujo \emph{hilastērion} como ``expiación'' (quitar el pecado) y Morris (1955) defendió ``propiciación'' (aplacar la ira). El contexto de Ro 1:18 favorece incluir la ira.}
+\end{frame}
+
+\begin{frame}{La ira del Padre recayó sobre su Hijo}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.49\textwidth}
+\begin{cita}Mas él herido fue por nuestras rebeliones, molido por nuestros pecados; el castigo de nuestra paz fue sobre él, y por su llaga fuimos nosotros curados. Todos nosotros nos descarriamos como ovejas, cada cual se apartó por su camino; mas \SENOR{} cargó en él el pecado de todos nosotros.\fuente{(Is 53:5--6, RVR1960)}\end{cita}
+\scriptsize\heb{מוּסַר שְׁלוֹמֵנוּ עָלָיו} (\emph{musar shelomenu alav}): ``el castigo de nuestra paz sobre él''. El \emph{shalom} del Sal 85 se compra con este castigo.
+\end{column}
+\begin{column}{0.49\textwidth}
+\begin{cita}Al que no conoció pecado, por nosotros lo hizo pecado, para que nosotros fuésemos hechos justicia de Dios en él.\fuente{(2~Co 5:21, RVR1960)}\end{cita}
+\begin{cita}quien llevó él mismo nuestros pecados en su cuerpo sobre el madero, para que nosotros, estando muertos a los pecados, vivamos a la justicia; y por cuya herida fuisteis sanados.\fuente{(1~P 2:24, RVR1960)}\end{cita}
+\end{column}
+\end{columns}
+\precision{``el Padre descargó su ira sobre el Hijo'' es la lectura de la sustitución penal, que sostiene Pink; los textos dicen ``cargó en él'' y ``lo hizo pecado''.}
+\end{frame}
+
+\begin{frame}{El Justo con el impío}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+ \node[caja,text width=4.4cm,align=center] (g) at (0,1.5) {\textbf{Abraham} (Gn 18:25)\\ ``Lejos de ti\ldots{} que hagas morir al justo con el impío''};
+ \node[draw=dorado,line width=1.4pt,fill=azul,text=papiro,rounded corners=3pt,text width=4.4cm,align=center,inner sep=5pt] (c) at (0,-1.2) {\textbf{La cruz}\\ el Justo muere con los impíos y por los impíos\\ (Is 53:12; Lc 23:33; Ro 5:6)};
+ \draw[-{Latex[length=2.5mm]},dorado,line width=1.2pt] (g)--node[right,font=\tiny,text width=2cm]{Dios hace lo impensable}(c);
+\end{tikzpicture}
+\end{column}
+\begin{column}{0.48\textwidth}
+\begin{cita}Porque Cristo, cuando aún éramos débiles, a su tiempo murió por los impíos.\fuente{(Ro 5:6, RVR1960)}\end{cita}
+\begin{cita}Porque también Cristo padeció una sola vez por los pecados, el justo por los injustos, para llevarnos a Dios.\fuente{(1~P 3:18, RVR1960)}\end{cita}
+\scriptsize\grc{ὑπὲρ ἀσεβῶν} (Ro 5:6), ``por los impíos'': la misma palabra de Ro 1:18 (\grc{ἀσέβεια}). Cristo muere por aquellos contra quienes se revela la ira.\par\smallskip
+\precision{la conexión con Gn 18:25 es tu comentario, una lectura propia.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{La cruz del Calvario: el verdadero Yom Kipur}
+\scriptsize\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.2cm}>{\RaggedRight\arraybackslash}p{4.7cm}>{\RaggedRight\arraybackslash}p{4.9cm}@{}}
+\toprule
+& \textbf{Yom Kipur (Lv 16)} & \textbf{La cruz} \\ \midrule
+Sacerdote & el sumo sacerdote, pecador también (Lv 16:6) & Cristo, sin pecado (2~Co 5:21) \\
+Sangre & de machos cabríos y becerros (Lv 16:14--15) & ``por su propia sangre'' (He 9:12) \\
+Lugar & la \emph{kapporet} sobre el arca & Cristo, el \grc{ἱλαστήριον} (Ro 3:25) \\
+Frecuencia & una vez al año, cada año & ``una vez para siempre'' (He 9:12) \\
+Resultado & cubre el pecado por un año & ``seremos salvos de la ira'' (Ro 5:9) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{tcolorbox}[colback=papiro,colframe=dorado,boxrule=1.2pt,arc=3pt]
+\centering\small En la cruz se reunieron la santidad, la justicia y el amor: \destacar{la ira fue satisfecha, la justicia cumplida y el amor derramado}.
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}{Despreciar la sangre del pacto}
+\begin{cita}El que viola la ley de Moisés, por el testimonio de dos o tres testigos muere irremisiblemente. ¿Cuánto mayor castigo pensáis que merecerá el que pisoteare al Hijo de Dios, y tuviere por inmunda la sangre del pacto en la cual fue santificado, e hiciere afrenta al Espíritu de gracia?\fuente{(He 10:28--29, RVR1960)}\end{cita}
+\small\RaggedRight Es el eco de Lv 23:29: el que no se afligía en Yom Kipur era cortado de su pueblo. Rechazar el camino que Dios proveyó para aplacar su ira deja al hombre bajo esa ira.\par\smallskip
+\precision{la autoría de Hebreos es desconocida; no es de Pablo. La misma advertencia está en Pablo: ``por estas cosas viene la ira de Dios sobre los hijos de desobediencia'' (Ef 5:6).}
+\end{frame}
+
+\begin{frame}{Salvos de la ira por él}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.49\textwidth}
+\begin{cita}Pues mucho más, estando ya justificados en su sangre, por él seremos salvos de la ira.\fuente{(Ro 5:9, RVR1960)}\end{cita}
+\begin{cita}Porque no nos ha puesto Dios para ira, sino para alcanzar salvación por medio de nuestro Señor Jesucristo.\fuente{(1~Ts 5:9, RVR1960)}\end{cita}
+\end{column}
+\begin{column}{0.49\textwidth}
+\begin{cita}y éramos por naturaleza hijos de ira, lo mismo que los demás.\fuente{(Ef 2:3, RVR1960)}\end{cita}
+\scriptsize\grc{σωθησόμεθα δι᾽ αὐτοῦ ἀπὸ τῆς ὀργῆς}: ``seremos salvos por él de la ira''. Para Pablo, la salvación es, entre otras cosas, ser librado de la ira.\par\smallskip
+\small La tesis de esta obra: en Cristo ``habita corporalmente toda la plenitud de la Deidad'' (Col 2:9). La santidad que exige y el amor que provee se encuentran en una sola persona.
+\end{column}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Ira venidera}
+
+\begin{frame}{Día de ira: Sofonías 1}
+\begin{cita}Cercano está el día grande de \SENOR, cercano y muy próximo; es amarga la voz del día de \SENOR; gritará allí el valiente. Día de ira aquel día, día de angustia y de aprieto, día de alboroto y de asolamiento, día de tiniebla y de oscuridad, día de nublado y de entenebrecimiento.\fuente{(Sof 1:14--15, RVR1960)}\end{cita}
+\begin{cita}Ni su plata ni su oro podrá librarlos en el día de la ira de \SENOR, pues toda la tierra será consumida con el fuego de su celo.\fuente{(Sof 1:18, RVR1960)}\end{cita}
+\scriptsize\heb{יוֹם עֶבְרָה הַיּוֹם הַהוּא} (\emph{yom evrá hayyom hahu}) $\rightarrow$ LXX \grc{ἡμέρα ὀργῆς ἡ ἡμέρα ἐκείνη} $\rightarrow$ Vulgata \emph{dies irae, dies illa}, de donde viene el himno medieval \emph{Dies irae}. \heb{עֶבְרָה} es la ira que \emph{desborda}.
+\end{frame}
+
+\begin{frame}{La ira venidera}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.49\textwidth}
+\begin{cita}He aquí el día de \SENOR{} viene, terrible, y de indignación y ardor de ira, para convertir la tierra en soledad, y raer de ella a sus pecadores.\fuente{(Is 13:9, RVR1960)}\end{cita}
+\begin{cita}¡Generación de víboras! ¿Quién os enseñó a huir de la ira venidera?\fuente{(Mt 3:7, RVR1960)}\end{cita}
+\end{column}
+\begin{column}{0.49\textwidth}
+\begin{cita}Pero por tu dureza y por tu corazón no arrepentido, atesoras para ti mismo ira para el día de la ira y de la revelación del justo juicio de Dios.\fuente{(Ro 2:5, RVR1960)}\end{cita}
+\begin{cita}porque el gran día de su ira ha llegado; ¿y quién podrá sostenerse en pie?\fuente{(Ap 6:17, RVR1960)}\end{cita}
+\scriptsize\grc{θησαυρίζεις} (Ro 2:5): ``atesoras''. Quien no se arrepiente acumula ira como quien ahorra.
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{El Yom Kipur final}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+ \node[draw=dorado,line width=1.6pt,fill=azul,text=papiro,rounded corners=3pt,text width=3.4cm,align=center,inner sep=5pt] (v) at (0,0) {\textbf{Segunda venida de Cristo}\\ el juicio final (Ro 2:5; Ap 6:17)};
+ \node[caja,text width=3.6cm,align=center,fill=celeste!15] (c) at (5.4,1.1) {\textbf{Los que creyeron}\\ la ira ya fue satisfecha en la cruz: \emph{vindicación, no condena} (Ro 5:9; 1~Ts 1:10)};
+ \node[caja,text width=3.6cm,align=center,fill=gris!18] (r) at (5.4,-1.1) {\textbf{Los que la rechazaron}\\ el día de la ira definitiva (Ro 2:5; He 10:29)};
+ \draw[-{Latex[length=2.5mm]},dorado,line width=1.2pt] (v.east)--(c.west);
+ \draw[-{Latex[length=2.5mm]},gris,line width=1.2pt] (v.east)--(r.west);
+\end{tikzpicture}\par\medskip
+\begin{cita}Buscad a \SENOR{} todos los humildes de la tierra, los que pusisteis por obra su juicio; buscad justicia, buscad mansedumbre; quizás seréis guardados en el día del enojo de \SENOR.\fuente{(Sof 2:3, RVR1960)}\end{cita}
+\precision{llamar al juicio final ``el Yom Kipur final'' es una lectura tipológica de tu documento; ningún texto lo nombra así.}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Vivirlo}
+
+\begin{frame}{Cuatro respuestas a la ira santa}
+\centering
+\begin{tikzpicture}
+ \foreach \x/\n/\t/\d/\r in {0/1/{Rendirse a la verdad}/{No suprimirla ni acomodarla a nuestros ídolos.}/{Ro 1:18, 21},
+   3.15/2/{Arrepentirse y creer hoy}/{Hoy es el tiempo de gracia; mañana puede ser tarde.}/{Sof 2:3; 2 Co 6:2},
+   6.3/3/{Vivir en gratitud}/{La fe genuina produce obras y honra a Dios.}/{Ro 1:21; Stg 2:17},
+   9.45/4/{Esperar a Cristo}/{Con esperanza y reverencia: para el creyente, vindicación, no condena.}/{1 Ts 1:10}}{
+  \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][2.8cm][t]{2.55cm}{\RaggedRight
+    {\small\textbf{\textcolor{azul}{\t}}}\\[5pt]\scriptsize \d\par\vfill{\tiny\color{gris}(\r)}}};
+  \node[circle,fill=azul,text=papiro,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
+\end{tikzpicture}\par\medskip
+\small\RaggedRight ¿Qué verdad sobre Dios estoy ``deteniendo con injusticia''? ¿Vivo como alguien que fue librado de la ira venidera?
+\end{frame}
+
+\begin{frame}{¿Y nuestra ira?}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.49\textwidth}
+\begin{cita}No os venguéis vosotros mismos, amados míos, sino dejad lugar a la ira de Dios; porque escrito está: Mía es la venganza, yo pagaré, dice el Señor.\fuente{(Ro 12:19, RVR1960)}\end{cita}
+\scriptsize Pablo cita Dt 32:35: \heb{לִי נָקָם וְשִׁלֵּם}, ``mía es la venganza y la retribución''. Es la raíz \heb{נקם} de Nah 1:2. La venganza es de Dios porque solo él juzga con justicia perfecta.
+\end{column}
+\begin{column}{0.49\textwidth}
+\begin{cita}Airaos, pero no pequéis; no se ponga el sol sobre vuestro enojo.\fuente{(Ef 4:26, RVR1960)}\end{cita}
+\small El creyente puede indignarse ante el mal, pero su ira es vigilada: tiene límite de tiempo y no se convierte en venganza (Stg 1:20).\par\smallskip
+\precision{esta lámina es un agregado mío para mostrar en qué sentido el atributo es comunicable.}
+\end{column}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Síntesis}
+
+\begin{frame}{Síntesis}
+\begin{tcolorbox}[colback=papiro,colframe=azul,boxrule=1pt,arc=3pt]
+\small La ira de Dios es su respuesta \destacar{santa, justa y deliberada} ante el pecado. ``\SENOR{} es tardo para la ira\ldots{} y no tendrá por inocente al culpable'' (Nah 1:3). Israel la conoció en el desierto, en Sodoma y en Jerusalén, y también conoció el camino para escapar de ella: el intercesor y la expiación. En la cruz, Cristo fue puesto como propiciación (Ro 3:25): la ira fue satisfecha, la justicia cumplida y el amor derramado. Por él ``seremos salvos de la ira'' (Ro 5:9).
+\end{tcolorbox}
+\scriptsize\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.4cm}>{\RaggedRight\arraybackslash}p{9.4cm}@{}}
+\toprule
+\textbf{Mirada} & \textbf{Aporte} \\ \midrule
+Hebrea & \emph{af}, \emph{jemá}, \emph{jarón}: la ira que se enciende; \emph{érej appáyim}: lenta para encenderse; Aarón entre los muertos y los vivos; \emph{Yom Kippur}. \\
+Pink & perfección divina; aborrecimiento eterno del pecado; meditarla produce reverencia y gratitud. \\
+Paulina & la ira ``se revela'' junto a la justicia (Ro 1:17--18); ``los entregó''; Cristo, \emph{hilastērion}; salvos de la ira venidera. \\
+\bottomrule
+\end{tabular}
+\end{frame}
+
+\begin{frame}{Para la reflexión}
+\begin{cita}Mas alábese en esto el que se hubiere de alabar: en entenderme y conocerme, que yo soy \SENOR, que hago misericordia, juicio y justicia en la tierra; porque estas cosas quiero, dice \SENOR.\fuente{(Jer 9:24, RVR1960)}\end{cita}
+\small
+\begin{itemize}
+\item ¿Mi imagen de Dios incluye su ira, o he hecho un Dios que no juzga?
+\item ¿Uso la paciencia de Dios como tiempo para arrepentirme o como permiso para seguir (Ro 2:4--5)?
+\item ¿Entiendo lo que costó que la justicia y la paz se besaran?
+\item ¿Mi enojo se parece al de Dios, santo y lento, o al del hombre, que ``no obra la justicia de Dios''?
+\end{itemize}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Glosario}
+
+\begin{frame}{Glosario}
+\scriptsize
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.49\textwidth}
+\begin{description}\setlength{\itemsep}{1pt}
+\item[\emph{Af}] (\heb{אַף}) nariz; ira que se enciende.
+\item[\emph{Apotomía}] (\grc{ἀποτομία}) severidad; ``corte tajante'' (Ro 11:22).
+\item[\emph{Érej appáyim}] (\heb{אֶרֶךְ אַפַּיִם}) ``largo de narices'': lento para la ira.
+\item[\emph{Evrá}] (\heb{עֶבְרָה}) furia que se desborda (Sof 1:15).
+\item[\emph{Hilastērion}] (\grc{ἱλαστήριον}) propiciatorio; propiciación (Ro 3:25).
+\item[\emph{Jarón}] (\heb{חָרוֹן}) ardor de la ira.
+\item[\emph{Jemá}] (\heb{חֵמָה}) calor, furor.
+\item[\emph{Kapporet}] (\heb{כַּפֹּרֶת}) tapa del arca, el propiciatorio.
+\end{description}
+\end{column}
+\begin{column}{0.49\textwidth}
+\begin{description}\setlength{\itemsep}{1pt}
+\item[\emph{Karet}] (\heb{כרת}) ser cortado del pueblo (Lv 23:29).
+\item[\emph{Kipper}] (\heb{כִּפֶּר}) expiar, cubrir la culpa.
+\item[\emph{Krima}] (\grc{κρίμα}) juicio, sentencia (1~P 4:17).
+\item[\emph{Noqem}] (\heb{נֹקֵם}) vengador (Nah 1:2).
+\item[\emph{Orgē}] (\grc{ὀργή}) ira; en Pablo, a menudo el juicio final.
+\item[\emph{Qétsef}] (\heb{קֶצֶף}) enojo, indignación (Nm 16:46).
+\item[\emph{Thymós}] (\grc{θυμός}) ardor, furor (Ro 2:8).
+\item[\emph{Za'am}] (\heb{זַעַם}) indignación que condena (Nah 1:6).
+\end{description}
+\end{column}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Referencias}
+
+\begin{frame}{Referencias}
+\fontsize{6.1}{7.2}\selectfont
+\refapa{Bauer, W., Danker, F.~W., Arndt, W.~F., \& Gingrich, F.~W. (2000). \emph{A Greek-English lexicon of the New Testament and other early Christian literature} (3.ª ed.). University of Chicago Press. [BDAG]}
+\refapa{\emph{Biblia Reina-Valera 1960}. (1960). Sociedades Bíblicas en América Latina.}
+\refapa{Dodd, C.~H. (1935). \emph{The Bible and the Greeks}. Hodder \& Stoughton.}
+\refapa{Elliger, K., \& Rudolph, W. (Eds.). (1997). \emph{Biblia Hebraica Stuttgartensia} (5.ª ed.). Deutsche Bibelgesellschaft.}
+\refapa{Koehler, L., \& Baumgartner, W. (2001). \emph{The Hebrew and Aramaic lexicon of the Old Testament} (M.~E.~J. Richardson, Trad.; Ed. de estudio). Brill. [HALOT]}
+\refapa{Moo, D.~J. (1996). \emph{The epistle to the Romans}. Eerdmans.}
+\refapa{Morris, L. (1955). \emph{The apostolic preaching of the cross}. Tyndale Press.}
+\refapa{Nestle, E., \& Aland, K. (2012). \emph{Novum Testamentum Graece} (28.ª ed.). Deutsche Bibelgesellschaft.}
+\refapa{Pink, A.~W. (2020). \emph{Los atributos de Dios}. Chapel Library. (Obra original publicada en 1930)}
+\refapa{Rahlfs, A., \& Hanhart, R. (Eds.). (2006). \emph{Septuaginta} (Ed. rev.). Deutsche Bibelgesellschaft.}
+\refapa{Robertson, O.~P. (1990). \emph{The books of Nahum, Habakkuk, and Zephaniah}. Eerdmans.}
+\refapa{Strong, J. (1890). \emph{The exhaustive concordance of the Bible}. Hunt \& Eaton.}
+\refapa{Trench, R.~C. (1880). \emph{Synonyms of the New Testament} (9.ª ed.). Macmillan.}
+\par\medskip{\color{gris}Las citas bíblicas son de la Reina-Valera 1960; ``Jehová'' se reemplaza por \SENOR. El texto hebreo es de la BHS y el griego, de NA28 y la LXX de Rahlfs-Hanhart.}
+\end{frame}
+
+\end{document}
