@@ -1,15 +1,20 @@
 {
-  "name": "Lector · Primera Línea",
+  "name": "Lector de Versículos · Primera Línea",
   "short_name": "Lector",
-  "description": "Estudia un pasaje en cuatro lecturas: histórica, filológica, teológica y literaria, con pasajes paralelos.",
+  "description": "Estudios bíblicos en cuatro lecturas: histórica, filológica, teológica y literaria.",
   "lang": "es",
+  "dir": "ltr",
+  "id": "./",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#f6f7fa",
   "theme_color": "#2350b8",
+  "categories": ["education", "books"],
   "icons": [
     { "src": "iconos/icono-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "iconos/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+    { "src": "iconos/icono-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "iconos/icono-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ]
 }
