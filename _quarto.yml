@@ -22,12 +22,12 @@ website:
         menu:
           - href: atributos.qmd
             text: Atributos de Dios
-          - href: festividades.qmd
-            text: Festividades santas
           - href: mesias.qmd
             text: Jesús, el Mesías prometido
           - href: israel.qmd
             text: Israel y su restauración
+          - href: festividades.qmd
+            text: Festividades santas
           - href: pablo.qmd
             text: "Bonus: Palabras difíciles de Pablo"
           - href: estudios.qmd

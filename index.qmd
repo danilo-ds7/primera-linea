@@ -177,20 +177,6 @@ Siguiendo la idea de A. W. Pink, cada atributo se lee desde la literatura hebrea
 </div>
 </article>
 <article class="card">
-<div class="art photo">
-<img src="images/lineas/festividades.jpg" alt="Camino que serpentea por el desierto de Judea" loading="lazy">
-</div>
-<div class="txt">
-[Calendario bíblico]{.label}
-
-### Festividades santas
-
-Las fiestas de Levítico 23, de Pésaj a Sukkot: su sentido en Israel y cómo apuntan a la obra de Cristo.
-
-[Ver la línea de estudio →](festividades.qmd){.card-link}
-</div>
-</article>
-<article class="card">
 <div class="art photo mesias">
 <img src="images/lineas/mesias.jpg" alt="Letras de bronce con el nombre JESÚS destacado en dorado" loading="lazy">
 </div>
@@ -216,6 +202,20 @@ Jesús como el Mesías anunciado a Israel y Dios encarnado: sus títulos, sus de
 El lugar de Israel en el plan de Dios: las promesas hechas a los patriarcas y la restauración que anuncian los profetas.
 
 [Ver la línea de estudio →](israel.qmd){.card-link}
+</div>
+</article>
+<article class="card">
+<div class="art photo">
+<img src="images/lineas/festividades.jpg" alt="Camino que serpentea por el desierto de Judea" loading="lazy">
+</div>
+<div class="txt">
+[Calendario bíblico]{.label}
+
+### Festividades santas
+
+Las fiestas de Levítico 23, de Pésaj a Sukkot: su sentido en Israel y cómo apuntan a la obra de Cristo.
+
+[Ver la línea de estudio →](festividades.qmd){.card-link}
 </div>
 </article>
 </div>
