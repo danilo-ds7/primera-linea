@@ -230,22 +230,8 @@ Jesús como el Mesías anunciado a Israel y Dios encarnado: sus títulos, sus de
 </div>
 </article>
 <article class="card">
-<div class="art" aria-hidden="true">
-```{=html}
-<svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
-<rect width="400" height="250" fill="#1B2440"/>
-<circle cx="200" cy="112" r="82" fill="#E4B65C" fill-opacity=".08"/>
-<g stroke="#E4B65C" stroke-width="5" stroke-linecap="round" fill="none">
-<line x1="200" y1="62" x2="200" y2="178"/>
-<path d="M200 168 C200 120 140 120 140 62"/><path d="M200 168 C200 120 260 120 260 62"/>
-<path d="M200 168 C200 100 170 100 170 62"/><path d="M200 168 C200 100 230 100 230 62"/>
-<path d="M200 168 C200 140 110 140 110 62"/><path d="M200 168 C200 140 290 140 290 62"/>
-<line x1="168" y1="182" x2="232" y2="182"/>
-</g>
-<g fill="#F7B84F"><circle cx="110" cy="54" r="5"/><circle cx="140" cy="54" r="5"/><circle cx="170" cy="54" r="5"/><circle cx="200" cy="54" r="5"/><circle cx="230" cy="54" r="5"/><circle cx="260" cy="54" r="5"/><circle cx="290" cy="54" r="5"/></g>
-<text x="200" y="230" text-anchor="middle" font-family="Noto Serif Hebrew, serif" font-size="30" fill="#E4B65C">יִשְׂרָאֵל</text>
-</svg>
-```
+<div class="art photo">
+<img src="images/lineas/israel.jpg" alt="Menorá de plata sobre un antiguo rollo hebreo" loading="lazy">
 </div>
 <div class="txt">
 [Pueblo y promesa]{.label}
