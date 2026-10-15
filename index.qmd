@@ -204,20 +204,8 @@ Las fiestas de Levítico 23, de Pésaj a Sukkot: su sentido en Israel y cómo ap
 </div>
 </article>
 <article class="card">
-<div class="art" aria-hidden="true">
-```{=html}
-<svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
-<rect width="400" height="250" fill="#1B2440"/>
-<circle cx="200" cy="112" r="78" fill="none" stroke="#E4B65C" stroke-opacity=".45" stroke-width="2"/>
-<circle cx="200" cy="112" r="60" fill="#E4B65C" fill-opacity=".08"/>
-<g stroke="#E4B65C" stroke-width="7" stroke-linecap="round" fill="none">
-<line x1="200" y1="62" x2="200" y2="166"/><line x1="166" y1="84" x2="234" y2="144"/><line x1="234" y1="84" x2="166" y2="144"/>
-<path d="M200 62 h18 a18 18 0 0 1 0 36 h-18"/>
-</g>
-<g font-family="GFS Didot, Georgia, serif" font-size="30" fill="#EEE7D7"><text x="118" y="124" text-anchor="middle">Α</text><text x="282" y="124" text-anchor="middle">Ω</text></g>
-<text x="200" y="226" text-anchor="middle" font-family="GFS Didot, Georgia, serif" font-size="26" fill="#E4B65C">ἐγώ εἰμι</text>
-</svg>
-```
+<div class="art photo mesias">
+<img src="images/lineas/mesias.jpg" alt="Letras de bronce con el nombre JESÚS destacado en dorado" loading="lazy">
 </div>
 <div class="txt">
 [Persona y obra]{.label}
