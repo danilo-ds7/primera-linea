@@ -17,7 +17,6 @@ body-classes: inicio
 
 [Ensayos, estudios y videos breves sobre los atributos de Dios, las festividades santas y la cristología.]{.lead}
 
-[[Explorar los estudios](estudios.qmd){.btn .primary} [Ver los videos](videos.qmd){.btn .ghost}]{.cta}
 
 ::::
 :::: {.hero-media}
@@ -41,7 +40,7 @@ body-classes: inicio
 
 [Salmo 119:105 · Reina-Valera 1909]{.ref}
 
-[El salmista usa [נֵר]{.heb lang="he"} (*ner*), la lámpara de aceite de barro que iluminaba apenas el paso siguiente. Así ilumina la Palabra: paso a paso.]{.note}
+[El salmista usa [נֵר]{.heb lang="he"} (*ner*), la lámpara de aceite de barro que iluminaba apenas el paso siguiente. Así ilumina la Palabra: paso a paso. No nos muestra todo el camino de una vez; por eso, lo que sigue es confiar en Dios, que alumbra cada paso y conoce el final del camino.]{.note}
 </div>
 <div class="lampbox" aria-hidden="true">
 ```{=html}
@@ -79,7 +78,7 @@ body-classes: inicio
 
 [Soy Danilo Gómez Correa y estudio en el Israel Institute of Biblical Studies. Mi punto de partida es conocer al Dios de Israel, el Dios de la Biblia: quién es Él y cuáles son sus atributos. Ese conocimiento es el que hace posible estudiar la Escritura y explicarla de manera coherente, porque toda ella procede de un mismo Autor.]{.body}
 
-[Por eso, más que detenerme en un versículo aislado, busco la coherencia interna de la Biblia: cómo cada pasaje se ilumina con el resto de la Escritura. Para eso sigo un método histórico, filológico, teológico y literario, bajo un mismo principio: la Biblia interpreta la Biblia. Pero, por sobre todo, busco ser guiado por el Espíritu de Dios. Primera Línea es el lugar donde ordeno y comparto lo que voy aprendiendo.]{.body}
+[Busco la coherencia interna de la Biblia partiendo por lo primero: ser guiado por el Espíritu de Dios para someterme a su Palabra. Después viene el método, histórico, filológico, teológico y literario, porque la Biblia interpreta la Biblia. Primera Línea es donde ordeno y comparto lo que aprendo.]{.body}
 
 > Empero Dios nos lo reveló a nosotros por el Espíritu: porque el Espíritu todo lo escudriña, aun lo profundo de Dios.
 > [1 Corintios 2:10 · Reina-Valera 1909]{.cite}
@@ -100,15 +99,10 @@ body-classes: inicio
 ## La Biblia interpreta la Biblia
 </div>
 
-Cada estudio busca dar a conocer al Dios de Israel en sus perfecciones eternas y en su armonía perfecta.
+Cada estudio busca dar a conocer al Dios de Israel: conocer al Autor y sus perfecciones eternas, ver la armonía perfecta de sus atributos y leer una Escritura coherente con su carácter.
 </div>
 
 ```{=html}
-<div class="enfoque" aria-label="Cómo abordo el estudio">
-  <div class="e flip" role="button" tabindex="0" aria-pressed="false" aria-label="Conocer al Autor: mostrar versículo"><div class="inner"><div class="face front"><span class="en">1</span><h3>Conocer al Autor</h3><p>El estudio empieza por quien inspiró la Escritura: el Dios de la Biblia, el Dios de Israel. Primero entender quién es Él y cuáles son sus atributos, tal como Él mismo los revela.</p><span class="hint">Toca para ver el versículo ↻</span></div><div class="face back"><span class="en">1</span><blockquote>«Mas alábese en esto el que se hubiere de alabar: en entenderme y conocerme, que yo soy Jehová, que hago misericordia, juicio y justicia en la tierra; porque estas cosas quiero, dice Jehová.»</blockquote><cite>Jeremías 9:24 · Reina-Valera 1960</cite><span class="hint">Toca para volver ↻</span></div></div></div>
-  <div class="e flip" role="button" tabindex="0" aria-pressed="false" aria-label="Su armonía perfecta: mostrar versículo"><div class="inner"><div class="face front"><span class="en">2</span><h3>Su armonía perfecta</h3><p>Los atributos de Dios no compiten entre sí: su santidad, su justicia, su misericordia y su fidelidad actúan en perfecta armonía. Esa armonía es como un paraguas que cubre toda la Escritura.</p><span class="hint">Toca para ver el versículo ↻</span></div><div class="face back"><span class="en">2</span><blockquote>«La misericordia y la verdad se encontraron; la justicia y la paz se besaron.»</blockquote><cite>Salmos 85:10 · Reina-Valera 1960</cite><span class="hint">Toca para volver ↻</span></div></div></div>
-  <div class="e flip" role="button" tabindex="0" aria-pressed="false" aria-label="Una Escritura coherente: mostrar versículo"><div class="inner"><div class="face front"><span class="en">3</span><h3>Una Escritura coherente</h3><p>Lo que la Biblia dice sobre cualquier tema concuerda con el carácter de Dios. Por eso cada pasaje se lee en coherencia con quién es Él y con el resto de la Escritura.</p><span class="hint">Toca para ver el versículo ↻</span></div><div class="face back"><span class="en">3</span><blockquote>«La suma de tu palabra es verdad, y eterno es todo juicio de tu justicia.»</blockquote><cite>Salmos 119:160 · Reina-Valera 1960</cite><span class="hint">Toca para volver ↻</span></div></div></div>
-</div>
 <script>
 document.addEventListener('DOMContentLoaded',function(){
 document.querySelectorAll('.enfoque .flip, .method .mflip').forEach(function(c){
