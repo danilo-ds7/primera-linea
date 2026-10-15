@@ -39,6 +39,8 @@ TIENE_CAIRO = shutil.which("pdftocairo") is not None
 
 def log(msg):
     print(f"[atributos] {msg}", flush=True)
+    if os.environ.get("GITHUB_ACTIONS") and msg.startswith(("ERROR", "AVISO")):
+        print(f"::warning title=Atributos de Dios::{msg}", flush=True)
 
 
 # --------------------------------------------------------------------------- utilidades LaTeX
