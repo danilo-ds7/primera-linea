@@ -177,21 +177,8 @@ Siguiendo la idea de A. W. Pink, cada atributo se lee desde la literatura hebrea
 </div>
 </article>
 <article class="card">
-<div class="art" aria-hidden="true">
-```{=html}
-<svg viewBox="0 0 600 375" preserveAspectRatio="xMidYMid slice">
-<rect width="600" height="375" fill="#1B2440"/>
-<path d="M40 300 Q300 40 560 300" stroke="#E4B65C" stroke-opacity=".35" stroke-width="2" fill="none"/>
-<g fill="#F3E7C8">
-<circle cx="70" cy="262" r="16"/><circle cx="160" cy="176" r="16"/><circle cx="300" cy="140" r="16"/><circle cx="440" cy="176" r="16"/><circle cx="530" cy="262" r="16"/>
-</g>
-<g fill="#1B2440"><circle cx="78" cy="256" r="15"/><circle cx="440" cy="176" r="0"/><circle cx="537" cy="256" r="15"/></g>
-<g font-family="Cormorant Garamond, Georgia, serif" font-size="22" fill="#EEE7D7" text-anchor="middle" font-style="italic">
-<text x="70" y="306">Pésaj</text><text x="160" y="222">Shavuot</text><text x="300" y="104">Yom Teruá</text><text x="440" y="222">Yom Kipur</text><text x="530" y="306">Sukkot</text>
-</g>
-<text x="300" y="350" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="15" letter-spacing="3" fill="#E4B65C">LEVÍTICO 23 · LAS FIESTAS SOLEMNES</text>
-</svg>
-```
+<div class="art photo">
+<img src="images/lineas/festividades.jpg" alt="Camino que serpentea por el desierto de Judea" loading="lazy">
 </div>
 <div class="txt">
 [Calendario bíblico]{.label}
@@ -235,18 +222,8 @@ El lugar de Israel en el plan de Dios: las promesas hechas a los patriarcas y la
 
 <div class="bonus-wrap">
 <article class="card bonus">
-<div class="art" aria-hidden="true">
-```{=html}
-<svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
-<rect width="400" height="250" fill="#1B2440"/>
-<rect x="120" y="40" width="160" height="170" rx="6" fill="#E4B65C" fill-opacity=".1" stroke="#E4B65C" stroke-opacity=".5" stroke-width="2"/>
-<g stroke="#EEE7D7" stroke-opacity=".35" stroke-width="3" stroke-linecap="round">
-<line x1="142" y1="112" x2="258" y2="112"/><line x1="142" y1="132" x2="250" y2="132"/><line x1="142" y1="152" x2="258" y2="152"/><line x1="142" y1="172" x2="226" y2="172"/>
-</g>
-<text x="200" y="88" text-anchor="middle" font-family="GFS Didot, Georgia, serif" font-size="30" fill="#E4B65C">Παῦλος</text>
-<path d="M286 196 L326 120" stroke="#E4B65C" stroke-width="4" stroke-linecap="round"/><path d="M326 120 l8 -16 l-2 18 z" fill="#E4B65C"/>
-</svg>
-```
+<div class="art photo pablo">
+<img src="images/lineas/pablo.jpg" alt="Biblia abierta en Juan 14:6" loading="lazy">
 </div>
 <div class="txt">
 [Bonus · Epístolas]{.label}

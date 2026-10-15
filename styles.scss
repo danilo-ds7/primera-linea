@@ -1419,3 +1419,7 @@ main h2 {
 .card .art.photo { overflow: hidden; }
 .card .art.photo p { margin: 0; height: 100%; }
 .card .art.photo.mesias img { object-position: 62% 40%; }
+.card .art.photo.pablo img { object-position: 50% 35%; }
+.card.bonus .art.photo { position: relative; min-height: 240px; }
+.card.bonus .art.photo img { position: absolute; inset: 0; }
+@media (max-width: 600px) { .card.bonus .art.photo { min-height: 0; aspect-ratio: 16 / 10; } }
