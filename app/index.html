@@ -1084,7 +1084,7 @@ body.cmp-view main{padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
   if(ios && !standalone){ $("tip-ios").hidden=false; }
 
   if("serviceWorker" in navigator && (location.protocol==="https:" || location.hostname==="localhost")){
-    try{ navigator.serviceWorker.register("sw.js").catch(function(){}); }catch(e){}
+    try{ navigator.serviceWorker.register("sw.js",{updateViaCache:"none"}).catch(function(){}); }catch(e){}
   }
 
   // Guía en vivo: solo cuando la página se abre dentro de Claude.
