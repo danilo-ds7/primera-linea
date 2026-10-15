@@ -138,7 +138,7 @@ document.querySelectorAll('.enfoque .flip, .method .mflip').forEach(function(c){
 > Y éstos eran más nobles que los que estaban en Tesalónica, pues recibieron la palabra con toda solicitud, escudriñando cada día las Escrituras para ver si estas cosas eran así.
 > [Hechos 17:11 · Reina-Valera 1960]{.cite}
 
-[Mi propósito es comunicar la buena noticia del Dios de la Biblia, el Dios de Israel: sus perfecciones eternas y su evangelio eterno, para que sea exaltado, admirado, honrado y, principalmente, temido por sus maravillas y sus proezas. Ir del estudio al púlpito es exhibir, honrar y engrandecer a Dios en toda su magnitud, y comprender esa multiforme sabiduría de Dios que sincroniza todo el universo.]{.body}
+[Mi propósito es llegar a ser un heraldo del evangelio eterno: transmitir el conocimiento del Dios de la Biblia, el Dios de Israel, en sus perfecciones eternas, y anunciar esta buena nueva de salvación, para que Él sea exaltado, admirado, honrado y, principalmente, temido por sus maravillas y sus proezas. Ir del estudio al púlpito es exhibir, honrar y engrandecer a Dios en toda su magnitud, y comprender esa multiforme sabiduría de Dios que sincroniza todo el universo.]{.body}
 
 > Alabadle por sus proezas; alabadle conforme a la muchedumbre de su grandeza.
 > [Salmos 150:2 · Reina-Valera 1960]{.cite}
