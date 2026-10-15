@@ -1,0 +1,12 @@
+---
+title: "Palabras difíciles de Pablo"
+subtitle: "Bonus · Un análisis de los escritos de Pablo"
+---
+
+Un análisis de los escritos de Pablo, en especial de aquellos pasajes «difíciles de entender» de los que habla Pedro (2 Pedro 3:16), leídos a la luz del resto de la Escritura.
+
+::: {.callout-note appearance="simple"}
+Los estudios de esta línea están en preparación y se irán publicando aquí.
+:::
+
+[← Volver a las líneas de estudio](index.qmd#estudios)

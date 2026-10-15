@@ -1409,3 +1409,7 @@ main h2 {
 .card .card-link { margin-top: 6px; font-weight: 700; font-size: .92rem; text-decoration: none; }
 .card .card-link:hover { text-decoration: underline; }
 .estudio-tex .quarto-title-block .description { display: none; }
+
+/* Tarjetas de líneas de estudio: toda la tarjeta es clicable */
+.lines .card, .bonus-wrap .card { position: relative; cursor: pointer; }
+.card .card-link::after { content: ""; position: absolute; inset: 0; z-index: 1; }

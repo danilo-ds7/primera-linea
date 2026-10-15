@@ -208,6 +208,8 @@ Siguiendo la idea de A. W. Pink, cada atributo se lee desde la literatura hebrea
 ### Festividades santas
 
 Las fiestas de Levítico 23, de Pésaj a Sukkot: su sentido en Israel y cómo apuntan a la obra de Cristo.
+
+[Ver la línea de estudio →](festividades.qmd){.card-link}
 </div>
 </article>
 <article class="card">
@@ -232,6 +234,8 @@ Las fiestas de Levítico 23, de Pésaj a Sukkot: su sentido en Israel y cómo ap
 ### Jesús, el Mesías prometido
 
 Jesús como el Mesías anunciado a Israel y Dios encarnado: sus títulos, sus declaraciones «Yo soy» y su lugar en el plan de Dios.
+
+[Ver la línea de estudio →](mesias.qmd){.card-link}
 </div>
 </article>
 <article class="card">
@@ -258,6 +262,8 @@ Jesús como el Mesías anunciado a Israel y Dios encarnado: sus títulos, sus de
 ### Israel y su restauración
 
 El lugar de Israel en el plan de Dios: las promesas hechas a los patriarcas y la restauración que anuncian los profetas.
+
+[Ver la línea de estudio →](israel.qmd){.card-link}
 </div>
 </article>
 </div>
@@ -283,6 +289,8 @@ El lugar de Israel en el plan de Dios: las promesas hechas a los patriarcas y la
 ### Palabras difíciles de Pablo
 
 Un análisis de los escritos de Pablo, en especial de aquellos pasajes «difíciles de entender» de los que habla Pedro (2 Pedro 3:16).
+
+[Ver la línea de estudio →](pablo.qmd){.card-link}
 </div>
 </article>
 </div>
