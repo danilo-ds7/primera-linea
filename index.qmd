@@ -133,12 +133,12 @@ document.querySelectorAll('.enfoque .flip, .method .mflip').forEach(function(c){
 
 ## Del estudio al púlpito
 
-[Lo que estudio termina en la exposición de la Palabra frente a la congregación. Busco mostrar cómo un pasaje se conecta con el resto de la Biblia, para que quien escucha pueda abrir su Biblia y comprobarlo.]{.body}
+[Lo que estudio termina en la exposición de la Palabra frente a la congregación. Como aprendiz de la Palabra, intento mostrar cómo un pasaje se conecta con el resto de la Biblia, para que quien escucha pueda abrir su Biblia y comprobarlo.]{.body}
 
 > Y éstos eran más nobles que los que estaban en Tesalónica, pues recibieron la palabra con toda solicitud, escudriñando cada día las Escrituras para ver si estas cosas eran así.
 > [Hechos 17:11 · Reina-Valera 1960]{.cite}
 
-[Con esto busco mostrar al Dios de la Biblia, al Dios de Israel, en sus perfecciones eternas: que sea exaltado, admirado, honrado y, principalmente, temido por sus maravillas y sus proezas. Ir del estudio al púlpito es exhibir, honrar y engrandecer a Dios en toda su magnitud, y comprender esa multiforme sabiduría de Dios que sincroniza todo el universo.]{.body}
+[Mi anhelo es que, con sencillez, se vea al Dios de la Biblia, al Dios de Israel, en sus perfecciones eternas: que sea exaltado, admirado, honrado y, principalmente, temido por sus maravillas y sus proezas. Ir del estudio al púlpito es exhibir, honrar y engrandecer a Dios en toda su magnitud, y comprender esa multiforme sabiduría de Dios que sincroniza todo el universo.]{.body}
 
 > Alabadle por sus proezas; alabadle conforme a la muchedumbre de su grandeza.
 > [Salmos 150:2 · Reina-Valera 1960]{.cite}
