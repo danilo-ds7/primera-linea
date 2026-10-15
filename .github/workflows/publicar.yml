@@ -41,6 +41,13 @@ jobs:
       - name: Renderizar el sitio
         run: quarto render
 
+      - name: Marcar la versión publicada (para que todos los dispositivos carguen lo último)
+        run: |
+          VER="${GITHUB_SHA::8}"
+          echo "$VER" > _site/version.txt
+          find _site -name '*.html' -not -path '_site/app/*' -exec sed -i "s/__PL_BUILD__/$VER/g" {} +
+          grep -l "pl-build\" content=\"$VER" _site/index.html
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

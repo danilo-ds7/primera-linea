@@ -1,0 +1,23 @@
+<meta name="pl-build" content="__PL_BUILD__">
+<script>
+/* Primera Línea: si hay una publicación más nueva que la que muestra este dispositivo
+   (caché del navegador o de GitHub Pages), carga la página nueva una sola vez. */
+(function(){
+  function revisar(){
+    var m=document.querySelector('meta[name="pl-build"]'); if(!m) return;
+    var actual=m.getAttribute('content')||''; if(!actual || actual.indexOf('__')===0) return;
+    if(!window.fetch) return;
+    fetch('/primera-linea/version.txt?t='+Date.now(),{cache:'no-store'})
+      .then(function(r){ return r.ok ? r.text() : ''; })
+      .then(function(v){
+        v=(v||'').trim(); if(!v || v===actual) return;
+        var u=new URL(location.href);
+        if(u.searchParams.get('b')===v) return;      /* ya se intentó: no repetir */
+        u.searchParams.set('b',v);
+        location.replace(u.toString());
+      }).catch(function(){});
+  }
+  revisar();
+  window.addEventListener('pageshow',function(e){ if(e.persisted) revisar(); });
+})();
+</script>

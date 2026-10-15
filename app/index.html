@@ -1231,7 +1231,18 @@ details.acc > .in{padding:0 16px 16px;display:grid;gap:10px}
   if(ios && !standalone){ $("tip-ios").hidden=false; }
 
   if("serviceWorker" in navigator && (location.protocol==="https:" || location.hostname==="localhost")){
-    try{ navigator.serviceWorker.register("sw.js").catch(function(){}); }catch(e){}
+    try{
+      // Busca siempre el sw.js nuevo (sin caché) y, si cambió la versión, recarga una vez.
+      var habiaSW = !!navigator.serviceWorker.controller, recargado=false;
+      navigator.serviceWorker.register("sw.js",{updateViaCache:"none"}).then(function(reg){
+        var revisar=function(){ reg.update().catch(function(){}); };
+        document.addEventListener("visibilitychange", function(){ if(document.visibilityState==="visible") revisar(); });
+        window.addEventListener("focus", revisar);
+      }).catch(function(){});
+      navigator.serviceWorker.addEventListener("controllerchange", function(){
+        if(!habiaSW || recargado) return; recargado=true; location.reload();
+      });
+    }catch(e){}
   }
 
   // Guía en vivo: solo cuando la página se abre dentro de Claude.

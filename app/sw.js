@@ -1,6 +1,6 @@
 // Service worker del Lector: guarda la app y los estudios para usarlos sin conexión.
 // Al agregar o cambiar estudios, sube el número de VERSION para que los celulares descarguen lo nuevo.
-const VERSION = "lector-v10";
+const VERSION = "lector-v11";
 const BASE = ["./", "index.html", "manifest.webmanifest",
   "iconos/icono-192.png", "iconos/icono-512.png", "iconos/icono-maskable-512.png",
   "iconos/apple-touch-icon.png", "iconos/favicon-32.png", "comparaciones/notas.json",
@@ -9,7 +9,7 @@ const BASE = ["./", "index.html", "manifest.webmanifest",
 self.addEventListener("install", (e) => {
   e.waitUntil((async () => {
     const cache = await caches.open(VERSION);
-    await cache.addAll(BASE);
+    await cache.addAll(BASE.map((u) => new Request(u, { cache: "no-cache" })));
     self.skipWaiting();
   })());
 });
@@ -31,7 +31,11 @@ self.addEventListener("fetch", (e) => {
   e.respondWith((async () => {
     const cache = await caches.open(VERSION);
     try {
-      const res = await fetch(req);
+      // "no-cache": revalida con GitHub en cada carga, así el celular ve lo último apenas se publica.
+      const propio = url.origin === location.origin;
+      const res = propio
+        ? await fetch(req.mode === "navigate" ? req.url : req, { cache: "no-cache" })
+        : await fetch(req);
       if (res && (res.ok || res.type === "opaque")) cache.put(req, res.clone());
       return res;
     } catch (err) {

@@ -56,6 +56,7 @@ format:
     section-divs: false
     anchor-sections: false
     toc: false
+    include-in-header: _includes/version.html
 
 bibliography: referencias.bib
 csl: apa.csl
