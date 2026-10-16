@@ -1,12 +1,24 @@
 ---
 title: "Festividades santas"
 subtitle: "Las fiestas de Levítico 23, de Pésaj a Sukkot"
+body-classes: serie-atributos
+listing:
+  id: lista-festividades
+  contents: festividades
+  sort: "order"
+  type: grid
+  template: scripts/atributos.ejs
+  fields: [title, subtitle, description, numero]
+  categories: false
+  sort-ui: false
+  filter-ui: false
 ---
 
 Las fiestas solemnes que Dios dio a Israel en Levítico 23: Pésaj, Matzot, Primicias, Shavuot, Yom Teruá, Yom Kipur y Sukkot. Cada estudio mira su sentido en Israel y cómo apuntan a la obra de Cristo.
 
-::: {.callout-note appearance="simple"}
-Los estudios de esta línea están en preparación y se irán publicando aquí.
+Cada estudio se puede leer aquí o descargar en PDF, junto con la presentación que lo acompaña.
+
+::: {#lista-festividades}
 :::
 
 [← Volver a las líneas de estudio](index.qmd#estudios)

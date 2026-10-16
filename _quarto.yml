@@ -1,15 +1,18 @@
 project:
   type: website
   output-dir: _site
-  pre-render: scripts/atributos.py   # convierte los estudios LaTeX en páginas y PDF
+  pre-render: scripts/atributos.py   # convierte los estudios LaTeX en páginas y PDF (todas las series)
   resources:
     - "app/**"
     - "atributos/pdf/**"
     - "atributos/img/**"
+    - "festividades/pdf/**"
+    - "festividades/img/**"
   render:
     - "*.qmd"
     - "estudios/*.qmd"
     - "atributos/*.qmd"
+    - "festividades/*.qmd"
 
 website:
   title: "Primera Línea"

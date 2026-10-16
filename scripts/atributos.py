@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 """
-Serie «Atributos de Dios»: convierte los estudios LaTeX en páginas del sitio.
+Series de estudios en LaTeX («Atributos de Dios», «Festividades santas»): convierte los
+estudios en páginas del sitio.
 
 Se ejecuta solo antes de cada `quarto render` / `quarto preview` (ver _quarto.yml).
-No hay que tocarlo para agregar un atributo: basta con subir la carpeta.
+No hay que tocarlo para agregar un estudio: basta con subir la carpeta.
 
-Fuente:  estudios/atributos-de-dios/NN_Nombre/   (los .tex tal como salen del proyecto de estudio)
-Salida:  atributos/<slug>.qmd                    (página web, generada; no editar a mano)
-         atributos/pdf/<slug>-*.pdf              (descargas)
-         atributos/img/<slug>/...                (figuras TikZ en SVG e imágenes)
+Por cada serie de SERIES (más abajo):
+Fuente:  estudios/<carpeta>/NN_Nombre/           (los .tex tal como salen del proyecto de estudio)
+Salida:  <salida>/<slug>.qmd                     (página web, generada; no editar a mano)
+         <salida>/pdf/<slug>-*.pdf               (descargas)
+         <salida>/img/<slug>/...                 (figuras TikZ en SVG e imágenes)
 
 Reglas de detección (por carpeta NN_Nombre):
   - Un .tex con \\documentclass{beamer}  -> presentación (solo PDF).
@@ -26,8 +28,20 @@ import unicodedata
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
-FUENTE = RAIZ / "estudios" / "atributos-de-dios"
-SALIDA = RAIZ / "atributos"
+
+# Cada serie: carpeta de fuentes LaTeX -> carpeta de páginas generadas.
+#   requerida: si no genera ninguna página, la publicación falla (para no publicar la serie vacía por error).
+SERIES = [
+    {"nombre": "Atributos de Dios", "fuente": "atributos-de-dios", "salida": "atributos",
+     "etiqueta": "Atributo", "libro_pdf": "la-gloria-de-dios-libro.pdf", "requerida": True},
+    {"nombre": "Festividades santas", "fuente": "fiestas-santas", "salida": "festividades",
+     "etiqueta": "Fiesta", "libro_pdf": "fiestas-santas-libro.pdf", "requerida": False},
+]
+
+# Serie en proceso (las fija usar_serie)
+SERIE = SERIES[0]
+FUENTE = RAIZ / "estudios" / SERIE["fuente"]
+SALIDA = RAIZ / SERIE["salida"]
 FILTRO = RAIZ / "scripts" / "atributos.lua"
 CACHE = RAIZ / ".atributos-cache"
 
@@ -37,10 +51,17 @@ PANDOC = [shutil.which("pandoc")] if shutil.which("pandoc") else [shutil.which("
 TIENE_CAIRO = shutil.which("pdftocairo") is not None
 
 
+def usar_serie(serie):
+    global SERIE, FUENTE, SALIDA
+    SERIE = serie
+    FUENTE = RAIZ / "estudios" / serie["fuente"]
+    SALIDA = RAIZ / serie["salida"]
+
+
 def log(msg):
-    print(f"[atributos] {msg}", flush=True)
+    print(f"[{SERIE['salida']}] {msg}", flush=True)
     if os.environ.get("GITHUB_ACTIONS") and msg.startswith(("ERROR", "AVISO")):
-        print(f"::warning title=Atributos de Dios::{msg}", flush=True)
+        print(f"::warning title={SERIE['nombre']}::{msg}", flush=True)
 
 
 # --------------------------------------------------------------------------- utilidades LaTeX
@@ -139,7 +160,7 @@ def huella(carpeta):
 def compilar(tex_path):
     """Compila con XeLaTeX si el PDF falta o la carpeta cambió. Devuelve la ruta del PDF o None."""
     pdf = tex_path.with_suffix(".pdf")
-    sello = CACHE / (slugify(str(tex_path.relative_to(FUENTE))) + ".sha1")
+    sello = CACHE / (slugify(str(tex_path.relative_to(RAIZ / "estudios"))) + ".sha1")
     actual = huella(tex_path.parent)
     if pdf.exists() and sello.exists() and sello.read_text() == actual:
         return pdf
@@ -177,7 +198,7 @@ def figuras_tikz(tex, preambulo, carpeta_tex, destino, slug):
         if not (TIENE_TEX and TIENE_CAIRO):
             log("AVISO: sin XeLaTeX/pdftocairo, las figuras TikZ no se generan")
         else:
-            trabajo = CACHE / f"tikz-{slug}"
+            trabajo = CACHE / f"tikz-{SERIE['salida']}-{slug}"
             if trabajo.exists():
                 shutil.rmtree(trabajo)
             shutil.copytree(carpeta_tex, trabajo, ignore=shutil.ignore_patterns("*.pdf", "*.aux", "*.log"))
@@ -386,7 +407,7 @@ title: {yaml_str(e["titulo"])}
 subtitle: {yaml_str(e["subtitulo"])}
 description: {yaml_str(e["descripcion"])}
 date: {e["fecha"]}
-categories: ["Atributos de Dios"]
+categories: [{yaml_str(SERIE["nombre"])}]
 order: {e["orden"]}
 numero: {yaml_str(e["etiqueta_num"])}
 body-classes: estudio-tex
@@ -443,18 +464,22 @@ def procesar_estudio(carpeta, orden):
     estudio = {
         "slug": slug_base, "titulo": titulo or carpeta.name, "subtitulo": subtitulo,
         "descripcion": descripcion, "orden": numero,
-        "etiqueta_num": "Introducción" if numero == 0 else f"Atributo {numero}",
+        "etiqueta_num": "Introducción" if numero == 0 else f"{SERIE['etiqueta']} {numero}",
         "fuente": str(capitulo.relative_to(RAIZ)), "pdfs": pdfs, "fecha": fecha(carpeta),
     }
     escribir_pagina(estudio, md)
-    log(f"página lista: atributos/{slug_base}.qmd ({len(pdfs)} PDF)")
+    log(f"página lista: {SERIE['salida']}/{slug_base}.qmd ({len(pdfs)} PDF)")
     return estudio
 
 
-def main():
-    if not FUENTE.exists():
-        return
+def procesar_serie(serie):
+    """Genera las páginas de una serie. Devuelve False si una serie requerida quedó vacía."""
+    usar_serie(serie)
     (SALIDA / "pdf").mkdir(parents=True, exist_ok=True)
+    if not FUENTE.exists():
+        log("sin carpeta de estudios todavía")
+        (SALIDA / "serie.json").write_text(json.dumps({"estudios": [], "libro": {}}, indent=2))
+        return not serie["requerida"]
     for viejo in SALIDA.glob("*.qmd"):
         viejo.unlink()
 
@@ -476,13 +501,22 @@ def main():
     if maestro:
         pdf = compilar(maestro)
         if pdf:
-            shutil.copy2(pdf, SALIDA / "pdf" / "la-gloria-de-dios-libro.pdf")
-            libro = {"archivo": "pdf/la-gloria-de-dios-libro.pdf"}
+            shutil.copy2(pdf, SALIDA / "pdf" / serie["libro_pdf"])
+            libro = {"archivo": "pdf/" + serie["libro_pdf"]}
 
     (SALIDA / "serie.json").write_text(json.dumps({"estudios": estudios, "libro": libro},
                                                   ensure_ascii=False, indent=2))
     if not estudios:
-        log("ERROR: no se generó ninguna página de la serie")
+        if serie["requerida"]:
+            log("ERROR: no se generó ninguna página de la serie")
+            return False
+        log("todavía no hay estudios publicados")
+    return True
+
+
+def main():
+    ok = [procesar_serie(s) for s in SERIES]
+    if not all(ok):
         sys.exit(1)
 
 

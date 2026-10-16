@@ -2,7 +2,7 @@
 title: "Estudios"
 subtitle: "Ensayos, fichas filológicas y series temáticas"
 listing:
-  contents: [estudios, atributos]
+  contents: [estudios, atributos, festividades]
   type: default
   sort: "date desc"
   categories: true

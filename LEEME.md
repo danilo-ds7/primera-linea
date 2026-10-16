@@ -20,6 +20,12 @@ Antes de cada `quarto render` o `quarto preview`, `scripts/atributos.py` compila
 y genera las páginas en `atributos/` (carpeta generada: no editarla a mano).
 Para verlo en tu computador necesitas Quarto y XeLaTeX (MacTeX).
 
+## Serie «Festividades santas»
+
+Igual que Atributos: los estudios en LaTeX van en `estudios/fiestas-santas/` (desde el proyecto
+de estudio «Fiestas Santas») y el mismo `scripts/atributos.py` genera las páginas en `festividades/`
+(carpeta generada) y las muestra en la página **Festividades santas** (`festividades.qmd`).
+
 ## Publicación
 
 Cada cambio que llega a GitHub se publica solo (`.github/workflows/publicar.yml`) en
