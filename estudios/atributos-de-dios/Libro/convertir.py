@@ -35,7 +35,7 @@ def ref_larga(r):
     return f"{(libro if libro == 'Salmo' else LIBROS.get(libro, libro))} {cap.replace('--', '–')}{extra}"
 
 # Versos: cita -> verso
-NOBIB = ('(Misná', '(\\emph{', '(1QS', '(Talmud')  # fuentes no bíblicas: cita sin RVR1960
+NOBIB = ('(Misná', '(\\emph{', '(1QS', '(Talmud', '(Rashi')  # fuentes no bíblicas: cita sin RVR1960
 def verso(m):
     texto, ref = m.group(1).strip(), m.group(2)
     if ref.startswith(NOBIB):

@@ -22,6 +22,7 @@ Compilar siempre con **XeLaTeX** (3 pasadas) desde la carpeta del archivo.
 | `15_Fiel/` | `15_Fiel_presentacion.tex` y `15_Fiel_capitulo.tex` (fidelidad: Jos 21:45, *ha'El hane'emán*, el arroyo y el manantial) |
 | `16_Celo/` | `16_Celo_presentacion.tex` y `16_Celo_capitulo.tex` |
 | `17_Ira/` | `17_Ira_presentacion.tex` y `17_Ira_capitulo.tex` |
+| `20_Gracia/` | `20_Gracia_presentacion.tex` y `20_Gracia_capitulo.tex` (Gn 6:8; *jen*, *jinnam*; Manasés; Pablo) |
 | `21_Gloria/` | `21_Gloria_presentacion.tex` y `21_Gloria_capitulo.tex` (conclusión: la gloria de Dios, comunión de todos los atributos en Cristo) |
 | `Libro/` | Maestro `La_gloria_de_Dios.tex`, `preambulo.tex`, `capitulos/`, `img/` y `convertir.py` |
 
