@@ -452,7 +452,71 @@ Si los atributos no se oponen, ¿qué los mantiene en armonía? En el esquema de
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.78\linewidth]{gloria_esquema.jpg}
+%<fig:gloria_esquema>
+\begin{tikzpicture}[font=\fontsize{10}{12}\selectfont,
+  atSer/.style={draw=cSer, line width=0.5pt, fill=white, rounded corners=2pt, minimum width=2.3cm, minimum height=1.2cm, align=center, inner sep=2pt},
+  hubSer/.style={atSer, line width=1.1pt, fill=cSer!7, minimum width=2.6cm},
+  bandaSer/.style={draw=cSer!55, fill=cSer!3, line width=0.5pt, rounded corners=6pt},
+  rotuloSer/.style={font=\fontsize{9}{11}\selectfont\scshape, text=cSer, anchor=north west},
+  atIde/.style={draw=cIde, line width=0.5pt, fill=white, rounded corners=2pt, minimum width=2.3cm, minimum height=1.2cm, align=center, inner sep=2pt},
+  hubIde/.style={atIde, line width=1.1pt, fill=cIde!7, minimum width=2.6cm},
+  bandaIde/.style={draw=cIde!55, fill=cIde!3, line width=0.5pt, rounded corners=6pt},
+  rotuloIde/.style={font=\fontsize{9}{11}\selectfont\scshape, text=cIde, anchor=north west},
+  atRel/.style={draw=cRel, line width=0.5pt, fill=white, rounded corners=2pt, minimum width=2.3cm, minimum height=1.2cm, align=center, inner sep=2pt},
+  hubRel/.style={atRel, line width=1.1pt, fill=cRel!7, minimum width=2.6cm},
+  bandaRel/.style={draw=cRel!55, fill=cRel!3, line width=0.5pt, rounded corners=6pt},
+  rotuloRel/.style={font=\fontsize{9}{11}\selectfont\scshape, text=cRel, anchor=north west},
+  enl/.style={draw=gGris!70, line width=0.4pt},
+  cruce/.style={draw=gGris, line width=0.45pt, densely dashed}]
+\definecolor{gAzul}{RGB}{21,67,124}\definecolor{gAzulo}{RGB}{11,31,58}\definecolor{gGris}{RGB}{84,101,124}%
+\definecolor{cSer}{RGB}{160,124,48}\definecolor{cIde}{RGB}{21,67,124}\definecolor{cRel}{RGB}{112,48,56}%
+% Bandas
+\draw[bandaSer] (-7.6,8.65) rectangle (7.6,11.35);
+\draw[bandaIde] (-7.6,3.7) rectangle (7.6,8.4);
+\draw[bandaRel] (-7.6,-1.05) rectangle (7.6,3.45);
+\node[rotuloSer] at (-7.45,11.25) {I. Ser · ¿qué es?};
+\node[rotuloIde] at (-7.45,8.3) {II. Identidad · ¿quién es?};
+\node[rotuloRel] at (-7.45,3.35) {III. Relación · ¿cómo se revela?};
+% I. Ser
+\node[hubSer] (uno) at (0,9.85) {\textsc{Uno}\\[-1pt]{\fontsize{12}{13}\selectfont\heb{אֶחָד}}\\[-2pt]{\fontsize{8}{9.5}\selectfont\itshape ejad}};
+\node[atSer] (amor) at (-3.6,9.85) {\textsc{Amor}\\[-1pt]{\fontsize{12}{13}\selectfont\heb{חֶסֶד}}\\[-2pt]{\fontsize{8}{9.5}\selectfont\itshape jésed}};
+\node[atSer] (esp) at (3.6,9.85) {\textsc{Espíritu}\\[-1pt]{\fontsize{12}{13}\selectfont\heb{רוּחַ}}\\[-2pt]{\fontsize{8}{9.5}\selectfont\itshape rúaj}};
+% II. Identidad
+\node[hubIde] (santo) at (0,6.2) {\textsc{Santo}\\[-1pt]{\fontsize{12}{13}\selectfont\heb{קָדוֹשׁ}}\\[-2pt]{\fontsize{8}{9.5}\selectfont\itshape qadosh}};
+\node[atIde] (eterno) at (-4.8,7.15) {\textsc{Eterno}\\[-1pt]{\fontsize{12}{13}\selectfont\heb{עוֹלָם}}\\[-2pt]{\fontsize{8}{9.5}\selectfont\itshape olam}};
+\node[atIde] (sob) at (-4.8,5.8) {\textsc{Soberano}\\[-1pt]{\fontsize{12}{13}\selectfont\heb{אֲדֹנָי}}\\[-2pt]{\fontsize{8}{9.5}\selectfont\itshape Adonay}};
+\node[atIde] (justo) at (-4.8,4.45) {\textsc{Justo}\\[-1pt]{\fontsize{12}{13}\selectfont\heb{צֶדֶק}}\\[-2pt]{\fontsize{8}{9.5}\selectfont\itshape tsedeq}};
+\node[atIde] (omnis) at (4.8,7.15) {\textsc{Omnisciente}\\[-1pt]{\fontsize{12}{13}\selectfont\heb{יָדַע}}\\[-2pt]{\fontsize{8}{9.5}\selectfont\itshape yadá}};
+\node[atIde, minimum width=2.6cm] (omnipr) at (4.8,5.8) {\textsc{Omnipresente}\\[-1pt]{\fontsize{12}{13}\selectfont\heb{מְלֹא כָל־הָאָרֶץ}}\\[-2pt]{\fontsize{8}{9.5}\selectfont\itshape meló kol-haárets}};
+\node[atIde] (omnipo) at (4.8,4.45) {\textsc{Omnipotente}\\[-1pt]{\fontsize{12}{13}\selectfont\heb{אֵל שַׁדַּי}}\\[-2pt]{\fontsize{8}{9.5}\selectfont\itshape El Shadday}};
+\node[atIde] (inm) at (0,4.45) {\textsc{Inmutable}\\[-1pt]{\fontsize{12}{13}\selectfont\heb{לֹא שָׁנִיתִי}}\\[-2pt]{\fontsize{8}{9.5}\selectfont\itshape lo shaniti}};
+% III. Relación
+\node[hubRel] (sab) at (0,1.15) {\textsc{Sabiduría}\\[-1pt]{\fontsize{12}{13}\selectfont\heb{חָכְמָה}}\\[-2pt]{\fontsize{8}{9.5}\selectfont\itshape jojmá}};
+\node[atRel] (verd) at (-3.1,2.15) {\textsc{Verdadero}\\[-1pt]{\fontsize{12}{13}\selectfont\heb{אֱמֶת}}\\[-2pt]{\fontsize{8}{9.5}\selectfont\itshape emet}};
+\node[atRel] (bond) at (-6.1,1.6) {\textsc{Bondad}\\[-1pt]{\fontsize{12}{13}\selectfont\heb{טוֹב}}\\[-2pt]{\fontsize{8}{9.5}\selectfont\itshape tov}};
+\node[atRel] (ira) at (-6.1,-0.05) {\textsc{Ira santa}\\[-1pt]{\fontsize{12}{13}\selectfont\heb{אַף}}\\[-2pt]{\fontsize{8}{9.5}\selectfont\itshape af}};
+\node[atRel] (celo) at (-3.1,-0.1) {\textsc{Celo}\\[-1pt]{\fontsize{12}{13}\selectfont\heb{קִנְאָה}}\\[-2pt]{\fontsize{8}{9.5}\selectfont\itshape qin'á}};
+\node[atRel, minimum width=2.6cm] (mis) at (3.1,2.15) {\textsc{Misericordioso}\\[-1pt]{\fontsize{12}{13}\selectfont\heb{רַחֲמִים}}\\[-2pt]{\fontsize{8}{9.5}\selectfont\itshape rajamim}};
+\node[atRel] (gra) at (6.1,1.6) {\textsc{Gracia}\\[-1pt]{\fontsize{12}{13}\selectfont\heb{חֵן}}\\[-2pt]{\fontsize{8}{9.5}\selectfont\itshape jen}};
+\node[atRel] (pac) at (6.1,-0.05) {\textsc{Paciencia}\\[-1pt]{\fontsize{12}{13}\selectfont\heb{אֶרֶךְ אַפַּיִם}}\\[-2pt]{\fontsize{8}{9.5}\selectfont\itshape érej apáyim}};
+\node[atRel] (fiel) at (3.1,-0.1) {\textsc{Fiel}\\[-1pt]{\fontsize{12}{13}\selectfont\heb{אֱמוּנָה}}\\[-2pt]{\fontsize{8}{9.5}\selectfont\itshape emuná}};
+\node[font=\fontsize{8}{9.5}\selectfont\itshape, text=cRel] at (0,0.22) {sincroniza todos los atributos};
+% Enlaces internos
+\draw[enl] (amor) -- (uno) -- (esp);
+\foreach \n in {eterno,sob,justo,omnis,omnipr,omnipo,inm} \draw[enl] (santo) -- (\n);
+\foreach \n in {verd,bond,ira,celo,mis,gra,pac,fiel} \draw[enl] (sab) -- (\n);
+% Enlaces entre las tres dimensiones
+\draw[cruce] (amor.south) -- (eterno.north);
+\draw[cruce] (esp.south) -- (omnis.north);
+\draw[cruce] (justo.south) -- (verd.north west);
+\draw[cruce] (santo.south west) to[out=-115,in=115] (sab.north west);
+\draw[cruce] (santo.south east) to[out=-65,in=65] (sab.north east);
+\draw[cruce] (ira.east) to[out=-10,in=190] (celo.west);
+% Plenitud en Cristo
+\draw[cSer, line width=0.9pt] (0,-1.55) -- (0,-2.35) (-0.27,-1.78) -- (0.27,-1.78);
+\node[font=\fontsize{9}{11}\selectfont\scshape, text=gAzulo] at (0,-2.7) {Plenitud en Cristo · Col 2:9};
+\end{tikzpicture}
+%</fig:gloria_esquema>
 \caption{Gloria de Dios: su esencia infinita}\label{fig:gloria}
 \par{\footnotesize\color{sepia}\textit{Nota.} Esquema del autor: los atributos del Ser, de la Identidad y de la Relación, sincronizados por la Sabiduría.}
 \end{figure}

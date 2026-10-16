@@ -1,0 +1,45 @@
+% Figura TikZ (se incrusta en los .tex con incrustar_diagramas.py)
+\begin{tikzpicture}[font=\fontsize{10}{12}\selectfont]
+\definecolor{gAzul}{RGB}{21,67,124}\definecolor{gAzulo}{RGB}{11,31,58}\definecolor{gGris}{RGB}{84,101,124}%
+\definecolor{cSer}{RGB}{160,124,48}\definecolor{cIde}{RGB}{21,67,124}\definecolor{cRel}{RGB}{112,48,56}%
+\def\R{5.2}
+% nombre / hebreo / transliteración / grupo, en el orden del círculo (desde arriba, horario)
+\def\lista{%
+ Uno/אֶחָד/ejad/cSer, Espíritu/רוּחַ/rúaj/cSer, Santo/קָדוֹשׁ/qadosh/cIde, Eterno/עוֹלָם/olam/cIde,
+ Soberano/אֲדֹנָי/Adonay/cIde, Justo/צֶדֶק/tsedeq/cIde, Inmutable/לֹא שָׁנִיתִי/lo shaniti/cIde,
+ Omnipotente/אֵל שַׁדַּי/El Shadday/cIde, Omnipresente/מְלֹא כָל־הָאָרֶץ/meló kol-haárets/cIde,
+ Omnisciente/יָדַע/yadá/cIde, Sabiduría/חָכְמָה/jojmá/cRel, Verdadero/אֱמֶת/emet/cRel,
+ Misericordioso/רַחֲמִים/rajamim/cRel, Fiel/אֱמוּנָה/emuná/cRel, Gracia/חֵן/jen/cRel,
+ Bondad/טוֹב/tov/cRel, Paciencia/אֶרֶךְ אַפַּיִם/érej apáyim/cRel, Ira santa/אַף/af/cRel,
+ Celo/קִנְאָה/qin'á/cRel, Amor/חֶסֶד/jésed/cSer}
+% anillo por dimensiones
+\draw[cSer!70, line width=1.2pt] (108+9:\R) arc[start angle=117, end angle=63, radius=\R];
+\draw[cIde!70, line width=1.2pt] (63:\R) arc[start angle=63, end angle=-81, radius=\R];
+\draw[cRel!70, line width=1.2pt] (-81:\R) arc[start angle=-81, end angle=-243, radius=\R];
+% puntos y rótulos
+\foreach \nom/\he/\tr/\c [count=\k from 0] in \lista {
+  \pgfmathsetmacro\ang{90-18*\k}
+  \coordinate (p\k) at (\ang:\R);
+  \fill[\c] (p\k) circle (2.6pt);
+  \node[align=center, inner sep=1pt, font=\fontsize{8}{9.5}\selectfont] at (\ang:\R+1.05)
+    {{\color{\c}\textsc{\nom}}\\[-1pt]\heb{\he}\\[-2pt]{\fontsize{7}{8.5}\selectfont\itshape\color{gGris}\tr}};
+}
+% sincronías: (origen, destino, número)
+\tikzset{sinc/.style={-{Stealth[length=4pt,width=3pt]}, draw=cSer!85!black, line width=0.5pt, shorten <=3pt, shorten >=4pt},
+  num/.style={circle, fill=gAzulo, text=white, font=\fontsize{7}{8.5}\selectfont\bfseries, inner sep=0pt, minimum size=11pt}}
+\foreach \a/\b/\n in {2/19/1, 2/7/1, 2/17/1, 10/5/2, 10/12/2, 10/11/2, 3/4/3, 9/5/4, 6/13/5, 1/8/6, 11/12/7, 18/4/8, 7/14/9}
+  \draw[sinc] (p\a) to[bend right=8] (p\b);
+\foreach \a/\b/\n in {2/7/1, 10/5/2, 3/4/3, 9/5/4, 6/13/5, 1/8/6, 11/12/7, 18/4/8, 7/14/9}
+  \node[num] at ($(p\a)!0.2!(p\b)$) {\n};
+% centro
+\node[inner sep=5pt, align=center] at (0,-0.15) {%
+  \tikz{\draw[cSer, line width=1.1pt] (0,0) -- (0,0.95) (-0.32,0.68) -- (0.32,0.68);}\\[2pt]
+  {\fontsize{9}{11}\selectfont\scshape\color{gAzulo} La Cruz}\\[-1pt]{\fontsize{8}{9.5}\selectfont\itshape\color{gGris} Col 1:19--20}};
+% leyenda
+\begin{scope}[shift={(0,-\R-2.2)}, font=\fontsize{8}{9.5}\selectfont]
+\fill[cSer] (-4.6,0) circle (2.6pt); \node[anchor=west] at (-4.45,0) {I. Ser};
+\fill[cIde] (-2.3,0) circle (2.6pt); \node[anchor=west] at (-2.15,0) {II. Identidad};
+\fill[cRel] (0.7,0) circle (2.6pt); \node[anchor=west] at (0.85,0) {III. Relación};
+\node[num] at (3.65,0) {1}; \node[anchor=west] at (3.85,0) {sincronía (ver tabla)};
+\end{scope}
+\end{tikzpicture}

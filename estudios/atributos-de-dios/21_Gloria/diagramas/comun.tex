@@ -1,0 +1,14 @@
+% Preámbulo común de los diagramas de la Conclusión (estilo sobrio del libro)
+\usepackage{fontspec}
+\setmainfont{texgyrepagella}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
+\usepackage[bidi=default]{babel}
+\babelprovide[import,main]{spanish}
+\babelprovide[import]{hebrew}
+\babelfont[hebrew]{rm}[Path=../fonts/,BoldFont=NotoHebrewSerif-700.ttf]{NotoHebrewSerif-400.ttf}
+\newcommand{\heb}[1]{\mbox{\foreignlanguage{hebrew}{#1}}}
+\usepackage{xcolor,tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,backgrounds}
+\definecolor{azulp}{RGB}{21,67,124}\definecolor{azulo}{RGB}{11,31,58}
+\definecolor{grisaz}{RGB}{84,101,124}\definecolor{dorado}{RGB}{160,124,48}
+\definecolor{vino}{RGB}{112,48,56}
+\colorlet{cSer}{dorado}\colorlet{cIde}{azulp}\colorlet{cRel}{vino}

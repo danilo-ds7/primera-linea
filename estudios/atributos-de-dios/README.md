@@ -45,3 +45,5 @@ Al subir cambios a esta carpeta, GitHub Actions compila los PDF y publica cada e
 
 - **Presentaciones:** una sola tabla de contenidos, después de la portada. No se repite el índice al comenzar cada sección (sin `\AtBeginSection`): la navegación la da la barra lateral.
 - **Artículos, capítulos y libro:** ningún recuadro queda partido entre dos páginas. Todos los `tcolorbox` (versos, citas, notas, filología) son `unbreakable`; si uno es más alto que una página, se divide en dos recuadros.
+- **Índice del libro:** una sola página, solo partes y capítulos (`\setcounter{tocdepth}{0}` en `Libro/La_gloria_de_Dios.tex`).
+- **Gráficos:** sobrios, en TikZ incrustado en el .tex (no imágenes PNG/JPG), con la tipografía del documento, líneas finas y los colores de la serie atenuados. Los dos esquemas de la Conclusión están en `21_Gloria/diagramas/` (`*_fig.tex`); tras editarlos, correr `python3 21_Gloria/diagramas/incrustar_diagramas.py`.
