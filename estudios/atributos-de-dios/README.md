@@ -10,6 +10,7 @@ Compilar siempre con **XeLaTeX** (3 pasadas) desde la carpeta del archivo.
 | `12_Sabiduria/` | `12_Sabiduria_presentacion.tex` y `12_Sabiduria_capitulo.tex` |
 | `13_Verdad/` | `13_Verdad_presentacion.tex` y `13_Verdad_capitulo.tex` |
 | `14_Misericordia/` | `14_Misericordia_presentacion.tex` y `14_Misericordia_capitulo.tex` |
+| `16_Celo/` | `16_Celo_presentacion.tex` y `16_Celo_capitulo.tex` |
 | `17_Ira/` | `17_Ira_presentacion.tex` y `17_Ira_capitulo.tex` |
 | `Libro/` | Maestro `La_gloria_de_Dios.tex`, `preambulo.tex`, `capitulos/` y `convertir.py` |
 
