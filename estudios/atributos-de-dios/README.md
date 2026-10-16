@@ -7,6 +7,7 @@ Compilar siempre con **XeLaTeX** (3 pasadas) desde la carpeta del archivo.
 |---|---|
 | `00_Introduccion/` | `presentacion/Atributos_Introduccion.tex` y `articulo/Introduccion_Libro.tex` |
 | `01_Preexistencia/` | `01_Preexistencia_presentacion.tex` y `01_Preexistencia_capitulo.tex` |
+| `01_Uno/` | `01_Uno_presentacion.tex` y `01_Uno_capitulo.tex` (Dios es uno: el Shemá, Dt 6:4–5; Zac 14:9; 1 Co 8:6) |
 | `02_Amor/` | `02_Amor_presentacion.tex` y `02_Amor_capitulo.tex` (Dios es amor: eterno, soberano e inmutable; 1 Jn 4:7–16) |
 | `03_Espiritu/` | `03_Espiritu_presentacion.tex` y `03_Espiritu_capitulo.tex` (Jn 4:24; *rúaj*; «Dios de los espíritus», Nm 16:22; Horeb, voz sin figura) |
 | `04_Santo/` | `04_Santo_presentacion.tex` y `04_Santo_capitulo.tex` |
