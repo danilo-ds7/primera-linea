@@ -19,7 +19,9 @@ function Span(el)
   -- los colores del PDF no se trasladan a la web
   if el.attributes.style and el.attributes.style:match("^color") then
     el.attributes.style = nil
-    if #el.classes == 0 and next(el.attributes) == nil then
+    local sin_atributos = true
+    for _ in pairs(el.attributes) do sin_atributos = false; break end
+    if #el.classes == 0 and sin_atributos then
       return el.content
     end
   end

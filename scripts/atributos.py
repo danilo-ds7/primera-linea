@@ -464,7 +464,7 @@ def procesar_estudio(carpeta, orden):
     estudio = {
         "slug": slug_base, "titulo": titulo or carpeta.name, "subtitulo": subtitulo,
         "descripcion": descripcion, "orden": numero,
-        "etiqueta_num": "Introducción" if numero == 0 else f"{SERIE['etiqueta']} {numero}",
+        "etiqueta_num": "Introducción" if numero == 0 else ("Conclusión" if carpeta.name == "21_Gloria" else f"{SERIE['etiqueta']} {numero}"),
         "fuente": str(capitulo.relative_to(RAIZ)), "pdfs": pdfs, "fecha": fecha(carpeta),
     }
     escribir_pagina(estudio, md)
