@@ -7,6 +7,7 @@ Compilar siempre con **XeLaTeX** (3 pasadas) desde la carpeta del archivo.
 |---|---|
 | `00_Introduccion/` | `presentacion/Atributos_Introduccion.tex` y `articulo/Introduccion_Libro.tex` |
 | `01_Preexistencia/` | `01_Preexistencia_presentacion.tex` y `01_Preexistencia_capitulo.tex` |
+| `03_Espiritu/` | `03_Espiritu_presentacion.tex` y `03_Espiritu_capitulo.tex` (Jn 4:24; *rúaj*; «Dios de los espíritus», Nm 16:22; Horeb, voz sin figura) |
 | `04_Santo/` | `04_Santo_presentacion.tex` y `04_Santo_capitulo.tex` |
 | `06_Soberano/` | `06_Soberano_presentacion.tex` y `06_Soberano_capitulo.tex` (soberanía, nombres *Adonay* y *Elyón*, C. S. Lewis y el dolor) |
 | `08_Inmutable/` | `08_Inmutable_presentacion.tex` y `08_Inmutable_capitulo.tex` |
