@@ -1,0 +1,916 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage{fontspec}
+\setmainfont{texgyrepagella}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
+\usepackage[bidi=default]{babel}
+\babelprovide[import,main]{spanish}
+\babelprovide[import]{hebrew}
+\babelprovide[import]{ancientgreek}
+\babelfont[hebrew]{rm}[Path=fonts/,BoldFont=NotoHebrewSerif-700.ttf,Scale=0.95]{NotoHebrewSerif-400.ttf}
+\babelfont[ancientgreek]{rm}[Path=fonts/]{GFSPorson.otf}
+\newcommand{\heb}[1]{\mbox{\foreignlanguage{hebrew}{#1}}}
+\newcommand{\grc}[1]{\foreignlanguage{ancientgreek}{#1}}
+\newcommand{\hebverso}[1]{\par\smallskip{\centering\begin{otherlanguage}{hebrew}\large #1\end{otherlanguage}\par}\smallskip}
+\newcommand{\SENOR}{\textsc{Señor}}
+\usepackage[margin=2.5cm,headheight=14pt]{geometry}
+\usepackage{microtype,ragged2e,booktabs,graphicx,xcolor,csquotes,array}
+\usepackage[hidelinks]{hyperref}\usepackage{xurl}\urlstyle{same}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}\usetikzlibrary{arrows.meta,positioning,calc,decorations.pathreplacing}
+\usepackage{titlesec,fancyhdr}
+\definecolor{azul}{HTML}{15437C}\definecolor{azuloscuro}{HTML}{0B1F3A}\definecolor{celeste}{HTML}{5694D6}
+\definecolor{dorado}{RGB}{196,154,60}\definecolor{papiro}{RGB}{246,239,220}\definecolor{gris}{RGB}{70,78,96}
+\titleformat{\section}{\Large\bfseries\color{azul}}{\thesection.}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{azuloscuro}}{\thesubsection}{0.6em}{}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\foreignlanguage{spanish}{\small\itshape\color{gris}La inmutabilidad de Dios}}\fancyhead[R]{\foreignlanguage{spanish}{\small\color{gris}\thepage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\parindent}{1.27cm}\linespread{1.15}\setlength{\emergencystretch}{3em}
+\newtcolorbox{cita}[1][]{enhanced,colback=azul!6!white,colframe=azul,boxrule=0pt,leftrule=2.5pt,arc=0pt,
+  left=8pt,right=8pt,top=5pt,bottom=5pt,before skip=8pt,after skip=8pt,fontupper=\itshape,#1}
+\newcommand{\fuente}[1]{\par\hfill{\upshape\bfseries\small\textcolor{azul}{#1}}}
+\newtcolorbox{nota}[1][]{enhanced,colback=dorado!10,colframe=dorado!85!azul,boxrule=0.6pt,arc=2pt,
+  fonttitle=\bfseries\small,coltitle=azuloscuro,colbacktitle=dorado!30,fontupper=\small,title={#1}}
+\newtcolorbox{filologia}[1][]{enhanced,colback=white,colframe=azul!45,boxrule=0.5pt,arc=2pt,
+  fonttitle=\bfseries\small,coltitle=white,colbacktitle=azul!80,fontupper=\small,title={Filología: #1}}
+\newcommand{\refapa}[1]{\par{\RaggedRight\hangindent=1.27cm\hangafter=1\noindent #1\par}\vspace{4pt}}
+\newcommand{\destacar}[1]{\textbf{\textcolor{azul}{#1}}}
+\newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+
+
+\title{\color{azul}\bfseries La inmutabilidad de Dios\\[4pt]\large\color{gris}\mdseries ``Porque yo \SENOR{} no cambio'' (Mal 3:6)}
+\author{}\date{}
+\begin{document}
+\maketitle\thispagestyle{empty}
+
+\begin{abstract}\noindent
+La inmutabilidad de Dios suele pensarse como inmovilidad: un Dios estático, incapaz de relacionarse. La Escritura la presenta de otro modo. Este capítulo parte de Malaquías 3:6, ``Porque yo \SENOR{} no cambio; por esto, hijos de Jacob, no habéis sido consumidos'', donde la inmutabilidad es la razón por la que Israel sobrevive, y del Salmo 102:25--27, donde Dios permanece ``el mismo'' mientras la creación envejece como ropa. Recorre el vocabulario hebreo y griego del atributo (\emph{shaná}, \emph{jalaf}, \emph{amad}, \emph{atá hu}; \emph{ho autós}, \emph{ametáthetos}, \emph{ametamélētos}) y lo ordena en tres ámbitos: Dios es inmutable en su esencia, en su carácter y en sus atributos. Después enfrenta la pregunta que el lector hace: ¿por qué la Biblia dice que Dios ``se arrepiente''? El estudio del verbo \emph{najam} (unos 34 versículos con Dios como sujeto), de 1 Samuel 15 y de Jeremías 18 muestra que Dios no cambia en quién es, pero sí en su trato histórico, y que su ``arrepentirse'' forma parte de su carácter revelado (Jon 4:2). El encuentro de Balaam (Nm 22--24) muestra la inmutabilidad como protección del pueblo; la tradición judía (liturgia, targumes, Rashi, Midrash, Talmud, Filón, Maimónides, Qumrán) muestra las dos maneras de leerla. La lectura paulina cierra el capítulo: los dones irrevocables (Ro 11:29), la promesa que la ley no anula (Gá 3:17), el Sí de Dios en Cristo (2 Co 1:20) y, en Hebreos, Jesucristo ``el mismo ayer, y hoy, y por los siglos''.
+\par\smallskip\noindent\textbf{Palabras clave:} inmutabilidad, Malaquías 3:6, Salmo 102, \emph{najam}, Jeremías 18, Balaam, Romanos 11:29, Hebreos 13:8.\end{abstract}
+
+\begin{nota}[Nota sobre el texto]
+Las citas bíblicas son de la Reina-Valera 1960. Donde esta escribe ``Jehová'', aquí se escribe \SENOR, que traduce el tetragrama \heb{יהוה}, leído en la tradición judía como \emph{Adonay}. El hebreo sigue la BHS; el griego, NA28 y la Septuaginta de Rahlfs-Hanhart. Las fuentes judías (targumes, Rashi, Midrash, Talmud, liturgia, Maimónides) se citan desde Sefaria y se marcan como precisión; donde no hay traducción española publicada, la traducción es propia. Cuando la numeración hebrea difiere de la española se da entre corchetes.
+\end{nota}
+
+%===================================================================
+\section{Un atributo de identidad}
+
+Todo lo que vemos cambia. Los cuerpos envejecen, las instituciones se gastan, las convicciones de una generación se vuelven extrañas para la siguiente. El Salmo 102, escrito por alguien cuyos días ``se han consumido como humo'' (v. 3), pone frente a frente esa experiencia y a Dios:
+
+\hebverso{הֵמָּה יֹאבֵדוּ וְאַתָּה תַעֲמֹד וְכֻלָּם כַּבֶּגֶד יִבְלוּ \\ כַּלְּבוּשׁ תַּחֲלִיפֵם וְיַחֲלֹפוּ וְאַתָּה־הוּא וּשְׁנוֹתֶיךָ לֹא יִתָּמּוּ}
+\begin{cita}Desde el principio tú fundaste la tierra, y los cielos son obra de tus manos. Ellos perecerán, mas tú permanecerás; y todos ellos como una vestidura se envejecerán; como un vestido los mudarás, y serán mudados; pero tú eres el mismo, y tus años no se acabarán.\fuente{(Sal 102:25--27 [102:26--28])}\end{cita}
+
+El salmo no define a Dios en abstracto. Lo pone frente a la creación, que envejece como ropa usada. ``Inmutable'' significa, sencillamente, que no cambia. Pero en la Biblia esto no se refiere a que Dios sea estático o incapaz de relacionarse, sino a que Dios no cambia en su esencia, en su carácter ni en su fidelidad. El material de esta serie lo resume en una frase que guiará el capítulo: \destacar{Dios no cambia en quién es, pero sí puede cambiar lo que hace, sin dejar de ser fiel a su carácter justo y misericordioso}.
+
+La serie clasifica la inmutabilidad entre los atributos de \destacar{Identidad}: responde a la pregunta ¿quién es Dios? Es un atributo incomunicable. Pink lo dice con precisión: ``Criatura y mutabilidad son términos correlativos. Si la criatura no fuera mutable por naturaleza, no sería una criatura; sería Dios'' (Pink, 2020, cap. 7). Tiene, sin embargo, un reflejo en el ser humano: la constancia del justo, ``el que aun jurando en daño suyo, no por eso cambia'' (Sal 15:4).
+
+\begin{nota}[Precisión]
+Clasificación según el plan de la serie: atributo de Identidad. La fórmula ``incomunicable con reflejo comunicable'' es propuesta de este capítulo y queda sujeta a la revisión del autor de la serie.
+\end{nota}
+
+La palabra ``inmutable'' es rara en la Biblia española. En la RVR1960 aparece tres veces, todas en Hebreos: ``la inmutabilidad de su consejo'' (6:17), ``dos cosas inmutables'' (6:18) y ``un sacerdocio inmutable'' (7:24). El Antiguo Testamento no tiene un sustantivo abstracto para el atributo; lo dice con frases y con imágenes.
+
+\begin{center}\small\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{@{}L{5.6cm}L{8.2cm}@{}}
+\toprule
+\textbf{Expresión en la RVR1960} & \textbf{Textos} \\ \midrule
+``inmutabilidad'', ``inmutable(s)'' & He 6:17, 18; 7:24 \\
+``no cambio'' & Mal 3:6 \\
+``tú eres el mismo'', ``es el mismo'' & Sal 102:27; He 1:12; 13:8 \\
+``no hay mudanza, ni sombra de variación'' & Stg 1:17 \\
+``irrevocables'' & Ro 11:29 \\
+``no se arrepentirá'' (de Dios) & Nm 23:19; 1 S 15:29; Sal 110:4 \\
+``se arrepintió'' (de Dios) & Gn 6:6; Éx 32:14; 1 S 15:35; Jon 3:10, entre otros \\
+\bottomrule
+\end{tabular}\par
+{\footnotesize\color{gris}\textit{Tabla 1.} Cómo dice la Biblia que Dios no cambia. \textit{Nota.} Conteo propio en la RVR1960 sin títulos de sección.}
+\end{center}
+
+La tabla muestra de entrada el problema que el capítulo tendrá que resolver: la misma Biblia que dice que Dios ``no se arrepentirá'' dice también que ``se arrepintió''.
+
+%===================================================================
+\section{Texto ancla: Malaquías 3:6}
+
+\subsection{El texto}
+Malaquías es el último profeta del Antiguo Testamento en el orden cristiano. Escribe para un pueblo que volvió del exilio, reconstruyó el templo y, sin embargo, ofrece animales defectuosos, se divorcia de sus esposas y pregunta con cinismo: ``¿Dónde está el Dios de justicia?'' (Mal 2:17). La respuesta de Dios es el anuncio de un mensajero y de un juicio purificador. En medio de ese anuncio está el texto ancla:
+
+\hebverso{כִּי אֲנִי יְהוָה לֹא שָׁנִיתִי \\ וְאַתֶּם בְּנֵי־יַעֲקֹב לֹא כְלִיתֶם}
+\begin{cita}Porque yo \SENOR{} no cambio; por esto, hijos de Jacob, no habéis sido consumidos.\fuente{(Mal 3:6)}\end{cita}
+
+\begin{filologia}[Mal 3:6]
+\begin{tabular}{@{}L{3.2cm}L{1.6cm}L{10cm}@{}}
+\heb{אֲנִי יְהוָה} \emph{aní YHWH} & --- & ``yo, el \SENOR'': Dios habla en primera persona y con su Nombre de pacto (Éx 6:2). \\[2pt]
+\heb{לֹא שָׁנִיתִי} \emph{lo shaníti} & \heb{שׁנה} & ``no he cambiado'': perfecto, una condición que se mantiene. La raíz significa ``cambiar, ser distinto'' y también ``repetir''; de ella viene \heb{שָׁנָה} \emph{shaná}, ``año'', el tiempo que se repite. \\[2pt]
+\heb{בְּנֵי־יַעֲקֹב} \emph{bené Ya'aqov} & --- & ``hijos de Jacob'': el nombre del patriarca que engañó y a quien Dios cambió el nombre (Gn 32:28). \\[2pt]
+\heb{לֹא כְלִיתֶם} \emph{lo jelitem} & \heb{כלה} & ``no habéis sido acabados, consumidos'': no llegasteis a vuestro fin. \\
+\end{tabular}
+\end{filologia}
+
+El texto une dos afirmaciones con un ``por esto'': Dios no cambia; por eso Israel no ha sido consumido. El contexto es el \destacar{pacto}. Si Dios cambiara, Israel ya habría sido destruido. Su fidelidad es la prueba de su inmutabilidad. El nombre ``hijos de Jacob'' no es casual: Jacob fue el patriarca inestable, el que suplantó a su hermano y engañó a su padre. El pueblo sigue siendo ``Jacob''; Dios sigue siendo ``el \SENOR''.
+
+La Septuaginta traduce: \grc{διότι ἐγὼ κύριος ὁ θεὸς ὑμῶν καὶ οὐκ ἠλλοίωμαι}, ``porque yo soy el Señor vuestro Dios, y no he sido alterado''. El verbo \grc{ἀλλοιόω} significa ``volverse otro''. Dios no se vuelve otro. La misma raíz hebrea describe, en Proverbios, a los hombres que sí cambian: ``Teme a \SENOR, hijo mío, y al rey; no te entremetas con los veleidosos'' (Pr 24:21), literalmente ``con los que cambian'' (\heb{שׁוֹנִים} \emph{shonim}).
+
+\subsection{El contexto: ``Volveos a mí''}
+Malaquías 3 anuncia que ``vendrá súbitamente a su templo el Señor'' (3:1), que será ``como fuego purificador'' (3:2) y que ``limpiará a los hijos de Leví'' (3:3). Inmediatamente después del versículo 6 viene una invitación:
+
+\hebverso{שׁוּבוּ אֵלַי וְאָשׁוּבָה אֲלֵיכֶם}
+\begin{cita}Desde los días de vuestros padres os habéis apartado de mis leyes, y no las guardasteis. Volveos a mí, y yo me volveré a vosotros, ha dicho \SENOR{} de los ejércitos. Mas dijisteis: ¿En qué hemos de volvernos?\fuente{(Mal 3:7)}\end{cita}
+
+En un mismo pasaje Dios afirma que no cambia (v. 6) y promete que ``se volverá'' (\heb{וְאָשׁוּבָה}, v. 7) si el pueblo se vuelve. Para Malaquías no hay contradicción. La inmutabilidad no impide la relación: es su base. Porque Dios es siempre el mismo, la puerta del regreso sigue abierta.
+
+\subsection{``No habéis sido consumidos''}
+El verbo final de Malaquías 3:6 aparece también en el centro del libro de Lamentaciones:
+
+\hebverso{חַסְדֵי יְהוָה כִּי לֹא־תָמְנוּ כִּי לֹא־כָלוּ רַחֲמָיו \\ חֲדָשִׁים לַבְּקָרִים רַבָּה אֱמוּנָתֶךָ}
+\begin{cita}Por la misericordia de \SENOR{} no hemos sido consumidos, porque nunca decayeron sus misericordias. Nuevas son cada mañana; grande es tu fidelidad.\fuente{(Lm 3:22--23)}\end{cita}
+
+Malaquías dice que Israel ``no ha sido consumido'' (\heb{לֹא כְלִיתֶם}); Lamentaciones, que las misericordias de Dios ``nunca decayeron'' (\heb{לֹא־כָלוּ}). Es la misma raíz, \heb{כלה}, ``acabarse''. Israel no se acaba porque la misericordia de Dios no se acaba.
+
+\begin{nota}[Precisión]
+La conexión léxica entre Mal 3:6 y Lm 3:22 es observación propia. En Lm 3:22 la RVR1960 traduce ``no hemos sido consumidos'' el verbo \heb{תָמְנוּ} (de \heb{תמם}) y ``nunca decayeron'' el verbo \heb{כָלוּ} (de \heb{כלה}).
+\end{nota}
+
+%===================================================================
+\section{``Tú eres el mismo'': el Salmo 102}
+
+El encabezado del Salmo 102 lo presenta como ``Oración del que sufre, cuando está angustiado, y delante de \SENOR{} derrama su lamento'' (102:1). El orante describe su cuerpo consumido, sus huesos quemados, sus días, que ``son como sombra que se va'' (v. 11). Frente a eso, confiesa: ``Mas tú, \SENOR, permanecerás para siempre'' (v. 12). El final del salmo desarrolla esa confesión con la imagen de la ropa.
+
+\begin{filologia}[Sal 102:26--27 (102:27--28)]
+\begin{tabular}{@{}L{3.2cm}L{1.6cm}L{10cm}@{}}
+\heb{תַעֲמֹד} \emph{ta'amod} & \heb{עמד} & ``permanecerás'', literalmente ``estarás en pie'': Dios sigue de pie cuando todo cae. \\[2pt]
+\heb{יִבְלוּ} \emph{yivlú} & \heb{בלה} & ``se envejecerán'': se gastarán como tela. \\[2pt]
+\heb{תַּחֲלִיפֵם וְיַחֲלֹפוּ} & \heb{חלף} & ``los mudarás, y serán mudados'': Dios cambia la creación como quien cambia de ropa. \\[2pt]
+\heb{וְאַתָּה־הוּא} \emph{ve'atá hu} & --- & ``y tú (eres) él'': ``tú eres el mismo''. Frase sin verbo, de pura identidad. \\[2pt]
+\heb{לֹא יִתָּמּוּ} \emph{lo yitammu} & \heb{תמם} & ``no se acabarán'': no llegan a término. \\
+\end{tabular}
+\end{filologia}
+
+La forma del verso es parte del mensaje. El verbo \heb{חלף} aparece dos veces: activo para Dios (``los mudarás'') y pasivo para la creación (``serán mudados''). Dios cambia las cosas; las cosas no lo cambian a él. Y la confesión final es casi muda: \emph{ve'atá hu}, ``y tú, él''. El hebreo no necesita el verbo ``ser'' para decir que Dios es quien es.
+
+La expresión pertenece a una familia de textos en los que Dios dice de sí mismo \heb{אֲנִי הוּא} \emph{aní hu}, ``yo soy él'':
+
+\hebverso{רְאוּ עַתָּה כִּי אֲנִי אֲנִי הוּא \\ אֲנִי יְהוָה רִאשׁוֹן וְאֶת־אַחֲרֹנִים אֲנִי־הוּא}
+\begin{cita}Ved ahora que yo, yo soy, y no hay dioses conmigo.\fuente{(Dt 32:39)}\end{cita}
+\begin{cita}¿Quién hizo y realizó esto? ¿Quién llama las generaciones desde el principio? Yo \SENOR, el primero, y yo mismo con los postreros.\fuente{(Is 41:4)}\end{cita}
+
+La Septuaginta traduce \emph{aní hu} con \grc{ἐγώ εἰμι} (Dt 32:39; Is 41:4; 43:10) y \emph{atá hu} del salmo con \grc{σὺ δὲ ὁ αὐτὸς εἶ}, ``pero tú eres el mismo'' (Sal 101:28 LXX). Esta última frase es la que Hebreos 1:12 aplicará al Hijo.
+
+\begin{nota}[Precisión]
+Leer \emph{hu} (``él'') casi como una designación de la identidad divina es una interpretación frecuente en los comentarios, apoyada en la serie \emph{aní hu} de Deuteronomio e Isaías; en el texto no es un nombre propio.
+\end{nota}
+
+%===================================================================
+\section{La palabra: el vocabulario de la permanencia}
+
+\subsection{El espectro hebreo}
+El hebreo bíblico no tiene un término técnico para ``inmutabilidad''. Usa verbos de cambio negados y verbos de permanencia, y los acompaña con imágenes:
+
+\begin{center}\small\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{@{}L{3.0cm}L{3.6cm}L{3.0cm}L{4.0cm}@{}}
+\toprule
+\textbf{Término} & \textbf{Sentido} & \textbf{RVR1960} & \textbf{Textos} \\ \midrule
+\heb{שָׁנָה} \emph{shaná} & cambiar, alterar; repetir & cambio; mudaré; veleidosos & Mal 3:6; Sal 89:34 [89:35]; Pr 24:21 \\
+\heb{מוּר} \emph{mur} & cambiar, permutar & cambia; cambiado & Sal 15:4; Lv 27:10 \\
+\heb{חָלַף} \emph{jalaf} & pasar; cambiar (ropa) & mudarás, serán mudados & Sal 102:26 [102:27] \\
+\heb{עָמַד} \emph{amad} & estar en pie, permanecer & permanecerás; permanecerá & Sal 102:26; 33:11 \\
+\heb{קוּם} \emph{qum} & levantarse, mantenerse & permanece; permanecerá & Is 40:8; 46:10 \\
+\heb{נחם} \emph{najam} (nifal) & lamentar, desistir; consolarse & arrepentirse; pesar; dolerse & Gn 6:6; 1 S 15:29; Jon 3:10 \\
+\heb{צוּר} \emph{tsur} & roca, peña & Roca & Dt 32:4, 15, 18, 30--31 \\
+\bottomrule
+\end{tabular}\par
+{\footnotesize\color{gris}\textit{Tabla 2.} El vocabulario hebreo de la inmutabilidad. \textit{Nota.} Selección propia de términos y textos; sentidos según BDB y HALOT.}
+\end{center}
+
+La raíz de Malaquías 3:6 aparece también en el salmo del pacto davídico:
+
+\hebverso{לֹא־אֲחַלֵּל בְּרִיתִי וּמוֹצָא שְׂפָתַי לֹא אֲשַׁנֶּה}
+\begin{cita}No olvidaré mi pacto, ni mudaré lo que ha salido de mis labios. Una vez he jurado por mi santidad, y no mentiré a David.\fuente{(Sal 89:34--35 [89:35--36])}\end{cita}
+
+\begin{filologia}[Sal 89:34 (89:35)]
+\begin{tabular}{@{}L{3.2cm}L{1.6cm}L{10cm}@{}}
+\heb{לֹא־אֲחַלֵּל} \emph{lo ajallel} & \heb{חלל} & ``no profanaré'': la RVR1960 traduce ``no olvidaré''. Romper el pacto sería profanarlo. \\[2pt]
+\heb{מוֹצָא שְׂפָתַי} & \heb{יצא} & ``lo que sale de mis labios'': la palabra pronunciada. \\[2pt]
+\heb{לֹא אֲשַׁנֶּה} \emph{lo ashanné} & \heb{שׁנה} & ``no cambiaré'' (piel): la misma raíz de Mal 3:6. \\
+\end{tabular}
+\end{filologia}
+
+\subsection{El espectro griego}
+El Nuevo Testamento sí tiene palabras técnicas, casi todas formadas con la partícula negativa \emph{a-}:
+
+\begin{center}\small\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{@{}L{3.0cm}L{3.6cm}L{3.2cm}L{3.8cm}@{}}
+\toprule
+\textbf{Término} & \textbf{Sentido} & \textbf{RVR1960} & \textbf{Textos} \\ \midrule
+\grc{ἀλλοιόω} & volverse otro & (LXX) ``no cambio'' & Mal 3:6 LXX \\
+\grc{ὁ αὐτός} & el mismo & el mismo & Sal 101:28 LXX; He 1:12; 13:8 \\
+\grc{ἀμετάθετος} & que no se traslada; invariable & inmutable(s) & He 6:17, 18 \\
+\grc{ἀμεταμέλητος} & sin pesar; sin vuelta atrás & irrevocables; de que no hay que arrepentirse & Ro 11:29; 2 Co 7:10 \\
+\grc{οὐ μεταμεληθήσεται} & no cambiará de parecer & no se arrepentirá & Sal 109:4 LXX; He 7:21 \\
+\grc{παραλλαγή}, \grc{τροπή} & variación; giro & mudanza; variación & Stg 1:17 \\
+\grc{ἄφθαρτος} & incorruptible & incorruptible; inmortal & Ro 1:23; 1 Ti 1:17 \\
+\grc{ἀμετακίνητος} & inamovible & constantes & 1 Co 15:58 \\
+\bottomrule
+\end{tabular}\par
+{\footnotesize\color{gris}\textit{Tabla 3.} El vocabulario griego. \textit{Nota.} NA27/NA28 y LXX de Rahlfs-Hanhart; sentidos según BDAG.}
+\end{center}
+
+La diferencia es instructiva. El griego tiene un adjetivo abstracto, \emph{a-metá-thetos}, ``no trasladable''; el hebreo prefiere imágenes: estar de pie, la roca, la ropa que se cambia. La inmutabilidad hebrea no es un concepto: es una experiencia de apoyo.
+
+\subsection{``YO SOY EL QUE SOY''}
+El material de la serie empieza el estudio de la esencia de Dios con la revelación del Nombre:
+
+\hebverso{אֶהְיֶה אֲשֶׁר אֶהְיֶה}
+\begin{cita}Y respondió Dios a Moisés: YO SOY EL QUE SOY. Y dijo: Así dirás a los hijos de Israel: YO SOY me envió a vosotros.\fuente{(Éx 3:14)}\end{cita}
+
+\begin{filologia}[Éx 3:14]
+\begin{tabular}{@{}L{3.2cm}L{1.6cm}L{10cm}@{}}
+\heb{אֶהְיֶה} \emph{ehyé} & \heb{היה} & imperfecto de ``ser, estar, llegar a ser'': ``soy'', ``seré'', ``estaré''. \\[2pt]
+\heb{אֲשֶׁר} \emph{asher} & --- & relativo: ``el que'', ``lo que''. \\[2pt]
+\heb{כִּי־אֶהְיֶה עִמָּךְ} (3:12) & \heb{היה} & ``yo estaré contigo'': la misma forma verbal, dos versos antes, con sentido de presencia. \\
+\end{tabular}
+\end{filologia}
+
+El Nombre revela una existencia constante e independiente: Dios no ``llega a ser'', es. Pero la misma forma, \emph{ehyé}, se acaba de usar en una promesa: ``yo estaré contigo'' (3:12). El ser de Dios es un ser \emph{para} su pueblo. La Septuaginta tradujo \grc{ἐγώ εἰμι ὁ ὤν}, ``yo soy el que es'', una fórmula que acentúa el ser; la tradición judía, como se verá, acentuó la presencia.
+
+\begin{nota}[Precisión]
+El imperfecto hebreo admite ``soy'' y ``seré''; las traducciones se dividen. La lectura relacional (``estaré con vosotros'') es la de Rashi, a partir de \emph{Berajot} 9b.
+\end{nota}
+
+%===================================================================
+\section{El Nombre que revela la inmutabilidad}
+
+Dios se da a conocer por su Nombre (Éx 33:19; 34:5--7). Cuando Moisés pregunta cómo se llama el Dios de los padres, la respuesta une el Nombre con la permanencia:
+
+\hebverso{זֶה־שְּׁמִי לְעֹלָם וְזֶה זִכְרִי לְדֹר דֹּר}
+\begin{cita}Además dijo Dios a Moisés: Así dirás a los hijos de Israel: \SENOR, el Dios de vuestros padres, el Dios de Abraham, Dios de Isaac y Dios de Jacob, me ha enviado a vosotros. Este es mi nombre para siempre; con él se me recordará por todos los siglos.\fuente{(Éx 3:15)}\end{cita}
+
+\begin{filologia}[Éx 3:15]
+\begin{tabular}{@{}L{3.2cm}L{1.6cm}L{10cm}@{}}
+\heb{יְהוָה} & \heb{היה} & el Nombre de cuatro letras, emparentado con \emph{ehyé} de 3:14 (``ser, estar''). \\[2pt]
+\heb{זֶה־שְּׁמִי לְעֹלָם} & \heb{עולם} & ``este es mi nombre para siempre'': el Nombre no se reemplaza. \\[2pt]
+\heb{וְזֶה זִכְרִי לְדֹר דֹּר} & \heb{זכר} & ``y este es mi memorial de generación en generación''. \\
+\end{tabular}
+\end{filologia}
+
+El Dios que se presenta es el mismo de Abraham, de Isaac y de Jacob. El Nombre conecta las generaciones: no cambia de un patriarca a otro ni de los padres a los hijos.
+
+\subsection{``Yo, el \SENOR, no cambio''}
+El texto ancla no usa un título nuevo: une el Nombre a una declaración. \heb{כִּי אֲנִי יְהוָה לֹא שָׁנִיתִי}, ``porque yo, el \SENOR, no cambio'' (Mal 3:6). En Malaquías el Nombre mismo es la garantía. La declaración responde a Éxodo 3:15: el Nombre que es ``para siempre'' pertenece a un Dios que no se vuelve otro.
+
+La tradición rabínica leyó así la triple repetición de \emph{ehyé} en Éxodo 3:14. En \emph{Shemot Rabá} 3:6, Rabí Yitsjaq dice que Dios mandó a Moisés: \heb{אֱמֹר לָהֶם אֲנִי שֶׁהָיִיתִי וַאֲנִי הוּא עַכְשָׁו וַאֲנִי הוּא לֶעָתִיד לָבֹא}, ``diles: yo soy el que fui, y yo soy él ahora, y yo soy él en el porvenir''; ``por eso está escrito \emph{ehyé} tres veces''.
+
+\begin{nota}[Precisión]
+Interpretación rabínica (Sefaria). En el mismo pasaje, Rabí Abbá bar Memel enseña que Dios es llamado ``según mis obras'' (Elohim al juzgar, Tsevaot al combatir a los impíos, El Shadday al soportar los pecados, el \SENOR{} al tener misericordia). La serie usa ese principio para vincular cada atributo con un nombre.
+\end{nota}
+
+\subsection{``Él es la Roca''}
+El material de la serie usa una segunda imagen, la del cántico de Moisés. Allí ``Roca'' no es solo una metáfora: funciona como un nombre de Dios.
+
+\hebverso{הַצּוּר תָּמִים פָּעֳלוֹ כִּי כָל־דְּרָכָיו מִשְׁפָּט \\ אֵל אֱמוּנָה וְאֵין עָוֶל צַדִּיק וְיָשָׁר הוּא}
+\begin{cita}El es la Roca, cuya obra es perfecta, porque todos sus caminos son rectitud; Dios de verdad, y sin ninguna iniquidad en él; es justo y recto.\fuente{(Dt 32:4)}\end{cita}
+
+\begin{filologia}[Dt 32:4]
+\begin{tabular}{@{}L{3.2cm}L{1.6cm}L{10cm}@{}}
+\heb{הַצּוּר} \emph{hatsur} & \heb{צור} & ``la Roca'': el macizo de piedra, refugio y fortaleza. En el cántico es casi un nombre de Dios (vv. 4, 15, 18, 30, 31). \\[2pt]
+\heb{תָּמִים} \emph{tamim} & \heb{תמם} & ``perfecta'', completa, íntegra. \\[2pt]
+\heb{אֵל אֱמוּנָה} \emph{El emuná} & \heb{אמן} & ``Dios de fidelidad'': la RVR1960 traduce ``Dios de verdad''. \\
+\end{tabular}
+\end{filologia}
+
+La imagen comunica estabilidad, permanencia, firmeza. Pink la desarrolla: Dios es comparado con una ``Roca'' que ``permanece inamovible cuando todo el océano que la rodea está continuamente en un estado fluctuante'' (Pink, 2020, cap. 7). La Roca de Deuteronomio está unida a la fidelidad (\emph{emuná}) y a la justicia: la firmeza de Dios es moral, no solo física.
+
+\begin{nota}[Precisión textual]
+La Septuaginta no traduce la metáfora: pone \grc{θεός}, ``Dios'', en lugar de ``Roca'' (Dt 32:4 LXX).
+\end{nota}
+
+Isaías convierte la imagen en un título de la eternidad de Dios:
+
+\hebverso{בִּטְחוּ בַיהוָה עֲדֵי־עַד כִּי בְּיָהּ יְהוָה צוּר עוֹלָמִים}
+\begin{cita}Confiad en \SENOR{} perpetuamente, porque en \SENOR{} el Señor está la fortaleza de los siglos.\fuente{(Is 26:4)}\end{cita}
+
+\begin{filologia}[Is 26:4]
+\begin{tabular}{@{}L{3.2cm}L{1.6cm}L{10cm}@{}}
+\heb{עֲדֵי־עַד} \emph{adé-ad} & \heb{עד} & ``hasta siempre'': ``perpetuamente''. \\[2pt]
+\heb{בְּיָהּ יְהוָה} & --- & ``en Yah, el \SENOR'': el Nombre abreviado y el Nombre completo juntos. \\[2pt]
+\heb{צוּר עוֹלָמִים} \emph{tsur olamim} & \heb{צור} & ``Roca de los siglos'' (plural de \emph{olam}): la RVR1960 traduce ``fortaleza de los siglos''. \\
+\end{tabular}
+\end{filologia}
+
+El mandato y la razón tienen la misma medida temporal: confiar ``hasta siempre'' en el que es ``Roca de los siglos''. En Isaías 44:8 la Roca es exclusiva: ``No hay Dios sino yo. No hay Fuerte; no conozco ninguno'' (\heb{וְאֵין צוּר}, ``no hay Roca'').
+
+\subsection{``La Gloria de Israel''}
+En 1 Samuel 15:29 aparece un título que solo se usa ahí para Dios: \heb{נֵצַח יִשְׂרָאֵל} \emph{Nétsaj Yisra'el}, ``la Gloria de Israel''. \emph{Nétsaj} significa perpetuidad, permanencia, preeminencia (``para siempre'', \heb{לָנֶצַח}). El título está unido a la declaración ``no mentirá, ni se arrepentirá''. Rashi lo entiende como \heb{נִצְחוֹנוֹ שֶׁל יִשְׂרָאֵל}, ``la victoria de Israel''; la Vulgata como \emph{triumphator in Israel}.
+
+\begin{nota}[Precisión]
+La lectura de \emph{nétsaj} como ``el Eterno de Israel'' se apoya en el sentido de \heb{לָנֶצַח}, ``para siempre''; la de ``gloria'' o ``victoria'' en otros usos de la raíz (1 Cr 29:11). Las traducciones se dividen.
+\end{nota}
+
+\subsection{``La roca era Cristo'', con Pablo}
+Pablo lee el cántico de Moisés y la historia del desierto en clave de Cristo:
+
+\begin{cita}y todos bebieron la misma bebida espiritual; porque bebían de la roca espiritual que los seguía, y la roca era Cristo.\fuente{(1 Co 10:4)}\end{cita}
+
+Pablo identifica con Cristo la roca que dio agua a Israel (Éx 17:6; Nm 20:11). En el mismo capítulo cita Deuteronomio 32 dos veces (1 Co 10:20, 22), el cántico donde ``Roca'' es nombre de Dios. Y en 1 Timoteo 1:17 el título de Dios es ``Rey de los siglos, inmortal'' (\grc{τῷ βασιλεῖ τῶν αἰώνων, ἀφθάρτῳ}): el que permanece por los siglos y no se corrompe.
+
+\begin{nota}[Precisión]
+Detrás de ``la roca que los seguía'' los comentaristas ven una tradición judía sobre el pozo que acompañó a Israel en el desierto (Fee, 1987). La autoría paulina de 1 Timoteo se discute.
+\end{nota}
+
+\begin{center}
+\small\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}L{4.0cm}L{3.8cm}L{2.8cm}L{4.6cm}@{}}
+\toprule
+\textbf{Nombre o título} & \textbf{Hebreo / griego} & \textbf{Texto} & \textbf{Qué revela} \\ \midrule
+``Este es mi nombre para siempre'' & \heb{זֶה־שְּׁמִי לְעֹלָם} & Éx 3:15 & El Nombre no se reemplaza \\
+``Yo, el \SENOR, no cambio'' & \heb{אֲנִי יְהוָה לֹא שָׁנִיתִי} & Mal 3:6 & El Nombre garantiza el pacto \\
+``La Roca'' & \heb{הַצּוּר} & Dt 32:4, 15, 18, 31 & Firmeza y fidelidad \\
+``Roca de los siglos'' & \heb{צוּר עוֹלָמִים} & Is 26:4 & Confianza perpetua \\
+``La Gloria de Israel'' & \heb{נֵצַח יִשְׂרָאֵל} & 1 S 15:29 & No miente ni se arrepiente \\
+``La roca era Cristo'' & \grc{ἡ πέτρα δὲ ἦν ὁ Χριστός} & 1 Co 10:4 & La Roca en Cristo \\
+``Rey de los siglos, inmortal'' & \grc{βασιλεὺς τῶν αἰώνων, ἄφθαρτος} & 1 Ti 1:17 & Permanece y no se corrompe \\ \bottomrule
+\end{tabular}\par\smallskip
+{\footnotesize\color{gris}\textit{Tabla.} La inmutabilidad en los nombres de Dios. \textit{Nota.} Elaboración propia.}
+\end{center}
+
+%===================================================================
+\section{Definición: tres ámbitos de la inmutabilidad}
+
+\subsection{Esencia, carácter y atributos}
+El material de la serie distingue tres ámbitos.
+
+\textbf{Dios es inmutable en su esencia.} Dios no evoluciona, no mejora, no se deteriora. El nombre ``YO SOY EL QUE SOY'' revela existencia constante e independiente; la Roca comunica estabilidad. Pink lo dice con una imagen memorable: ``No hay arrugas en la frente de la eternidad'' (2020, cap. 7).
+
+\textbf{Dios es inmutable en su carácter.} Su forma de ser no cambia con el tiempo ni con las circunstancias. Malaquías 3:6 lo afirma en el contexto del pacto; Números 23:19 lo afirma frente a la inestabilidad humana: ``Dios no es hombre, para que mienta, ni hijo de hombre para que se arrepienta''. Aquí ``arrepentirse'' significa cambiar por error o por engaño. Dios no es inestable ni impredecible como el ser humano.
+
+\textbf{Dios es inmutable en sus atributos.} Lo que Dios es, siempre lo es. Dios no tiene ``días buenos y malos'' en su carácter.
+
+\begin{center}\small\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{@{}L{2.6cm}L{3.2cm}L{8.0cm}@{}}
+\toprule
+\textbf{Atributo} & \textbf{Texto} & \textbf{Lo que enseña} \\ \midrule
+Misericordia & Salmo 136 & ``Porque para siempre es su misericordia'' (\heb{כִּי לְעוֹלָם חַסְדּוֹ}), veintiséis veces \\
+Fidelidad & Lm 3:22--23 & ``Grande es tu fidelidad'' \\
+Santidad & Is 6:3 & Dios no se vuelve menos santo \\
+Verdad & Sal 119:89 & ``Para siempre, oh \SENOR, permanece tu palabra en los cielos'' \\
+\bottomrule
+\end{tabular}\par
+{\footnotesize\color{gris}\textit{Tabla 4.} La inmutabilidad de los atributos. \textit{Nota.} Según el material de la serie.}
+\end{center}
+
+\subsection{El recorrido de Pink}
+Pink ordena su capítulo de modo parecido, con una diferencia. Dios es inmutable ``en su esencia'', ``en sus atributos'' (``En cada una de sus perfecciones está escrito: \emph{Semper idem}'') y ``en su consejo'': ``Su voluntad nunca varía'' (2020, cap. 7). Su argumento sobre el consejo es este: un hombre cambia de planes por falta de previsión o por falta de poder para ejecutarlos; ``como Dios es, tanto omnisciente como omnipotente, nunca es necesario que revise sus decretos''. El material de la serie no tiene un apartado sobre el consejo, pero tiene uno sobre el carácter, y trata la cuestión de los decretos en relación con Jeremías 18. Las dos perspectivas se comparan más adelante.
+
+\subsection{Definición}
+\begin{tcolorbox}[colback=papiro,colframe=azul,boxrule=1pt,arc=3pt,title={Definición teológica bíblica},colbacktitle=azul,coltitle=papiro]
+La inmutabilidad de Dios significa que Él es eternamente el mismo en su ser y carácter, pero su gobierno del mundo es dinámico y responde de manera coherente a la conducta humana.
+\end{tcolorbox}
+
+Cada elemento de la definición tiene su texto: ``eternamente el mismo'' (Sal 102:27); ``en su ser y carácter'' (Éx 3:14; Mal 3:6); ``gobierno dinámico'' (Jer 18:6); ``responde de manera coherente'' (Mal 3:7; Jon 4:2). La segunda mitad de la definición necesita la sección que sigue.
+
+%===================================================================
+\section{Teología: ¿se arrepiente Dios?}
+
+\subsection{El problema}
+Pero la Biblia dice que Dios ``se arrepiente''. ¿Cómo encaja eso? Aquí es donde entra la riqueza del pensamiento hebreo.
+
+\hebverso{וַיִּנָּחֶם יְהוָה כִּי־עָשָׂה אֶת־הָאָדָם בָּאָרֶץ וַיִּתְעַצֵּב אֶל־לִבּוֹ}
+\begin{cita}Y se arrepintió \SENOR{} de haber hecho hombre en la tierra, y le dolió en su corazón.\fuente{(Gn 6:6)}\end{cita}
+
+\hebverso{וַיִּנָּחֶם יְהוָה עַל־הָרָעָה אֲשֶׁר דִּבֶּר לַעֲשׂוֹת לְעַמּוֹ}
+\begin{cita}Entonces \SENOR{} se arrepintió del mal que dijo que había de hacer a su pueblo.\fuente{(Éx 32:14)}\end{cita}
+
+\hebverso{וַיַּרְא הָאֱלֹהִים אֶת־מַעֲשֵׂיהֶם כִּי־שָׁבוּ מִדַּרְכָּם הָרָעָה \\ וַיִּנָּחֶם הָאֱלֹהִים עַל־הָרָעָה אֲשֶׁר־דִּבֶּר לַעֲשׂוֹת־לָהֶם וְלֹא עָשָׂה}
+\begin{cita}Y vio Dios lo que hicieron, que se convirtieron de su mal camino; y se arrepintió del mal que había dicho que les haría, y no lo hizo.\fuente{(Jon 3:10)}\end{cita}
+
+Y la misma Torá dice: ``Dios no es hombre, para que mienta, ni hijo de hombre para que se arrepienta'' (Nm 23:19).
+
+\subsection{\emph{Najam}: el campo de la palabra}
+La palabra usada en estos textos es \heb{נחם} \emph{najam}. Su campo de sentido es amplio: lamentarse, compadecerse, consolarse y cambiar de curso de acción.
+
+\begin{center}\small\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{@{}L{4.2cm}L{4.0cm}L{5.6cm}@{}}
+\toprule
+\textbf{Sentido} & \textbf{RVR1960} & \textbf{Textos} \\ \midrule
+consolar, consolarse (piel; nifal) & consoló, consolaos & Gn 24:67; 50:21; Is 40:1 \\
+compadecerse & tuvo compasión; se compadecerá & Jue 21:15; Sal 135:14 \\
+lamentar, sentir pesar & me pesa & 1 S 15:11 \\
+desistir, cambiar de curso & se arrepintió & Éx 32:14; Jon 3:10; Jer 18:8 \\
+aplacarse, quedar satisfecho & tomaré satisfacción & Is 1:24; Ez 5:13 \\
+\bottomrule
+\end{tabular}\par
+{\footnotesize\color{gris}\textit{Tabla 5.} El campo de \emph{najam}. \textit{Nota.} Selección propia; sentidos según BDB y HALOT.}
+\end{center}
+
+Con Dios como sujeto, \emph{najam} describe casi siempre un cambio de trato: Dios deja de hacer el mal anunciado (o, más raramente, el bien prometido). En ningún texto Dios reconoce un error. No hay confesión de pecado en Dios. El material lo dice con exactitud: estos textos no muestran un Dios que cometió un error, sino un Dios que \destacar{responde moralmente}.
+
+\subsection{El uso con Dios como sujeto}
+Un recorrido por la Biblia hebrea da este cuadro:
+
+\begin{center}\small\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{@{}L{3.4cm}L{0.8cm}L{9.6cm}@{}}
+\toprule
+\textbf{Uso} & \textbf{vv.} & \textbf{Textos} \\ \midrule
+Dios desiste, se lamenta o se compadece & 20 & Gn 6:6, 7; Éx 32:14; Dt 32:36; Jue 2:18; 1 S 15:11, 35; 2 S 24:16; 1 Cr 21:15; Sal 106:45; 135:14; Jer 18:8, 10; 26:3, 13, 19; 42:10; Am 7:3, 6; Jon 3:10 \\
+Parte de la fórmula del carácter & 2 & Jl 2:13; Jon 4:2 \\
+Se le pide o se espera & 4 & Éx 32:12; Sal 90:13; Jl 2:14; Jon 3:9 \\
+Se niega que Dios lo haga & 8 & Nm 23:19; 1 S 15:29; Sal 110:4; Jer 4:28; 15:6; 20:16; Ez 24:14; Zac 8:14 \\
+\bottomrule
+\end{tabular}\par
+{\footnotesize\color{gris}\textit{Tabla 6.} \emph{Najam} con Dios como sujeto. \textit{Nota.} Conteo propio por raíz consonántica en la BHS (unos 34 versículos); la clasificación de cada texto es propia.}
+\end{center}
+
+\begin{nota}[Precisión]
+El etiquetado Strong de la BHS de trabajo es incompleto; el conteo se hizo por raíz consonántica y revisión de cada texto. Conviene verificarlo en e-Sword.
+\end{nota}
+
+Las negaciones tienen un patrón. Dios no se arrepiente de lo que \emph{juró} (``Juró \SENOR, y no se arrepentirá'', Sal 110:4), de lo que \emph{habló} como sentencia (``Yo \SENOR{} he hablado; vendrá, y yo lo haré. No me volveré atrás, ni tendré misericordia, ni me arrepentiré'', Ez 24:14), ni del juicio que decidió después de mucha paciencia (``estoy cansado de arrepentirme'', Jer 15:6). Las afirmaciones también tienen un patrón: Dios desiste cuando el pueblo se vuelve, cuando un intercesor ora, o cuando su compasión ve la ruina del pueblo (Jue 2:18; Am 7:3, 6).
+
+\subsection{Génesis 6:6 en las versiones antiguas}
+El primer uso es el más fuerte. El texto hebreo no suaviza: habla del dolor de Dios.
+
+\begin{filologia}[Gn 6:6--7]
+\begin{tabular}{@{}L{3.2cm}L{1.6cm}L{10cm}@{}}
+\heb{וַיִּנָּחֶם} \emph{vayyinnájem} & \heb{נחם} & ``y se lamentó'', ``y se arrepintió'' (nifal). \\[2pt]
+\heb{וַיִּתְעַצֵּב אֶל־לִבּוֹ} & \heb{עצב} & ``y se dolió en su corazón'': la raíz del ``dolor'' y la ``fatiga'' de Gn 3:16--17. El pecado humano duele en Dios. \\[2pt]
+\heb{כִּי נִחַמְתִּי} (6:7) & \heb{נחם} & ``porque me pesa'', ``me arrepiento''. \\
+\end{tabular}
+\end{filologia}
+
+Las versiones antiguas tradujeron con cuidado. La Septuaginta dice en 6:6 \grc{καὶ ἐνεθυμήθη ὁ θεὸς ὅτι ἐποίησεν τὸν ἄνθρωπον ἐπὶ τῆς γῆς καὶ διενοήθη}, ``y Dios lo tomó a pecho\ldots{} y lo consideró'', y en 6:7 \grc{ὅτι ἐθυμώθην ὅτι ἐποίησα αὐτούς}, ``porque me he airado por haberlos hecho''. El Targum Ónkelos traduce \heb{וְתַב יְיָ בְּמֵימְרֵהּ}, ``y el \SENOR{} se volvió en su Palabra'': conserva el cambio, pero lo pone en la \emph{Memrá}.
+
+\begin{nota}[Precisión textual]
+La Septuaginta traduce \emph{najam} de Gn 6:6 por \grc{ἐνθυμέομαι} y en Éx 32:14 por \grc{ἱλάσκομαι} (``se aplacó, se hizo propicio''); en Jon 3:10 y Jer 18:8, en cambio, usa \grc{μετανοέω}, ``cambiar de parecer''. Los traductores evitaron en algunos textos decir que Dios se arrepintió.
+\end{nota}
+
+\subsection{1 Samuel 15: las dos afirmaciones en un capítulo}
+El caso más instructivo es el del rechazo de Saúl, porque el mismo narrador dice, a pocos versos de distancia, que Dios ``se arrepiente'' y que ``no se arrepiente'':
+
+\begin{cita}Me pesa haber puesto por rey a Saúl, porque se ha vuelto de en pos de mí, y no ha cumplido mis palabras.\fuente{(1 S 15:11)}\end{cita}
+\hebverso{וְגַם נֵצַח יִשְׂרָאֵל לֹא יְשַׁקֵּר וְלֹא יִנָּחֵם \\ כִּי לֹא אָדָם הוּא לְהִנָּחֵם}
+\begin{cita}Además, el que es la Gloria de Israel no mentirá, ni se arrepentirá, porque no es hombre para que se arrepienta.\fuente{(1 S 15:29)}\end{cita}
+\begin{cita}Y nunca después vio Samuel a Saúl en toda su vida; y Samuel lloraba a Saúl; y \SENOR{} se arrepentía de haber puesto a Saúl por rey sobre Israel.\fuente{(1 S 15:35)}\end{cita}
+
+\begin{filologia}[1 S 15:11, 29, 35]
+\begin{tabular}{@{}L{3.2cm}L{1.6cm}L{10cm}@{}}
+\heb{נִחַמְתִּי} (v. 11) & \heb{נחם} & ``me pesa'', ``lamento'': el dolor de Dios por lo ocurrido. \\[2pt]
+\heb{נֵצַח יִשְׂרָאֵל} (v. 29) & \heb{נצח} & ``la Gloria de Israel'': \emph{nétsaj} es perpetuidad, preeminencia, victoria. Un título de Dios. \\[2pt]
+\heb{לֹא יְשַׁקֵּר} (v. 29) & \heb{שׁקר} & ``no mentirá'': no faltará a su palabra. \\[2pt]
+\heb{וְלֹא יִנָּחֵם} (v. 29) & \heb{נחם} & ``ni se arrepentirá'': no revocará la sentencia ya dada. \\[2pt]
+\heb{נִחָם} (v. 35) & \heb{נחם} & ``se arrepentía'', ``lamentaba''. \\
+\end{tabular}
+\end{filologia}
+
+El narrador no ve contradicción. Los versículos 11 y 35 hablan del lamento de Dios por lo ocurrido con Saúl; el versículo 29 habla de la sentencia: Saúl pide que Samuel vuelva con él, y Samuel le responde que el reino ya ha sido dado ``a un prójimo tuyo mejor que tú'' (v. 28). Dios siente y responde; pero lo que decidió como juez no lo revoca. Lo mismo dice Números 23:19 de la bendición dada a Israel.
+
+\begin{nota}[Precisión]
+Rashi (1 S 15:29) lo lee así: aunque Saúl diga ``me arrepentiré de mi pecado'', ya no servirá para quitar el reino a quien Dios se lo dio, porque el \emph{Nétsaj} de Israel ``no mentirá'' dejando de dar el bien que dijo que daría. El Targum Jonatán amplía en el mismo sentido. Interpretaciones judías (Sefaria).
+\end{nota}
+
+\subsection{``Y que te arrepientes del mal''}
+La clave más profunda está en dos textos que citan el Nombre de Dios proclamado en el Sinaí (Éx 34:6) y le añaden una cláusula:
+
+\hebverso{כִּי אַתָּה אֵל־חַנּוּן וְרַחוּם אֶרֶךְ אַפַּיִם וְרַב־חֶסֶד וְנִחָם עַל־הָרָעָה}
+\begin{cita}Y oró a \SENOR{} y dijo: Ahora, oh \SENOR, ¿no es esto lo que yo decía estando aún en mi tierra? Por eso me apresuré a huir a Tarsis; porque sabía yo que tú eres Dios clemente y piadoso, tardo en enojarte, y de grande misericordia, y que te arrepientes del mal.\fuente{(Jon 4:2)}\end{cita}
+
+\begin{cita}Rasgad vuestro corazón, y no vuestros vestidos, y convertíos a \SENOR{} vuestro Dios; porque misericordioso es y clemente, tardo para la ira y grande en misericordia, y que se duele del castigo.\fuente{(Jl 2:13)}\end{cita}
+
+Jonás y Joel ponen \heb{וְנִחָם עַל־הָרָעָה}, ``y que desiste del mal'', dentro de la descripción de lo que Dios \emph{es}. El ``arrepentirse'' de Dios no contradice su carácter: forma parte de su carácter revelado. Dios desiste del juicio \emph{porque} no cambia, porque es siempre ``clemente y piadoso''. Jonás huyó precisamente porque conocía la inmutabilidad de Dios.
+
+\subsection{``Porque Dios soy, y no hombre''}
+La frase ``Dios no es hombre'' aparece en dos textos para negar que Dios se arrepienta (Nm 23:19; 1 S 15:29). Oseas la usa para lo contrario:
+
+\hebverso{נֶהְפַּךְ עָלַי לִבִּי יַחַד נִכְמְרוּ נִחוּמָי \\ כִּי אֵל אָנֹכִי וְלֹא־אִישׁ בְּקִרְבְּךָ קָדוֹשׁ}
+\begin{cita}¿Cómo podré abandonarte, oh Efraín? ¿Te entregaré yo, Israel? ¿Cómo podré yo hacerte como Adma, o ponerte como a Zeboim? Mi corazón se conmueve dentro de mí, se inflama toda mi compasión. No ejecutaré el ardor de mi ira, ni volveré para destruir a Efraín; porque Dios soy, y no hombre, el Santo en medio de ti; y no entraré en la ciudad.\fuente{(Os 11:8--9)}\end{cita}
+
+\begin{filologia}[Os 11:8--9]
+\begin{tabular}{@{}L{3.2cm}L{1.6cm}L{10cm}@{}}
+\heb{נֶהְפַּךְ עָלַי לִבִּי} & \heb{הפך} & ``mi corazón se da vuelta dentro de mí'': el verbo de la destrucción de Sodoma (Gn 19:25), aplicado al corazón de Dios. \\[2pt]
+\heb{נִכְמְרוּ נִחוּמָי} & \heb{נחם} & ``se encienden mis compasiones'': \emph{nijumim}, sustantivo de la raíz \emph{najam}. \\[2pt]
+\heb{כִּי אֵל אָנֹכִי וְלֹא־אִישׁ} & --- & ``porque Dios soy yo, y no hombre''. \\
+\end{tabular}
+\end{filologia}
+
+Ser ``Dios y no hombre'' funda a la vez la firmeza de Dios (no revoca su bendición ni su sentencia) y su compasión (no destruye a Efraín como lo haría un hombre airado). Los dos usos son coherentes: Dios es el mismo, y por eso es fiel tanto en lo que promete como en su misericordia.
+
+%===================================================================
+\section{Jeremías 18: la clave interpretativa}
+
+\subsection{El alfarero}
+El material de la serie da a Jeremías 18 un lugar central, porque allí Dios mismo explica cómo funciona su gobierno.
+
+\hebverso{הֲכַיּוֹצֵר הַזֶּה לֹא־אוּכַל לַעֲשׂוֹת לָכֶם בֵּית יִשְׂרָאֵל \\ הִנֵּה כַחֹמֶר בְּיַד הַיּוֹצֵר כֵּן־אַתֶּם בְּיָדִי בֵּית יִשְׂרָאֵל}
+\begin{cita}Palabra de \SENOR{} que vino a Jeremías, diciendo: Levántate y vete a casa del alfarero, y allí te haré oír mis palabras. Y descendí a casa del alfarero, y he aquí que él trabajaba sobre la rueda. Y la vasija de barro que él hacía se echó a perder en su mano; y volvió y la hizo otra vasija, según le pareció mejor hacerla. Entonces vino a mí palabra de \SENOR, diciendo: ¿No podré yo hacer de vosotros como este alfarero, oh casa de Israel? dice \SENOR. He aquí que como el barro en la mano del alfarero, así sois vosotros en mi mano, oh casa de Israel.\fuente{(Jer 18:1--6)}\end{cita}
+
+\begin{filologia}[Jer 18:3--6]
+\begin{tabular}{@{}L{3.2cm}L{1.6cm}L{10cm}@{}}
+\heb{הַיּוֹצֵר} \emph{hayyotser} & \heb{יצר} & ``el alfarero'', ``el que forma'': el verbo de Gn 2:7, ``formó al hombre''. \\[2pt]
+\heb{עַל־הָאָבְנָיִם} & \heb{אבן} & ``sobre las dos piedras'': el torno de dos discos. \\[2pt]
+\heb{וְנִשְׁחַת} & \heb{שׁחת} & ``se echó a perder'': el verbo de la corrupción de la tierra en Gn 6:11--12. \\[2pt]
+\heb{וְשָׁב וַיַּעֲשֵׂהוּ} & \heb{שׁוב} & ``y volvió y la hizo'': el alfarero rehace la vasija. \\
+\end{tabular}
+\end{filologia}
+
+Dios muestra un alfarero que rehace una vasija dañada. El barro no es tratado mecánicamente: la acción del alfarero depende del estado del barro. Dios es soberano, pero su trato es relacional y moral, no fatalista.
+
+\subsection{El principio: anuncios condicionales}
+Los versículos siguientes formulan el principio:
+
+\hebverso{רֶגַע אֲדַבֵּר עַל־גּוֹי וְעַל־מַמְלָכָה לִנְתוֹשׁ וְלִנְתוֹץ וּלְהַאֲבִיד \\ וְשָׁב הַגּוֹי הַהוּא מֵרָעָתוֹ אֲשֶׁר דִּבַּרְתִּי עָלָיו וְנִחַמְתִּי עַל־הָרָעָה}
+\begin{cita}En un instante hablaré contra pueblos y contra reinos, para arrancar, y derribar, y destruir. Pero si esos pueblos se convirtieren de su maldad contra la cual hablé, yo me arrepentiré del mal que había pensado hacerles, y en un instante hablaré de la gente y del reino, para edificar y para plantar. Pero si hiciere lo malo delante de mis ojos, no oyendo mi voz, me arrepentiré del bien que había determinado hacerle.\fuente{(Jer 18:7--10)}\end{cita}
+
+\begin{filologia}[Jer 18:7--10]
+\begin{tabular}{@{}L{3.2cm}L{1.6cm}L{10cm}@{}}
+\heb{רֶגַע} \emph{rega'} & --- & ``en un instante'', ``una vez''. \\[2pt]
+\heb{לִנְתוֹשׁ וְלִנְתוֹץ} & \heb{נתשׁ} & ``arrancar y derribar'': los verbos del llamamiento de Jeremías (Jer 1:10). \\[2pt]
+\heb{וְשָׁב הַגּוֹי} & \heb{שׁוב} & ``y se vuelve esa nación'': el cambio empieza en el pueblo. \\[2pt]
+\heb{וְנִחַמְתִּי} & \heb{נחם} & ``y yo desistiré'': la respuesta de Dios, en 18:8 y 18:10. \\
+\end{tabular}
+\end{filologia}
+
+El principio, revelado por Dios mismo, es este: las declaraciones divinas sobre juicio o bendición suelen ser \destacar{condicionales a la respuesta humana}. En Jeremías 18:8 el que \emph{vuelve} primero es el pueblo (\heb{וְשָׁב}); Dios responde (\heb{וְנִחַמְתִּי}). Lo que cambia es la relación del pueblo con Dios; Dios aplica a la nueva situación el mismo carácter de siempre. Lo constante es el criterio: Dios trata siempre igual al que se vuelve y al que persiste en el mal. Por eso su ``arrepentirse'' es la forma visible de una justicia que no cambia.
+
+\begin{nota}[Precisión]
+La última afirmación es síntesis teológica de este capítulo.
+\end{nota}
+
+El texto termina con una invitación y una respuesta. Dios dice: ``conviértase ahora cada uno de su mal camino, y mejore sus caminos y sus obras'' (18:11). Judá responde: ``Es en vano; porque en pos de nuestros ídolos iremos, y haremos cada uno el pensamiento de nuestro malvado corazón'' (18:12). La condición estaba abierta; la puerta la cerró el pueblo, no Dios.
+
+\begin{nota}[Precisión textual]
+El texto masorético de Jer 18:12 dice ``en pos de nuestros pensamientos'' (\heb{אַחֲרֵי מַחְשְׁבוֹתֵינוּ}); la RVR1960 traduce ``ídolos''.
+\end{nota}
+
+\subsection{Dos ejemplos: Ezequías y Nínive}
+El material propone la oración como medio establecido por Dios para obrar, con Éxodo 32 e Isaías 38 como ejemplos. Isaías 38 cuenta la enfermedad de Ezequías:
+
+\hebverso{הִנְנִי יוֹסִף עַל־יָמֶיךָ חֲמֵשׁ עֶשְׂרֵה שָׁנָה}
+\begin{cita}En aquellos días Ezequías enfermó de muerte. Y vino a él el profeta Isaías hijo de Amoz, y le dijo: \SENOR{} dice así: Ordena tu casa, porque morirás, y no vivirás. Entonces volvió Ezequías su rostro a la pared, e hizo oración a \SENOR\ldots{} Entonces vino palabra de \SENOR{} a Isaías, diciendo: Vé y dí a Ezequías: \SENOR{} Dios de David tu padre dice así: He oído tu oración, y visto tus lágrimas; he aquí que yo añado a tus días quince años.\fuente{(Is 38:1--2, 4--5)}\end{cita}
+
+El anuncio a Ezequías no era un decreto ciego: la oración era el medio que Dios había dispuesto para obrar. La señal fue la sombra que retrocedió diez grados en el reloj de Acaz (38:8). Un siglo después, cuando los sacerdotes quieren matar a Jeremías, los ancianos de Judá recuerdan otro episodio de Ezequías, ante la profecía de Miqueas: ``¿No temió a \SENOR, y oró en presencia de \SENOR, y \SENOR{} se arrepintió del mal que había hablado contra ellos?'' (Jer 26:19).
+
+Nínive es el ejemplo extremo. Jonás anuncia un juicio sin condiciones explícitas: ``De aquí a cuarenta días Nínive será destruida'' (Jon 3:4). El rey responde: ``¿Quién sabe si se volverá y se arrepentirá Dios, y se apartará del ardor de su ira, y no pereceremos?'' (3:9). Y Dios desiste (3:10). Jeremías 18:7--8 explica el caso: la condición estaba implícita en el anuncio.
+
+\subsection{¿Decreto fijo o anuncio condicional?}
+Aquí conviene comparar la lectura del material con la de Pink.
+
+\begin{center}\small\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}L{2.4cm}L{5.6cm}L{5.8cm}@{}}
+\toprule
+ & \textbf{Lo que nunca cambia} & \textbf{Lo que responde} \\ \midrule
+Texto & ``El consejo de \SENOR{} permanecerá para siempre'' (Sal 33:11); ``Mi consejo permanecerá'' (Is 46:10) & ``me arrepentiré del mal\ldots{} me arrepentiré del bien'' (Jer 18:8, 10) \\
+Objeto & el propósito, el pacto, lo jurado & los anuncios de juicio o de bendición en la historia \\
+Pink & ``Su voluntad nunca varía'' & ``Cuando Él instituye un cambio en sus tratos con los hombres, describe la dirección de su conducta como `arrepentirse'{}'' \\
+Material de la serie & Dios no cambia en naturaleza, carácter, santidad y fidelidad al pacto & Dios sí cambia en su trato histórico, en la aplicación de juicio o misericordia y en su respuesta a la oración y al arrepentimiento \\
+\bottomrule
+\end{tabular}\par
+{\footnotesize\color{gris}\textit{Tabla 7.} Lo que no cambia y lo que responde. \textit{Nota.} Pink (2020, cap. 7) y material de la serie.}
+\end{center}
+
+Las dos lecturas coinciden en lo central: lo que la Biblia llama ``arrepentirse'' en Dios es un \destacar{cambio de trato}, no de ser. Difieren en el énfasis. Pink lo explica como lenguaje adaptado: ``Cuando habla de Sí mismo, Dios, con frecuencia, adapta su lenguaje a nuestras capacidades limitadas'' (2020, cap. 7). El material de la serie lo lee como un cambio real en la relación histórica.
+
+\begin{nota}[Precisión]
+Las dos posiciones tienen defensores en la historia de la interpretación. Ambas afirman que Dios no cambia en su ser y que su propósito es firme (Sal 33:11); la diferencia está en cómo describir la realidad de su respuesta.
+\end{nota}
+
+%===================================================================
+\section{¿Dios cambia o no? Dos maneras de pensar la inmutabilidad}
+
+\subsection{Lo que cambia y lo que no}
+El material de la serie lo resume así. Dios \textbf{no} cambia en su naturaleza (Éx 3:14; Sal 102:27), en su carácter (Mal 3:6; Jon 4:2), en su santidad (Is 6:3) ni en su fidelidad al pacto (Sal 89:34; Lm 3:23). Dios \textbf{sí} cambia en su trato histórico (1 S 15:11), en la aplicación de juicio o misericordia (Jer 18:7--10) y en su respuesta a la oración y al arrepentimiento (Éx 32:14; Is 38:5; Jon 3:10). Esto no es contradicción: es coherencia viva.
+
+\subsection{La tabla comparativa}
+El material contrasta dos maneras de entender la inmutabilidad:
+
+\begin{center}\small\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{@{}L{3.0cm}L{5.0cm}L{5.8cm}@{}}
+\toprule
+\textbf{Aspecto} & \textbf{Inmutabilidad filosófica (griega)} & \textbf{Inmutabilidad bíblica hebrea} \\ \midrule
+Cambio & Todo cambio implica imperfección & Cambio relacional no afecta la perfección \\
+Emociones divinas & No son reales & Son expresiones verdaderas del carácter \\
+Respuesta a humanos & Dios no ``reacciona'' & Dios responde moralmente \\
+Decretos & Absolutamente fijos e incondicionales & Muchos anuncios son condicionales (Jer 18:7--10) \\
+Arrepentimiento divino & Solo figura literaria & Cambio real de trato histórico \\
+Relación con la oración & No altera nada & Medio establecido por Dios para obrar (Éx 32; Is 38) \\
+Enfoque principal & Inmutabilidad = inmovilidad & Inmutabilidad = fidelidad coherente \\
+\bottomrule
+\end{tabular}\par
+{\footnotesize\color{gris}\textit{Tabla 8.} Dos maneras de pensar la inmutabilidad. \textit{Nota.} Según el material de la serie.}
+\end{center}
+
+\begin{nota}[Precisión]
+La tabla contrasta énfasis, no escuelas puras. La columna izquierda reúne ideas de Platón y de la filosofía griega, pero varias de ellas fueron asumidas por autores judíos y cristianos (Filón, Maimónides, la teología clásica, Pink), que a la vez afirman la realidad del amor de Dios y de su respuesta a la oración, aunque lean ``arrepentirse'' como lenguaje adaptado. Pink, por ejemplo, defiende la oración: ``¿De qué sirve orar a Aquel cuya voluntad ya está determinada? Respondemos: Porque así Él lo requiere'' (2020, cap. 7).
+\end{nota}
+
+\subsection{De dónde viene la columna ``filosófica''}
+La formulación clásica de la inmutabilidad griega está en Platón. En la \emph{República} Sócrates argumenta que un dios perfecto no puede cambiar, porque todo cambio sería hacia lo peor: ``Es imposible, entonces, que un dios quiera alterarse a sí mismo; cada uno, siendo lo más bello y lo mejor posible, permanece siempre simplemente en su propia forma'' (Platón, 1930, II, 381c).
+
+Esa idea entró pronto en el judaísmo de lengua griega. Filón de Alejandría escribió un tratado entero sobre Génesis 6:4--12 titulado \emph{Que Dios es inmutable}. Allí explica que, cuando la Torá dice que Dios se enojó o se arrepintió, algunos imaginan que Dios cede a la ira, ``pero Dios es enteramente inaccesible a cualquier pasión''. La Torá, dice, tiene dos principios: ``Dios no es como hombre'' (Nm 23:19), que es la verdad, y ``como un hombre\ldots{} a su hijo'' (Dt 1:31), dicho ``para instrucción'' de los muchos (Filón, 1993, \emph{Quod Deus} 52--54).
+
+Maimónides, en el siglo XII, lo formuló en su código legal: Dios ``no cambia, porque no hay nada que le cause cambio''; la ira y la alegría que la Biblia le atribuye son ``metáfora'', porque ``la Torá habla en lenguaje de los hombres''. Y usa el texto ancla: ``Dice: `Yo, el \SENOR, no cambio' (Mal 3:6); y si a veces se enojara y a veces se alegrara, cambiaría'' (Maimónides, \emph{Yesodé haTorá} 1:11--12).
+
+La lectura ``filosófica'' no es, entonces, solo griega: entró en el judaísmo y en el cristianismo. La mirada hebrea del material de la serie deja que el texto diga las dos cosas: Dios es el mismo (Mal 3:6) y Dios siente y responde (Gn 6:6; Os 11:8).
+
+\begin{nota}[Precisión]
+Platón según la traducción de Shorey (1930); Filón según la de Yonge (1854, reed. 1993); Maimónides según Sefaria. Traducción al español propia.
+\end{nota}
+
+%===================================================================
+\section{Un encuentro en la historia de Israel: Balaam}
+
+\subsection{Maldecir a sueldo}
+Israel acampa en las llanuras de Moab, al final del desierto. Balac, rey de Moab, tiene miedo y contrata a un adivino famoso del Éufrates:
+
+\begin{cita}Ven pues, ahora, te ruego, maldíceme este pueblo, porque es más fuerte que yo; quizá yo pueda herirlo y echarlo de la tierra; pues yo sé que el que tú bendigas será bendito, y el que tú maldigas será maldito.\fuente{(Nm 22:6)}\end{cita}
+
+La respuesta de Dios llega antes que Balaam salga: ``No vayas con ellos, ni maldigas al pueblo, porque bendito es'' (22:12). Balac insiste con más dinero; Dios permite el viaje con una condición: ``harás lo que yo te diga'' (22:20). Lo que sigue es una comedia teológica. Balac lleva a Balaam a Bamot-baal, edifica siete altares y ofrece siete becerros y siete carneros; Balaam bendice. Balac lo lleva al campo de Zofim, en la cumbre del Pisga, con otros siete altares: ``Te ruego que vengas conmigo a otro lugar desde el cual los veas\ldots{} y desde allí me los maldecirás'' (23:13). Balaam vuelve a bendecir. Lo lleva a la cumbre de Peor: ``por ventura parecerá bien a Dios que desde allí me lo maldigas'' (23:27). Balaam bendice por tercera y cuarta vez, y anuncia: ``Saldrá ESTRELLA de Jacob'' (24:17). Balac cambia de lugar, cambia de altares y espera que Dios cambie de palabra.
+
+\subsection{``Dios no es hombre''}
+En el segundo oráculo está la frase que el material cita:
+
+\hebverso{לֹא אִישׁ אֵל וִיכַזֵּב וּבֶן־אָדָם וְיִתְנֶחָם \\ הַהוּא אָמַר וְלֹא יַעֲשֶׂה וְדִבֶּר וְלֹא יְקִימֶנָּה}
+\begin{cita}Dios no es hombre, para que mienta, ni hijo de hombre para que se arrepienta. El dijo, ¿y no hará? Habló, ¿y no lo ejecutará? He aquí, he recibido orden de bendecir; El dio bendición, y no podré revocarla.\fuente{(Nm 23:19--20)}\end{cita}
+
+\begin{filologia}[Nm 23:19--20]
+\begin{tabular}{@{}L{3.2cm}L{1.6cm}L{10cm}@{}}
+\heb{לֹא אִישׁ אֵל} & --- & ``no (es) hombre Dios'': frase nominal, sin verbo; el contraste es de naturaleza. \\[2pt]
+\heb{וִיכַזֵּב} \emph{vijazzev} & \heb{כזב} & ``para que mienta'': \emph{kazav} es la palabra que falla, como el arroyo que se seca (cf. Is 58:11, ``cuyas aguas nunca faltan''). \\[2pt]
+\heb{וְיִתְנֶחָם} \emph{veyitneján} & \heb{נחם} & ``para que se arrepienta'': hitpael, ``cambiar de parecer''. \\[2pt]
+\heb{וְלֹא יְקִימֶנָּה} & \heb{קום} & ``¿y no la hará estar en pie?'': la palabra de Dios se levanta y se mantiene. \\[2pt]
+\heb{וְלֹא אֲשִׁיבֶנָּה} (v. 20) & \heb{שׁוב} & ``y no la haré volver'': ``no podré revocarla''. \\
+\end{tabular}
+\end{filologia}
+
+Lo dice un adivino pagano contratado para maldecir. La inmutabilidad de Dios aparece aquí como \destacar{protección del pueblo}: la bendición dada a Israel no se compra ni se revoca. Rashi lo comenta con una pregunta dirigida a Balac: Dios ``ya les juró traerlos y darles en posesión la tierra de las siete naciones, ¿y tú piensas matarlos en el desierto?''.
+
+\begin{nota}[Precisión textual]
+La Septuaginta interpreta libremente la primera línea: \grc{οὐχ ὡς ἄνθρωπος ὁ θεὸς διαρτηθῆναι οὐδὲ ὡς υἱὸς ἀνθρώπου ἀπειληθῆναι}, ``Dios no es como hombre para vacilar, ni como hijo de hombre para ser amenazado''. Sigue el sentido general, no las palabras del texto masorético.
+\end{nota}
+
+\subsection{La maldición convertida en bendición}
+Deuteronomio resume el episodio:
+
+\hebverso{וַיַּהֲפֹךְ יְהוָה אֱלֹהֶיךָ לְּךָ אֶת־הַקְּלָלָה לִבְרָכָה כִּי אֲהֵבְךָ יְהוָה אֱלֹהֶיךָ}
+\begin{cita}Mas no quiso \SENOR{} tu Dios oír a Balaam; y \SENOR{} tu Dios te convirtió la maldición en bendición, porque \SENOR{} tu Dios te amaba.\fuente{(Dt 23:5 [23:6])}\end{cita}
+
+Lo que Dios ``da vuelta'' (\heb{הפך} \emph{hafaj}) es la maldición, no su palabra. Y la causa es ``porque te amaba'': la inmutabilidad de Dios es la de un amor de pacto. Nehemías lo recuerda siglos después (``mas nuestro Dios volvió la maldición en bendición'', Neh 13:2), y Miqueas manda recordar a Balac y a Balaam ``para que conozcas las justicias de \SENOR'' (Mi 6:5).
+
+El encuentro tiene un final que no conviene saltar. El oráculo dice ``No ha notado iniquidad en Jacob'' (Nm 23:21), y en el capítulo siguiente Israel se une a Baal-peor (Nm 25:1--3). La bendición no dependía de que Israel la mereciera. Lo que permaneció fue la palabra de Dios; lo que cambió, una vez más, fue el pueblo.
+
+\begin{nota}[Precisión]
+La lectura de Nm 25 como contraste con la bendición inmutable es propia. El NT recuerda a Balaam como figura del que ama ``el premio de la maldad'' (2 P 2:15; cf. Ap 2:14).
+\end{nota}
+
+%===================================================================
+\section{La inmutabilidad en el judaísmo}
+
+\begin{nota}[Precisión]
+Esta sección recoge cómo la tradición judía ha leído el atributo. Todas las fuentes se citan desde Sefaria y son interpretaciones (litúrgicas, targúmicas, rabínicas o filosóficas); la traducción al español es propia.
+\end{nota}
+
+\subsection{En la oración diaria}
+La inmutabilidad de Dios es, ante todo, objeto de oración. En las bendiciones de la mañana el judío reza:
+
+\hebverso{אַתָּה הוּא עַד שֶׁלֹּא נִבְרָא הָעוֹלָם אַתָּה הוּא מִשֶּׁנִּבְרָא הָעוֹלָם \\ אַתָּה הוּא בָּעוֹלָם הַזֶּה וְאַתָּה הוּא לָעוֹלָם הַבָּא}
+
+``Tú eres él antes que el mundo fuera creado; tú eres él desde que el mundo fue creado; tú eres él en este mundo, y tú eres él en el mundo venidero''. La fórmula \emph{atá hu} retoma el Salmo 102:27. El himno \emph{Adón olam}, que cierra muchos servicios, dice:
+
+\hebverso{וְהוּא הָיָה וְהוּא הֹוֶה וְהוּא יִהְיֶה בְּתִפְאָרָה \\ בְּלִי רֵאשִׁית בְּלִי תַכְלִית}
+
+\noindent``Él fue, él es, y él será en gloria'' y ``sin principio, sin fin''. El mismo himno llama a Dios \heb{צוּר חֶבְלִי בְּעֵת צָרָה}, ``Roca de mi suerte en el tiempo de angustia''.
+
+\subsection{``Estaré con ellos'': el Nombre}
+Rashi comenta Éxodo 3:14 a partir del Talmud (\emph{Berajot} 9b):
+
+\hebverso{אֶהְיֶה עִמָּם בְּצָרָה זוֹ אֲשֶׁר אֶהְיֶה עִמָּם בְּשִׁעְבּוּד שְׁאָר מַלְכֻיּוֹת}
+
+``Estaré con ellos en esta angustia, el que estaré con ellos en la servidumbre de los otros reinos''. Moisés objeta: ``Señor del mundo, ¿por qué he de recordarles otra angustia? Les basta con esta''. Dios le da la razón: ``Así dirás: \emph{Ehyé} me envió''. Para la tradición judía, el Nombre no describe un ser inmóvil, sino una presencia fiel: el mismo Dios en Egipto, en Babilonia y en cada exilio.
+
+\subsection{Los targumes: ``no como los hombres''}
+Los targumes leen ``no se arrepiente'' como fidelidad a la palabra dada. El Targum Ónkelos amplía Números 23:19:
+
+\hebverso{לָא כְמִלֵּי בְנֵי אֱנָשָׁא מֵימַר אֱלָהָא בְּנֵי אֱנָשָׁא אָמְרִין וּמְכַדְּבִין \\ וְאַף לָא כְּעוֹבָדֵי בְנֵי בִשְׂרָא דִּי אִנּוּן גָּזְרִין לְמֶעְבַּד וְתַיְּבִין וּמִתְמַלְּכִין \\ דְּהוּא אָמַר וְעָבֵד וְכָל מֵימְרֵיהּ מִתְקַיָּם}
+
+``No como las palabras de los hombres es la Palabra de Dios: los hombres dicen y mienten. Ni como las obras de los mortales, que deciden hacer, y se vuelven atrás y cambian de consejo. Él dice y hace, y toda su Palabra se cumple''. El Targum Jonatán amplía 1 Samuel 15:29 en el mismo sentido: Dios ``no se vuelve de lo que dijo, porque no es como los hijos de los hombres, que dicen y desmienten, deciden y no cumplen''.
+
+\subsection{Rashi y el Midrash sobre Génesis 6:6}
+Rashi da dos explicaciones de ``se arrepintió'' en Génesis 6:6. La segunda es esta:
+
+\hebverso{נֶהְפְּכָה מַחְשַׁבְתּוֹ שֶׁל מָקוֹם מִמִּדַּת רַחֲמִים לְמִדַּת הַדִּין}
+
+\noindent``El pensamiento del Omnipresente se volvió de la medida de misericordia a la medida de justicia''. Y añade una regla: ``así todo \emph{nijum} en la Escritura es lenguaje de \emph{nimlaj ma la'asot}, deliberar qué hacer'', y cita Números 23:19, Deuteronomio 32:36, Éxodo 32:14 y 1 Samuel 15:11.
+
+Para responder a los herejes, Rashi copia un relato de \emph{Bereshit Rabá} 27:4. Un gentil pregunta a Rabí Yehoshúa ben Qorjá: ``¿No admiten ustedes que el Santo, bendito sea, ve el futuro?''. ``Sí''. ``¿Y no está escrito: y le dolió en su corazón?''. El rabino pregunta: ``¿Te nació alguna vez un hijo varón?''. ``Sí''. ``¿Y qué hiciste?''. ``Me alegré e hice alegrar a todos''. ``¿Y no sabías que al final moriría?''. ``En la hora de la alegría, alegría; en la hora del duelo, duelo''. ``Así es la obra del Santo, bendito sea'': aunque estaba revelado ante él que pecarían y perecerían, ``no se abstuvo de crearlos, por causa de los justos que habrían de salir de ellos''.
+
+El Midrash no niega el dolor de Dios: lo une a su presciencia. Dios sabe y aun así ama, crea y se duele.
+
+\subsection{El decreto se rompe; Dios no cambia}
+El Talmud recoge una enseñanza de Rabí Yitsjaq:
+
+\hebverso{אַרְבָּעָה דְּבָרִים מְקָרְעִין גְּזַר דִּינוֹ שֶׁל אָדָם \\ צְדָקָה צְעָקָה שִׁינּוּי הַשֵּׁם וְשִׁינּוּי מַעֲשֶׂה}
+
+``Cuatro cosas rasgan el decreto contra una persona: la caridad, el clamor, el cambio de nombre y el cambio de conducta''. La prueba del último es Nínive: ``Y vio Dios sus obras\ldots{} y se arrepintió del mal'' (Jon 3:10; \emph{Rosh Hashaná} 16b). La Misná prescribe que en los días de ayuno público el anciano diga: ``Hermanos, de los ninivitas no se dice: vio Dios su cilicio y su ayuno, sino: vio Dios sus obras''; y cita Joel 2:13: ``Rasgad vuestro corazón, y no vuestros vestidos'' (Misná \emph{Taanit} 2:1). La liturgia de Rosh Hashaná y Yom Kipur lo canta: ``el arrepentimiento, la oración y la caridad apartan lo malo del decreto''.
+
+Hay aquí un juego de raíces que ilumina el texto ancla. Dios dice \heb{לֹא שָׁנִיתִי}, ``no cambio'' (Mal 3:6). Lo que rompe el decreto es el \heb{שִׁינּוּי}, el \emph{cambio} del ser humano. El que cambia es el hombre; Dios responde siendo el mismo.
+
+\begin{nota}[Precisión]
+La relación entre \emph{shinui} (\emph{Rosh Hashaná} 16b) y Mal 3:6 es observación propia; la frase litúrgica pertenece a la oración \emph{Unetané tokef}.
+\end{nota}
+
+\subsection{Rashi a Malaquías 3:6}
+Rashi explica el texto ancla así: ``Aunque soy lento para la ira, no ha cambiado mi parecer desde el principio, para amar el mal y aborrecer el bien''. Y cita una lectura de los sabios (\emph{Sotá} 9a) que juega con el doble sentido de \heb{שׁנה}, ``cambiar'' y ``repetir'': ``no herí a una nación para repetirle el golpe; pero a vosotros os he mantenido en pie después de mucho castigo: mis flechas se acaban, y vosotros no os acabáis''.
+
+\subsection{La línea filosófica y Qumrán}
+Ya se vio que Filón y Maimónides leyeron la inmutabilidad con categorías filosóficas: Dios no tiene pasiones, y la Torá ``habla en lenguaje de los hombres''. Esa línea es parte legítima de la tradición judía y explica por qué la Septuaginta y los targumes suavizan a veces el ``arrepentimiento'' de Dios.
+
+La comunidad de Qumrán subraya el lado del designio fijo. La \emph{Regla de la Comunidad} enseña: ``Del Dios del conocimiento procede todo lo que es y lo que será. Antes de que existieran, él estableció todo su designio; y cuando llegan a existir, según lo dispuesto para ellos, cumplen su tarea conforme a su glorioso designio, sin cambio'' (1QS III, 15--16).
+
+\begin{nota}[Precisión]
+1QS según la traducción de Vermes (2004); conviene cotejar con García Martínez (1992) y con la Leon Levy Dead Sea Scrolls Digital Library.
+\end{nota}
+
+%===================================================================
+\section{La inmutabilidad de Dios en Cristo, leída con Pablo}
+
+\subsection{``Irrevocables son los dones''}
+Pablo era un judío formado en las Escrituras de Israel. Cuando en Romanos 9--11 enfrenta la pregunta más dolorosa de su vida, si Dios ha desechado a Israel, su respuesta descansa en la inmutabilidad de Dios:
+
+\begin{cita}Así que en cuanto al evangelio, son enemigos por causa de vosotros; pero en cuanto a la elección, son amados por causa de los padres. Porque irrevocables son los dones y el llamamiento de Dios.\fuente{(Ro 11:28--29)}\end{cita}
+
+\begin{filologia}[Ro 11:29]
+\begin{tabular}{@{}L{3.2cm}L{1.6cm}L{10cm}@{}}
+\grc{ἀμεταμέλητα} \emph{ametamélēta} & \grc{μεταμέλομαι} & ``sin arrepentimiento'': de los que Dios no se vuelve atrás. Pablo pone la palabra al comienzo de la frase, en posición de énfasis. \\[2pt]
+\grc{τὰ χαρίσματα} & \grc{χάρις} & ``los dones'': los privilegios de Israel (cf. Ro 9:4--5). \\[2pt]
+\grc{ἡ κλῆσις} & \grc{καλέω} & ``el llamamiento'': la elección de Israel. \\
+\end{tabular}
+\end{filologia}
+
+El tema es Israel: ``¿Ha desechado Dios a su pueblo? En ninguna manera'' (11:1). ``No que la palabra de Dios haya fallado'' (9:6). Es la teología de Balaam: ``El dio bendición, y no podré revocarla'' (Nm 23:20). Pink cita Romanos 11:29 como prueba de que Dios es ``inmutable en su consejo'' (2020, cap. 7).
+
+\begin{nota}[Precisión]
+La conexión entre Ro 11:29 y Nm 23:19--20 es lectura propia.
+\end{nota}
+
+\subsection{``Juró y no se arrepentirá''}
+El único \emph{najam} negado con juramento en los Salmos se refiere al Mesías:
+
+\hebverso{נִשְׁבַּע יְהוָה וְלֹא יִנָּחֵם אַתָּה־כֹהֵן לְעוֹלָם עַל־דִּבְרָתִי מַלְכִּי־צֶדֶק}
+\begin{cita}Juró \SENOR, y no se arrepentirá: Tú eres sacerdote para siempre según el orden de Melquisedec.\fuente{(Sal 110:4)}\end{cita}
+
+La Septuaginta traduce \grc{ὤμοσεν κύριος καὶ οὐ μεταμεληθήσεται}, con el mismo verbo del que viene el \grc{ἀμεταμέλητα} de Romanos 11:29. Pablo cita el Salmo 110 para hablar del reinado de Cristo (1 Co 15:25; cf. Ro 8:34). La carta a los Hebreos cita el versículo 4 (He 7:21) y lo traduce en ``dos cosas inmutables'' (\grc{δύο πραγμάτων ἀμεταθέτων}): la promesa y el juramento de Dios, ``para que\ldots{} tengamos un fortísimo consuelo los que hemos acudido para asirnos de la esperanza puesta delante de nosotros. La cual tenemos como segura y firme ancla del alma'' (He 6:18--19).
+
+\subsection{``Cambiaron la gloria del Dios incorruptible''}
+En su diagnóstico de la humanidad, Pablo usa el vocabulario del cambio:
+
+\begin{cita}Profesando ser sabios, se hicieron necios, y cambiaron la gloria del Dios incorruptible en semejanza de imagen de hombre corruptible, de aves, de cuadrúpedos y de reptiles.\fuente{(Ro 1:22--23)}\end{cita}
+
+\begin{filologia}[Ro 1:23]
+\begin{tabular}{@{}L{3.2cm}L{1.6cm}L{10cm}@{}}
+\grc{ἤλλαξαν} \emph{éllaxan} & \grc{ἀλλάσσω} & ``cambiaron, trocaron'': el verbo de Sal 101:27 LXX (\grc{ἀλλάξεις}\ldots{} \grc{ἀλλαγήσονται}). \\[2pt]
+\grc{τοῦ ἀφθάρτου θεοῦ} & \grc{φθείρω} & ``del Dios incorruptible'': que no se deteriora. Pablo usa el adjetivo para Dios aquí y en 1 Ti 1:17. \\[2pt]
+\grc{φθαρτοῦ ἀνθρώπου} & \grc{φθείρω} & ``hombre corruptible'': el contraste es intencional. \\
+\end{tabular}
+\end{filologia}
+
+Dios no cambia; el ser humano cambia a Dios por algo que se corrompe. Eso es la idolatría. El Salmo 102 decía que Dios ``cambia'' la creación como ropa; en Romanos, la criatura ``cambia'' al Creador por la creación.
+
+\begin{nota}[Precisión]
+Ro 1:23 hace eco de Sal 106:20 (LXX 105:20: \grc{ἠλλάξαντο τὴν δόξαν αὐτῶν}), texto ya estudiado en el capítulo sobre la misericordia. La relación con Sal 101:27 LXX es observación propia.
+\end{nota}
+
+\subsection{Una promesa que la ley no anula}
+En Gálatas, Pablo argumenta desde la firmeza de un pacto:
+
+\begin{cita}Hermanos, hablo en términos humanos: Un pacto, aunque sea de hombre, una vez ratificado, nadie lo invalida, ni le añade. Ahora bien, a Abraham fueron hechas las promesas, y a su simiente. No dice: Y a las simientes, como si hablase de muchos, sino como de uno: Y a tu simiente, la cual es Cristo. Esto, pues, digo: El pacto previamente ratificado por Dios para con Cristo, la ley que vino cuatrocientos treinta años después, no lo abroga, para invalidar la promesa.\fuente{(Gá 3:15--17)}\end{cita}
+
+Si un pacto humano ratificado no se invalida (\grc{ἀθετεῖ}), menos el de Dios. La ley, que vino 430 años después, no abroga (\grc{ἀκυροῖ}) la promesa. Lo que Dios prometió a Abraham sigue en pie y se cumple en Cristo, la ``simiente''. La inmutabilidad de Dios, en Pablo, es la continuidad de la promesa a través de la historia de Israel.
+
+\subsection{``No ha sido Sí y No''}
+Acusado de cambiar sus planes de viaje (2 Co 1:15--17), Pablo apela a la constancia de Dios:
+
+\begin{cita}Mas, como Dios es fiel, nuestra palabra a vosotros no es Sí y No. Porque el Hijo de Dios, Jesucristo, que entre vosotros ha sido predicado por nosotros, por mí, Silvano y Timoteo, no ha sido Sí y No; mas ha sido Sí en él; porque todas las promesas de Dios son en él Sí, y en él Amén, por medio de nosotros, para la gloria de Dios.\fuente{(2 Co 1:18--20)}\end{cita}
+
+En Cristo, Dios no dice ``sí'' hoy y ``no'' mañana: todas sus promesas son ``Sí''. En la misma línea, 2 Timoteo 2:13 afirma: ``Si fuéremos infieles, él permanece fiel; él no puede negarse a sí mismo''. La fidelidad de Dios descansa en su ser.
+
+\begin{nota}[Precisión]
+La autoría paulina de 2 Timoteo se discute. La idea tiene respaldo en una carta indiscutida: ``¿Su incredulidad habrá hecho nula la fidelidad de Dios? De ninguna manera'' (Ro 3:3--4).
+\end{nota}
+
+\subsection{¿Cambió Dios al hacerse hombre?}
+La encarnación plantea una pregunta inevitable. Pablo la describe en el himno de Filipenses:
+
+\begin{cita}el cual, siendo en forma de Dios, no estimó el ser igual a Dios como cosa a que aferrarse, sino que se despojó a sí mismo, tomando forma de siervo, hecho semejante a los hombres.\fuente{(Flp 2:6--7)}\end{cita}
+
+\begin{filologia}[Flp 2:6--7]
+\begin{tabular}{@{}L{3.2cm}L{1.6cm}L{10cm}@{}}
+\grc{ἐν μορφῇ θεοῦ ὑπάρχων} & \grc{ὑπάρχω} & ``existiendo (continuamente) en forma de Dios'': participio de presente. \\[2pt]
+\grc{ἐκένωσεν} \emph{ekénōsen} & \grc{κενόω} & ``se vació'', ``se despojó''. \\[2pt]
+\grc{μορφὴν δούλου λαβών} & \grc{λαμβάνω} & ``tomando forma de siervo'': el despojo consiste en \emph{tomar}, no en perder. \\
+\end{tabular}
+\end{filologia}
+
+Pablo no dice que el Hijo dejara de ser Dios: dice que tomó forma de siervo. La iglesia lo confesó en el Concilio de Calcedonia (451): un solo Cristo ``en dos naturalezas, sin confusión, sin cambio (\grc{ἀτρέπτως}), sin división, sin separación'' (Denzinger y Hünermann, 2012, n.~302). La palabra \grc{ἀτρέπτως} es de la familia de \grc{τροπή}, la ``sombra de variación'' que Santiago niega en ``el Padre de las luces'' (Stg 1:17).
+
+\begin{nota}[Precisión]
+El sentido de \grc{ἐκένωσεν} se discute (las llamadas teorías kenóticas); la lectura de Calcedonia es la clásica de la iglesia.
+\end{nota}
+
+\subsection{Un eco en Hebreos: ``el mismo''}
+La carta a los Hebreos lleva la confesión del Salmo 102 al Hijo:
+
+\begin{cita}Mas del Hijo dice: Tu trono, oh Dios, por el siglo del siglo\ldots{} Y: Tú, oh Señor, en el principio fundaste la tierra, y los cielos son obra de tus manos. Ellos perecerán, mas tú permaneces; y todos ellos se envejecerán como una vestidura, y como un vestido los envolverás, y serán mudados; pero tú eres el mismo, y tus años no acabarán.\fuente{(He 1:8, 10--12)}\end{cita}
+
+Hebreos sigue la Septuaginta (Sal 101:26--28), que añade ``oh Señor'' (\grc{κύριε}). El Hijo es el Creador que cambia la creación como ropa y permanece \grc{ὁ αὐτός}, ``el mismo''. Al final de la carta, entre ``Acordaos de vuestros pastores'' (13:7) y ``No os dejéis llevar de doctrinas diversas y extrañas'' (13:9), está la confesión:
+
+\begin{cita}Jesucristo es el mismo ayer, y hoy, y por los siglos.\fuente{(He 13:8)}\end{cita}
+
+Los líderes pasan; las enseñanzas cambian; Cristo no.
+
+\begin{nota}[Precisión]
+Hebreos es anónimo. Parte de la tradición antigua lo atribuyó a Pablo, pero hoy casi nadie lo sostiene; aquí se usa como testigo del NT junto a Pablo.
+\end{nota}
+
+\subsection{La inmutabilidad de Dios, cumplida en Cristo}
+Leída con Pablo, la inmutabilidad de Dios se cumple en Cristo en cuatro afirmaciones: los dones y el llamamiento de Dios son irrevocables (Ro 11:29); la promesa a Abraham no se anula, porque es para Cristo (Gá 3:17); todas las promesas de Dios son Sí en él (2 Co 1:20); y Jesucristo es el mismo ayer, y hoy, y por los siglos (He 13:8). Pablo lee el ``no cambio'' de Malaquías como fidelidad de pacto cumplida en Cristo, en quien ``habita corporalmente toda la plenitud de la Deidad'' (Col 2:9). En él, el Dios que no cambia mostró su gloria ``en la faz de Jesucristo'' (2 Co 4:6); y en él, el pueblo que cambia es ``transformado de gloria en gloria en la misma imagen'' (2 Co 3:18).
+
+%===================================================================
+\section{Aplicación: vivir ante el Dios que no cambia}
+
+``Dios no cambia en quién es, pero sí puede cambiar lo que hace, sin dejar de ser fiel a su carácter justo y misericordioso''. La frase del material tiene consecuencias concretas.
+
+\begin{enumerate}
+\item \textbf{Descansar en la Roca.} Las circunstancias cambian, y también las personas. Pink lo dice sin rodeos: ``No se puede confiar en la naturaleza humana; ¡pero sí se puede confiar en Dios!''; la multitud que gritó ``¡Hosanna!'' gritó poco después ``¡Crucifícale!'' (2020, cap. 7). La promesa de Isaías es para ese momento: ``Porque los montes se moverán, y los collados temblarán, pero no se apartará de ti mi misericordia, ni el pacto de mi paz se quebrantará'' (Is 54:10).
+
+\item \textbf{Volver.} La inmutabilidad de Dios es la puerta abierta del arrepentimiento: ``Volveos a mí, y yo me volveré a vosotros'' (Mal 3:7). Lo que cambia la situación no es que Dios cambie, sino que el pueblo vuelva (Jer 18:8). Pink advierte el otro lado: la inmutabilidad ``tiene un lado oscuro y uno claro'', pues asegura ``la ejecución de sus amenazas, así como el cumplimiento de sus promesas'' (Dick, citado en Pink, 2020, cap. 7).
+
+\item \textbf{Orar apoyado en lo que Dios juró.} Moisés no pidió a Dios que cambiara de carácter: le pidió que actuara conforme a su carácter y a su juramento: ``Acuérdate de Abraham, de Isaac y de Israel tus siervos, a los cuales has jurado por ti mismo'' (Éx 32:13). Ezequías oró igual: ``Te ruego que te acuerdes'' (Is 38:3). Porque Dios no cambia, orar tiene sentido: se ora a alguien cuya palabra es firme y cuyo trato responde. Pink cita a Charnock: ``¿Qué consuelo podríamos tener si orásemos a un dios que, como el camaleón, cambia de color continuamente?''.
+
+\item \textbf{Dejarse cambiar.} Dios no cambia para que nosotros sí cambiemos. Pablo se asombra de los gálatas: ``Estoy maravillado de que tan pronto os hayáis alejado'' (\grc{μετατίθεσθε}, ``os estéis trasladando'', Gá 1:6), con la misma raíz del \grc{ἀμετάθετος} de Hebreos. Pide a la iglesia que ``ya no seamos niños fluctuantes, llevados por doquiera de todo viento de doctrina'' (Ef 4:14), y anuncia que, mirando la gloria del Señor, ``somos transformados de gloria en gloria'' (2 Co 3:18).
+
+\item \textbf{Reflejar su firmeza.} El atributo es incomunicable, pero tiene un reflejo. El justo del Salmo 15 es ``el que aun jurando en daño suyo, no por eso cambia'' (\heb{נִשְׁבַּע לְהָרַע וְלֹא יָמִר}, Sal 15:4). Pablo cierra su gran capítulo sobre la resurrección así: ``Así que, hermanos míos amados, estad firmes y constantes (\grc{ἑδραῖοι\ldots{} ἀμετακίνητοι}), creciendo en la obra del Señor siempre, sabiendo que vuestro trabajo en el Señor no es en vano'' (1 Co 15:58).
+\end{enumerate}
+
+%===================================================================
+\section{Síntesis}
+
+``Porque yo \SENOR{} no cambio; por esto, hijos de Jacob, no habéis sido consumidos'' (Mal 3:6). Dios es eternamente el mismo en su ser, su carácter y sus atributos; por eso su pueblo no se acaba. Su ``arrepentirse'' no es error ni capricho, sino la respuesta coherente de un carácter que no cambia: desiste del mal ante el que se vuelve (Jer 18:8; Jon 3:10) y nunca revoca lo que juró (Nm 23:19; Sal 110:4). En Cristo, sus dones son irrevocables (Ro 11:29), sus promesas son Sí (2 Co 1:20), y Jesucristo es el mismo ayer, y hoy, y por los siglos (He 13:8).
+
+\begin{center}\small\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{@{}L{2.4cm}L{11.4cm}@{}}
+\toprule
+\textbf{Mirada} & \textbf{Aporte al atributo} \\ \midrule
+Hebrea & \emph{lo shaníti} (Mal 3:6) en el contexto del pacto; \emph{atá hu} (Sal 102:27); la Roca; \emph{najam} como cambio de trato, parte del carácter (Jon 4:2); Jer 18; Balaam. \\
+Judía & \emph{Atá hu} y \emph{Adón olam}; \emph{Ehyé}, ``estaré con ellos''; los targumes; Rashi y \emph{Bereshit Rabá} 27:4; \emph{Rosh Hashaná} 16b; la línea filosófica de Filón y Maimónides; Qumrán. \\
+Pink & Inmutable en esencia, atributos y consejo; la Roca; ``criatura y mutabilidad son términos correlativos''; consuelo para la oración. \\
+Paulina & Dones irrevocables (Ro 11:29); la promesa que la ley no anula (Gá 3:17); el Sí de Dios en Cristo (2 Co 1:20); el Dios incorruptible; ``firmes y constantes''. \\
+\bottomrule
+\end{tabular}\end{center}
+
+\begin{cita}Mas alábese en esto el que se hubiere de alabar: en entenderme y conocerme, que yo soy \SENOR, que hago misericordia, juicio y justicia en la tierra; porque estas cosas quiero, dice \SENOR.\fuente{(Jer 9:24 [9:23])}\end{cita}
+
+Conocer al Dios inmutable no es conocer a un ser inmóvil, sino al que es siempre el mismo con nosotros: el que estuvo con Israel en Egipto, el que no revocó la bendición ante Balac, el que desistió del mal ante Nínive y el que, en Cristo, dijo un Sí que no cambiará.
+
+%===================================================================
+\section*{Glosario}
+\begin{description}\setlength{\itemsep}{2pt}
+\item[\emph{Ametamélētos}] (\grc{ἀμεταμέλητος}). Sin vuelta atrás; ``irrevocable'' (Ro 11:29).
+\item[\emph{Ametáthetos}] (\grc{ἀμετάθετος}). Que no se traslada; ``inmutable'' (He 6:17--18).
+\item[\emph{Áphthartos}] (\grc{ἄφθαρτος}). Incorruptible (Ro 1:23; 1 Ti 1:17).
+\item[\emph{Atá hu}] (\heb{אַתָּה הוּא}). ``Tú eres él'': ``tú eres el mismo'' (Sal 102:27).
+\item[\emph{Atréptōs}] (\grc{ἀτρέπτως}). ``Sin cambio'' (Calcedonia, 451).
+\item[\emph{Ehyé}] (\heb{אֶהְיֶה}). ``Soy'', ``seré'', ``estaré'' (Éx 3:12, 14).
+\item[\emph{Ho autós}] (\grc{ὁ αὐτός}). ``El mismo'' (He 1:12; 13:8).
+\item[\emph{Jalaf}] (\heb{חָלַף}). Pasar; mudar (ropa) (Sal 102:26).
+\item[\emph{Memrá}] (\heb{מֵימְרָא}). ``Palabra'' del \SENOR{} en los targumes.
+\item[\emph{Najam}] (\heb{נחם}). Lamentar, compadecerse, desistir; consolar.
+\item[\emph{Nétsaj}] (\heb{נֵצַח}). Perpetuidad, gloria; ``la Gloria de Israel'' (1 S 15:29).
+\item[\emph{Nimlaj}] (\heb{נִמְלָךְ}). ``Deliberar'' (Rashi sobre \emph{najam}).
+\item[\emph{Shaná}] (\heb{שָׁנָה}). Cambiar; repetir (Mal 3:6; Sal 89:34).
+\item[\emph{Shinui maasé}] (\heb{שִׁינּוּי מַעֲשֶׂה}). Cambio de conducta (\emph{Rosh Hashaná} 16b).
+\item[\emph{Tropé}] (\grc{τροπή}). Giro, variación (Stg 1:17).
+\item[\emph{Tsur}] (\heb{צוּר}). Roca (Dt 32:4); \emph{tsur olamim}, ``Roca de los siglos'' (Is 26:4).
+\end{description}
+
+\section*{Referencias}
+\refapa{Bauer, W., Danker, F.~W., Arndt, W.~F., \& Gingrich, F.~W. (2000). \emph{A Greek-English lexicon of the New Testament and other early Christian literature} (3.ª ed.). University of Chicago Press.}
+\refapa{\emph{Bereshit Rabá} [27:4]. (2022). (The Sefaria Midrash Rabbah). Sefaria. https://www.sefaria.org}
+\refapa{Brown, F., Driver, S.~R., \& Briggs, C.~A. (1906). \emph{A Hebrew and English lexicon of the Old Testament}. Clarendon Press.}
+\refapa{Denzinger, H., \& Hünermann, P. (Eds.). (2012). \emph{Enchiridion symbolorum, definitionum et declarationum de rebus fidei et morum} (43.ª ed.). Ignatius Press.}
+\refapa{Elliger, K., \& Rudolph, W. (Eds.). (1997). \emph{Biblia Hebraica Stuttgartensia} (5.ª ed.). Deutsche Bibelgesellschaft.}
+\refapa{Fee, G.~D. (1987). \emph{The first epistle to the Corinthians}. Eerdmans.}
+\refapa{Filón de Alejandría. (1993). Sobre la inmutabilidad de Dios [\emph{Quod Deus sit immutabilis}]. En \emph{The works of Philo} (C.~D. Yonge, Trad.). Hendrickson. (Obra original del s.~I)}
+\refapa{García Martínez, F. (1992). \emph{Textos de Qumrán}. Trotta.}
+\refapa{Koehler, L., \& Baumgartner, W. (2001). \emph{The Hebrew and Aramaic lexicon of the Old Testament} (M.~E.~J. Richardson, Trad.; Ed. de estudio). Brill.}
+\refapa{Maimónides. (s.f.). \emph{Mishné Torá: Yesodé haTorá} [1:11--12]. Sefaria. https://www.sefaria.org}
+\refapa{\emph{Misná: Taanit} [2:1]. (s.f.). Sefaria. https://www.sefaria.org}
+\refapa{Nestle, E., \& Aland, K. (Eds.). (2012). \emph{Novum Testamentum Graece} (28.ª ed.). Deutsche Bibelgesellschaft.}
+\refapa{Pink, A.~W. (2020). \emph{Los atributos de Dios} (E. Rodríguez Cruz, Trad.). Chapel Library. (Obra original publicada en 1930)}
+\refapa{Platón. (1930). \emph{The Republic} (P. Shorey, Trad.; Vol. 1). Harvard University Press.}
+\refapa{Rahlfs, A., \& Hanhart, R. (Eds.). (2006). \emph{Septuaginta} (Ed. rev.). Deutsche Bibelgesellschaft.}
+\refapa{Rashi. (s.f.). \emph{Comentario a Génesis, Éxodo, Números, 1 Samuel y Malaquías} [Gn 6:6; Éx 3:14; Nm 23:19; 1 S 15:29; Mal 3:6]. Sefaria. https://www.sefaria.org}
+\refapa{\emph{Santa Biblia: Reina-Valera 1960}. (1960). Sociedades Bíblicas en América Latina.}
+\refapa{\emph{Shemot Rabá} [3:6]. (s.f.). Sefaria. https://www.sefaria.org}
+\refapa{\emph{Sidur Ashkenaz} [Shajarit; \emph{Adón olam}]. (s.f.). Sefaria. https://www.sefaria.org}
+\refapa{Steinsaltz, A. (Ed.). (2017). \emph{Koren Talmud Bavli: Edición William Davidson} [Berajot 9b; Rosh Hashaná 16b; Sotá 9a]. Sefaria. https://www.sefaria.org}
+\refapa{Strong, J. (1890). \emph{The exhaustive concordance of the Bible}. Hunt \& Eaton.}
+\refapa{\emph{Targum Jonatán a los Profetas} [1 S 15:29]; \emph{Targum Ónkelos} [Gn 6:6; Nm 23:19]. (s.f.). Sefaria. https://www.sefaria.org}
+\refapa{Vermes, G. (2004). \emph{The complete Dead Sea Scrolls in English} (Ed. rev.). Penguin.}
+\refapa{Vine, W.~E. (1999). \emph{Diccionario expositivo de palabras del Antiguo y del Nuevo Testamento exhaustivo}. Caribe.}
+
+\end{document}
