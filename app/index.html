@@ -434,6 +434,15 @@ body.cmp-view main{padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
 .rc.wait span.s{opacity:.5}
 .p-acts{display:flex;flex-wrap:wrap;gap:8px}
 .p-acts .icb{text-decoration:none}
+/* Manuscritos antiguos (imágenes en los visores oficiales) */
+.ms-int{margin:0;font-size:.9rem;color:var(--muted)}
+.ms-list{display:grid;gap:10px;min-width:0}
+.ms{display:grid;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 16px;min-width:0}
+.ms b{font-size:1rem}
+.ms p{margin:0;font-size:.9rem;color:var(--muted)}
+.ms .ibtn{justify-self:start;text-decoration:none}
+.cmp-ms .ms{background:var(--bg)}
+.ctx .ibtn{margin-top:10px;text-decoration:none}
 details.fuentes{font-size:.85rem;color:var(--muted)}
 details.fuentes summary{cursor:pointer;font-weight:700}
 /* Hoja de lectura */
@@ -593,6 +602,15 @@ details.acc > .in{padding:0 16px 16px;display:grid;gap:10px}
     </div>
     <div class="dlg-b" id="dlg-b"></div>
   </dialog>
+  <dialog class="dlg" id="dlg-ms" aria-labelledby="ms-t">
+    <div class="dlg-h">
+      <div class="dlg-top">
+        <button type="button" class="icb" id="ms-x" aria-label="Volver al texto"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg><span>Texto</span></button>
+        <div class="tt"><b id="ms-t">Manuscritos antiguos</b><span id="ms-ref"></span></div>
+      </div>
+    </div>
+    <div class="dlg-b" id="ms-b"></div>
+  </dialog>
 
   <!-- Estudio -->
   <section id="estudio" class="sec duo" hidden>
@@ -661,6 +679,11 @@ details.acc > .in{padding:0 16px 16px;display:grid;gap:10px}
       <p class="cmp-tip" id="cmp-tip" hidden>Toca una palabra del original para ver su lema, su forma gramatical y cómo la traducen las otras columnas.</p>
       <footer class="cmp-nota" id="cmp-nota"></footer>
     </article>
+    <section class="cmp-par cmp-ms" id="cmp-ms" hidden aria-labelledby="cmp-ms-t">
+      <h3 id="cmp-ms-t">Manuscritos antiguos (imágenes)</h3>
+      <p class="sub">Fotografías de los manuscritos en los visores de cada biblioteca o museo. Se abren en una pestaña nueva; busca el pasaje dentro del visor.</p>
+      <div class="ms-list" id="cmp-ms-list"></div>
+    </section>
     <section class="cmp-par" id="cmp-par" hidden aria-labelledby="cmp-par-t">
       <h3 id="cmp-par-t">Pasajes paralelos</h3>
       <p class="sub">La Escritura que ilumina este versículo, según el Treasury of Scripture Knowledge. Toca uno para compararlo.</p>
@@ -783,9 +806,9 @@ details.acc > .in{padding:0 16px 16px;display:grid;gap:10px}
   var ELEGIDAS = ["valera","sse","kjv"];
   var TESTIGOS_AT = [
     {k:"codex", n:"Códice de Leningrado (texto masorético)", c:"he", d:"Hacia 1008 d.C. Es el manuscrito completo más antiguo de la Biblia hebrea y la base de la Biblia Hebraica Stuttgartensia. Edición digital: Westminster Leningrad Codex."},
-    {k:"aleppo", n:"Códice de Alepo", c:"he", d:"Hacia el año 930 d.C., escuela masorética de Ben Asher en Tiberias. Una parte del códice se perdió. Esta edición digital da solo las consonantes.", url:"https://www.aleppocodex.org/", lt:"Ver el códice"},
+    {k:"aleppo", n:"Códice de Alepo", c:"he", d:"Hacia el año 930 d.C., escuela masorética de Ben Asher en Tiberias. Una parte del códice se perdió. Esta edición digital da solo las consonantes.", dm:"Hacia el año 930 d.C., escuela masorética de Ben Asher en Tiberias. Una parte del códice se perdió: revisa en el visor si incluye este pasaje.", url:"https://www.aleppocodex.org/", lt:"Ver el códice"},
     {k:"lxx", n:"Septuaginta (griego)", c:"grc", d:"Traducción griega de la Biblia hebrea, hecha entre los siglos III y I a.C. Es el Antiguo Testamento que citan muchas veces los apóstoles."},
-    {n:"Gran Rollo de Isaías (1QIsaᵃ)", libro:"Isaías", d:"Qumrán, siglo II a.C. Es la copia completa de Isaías más antigua que se conoce; el museo la muestra en alta resolución.", url:"http://dss.collections.imj.org.il/isaiah", lt:"Ver el rollo"},
+    {n:"Gran Rollo de Isaías (1QIsaᵃ)", libro:"Isaías", d:"Qumrán, siglo II a.C. Es la copia completa de Isaías más antigua que se conoce; el museo la muestra en alta resolución.", url:"https://dss.collections.imj.org.il/isaiah", lt:"Ver el rollo"},
     {n:"Códice Vaticano (B)", d:"Siglo IV d.C. Manuscrito griego de la Biblia: contiene la Septuaginta y el Nuevo Testamento. Biblioteca Vaticana, Vat. gr. 1209.", url:"https://digi.vatlib.it/view/MSS_Vat.gr.1209", lt:"Ver el manuscrito"},
     {n:"Códice Sinaítico (א)", d:"Siglo IV d.C. Manuscrito griego con parte de la Septuaginta y el Nuevo Testamento completo. Revisa en el visor si incluye este libro.", url:"https://www.codexsinaiticus.org/", lt:"Ver el manuscrito"}
   ];
@@ -855,6 +878,29 @@ details.acc > .in{padding:0 16px 16px;display:grid;gap:10px}
     }
     s.onchange=function(){ ver(+s.value); };
     ver(0);
+  }
+
+  // Manuscritos con imágenes en visores oficiales (Qumrán, Vaticano, Sinaítico, Alepo)
+  function manuscritos(r){
+    return (esAT(r)?TESTIGOS_AT:TESTIGOS_NT).filter(function(t){ return t.url && (!t.libro || t.libro===r.libro); });
+  }
+  function tarjetasMs(r, cont){
+    manuscritos(r).forEach(function(t){
+      var c=el("div","ms"); c.append(el("b",null,t.n), el("p",null,t.dm||t.d));
+      var a=el("a","ibtn acc",t.lt||"Ver"); a.href=t.url; a.target="_blank"; a.rel="noopener"; c.append(a);
+      cont.append(c);
+    });
+  }
+  function verManuscritos(r, ref){
+    var b=$("ms-b"); b.textContent=""; b.scrollTop=0;
+    $("ms-ref").textContent=ref||"";
+    b.append(el("p","ms-int","Fotografías de los manuscritos en los visores de cada biblioteca o museo. Se abren en una pestaña nueva y necesitan conexión; busca el pasaje dentro del visor."));
+    var l=el("div","ms-list"); tarjetasMs(r, l); b.append(l);
+    $("dlg-ms").showModal();
+  }
+  function botonMs(r, ref, txt){
+    var b=el("button","ibtn",txt||"Ver manuscritos (imágenes)"); b.type="button";
+    b.onclick=function(){ verManuscritos(r, ref); }; return b;
   }
 
   function linkBP(r){ return "https://bibliaparalela.com/"+r.bp+"/"+r.cap+"-"+r.ver+".htm"; }
@@ -1593,7 +1639,8 @@ details.acc > .in{padding:0 16px 16px;display:grid;gap:10px}
     document.querySelectorAll("#p-seg button").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.v===E.vista?"true":"false"); });
     var or=E.vista==="or", cls=E.he?"heb":"grc";
     if(!E.cap1){
-      if(or){ var o=el("p","or "+cls, E.textoOrig||"Sin texto original para este versículo."); o.lang=E.he?"he":"grc"; box.append(o); }
+      if(or){ var o=el("p","or "+cls, E.textoOrig||"Sin texto original para este versículo."); o.lang=E.he?"he":"grc"; box.append(o);
+        if(!E.textoOrig) box.append(botonMs(E.r, refPasaje(E))); }
       else box.append(el("p","es",E.texto||""));
       box.append(el("p","ver", or ? (E.he?"Códice de Leningrado (Westminster)":"SBL Greek New Testament") : "Reina-Valera 1909"));
       var lk=el("button","lnk","Leer y estudiar todo el capítulo "+E.r.cap); lk.type="button"; lk.onclick=function(){ estudiar(E.r.libro+" "+E.r.cap); }; box.append(lk);
@@ -1627,6 +1674,7 @@ details.acc > .in{padding:0 16px 16px;display:grid;gap:10px}
     $("p-prev").disabled = E.cap1 ? (E.r.cap<=1) : (E.r.ver<=1 && E.r.cap<=1);
     $("p-next").disabled = E.cap1 ? (E.r.cap>=ncap) : (E.r.ver>=vs && E.r.cap>=ncap);
     var c=el("button","icb","Comparar en el original"); c.type="button"; c.onclick=function(){ verComparar(); comparar(E.r.libro+" "+E.r.cap+":"+(E.cap1?1:E.r.ver)); }; acts.append(c);
+    if(manuscritos(E.r).length){ var ms=el("button","icb","Manuscritos (imágenes)"); ms.type="button"; ms.onclick=function(){ verManuscritos(E.r, refPasaje(E)); }; acts.append(ms); }
     var sh=el("button","icb","Compartir"); sh.type="button"; sh.onclick=compartir; acts.append(sh);
     var a1=el("a","icb","Biblia Paralela"); a1.href=linkBP({bp:E.r.bp, cap:E.r.cap, ver:E.cap1?1:E.r.ver}); a1.target="_blank"; a1.rel="noopener"; acts.append(a1);
     $("r-fuente").textContent="Estudio armado con los textos y datos de la app: Reina-Valera 1909; Códice de Leningrado (Open Scriptures, CC BY 4.0); SBL Greek New Testament (CC BY 4.0); diccionario de Strong; Treasury of Scripture Knowledge; introducciones y resúmenes redactados a partir de los comentarios de la biblioteca (Salamanca; Jamieson, Fausset y Brown; Matthew Henry; MacArthur). Los comentarios en inglés se leen en vivo de la Free Use Bible API (dominio público).";
@@ -1663,6 +1711,8 @@ details.acc > .in{padding:0 16px 16px;display:grid;gap:10px}
   document.querySelectorAll("#cuatro .rc").forEach(function(btn){ btn.addEventListener("click", function(){ abrirLectura(btn.dataset.k); }); });
   document.querySelectorAll("#dlg-tabs button").forEach(function(t){ t.addEventListener("click", function(){ abrirLectura(t.dataset.k); }); });
   $("dlg-x").addEventListener("click", function(){ $("dlg").close(); });
+  $("ms-x").addEventListener("click", function(){ $("dlg-ms").close(); });
+  $("dlg-ms").addEventListener("click", function(ev){ if(ev.target===$("dlg-ms")) $("dlg-ms").close(); });
   $("dlg").addEventListener("click", function(ev){ if(ev.target===$("dlg")) $("dlg").close(); });
 
   function acc(titulo, abierto, extra){ var d=el("details","acc"); d.open=!!abierto; var s=el("summary",null,titulo); if(extra) s.append(el("small",null,extra)); var i=el("div","in"); d.append(s,i); d.inn=i; return d; }
@@ -2308,7 +2358,16 @@ details.acc > .in{padding:0 16px 16px;display:grid;gap:10px}
     }).catch(function(){
       if(state.cmp!==cc) return;
       box.className="ctx wait"; box.textContent = "Este texto no está disponible sin conexión para este pasaje.";
+      if((o.c==="he"||o.c==="grc") && manuscritos(cc.r).length){
+        var bm=el("a","ibtn","Ver manuscritos (imágenes)"); bm.href="#cmp-ms";
+        bm.onclick=function(ev){ ev.preventDefault(); $("cmp-ms").scrollIntoView({behavior:"smooth", block:"start"}); };
+        box.append(document.createElement("br"), bm);
+      }
     });
+  }
+  function pintarManuscritosCmp(r){
+    var l=$("cmp-ms-list"); l.textContent=""; tarjetasMs(r, l);
+    $("cmp-ms").hidden=!l.childNodes.length;
   }
   function comparar(ref){
     var r=parseRef(ref), st=$("stc"); st.textContent=""; st.classList.remove("err");
@@ -2316,7 +2375,7 @@ details.acc > .in{padding:0 16px 16px;display:grid;gap:10px}
     var prev=state.cmp, mismaParte = prev && esAT(prev.r)===esAT(r);
     var cols = mismaParte ? prev.cols.slice() : (esAT(r) ? ["codex","valera","kjv"] : ["sbl","valera","kjv"]);
     state.cmp={r:r, cols:cols, pares:[], activo:0, sinNotas:false, toks:[null,null,null], palabra:null};
-    $("cmp-par").hidden=true; pintarComentarios();
+    $("cmp-par").hidden=true; pintarComentarios(); pintarManuscritosCmp(r);
     $("qc").value=r.libro+" "+r.cap+":"+r.ver; if(SELC) SELC.poner(libroNr(r), r.cap, r.ver);
     pintarColumnas();
     var cc=state.cmp;
