@@ -11,6 +11,7 @@ Compilar siempre con **XeLaTeX** (3 pasadas) desde la carpeta del archivo.
 | `03_Espiritu/` | `03_Espiritu_presentacion.tex` y `03_Espiritu_capitulo.tex` (Jn 4:24; *rúaj*; «Dios de los espíritus», Nm 16:22; Horeb, voz sin figura) |
 | `04_Santo/` | `04_Santo_presentacion.tex` y `04_Santo_capitulo.tex` |
 | `06_Soberano/` | `06_Soberano_presentacion.tex` y `06_Soberano_capitulo.tex` (soberanía, nombres *Adonay* y *Elyón*, C. S. Lewis y el dolor) |
+| `07_Justo/` | `07_Justo_presentacion.tex` y `07_Justo_capitulo.tex` (la justicia de Dios: Sal 145:17, *tsedaqá* y *mishpat*, Abraham ante Sodoma, Ro 3:26) |
 | `08_Inmutable/` | `08_Inmutable_presentacion.tex` y `08_Inmutable_capitulo.tex` |
 | `09_Omnipotente/` | `09_Omnipotente_presentacion.tex` y `09_Omnipotente_capitulo.tex` |
 | `11_Omnisciente/` | `11_Omnisciente_presentacion.tex` y `11_Omnisciente_capitulo.tex` (omnisciencia y presciencia) |
