@@ -125,6 +125,7 @@ def quitar_comentarios(s):
 
 def texto_plano(s):
     """Versión en texto de un fragmento LaTeX corto (para títulos y descripciones)."""
+    s = re.sub(r"\\SENOR(\{\})?", "Señor", s)  # macro propia: pandoc la descarta sin definición
     r = subprocess.run(PANDOC + ["-f", "latex", "-t", "plain", "--wrap=none"],
                        input=s, capture_output=True, text=True)
     return re.sub(r"\s+", " ", r.stdout).strip()
