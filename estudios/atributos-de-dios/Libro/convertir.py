@@ -54,6 +54,11 @@ def prectext(m):
     return '\\precision{(textual) %s}' % (t[0].lower() + t[1:])
 body = re.sub(r'\\begin\{nota\}\[Precisión textual\](.*?)\\end\{nota\}', prectext, body, flags=re.S)
 
+# Otras notas con título (p. ej. "Antecedente histórico"): recuadro de cita con título  # notagenerica
+def notagen(m):
+    return '\\begin{quote}\\small\\textbf{\\color{azulp}%s.}\\enspace %s\n\\end{quote}' % (m.group(1), m.group(2).strip())
+body = re.sub(r'\\begin\{nota\}\[((?!Precisión)[^\]]*)\](.*?)\\end\{nota\}', notagen, body, flags=re.S)
+
 # Apartados filológicos: tabla de 3 columnas -> entorno del libro; prosa -> filologiatexto
 def filo(m):
     titulo, cont = m.group(1), m.group(2).strip()
