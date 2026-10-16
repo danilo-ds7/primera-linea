@@ -22,7 +22,7 @@ LIBROS = {'1~Co': '1 Corintios', '1~P': '1 Pedro', '1~S': '1 Samuel', '2~Co': '2
           '2~R': '2 Reyes', '2~S': '2 Samuel', '2~Ts': '2 Tesalonicenses', 'Am': 'Amós', 'Zac': 'Zacarías', 'Gá': 'Gálatas',
           'Ez': 'Ezequiel', 'Cnt': 'Cantares', 'Flp': 'Filipenses', 'Jos': 'Josué',
           '1 Co': '1 Corintios', 'Lm': 'Lamentaciones', 'Job': 'Job', 'Abd': 'Abdías', '1 Ti': '1 Timoteo', 'Mal': 'Malaquías', '2 Co': '2 Corintios', '1 R': '1 Reyes', '2 R': '2 Reyes', '1 Jn': '1 Juan', 'Rt': 'Rut',
-          '2~P': '2 Pedro', 'Job': 'Job', '1~Cr': '1 Crónicas', '2~Cr': '2 Crónicas'}
+          '2~P': '2 Pedro', 'Neh': 'Nehemías', 'Esd': 'Esdras', 'Job': 'Job', '1~Cr': '1 Crónicas', '2~Cr': '2 Crónicas'}
 LIBROS.update({k.replace('~', ' '): v for k, v in list(LIBROS.items()) if '~' in k and k.replace('~', ' ') not in LIBROS})
 
 def ref_larga(r):

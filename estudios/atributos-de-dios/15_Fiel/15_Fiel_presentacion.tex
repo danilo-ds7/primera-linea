@@ -1,0 +1,974 @@
+\documentclass[hyperref={bookmarks=false},aspectratio=169]{beamer}
+\usepackage{hyperref,ragged2e,amsmath,amssymb,url,bm}
+\usepackage{graphicx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,shapes.geometric,decorations.pathreplacing,matrix}
+\graphicspath{{crops/}}
+\usetheme{Goettingen}
+% --- Paleta: azul profundo, dorado y papiro crema ---
+\definecolor{azul}{HTML}{15437C}
+\definecolor{azuloscuro}{HTML}{0B1F3A}
+\definecolor{celeste}{HTML}{5694D6}
+\definecolor{dorado}{RGB}{196,154,60}
+\definecolor{papiro}{RGB}{246,239,220}
+\definecolor{gris}{RGB}{70,78,96}
+\setbeamercolor{structure}{fg=azul}
+\setbeamertemplate{sidebar canvas right}[vertical shading][top=azul,bottom=azuloscuro]
+\setbeamercolor{title in sidebar}{fg=dorado}
+\setbeamercolor{author in sidebar}{fg=papiro}
+\setbeamercolor{section in sidebar}{fg=papiro}
+\setbeamercolor{section in sidebar shaded}{fg=dorado!70!papiro}
+\setbeamercolor{subsection in sidebar}{fg=papiro}
+\setbeamercolor{subsection in sidebar shaded}{fg=dorado!70!papiro}
+\let\raggedright\justifying
+\setlength{\RaggedRightRightskip}{0pt plus 1fil}
+\setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth,height=\paperheight]{papiro.jpg}}
+\setbeamercolor{normal text}{fg=black!88!azuloscuro}
+\setbeamercolor{frametitle}{fg=azul}
+\setbeamerfont{frametitle}{series=\bfseries}
+\setbeamertemplate{section in toc shaded}{\leavevmode{\color{gris}\inserttocsection}\par}
+\setbeamercolor{title}{fg=azul}
+\setbeamercolor{subtitle}{fg=gris}
+\setbeamercolor{item projected}{bg=azul,fg=papiro}
+\setbeamertemplate{itemize item}{\small\textcolor{dorado}{$\blacktriangleright$}}
+\setbeamertemplate{navigation symbols}{}
+% --- Español + hebreo + griego (XeLaTeX) ---
+\usepackage[bidi=default]{babel}
+\babelprovide[import,main]{spanish}
+\babelprovide[import]{hebrew}
+\babelprovide[import]{ancientgreek}
+\babelfont[hebrew]{sf}[Path=fonts/, BoldFont=NotoHebrewSans-700.ttf]{NotoHebrewSans-400.ttf}
+\babelfont[hebrew]{rm}[Path=fonts/, BoldFont=NotoHebrewSans-700.ttf]{NotoHebrewSans-400.ttf}
+\babelfont[ancientgreek]{sf}[Path=fonts/]{GFSPorson.otf}
+\babelfont[ancientgreek]{rm}[Path=fonts/]{GFSPorson.otf}
+\newcommand{\heb}[1]{\mbox{\foreignlanguage{hebrew}{#1}}}
+\newcommand{\grc}[1]{\foreignlanguage{ancientgreek}{#1}}
+\newcommand{\SENOR}{S{\fontsize{0.78em}{1em}\selectfont EÑOR}}
+% --- Citas (cuadro de un solo color), imágenes, referencias ---
+\usepackage[most]{tcolorbox}
+\newtcolorbox{cita}[1][]{enhanced, colback=azul!7!papiro, opacityback=0.85, colframe=azul,
+  boxrule=0pt, leftrule=2.5pt, arc=0pt, left=6pt, right=6pt, top=4pt, bottom=4pt,
+  before skip=4pt, after skip=6pt, fontupper=\small\itshape, #1}
+\newcommand{\fuente}[1]{\par\hfill{\upshape\bfseries\footnotesize\textcolor{azul}{#1}}}
+\makeatletter
+\newcommand{\fotolado}[2]{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north east,inner sep=0pt] (foto) at ([xshift=-\beamer@sidebarwidth]current page.north east)
+      {\includegraphics[height=\paperheight]{#1}};
+    \node[anchor=south east,inner sep=2pt,text=papiro,fill=azuloscuro,fill opacity=0.6,text opacity=1,
+      font=\fontsize{4.5}{5.5}\selectfont,align=right,text width=4.2cm] at ([xshift=-3pt,yshift=3pt]foto.south east)
+      {\textit{Nota.} #2};
+  \end{tikzpicture}}
+\makeatother
+\newcommand{\refapa}[1]{\par{\RaggedRight\hangindent=1.2em\hangafter=1\noindent #1\par}\vspace{3pt}}
+\usepackage{xurl}\urlstyle{same}
+\newcommand{\destacar}[1]{\textbf{\textcolor{azul}{#1}}}
+\newcommand{\precision}[1]{{\footnotesize\color{gris}\textbf{Precisión:} #1}}
+\tikzset{caja/.style={draw=azul,line width=0.8pt,fill=papiro,fill opacity=0.92,text opacity=1,rounded corners=3pt,inner sep=5pt,font=\scriptsize}}
+\title[La fidelidad]{\bfseries{La fidelidad de Dios}}
+\subtitle{``No faltó palabra de todas las buenas promesas'' (Jos 21:45)}
+\author{}\institute{}\date{}
+\titlegraphic{\includegraphics[width=0.80\linewidth,height=0.36\textheight,keepaspectratio]{portada.jpg}\\[-1pt]
+  {\fontsize{5}{6}\selectfont\color{gris}\textit{Nota.} Elaboración propia: Jos 21:45 en texto hebreo consonántico (BHS).}}
+\AtBeginSection[]{\begin{frame}\frametitle{Contenidos}\tableofcontents[currentsection]\end{frame}}
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}\frametitle{Contenidos}\tableofcontents\end{frame}
+
+% ------------------------------------------------------------------
+\section{Introducción}
+
+\begin{frame}{Una palabra que no cae}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\begin{tcolorbox}[colback=papiro,colframe=dorado,boxrule=1.2pt,arc=3pt]
+\centering\large\itshape Dios cumple todo lo que promete; nunca falla.
+\end{tcolorbox}
+\small\RaggedRight Una promesa es una palabra lanzada hacia el futuro. Si no se cumple, \destacar{cae al suelo}. De la palabra de Dios la Escritura dice, una y otra vez, que \destacar{no cayó}.
+\end{column}
+\begin{column}{0.48\textwidth}
+\scriptsize
+\begin{cita}La infidelidad es uno de los pecados más sobresalientes de estos días malos\ldots{} Qué refrescante\ldots{} es levantar nuestros ojos sobre esta escena de ruina y contemplar a Aquel que es fiel.\fuente{(Pink, 2020, cap. 10, p. 53)}\end{cita}
+\precision{la definición del recuadro es la de la serie; el desarrollo del estudio es una propuesta sobre fuentes verificadas.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Conocer al Dios fiel}
+\begin{cita}Mas alábese en esto el que se hubiere de alabar: en entenderme y conocerme, que yo soy \SENOR{}\ldots\fuente{(Jer 9:24 [9:23], RVR1960)}\end{cita}
+\begin{cita}Conoce, pues, que \SENOR{} tu Dios es Dios, Dios fiel, que guarda el pacto y la misericordia a los que le aman y guardan sus mandamientos, hasta mil generaciones.\fuente{(Dt 7:9, RVR1960)}\end{cita}
+\small Los dos textos usan el mismo verbo, \heb{יָדַע} (\emph{yadá}, ``conocer''). Conocer a Dios incluye \destacar{saber que su palabra no cae}.\par\medskip
+\centering
+\begin{tikzpicture}
+ \foreach \x/\n/\t/\r in {0/1/{La palabra}/{Jos 21; Dt 7:9}, 3.15/2/{Cantada y narrada}/{Sal 89; 1 R 8}, 6.3/3/{En Cristo}/{1 Co 1:9; Hch 13:34}, 9.45/4/{Vivirla}/{He 10:23}}{
+  \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][0.9cm][t]{2.55cm}{\RaggedRight
+    {\small\textbf{\textcolor{azul}{\t}}}\par\vfill{\tiny\color{gris}(\r)}}};
+  \node[circle,fill=azul,text=papiro,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
+\end{tikzpicture}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Josué 21}
+
+\begin{frame}{Texto ancla: Jos 21:43--45}
+\fotolado{panel_josue21.jpg}{Elaboración propia: Jos 21:45 en texto hebreo consonántico (BHS).}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.58\textwidth}
+\begin{cita}De esta manera dio \SENOR{} a Israel toda la tierra que había jurado dar a sus padres, y la poseyeron y habitaron en ella. Y \SENOR{} les dio reposo alrededor\ldots{} No faltó palabra de todas las buenas promesas que \SENOR{} había hecho a la casa de Israel; todo se cumplió.\fuente{(Jos 21:43--45, RVR1960)}\end{cita}
+\small Lo que Dios ``había jurado'' se vuelve hechos: \destacar{dio, poseyeron, habitaron, reposo, entregó}. El narrador no dice que Israel fue fiel; dice que \destacar{Dios lo fue}.
+\end{column}
+\begin{column}{0.40\textwidth}\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Jos 21:45 en hebreo}
+\begin{center}
+\heb{לֹא־נָפַל דָּבָר מִכֹּל הַדָּבָר הַטּוֹב אֲשֶׁר־דִּבֶּר יְהוָה אֶל־בֵּית יִשְׂרָאֵל הַכֹּל בָּא}
+\end{center}
+\renewcommand{\arraystretch}{1.15}\scriptsize
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.9cm}>{\RaggedRight\arraybackslash}p{1.3cm}>{\RaggedRight\arraybackslash}p{7.6cm}@{}}
+\toprule
+\textbf{Término} & \textbf{Raíz} & \textbf{Sentido} \\ \midrule
+\heb{לֹא־נָפַל דָּבָר} \emph{lo nafal davar} & \heb{נפל} & ``no cayó una palabra''. RVR1960: ``no faltó''. La palabra que no se cumple cae al suelo, como una flecha que no llega. \\
+\heb{הַדָּבָר הַטּוֹב} \emph{hadavar hatov} & \heb{טוב} & ``la palabra buena''. El hebreo bíblico no tiene un sustantivo propio para ``promesa'': dice ``palabra''. \\
+\heb{הַכֹּל בָּא} \emph{hakol ba} & \heb{בוא} & ``todo vino'', ``todo llegó''. RVR1960: ``todo se cumplió''. \\
+\grc{οὐ διέπεσεν} & \grc{διαπίπτω} & la Septuaginta conserva la imagen: ``no se cayó''. \\
+\bottomrule
+\end{tabular}\par\smallskip
+\precision{Josué afirma que Dios dio ``toda la tierra'' (21:43) y que quedaba ``mucha tierra por poseer'' (13:1). Dios cumplió lo suyo; la ocupación completa dependía de la obediencia de las tribus (MacArthur, 2011; Henry, 1999). Cf. He 4:8--9.}
+\end{frame}
+
+\begin{frame}{Una espera de siglos}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+ \draw[line width=1.6pt,azul,-{Latex[length=3mm]}] (0,0) -- (12.2,0);
+ \foreach \x/\a/\b in {0.6/{Promesa}/{Gn 12:7}, 2.7/{``Cuatrocientos años''}/{Gn 15:13--16}, 4.8/{``En el mismo día''}/{Éx 12:41}, 6.9/{``No cayó una palabra''}/{Jos 21:45; 23:14}, 9.0/{``Ninguna ha faltado''}/{1 R 8:56}, 11.1/{``Mi buena palabra''}/{Jer 29:10; Esd 1:1}}{
+   \fill[dorado] (\x,0) circle (4pt);
+   \node[above=6pt,font=\scriptsize\bfseries,text=azul,text width=1.9cm,align=center] at (\x,0) {\a};
+   \node[below=6pt,text width=1.9cm,align=center,font=\tiny] at (\x,0) {\b};}
+ \draw[decorate,decoration={brace,amplitude=6pt,mirror},gris] (0.3,-0.9) -- (5.1,-0.9) node[midway,below=7pt,font=\tiny,text=gris] {promesa y espera};
+ \draw[decorate,decoration={brace,amplitude=6pt,mirror},gris] (6.4,-0.9) -- (11.6,-0.9) node[midway,below=7pt,font=\tiny,text=gris] {cumplimiento, advertencia y regreso};
+\end{tikzpicture}\par\medskip
+\small Pink: los descendientes de Abraham ``gimieron en Egipto entre los hornos de ladrillos. ¿Había olvidado Dios su promesa? ¡De hecho, no!'' (Pink, 2020, cap. 10, p. 54).
+\end{frame}
+
+\begin{frame}{``Reconoced con todo vuestro corazón''}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.54\textwidth}
+\begin{cita}\ldots{}reconoced, pues, con todo vuestro corazón y con toda vuestra alma, que no ha faltado una palabra de todas las buenas palabras que \SENOR{} vuestro Dios había dicho de vosotros; todas os han acontecido, no ha faltado ninguna de ellas.\fuente{(Jos 23:14, RVR1960)}\end{cita}
+\scriptsize El verso abre y cierra con \heb{לֹא־נָפַל דָּבָר אֶחָד}, ``no cayó una sola palabra'': un pequeño \destacar{quiasmo}. Josué no pide creer algo nuevo, sino \emph{reconocer} (\heb{וִידַעְתֶּם}) lo ya visto.
+\end{column}
+\begin{column}{0.44\textwidth}
+\begin{cita}Pero así como ha venido sobre vosotros toda palabra buena\ldots{} también traerá \SENOR{} sobre vosotros toda palabra mala\ldots\fuente{(Jos 23:15, RVR1960)}\end{cita}
+\scriptsize\destacar{Fiel también en la advertencia}. Pink: la Palabra registra ``su fidelidad en el cumplimiento de sus amenazas'' (p. 56).
+\end{column}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{La palabra}
+
+\begin{frame}{\heb{נֶאֱמָן} (\emph{ne'emán}): lo que no falla}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.56\textwidth}
+\scriptsize\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.0cm}>{\RaggedRight\arraybackslash}p{2.6cm}>{\RaggedRight\arraybackslash}p{1.5cm}@{}}
+\toprule
+\textbf{Forma} & \textbf{Uso} & \textbf{Texto} \\ \midrule
+\heb{בְּמָקוֹם נֶאֱמָן} & estaca en ``lugar firme'' & Is 22:23 \\
+\heb{מֵימָיו נֶאֱמָנִים} & ``sus aguas serán seguras'' & Is 33:16 \\
+\heb{נֶאֱמָנוֹת} & plagas ``permanentes'' & Dt 28:59 \\
+\heb{עֵד\ נֶאֱמָן} & la luna, ``testigo fiel'' & Sal 89:37 \\
+\heb{נֶאֱמָן הוּא} & Moisés, ``fiel en toda mi casa'' & Nm 12:7 \\
+\heb{לְבָבוֹ נֶאֱמָן} & el corazón de Abraham & Neh 9:8 \\
+\heb{הָאֵל הַנֶּאֱמָן} & ``el Dios fiel'' & Dt 7:9 \\
+\bottomrule
+\end{tabular}
+\end{column}
+\begin{column}{0.42\textwidth}\small
+\begin{itemize}
+\item Participio nifal de \heb{אמן} (\emph{amán}), la raíz de \emph{emet} y de ``amén'' (cap. 13).
+\item \emph{Ne'emán} es lo que \destacar{quedó firme}: la estaca, el agua que no se corta, la luna que vuelve.
+\item Aplicado a Dios no describe un sentimiento, sino una \destacar{conducta comprobada en el tiempo}.
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{\heb{אֱמוּנָה} (\emph{emuná}) y sus pares}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\centering\heb{יְהוָה בְּהַשָּׁמַיִם חַסְדֶּךָ אֱמוּנָתְךָ עַד־שְׁחָקִים}
+\begin{cita}\SENOR{}, hasta los cielos llega tu misericordia, Y tu fidelidad alcanza hasta las nubes.\fuente{(Sal 36:5 [36:6], RVR1960)}\end{cita}
+\centering\heb{לְהַגִּיד בַּבֹּקֶר חַסְדֶּךָ וֶאֱמוּנָתְךָ בַּלֵּילוֹת}
+\begin{cita}Anunciar por la mañana tu misericordia, Y tu fidelidad cada noche.\fuente{(Sal 92:2 [92:3], RVR1960)}\end{cita}
+\end{column}
+\begin{column}{0.48\textwidth}\small
+\begin{itemize}
+\item \emph{Emuná}: unas 49 veces en el AT. Primer uso físico: las manos ``firmes'' de Moisés (Éx 17:12).
+\item Pareja fija de \destacar{\emph{jésed}}: el amor leal (cap. 14). La \emph{jésed} se compromete; la \emph{emuná} lo sostiene en el tiempo.
+\item \destacar{Merismos}: cielos/nubes = todo el espacio; mañana/noches = todo el tiempo.
+\item ``De generación en generación es tu fidelidad; Tú afirmaste la tierra, y subsiste'' (Sal 119:90).
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{El espectro completo}
+\fontsize{6.1}{7.2}\selectfont\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.7cm}>{\RaggedRight\arraybackslash}p{0.8cm}>{\RaggedRight\arraybackslash}p{4.6cm}>{\RaggedRight\arraybackslash}p{3.4cm}@{}}
+\toprule
+\textbf{Término} & \textbf{Veces} & \textbf{En la RVR1960} & \textbf{Textos} \\ \midrule
+\heb{נֶאֱמָן} \emph{ne'emán} & $\approx$34 & ``fiel'', ``firme'', ``seguro'', ``permanente'' & Dt 7:9; Is 49:7 \\
+\heb{אֱמוּנָה} \emph{emuná} & 49 & ``fidelidad'' (13), ``verdad'' (18), ``fe'' & Sal 36:5; Lam 3:23 \\
+\heb{אֱמֶת} \emph{emet} & 127 & ``verdad''; ``fidelidad'' (4) & Sal 117:2 \\
+\heb{אֱמוּנִים}, \heb{אֵמֻן}, \heb{אֲמָנָה} & 5; 1; 2 & ``fieles''; ``infieles''; ``fiel promesa'' & Sal 31:23; Dt 32:20 \\
+arameo \heb{מְהֵימַן} \emph{mehemán} & 2 & ``fiel'' & Dn 2:45; 6:4 \\
+\heb{חֶסֶד}, \heb{מִשְׁמֶרֶת} & --- & ``fidelidad'' (de la juventud; ``guardaron'') & Jer 2:2; Ez 48:11 \\ \midrule
+\grc{πιστός} \emph{pistós} & 67 & ``fiel'' ($\approx$55), ``creyente'' & 1 Co 1:9; Ap 19:11 \\
+\grc{πίστις} \emph{pístis} & 243 & ``fe''; ``fidelidad'' (Ro 3:3) & Ro 3:3; Gá 5:22 \\
+\grc{ἀπιστέω}, \grc{ἄπιστος}, \grc{ἀπιστία} & 8; 23; 11 & ``ser incrédulo'', ``infiel'' & 2 Ti 2:13 \\ \midrule
+\heb{מַעַל}, \heb{בָּגַד} & --- & ``infidelidad''; ``la esposa infiel'' & Nm 5:12; Jer 3:20 \\
+\heb{אַכְזָב} \emph{ajzav} & --- & ``cosa ilusoria'': el arroyo que se seca & Jer 15:18 \\
+\bottomrule
+\end{tabular}\par\smallskip
+\scriptsize En la RVR1960, la familia ``fiel / fidelidad / infiel'' aparece \destacar{122 veces en 118 versículos} (60 AT, 62 NT).\par
+\precision{conteo propio (BHS y NA27 con Strong; RVR1960 sin títulos de sección); conviene verificarlo en e-Sword.}
+\end{frame}
+
+\begin{frame}{Cómo dice el hebreo ``cumplir''}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.58\textwidth}
+\scriptsize\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.3cm}>{\RaggedRight\arraybackslash}p{2.6cm}>{\RaggedRight\arraybackslash}p{1.8cm}@{}}
+\toprule
+\textbf{Expresión} & \textbf{Imagen} & \textbf{Textos} \\ \midrule
+\heb{לֹא נָפַל דָּבָר} & la palabra no \destacar{cayó} & Jos 21:45; 1 R 8:56 \\
+\heb{לֹא הִפִּיל אָרְצָה} & no dejó caer a tierra & 1 S 3:19 \\
+\heb{מִלֵּא} & la mano \destacar{llena} lo que dijo la boca & 1 R 8:15, 24 \\
+\heb{הֵקִים} & \destacar{levantó}, puso en pie & 1 R 8:20; Neh 9:8 \\
+\heb{יֵאָמֵן} & ``sea afirmada'' & 1 R 8:26 \\
+\heb{לֹא יָשׁוּב רֵיקָם} & no volverá vacía & Is 55:11 \\
+\bottomrule
+\end{tabular}
+\end{column}
+\begin{column}{0.40\textwidth}
+\begin{cita}¿Qué ves tú, Jeremías? Y dije: Veo una vara de almendro. Y me dijo \SENOR: Bien has visto; porque yo apresuro mi palabra para ponerla por obra.\fuente{(Jer 1:11--12, RVR1960)}\end{cita}
+\scriptsize \heb{שָׁקֵד} \emph{shaqed}, ``almendro'' / \heb{שֹׁקֵד} \emph{shoqed}, ``vigilante'': Dios \destacar{vela sobre su palabra} hasta cumplirla.
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Del hebreo a Pablo}
+\centering
+\begin{tikzpicture}[font=\scriptsize,node distance=0.8cm]
+ \node[caja,text width=3.3cm,align=center,inner sep=6pt] (h) {\textbf{Hebreo}\\ \heb{הָאֵל הַנֶּאֱמָן} (Dt 7:9)\\ \heb{אֵל אֱמוּנָה} (Dt 32:4)\\ \heb{נֶאֱמָן קְדֹשׁ יִשְׂרָאֵל} (Is 49:7)};
+ \node[caja,text width=3.3cm,align=center,inner sep=6pt,right=of h] (l) {\textbf{Septuaginta}\\ \grc{θεὸς πιστός}\\ \grc{θεὸς πιστός}\\ \grc{πιστός ἐστιν ὁ ἅγιος}};
+ \node[draw=dorado,line width=1.6pt,fill=azul,text=papiro,rounded corners=3pt,text width=3.3cm,align=center,inner sep=6pt,right=of l] (p) {\textbf{Pablo}\\ \grc{πιστὸς ὁ θεός}\\ (1 Co 1:9; 10:13; 2 Co 1:18)\\ \grc{πιστὸς ὁ καλῶν} (1 Ts 5:24)};
+ \draw[-{Latex[length=3mm]},dorado,line width=1.4pt] (h)--(l);
+ \draw[-{Latex[length=3mm]},dorado,line width=1.4pt] (l)--(p);
+\end{tikzpicture}\par\medskip
+\small La Septuaginta traduce \emph{ne'emán} con \grc{πιστός} y crea la fórmula que Pablo repetirá. En griego clásico \grc{πιστός} es el amigo digno de crédito; en la LXX y en Pablo carga el peso del hebreo: \destacar{firme como la estaca, seguro como el agua que no se corta}.
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{El Nombre}
+
+\begin{frame}{\emph{Ha'El hane'emán}: ``el Dios fiel''}
+\fotolado{panel_deuteronomio7.jpg}{Elaboración propia: Dt 7:9 en texto hebreo consonántico (BHS).}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.58\textwidth}
+\begin{cita}No por ser vosotros más que todos los pueblos os ha querido \SENOR{}\ldots{} sino por cuanto \SENOR{} os amó, y quiso guardar el juramento que juró a vuestros padres\ldots{} Conoce, pues, que \SENOR{} tu Dios es Dios, Dios fiel, que guarda el pacto y la misericordia\ldots{} hasta mil generaciones.\fuente{(Dt 7:7--9, RVR1960)}\end{cita}
+\scriptsize La razón de la elección es el \destacar{amor}; la razón de la permanencia es el \destacar{juramento}.
+\end{column}
+\begin{column}{0.40\textwidth}\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Dt 7:9 en hebreo}
+\begin{center}
+\heb{וְיָדַעְתָּ כִּי־יְהוָה אֱלֹהֶיךָ הוּא הָאֱלֹהִים הָאֵל הַנֶּאֱמָן}\\[2pt]
+\heb{שֹׁמֵר הַבְּרִית וְהַחֶסֶד לְאֹהֲבָיו וּלְשֹׁמְרֵי מִצְוֹתָו לְאֶלֶף דּוֹר}
+\end{center}
+\renewcommand{\arraystretch}{1.12}\scriptsize
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{3.0cm}>{\RaggedRight\arraybackslash}p{1.2cm}>{\RaggedRight\arraybackslash}p{7.6cm}@{}}
+\toprule
+\heb{וְיָדַעְתָּ} \emph{veyadatá} & \heb{ידע} & ``y conocerás'': el verbo de Jer 9:24. \\
+\heb{הָאֵל הַנֶּאֱמָן} \emph{ha'El hane'emán} & \heb{אמן} & ``el Dios, el fiel'': con artículo, como título. LXX \grc{θεὸς πιστός}. \\
+\heb{שֹׁמֵר הַבְּרִית וְהַחֶסֶד} & \heb{שׁמר} & ``que guarda el pacto y la \emph{jésed}''. Dios ``guarda'' primero; después los que ``guardan'' sus mandamientos. \\
+\heb{לְאֶלֶף דּוֹר} \emph{le'élef dor} & \heb{דור} & ``por mil generaciones'': explica los ``millares'' de Éx 20:6; 34:7. \\
+\bottomrule
+\end{tabular}\par\smallskip
+\small El verso siguiente: Dios ``da el pago en persona al que le aborrece'' (7:10). Como en Jos 23:14--15, el Nombre cubre \destacar{la promesa y la advertencia}.
+\end{frame}
+
+\begin{frame}{Los nombres que revelan la fidelidad}
+\scriptsize\renewcommand{\arraystretch}{1.14}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.5cm}>{\RaggedRight\arraybackslash}p{3.0cm}>{\RaggedRight\arraybackslash}p{1.9cm}>{\RaggedRight\arraybackslash}p{4.4cm}@{}}
+\toprule
+\textbf{Nombre o título} & \textbf{Hebreo / griego} & \textbf{Texto} & \textbf{Qué revela} \\ \midrule
+Dios fiel & \heb{הָאֵל הַנֶּאֱמָן} & Dt 7:9 & guarda pacto y \emph{jésed} por mil generaciones \\
+Fiel es el Santo de Israel & \heb{נֶאֱמָן קְדֹשׁ יִשְׂרָאֵל} & Is 49:7 & no abandona al Siervo que eligió \\
+Dios de fidelidad & \heb{אֵל אֱמוּנָה}; \grc{θεὸς πιστός} & Dt 32:4 & su obra es perfecta (cap. 13) \\
+Fiel es Dios & \grc{πιστὸς ὁ θεός} & 1 Co 1:9; 10:13 & llama y sostiene hasta el fin \\
+Fiel Creador & \grc{πιστὸς κτίστης} & 1 P 4:19 & se le encomienda el alma \\
+Testigo fiel & \grc{ὁ μάρτυς ὁ πιστός} & Ap 1:5; 3:14 & Cristo, el Amén de Dios \\
+Fiel y Verdadero & \grc{πιστὸς καὶ ἀληθινός} & Ap 19:11 & Cristo que juzga y vence \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{cita}\ldots{}porque fiel es el Santo de Israel, el cual te escogió.\fuente{(Is 49:7, RVR1960)}\end{cita}
+\precision{\emph{Shemot Rabá} 3:6: ``según mis obras soy llamado''. ``El Dios fiel'' nace de las promesas cumplidas.}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Definición}
+
+\begin{frame}{Definición}
+\begin{tcolorbox}[colback=papiro,colframe=dorado,boxrule=1.2pt,arc=3pt]
+\centering\itshape Dios cumple todo lo que promete; nunca falla.
+\end{tcolorbox}
+\begin{tcolorbox}[colback=papiro,colframe=azul,boxrule=1pt,arc=3pt]
+\small La fidelidad de Dios es la perfección eterna por la cual Dios cumple todo lo que promete y nunca falla. Guarda su pacto y su palabra de generación en generación, cumple lo que anuncia para bendecir y lo que anuncia para corregir, y permanece fiel aun cuando su pueblo es infiel, porque no puede negarse a sí mismo (Dt 7:9; Jos 21:45; 2 Ti 2:13).
+\end{tcolorbox}
+\scriptsize\textbf{Clasificación:} atributo de la \destacar{relación} (¿cómo se revela Dios?): se revela en la historia, porque una promesa necesita tiempo, pero es eterno (Sal 119:89--90). \destacar{Incomunicable} en su forma absoluta (``nunca falla''); \destacar{comunicable} como reflejo (Nm 12:7; Gá 5:22).\par
+\precision{la definición breve es de la serie; la desarrollada y la clasificación son una propuesta para confirmar.}
+\end{frame}
+
+\begin{frame}{Rasgos de la fidelidad}
+\scriptsize\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{3.0cm}>{\RaggedRight\arraybackslash}p{5.6cm}>{\RaggedRight\arraybackslash}p{3.4cm}@{}}
+\toprule
+\textbf{Rasgo} & \textbf{Qué afirma} & \textbf{Textos} \\ \midrule
+Cumple lo que dice & ninguna palabra suya cae al suelo & Jos 21:45; Nm 23:19 \\
+Constante & no se agota con los días ni con las generaciones & Sal 119:90; Lam 3:23 \\
+Fiel al pacto & guarda el pacto y la \emph{jésed} por mil generaciones & Dt 7:9; Sal 89:28, 34 \\
+Fiel en la advertencia & cumple también la ``palabra mala'' y la disciplina & Jos 23:15; Sal 119:75 \\
+Fiel ante el infiel & la infidelidad humana no anula la suya & Ro 3:3; 2 Ti 2:13 \\
+Fiel hasta el fin & termina lo que comienza & 1 Ts 5:24; Flp 1:6 \\
+Cumplida en Cristo & todas las promesas son en él ``Sí'' & 2 Co 1:20; Hch 13:32--34 \\
+\bottomrule
+\end{tabular}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{El arroyo}
+
+\begin{frame}{Un río que se seca en verano}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.54\textwidth}
+\begin{cita}Pero mis hermanos me traicionaron como un torrente; Pasan como corrientes impetuosas\ldots{} Que al tiempo del calor son deshechas, Y al calentarse, desaparecen de su lugar\ldots{} Los caminantes de Sabá esperaron en ellas; Pero fueron avergonzados por su esperanza.\fuente{(Job 6:15--20, RVR1960)}\end{cita}
+\end{column}
+\begin{column}{0.44\textwidth}\small
+\begin{itemize}
+\item El \emph{wadi}: corre lleno en invierno, queda seco en verano.
+\item ``Me traicionaron'': \heb{בָּגְדוּ} (\emph{bagdú}), el verbo de la esposa infiel (Jer 3:20).
+\item El amigo infiel da agua \destacar{cuando no se la necesita} y falta \destacar{cuando se la busca}.
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{``¿Serás para mí como cosa ilusoria?''}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.52\textwidth}
+\centering\heb{הָיוֹ תִהְיֶה לִי כְּמוֹ אַכְזָב מַיִם לֹא נֶאֱמָנוּ}
+\begin{cita}¿Por qué fue perpetuo mi dolor\ldots? ¿Serás para mí como cosa ilusoria, como aguas que no son estables?\fuente{(Jer 15:18, RVR1960)}\end{cita}
+\scriptsize Dios no censura la pregunta: responde ``Si te convirtieres, yo te restauraré\ldots{} yo estoy contigo'' (15:19--20).
+\end{column}
+\begin{column}{0.46\textwidth}\scriptsize\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.0cm}>{\RaggedRight\arraybackslash}p{3.5cm}@{}}
+\toprule
+\heb{אַכְזָב} \emph{ajzav} & ``engañoso'' (raíz \heb{כזב}, mentir): el arroyo que se seca \\
+\heb{לֹא נֶאֱמָנוּ} & ``no son fieles'': el verbo de \emph{ne'emán} \\
+LXX & \grc{ὡς ὕδωρ ψευδὲς οὐκ ἔχον πίστιν}: ``agua mentirosa sin fidelidad'' \\
+Mi 1:14 & ``las casas de Aczib (\heb{אַכְזִיב}) serán para engaño (\heb{לְאַכְזָב})'' \\
+\bottomrule
+\end{tabular}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{El arroyo engañoso y el manantial fiel}
+\centering
+\begin{tikzpicture}[font=\small,scale=0.95,transform shape]
+ \begin{scope}
+  \node[font=\bfseries,text=gris] at (2.6,3.3) {El arroyo engañoso (\emph{ajzav})};
+  \fill[papiro] (0,0) rectangle (5.2,2.8); \draw[gris,line width=0.8pt] (0,0) rectangle (5.2,2.8);
+  \node[font=\scriptsize,text=azul] at (1.3,2.45) {invierno}; \node[font=\scriptsize,text=gris] at (3.9,2.45) {verano};
+  \draw[azul!70,line width=4pt,line cap=round] (0.3,1.9) .. controls (0.9,1.6) and (1.5,2.1) .. (2.3,1.8);
+  \draw[dorado!80!gris,line width=4pt,line cap=round,dash pattern=on 3pt off 3pt] (2.9,1.9) .. controls (3.5,1.6) and (4.1,2.1) .. (4.9,1.8);
+  \node[text width=4.8cm,align=center,font=\scriptsize] at (2.6,0.75) {lleno cuando no se lo necesita; seco cuando se lo busca\\ (Job 6:15--20; Jer 15:18)};
+ \end{scope}
+ \begin{scope}[xshift=6.2cm]
+  \node[font=\bfseries,text=azul] at (2.6,3.3) {El manantial fiel (\emph{ne'emán})};
+  \fill[azul!8] (0,0) rectangle (5.2,2.8); \draw[azul,line width=1.2pt] (0,0) rectangle (5.2,2.8);
+  \node[font=\scriptsize,text=azul] at (1.3,2.45) {invierno}; \node[font=\scriptsize,text=azul] at (3.9,2.45) {verano};
+  \draw[azul!70,line width=4pt,line cap=round] (0.3,1.9) .. controls (1.5,1.6) and (3.4,2.1) .. (4.9,1.8);
+  \node[text width=4.8cm,align=center,font=\scriptsize] at (2.6,0.75) {``cuyas aguas no mienten''; ``sus aguas serán fieles''\\ (Is 58:11; 33:16)};
+ \end{scope}
+\end{tikzpicture}\par\smallskip
+\begin{cita}\ldots{}y serás como huerto de riego, y como manantial de aguas, cuyas aguas nunca faltan.\fuente{(Is 58:11, RVR1960)}\end{cita}
+\scriptsize ``Nunca faltan'' = \heb{לֹא־יְכַזְּבוּ}, ``no mienten'': el mismo verbo de \emph{ajzav}.\quad \precision{la imagen como eje es una decisión de la serie; el sentido de \emph{ajzav} está en BDB y HALOT.}
+\end{frame}
+
+\begin{frame}{La fuente de agua viva}
+\begin{cita}Porque dos males ha hecho mi pueblo: me dejaron a mí, fuente de agua viva, y cavaron para sí cisternas, cisternas rotas que no retienen agua.\fuente{(Jer 2:13, RVR1960)}\end{cita}
+\begin{cita}\ldots{}el agua que yo le daré será en él una fuente de agua que salte para vida eterna.\fuente{(Jn 4:14, RVR1960)}\end{cita}
+\small
+\begin{itemize}
+\item Lo infiel no siempre es lo que nunca dio nada: a menudo es \destacar{lo que dio en invierno y falta en verano}.
+\item La pregunta de Jeremías es la nuestra: ¿será Dios como el \emph{wadi} en la sequía?
+\item La respuesta de la Escritura es el manantial: \destacar{su agua está cuando se la busca}.
+\end{itemize}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Los Salmos}
+
+\begin{frame}{Salmo 89: siete y siete}
+\fotolado{panel_salmo89.jpg}{Elaboración propia: Sal 89:2 [89:1] en texto hebreo consonántico (BHS).}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.58\textwidth}
+\begin{cita}Las misericordias de \SENOR{} cantaré perpetuamente; De generación en generación haré notoria tu fidelidad con mi boca.\fuente{(Sal 89:1 [89:2], RVR1960)}\end{cita}
+\fontsize{6.2}{7.3}\selectfont\renewcommand{\arraystretch}{1.05}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.9cm}>{\RaggedRight\arraybackslash}p{2.4cm}>{\RaggedRight\arraybackslash}p{2.4cm}@{}}
+\toprule
+\textbf{v.} & \textbf{\emph{emuná}} & \textbf{\emph{jésed}} \\ \midrule
+1, 2 & fidelidad; verdad & misericordias \\
+5, 8 & verdad; fidelidad & --- \\
+14 & --- & misericordia \\
+24, 28 & verdad; (\emph{ne'emán}) & misericordia \\
+33 & ``ni falsearé mi verdad'' & misericordia \\
+49 & ``por tu verdad'' & ``antiguas misericordias'' \\
+\bottomrule
+\end{tabular}\par
+\tiny\color{gris} \emph{Emuná} 7 veces (RVR1960: ``fidelidad'' 2, ``verdad'' 5); \emph{jésed} 7. Conteo propio (BHS).
+\end{column}
+\begin{column}{0.40\textwidth}\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{La promesa a David y su crisis}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\begin{cita}Mas no quitaré de él mi misericordia, Ni falsearé mi verdad. No olvidaré mi pacto, Ni mudaré lo que ha salido de mis labios. Una vez he jurado por mi santidad, Y no mentiré a David.\fuente{(Sal 89:33--35 [89:34--36], RVR1960)}\end{cita}
+\scriptsize \heb{וְלֹא־אֲשַׁקֵּר בֶּאֱמוּנָתִי}: ``no mentiré en mi fidelidad'' (\emph{shéqer}). \heb{אִם־לְדָוִד אֲכַזֵּב}: ``si a David miento'' (\emph{kazav}): Dios no será \destacar{un arroyo engañoso} para David.
+\end{column}
+\begin{column}{0.48\textwidth}
+\begin{cita}Mas tú desechaste y menospreciaste a tu ungido\ldots{} Has profanado su corona hasta la tierra\ldots{} Señor, ¿dónde están tus antiguas misericordias, Que juraste a David por tu verdad?\fuente{(Sal 89:38--39, 49, RVR1960)}\end{cita}
+\scriptsize Pink: ``El castigo\ldots{} es el efecto y la expresión'' de la misericordia (p. 57).
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{La forma del Salmo 89}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+ \node[caja,text width=2.5cm,align=center,minimum height=1.9cm] (a) {\textbf{vv. 1--18}\\ Himno: la \emph{jésed} y la \emph{emuná} en los cielos};
+ \node[caja,text width=2.5cm,align=center,minimum height=1.9cm,right=0.45cm of a] (b) {\textbf{vv. 19--37}\\ Oráculo: el juramento a David; ``testigo fiel en el cielo''};
+ \node[caja,fill=gris!15,text width=2.5cm,align=center,minimum height=1.9cm,right=0.45cm of b] (c) {\textbf{vv. 38--51}\\ Lamento: ``¿dónde están tus antiguas misericordias?''};
+ \node[draw=dorado,line width=1.4pt,fill=azul,text=papiro,rounded corners=3pt,text width=1.8cm,align=center,inner sep=5pt,minimum height=1.9cm,right=0.45cm of c] (d) {\textbf{v. 52}\\ ``Amén, y Amén''};
+ \draw[-{Latex[length=2.5mm]},dorado,line width=1.2pt] (a)--(b); \draw[-{Latex[length=2.5mm]},dorado,line width=1.2pt] (b)--(c); \draw[-{Latex[length=2.5mm]},dorado,line width=1.2pt] (c)--(d);
+\end{tikzpicture}\par\medskip
+\small El poeta canta la fidelidad \destacar{sobre las ruinas} de la monarquía. No niega el juramento: \destacar{se lo recuerda a Dios}. La respuesta llegará en Is 55:3 y en Hch 13:34.\par\smallskip
+\precision{división habitual en los comentarios; la ocasión del lamento se discute. El v. 52 es la doxología que cierra el Libro III (Sal 73--89).}
+\end{frame}
+
+\begin{frame}{``Grande es tu fidelidad''}
+\begin{center}
+\heb{חַסְדֵי יְהוָה כִּי לֹא־תָמְנוּ כִּי לֹא־כָלוּ רַחֲמָיו}\\[2pt]
+\heb{חֲדָשִׁים לַבְּקָרִים רַבָּה אֱמוּנָתֶךָ}
+\end{center}
+\begin{cita}Esto recapacitaré en mi corazón, por lo tanto esperaré. Por la misericordia de \SENOR{} no hemos sido consumidos, porque nunca decayeron sus misericordias. Nuevas son cada mañana; grande es tu fidelidad. Mi porción es \SENOR, dijo mi alma; por tanto, en él esperaré.\fuente{(Lam 3:21--24, RVR1960)}\end{cita}
+\small
+\begin{itemize}
+\item Centro del acróstico de Lamentaciones, \destacar{entre las ruinas} de Jerusalén (cap. 14).
+\item La fidelidad no se deduce de las circunstancias, sino de \destacar{la memoria}: ``esto haré volver a mi corazón''.
+\item Se renueva ``cada mañana'', como el maná.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{La letra que falta: \emph{nun} en el Salmo 145}
+\scriptsize\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.6cm}>{\RaggedRight\arraybackslash}p{9.3cm}@{}}
+\toprule
+\textbf{Testigo} & \textbf{El verso de \emph{nun} (entre los vv. 13 y 14)} \\ \midrule
+Texto masorético & no lo tiene: el acróstico pasa de \emph{mem} a \emph{sámej} (así la RVR1960) \\
+11QPs\textsuperscript{a} (Qumrán) & \heb{נאמן אלוהים בדבריו וחסיד בכול מעשיו}: ``Fiel es Dios en sus palabras, y bondadoso en todas sus obras'' \\
+LXX (Sal 144:13a) & \grc{πιστὸς κύριος ἐν τοῖς λόγοις αὐτοῦ καὶ ὅσιος ἐν πᾶσι τοῖς ἔργοις αὐτοῦ} \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{cita}Sostiene \SENOR{} a todos los que caen, Y levanta a todos los oprimidos.\fuente{(Sal 145:14, RVR1960)}\end{cita}
+\small El verso que falta empieza con \destacar{\emph{ne'emán}}; el que sigue usa \heb{הַנֹּפְלִים}, ``los que caen'': el verbo de Jos 21:45.\par\smallskip
+\precision{(textual) los estudiosos se dividen entre pérdida en la copia del TM y agregado posterior. 11QPs\textsuperscript{a} según Sanders (1965); cotejar en la Leon Levy Dead Sea Scrolls Digital Library.}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Pink}
+
+\begin{frame}{Pink: la fidelidad de Dios (cap. 10)}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\begin{cita}Esta cualidad es esencial para su Ser; sin ella no sería Dios\ldots{} Él nunca olvida, nunca falla, nunca vacila, nunca falta a su Palabra.\fuente{(Pink, 2020, cap. 10, pp. 53--54)}\end{cita}
+\begin{cita}Si fuéremos infieles, él permanece fiel; El no puede negarse a sí mismo.\fuente{(2 Ti 2:13, RVR1960)}\end{cita}
+\end{column}
+\begin{column}{0.48\textwidth}\small
+\begin{itemize}
+\item \destacar{Esencial}: ``tu fidelidad te rodea'' (Sal 89:8); ``la fidelidad ceñidor de su cintura'' (Is 11:5).
+\item \destacar{Probada en la historia}: Gn 8:22; Gn 15 y Éx 12:41; Is 7:14 y Gá 4:4.
+\item ``Una cosa es aceptar la fidelidad de Dios como una verdad divina y otra muy distinta es actuar de acuerdo con ella'' (p. 54).
+\end{itemize}
+\precision{se usa como referencia, sin seguir su orden.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Pink: cuando ocurren dificultades}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.48\textwidth}
+\begin{cita}¿Quién hay entre vosotros que teme a \SENOR\ldots? El que anda en tinieblas y carece de luz, confíe en el nombre de \SENOR, y apóyese en su Dios.\fuente{(Is 50:10, RVR1960)}\end{cita}
+\scriptsize ``Apóyese'': \heb{וְיִשָּׁעֵן}, ``que se recueste''. El que no ve el camino se apoya en el que no falla.
+\end{column}
+\begin{column}{0.50\textwidth}\scriptsize
+\textbf{Fidelidad demostrada} (pp. 56--57):
+\begin{itemize}
+\item \destacar{Preserva}: ``Fiel es Dios, por el cual fuisteis llamados'' (1 Co 1:9).
+\item \destacar{Disciplina}: ``conforme a tu fidelidad me afligiste'' (Sal 119:75). ``Él es tan fiel cuando retiene algo como cuando da algo''.
+\item \destacar{Glorifica}: ``Fiel es el que os llama, el cual también lo hará'' (1 Ts 5:24; Ro 8:30).
+\end{itemize}
+\textbf{Fruto} (pp. 57--58): nos libra de la preocupación, refrena las quejas, engendra confianza: ``encomienden sus almas al fiel Creador'' (1 P 4:19).
+\end{column}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{En Israel}
+
+\begin{frame}{Salomón en la dedicación del templo}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.54\textwidth}
+\centering\heb{אֲשֶׁר דִּבֶּר בְּפִיו אֵת דָּוִד אָבִי וּבְיָדוֹ מִלֵּא}
+\begin{cita}Bendito sea \SENOR, Dios de Israel, que habló a David mi padre lo que con su mano ha cumplido\ldots{} Y \SENOR{} ha cumplido su palabra que había dicho; porque yo me he levantado en lugar de David mi padre\ldots\fuente{(1 R 8:15, 20, RVR1960)}\end{cita}
+\end{column}
+\begin{column}{0.44\textwidth}\scriptsize\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{1.7cm}>{\RaggedRight\arraybackslash}p{3.6cm}@{}}
+\toprule
+\heb{בְּפִיו} / \heb{וּבְיָדוֹ מִלֵּא} & ``con su boca'' / ``con su mano llenó'' (vv. 15, 24) \\
+\heb{וַיָּקֶם} / \heb{וָאָקֻם} & ``levantó su palabra'' / ``y yo me levanté'' (v. 20): Salomón es la palabra en pie \\
+\heb{יֵאָמֶן} & ``sea afirmada tu palabra'' (v. 26): nifal de \emph{amán} \\
+\heb{לֹא־נָפַל דָּבָר} & ``no cayó una palabra'' (v. 56) = Jos 21:45 \\
+\bottomrule
+\end{tabular}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Orar con lo que Dios ya cumplió}
+\begin{cita}\SENOR{} Dios de Israel, no hay Dios como tú\ldots{} que guardas el pacto y la misericordia a tus siervos\ldots{} lo dijiste con tu boca, y con tu mano lo has cumplido, como sucede en este día. Ahora, pues\ldots{} cúmplase la palabra que dijiste a tu siervo David mi padre.\fuente{(1 R 8:23--26, RVR1960)}\end{cita}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.49\textwidth}\small
+\begin{itemize}
+\item ``Que guardas el pacto y la misericordia'' = \destacar{Dt 7:9}: Salomón ora con el Nombre.
+\item Lo que ya cumpliste es \destacar{la garantía} de lo que te pido que cumplas (cf. 2 S 7:25).
+\end{itemize}
+\end{column}
+\begin{column}{0.49\textwidth}
+\begin{cita}\ldots{}ninguna palabra de todas sus promesas que expresó por Moisés su siervo, ha faltado.\fuente{(1 R 8:56, RVR1960)}\end{cita}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{La palabra buena y la palabra mala}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+ \draw[line width=1.6pt,azul,-{Latex[length=3mm]}] (0,0) -- (12.2,0);
+ \foreach \x/\a/\b in {0.8/{Dedicación}/{1 R 8:56}, 3.4/{Advertencia}/{1 R 9:6--7}, 6.0/{Templo quemado}/{2 R 25:9}, 8.6/{``Despertaré mi buena palabra''}/{Jer 29:10}, 11.2/{Decreto de Ciro}/{Esd 1:1}}{
+   \fill[dorado] (\x,0) circle (4pt);
+   \node[above=6pt,font=\scriptsize\bfseries,text=azul,text width=2.2cm,align=center] at (\x,0) {\a};
+   \node[below=6pt,text width=2.2cm,align=center,font=\tiny] at (\x,0) {\b};}
+\end{tikzpicture}\par\medskip
+\begin{cita}Cuando en Babilonia se cumplan los setenta años, yo os visitaré, y despertaré sobre vosotros mi buena palabra, para haceros volver a este lugar.\fuente{(Jer 29:10, RVR1960)}\end{cita}
+\scriptsize ``Despertaré\ldots{} mi buena palabra'' = \heb{וַהֲקִמֹתִי עֲלֵיכֶם אֶת־דְּבָרִי הַטּוֹב}, ``levantaré mi palabra buena'': el verbo de 1 R 8:20 y la ``palabra buena'' de Jos 21:45.\par
+\precision{la cadena Josué--Salomón--Jeremías es lectura propia, apoyada en el vocabulario común.}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Judaísmo}
+
+\begin{frame}{``Dios, Rey fiel'': el sentido del amén}
+\begin{center}
+\Large\heb{מַאי אָמֵן אָמַר רַבִּי חֲנִינָא אֵל מֶלֶךְ נֶאֱמָן}
+\end{center}
+\small ``¿Qué es \emph{amén}? Dijo Rabí Janiná: \destacar{\emph{El Mélej Ne'emán}}, `Dios, Rey fiel''' (\emph{Shabat} 119b).\par\medskip
+\centering
+\begin{tikzpicture}[font=\small]
+ \foreach \x/\l/\w/\s in {0/א/אֵל/Dios, 3/מ/מֶלֶךְ/Rey, 6/ן/נֶאֱמָן/fiel}{
+  \node[draw=dorado,line width=1.3pt,fill=azul,text=papiro,circle,minimum size=1cm] at (\x,0) {\Large\heb{\l}};
+  \node[below=0.6cm] at (\x,0) {\heb{\w}\ \emph{\s}};}
+\end{tikzpicture}\par\medskip
+\raggedright\small Quien dice ``amén'' confiesa que el que bendijo es \destacar{un Rey que cumple}.\par\smallskip
+\precision{interpretación rabínica (Sefaria). Es una sigla homilética, no una etimología: \emph{amén} viene de la raíz \emph{amán}.}
+\end{frame}
+
+\begin{frame}{``El Dios fiel, que dice y hace''}
+\begin{center}\small
+\heb{הָאֵל הַנֶּאֱמָן הָאוֹמֵר וְעוֹשֶׂה הַמְדַבֵּר וּמְקַיֵּם שֶׁכָּל דְּבָרָיו אֱמֶת וָצֶדֶק}\\[1pt]
+\heb{נֶאֱמָן אַתָּה הוּא יְהוָה אֱלֹהֵינוּ וְנֶאֱמָנִים דְּבָרֶיךָ}\\[1pt]
+\heb{וְדָבָר אֶחָד מִדְּבָרֶיךָ אָחוֹר לֹא יָשׁוּב רֵיקָם}
+\end{center}
+\scriptsize\itshape ``\ldots{}el Dios fiel, que dice y hace, que habla y cumple, porque todas sus palabras son verdad y justicia. Fiel eres tú, \SENOR{} nuestro Dios, y fieles son tus palabras, y ni una sola de tus palabras vuelve atrás vacía, porque tú eres Dios, Rey fiel y misericordioso.''\upshape\par\smallskip
+\small
+\begin{itemize}
+\item Bendición \destacar{después de la \emph{haftará}}, la lectura de los Profetas (\emph{Masejet Soferim} 13). La lectura ya existía en el siglo I: Hch 13:15.
+\item Hecha de textos: Dt 7:9; 1 R 8:20 (\emph{meqayem}, ``pone en pie''); Is 55:11 (``no volverá vacía''); \emph{Shabat} 119b.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{La \emph{Amidá} y \emph{Modé aní}}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.49\textwidth}
+\textbf{\small\textcolor{azul}{\emph{Amidá}, 2.ª bendición}}\par\smallskip
+\centering\heb{וּמְקַיֵּם אֱמוּנָתוֹ לִישֵׁנֵי עָפָר}\\
+\heb{וְנֶאֱמָן אַתָּה לְהַחֲיוֹת מֵתִים}\par\smallskip
+\raggedright\scriptsize ``\ldots{}y cumple su fidelidad a los que duermen en el polvo'' (Dn 12:2); ``fiel eres tú para dar vida a los muertos''. La fidelidad \destacar{no termina en la tumba}. Dios es también \heb{סוֹמֵךְ נוֹפְלִים}, ``el que sostiene a los que caen'' (Sal 145:14).
+\end{column}
+\begin{column}{0.49\textwidth}
+\textbf{\small\textcolor{azul}{\emph{Modé aní}, al despertar}}\par\smallskip
+\centering\heb{מוֹדֶה אֲנִי לְפָנֶיךָ מֶלֶךְ חַי וְקַיָּם}\\
+\heb{שֶׁהֶחֱזַרְתָּ בִּי נִשְׁמָתִי בְּחֶמְלָה רַבָּה אֱמוּנָתֶךָ}\par\smallskip
+\raggedright\scriptsize ``Te doy gracias, Rey vivo y permanente, porque me devolviste el alma con compasión: \destacar{grande es tu fidelidad}'' (Lam 3:23).
+\end{column}
+\end{columns}\par\medskip
+\precision{textos según el sidur en Sefaria. \emph{Modé aní} es tardía: \emph{Séder haYom} de Moshé ben Majir (s. XVI).}
+\end{frame}
+
+\begin{frame}{La letra que falta y el que sostiene a los que caen}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.56\textwidth}\scriptsize\itshape
+Dijo Rabí Yojanán: ¿Por qué no se dice \emph{nun} en el \emph{Ashré} (Sal 145)? Porque en ella está la caída de [los enemigos de] Israel, como está escrito: ``Cayó la virgen de Israel, y no podrá levantarse ya más'' (Am 5:2)\ldots{} Dijo Rav Najmán bar Yitsjak: Aun así, David volvió a sostenerlos por el Espíritu Santo: ``Sostiene el \SENOR{} a todos los que caen'' (Sal 145:14).\upshape\fuente{(\emph{Berajot} 4b)}
+\end{column}
+\begin{column}{0.42\textwidth}\small
+\centering\heb{נָפְלָה}\ (Am 5:2)\quad$\rightarrow$\quad\heb{סוֹמֵךְ יְהוָה לְכָל־הַנֹּפְלִים}\par\medskip
+\raggedright La palabra de Dios \destacar{no cae}; Dios \destacar{levanta a los que caen}.\par\smallskip
+\precision{interpretación rabínica; ``los enemigos de Israel'' es eufemismo. El vínculo con Jos 21:45 es lectura propia.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{``Aunque demore su recompensa''}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.49\textwidth}
+\centering\heb{אֵל אֱמוּנָה שֶׁהֶאֱמִין בָּעוֹלָם וּבְרָאוֹ}\par\smallskip
+\raggedright\scriptsize ``Dios de fidelidad: que tuvo confianza en el mundo y lo creó'' (\emph{Sifré Devarim} 307, sobre Dt 32:4). Dios paga a cada uno con exactitud, en este mundo o en el venidero.\par\medskip
+\small Rashi a Dt 32:4: ``\ldots{}y aunque demore su recompensa, \destacar{al final hace firmes sus palabras}'' (\heb{סוֹפוֹ לְאַמֵּן אֶת דְּבָרָיו}).
+\end{column}
+\begin{column}{0.49\textwidth}
+\textbf{\small\textcolor{azul}{Qumrán: el \emph{Pésher de Habacuc}}}\par\smallskip
+\scriptsize Sobre Hab 2:3: ``el tiempo final se prolongará y excederá todo lo que dijeron los profetas''; ``los hombres de verdad\ldots{} cuyas manos no se aflojarán\ldots{} cuando el tiempo final se prolongue'' (1QpHab VII).\par\smallskip
+Sobre Hab 2:4: Dios librará a los que cumplen la Ley ``por su sufrimiento y por su fidelidad al Maestro de Justicia'' (1QpHab VIII 1--3).\par\smallskip
+\precision{traducción propia desde Vermes (2004). Qumrán y Pablo comentan el mismo verso.}
+\end{column}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{En Cristo}
+
+\begin{frame}{``No que la palabra de Dios haya fallado''}
+\begin{cita}No que la palabra de Dios haya fallado; porque no todos los que descienden de Israel son israelitas.\fuente{(Ro 9:6, RVR1960)}\end{cita}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.49\textwidth}\scriptsize\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.2cm}>{\RaggedRight\arraybackslash}p{3.3cm}@{}}
+\toprule
+\grc{ἐκπέπτωκεν} & ``ha caído'' (\grc{ἐκπίπτω}). RVR1960: ``haya fallado'' \\
+\grc{ὁ λόγος τοῦ θεοῦ} & las promesas a los padres (9:4, 8--9) \\
+\grc{οὐ διέπεσεν} & Jos 21:45 LXX: ``no cayó'' \\
+\bottomrule
+\end{tabular}
+\end{column}
+\begin{column}{0.49\textwidth}\small
+\begin{itemize}
+\item La pregunta del Sal 89:49, la respuesta de Josué.
+\item Ro 11:1: ``¿Ha desechado Dios a su pueblo? En ninguna manera''; 11:29: dones irrevocables (cap. 8).
+\item Ro 3:3: ``¿Su incredulidad habrá hecho nula la fidelidad de Dios?'' (cap. 13).
+\end{itemize}
+\end{column}
+\end{columns}\par\smallskip
+\precision{el vínculo verbal Ro 9:6 / Jos 21:45 LXX es lectura propia; que Ro 9--11 trate la fidelidad de Dios a Israel es lectura común (Moo, 1996; Wright, 2013).}
+\end{frame}
+
+\begin{frame}{``Fiel es Dios''}
+\fotolado{panel_1corintios1.jpg}{Elaboración propia: 1 Co 1:9 en escritura uncial (texto NA28).}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.58\textwidth}
+\scriptsize\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{1.3cm}>{\RaggedRight\arraybackslash}p{2.3cm}>{\RaggedRight\arraybackslash}p{3.2cm}@{}}
+\toprule
+\textbf{Texto} & \textbf{Griego} & \textbf{Lo que Dios hará} \\ \midrule
+1 Co 1:9 & \grc{πιστὸς ὁ θεός} & confirmar ``hasta el fin'' \\
+1 Co 10:13 & \grc{πιστὸς δὲ ὁ θεός} & dar la salida en la prueba \\
+2 Co 1:18 & \grc{πιστὸς δὲ ὁ θεός} & no ser ``Sí y No'' \\
+1 Ts 5:24 & \grc{πιστὸς ὁ καλῶν} & santificar y guardar \\
+2 Ts 3:3 & \grc{πιστὸς\ldots{} ὁ κύριος} & afirmar y guardar del mal \\
+2 Ti 2:13 & \grc{ἐκεῖνος πιστὸς μένει} & permanecer fiel \\
+\bottomrule
+\end{tabular}\par\smallskip
+\small Siempre aparece donde la iglesia \destacar{mira el futuro y teme no llegar}.\par
+\precision{2 Ts y 2 Ti tienen autoría discutida; la fórmula está en cartas indiscutidas.}
+\end{column}
+\begin{column}{0.40\textwidth}\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Llamados a la comunión del Hijo}
+\begin{cita}el cual también os confirmará hasta el fin, para que seáis irreprensibles en el día de nuestro Señor Jesucristo. Fiel es Dios, por el cual fuisteis llamados a la comunión con su Hijo Jesucristo nuestro Señor.\fuente{(1 Co 1:8--9, RVR1960)}\end{cita}
+\scriptsize\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{3.4cm}>{\RaggedRight\arraybackslash}p{8.4cm}@{}}
+\toprule
+\grc{βεβαιώσει ὑμᾶς ἕως τέλους} & ``os hará firmes hasta el fin'': el verbo griego de la firmeza, cercano a \emph{amán} \\
+\grc{πιστὸς ὁ θεός} & sin verbo, como confesión; LXX Dt 7:9: \grc{θεὸς πιστός} \\
+\grc{εἰς κοινωνίαν τοῦ υἱοῦ αὐτοῦ} & ``a la comunión de su Hijo'': participar en él \\
+\bottomrule
+\end{tabular}\par\medskip
+\small A la iglesia más problemática: llegarán al día de Cristo \destacar{no por su firmeza, sino porque Dios es fiel}. Pink: ``no se basó en la fuerza de sus resoluciones\ldots{} sino en la veracidad de Aquel que no puede mentir'' (p. 56).
+\end{frame}
+
+\begin{frame}{Fiel en la prueba: la roca que los seguía}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.52\textwidth}
+\begin{cita}\ldots{}bebían de la roca espiritual que los seguía, y la roca era Cristo\ldots{} el que piensa estar firme, mire que no caiga. No os ha sobrevenido ninguna tentación que no sea humana; pero fiel es Dios, que no os dejará ser tentados más de lo que podéis resistir, sino que dará también juntamente con la tentación la salida\ldots\fuente{(1 Co 10:4, 12--13, RVR1960)}\end{cita}
+\end{column}
+\begin{column}{0.46\textwidth}\small
+\begin{itemize}
+\item Israel en el desierto: ``cayeron en un día veintitrés mil'' (10:8). \destacar{El pueblo cae; Dios no}.
+\item Dt 32:4: ``la Roca'' y \emph{El emuná}; LXX \grc{θεὸς πιστός}.
+\item Pablo une la roca (Cristo) y el Dios fiel en el mismo pasaje.
+\end{itemize}
+\precision{Pablo usa Dt 32 en 1 Co 10:20, 22 (Fee, 1987; Hays, 1989); el vínculo con 10:4, 13 es lectura propia.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{``El cual también lo hará''}
+\begin{cita}Y el mismo Dios de paz os santifique por completo; y todo vuestro ser, espíritu, alma y cuerpo, sea guardado irreprensible para la venida de nuestro Señor Jesucristo. Fiel es el que os llama, el cual también lo hará.\fuente{(1 Ts 5:23--24, RVR1960)}\end{cita}
+\begin{cita}\ldots{}el que comenzó en vosotros la buena obra, la perfeccionará hasta el día de Jesucristo.\fuente{(Flp 1:6, RVR1960)}\end{cita}
+\begin{center}
+\grc{πιστὸς ὁ καλῶν ὑμᾶς, ὃς καὶ ποιήσει}
+\end{center}
+\small Es \destacar{la definición de la serie en boca de Pablo}: el que llama, cumple. Abraham creyó así: ``plenamente convencido de que era también poderoso para hacer todo lo que había prometido'' (Ro 4:21).
+\end{frame}
+
+\begin{frame}{``El justo por la fe vivirá''}
+\scriptsize\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.0cm}>{\RaggedRight\arraybackslash}p{5.0cm}>{\RaggedRight\arraybackslash}p{4.8cm}@{}}
+\toprule
+\textbf{Testigo} & \textbf{Texto} & \textbf{De quién es la fidelidad} \\ \midrule
+Hab 2:4 TM & \heb{וְצַדִּיק בֶּאֱמוּנָתוֹ יִחְיֶה} & ``por \emph{su} \emph{emuná}'': la del justo que espera \\
+Hab 2:4 LXX & \grc{ὁ δὲ δίκαιος ἐκ πίστεώς μου ζήσεται} & ``por \emph{mi} fidelidad'': la de Dios \\
+1QpHab VIII & ``por su fidelidad al Maestro de Justicia'' & la de la comunidad \\
+Ro 1:17; Gá 3:11 & \grc{ὁ δὲ δίκαιος ἐκ πίστεως ζήσεται} & sin pronombre: la fe que se apoya en el Dios fiel \\
+He 10:38 & \grc{ὁ δὲ δίκαιός μου ἐκ πίστεως ζήσεται} & ``mi justo'' \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{cita}Porque en el evangelio la justicia de Dios se revela por fe y para fe, como está escrito: Mas el justo por la fe vivirá.\fuente{(Ro 1:17, RVR1960)}\end{cita}
+\small La fe es la respuesta humana a la fidelidad divina: \destacar{\emph{he'emín} (creer) es apoyarse en lo que es \emph{ne'emán}}.\par
+\precision{se discute: fe del creyente (Moo, 1996); ``de la fidelidad de Dios a la fe del hombre'' (Dunn, 1988); fidelidad de Cristo (Hays, 2002).}
+\end{frame}
+
+\begin{frame}{La fidelidad de Cristo: \grc{πίστις Χριστοῦ}}
+\scriptsize\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.0cm}>{\RaggedRight\arraybackslash}p{4.9cm}>{\RaggedRight\arraybackslash}p{4.9cm}@{}}
+\toprule
+ & \textbf{``Fe en Cristo''} & \textbf{``Fidelidad de Cristo''} \\ \midrule
+Lectura & la confianza del creyente puesta en Cristo & la obediencia fiel de Cristo hasta la cruz \\
+Argumentos & ``nosotros también hemos creído en Jesucristo'' (Gá 2:16) & Ro 3:3 usa la misma construcción para ``la fidelidad de Dios''; Flp 2:8 \\
+Autores & Dunn (1998) & Hays (2002); Wright (2013) \\
+\bottomrule
+\end{tabular}\par\medskip
+\small
+\begin{itemize}
+\item Textos: Ro 3:22, 26; Gá 2:16, 20; 3:22; Flp 3:9. La RVR1960 dice ``fe \emph{en}'' (Ro 3:22) y ``fe \emph{de}'' (Gá 2:16, 20; Ro 3:26).
+\item Las dos lecturas afirman verdades paulinas. En Pablo la fidelidad de Dios toma la forma de un hombre \destacar{``obediente hasta la muerte, y muerte de cruz''} (Flp 2:8): donde Israel cayó, Cristo permaneció fiel.
+\end{itemize}
+\precision{debate abierto; se presentan las dos lecturas sin decidir.}
+\end{frame}
+
+\begin{frame}{Las misericordias fieles de David}
+\centering
+\begin{tikzpicture}[font=\scriptsize,node distance=0.6cm]
+ \node[caja,fill=gris!15,text width=3.0cm,align=center,inner sep=5pt] (a) {\textbf{Sal 89:49}\\ ``¿dónde están tus antiguas misericordias?''};
+ \node[caja,text width=3.0cm,align=center,inner sep=5pt,right=of a] (b) {\textbf{Is 55:3}\\ ``las misericordias firmes a David''\\ \heb{חַסְדֵי דָוִד הַנֶּאֱמָנִים}};
+ \node[draw=dorado,line width=1.6pt,fill=azul,text=papiro,rounded corners=3pt,text width=3.2cm,align=center,inner sep=5pt,right=of b] (c) {\textbf{Hch 13:34}\\ ``os daré las misericordias fieles de David''\\ \grc{τὰ ὅσια Δαυὶδ τὰ πιστά}};
+ \draw[-{Latex[length=3mm]},dorado,line width=1.4pt] (a)--(b); \draw[-{Latex[length=3mm]},dorado,line width=1.4pt] (b)--(c);
+\end{tikzpicture}\par\medskip
+\begin{cita}\ldots{}aquella promesa hecha a nuestros padres, la cual Dios ha cumplido a los hijos de ellos, a nosotros, resucitando a Jesús\ldots{} Os daré las misericordias fieles de David.\fuente{(Hch 13:32--34, RVR1960)}\end{cita}
+\scriptsize La respuesta a la corona caída de David: \destacar{levantar de los muertos al Hijo de David}. ``Levantó'' (\grc{ἀνέστησεν}) es el verbo de 1 R 8:20 LXX: \grc{καὶ ἀνέστησεν κύριος τὸ ῥῆμα αὐτοῦ}.\par
+\precision{el discurso es un resumen de Lucas; la idea es paulina (Ro 1:3--4). La conexión con 1 R 8:20 es lectura propia.}
+\end{frame}
+
+\begin{frame}{El testigo fiel}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\begin{cita}\ldots{}y de Jesucristo el testigo fiel, el primogénito de los muertos, y el soberano de los reyes de la tierra.\fuente{(Ap 1:5, RVR1960)}\end{cita}
+\scriptsize\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.4cm}>{\RaggedRight\arraybackslash}p{3.3cm}@{}}
+\toprule
+\textbf{Sal 89} & \textbf{Ap 1:5} \\ \midrule
+``testigo fiel en el cielo'' (v. 37) & ``el testigo fiel'' \\
+``por primogénito'' (v. 27) & ``el primogénito de los muertos'' \\
+``excelso de los reyes de la tierra'' (v. 27) & ``soberano de los reyes de la tierra'' \\
+\bottomrule
+\end{tabular}
+\end{column}
+\begin{column}{0.48\textwidth}\small
+\begin{itemize}
+\item Lo que el Salmo 89 prometió al rey, Juan lo ve \destacar{cumplido en el Resucitado}.
+\item ``el Amén, el testigo fiel y verdadero'' (Ap 3:14); ``Fiel y Verdadero'' (Ap 19:11).
+\item ``Todas las promesas de Dios son en él Sí, y en él Amén'' (2 Co 1:20); en él ``habita corporalmente toda la plenitud de la Deidad'' (Col 2:9).
+\end{itemize}
+\precision{Juan no es Pablo; cierra el hilo del Sal 89 (Beale, 1999; Bauckham, 1993).}
+\end{column}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Vivirlo}
+
+\begin{frame}{Hallado fiel: un atributo comunicable}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}\small
+\begin{itemize}
+\item \destacar{Abraham}: ``hallaste fiel su corazón\ldots{} y cumpliste tu palabra, porque eres justo'' (Neh 9:8). Dos fidelidades frente a frente.
+\item \destacar{Moisés}: ``fiel en toda mi casa'' (Nm 12:7). \destacar{Samuel}: ``fiel profeta'' (1 S 3:20).
+\item ``Se requiere de los administradores, que cada uno sea hallado fiel'' (1 Co 4:2).
+\item Fruto del Espíritu: \grc{πίστις} (Gá 5:22), ``fidelidad'' (LBLA).
+\end{itemize}
+\end{column}
+\begin{column}{0.48\textwidth}
+\begin{cita}Y te desposaré conmigo en fidelidad, y conocerás a \SENOR.\fuente{(Os 2:20 [2:22], RVR1960)}\end{cita}
+\begin{cita}Si fuéremos infieles, él permanece fiel; El no puede negarse a sí mismo.\fuente{(2 Ti 2:13, RVR1960)}\end{cita}
+\scriptsize Dios vuelve a desposar a la infiel, y \destacar{la dote es su propia fidelidad}.
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Cinco respuestas}
+\begin{tikzpicture}
+ \foreach \x/\n/\t/\d/\r in {0/1/{Recordar}/{La memoria de lo cumplido sostiene la espera.}/{Jos 23:14; Lam 3:21},
+   2.5/2/{Orar con sus palabras}/{``Haz conforme a lo que has dicho''.}/{2 S 7:25; 1 R 8:26},
+   5.0/3/{Esperar en la demora}/{``Aunque tardare, espéralo''.}/{Hab 2:3; He 10:23},
+   7.5/4/{Apoyarse en la oscuridad}/{``Confíe\ldots{} y apóyese en su Dios''.}/{Is 50:10; 1 Co 10:13},
+   10.0/5/{Ser hallado fiel}/{En lo poco y en lo mucho; confesar.}/{Lc 16:10; 1 Jn 1:9; Ap 2:10}}{
+  \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][2.3cm][t]{1.95cm}{\RaggedRight
+    {\scriptsize\textbf{\textcolor{azul}{\t}}}\\[4pt]\scriptsize \d\par\vfill{\tiny\color{gris}(\r)}}};
+  \node[circle,fill=azul,text=papiro,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
+\end{tikzpicture}\par\medskip
+\begin{cita}Mantengamos firme, sin fluctuar, la profesión de nuestra esperanza, porque fiel es el que prometió.\fuente{(He 10:23, RVR1960)}\end{cita}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Síntesis}
+
+\begin{frame}{Síntesis}
+\begin{tcolorbox}[colback=papiro,colframe=azul,boxrule=1pt,arc=3pt]
+\scriptsize Dios cumple todo lo que promete; nunca falla. Josué lo dijo con una imagen: ``no cayó una palabra'' (Jos 21:45). Su Nombre es \emph{ha'El hane'emán}, ``el Dios fiel'' (Dt 7:9). Es \destacar{el manantial cuyas aguas no mienten}, frente al arroyo engañoso. Cumple la palabra buena y la advertencia, hace esperar y permanece fiel ante la infidelidad. Israel lo cantó en el Salmo 89 y lo confiesa en cada ``amén''; Pablo lo resumió en ``Fiel es Dios'' y lo vio cumplido en \destacar{el Hijo de David resucitado}, en quien todas las promesas son ``Sí'' y ``Amén''.
+\end{tcolorbox}
+\fontsize{6.4}{7.6}\selectfont\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{1.6cm}>{\RaggedRight\arraybackslash}p{10.2cm}@{}}
+\toprule
+\textbf{Mirada} & \textbf{Aporte} \\ \midrule
+Hebrea & \emph{ne'emán}, \emph{emuná}, \emph{jésed}; no caer, llenar, levantar; Jos 21:45; Dt 7:9; arroyo y manantial; Sal 89; Lam 3:23; 1 R 8. \\
+Judía & \emph{amén} = \emph{El Mélej Ne'emán}; ``el Dios fiel, que dice y hace''; \emph{Amidá}; \emph{Modé aní}; \emph{Berajot} 4b; Sifré y Rashi; 1QpHab. \\
+Pink & esencial a Dios; probada en la dificultad; preserva, disciplina y glorifica; engendra confianza. \\
+Paulina & ``Fiel es Dios''; Ro 9:6; Ro 1:17; \grc{πίστις Χριστοῦ}; Hch 13:34; 2 Co 1:20. \\
+\bottomrule
+\end{tabular}
+\end{frame}
+
+\begin{frame}{Para la reflexión}
+\begin{cita}Mas alábese en esto el que se hubiere de alabar: en entenderme y conocerme, que yo soy \SENOR{}, que hago misericordia, juicio y justicia en la tierra; porque estas cosas quiero, dice \SENOR{}.\fuente{(Jer 9:24 [9:23], RVR1960)}\end{cita}
+\small
+\begin{itemize}
+\item ¿Qué promesas de Dios ya vi cumplidas, y cuándo fue la última vez que las ``recapacité en mi corazón''?
+\item ¿Trato a Dios como un arroyo que puede secarse, o como el manantial cuyas aguas no mienten?
+\item ¿Qué promesa suya puedo usar hoy para orar ``haz conforme a lo que has dicho''?
+\item Para los que dependen de mí, ¿soy arroyo o manantial?
+\end{itemize}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Glosario}
+
+\begin{frame}{Glosario}
+\scriptsize
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.49\textwidth}
+\begin{description}\setlength{\itemsep}{1pt}
+\item[\emph{Ajzav}] (\heb{אַכְזָב}) ``engañoso'': el arroyo que se seca (Jer 15:18).
+\item[\emph{Amén}] (\heb{אָמֵן}) ``así es''; sigla de \emph{El Mélej Ne'emán}.
+\item[\emph{Bagad}] (\heb{בָּגַד}) traicionar, ser infiel (Jer 3:20).
+\item[\emph{Ekpíptō}] (\grc{ἐκπίπτω}) caer, fallar (Ro 9:6).
+\item[\emph{El emuná}] (\heb{אֵל אֱמוּנָה}) ``Dios de fidelidad'' (Dt 32:4).
+\item[\emph{Emuná}] (\heb{אֱמוּנָה}) fidelidad, firmeza; fe.
+\item[\emph{Ha'El hane'emán}] (\heb{הָאֵל הַנֶּאֱמָן}) ``el Dios fiel'' (Dt 7:9).
+\item[\emph{Haftará}] (\heb{הַפְטָרָה}) lectura de los Profetas en la sinagoga.
+\item[\emph{Hekim}] (\heb{הֵקִים}) levantar, cumplir una palabra (1 R 8:20).
+\end{description}
+\end{column}
+\begin{column}{0.49\textwidth}
+\begin{description}\setlength{\itemsep}{1pt}
+\item[\emph{Jésed}] (\heb{חֶסֶד}) amor leal del pacto.
+\item[\emph{Ma'al}] (\heb{מַעַל}) infidelidad, traición (Nm 5:12).
+\item[\emph{Milé}] (\heb{מִלֵּא}) llenar: cumplir (1 R 8:15).
+\item[\emph{Nafal}] (\heb{נָפַל}) caer: ``no cayó una palabra'' (Jos 21:45).
+\item[\emph{Ne'emán}] (\heb{נֶאֱמָן}) firme, seguro, fiel.
+\item[\emph{Pístis}] (\grc{πίστις}) fe, fidelidad (Ro 3:3; Gá 5:22).
+\item[\emph{Pistós}] (\grc{πιστός}) fiel; creyente (1 Co 1:9).
+\item[\emph{Shoqed}] (\heb{שֹׁקֵד}) vigilante; juego con \emph{shaqed}, almendro (Jer 1:12).
+\end{description}
+\end{column}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Referencias}
+
+\begin{frame}{Referencias}
+\fontsize{5.0}{6.0}\selectfont
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.49\textwidth}
+\refapa{Bauckham, R. (1993). \emph{The theology of the book of Revelation}. Cambridge University Press.}
+\refapa{Beale, G.~K. (1999). \emph{The book of Revelation}. Eerdmans.}
+\refapa{Brown, F., Driver, S.~R., \& Briggs, C.~A. (1906). \emph{A Hebrew and English lexicon of the Old Testament}. Clarendon Press.}
+\refapa{Dunn, J.~D.~G. (1988). \emph{Romans 1--8} (WBC 38A). Word Books.}
+\refapa{Dunn, J.~D.~G. (1998). \emph{The theology of Paul the apostle}. Eerdmans.}
+\refapa{Elbogen, I. (1993). \emph{Jewish liturgy: A comprehensive history}. Jewish Publication Society.}
+\refapa{Elliger, K., \& Rudolph, W. (Eds.). (1997). \emph{Biblia Hebraica Stuttgartensia} (5.ª ed.). Deutsche Bibelgesellschaft.}
+\refapa{Fee, G.~D. (1987). \emph{The first epistle to the Corinthians}. Eerdmans.}
+\refapa{García Martínez, F. (1992). \emph{Textos de Qumrán}. Trotta.}
+\refapa{Hays, R.~B. (1989). \emph{Echoes of Scripture in the letters of Paul}. Yale University Press.}
+\refapa{Hays, R.~B. (2002). \emph{The faith of Jesus Christ} (2.ª ed.). Eerdmans.}
+\refapa{Henry, M. (1999). \emph{Comentario bíblico de Matthew Henry} (F. Lacueva, Trad.). CLIE.}
+\refapa{Koehler, L., \& Baumgartner, W. (2001). \emph{The Hebrew and Aramaic lexicon of the Old Testament}. Brill. [HALOT]}
+\refapa{MacArthur, J. (2011). \emph{Biblia de estudio MacArthur} (notas). Grupo Nelson.}
+\end{column}
+\begin{column}{0.49\textwidth}
+\refapa{\emph{Masejet Soferim} [13]; \emph{Sifré Devarim} [307]. (s.f.). Sefaria.}
+\refapa{Moo, D.~J. (1996). \emph{The epistle to the Romans}. Eerdmans.}
+\refapa{Nestle, E., \& Aland, K. (Eds.). (2012). \emph{Novum Testamentum Graece} (28.ª ed.). Deutsche Bibelgesellschaft.}
+\refapa{Pink, A.~W. (2020). \emph{Los atributos de Dios} (E. Rodríguez Cruz, Trad.). Chapel Library. (Obra original publicada en 1930)}
+\refapa{Rahlfs, A., \& Hanhart, R. (Eds.). (2006). \emph{Septuaginta} (Ed. rev.). Deutsche Bibelgesellschaft.}
+\refapa{Rashi. (s.f.). \emph{Comentario a la Torá} [Dt 32:4]. Sefaria.}
+\refapa{Sanders, J.~A. (1965). \emph{The Psalms scroll of Qumrân Cave 11 (11QPs\textsuperscript{a})} (DJD IV). Clarendon Press.}
+\refapa{\emph{Santa Biblia: Reina-Valera 1960}. (1960). Sociedades Bíblicas en América Latina.}
+\refapa{\emph{Sidur Ashkenaz}; \emph{Sidur Sefard}. (s.f.). Sefaria.}
+\refapa{Steinsaltz, A. (Ed.). (2017). \emph{Koren Talmud Bavli: Edición William Davidson} [Berajot 4b; Shabat 119b]. Sefaria.}
+\refapa{Vermes, G. (2004). \emph{The complete Dead Sea Scrolls in English} (Ed. rev.). Penguin.}
+\refapa{Wright, N.~T. (2013). \emph{Paul and the faithfulness of God}. Fortress Press.}
+\par\smallskip{\color{gris}Citas bíblicas: RVR1960; ``Jehová'' se reemplaza por \SENOR. Hebreo: BHS; griego: NA28 y LXX. Lo rabínico y las lecturas propias se marcan como \emph{precisión}.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\end{document}
