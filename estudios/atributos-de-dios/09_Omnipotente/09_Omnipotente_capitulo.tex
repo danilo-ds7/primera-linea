@@ -1,0 +1,841 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage{fontspec}
+\setmainfont{texgyrepagella}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
+\usepackage[bidi=default]{babel}
+\babelprovide[import,main]{spanish}
+\babelprovide[import]{hebrew}
+\babelprovide[import]{ancientgreek}
+\babelfont[hebrew]{rm}[Path=fonts/,BoldFont=NotoHebrewSerif-700.ttf,Scale=0.95]{NotoHebrewSerif-400.ttf}
+\babelfont[ancientgreek]{rm}[Path=fonts/]{GFSPorson.otf}
+\newcommand{\heb}[1]{\mbox{\foreignlanguage{hebrew}{#1}}}
+\newcommand{\grc}[1]{\foreignlanguage{ancientgreek}{#1}}
+\newcommand{\hebverso}[1]{\par\smallskip{\centering\begin{otherlanguage}{hebrew}\large #1\end{otherlanguage}\par}\smallskip}
+\newcommand{\SENOR}{\textsc{Señor}}
+\usepackage[margin=2.5cm,headheight=14pt]{geometry}
+\usepackage{microtype,ragged2e,booktabs,graphicx,xcolor,csquotes,array}
+\usepackage[hidelinks]{hyperref}\usepackage{xurl}\urlstyle{same}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}\usetikzlibrary{arrows.meta,positioning,calc,decorations.pathreplacing}
+\usepackage{titlesec,fancyhdr}
+\definecolor{azul}{HTML}{15437C}\definecolor{azuloscuro}{HTML}{0B1F3A}\definecolor{celeste}{HTML}{5694D6}
+\definecolor{dorado}{RGB}{196,154,60}\definecolor{papiro}{RGB}{246,239,220}\definecolor{gris}{RGB}{70,78,96}
+\titleformat{\section}{\Large\bfseries\color{azul}}{\thesection.}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{azuloscuro}}{\thesubsection}{0.6em}{}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\foreignlanguage{spanish}{\small\itshape\color{gris}La omnipotencia de Dios}}\fancyhead[R]{\foreignlanguage{spanish}{\small\color{gris}\thepage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\parindent}{1.27cm}\linespread{1.15}\setlength{\emergencystretch}{3em}
+\newtcolorbox{cita}[1][]{enhanced,colback=azul!6!white,colframe=azul,boxrule=0pt,leftrule=2.5pt,arc=0pt,
+  left=8pt,right=8pt,top=5pt,bottom=5pt,before skip=8pt,after skip=8pt,fontupper=\itshape,#1}
+\newcommand{\fuente}[1]{\par\hfill{\upshape\bfseries\small\textcolor{azul}{#1}}}
+\newtcolorbox{nota}[1][]{enhanced,colback=dorado!10,colframe=dorado!85!azul,boxrule=0.6pt,arc=2pt,
+  fonttitle=\bfseries\small,coltitle=azuloscuro,colbacktitle=dorado!30,fontupper=\small,title={#1}}
+\newtcolorbox{filologia}[1][]{enhanced,colback=white,colframe=azul!45,boxrule=0.5pt,arc=2pt,
+  fonttitle=\bfseries\small,coltitle=white,colbacktitle=azul!80,fontupper=\small,title={Filología: #1}}
+\newcommand{\refapa}[1]{\par{\RaggedRight\hangindent=1.27cm\hangafter=1\noindent #1\par}\vspace{4pt}}
+\newcommand{\destacar}[1]{\textbf{\textcolor{azul}{#1}}}
+\newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+
+
+\title{\color{azul}\bfseries El Dios Todopoderoso\\[4pt]\large\color{gris}\mdseries ``¿Hay para Dios alguna cosa difícil?'' (Gn 18:14)}
+\author{}\date{}
+\begin{document}
+\maketitle\thispagestyle{empty}
+
+\begin{abstract}\noindent
+La omnipotencia es el sexto atributo de la segunda parte de esta obra, la de los atributos que responden a la pregunta ¿quién es Dios? El capítulo parte de Jeremías 9:23, que niega al valiente (\emph{gibbor}) la gloria de su valentía (\emph{gevurá}), y define la omnipotencia como la perfección por la cual Dios tiene poder infinito y nada puede frustrar su voluntad. Toma como texto ancla dos escenas de la Torá: Génesis 17:1, donde Dios se presenta a Abram, de noventa y nueve años, como \emph{El Shaddai}, y Génesis 18:14, donde pregunta a Sara: ``¿Hay para Dios alguna cosa difícil?''. Estudia el nombre \emph{Shaddai} (48 veces en el Antiguo Testamento, conteo propio) y sus interpretaciones, la familia hebrea del poder y el hilo de la raíz \emph{palá}, ``ser demasiado difícil''. Recorre la confesión del poder en la Torá y en los Salmos, recoge la exposición de Pink como referencia, y presenta como encuentro en la historia de Israel el paso del mar Rojo. Reúne la mirada judía: \emph{Shaddai} como ``el que dijo al mundo: ¡basta!'' (\emph{Jaguigá} 12a; Rashi), \emph{haGevurá} como nombre de Dios, la bendición \emph{Guevurot} de la Amidá, las tres llaves de \emph{Taanit} 2a, el poder que se contiene (\emph{Yomá} 69b; \emph{Meguilá} 31a) y el texto de Qumrán 4Q521. Muestra cómo Pablo lee a Abraham como fe en el Dios que da vida a los muertos (Ro 4:17--21), llama a Cristo ``poder de Dios'' (1~Co 1:24), ve la supereminente grandeza del poder en la resurrección (Ef 1:19--20) y lo recibe como gracia que basta en la debilidad (2~Co 12:9).
+\par\smallskip\noindent\textbf{Palabras clave:} omnipotencia, \emph{El Shaddai}, \emph{gevurá}, Génesis 18:14, mar Rojo, Amidá, \emph{dýnamis}, Romanos 4, 2~Corintios 12, resurrección.\end{abstract}
+
+\begin{nota}[Nota sobre el texto]
+Las citas bíblicas son de la Reina-Valera 1960. Donde esta escribe ``Jehová'', aquí se escribe \SENOR, que traduce el tetragrama \heb{יהוה}, leído en la tradición judía como \emph{Adonay}. El hebreo sigue la BHS; el griego, NA28 y la Septuaginta de Rahlfs-Hanhart. Las fuentes judías (Talmud, Misná, Midrash, Rashi, Targum, liturgia) se citan desde Sefaria, en traducción propia, y se marcan como precisión. Los conteos son propios, hechos con la RVR1960 y la BHS etiquetada con números Strong de la biblioteca del proyecto. Cuando la numeración hebrea difiere de la española se da entre corchetes.
+\end{nota}
+
+%===================================================================
+\section{Introducción: no se alabe el valiente}
+
+El verso que une esta obra nombra tres glorias falsas. La segunda es la del poder:
+
+\hebverso{אַל־יִתְהַלֵּל חָכָם בְּחָכְמָתוֹ וְאַל־יִתְהַלֵּל הַגִּבּוֹר בִּגְבוּרָתוֹ\\ הַשְׂכֵּל וְיָדֹעַ אוֹתִי כִּי אֲנִי יְהוָה}
+\begin{cita}Así dijo \SENOR: No se alabe el sabio en su sabiduría, ni en su valentía se alabe el valiente, ni el rico se alabe en sus riquezas. Mas alábese en esto el que se hubiere de alabar: en entenderme y conocerme, que yo soy \SENOR, que hago misericordia, juicio y justicia en la tierra; porque estas cosas quiero, dice \SENOR.\fuente{(Jer 9:23--24 [9:22--23])}\end{cita}
+
+El ``valiente'' es el \emph{gibbor} (\heb{גִּבּוֹר}) y su ``valentía'' la \emph{gevurá} (\heb{גְּבוּרָה}). Con la misma raíz, la Torá y los profetas llaman a Dios \heb{הָאֵל הַגִּבּוֹר}, ``el Dios poderoso'' (Dt 10:17; Jer 32:18). Jeremías no niega que exista el poder humano; niega que sea un lugar donde gloriarse. El único \emph{gibbor} digno de gloria es el que hace misericordia, juicio y justicia.
+
+La definición de la que parte este capítulo es breve: \emph{Dios tiene poder infinito, y nada puede frustrar su voluntad}. Tiene dos mitades. La primera dice que no hay nada que Dios no pueda hacer; la segunda, que no hay nadie que pueda impedirle hacer lo que quiere. Job las confiesa juntas al final de su prueba:
+
+\hebverso{יָדַעְתָּ כִּי־כֹל תּוּכָל וְלֹא־יִבָּצֵר מִמְּךָ מְזִמָּה}
+\begin{cita}Yo conozco que todo lo puedes, y que no hay pensamiento que se esconda de ti.\fuente{(Job 42:2)}\end{cita}
+
+Y Isaías las pone en forma de desafío:
+
+\begin{cita}Porque \SENOR{} de los ejércitos lo ha determinado, ¿y quién lo impedirá? Y su mano extendida, ¿quién la hará retroceder?\fuente{(Is 14:27)}\end{cita}
+
+La palabra ``omnipotencia'' no está en la Biblia. Es el nombre que la teología da a lo que Israel confiesa con un Nombre, \heb{אֵל שַׁדַּי} (\emph{El Shaddai}), y con una pregunta: \heb{הֲיִפָּלֵא מֵיְהוָה דָּבָר}, ``¿hay para \SENOR{} alguna cosa difícil?'' (Gn 18:14). Israel no aprendió este atributo en un tratado. Lo aprendió en la tienda de dos ancianos sin hijos y en la orilla de un mar que se abrió.
+
+Esta serie coloca la omnipotencia entre los atributos de la \emph{identidad}, los que responden a la pregunta ¿quién es Dios? Como todos los atributos, es una perfección eterna de Dios. Es \emph{incomunicable}: solo Dios es \emph{Shaddai}, y ninguna criatura tiene poder que no haya recibido (Dt 8:17--18). Deja, sin embargo, un \emph{reflejo} en el ser humano: Dios ``da esfuerzo al cansado'' (Is 40:29), y su poder ``se perfecciona en la debilidad'' (2~Co 12:9). El ser humano no llega a ser omnipotente; llega a ser fortalecido.
+
+\begin{center}\small\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}L{2.6cm}L{5.4cm}L{6.4cm}@{}}
+\toprule
+\textbf{Mirada} & \textbf{Pregunta} & \textbf{Textos centrales} \\ \midrule
+Hebrea & ¿Cómo confiesa Israel el poder de Dios? & Gn 17:1; 18:14; Éx 14--15; Dt 10:17; 32:39; Sal 33; 62; 91; 115; Job 42:2 \\
+Judía & ¿Cómo lo leen los sabios de Israel? & \emph{Jaguigá} 12a; Rashi a Gn 17:1; Amidá; \emph{Taanit} 2a; \emph{Yomá} 69b; \emph{Meguilá} 31a; 4Q521 \\
+Pink & ¿Qué afirma la Escritura y qué exige? & Pink (2020, cap. 9) \\
+Paulina & ¿Qué lugar tiene en Cristo? & Ro 1:16, 20; 4:17--21; 1~Co 1:18--25; 2~Co 6:18; 12:9; Ef 1:19--21; Flp 3:21 \\
+\bottomrule
+\end{tabular}\end{center}
+
+%===================================================================
+\section{Texto ancla: Génesis 17:1 y 18:14}
+
+\subsection{\emph{El Shaddai} a un hombre de noventa y nueve años}
+
+Trece años separan el final de Génesis 16 del comienzo de Génesis 17. Ismael ya es un muchacho. La promesa de un hijo de Sarai parece haberse disuelto en una solución humana. Entonces Dios habla:
+
+\hebverso{וַיְהִי אַבְרָם בֶּן־תִּשְׁעִים שָׁנָה וְתֵשַׁע שָׁנִים וַיֵּרָא יְהוָה אֶל־אַבְרָם\\ וַיֹּאמֶר אֵלָיו אֲנִי־אֵל שַׁדַּי הִתְהַלֵּךְ לְפָנַי וֶהְיֵה תָמִים}
+\begin{cita}Era Abram de edad de noventa y nueve años, cuando le apareció \SENOR{} y le dijo: Yo soy el Dios Todopoderoso; anda delante de mí y sé perfecto. Y pondré mi pacto entre mí y ti, y te multiplicaré en gran manera.\fuente{(Gn 17:1--2)}\end{cita}
+
+\begin{filologia}[Gn 17:1--2]
+\begin{tabular}{@{}L{3.2cm}L{1.6cm}L{10cm}@{}}
+\heb{אֵל שַׁדַּי} \emph{El Shaddai} & \heb{שׁדי}? & ``Dios Todopoderoso'' (RVR1960). Primera aparición del Nombre. Éx 6:3 lo identifica como el nombre con que Dios se dio a conocer a los patriarcas. La etimología se discute (sección~\ref{sec:shaddai}). \\[2pt]
+\heb{הִתְהַלֵּךְ לְפָנַי} & \heb{הלך} & ``anda delante de mí'': forma reflexiva-iterativa (\emph{hitpael}), ``ve y ven, vive'' bajo la mirada de Dios. \\[2pt]
+\heb{תָמִים} \emph{tamim} & \heb{תמם} & ``entero, íntegro, completo''. La respuesta humana al Todopoderoso no es un acto de fuerza, sino una vida entera. \\[2pt]
+\heb{וְאַרְבֶּה אוֹתְךָ} & \heb{רבה} & ``y te multiplicaré'': el primer contenido del Nombre es fecundidad. \\
+\end{tabular}
+\end{filologia}
+
+El Nombre llega en el momento exacto en que el poder humano se ha acabado. Abram tiene noventa y nueve años; Sarai es estéril y ha dejado atrás la edad de concebir (18:11). \emph{El Shaddai} se presenta allí donde nada puede nacer, y lo primero que promete es multiplicar.
+
+\subsection{``¿Hay para Dios alguna cosa difícil?''}
+
+En el capítulo siguiente, tres visitantes llegan a la tienda de Mamre. Uno de ellos promete que dentro de un año Sara tendrá un hijo. Sara escucha detrás de la puerta y se ríe:
+
+\begin{cita}Y Abraham y Sara eran viejos, de edad avanzada; y a Sara le había cesado ya la costumbre de las mujeres. Se rió, pues, Sara entre sí, diciendo: ¿Después que he envejecido tendré deleite, siendo también mi señor ya viejo? Entonces \SENOR{} dijo a Abraham: ¿Por qué se ha reído Sara diciendo: ¿Será cierto que he de dar a luz siendo ya vieja?\fuente{(Gn 18:11--13)}\end{cita}
+
+La respuesta de Dios es una pregunta:
+
+\hebverso{הֲיִפָּלֵא מֵיְהוָה דָּבָר לַמּוֹעֵד אָשׁוּב אֵלֶיךָ כָּעֵת חַיָּה וּלְשָׂרָה בֵן}
+\begin{cita}¿Hay para Dios alguna cosa difícil? Al tiempo señalado volveré a ti, y según el tiempo de la vida, Sara tendrá un hijo.\fuente{(Gn 18:14)}\end{cita}
+
+\begin{filologia}[Gn 18:14]
+\begin{tabular}{@{}L{3.2cm}L{1.6cm}L{10cm}@{}}
+\heb{הֲיִפָּלֵא} \emph{hayippalé} & \heb{פלא} & nifal de \emph{palá}: ``¿será extraordinario, fuera de alcance, demasiado difícil?''. La raíz designa lo que excede la capacidad humana: lo ``maravilloso'' (Sal 139:6) y lo ``difícil'' de juzgar (Dt 17:8). \\[2pt]
+\heb{מֵיְהוָה} \emph{meAdonay} & --- & ``para \SENOR'', literalmente ``desde \SENOR'': medido con la capacidad de Dios. La RVR1960 traduce ``para Dios''. \\[2pt]
+\heb{דָּבָר} \emph{davar} & \heb{דבר} & ``palabra'' y ``cosa''. La pregunta admite las dos lecturas: ¿hay alguna \emph{cosa} difícil?, ¿hay alguna \emph{palabra} suya que no pueda cumplir? \\[2pt]
+\heb{לַמּוֹעֵד} \emph{lammoed} & \heb{יעד} & ``al tiempo señalado'': el poder de Dios también es dueño del tiempo. \\[2pt]
+\heb{כָּעֵת חַיָּה} & \heb{חיה} & ``según el tiempo de la vida'': el plazo de un embarazo, ``cuando el tiempo reviva''. \\
+\end{tabular}
+\end{filologia}
+
+La Septuaginta tradujo la pregunta así: \grc{μὴ ἀδυνατεῖ παρὰ τῷ θεῷ ῥῆμα;}, ``¿será imposible para Dios una palabra?''. La forma griega es importante, porque siglos después el ángel la repetirá a María. La promesa se cumple al pie de la letra:
+
+\begin{cita}Visitó \SENOR{} a Sara, como había dicho, e hizo \SENOR{} con Sara como había hablado. Y Sara concibió y dio a Abraham un hijo en su vejez, en el tiempo que Dios le había dicho.\fuente{(Gn 21:1--2)}\end{cita}
+
+Tres veces el texto repite que Dios hizo ``como había dicho''. La omnipotencia, en la Torá, no es primero una idea sobre lo que Dios podría hacer en abstracto. Es la fidelidad de una palabra que se cumple en un cuerpo donde la vida ya no era posible.
+
+\subsection{El hilo de \heb{פלא}: lo que es ``demasiado'' para el hombre}
+
+La raíz de Génesis 18:14 recorre toda la Biblia hebrea como un hilo. Aparece en el cántico del mar, donde Dios es \heb{עֹשֵׂה פֶלֶא}, ``hacedor de prodigios'' (Éx 15:11). Aparece en el nombre del niño de Isaías, \heb{פֶּלֶא יוֹעֵץ אֵל גִּבּוֹר}, ``Admirable, Consejero, Dios Fuerte'' (Is 9:6 [9:5]). Aparece en la oración de Jeremías, que compra un campo mientras Babilonia sitia Jerusalén:
+
+\hebverso{הִנֵּה אַתָּה עָשִׂיתָ אֶת־הַשָּׁמַיִם וְאֶת־הָאָרֶץ בְּכֹחֲךָ הַגָּדוֹל\\ וּבִזְרֹעֲךָ הַנְּטוּיָה לֹא־יִפָּלֵא מִמְּךָ כָּל־דָּבָר}
+\begin{cita}¡Oh Señor \SENOR! he aquí que tú hiciste el cielo y la tierra con tu gran poder, y con tu brazo extendido, ni hay nada que sea difícil para ti.\fuente{(Jer 32:17)}\end{cita}
+
+Y Dios le responde con las palabras de la tienda de Mamre:
+
+\begin{cita}He aquí que yo soy \SENOR, Dios de toda carne; ¿habrá algo que sea difícil para mí?\fuente{(Jer 32:27)}\end{cita}
+
+Finalmente aparece en la confesión de Job, que reconoce haber hablado de \heb{נִפְלָאוֹת מִמֶּנִּי}, ``cosas demasiado maravillosas para mí'' (Job 42:3). Lo que es \emph{pele} para el ser humano ---lo que lo sobrepasa--- no lo es para Dios. En el Nuevo Testamento, el ángel cierra el hilo con la frase griega de la Septuaginta: \grc{οὐκ ἀδυνατήσει παρὰ τοῦ θεοῦ πᾶν ῥῆμα}.
+
+\begin{cita}porque nada hay imposible para Dios.\fuente{(Lc 1:37)}\end{cita}
+
+\begin{center}\small\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}L{2.6cm}L{5.4cm}L{6.4cm}@{}}
+\toprule
+\textbf{Texto} & \textbf{Forma} & \textbf{Situación} \\ \midrule
+Gn 18:14 & \heb{הֲיִפָּלֵא} / LXX \grc{μὴ ἀδυνατεῖ} & una anciana estéril \\
+Éx 15:11 & \heb{עֹשֵׂה פֶלֶא} & un pueblo sin salida ante el mar \\
+Is 9:6 [9:5] & \heb{פֶּלֶא}, nombre del niño & un reino en tinieblas (9:2 [9:1]) \\
+Jer 32:17, 27 & \heb{לֹא־יִפָּלֵא} & una ciudad sitiada \\
+Job 42:3 & \heb{נִפְלָאוֹת} & un justo que sufre \\
+Lc 1:37 & \grc{οὐκ ἀδυνατήσει} & una virgen \\
+\bottomrule
+\end{tabular}\end{center}
+
+En cada caso, lo ``demasiado difícil'' es lo que el ser humano no puede producir: un hijo, un camino en el mar, un reino, un futuro, una respuesta al sufrimiento. Ahí es donde la Escritura muestra el poder de Dios.
+
+%===================================================================
+\section{La palabra}
+
+\subsection{``Todopoderoso'' y ``Omnipotente'' en la RVR1960}\label{sec:shaddai}
+
+La Reina-Valera 1960 usa dos palabras para traducir el Nombre: ``Todopoderoso'' y ``Omnipotente''. Según el conteo propio con la RVR1960 y la BHS (sin los títulos de sección que agregan los editores), aparecen \textbf{58 veces}. Las 48 del Antiguo Testamento traducen siempre \heb{שַׁדַּי} (\emph{Shaddai}, Strong H7706): 17 como ``Todopoderoso'' y 31 como ``Omnipotente''. Las 10 del Nuevo Testamento traducen \grc{παντοκράτωρ} (\emph{pantokrátōr}, G3841): una vez en Pablo (2~Co 6:18) y nueve en Apocalipsis. La palabra ``omnipotencia'' no aparece ninguna vez.
+
+\begin{center}\small\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}L{3.2cm}cL{9.6cm}@{}}
+\toprule
+\textbf{Libro} & \textbf{Veces} & \textbf{Textos} \\ \midrule
+Job & 31 & 5:17 a 40:2; nombre preferido en los diálogos \\
+Génesis & 6 & 17:1; 28:3; 35:11; 43:14; 48:3; 49:25 \\
+Números & 2 & 24:4, 16 (Balaam) \\
+Rut & 2 & 1:20, 21 (Noemí) \\
+Salmos & 2 & 68:14 [68:15]; 91:1 \\
+Ezequiel & 2 & 1:24; 10:5 \\
+Éxodo & 1 & 6:3 \\
+Isaías & 1 & 13:6 \\
+Joel & 1 & 1:15 \\ \midrule
+Total AT & 48 & \heb{שַׁדַּי}; siete veces en la forma \heb{אֵל שַׁדַּי} (Gn 17:1; 28:3; 35:11; 43:14; 48:3; Éx 6:3; Ez 10:5) \\
+Nuevo Testamento & 10 & \grc{παντοκράτωρ}: 2~Co 6:18; Ap 1:8; 4:8; 11:17; 15:3; 16:7, 14; 19:6, 15; 21:22 \\
+\bottomrule
+\end{tabular}\end{center}
+
+\begin{nota}[Precisión]
+Conteo propio con la RVR1960 y la BHS etiquetada con Strong; se excluyen los nombres propios que contienen \emph{Shaddai} (Zurisadai y Amisadai, en Números). El etiquetado de la BHS de la biblioteca omite dos casos (Job 24:1; 34:12), que se recuperaron por la RVR1960. Conviene verificarlo en e-Sword.
+\end{nota}
+
+La distribución dice algo. Dos de cada tres veces el Nombre está en Job: es el nombre con que se discute el sufrimiento del justo. Job dice que ``las saetas del Todopoderoso están en mí'' (6:4); Noemí, que ``en grande amargura me ha puesto el Todopoderoso'' (Rt 1:20). El poder de Dios no aparece en la Biblia como un dato tranquilizador, sino como la realidad con la que el creyente tiene que habérselas en la prueba.
+
+\subsection{¿Qué significa \emph{Shaddai}?}
+
+La etimología del Nombre no está resuelta. Hay cuatro propuestas principales:
+
+\begin{center}\small\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}L{3.0cm}L{6.4cm}L{5.0cm}@{}}
+\toprule
+\textbf{Propuesta} & \textbf{Base} & \textbf{Textos y fuente} \\ \midrule
+``El que basta'' & lectura rabínica: \heb{שֶׁ} (\emph{she-}, ``que'') + \heb{דַּי} (\emph{dai}, ``suficiente''). La Septuaginta vierte \grc{ὁ ἱκανός}, ``el Suficiente'', en Rt 1:20--21 y en Job 21:15; 31:2; 40:2 & \emph{Jaguigá} 12a; \emph{Bereshit Rabá} 46:3; Rashi a Gn 17:1 \\
+``El de la montaña'' & acadio \emph{šadû}, ``montaña'': el Dios alto, firme e inconmovible & Cross (1973); Koehler y Baumgartner (2001) \\
+``El de los pechos'' & \heb{שַׁד}, ``pecho'': juego de palabras en la bendición de Jacob & Gn 49:25 \\
+``El que asola'' & \heb{שׁדד}, ``devastar'': juego de palabras de los profetas & Is 13:6; Jl 1:15 \\
+\bottomrule
+\end{tabular}\end{center}
+
+Los dos juegos de palabras bíblicos van en direcciones opuestas. En Génesis 49:25, Jacob bendice a José ``por el Dios Omnipotente (\heb{שַׁדַּי})\ldots{} con bendiciones de los pechos (\heb{שָׁדַיִם}) y del vientre''. En Isaías 13:6 y Joel 1:15, el día de \SENOR{} ``vendrá como asolamiento (\heb{שֹׁד}) del Todopoderoso (\heb{מִשַּׁדַּי})''. El mismo poder que hace nacer es el que juzga.
+
+\begin{cita}Por el Dios de tu padre, el cual te ayudará, por el Dios Omnipotente, el cual te bendecirá con bendiciones de los cielos de arriba, con bendiciones del abismo que está abajo, con bendiciones de los pechos y del vientre.\fuente{(Gn 49:25)}\end{cita}
+
+\begin{cita}Aullad, porque cerca está el día de \SENOR; vendrá como asolamiento del Todopoderoso.\fuente{(Is 13:6)}\end{cita}
+
+\begin{nota}[Precisión]
+Los juegos de palabras muestran cómo oyó Israel el Nombre, no de dónde viene la palabra. Fuera de la Biblia, la inscripción de Deir Alla (Jordania, s.~VIII a.\,e.\,c.), que menciona a Balaam hijo de Beor, habla de unos dioses \emph{šdyn} (Hackett, 1980); el dato sugiere que el término era antiguo en la región, pero no fija su sentido.
+\end{nota}
+
+\subsection{\emph{El Shaddai} da vida donde no la hay}
+
+En Génesis el Nombre tiene un rasgo constante: aparece \emph{siempre} junto a promesas de descendencia y de vida.
+
+\begin{center}\small\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}L{2.4cm}L{7.4cm}L{4.6cm}@{}}
+\toprule
+\textbf{Texto} & \textbf{Junto al Nombre} & \textbf{Situación} \\ \midrule
+Gn 17:1--2 & ``te multiplicaré en gran manera'' & Abram, 99 años; Sarai estéril \\
+Gn 28:3 & ``te haga fructificar y te multiplique'' & Jacob huye sin nada \\
+Gn 35:11 & ``crece y multiplícate'' & Jacob en Betel \\
+Gn 43:14 & ``os dé misericordia delante de aquel varón'' & Benjamín, el último hijo, en peligro \\
+Gn 48:3--4 & ``te haré crecer, y te multiplicaré'' & Jacob anciano bendice a José \\
+Gn 49:25 & ``bendiciones de los pechos y del vientre'' & bendición de José \\
+\bottomrule
+\end{tabular}\end{center}
+
+\begin{cita}y dijo a José: El Dios Omnipotente me apareció en Luz en la tierra de Canaán, y me bendijo, y me dijo: He aquí yo te haré crecer, y te multiplicaré, y te pondré por estirpe de naciones; y daré esta tierra a tu descendencia después de ti por heredad perpetua.\fuente{(Gn 48:3--4)}\end{cita}
+
+\emph{El Shaddai} no es, en la Torá, primero el Dios que destruye, sino el que \destacar{hace nacer lo que no puede nacer}. Pablo lo entenderá así: Abraham creyó en el Dios ``que da vida a los muertos'' (Ro 4:17; sección~\ref{sec:cristo-omni}).
+
+\subsection{La familia del poder}
+
+El hebreo no tiene una sola palabra para ``poder''. Tiene una familia de términos, cada uno con su imagen.
+
+\begin{filologia}[La familia hebrea y griega del poder]
+\begin{tabular}{@{}L{3.2cm}L{1.6cm}L{10cm}@{}}
+\heb{גְּבוּרָה} \emph{gevurá}; \heb{גִּבּוֹר} \emph{gibbor} & \heb{גבר} & fuerza del guerrero, proeza; ``valiente, poderoso''. Dt 10:17; Sal 24:8; Is 9:6 [9:5]; Jer 9:23 [9:22]. \\[2pt]
+\heb{כֹּחַ} \emph{kóaj} & \heb{כחח} & vigor, capacidad de producir. Éx 15:6; Jer 32:17; Sal 147:5; Is 40:26, 29. \\[2pt]
+\heb{עֹז} \emph{oz} & \heb{עזז} & fuerza firme, fortaleza, refugio. Sal 62:11 [62:12]; Hab 3:4. \\[2pt]
+\heb{זְרוֹעַ נְטוּיָה} \emph{zeróa netuyá} & \heb{זרע} & ``brazo extendido'': el poder en acción en la historia. Éx 6:6; Dt 26:8; Sal 136:12; Jer 32:17. \\[2pt]
+\heb{יָד חֲזָקָה} \emph{yad jazaká} & \heb{חזק} & ``mano fuerte''. Éx 13:9; Dt 3:24. \\[2pt]
+\heb{יָכֹל} \emph{yajol} & \heb{יכל} & ``poder, ser capaz''. Job 42:2: \heb{כֹל תּוּכָל}, ``todo lo puedes''. \\[2pt]
+\heb{בָּצַר} \emph{batsar} (nifal) & \heb{בצר} & ``ser impedido, resultar inalcanzable''. Gn 11:6; Job 42:2. \\[2pt]
+\grc{δύναμις}, \grc{δυνατός} & --- & ``poder, capacidad''; ``poderoso para hacer''. Ro 1:16, 20; 4:21; 1~Co 1:18, 24. \\[2pt]
+\grc{παντοκράτωρ} & --- & de \grc{πᾶς}, ``todo'', y \grc{κράτος}, ``dominio'': ``el que lo domina todo''. En la LXX traduce sobre todo \heb{יְהוָה צְבָאוֹת}, ``\SENOR{} de los ejércitos'', y \emph{Shaddai} en Job. \\
+\end{tabular}
+\end{filologia}
+
+En la RVR1960 la palabra ``poder(es)'' aparece unas 296 veces (182 en el AT y 114 en el NT, conteo propio), muchas de ellas para el poder humano. Los términos de la tabla son los que la Escritura aplica de modo característico al poder de Dios. Ninguno es abstracto: hablan de un guerrero, de un brazo, de una mano, de una voz. Israel piensa el poder de Dios como poder \emph{en acción}.
+
+\subsection{Babel y Job: el mismo verbo}
+
+Un verbo poco frecuente une dos textos lejanos. En Babel, Dios observa a los hombres que construyen la torre:
+
+\hebverso{וְעַתָּה לֹא־יִבָּצֵר מֵהֶם כֹּל אֲשֶׁר יָזְמוּ לַעֲשׂוֹת}
+\begin{cita}Y dijo \SENOR: He aquí el pueblo es uno, y todos éstos tienen un solo lenguaje; y han comenzado la obra, y nada les hará desistir ahora de lo que han pensado hacer.\fuente{(Gn 11:6)}\end{cita}
+
+Job, al final de su prueba, usa el mismo verbo y la misma raíz del ``pensar'':
+
+\hebverso{יָדַעְתָּ כִּי־כֹל תּוּכָל וְלֹא־יִבָּצֵר מִמְּךָ מְזִמָּה}
+
+\begin{filologia}[Gn 11:6 y Job 42:2]
+\begin{tabular}{@{}L{3.2cm}L{1.6cm}L{10cm}@{}}
+\heb{יִבָּצֵר} \emph{yibbatser} & \heb{בצר} & ``ser cortado, quedar fuera de alcance''. En Babel, a los hombres ``nada se les hará inalcanzable''; en Job, a Dios ``ningún propósito se le hace inalcanzable''. \\[2pt]
+\heb{יָזְמוּ} / \heb{מְזִמָּה} & \heb{זמם} & ``planear'' / ``plan, propósito'' (RVR1960: ``lo que han pensado'', ``pensamiento''). La LXX de Job 42:2 traduce el sentido: \grc{ἀδυνατεῖ δέ σοι οὐθέν}, ``nada te es imposible''. \\
+\end{tabular}
+\end{filologia}
+
+La humanidad que quiere ser todopoderosa termina dispersa (Gn 11:8). El hombre que se rinde ante el Todopoderoso termina viéndolo: ``De oídas te había oído; mas ahora mis ojos te ven'' (Job 42:5). La omnipotencia no es un atributo que el ser humano pueda disputarle a Dios sin destruirse.
+
+%===================================================================
+\section{Definición}
+
+A partir de los textos, la omnipotencia puede definirse así:
+
+\begin{center}
+\begin{tcolorbox}[colback=papiro,colframe=azul,boxrule=1pt,arc=3pt,width=0.92\linewidth]
+La omnipotencia de Dios es la perfección eterna por la cual Él \destacar{puede hacer todo lo que quiere}, sin esfuerzo y sin desgaste, de modo que \destacar{nada puede frustrar su voluntad}; un poder que obra siempre conforme a su naturaleza santa, sabia y fiel (Gn 18:14; Job 42:2; Sal 115:3; Is 40:28; 46:10; 2~Ti 2:13).
+\end{tcolorbox}
+\end{center}
+
+La definición tiene tres rasgos. \emph{Sin límite}: nada es ``demasiado'' para Dios, ni crear, ni sostener, ni resucitar (Gn 18:14; Jer 32:17). \emph{Sin oposición}: ``no hay quien detenga su mano, y le diga: ¿Qué haces?'' (Dn 4:35 [4:32]; Is 14:27). \emph{Sin desgaste}: ``no desfallece, ni se fatiga con cansancio'' (Is 40:28), y por eso puede dar fuerzas al que no las tiene.
+
+\subsection{``Todo lo que quiso ha hecho''}
+
+El salmo 115 opone el Dios de Israel a los ídolos de las naciones:
+
+\hebverso{וֵאלֹהֵינוּ בַשָּׁמָיִם כֹּל אֲשֶׁר־חָפֵץ עָשָׂה}
+\begin{cita}Nuestro Dios está en los cielos; todo lo que quiso ha hecho.\fuente{(Sal 115:3)}\end{cita}
+
+Los ídolos ``manos tienen, mas no palpan; tienen pies, mas no andan'' (v.~7): tienen la forma del poder sin el poder. El Dios de Israel no tiene forma visible, pero ``todo lo que quiso ha hecho''. El verbo \heb{חָפֵץ} (\emph{jafets}) significa ``querer, complacerse''. El poder de Dios está unido a su \emph{querer}: no es fuerza ciega, sino voluntad que se cumple. Isaías lo dice desde el otro lado, el del plan:
+
+\begin{cita}que anuncio lo por venir desde el principio, y desde la antigüedad lo que aún no era hecho; que digo: Mi consejo permanecerá, y haré todo lo que quiero.\fuente{(Is 46:10)}\end{cita}
+
+\heb{עֲצָתִי תָקוּם וְכָל־חֶפְצִי אֶעֱשֶׂה}: ``mi consejo se mantendrá en pie, y todo mi deseo haré''. La omnipotencia es la garantía de que el consejo de Dios no queda en proyecto.
+
+\subsection{Lo que Dios ``no puede''}
+
+La Escritura dice también que hay cosas que Dios no puede hacer:
+
+\begin{cita}Si fuéremos infieles, él permanece fiel; él no puede negarse a sí mismo.\fuente{(2~Ti 2:13)}\end{cita}
+
+\begin{cita}en la esperanza de la vida eterna, la cual Dios, que no miente, prometió desde antes del principio de los siglos.\fuente{(Tit 1:2)}\end{cita}
+
+Que Dios no pueda mentir ni negarse a sí mismo no limita su poder: lo define. Un poder capaz de traicionarse a sí mismo sería debilidad, no fuerza. La tradición judía formuló la misma idea desde la filosofía. Maimónides enseña que lo imposible tiene una naturaleza estable que ningún agente produce, y que la incapacidad de hacer lo contradictorio ---por ejemplo, un cuadrado cuya diagonal sea igual a su lado--- no es falta de poder en Dios (\emph{Guía de perplejos} III, 15). La omnipotencia no es la capacidad de hacer absurdos, sino la capacidad de hacer todo lo que Dios, siendo quien es, quiere hacer.
+
+\begin{nota}[Precisión]
+2~Timoteo y Tito pertenecen a las cartas pastorales, cuya autoría paulina se discute. La misma idea está en cartas indiscutidas (Ro 3:3--4: ``¿Su incredulidad habrá hecho nula la fidelidad de Dios? De ninguna manera'') y en la Torá: ``Dios no es hombre, para que mienta'' (Nm 23:19).
+\end{nota}
+
+%===================================================================
+\section{La omnipotencia en la Torá}
+
+\subsection{En el principio: el poder de la palabra}
+
+El primer acto de poder de la Biblia es una palabra:
+
+\hebverso{וַיֹּאמֶר אֱלֹהִים יְהִי אוֹר וַיְהִי־אוֹר}
+\begin{cita}Y dijo Dios: Sea la luz; y fue la luz.\fuente{(Gn 1:3)}\end{cita}
+
+Diez veces repite Génesis 1 ``y dijo Dios''. No hay materia previa que Dios tenga que vencer, ni otros dioses contra los que luchar, ni esfuerzo. El verbo \heb{בָּרָא} (\emph{bará}, ``crear'', Gn 1:1) solo tiene a Dios por sujeto en toda la Biblia hebrea. Entre el \heb{יְהִי} (``sea'') y el \heb{וַיְהִי} (``y fue'') no hay distancia: la palabra de Dios y la realidad coinciden. Por eso la pregunta de Génesis 18:14 puede leerse como ``¿hay alguna \emph{palabra} demasiado difícil para \SENOR?''. El que creó con la palabra no puede ser vencido por ninguna de sus palabras.
+
+\subsection{El Dios grande, poderoso y temible}
+
+En su último discurso, Moisés resume a Dios con tres adjetivos que los judíos repiten hasta hoy en la oración:
+
+\hebverso{הָאֵל הַגָּדֹל הַגִּבֹּר וְהַנּוֹרָא אֲשֶׁר לֹא־יִשָּׂא פָנִים וְלֹא יִקַּח שֹׁחַד}
+\begin{cita}Porque \SENOR{} vuestro Dios es Dios de dioses y Señor de señores, Dios grande, poderoso y temible, que no hace acepción de personas, ni toma cohecho.\fuente{(Dt 10:17)}\end{cita}
+
+El versículo siguiente dice en qué emplea ese poder: ``hace justicia al huérfano y a la viuda; que ama también al extranjero dándole pan y vestido'' (10:18). El \emph{gibbor} de la Torá usa su fuerza para los débiles. Los sabios harán de este enlace una regla (sección~\ref{sec:judaismo-omni}).
+
+En el cántico final de Moisés, el poder de Dios llega al límite de la vida y la muerte:
+
+\begin{cita}Ved ahora que yo, yo soy, y no hay dioses conmigo; yo hago morir, y yo hago vivir; yo hiero, y yo sano; y no hay quien pueda librar de mi mano.\fuente{(Dt 32:39)}\end{cita}
+
+\heb{אֲנִי אָמִית וַאֲחַיֶּה}, ``yo hago morir y hago vivir'': el poder sobre la muerte es exclusivo de Dios, y la Torá lo dice en presente. La tradición judía leyó aquí una alusión a la resurrección; es el mismo poder que la Amidá bendice cada día (sección~\ref{sec:judaismo-omni}).
+
+\subsection{``¿Acaso se ha acortado la mano?''}
+
+En el desierto, Moisés duda de que Dios pueda dar carne a seiscientos mil hombres. La respuesta es otra pregunta:
+
+\begin{cita}Entonces \SENOR{} respondió a Moisés: ¿Acaso se ha acortado la mano de \SENOR? Ahora verás si se cumple mi palabra, o no.\fuente{(Nm 11:23)}\end{cita}
+
+\heb{הֲיַד יְהוָה תִּקְצָר}: ``¿se acortará la mano de \SENOR?''. La imagen de la mano corta ---no llega a lo que quiere alcanzar--- es la imagen hebrea de la impotencia, y los profetas la retoman para negar que Dios no pueda salvar (Is 50:2; 59:1). Otra vez el poder se mide por el cumplimiento de la palabra: \heb{הֲיִקְרְךָ דְבָרִי}, ``si te sucederá mi palabra''.
+
+\subsection{``Él te da el poder''}
+
+La Torá también advierte contra el uso humano del poder:
+
+\begin{cita}y digas en tu corazón: Mi poder y la fuerza de mi mano me han traído esta riqueza. Sino acuérdate de \SENOR{} tu Dios, porque él te da el poder para hacer las riquezas, a fin de confirmar su pacto que juró a tus padres, como en este día.\fuente{(Dt 8:17--18)}\end{cita}
+
+\heb{כֹּחִי וְעֹצֶם יָדִי}, ``mi poder y la fuerza de mi mano'', es la frase del orgullo. La respuesta de la Torá es que todo \heb{כֹּחַ} humano es recibido. Es la misma enseñanza de Jeremías 9:23: el valiente no puede gloriarse en una valentía que no se dio a sí mismo.
+
+%===================================================================
+\section{La omnipotencia en los Salmos}
+
+\subsection{``De Dios es el poder''}
+
+El salmo 62 es una meditación sobre la confianza. Al final, el salmista resume lo que aprendió:
+
+\hebverso{אַחַת דִּבֶּר אֱלֹהִים שְׁתַּיִם־זוּ שָׁמָעְתִּי כִּי עֹז לֵאלֹהִים\\ וּלְךָ־אֲדֹנָי חָסֶד כִּי־אַתָּה תְשַׁלֵּם לְאִישׁ כְּמַעֲשֵׂהוּ}
+\begin{cita}Una vez habló Dios; dos veces he oído esto: que de Dios es el poder, y tuya, oh Señor, es la misericordia; porque tú pagas a cada uno conforme a su obra.\fuente{(Sal 62:11--12 [62:12--13])}\end{cita}
+
+\begin{filologia}[Sal 62:11--12 (62:12--13)]
+\begin{tabular}{@{}L{3.2cm}L{1.6cm}L{10cm}@{}}
+\heb{אַחַת}\ldots{} \heb{שְׁתַּיִם} & --- & ``una\ldots{} dos'': paralelismo numérico, recurso de la sabiduría hebrea (cf. Pr 6:16; Am 1:3). Una sola palabra de Dios contiene dos verdades. \\[2pt]
+\heb{עֹז} \emph{oz} & \heb{עזז} & ``poder, fortaleza''. \\[2pt]
+\heb{חֶסֶד} \emph{jésed} & \heb{חסד} & ``misericordia'', amor leal del pacto (ver el capítulo sobre la misericordia). \\
+\end{tabular}
+\end{filologia}
+
+El paralelismo une lo que el lector tendería a separar. \emph{Oz} y \emph{jésed} son las dos cosas que el salmista oyó en una sola palabra de Dios. Un poder sin misericordia aterra; una misericordia sin poder no salva. Pink cita este versículo al comienzo de su capítulo, y comenta que Dios habla una vez y el trueno de su poder se oye en mil colinas (Pink, 2020, cap. 9).
+
+\subsection{``Él dijo, y fue hecho''}
+
+El salmo 33 canta Génesis 1 en verso:
+
+\hebverso{בִּדְבַר יְהוָה שָׁמַיִם נַעֲשׂוּ וּבְרוּחַ פִּיו כָּל־צְבָאָם\\ כִּי הוּא אָמַר וַיֶּהִי הוּא־צִוָּה וַיַּעֲמֹד}
+\begin{cita}Por la palabra de \SENOR{} fueron hechos los cielos, y todo el ejército de ellos por el aliento de su boca. Él junta como montón las aguas del mar; él pone en depósitos los abismos. Tema a \SENOR{} toda la tierra; teman delante de él todos los habitantes del mundo. Porque él dijo, y fue hecho; él mandó, y existió.\fuente{(Sal 33:6--9)}\end{cita}
+
+\heb{הוּא אָמַר וַיֶּהִי}, ``él dijo y fue'', repite la estructura de Génesis 1. La consecuencia que saca el salmista es el temor: el mismo poder que juntó las aguas del mar está frente a ``todos los habitantes del mundo''. El salmo 147 añade la ternura:
+
+\begin{cita}Él cuenta el número de las estrellas; a todas ellas llama por sus nombres. Grande es el Señor nuestro, y de mucho poder; y su entendimiento es infinito.\fuente{(Sal 147:4--5)}\end{cita}
+
+El verso anterior dice que este mismo Dios ``sana a los quebrantados de corazón, y venda sus heridas'' (v.~3). El que nombra las estrellas, una por una, conoce también las heridas de cada persona. Isaías usa la misma imagen para consolar a un pueblo cansado: ``él saca y cuenta su ejército; a todas llama por sus nombres; ninguna faltará; tal es la grandeza de su fuerza, y el poder de su dominio'' (Is 40:26).
+
+\subsection{La voz, el brazo, el guerrero y la sombra}
+
+Los salmos dicen el poder de Dios con imágenes concretas:
+
+\begin{center}\small\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}L{1.9cm}L{5.6cm}L{6.9cm}@{}}
+\toprule
+\textbf{Imagen} & \textbf{Texto} & \textbf{Qué dice del poder} \\ \midrule
+La voz & Sal 29:4: \heb{קוֹל־יְהוָה בַּכֹּחַ}, ``voz de \SENOR{} con potencia'' & siete veces ``voz de \SENOR'' sobre las aguas, los cedros y el desierto: el trueno es su palabra \\
+El brazo & Sal 89:13 [89:14]: \heb{לְךָ זְרוֹעַ עִם־גְּבוּרָה}, ``tuyo es el brazo potente'' & el poder que creó el norte y el sur (v.~12) sostiene la promesa a David (vv. 28--37) \\
+El guerrero & Sal 24:8: \heb{יְהוָה עִזּוּז וְגִבּוֹר}, ``\SENOR{} el fuerte y valiente'' & el Rey de gloria entra por las puertas: el poder es realeza \\
+La sombra & Sal 91:1: \heb{בְּצֵל שַׁדַּי יִתְלוֹנָן}, ``bajo la sombra del Omnipotente'' & el Nombre más alto se vuelve refugio \\
+\bottomrule
+\end{tabular}\end{center}
+
+La última imagen es la más inesperada. El salmo 91 toma el Nombre de Génesis 17 y lo convierte en lugar de descanso:
+
+\hebverso{יֹשֵׁב בְּסֵתֶר עֶלְיוֹן בְּצֵל שַׁדַּי יִתְלוֹנָן}
+\begin{cita}El que habita al abrigo del Altísimo morará bajo la sombra del Omnipotente. Diré yo a \SENOR: Esperanza mía, y castillo mío; mi Dios, en quien confiaré.\fuente{(Sal 91:1--2)}\end{cita}
+
+\heb{יִתְלוֹנָן} (\emph{yitlonán}, de \heb{לון}) significa ``pasar la noche''. El creyente duerme a la sombra de \emph{Shaddai}. El poder que podría aplastar, cubre.
+
+%===================================================================
+\section{Teología: Pink como referencia}
+
+A.~W. Pink dedica un capítulo a la omnipotencia de Dios (Pink, 2020, cap. 9). De su exposición se toman aquí cuatro conceptos, sin seguir su orden.
+
+El primero viene de Stephen Charnock, a quien Pink cita al comenzar: así como la santidad es la belleza de todos los atributos de Dios, el poder es lo que da \emph{vida y acción} a todas sus perfecciones. Sin poder, dice Charnock, la misericordia sería ``una débil lástima'', las promesas ``un sonido vacío'' y las amenazas ``un mero espantapájaros'' (Pink, 2020, cap. 9). La omnipotencia no es un atributo más en la lista: es el que hace eficaces a los demás.
+
+El segundo es que el poder pertenece a Dios por naturaleza. Pink cita a Spurgeon: Dios ``se sienta en un trono sin columnas que lo sostengan''. Por eso la Escritura usa ``el Poder'' como nombre de Dios: Jesús habla del Hijo del Hombre ``sentado a la diestra del poder'' (Mr 14:62). La observación de Charnock ---que Dios y su poder son tan inseparables que pueden intercambiarse--- coincide con un uso judío que se verá más abajo.
+
+El tercero es el poder escondido. Pink se detiene en Habacuc 3:4:
+
+\hebverso{וְנֹגַהּ כָּאוֹר תִּהְיֶה קַרְנַיִם מִיָּדוֹ לוֹ וְשָׁם חֶבְיוֹן עֻזֹּה}
+\begin{cita}Y el resplandor fue como la luz; rayos brillantes salían de su mano, y allí estaba escondido su poder.\fuente{(Hab 3:4)}\end{cita}
+
+\heb{חֶבְיוֹן} (\emph{jevyón}, de \heb{חבה}, ``esconder'') es el ``escondite''. La teofanía de Habacuc 3 hace temblar los montes, y sin embargo el profeta dice que allí el poder estaba \emph{oculto}. Para Pink, lo que vemos del poder de Dios oculta más de lo que revela. Job lo había dicho: ``estas cosas son sólo los bordes de sus caminos\ldots{} Pero el trueno de su poder, ¿quién lo puede comprender?'' (Job 26:14).
+
+El cuarto es el recorrido del poder en cuatro escenarios: la \emph{creación}, hecha de la nada y por la palabra (Sal 33:9); la \emph{preservación}, que sostiene la vida y pone límite al mar (Job 38:11; He 1:3); el \emph{gobierno}, que refrena a Satanás y la maldad humana (Job 1--2; Sal 93:3--4); y el \emph{juicio}, visto en el diluvio, en Sodoma y en el mar Rojo (Ro 9:22). Pink extrae tres consecuencias: temblar ante Dios (Sal 2:12), adorarlo (Éx 15:11) y confiar en Él, porque ninguna oración es demasiado difícil de responder para el que todo lo puede (Sal 27:1). Termina con la doxología de Efesios 3:20--21, que se comenta en la sección paulina.
+
+%===================================================================
+\section{Un encuentro en la historia de Israel: el mar Rojo}
+
+\subsection{Entre el mar y los carros}
+
+El momento en que Israel aprendió la omnipotencia como pueblo fue el paso del mar. Recién salido de Egipto, Israel acampa frente al mar; detrás llegan los carros de Faraón. No hay armas, ni salida, ni plan. Moisés habla:
+
+\hebverso{אַל־תִּירָאוּ הִתְיַצְבוּ וּרְאוּ אֶת־יְשׁוּעַת יְהוָה\\ יְהוָה יִלָּחֵם לָכֶם וְאַתֶּם תַּחֲרִישׁוּן}
+\begin{cita}Y Moisés dijo al pueblo: No temáis; estad firmes, y ved la salvación que \SENOR{} hará hoy con vosotros; porque los egipcios que hoy habéis visto, nunca más para siempre los veréis. \SENOR{} peleará por vosotros, y vosotros estaréis tranquilos.\fuente{(Éx 14:13--14)}\end{cita}
+
+\begin{cita}Y extendió Moisés su mano sobre el mar, e hizo \SENOR{} que el mar se retirase por recio viento oriental toda aquella noche; y volvió el mar en seco, y las aguas quedaron divididas.\fuente{(Éx 14:21)}\end{cita}
+
+\begin{cita}Y vio Israel aquel grande hecho que \SENOR{} ejecutó contra los egipcios; y el pueblo temió a \SENOR, y creyeron a \SENOR{} y a Moisés su siervo.\fuente{(Éx 14:31)}\end{cita}
+
+\begin{filologia}[Éx 14:13--14, 31]
+\begin{tabular}{@{}L{3.2cm}L{1.6cm}L{10cm}@{}}
+\heb{יְשׁוּעַת יְהוָה} & \heb{ישׁע} & ``la salvación de \SENOR'': obra de Dios, no de Israel. \\[2pt]
+\heb{יִלָּחֵם לָכֶם} & \heb{לחם} & ``peleará por vosotros'': Dios es el guerrero (\heb{אִישׁ מִלְחָמָה}, Éx 15:3). \\[2pt]
+\heb{תַּחֲרִישׁוּן} & \heb{חרשׁ} & ``callaréis, estaréis quietos'': la parte de Israel es no intervenir. \\[2pt]
+\heb{הַיָּד הַגְּדֹלָה} & \heb{יד} & literalmente ``la mano grande''; RVR1960: ``aquel grande hecho''. \\[2pt]
+\heb{וַיִּירְאוּ}\ldots{} \heb{וַיַּאֲמִינוּ} & \heb{ירא}, \heb{אמן} & ``temieron\ldots{} y creyeron'': ver el poder produce temor y fe. \\
+\end{tabular}
+\end{filologia}
+
+El relato subraya que Israel no hizo nada. Moisés extiende la mano, pero el que retira el mar es \SENOR. El fin del milagro no es el espectáculo, sino que el pueblo \emph{crea}: \heb{וַיַּאֲמִינוּ}, de la raíz de \emph{emuná}.
+
+\subsection{El cántico del mar}
+
+En la otra orilla, Israel canta. Es el primer canto de la Biblia, y es un canto al poder de Dios:
+
+\hebverso{יְמִינְךָ יְהוָה נֶאְדָּרִי בַּכֹּחַ יְמִינְךָ יְהוָה תִּרְעַץ אוֹיֵב\\ מִי־כָמֹכָה בָּאֵלִם יְהוָה מִי כָּמֹכָה נֶאְדָּר בַּקֹּדֶשׁ נוֹרָא תְהִלֹּת עֹשֵׂה פֶלֶא}
+\begin{cita}\SENOR{} es varón de guerra; \SENOR{} es su nombre\ldots{} Tu diestra, oh \SENOR, ha sido magnificada en poder; tu diestra, oh \SENOR, ha quebrantado al enemigo\ldots{} ¿Quién como tú, oh \SENOR, entre los dioses? ¿Quién como tú, magnífico en santidad, terrible en maravillosas hazañas, hacedor de prodigios?\ldots{} \SENOR{} reinará eternamente y para siempre.\fuente{(Éx 15:3, 6, 11, 18)}\end{cita}
+
+\begin{filologia}[Éx 15:6, 11, 18]
+\begin{tabular}{@{}L{3.2cm}L{1.6cm}L{10cm}@{}}
+\heb{נֶאְדָּרִי בַּכֹּחַ} & \heb{אדר} & ``glorioso en poder''. El mismo verbo describe a Dios ``magnífico en santidad'' (\heb{נֶאְדָּר בַּקֹּדֶשׁ}, v.~11): poder y santidad son una sola gloria. \\[2pt]
+\heb{עֹשֵׂה פֶלֶא} & \heb{פלא} & ``hacedor de prodigio'': la raíz de Gn 18:14. Lo que en la tienda fue promesa, en el mar es hecho. \\[2pt]
+\heb{יִמְלֹךְ} & \heb{מלך} & ``reinará'' (v.~18): el poder de Dios no es un estallido, es un gobierno. \\
+\end{tabular}
+\end{filologia}
+
+El cántico enlaza tres atributos. El poder (v.~6) se declara inseparable de la santidad (v.~11) y desemboca en el reinado (v.~18). La pregunta ``¿Quién como tú?'' es la forma bíblica de decir que el atributo es incomunicable: entre los \heb{אֵלִם}, los ``dioses'' o poderosos, no hay nadie igual.
+
+\begin{nota}[Precisión]
+En la liturgia judía el Cántico del mar se recita cada mañana, y ``¿Quién como tú?'' (Éx 15:11) y ``\SENOR{} reinará'' (Éx 15:18) se repiten en la bendición que sigue al \emph{Shemá}, la de la redención (Elbogen, 1993). Israel no recuerda el mar como un hecho del pasado, sino como el modelo de toda salvación.
+\end{nota}
+
+%===================================================================
+\section{La omnipotencia en el judaísmo}\label{sec:judaismo-omni}
+
+\subsection{``El que dijo al mundo: ¡basta!''}
+
+Los sabios explicaron el nombre \emph{Shaddai} como \emph{she-dai}, ``el que basta''. El Talmud lo pone en boca de Resh Laquish:
+
+\begin{quote}\small
+\heb{מַאי דִּכְתִיב ״אֲנִי אֵל שַׁדַּי״ אֲנִי הוּא שֶׁאָמַרְתִּי לָעוֹלָם דַּי}\\
+¿Qué significa lo que está escrito: ``Yo soy el Dios Todopoderoso''? Yo soy el que dijo al mundo: ¡Basta! (\emph{Jaguigá} 12a)
+\end{quote}
+
+El \emph{Midrash Rabá} conserva la misma explicación en nombre de R. Yitsjak: ``Yo soy el que dijo a mi mundo y a mis cielos: ¡Basta!''; sin esa palabra, la creación habría seguido extendiéndose (\emph{Bereshit Rabá} 46:3). Rashi, comentando Génesis 17:1, da otra forma de la misma idea: ``Yo soy aquel cuya divinidad basta para toda criatura''. Por su parte, el Targum Ónkelos, que suele traducir los nombres y las imágenes de Dios, deja este intacto: \heb{אֲנָא אֵל שַׁדַּי}.
+
+La explicación rabínica ilumina un aspecto del poder que la Biblia también conoce: Dios no solo crea, sino que \emph{pone límite}. ``Hasta aquí llegarás, y no pasarás adelante, y ahí parará el orgullo de tus olas'' (Job 38:11). El poder que dice ``sea'' es el mismo que dice ``basta''.
+
+\begin{nota}[Precisión]
+Interpretación rabínica (midrash) del Nombre, no etimología. Coincide con la Septuaginta, que en Rut y en tres pasajes de Job traduce \emph{Shaddai} por \grc{ὁ ἱκανός}, ``el Suficiente''.
+\end{nota}
+
+\subsection{\emph{HaGevurá}: el Poder como nombre de Dios}
+
+Los sabios usan \heb{הַגְּבוּרָה} (\emph{haGevurá}, ``el Poder'') como una forma reverente de nombrar a Dios. Al contar los 613 mandamientos, el Talmud dice que dos de ellos los oyó Israel directamente en el Sinaí:
+
+\begin{quote}\small
+\heb{״אָנֹכִי״ וְ״לֹא יִהְיֶה לְךָ״ מִפִּי הַגְּבוּרָה שְׁמַעְנוּם}\\
+``Yo soy'' y ``No tendrás'' los oímos de la boca del Poder. (\emph{Makot} 23b--24a)
+\end{quote}
+
+Jesús usa el mismo recurso ante el sumo sacerdote:
+
+\begin{cita}Y Jesús le dijo: Yo soy; y veréis al Hijo del Hombre sentado a la diestra del poder de Dios, y viniendo en las nubes del cielo.\fuente{(Mr 14:62)}\end{cita}
+
+El griego dice \grc{ἐκ δεξιῶν καθήμενον τῆς δυνάμεως}, ``sentado a la diestra del Poder''; la RVR1960 añade ``de Dios'' para aclarar. Es el uso que Charnock comentaba y que Pink recoge: Dios y su poder son inseparables.
+
+\begin{nota}[Precisión]
+El paralelo es de lenguaje. El tratado \emph{Makot} es posterior al Nuevo Testamento, pero recoge una costumbre judía de llamar a Dios ``el Poder'' que Marcos ya atestigua en el siglo I.
+\end{nota}
+
+\subsection{La bendición \emph{Guevurot} de la Amidá}
+
+La Amidá, la oración central del judaísmo, que se reza tres veces al día, dedica su segunda bendición al poder de Dios. Se llama \emph{Guevurot}, ``poderes'':
+
+\begin{quote}\small
+\heb{אַתָּה גִּבּוֹר לְעוֹלָם אֲדֹנָי מְחַיֵּה מֵתִים אַתָּה רַב לְהוֹשִׁיעַ}\\
+Tú eres poderoso para siempre, Señor; tú das vida a los muertos, grande eres para salvar\ldots{} Sostienes a los que caen, sanas a los enfermos y liberas a los cautivos\ldots{} Bendito eres tú, \SENOR, que das vida a los muertos. (Amidá, segunda bendición)
+\end{quote}
+
+La bendición define el poder de Dios por lo que hace con los débiles. Sus frases vienen de los salmos: ``Sostiene \SENOR{} a todos los que caen'' (Sal 145:14); ``\SENOR{} liberta a los cautivos; \SENOR{} abre los ojos a los ciegos; \SENOR{} levanta a los caídos'' (Sal 146:7--8). Y la cumbre del poder no es destruir, sino \emph{resucitar}: la bendición empieza y termina con \heb{מְחַיֵּה מֵתִים}, ``que das vida a los muertos''.
+
+\begin{nota}[Precisión]
+Texto litúrgico según el sidur asquenazí (Sefaria). La estructura de la Amidá es antigua y la tradición la atribuye a la época de los sabios; su redacción exacta varió con los ritos (Elbogen, 1993).
+\end{nota}
+
+\subsection{Las tres llaves}
+
+En la misma bendición, durante el invierno, se menciona la lluvia: \emph{guevurot gueshamim}, ``los poderes de la lluvia''. El Talmud explica que se llama así porque la lluvia ``cae con poder'', y en ese contexto R. Yojanán enseña:
+
+\begin{quote}\small
+\heb{שְׁלֹשָׁה מַפְתְּחוֹת בְּיָדוֹ שֶׁל הַקָּדוֹשׁ בָּרוּךְ הוּא שֶׁלֹּא נִמְסְרוּ בְּיַד שָׁלִיחַ}\\
+\heb{מַפְתֵּחַ שֶׁל גְּשָׁמִים\quad מַפְתֵּחַ שֶׁל חַיָּה\quad וּמַפְתֵּחַ שֶׁל תְּחִיַּית הַמֵּתִים}\\
+Tres llaves están en la mano del Santo, bendito sea, que no fueron entregadas a ningún enviado: la llave de la lluvia, la llave del parto y la llave de la resurrección de los muertos. (\emph{Taanit} 2a--b)
+\end{quote}
+
+El Talmud prueba cada llave con un versículo: la lluvia con Deuteronomio 28:12 (``Te abrirá \SENOR{} su buen tesoro, el cielo, para enviar la lluvia''); el parto con Génesis 30:22 (``se acordó Dios de Raquel\ldots{} y le concedió hijos''); la resurrección con Ezequiel 37:13 (``cuando abra vuestros sepulcros''). Las tres son cosas que solo Dios abre.
+
+La historia de Génesis 17--18 reúne dos de esas llaves. Sara recibe la llave del parto; Abraham, ``ya como muerto'', según dirá Pablo (Ro 4:19), recibe una vida que anticipa la de la resurrección. \emph{El Shaddai} es el Dios que tiene las llaves.
+
+\subsection{``Cuya fuerza y poder llenan el mundo''}
+
+El judaísmo no se queda en el asombro ante el poder de Dios: lo convierte en bendición. La Misná establece:
+
+\begin{quote}\small
+\heb{וְעַל הָרְעָמִים וְעַל הָרוּחוֹת אוֹמֵר בָּרוּךְ שֶׁכֹּחוֹ וּגְבוּרָתוֹ מָלֵא עוֹלָם}\\
+Y por los truenos y por los vientos se dice: Bendito el que su fuerza y su poder llenan el mundo. (Misná, \emph{Berajot} 9:2)
+\end{quote}
+
+Los dos términos centrales de la familia del poder, \heb{כֹּחַ} y \heb{גְּבוּרָה}, aparecen juntos. Quien oye el trueno oye el salmo 29: ``voz de \SENOR{} con potencia''. El poder de Dios no se discute: se bendice cuando se manifiesta.
+
+\subsection{El poder que se contiene}
+
+El Talmud cuenta una discusión sobre los tres adjetivos de Deuteronomio 10:17, ``el Dios grande, poderoso y temible''. Moisés los dijo. Jeremías, viendo a los extranjeros destruir el templo, omitió ``temible'' (Jer 32:18). Daniel, viendo a Israel en el exilio, omitió ``poderoso'' (Dn 9:4), y preguntó:
+
+\begin{quote}\small
+\heb{גּוֹיִם מִשְׁתַּעְבְּדִים בְּבָנָיו אַיֵּה גְּבוּרוֹתָיו}\\
+Las naciones esclavizan a sus hijos: ¿dónde están sus proezas? (\emph{Yomá} 69b)
+\end{quote}
+
+Los hombres de la Gran Asamblea restituyeron la fórmula completa (Neh 9:32) con una respuesta:
+
+\begin{quote}\small
+\heb{זוֹ הִיא גְּבוּרָתוֹ שֶׁכּוֹבֵשׁ אֶת יִצְרוֹ}\\
+Esta es la fuerza de su fuerza: que domina su inclinación y es paciente con los malvados. (\emph{Yomá} 69b)
+\end{quote}
+
+La pregunta de Daniel es la de todo creyente que sufre: si Dios es todopoderoso, ¿por qué no actúa? La respuesta de los sabios es que el poder de Dios se muestra también en lo que \emph{no} hace todavía: se contiene por paciencia. El mismo R. Yojanán que habló de las tres llaves formuló otra regla:
+
+\begin{quote}\small
+\heb{כׇּל מָקוֹם שֶׁאַתָּה מוֹצֵא גְּבוּרָתוֹ שֶׁל הַקָּדוֹשׁ בָּרוּךְ הוּא אַתָּה מוֹצֵא עַנְוְתָנוּתוֹ}\\
+Dondequiera que encuentras el poder del Santo, bendito sea, allí encuentras su humildad. (\emph{Meguilá} 31a)
+\end{quote}
+
+La prueba se toma de las tres partes de la Biblia hebrea. En la Torá, el ``Dios grande, poderoso y temible'' es el que ``hace justicia al huérfano y a la viuda'' (Dt 10:17--18). En los Profetas, el ``Alto y Sublime'' habita ``con el quebrantado y humilde de espíritu'' (Is 57:15). En los Escritos, el que ``cabalga sobre los cielos'' es ``padre de huérfanos y defensor de viudas'' (Sal 68:4--5 [68:5--6]).
+
+\begin{nota}[Precisión]
+Lecturas rabínicas. La idea de que el poder de Dios se manifiesta en paciencia y en cercanía a los humildes tiene apoyo bíblico (Nah 1:3: ``\SENOR{} es tardo para la ira y grande en poder''; Is 57:15), pero la formulación es de los sabios. Pablo dirá algo semejante con otra lógica: el poder de Dios se perfecciona en la debilidad (2~Co 12:9).
+\end{nota}
+
+\subsection{¿Quién es poderoso?}
+
+Si la \emph{gevurá} de Dios es contenerse, la del ser humano también lo es. La Misná lo dice en una sentencia famosa:
+
+\begin{quote}\small
+\heb{אֵיזֶהוּ גִבּוֹר הַכּוֹבֵשׁ אֶת יִצְרוֹ}\\
+¿Quién es poderoso? El que domina su inclinación, como está dicho: ``Mejor es el que tarda en airarse que el fuerte; y el que se enseñorea de su espíritu, que el que toma una ciudad''. (\emph{Pirké Avot} 4:1; Pr 16:32)
+\end{quote}
+
+Así, la omnipotencia, que es incomunicable, deja un reflejo en el ser humano: el dominio de sí. Pablo lo llamará fruto del Espíritu, \grc{ἐγκράτεια}, ``templanza'' (Gá 5:23), palabra de la misma familia que \grc{κράτος}.
+
+\subsection{Qumrán: el poder que resucita}
+
+Entre los manuscritos de la cueva 4 de Qumrán hay un texto que los editores llamaron \emph{Apocalipsis mesiánico} (4Q521). Su fragmento 2, columna ii, describe lo que hará el Señor cuando ``los cielos y la tierra escuchen a su Mesías'': libertará a los prisioneros, devolverá la vista a los ciegos, enderezará a los encorvados, curará a los heridos, ``a los muertos hará vivir'' y anunciará buenas noticias a los humildes (traducción según García Martínez, 1992).
+
+El texto sigue al salmo 146:7--8 y le añade la resurrección: el mismo recorrido de la bendición \emph{Guevurot}. Y cuando Juan el Bautista pregunta desde la cárcel si Jesús es el que había de venir, la respuesta es una lista casi igual:
+
+\begin{cita}Y respondiendo Jesús, les dijo: Id, haced saber a Juan lo que habéis visto y oído: los ciegos ven, los cojos andan, los leprosos son limpiados, los sordos oyen, los muertos son resucitados, y a los pobres es anunciado el evangelio.\fuente{(Lc 7:22)}\end{cita}
+
+\begin{nota}[Precisión]
+Edición crítica en Puech (1998, DJD XXV). El fragmento está dañado y su reconstrucción tiene partes discutidas; conviene cotejar la imagen en la Leon Levy Dead Sea Scrolls Digital Library. El paralelo con Lc 7:22 lo señalan muchos comentaristas, pero no prueba dependencia directa: muestra que en el judaísmo del siglo I la resurrección era la señal máxima del poder de Dios en los días del Mesías.
+\end{nota}
+
+%===================================================================
+\section{La omnipotencia en Cristo, leída con Pablo}\label{sec:cristo-omni}
+
+\subsection{``Su eterno poder''}
+
+Pablo empieza la carta a los Romanos con el poder de Dios, en dos sentidos:
+
+\begin{cita}Porque no me avergüenzo del evangelio, porque es poder de Dios para salvación a todo aquel que cree; al judío primeramente, y también al griego.\fuente{(Ro 1:16)}\end{cita}
+
+\begin{cita}Porque las cosas invisibles de él, su eterno poder y deidad, se hacen claramente visibles desde la creación del mundo, siendo entendidas por medio de las cosas hechas, de modo que no tienen excusa.\fuente{(Ro 1:20)}\end{cita}
+
+\begin{filologia}[Ro 1:16, 20]
+\begin{tabular}{@{}L{3.2cm}L{1.6cm}L{10cm}@{}}
+\grc{δύναμις θεοῦ} & --- & ``poder de Dios'': el evangelio no solo habla del poder, \emph{es} poder que salva. \\[2pt]
+\grc{ἥ τε ἀΐδιος αὐτοῦ δύναμις} & --- & ``su poder eterno''. \grc{ἀΐδιος}, ``perpetuo''. Es lo que de Dios se ve en lo creado. \\[2pt]
+\grc{καθορᾶται} & --- & ``se ve claramente'': lo invisible se hace visible en lo hecho (\grc{τοῖς ποιήμασιν}). \\
+\end{tabular}
+\end{filologia}
+
+Pablo lee la creación como Israel la leyó en los salmos y en Job: ``Los cielos cuentan la gloria de Dios'' (Sal 19:1). El poder que hizo el mundo es visible; por eso nadie tiene excusa. Pero el mismo capítulo dice dónde se ve el poder que \emph{salva}: en el evangelio. El poder que creó es el que ahora recrea.
+
+\subsection{Abraham: ``poderoso para hacer''}
+
+En Romanos 4, Pablo vuelve al texto ancla de este capítulo. Lee Génesis 17--18 como el retrato de la fe:
+
+\begin{cita}(como está escrito: Te he puesto por padre de muchas gentes) delante de Dios, a quien creyó, el cual da vida a los muertos, y llama las cosas que no son, como si fuesen. Él creyó en esperanza contra esperanza, para llegar a ser padre de muchas gentes, conforme a lo que se le había dicho: Así será tu descendencia. Y no se debilitó en la fe al considerar su cuerpo, que estaba ya como muerto (siendo de casi cien años), o la esterilidad de la matriz de Sara. Tampoco dudó, por incredulidad, de la promesa de Dios, sino que se fortaleció en fe, dando gloria a Dios, plenamente convencido de que era también poderoso para hacer todo lo que había prometido.\fuente{(Ro 4:17--21)}\end{cita}
+
+\begin{center}\small\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}L{4.4cm}L{5.0cm}L{5.0cm}@{}}
+\toprule
+\textbf{Génesis} & \textbf{Romanos 4} & \textbf{Comentario} \\ \midrule
+Abram, 99 años (17:1) & ``siendo de casi cien años'' (v.~19) & Pablo conserva el dato \\
+Sara estéril (18:11) & ``la esterilidad de la matriz de Sara'' & la llave del parto \\
+\emph{El Shaddai} (17:1) & ``el cual da vida a los muertos'' (v.~17) & el Nombre, leído como poder de resurrección \\
+\heb{הֲיִפָּלֵא מֵיְהוָה דָּבָר} (18:14) & \grc{δυνατός ἐστιν καὶ ποιῆσαι} (v.~21) & la pregunta, convertida en certeza \\
+\heb{תָמִים}, ``sé perfecto'' (17:1) & ``se fortaleció en fe, dando gloria a Dios'' (v.~20) & la respuesta humana \\
+\bottomrule
+\end{tabular}\end{center}
+
+La fórmula ``el cual da vida a los muertos'' (\grc{τοῦ ζῳοποιοῦντος τοὺς νεκρούς}) suena como la bendición judía \heb{מְחַיֵּה מֵתִים}. Pablo lee el nacimiento de Isaac como una resurrección anticipada: nace de dos cuerpos ``como muertos''. Y saca la consecuencia en los versículos siguientes: la misma fe es la de los que creen ``en el que levantó de los muertos a Jesús, Señor nuestro'' (Ro 4:24). La fe de Abraham es fe en la omnipotencia.
+
+\begin{nota}[Precisión]
+El parecido entre Ro 4:17 y la bendición \emph{Guevurot} es de lenguaje y de fe compartida en la resurrección; no se puede afirmar que Pablo cite la Amidá, cuya redacción exacta es posterior. ``Llama las cosas que no son, como si fuesen'' recoge la fe judía en la creación por la palabra (Gn 1; Sal 33:9).
+\end{nota}
+
+\subsection{Cristo, poder de Dios}
+
+En Corinto, Pablo enfrenta dos expectativas sobre el poder. Los judíos piden señales; los griegos buscan sabiduría (1~Co 1:22). Pablo responde con un crucificado:
+
+\begin{cita}Porque la palabra de la cruz es locura a los que se pierden; pero a los que se salvan, esto es, a nosotros, es poder de Dios.\fuente{(1~Co 1:18)}\end{cita}
+
+\begin{cita}mas para los llamados, así judíos como griegos, Cristo poder de Dios, y sabiduría de Dios. Porque lo insensato de Dios es más sabio que los hombres, y lo débil de Dios es más fuerte que los hombres.\fuente{(1~Co 1:24--25)}\end{cita}
+
+\grc{Χριστὸν θεοῦ δύναμιν}: Cristo no solo tiene poder; \emph{es} el poder de Dios. El que esperaba un milagro como el del mar Rojo encuentra el poder de Dios en la cruz, donde parecía faltar. Y Pablo cierra el argumento con el verso que une esta obra: ``El que se gloría, gloríese en el Señor'' (1~Co 1:31; Jer 9:24). En la cruz quedan sin gloria el sabio y el \emph{valiente}.
+
+\subsection{La supereminente grandeza de su poder}
+
+Si la cruz es el poder escondido, la resurrección es el poder manifestado. En Efesios, Pablo ora para que los creyentes conozcan
+
+\begin{cita}y cuál la supereminente grandeza de su poder para con nosotros los que creemos, según la operación del poder de su fuerza, la cual operó en Cristo, resucitándole de los muertos y sentándole a su diestra en los lugares celestiales, sobre todo principado y autoridad y poder y señorío, y sobre todo nombre que se nombra, no sólo en este siglo, sino también en el venidero.\fuente{(Ef 1:19--21)}\end{cita}
+
+\begin{filologia}[Ef 1:19--20]
+\begin{tabular}{@{}L{3.2cm}L{1.6cm}L{10cm}@{}}
+\grc{ὑπερβάλλον μέγεθος} & --- & ``grandeza que sobrepasa'': Pablo agota el idioma. \\[2pt]
+\grc{δύναμις} & --- & ``poder, capacidad''. \\[2pt]
+\grc{ἐνέργεια} & --- & ``operación, eficacia'': el poder en acto. \\[2pt]
+\grc{κράτος} & --- & ``dominio''. \\[2pt]
+\grc{ἰσχύς} & --- & ``fuerza''. \\
+\end{tabular}
+\end{filologia}
+
+Cuatro palabras de poder para una sola obra: resucitar a Cristo y sentarlo a la diestra, según el salmo 110:1. La resurrección de Cristo es para Pablo la medida de la omnipotencia, y esa misma fuerza obra ``para con nosotros los que creemos''. Por eso la carta puede terminar su primera parte con la doxología que Pink cita al cerrar su capítulo:
+
+\begin{cita}Y a Aquel que es poderoso para hacer todas las cosas mucho más abundantemente de lo que pedimos o entendemos, según el poder que actúa en nosotros, a él sea gloria en la iglesia en Cristo Jesús por todas las edades, por los siglos de los siglos. Amén.\fuente{(Ef 3:20--21)}\end{cita}
+
+\begin{nota}[Precisión]
+La autoría paulina de Efesios se discute. La misma relación entre el poder de Dios y la resurrección está en cartas indiscutidas: ``Dios, que levantó al Señor, también a nosotros nos levantará con su poder'' (1~Co 6:14); ``se siembra en debilidad, resucitará en poder'' (1~Co 15:43).
+\end{nota}
+
+\subsection{Mi poder se perfecciona en la debilidad}
+
+Pablo pidió tres veces que le fuera quitado el ``aguijón en la carne''. La respuesta de Cristo cambió su idea del poder:
+
+\begin{cita}Y me ha dicho: Bástate mi gracia; porque mi poder se perfecciona en la debilidad. Por tanto, de buena gana me gloriaré más bien en mis debilidades, para que repose sobre mí el poder de Cristo. Por lo cual, por amor a Cristo me gozo en las debilidades, en afrentas, en necesidades, en persecuciones, en angustias; porque cuando soy débil, entonces soy fuerte.\fuente{(2~Co 12:9--10)}\end{cita}
+
+\begin{filologia}[2~Co 12:9]
+\begin{tabular}{@{}L{3.2cm}L{1.6cm}L{10cm}@{}}
+\grc{ἀρκεῖ σοι ἡ χάρις μου} & --- & ``te basta mi gracia''. \grc{ἀρκέω}, ``bastar, ser suficiente''. \\[2pt]
+\grc{ἐν ἀσθενείᾳ τελεῖται} & --- & ``en debilidad se lleva a término'': la debilidad es el lugar donde el poder llega a su fin. \\[2pt]
+\grc{ἐπισκηνώσῃ} & --- & ``haga tienda sobre'' (de \grc{σκηνή}, ``tienda''): el poder de Cristo acampa sobre el débil, como la gloria sobre el tabernáculo. \\
+\end{tabular}
+\end{filologia}
+
+La palabra de Cristo a Pablo dice lo que la tradición judía decía de \emph{Shaddai}: es suficiente. El Dios ``que basta'' le dice a Pablo que su gracia \emph{basta}. Y el poder que se perfecciona en la debilidad es el de un Cristo que ``fue crucificado en debilidad'' pero ``vive por el poder de Dios'' (2~Co 13:4).
+
+\begin{nota}[Precisión]
+Relacionar \grc{ἀρκεῖ} con la lectura rabínica \emph{she-dai} es una lectura propia de esta serie, no una alusión explícita de Pablo. Es un eco de sentido, no de palabras.
+\end{nota}
+
+\subsection{``Dice el Señor Todopoderoso''}
+
+La única vez que Pablo usa \grc{παντοκράτωρ} es en una cadena de citas del Antiguo Testamento:
+
+\begin{cita}Y seré para vosotros por Padre, y vosotros me seréis hijos e hijas, dice el Señor Todopoderoso.\fuente{(2~Co 6:18)}\end{cita}
+
+La cita viene de la promesa de Natán a David: ``Así ha dicho \SENOR{} de los ejércitos\ldots{} Yo le seré a él padre, y él me será a mí hijo'' (2~S 7:8, 14). La Septuaginta traduce \heb{יְהוָה צְבָאוֹת} como \grc{κύριος παντοκράτωρ}. Pablo extiende la promesa del hijo de David a la iglesia, ``hijos e hijas''. El Todopoderoso no se presenta como amenaza, sino como \emph{Padre}.
+
+\subsection{Nada frustra su voluntad}
+
+La segunda mitad de la definición ---nada frustra la voluntad de Dios--- es para Pablo una fuente de seguridad. Anticipa la objeción: ``¿quién ha resistido a su voluntad?'' (Ro 9:19), y la responde con la confesión de Isaías y Daniel. Pero su conclusión pastoral está en Romanos 8:
+
+\begin{cita}Por lo cual estoy seguro de que ni la muerte, ni la vida, ni ángeles, ni principados, ni potestades, ni lo presente, ni lo por venir, ni lo alto, ni lo profundo, ni ninguna otra cosa creada nos podrá separar del amor de Dios, que es en Cristo Jesús Señor nuestro.\fuente{(Ro 8:38--39)}\end{cita}
+
+Entre los poderes que no pueden separar del amor de Dios Pablo nombra las \grc{δυνάμεις}, las ``potestades''. Ningún poder creado puede vencer al poder del Creador, y ese poder está al servicio del amor. Por eso la esperanza final es la resurrección del cuerpo:
+
+\begin{cita}el cual transformará el cuerpo de la humillación nuestra, para que sea semejante al cuerpo de la gloria suya, por el poder con el cual puede también sujetar a sí mismo todas las cosas.\fuente{(Flp 3:21)}\end{cita}
+
+El último enemigo, la muerte, ``será destruido'' (1~Co 15:26). La llave de la resurrección, que según los sabios no fue entregada a ningún enviado, está en las manos de Cristo.
+
+\subsection{La plenitud del poder en Cristo}
+
+Pablo reúne en Cristo los escenarios del poder. En él fueron creadas todas las cosas (Col 1:16), en él subsisten (Col 1:17), en él se mostró la supereminente grandeza del poder al resucitar (Ef 1:19--20), y por él todas las cosas serán sujetadas (Flp 3:21; 1~Co 15:24--28). El niño de Isaías se llamaría \heb{אֵל גִּבּוֹר}, ``Dios Fuerte'' (Is 9:6 [9:5]); el Crucificado es ``poder de Dios'' (1~Co 1:24). ``En él habita corporalmente toda la plenitud de la Deidad'' (Col 2:9): el poder que hizo nacer a Isaac, abrió el mar y resucita a los muertos tiene rostro.
+
+\begin{nota}[Precisión]
+Leer \emph{El Gibbor} de Is 9:6 [9:5] como título de Cristo es una lectura mesiánica cristiana; en su contexto es el nombre del rey davídico prometido, y la Septuaginta lo traduce de otro modo (``ángel del gran consejo''). Colosenses es de autoría discutida; la mediación de Cristo en la creación está también en 1~Co 8:6.
+\end{nota}
+
+%===================================================================
+\section{Vivir ante el Todopoderoso}
+
+La omnipotencia de Dios no es solo una doctrina para afirmar. Pide respuestas concretas.
+
+\begin{enumerate}
+\item \textbf{Adorar.} La primera reacción de Israel ante el poder de Dios fue cantar: ``¿Quién como tú, oh \SENOR, entre los dioses?'' (Éx 15:11). La última escena de la Biblia es la misma: ``Santo, santo, santo es el Señor Dios Todopoderoso'' (Ap 4:8). El poder de Dios se conoce de verdad cuando se adora.
+
+\item \textbf{Confiar en lo imposible.} La pregunta de Génesis 18:14 sigue abierta para cada creyente. Hay promesas de Dios que hemos dado por imposibles, como Sara detrás de la puerta. La omnipotencia invita a orar sin achicar a Dios: ``a Aquel que es poderoso para hacer todas las cosas mucho más abundantemente de lo que pedimos o entendemos'' (Ef 3:20).
+
+\item \textbf{Gloriarse en el Señor.} ``Ni en su valentía se alabe el valiente'' (Jer 9:23). La fuerza, la salud, la influencia y la capacidad de trabajo son recibidas: ``él te da el poder'' (Dt 8:18). Gloriarse en ellas es olvidar de dónde vienen.
+
+\item \textbf{Recibir fuerza en la debilidad.} El poder de Dios no solo está por encima del ser humano; se da al que no lo tiene:
+
+\begin{cita}El da esfuerzo al cansado, y multiplica las fuerzas al que no tiene ningunas. Los muchachos se fatigan y se cansan, los jóvenes flaquean y caen; pero los que esperan a \SENOR{} tendrán nuevas fuerzas; levantarán alas como las águilas; correrán, y no se cansarán; caminarán, y no se fatigarán.\fuente{(Is 40:29--31)}\end{cita}
+
+Pablo lo vivió así: ``cuando soy débil, entonces soy fuerte'' (2~Co 12:10).
+
+\item \textbf{Dominarse.} El reflejo humano de la \emph{gevurá} es contenerse como Dios se contiene. ``Mejor es el que tarda en airarse que el fuerte'' (Pr 16:32); ``¿quién es poderoso? El que domina su inclinación'' (\emph{Avot} 4:1); ``templanza'' (Gá 5:23). El creyente no imita la omnipotencia de Dios ejerciendo poder sobre otros, sino sobre sí mismo.
+\end{enumerate}
+
+Queda una última palabra para quien sufre. Noemí dijo: ``en grande amargura me ha puesto el Todopoderoso'' (Rt 1:20), y Job habló de las ``saetas del Todopoderoso'' (Job 6:4). La Biblia permite al creyente hablar así de \emph{Shaddai}. Pero el libro de Rut termina con un niño en brazos de Noemí, del que saldrá David (Rt 4:16--17), y el de Job con una visión de Dios (Job 42:5). El mismo poder que parecía aplastar estaba escribiendo una historia mayor.
+
+%===================================================================
+\section{Síntesis}
+
+\begin{center}
+\begin{tcolorbox}[colback=papiro,colframe=azul,boxrule=1pt,arc=3pt,width=0.95\linewidth]
+Dios es \emph{El Shaddai}: el que basta, el que hace nacer lo que no puede nacer (Gn 17:1; 18:14), el que abre el mar (Éx 14--15) y dice ``sea'' y es (Gn 1:3; Sal 33:9). Todo lo que quiere, lo hace (Sal 115:3), y nada frustra su consejo (Job 42:2; Is 46:10). Su poder es uno con su misericordia (Sal 62:11--12) y con su santidad (Éx 15:11). Israel lo bendice en el trueno y en la Amidá, y los sabios lo ven en su paciencia y su humildad. Pablo lo ve en Cristo crucificado y resucitado, ``poder de Dios'' (1~Co 1:24; Ef 1:19--20), y lo recibe como gracia que basta en la debilidad (2~Co 12:9).
+\end{tcolorbox}
+\end{center}
+
+\begin{center}\small\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}L{2.6cm}L{11.8cm}@{}}
+\toprule
+\textbf{Mirada} & \textbf{Aporte al atributo} \\ \midrule
+Torá & \emph{El Shaddai} y la descendencia; \heb{הֲיִפָּלֵא} (Gn 18:14); la palabra creadora (Gn 1); el mar Rojo (Éx 14--15); ``grande, poderoso y temible'' (Dt 10:17); ``yo hago morir y hago vivir'' (Dt 32:39). \\
+Salmos & ``de Dios es el poder'' y la misericordia (62:11--12); ``él dijo, y fue hecho'' (33:9); ``todo lo que quiso ha hecho'' (115:3); la voz, el brazo, el guerrero y la sombra (29; 89; 24; 91). \\
+Judaísmo & \emph{she-dai} (\emph{Jaguigá} 12a; \emph{Bereshit Rabá} 46:3; Rashi); \emph{haGevurá} (\emph{Makot} 24a); la Amidá; las tres llaves (\emph{Taanit} 2a--b); \emph{Berajot} 9:2; \emph{Yomá} 69b; \emph{Meguilá} 31a; \emph{Avot} 4:1; 4Q521. \\
+Pink & el poder da vida a los atributos (Charnock); el poder escondido (Hab 3:4); creación, preservación, gobierno y juicio. \\
+Paulina & Ro 1:16, 20; 4:17--21; 8:38--39; 1~Co 1:18--25; 2~Co 6:18; 12:9--10; 13:4; Ef 1:19--21; 3:20--21; Flp 3:21. \\
+\bottomrule
+\end{tabular}\end{center}
+
+\begin{cita}¿Hay para Dios alguna cosa difícil? Al tiempo señalado volveré a ti, y según el tiempo de la vida, Sara tendrá un hijo.\fuente{(Gn 18:14)}\end{cita}
+
+El verso de la obra quita la gloria al valiente y se la da al que conoce a Dios. Conocer a Dios es conocer al único poderoso, que usa su poder para dar vida.
+
+%===================================================================
+\section*{Glosario}
+
+\begin{description}\setlength{\itemsep}{2pt}
+\item[\emph{Adynatéō}] (\grc{ἀδυνατέω}) ser imposible (Gn 18:14 LXX; Lc 1:37).
+\item[\emph{Batsar}] (\heb{בָּצַר}) en nifal, ser impedido, resultar inalcanzable (Gn 11:6; Job 42:2).
+\item[\emph{Dýnamis}] (\grc{δύναμις}) poder, capacidad (Ro 1:16, 20; 1~Co 1:24).
+\item[\emph{El Shaddai}] (\heb{אֵל שַׁדַּי}) Dios Todopoderoso (Gn 17:1; Éx 6:3).
+\item[\emph{Enérgeia}] (\grc{ἐνέργεια}) operación eficaz, poder en acto (Ef 1:19; Flp 3:21).
+\item[\emph{Gevurá}] (\heb{גְּבוּרָה}) fuerza, proeza; en los sabios, nombre de Dios (\emph{haGevurá}).
+\item[\emph{Gibbor}] (\heb{גִּבּוֹר}) poderoso, valiente (Dt 10:17; Is 9:6 [9:5]; Jer 9:23 [9:22]).
+\item[\emph{Hikanós}] (\grc{ἱκανός}) suficiente; versión de \emph{Shaddai} en la LXX de Rut y Job.
+\item[\emph{Ischýs}] (\grc{ἰσχύς}) fuerza (Ef 1:19).
+\item[\emph{Kóaj}] (\heb{כֹּחַ}) vigor, capacidad (Éx 15:6; Jer 32:17).
+\item[\emph{Krátos}] (\grc{κράτος}) dominio (Ef 1:19).
+\item[\emph{Oz}] (\heb{עֹז}) fuerza firme, fortaleza (Sal 62:11 [62:12]).
+\item[\emph{Palá}] (\heb{פָּלָא}) ser extraordinario, demasiado difícil (Gn 18:14; Jer 32:17).
+\item[\emph{Pantokrátōr}] (\grc{παντοκράτωρ}) el que lo domina todo; Todopoderoso (2~Co 6:18; Ap 1:8).
+\item[\emph{Yajol}] (\heb{יָכֹל}) poder, ser capaz (Job 42:2).
+\item[\emph{Zeróa netuyá}] (\heb{זְרוֹעַ נְטוּיָה}) brazo extendido (Éx 6:6; Dt 26:8).
+\end{description}
+
+%===================================================================
+\section*{Referencias}
+
+\refapa{Bauer, W., Danker, F.~W., Arndt, W.~F., \& Gingrich, F.~W. (2000). \emph{A Greek-English lexicon of the New Testament and other early Christian literature} (3.ª ed.). University of Chicago Press.}
+\refapa{\emph{Bereshit Rabá} [46:3]. (s.f.). Sefaria. \url{https://www.sefaria.org}}
+\refapa{Charnock, S. (1996). \emph{The existence and attributes of God} (Vols. 1--2). Baker Books. (Obra original publicada en 1682)}
+\refapa{Cross, F.~M. (1973). \emph{Canaanite myth and Hebrew epic: Essays in the history of the religion of Israel}. Harvard University Press.}
+\refapa{Elbogen, I. (1993). \emph{Jewish liturgy: A comprehensive history} (R.~P. Scheindlin, Trad.). Jewish Publication Society.}
+\refapa{Elliger, K., \& Rudolph, W. (Eds.). (1997). \emph{Biblia Hebraica Stuttgartensia} (5.ª ed.). Deutsche Bibelgesellschaft.}
+\refapa{García Martínez, F. (1992). \emph{Textos de Qumrán}. Trotta.}
+\refapa{Hackett, J.~A. (1980). \emph{The Balaam text from Deir `Alla}. Scholars Press.}
+\refapa{Hays, R.~B. (1989). \emph{Echoes of Scripture in the letters of Paul}. Yale University Press.}
+\refapa{Koehler, L., \& Baumgartner, W. (2001). \emph{The Hebrew and Aramaic lexicon of the Old Testament} (M.~E.~J. Richardson, Trad.; Ed. de estudio). Brill.}
+\refapa{Maimónides. (1903). \emph{The guide for the perplexed} (M. Friedländer, Trad.; 2.ª ed.) [III, 15]. Sefaria. \url{https://www.sefaria.org}}
+\refapa{\emph{Misná: Berajot} [9:2]. (s.f.). Sefaria. \url{https://www.sefaria.org}}
+\refapa{\emph{Misná: Pirké Avot} [4:1]. (s.f.). Sefaria. \url{https://www.sefaria.org}}
+\refapa{Nestle, E., \& Aland, K. (Eds.). (2012). \emph{Novum Testamentum Graece} (28.ª ed.). Deutsche Bibelgesellschaft.}
+\refapa{Pink, A.~W. (2020). \emph{Los atributos de Dios} (E. Rodríguez Cruz, Trad.). Chapel Library. (Obra original publicada en 1930)}
+\refapa{Puech, É. (1998). \emph{Qumrân grotte 4.XVIII: Textes hébreux (4Q521--4Q528, 4Q576--4Q579)} (Discoveries in the Judaean Desert XXV). Clarendon Press.}
+\refapa{Rahlfs, A., \& Hanhart, R. (Eds.). (2006). \emph{Septuaginta} (Ed. rev.). Deutsche Bibelgesellschaft.}
+\refapa{Rashi. (s.f.). \emph{Comentario a la Torá} [Gn 17:1]. Sefaria. \url{https://www.sefaria.org}}
+\refapa{\emph{Santa Biblia: Reina-Valera 1960}. (1960). Sociedades Bíblicas en América Latina.}
+\refapa{\emph{Sidur asquenazí: Amidá, Guevurot}. (s.f.). Sefaria. \url{https://www.sefaria.org}}
+\refapa{Steinsaltz, A. (Ed.). (2017). \emph{Koren Talmud Bavli: Edición William Davidson} [Jaguigá 12a; Makot 24a; Meguilá 31a; Taanit 2a--b; Yomá 69b]. Sefaria. \url{https://www.sefaria.org}}
+\refapa{Strong, J. (1890). \emph{The exhaustive concordance of the Bible}. Hunt \& Eaton.}
+\refapa{\emph{Targum Ónkelos} [Génesis 17:1]. (s.f.). Sefaria. \url{https://www.sefaria.org}}
+\refapa{Wright, N.~T. (2013). \emph{Paul and the faithfulness of God}. Fortress Press.}
+
+\end{document}

@@ -21,7 +21,7 @@ LIBROS = {'1~Co': '1 Corintios', '1~P': '1 Pedro', '1~S': '1 Samuel', '2~Co': '2
           'Pr': 'Proverbios', 'Dn': 'Daniel', 'Ec': 'Eclesiastés', '1~R': '1 Reyes', '2~Ti': '2 Timoteo',
           '2~R': '2 Reyes', '2~S': '2 Samuel', '2~Ts': '2 Tesalonicenses', 'Am': 'Amós', 'Zac': 'Zacarías', 'Gá': 'Gálatas',
           'Ez': 'Ezequiel', 'Cnt': 'Cantares', 'Flp': 'Filipenses', 'Jos': 'Josué',
-          '1 Co': '1 Corintios', '2 Co': '2 Corintios', '1 R': '1 Reyes', '2 R': '2 Reyes', '1 Jn': '1 Juan'}
+          '1 Co': '1 Corintios', '2 Co': '2 Corintios', '1 R': '1 Reyes', '2 R': '2 Reyes', '1 Jn': '1 Juan', 'Rt': 'Rut'}
 
 def ref_larga(r):
     r = r.strip('()')
