@@ -274,23 +274,129 @@ Un \destacar{atributo} es una perfección eterna que Dios revela de sí mismo en
 
 \centering
 \begin{tikzpicture}
- \draw[line width=1.6pt,azulp,-{Latex[length=3mm]}] (0,0) -- (11.7,0);
- \foreach \x/\t/\d in {0.5/{Texto ancla}/{Verso RVR1960 y hebreo},
-                      2.15/{Filología}/{Raíz y sentidos},
-                      3.8/{Definición}/{Qué es el atributo},
-                      5.45/{Teología}/{Pink y la tradición},
-                      7.1/{Israel}/{Un encuentro histórico},
-                      8.75/{En Cristo}/{Cómo se reflejó en Jesús},
-                      10.4/{Vida}/{Aplicación}}{
+ \draw[line width=1.6pt,azulp,-{Latex[length=3mm]}] (0,0) -- (11.9,0);
+ \foreach \x/\t/\d in {0.45/{Texto ancla}/{Verso RVR1960 y hebreo},
+                      1.9/{Filología}/{Raíz y sentidos},
+                      3.35/{Nombre}/{El Nombre que lo revela},
+                      4.8/{Definición}/{Qué es el atributo},
+                      6.25/{Teología}/{Pink y la tradición},
+                      7.7/{Israel}/{Un encuentro histórico},
+                      9.15/{En Cristo}/{Cómo se reflejó en Jesús},
+                      10.6/{Vida}/{Aplicación}}{
   \fill[celeste] (\x,0) circle (4pt);
   \node[above=6pt,font=\scriptsize\bfseries,text=azulp] at (\x,0) {\t};
-  \node[below=6pt,text width=1.5cm,align=center,font=\tiny] at (\x,0) {\d};}
- \draw[azulp,line width=1.2pt,rounded corners=3pt] (7.95,-1.15) rectangle (9.55,0.75);
+  \node[below=6pt,text width=1.35cm,align=center,font=\tiny] at (\x,0) {\d};}
+ \draw[azulp,line width=1.2pt,rounded corners=3pt] (8.45,-1.15) rectangle (9.85,0.75);
+ \draw[celeste,line width=1.2pt,rounded corners=3pt,dashed] (2.65,-1.15) rectangle (4.05,0.75);
 \end{tikzpicture}
 \vspace{8pt}
 
 \raggedright
 {\footnotesize\color{grisaz}El apartado \textbf{“En Cristo”} es obligatorio en todos los capítulos: la serie termina mostrando que la \textbf{gloria de Dios es la comunión de todos sus atributos}, y que esa plenitud habita en Cristo (Col 1:19).}
+\end{frame}
+
+% =====================================================================
+\section{Los nombres}
+% =====================================================================
+\providecommand{\precision}[1]{{\footnotesize\color{grisaz}\textbf{Precisión:} #1}}
+
+\begin{frame}{``Según mis obras soy llamado''}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.48\textwidth}
+\small Si el Nombre es la colección de sus atributos, \destacar{cada nombre de Dios revela algo de lo que él es}. No todos los atributos tienen un nombre propio, pero la gran mayoría está ligada a un nombre, un título o una declaración con el Nombre.\par\medskip
+\begin{center}\heb{שמי אתה מבקש לידע לפי מעשי אני נקרא}\end{center}
+\footnotesize ``¿Mi nombre quieres saber? Según mis obras soy llamado'' (\emph{Shemot Rabá} 3:6, sobre Éx 3:13).\par\smallskip
+\precision{lectura rabínica (R. Abbá bar Memel), no etimología.}
+\end{column}
+\begin{column}{0.50\textwidth}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+ \node[circle,draw=celeste,line width=1.5pt,fill=azulp,text=white,minimum size=1.6cm,align=center,font=\scriptsize\bfseries] (d) at (0,0) {El Nombre};
+ \foreach \a/\n/\o in {135/Elohim/{cuando juzgo},45/Tsevaot/{cuando hago guerra\\contra los impíos},-45/{El Shadday}/{cuando suspendo\\el castigo},-135/\SENOR{}/{cuando tengo\\misericordia}}{
+   \node[caja,text width=2.0cm,align=center] (n\a) at (\a:2.2cm) {\textbf{\n}\\\o};
+   \draw[celeste,line width=1pt] (d) -- (n\a);}
+\end{tikzpicture}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{``YO SOY EL QUE SOY''}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\begin{cita}Y respondió Dios a Moisés: YO SOY EL QUE SOY. Y dijo: Así dirás a los hijos de Israel: YO SOY me envió a vosotros.\fuente{(Éx 3:14, RVR1960)}\end{cita}
+\begin{center}\heb{אֶהְיֶה אֲשֶׁר אֶהְיֶה}\end{center}
+\scriptsize ``Este es mi nombre para siempre; con él se me recordará por todos los siglos'' (Éx 3:15).\par\smallskip
+\small Este Nombre habla ante todo de la \destacar{eternidad}: Dios simplemente es. ``Antes que Abraham fuese, yo soy'' (Jn 8:58); ``el que es y que era y que ha de venir'' (Ap 1:8).
+\end{column}
+\begin{column}{0.48\textwidth}\scriptsize
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.0cm}>{\RaggedRight\arraybackslash}p{3.7cm}@{}}
+\toprule
+\textbf{Término} & \textbf{Sentido} \\ \midrule
+\heb{אֶהְיֶה} \emph{ehyeh} & imperfecto de \heb{היה}: ``soy / seré''; acción no terminada. \\
+\heb{יְהוָה} YHWH & el Nombre propio (v.~15): Dios dice ``Yo soy'', Israel dice ``Él es''. Etimología discutida (HALOT). \\
+\heb{לְעֹלָם} \emph{le'olam} & ``para siempre''. \\
+\grc{ἐγώ εἰμι ὁ ὤν} & LXX: ``Yo soy el que es''. \\
+\bottomrule
+\end{tabular}\par\medskip
+\precision{Rashi (con Berajot 9b): ``estaré con ellos en esta angustia''. La lectura judía subraya la presencia fiel; la LXX y Jn 8:58, el ser eterno. No se excluyen.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Mapa de los nombres (I): Ser e Identidad}
+\tiny\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{1.6cm}>{\RaggedRight\arraybackslash}p{3.9cm}>{\RaggedRight\arraybackslash}p{3.1cm}>{\RaggedRight\arraybackslash}p{1.9cm}@{}}
+\toprule
+\textbf{Atributo} & \textbf{Nombre o declaración} & \textbf{Original} & \textbf{Texto} \\ \midrule
+Uno & ``El \SENOR{} uno es''; ``uno su nombre'' & \heb{יְהוָה אֶחָד} & Dt 6:4; Zac 14:9 \\
+Amor & ``El Dios de paz y de amor'' & \grc{ὁ θεὸς τῆς ἀγάπης} & 2~Co 13:11 \\
+Espíritu & ``Dios de los espíritus de toda carne'' & \heb{אֵל אֱלֹהֵי הָרוּחֹת} & Nm 16:22 \\ \midrule
+Santo & ``El Santo de Israel''; ``su nombre es el Santo'' & \heb{קְדוֹשׁ יִשְׂרָאֵל} & Is 41:14; 57:15 \\
+Eterno & ``YO SOY EL QUE SOY''; ``Dios eterno'' & \heb{אֶהְיֶה}; \heb{אֵל עוֹלָם} & Éx 3:14; Gn 21:33 \\
+Soberano & ``Dios Altísimo''; ``el solo Soberano'' & \heb{אֵל עֶלְיוֹן}; \grc{μόνος δυνάστης} & Gn 14:19; 1~Ti 6:15 \\
+Justo & ``\SENOR{}, justicia nuestra'' & \heb{יְהוָה צִדְקֵנוּ} & Jer 23:6 \\
+Inmutable & ``Yo \SENOR{} no cambio''; ``la Roca'' & \heb{לֹא שָׁנִיתִי}; \heb{הַצּוּר} & Mal 3:6; Dt 32:4 \\
+Omnipotente & ``Dios Todopoderoso''; ``\SENOR{} de los ejércitos'' & \heb{אֵל שַׁדַּי}; \heb{יְהוָה צְבָאוֹת} & Gn 17:1; Is 6:3 \\
+Omnipresente & ``\SENOR{}-sama''; ``Emanuel'' & \heb{יְהוָה שָׁמָּה}; \heb{עִמָּנוּאֵל} & Ez 48:35; Is 7:14 \\
+Omnisciente & ``Dios que ve''; ``Dios de todo saber'' & \heb{אֵל רֳאִי}; \heb{אֵל דֵּעוֹת} & Gn 16:13; 1~S 2:3 \\
+\bottomrule
+\end{tabular}
+\end{frame}
+
+\begin{frame}{Mapa de los nombres (II): Relación}
+\tiny\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{1.6cm}>{\RaggedRight\arraybackslash}p{3.9cm}>{\RaggedRight\arraybackslash}p{3.1cm}>{\RaggedRight\arraybackslash}p{1.9cm}@{}}
+\toprule
+\textbf{Atributo} & \textbf{Nombre o declaración} & \textbf{Original} & \textbf{Texto} \\ \midrule
+Sabiduría & ``Admirable, Consejero''; ``el único y sabio Dios'' & \heb{פֶּלֶא יוֹעֵץ}; \grc{μόνῳ σοφῷ θεῷ} & Is 9:6; Ro 16:27 \\
+Verdadero & ``Dios de verdad''; ``el Dios del Amén'' & \heb{אֵל אֱמֶת}; \heb{אֱלֹהֵי אָמֵן} & Sal 31:5; Is 65:16 \\
+Misericordioso & ``Dios misericordioso''; ``Padre de misericordias'' & \heb{אֵל רַחוּם} & Dt 4:31; 2~Co 1:3 \\
+Fiel & ``Dios fiel'' & \heb{הָאֵל הַנֶּאֱמָן} & Dt 7:9; 1~Co 1:9 \\
+Celo & ``Cuyo nombre es Celoso'' & \heb{קַנָּא שְׁמוֹ} & Éx 34:14 \\
+Ira santa & ``Dios de las venganzas'' & \heb{אֵל נְקָמוֹת} & Sal 94:1; Nah 1:2 \\
+Bondad & ``\SENOR{} proveerá''; ``es bueno el \SENOR{}'' & \heb{יְהוָה יִרְאֶה}; \heb{טוֹב יְהוָה} & Gn 22:14; Sal 34:8 \\
+Paciencia & ``Tardo para la ira''; ``el Dios de la paciencia'' & \heb{אֶרֶךְ אַפַּיִם}; \grc{ὑπομονή} & Éx 34:6; Ro 15:5 \\
+Gracia & ``Piadoso''; ``el Dios de toda gracia'' & \heb{חַנּוּן}; \grc{πάσης χάριτος} & Éx 34:6; 1~P 5:10 \\
+\bottomrule
+\end{tabular}\par\smallskip
+\precision{no todos son nombres propios: algunos son títulos, otros declaraciones con el Nombre (Mal 3:6) o nombres de lugares (Gn 22:14; Ez 48:35). Los sabios agregaron \emph{HaQadosh Barukh Hu}, \emph{HaRajamán}, \emph{Ribbonó shel olam} y \emph{HaMaqom}, ``el Lugar'' (\emph{Bereshit Rabá} 68:9).}
+\end{frame}
+
+\begin{frame}{El Nombre que es sobre todo nombre}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\begin{cita}Por mí mismo hice juramento, de mi boca salió palabra en justicia, y no será revocada: Que a mí se doblará toda rodilla, y jurará toda lengua.\fuente{(Is 45:23, RVR1960)}\end{cita}
+\begin{cita}Por lo cual Dios también le exaltó hasta lo sumo, y le dio un nombre que es sobre todo nombre, para que en el nombre de Jesús se doble toda rodilla de los que están en los cielos, y en la tierra, y debajo de la tierra; y toda lengua confiese que Jesucristo es el Señor, para gloria de Dios Padre.\fuente{(Flp 2:9--11, RVR1960)}\end{cita}
+\end{column}
+\begin{column}{0.48\textwidth}\small
+\begin{itemize}
+\item Pablo aplica a Jesús un texto en que el \SENOR{} reclama para sí solo la adoración de toda la tierra.
+\item \grc{κύριος}, ``Señor'', es la palabra con que la Septuaginta traduce \heb{יְהוָה}.
+\item Cada nombre del mapa \destacar{converge en ese Nombre}: en él habita toda la plenitud de la Deidad (Col 2:9).
+\end{itemize}
+\end{column}
+\end{columns}
 \end{frame}
 
 % =====================================================================
