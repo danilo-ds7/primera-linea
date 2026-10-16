@@ -1,0 +1,1201 @@
+\documentclass[hyperref={bookmarks=false},aspectratio=169]{beamer}
+\usepackage{hyperref,ragged2e,amsmath,amssymb,url,bm}
+\usepackage{graphicx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,shapes.geometric,decorations.pathreplacing,matrix}
+\graphicspath{{crops/}}
+\usetheme{Goettingen}
+% --- Paleta: azul profundo, dorado y papiro crema ---
+\definecolor{azul}{HTML}{15437C}
+\definecolor{azuloscuro}{HTML}{0B1F3A}
+\definecolor{celeste}{HTML}{5694D6}
+\definecolor{dorado}{RGB}{196,154,60}
+\definecolor{papiro}{RGB}{246,239,220}
+\definecolor{gris}{RGB}{70,78,96}
+\setbeamercolor{structure}{fg=azul}
+\setbeamertemplate{sidebar canvas right}[vertical shading][top=azul,bottom=azuloscuro]
+\setbeamercolor{title in sidebar}{fg=dorado}
+\setbeamercolor{author in sidebar}{fg=papiro}
+\setbeamercolor{section in sidebar}{fg=papiro}
+\setbeamercolor{section in sidebar shaded}{fg=dorado!70!papiro}
+\setbeamercolor{subsection in sidebar}{fg=papiro}
+\setbeamercolor{subsection in sidebar shaded}{fg=dorado!70!papiro}
+\let\raggedright\justifying
+\setlength{\RaggedRightRightskip}{0pt plus 1fil}
+\setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth,height=\paperheight]{papiro.jpg}}
+\setbeamercolor{normal text}{fg=black!88!azuloscuro}
+\setbeamercolor{frametitle}{fg=azul}
+\setbeamerfont{frametitle}{series=\bfseries}
+\setbeamertemplate{section in toc shaded}{\leavevmode{\color{gris}\inserttocsection}\par}
+\setbeamercolor{title}{fg=azul}
+\setbeamercolor{subtitle}{fg=gris}
+\setbeamercolor{item projected}{bg=azul,fg=papiro}
+\setbeamertemplate{itemize item}{\small\textcolor{dorado}{$\blacktriangleright$}}
+\setbeamertemplate{navigation symbols}{}
+% --- Español + hebreo + griego (XeLaTeX) ---
+\usepackage[bidi=default]{babel}
+\babelprovide[import,main]{spanish}
+\babelprovide[import]{hebrew}
+\babelprovide[import]{ancientgreek}
+\babelfont[hebrew]{sf}[Path=fonts/, BoldFont=NotoHebrewSans-700.ttf]{NotoHebrewSans-400.ttf}
+\babelfont[hebrew]{rm}[Path=fonts/, BoldFont=NotoHebrewSans-700.ttf]{NotoHebrewSans-400.ttf}
+\babelfont[ancientgreek]{sf}[Path=fonts/]{GFSPorson.otf}
+\babelfont[ancientgreek]{rm}[Path=fonts/]{GFSPorson.otf}
+\newcommand{\heb}[1]{\mbox{\foreignlanguage{hebrew}{#1}}}
+\newcommand{\grc}[1]{\foreignlanguage{ancientgreek}{#1}}
+\newcommand{\SENOR}{S{\fontsize{0.78em}{1em}\selectfont EÑOR}}
+% --- Citas (cuadro de un solo color), imágenes, referencias ---
+\usepackage[most]{tcolorbox}
+\newtcolorbox{cita}[1][]{enhanced, colback=azul!7!papiro, opacityback=0.85, colframe=azul,
+  boxrule=0pt, leftrule=2.5pt, arc=0pt, left=6pt, right=6pt, top=4pt, bottom=4pt,
+  before skip=4pt, after skip=6pt, fontupper=\small\itshape, #1}
+\newcommand{\fuente}[1]{\par\hfill{\upshape\bfseries\footnotesize\textcolor{azul}{#1}}}
+\makeatletter
+\newcommand{\fotolado}[2]{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north east,inner sep=0pt] (foto) at ([xshift=-\beamer@sidebarwidth]current page.north east)
+      {\includegraphics[height=\paperheight]{#1}};
+    \node[anchor=south east,inner sep=2pt,text=papiro,fill=azuloscuro,fill opacity=0.6,text opacity=1,
+      font=\fontsize{4.5}{5.5}\selectfont,align=right,text width=4.2cm] at ([xshift=-3pt,yshift=3pt]foto.south east)
+      {\textit{Nota.} #2};
+  \end{tikzpicture}}
+\makeatother
+\newcommand{\refapa}[1]{\par{\RaggedRight\hangindent=1.2em\hangafter=1\noindent #1\par}\vspace{3pt}}
+\usepackage{xurl}\urlstyle{same}
+\newcommand{\destacar}[1]{\textbf{\textcolor{azul}{#1}}}
+\newcommand{\precision}[1]{{\footnotesize\color{gris}\textbf{Precisión:} #1}}
+\tikzset{caja/.style={draw=azul,line width=0.8pt,fill=papiro,fill opacity=0.92,text opacity=1,rounded corners=3pt,inner sep=5pt,font=\scriptsize}}
+\title[La soberanía de Dios]{\bfseries{La soberanía de Dios}}
+\subtitle{``Él hace según su voluntad\ldots{} y no hay quien detenga su mano'' (Dn 4:35)}
+\author{}\institute{}\date{}
+\titlegraphic{\includegraphics[width=0.80\linewidth,height=0.36\textheight,keepaspectratio]{portada.jpg}\\[-1pt]
+  {\fontsize{5}{6}\selectfont\color{gris}\textit{Nota.} Elaboración propia: Dn 4:34b [4:31b] en texto arameo consonántico (BHS).}}
+\AtBeginSection[]{\begin{frame}\frametitle{Contenidos}\tableofcontents[currentsection]\end{frame}}
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}\frametitle{Contenidos}\tableofcontents\end{frame}
+
+% ------------------------------------------------------------------
+\section{Contexto}
+
+\begin{frame}{Una definición}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.48\textwidth}
+\begin{tcolorbox}[colback=papiro,colframe=azul,boxrule=1pt,arc=3pt]
+\centering\large \destacar{Dios gobierna absolutamente todas las cosas según su voluntad.}
+\end{tcolorbox}
+\small Es la definición de partida de esta serie. Cada palabra tiene un texto detrás:
+\begin{itemize}
+\item \destacar{gobierna}: ``el Altísimo gobierna el reino de los hombres'' (Dn 4:17);
+\item \destacar{todas las cosas}: ``su reino domina sobre todos'' (Sal 103:19);
+\item \destacar{según su voluntad}: ``hace todas las cosas según el designio de su voluntad'' (Ef 1:11).
+\end{itemize}
+\end{column}
+\begin{column}{0.50\textwidth}
+\begin{cita}Nuestro Dios está en los cielos; Todo lo que quiso ha hecho.\fuente{(Sal 115:3, RVR1960)}\end{cita}
+\begin{center}\heb{וֵאלֹהֵינוּ בַשָּׁמָיִם כֹּל אֲשֶׁר־חָפֵץ עָשָׂה}\end{center}
+\scriptsize \heb{חָפֵץ} \emph{jafets}: ``quiso, se complació en''. No es un capricho: es el deseo libre de quien no depende de nada. El salmo lo opone a los ídolos, que ``tienen boca, mas no hablan'' (115:5).
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{La pregunta del dolor}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.50\textwidth}\small
+Si Dios gobierna todo, ¿por qué hay tanto dolor? Y si gran parte del dolor lo causa el mismo ser humano, ¿sigue Dios siendo soberano?\par\medskip
+C. S. Lewis formuló así el problema en \emph{El problema del dolor} (1940), cap. 2, ``La omnipotencia divina'':
+\begin{tcolorbox}[colback=papiro,colframe=dorado,boxrule=1.2pt,arc=3pt]
+\footnotesize ``Si Dios fuera bueno, desearía que sus criaturas fueran perfectamente felices, y si fuera todopoderoso sería capaz de hacer aquello que desea.''
+\end{tcolorbox}
+\scriptsize Pero las criaturas no son felices; luego Dios carecería de bondad, de poder o de ambos. Ese es el problema.
+\end{column}
+\begin{column}{0.48\textwidth}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+ \node[caja,text width=2.3cm,align=center] (b) at (-1.6,1.3) {\textbf{Dios es bueno}\\ quiere nuestra felicidad};
+ \node[caja,text width=2.3cm,align=center] (p) at (1.6,1.3) {\textbf{Dios es soberano}\\ puede lo que quiere};
+ \node[caja,text width=2.6cm,align=center,fill=gris!18] (d) at (0,-0.9) {\textbf{Hay dolor}\\ las criaturas sufren};
+ \draw[dorado,line width=1.2pt] (b)--(p) (p)--(d) (d)--(b);
+ \node[font=\Large\bfseries,text=azul] at (0,0.45) {?};
+\end{tikzpicture}\par\smallskip
+\precision{cita según una traducción española disponible del cap. 2; en el original: ``If God were good\ldots''. Conviene cotejar con la edición de Rialp (1994) que use Danilo.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Un atributo de identidad}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+ \node[draw=dorado,line width=1.6pt,fill=azul,text=papiro,rounded corners=3pt,text width=2.6cm,align=center,inner sep=5pt] (d) at (0,1.9) {\textbf{¿Quién es?}\\ el Rey del cielo {\tiny(Dn 4:37)}};
+ \node[caja,text width=1.6cm,align=center] (a) at (-2.1,-0.4) {\textbf{Naturaleza}\\ mares y abismos {\tiny(Sal 135:6)}};
+ \node[caja,text width=1.6cm,align=center] (b) at (0,-0.8) {\textbf{Naciones}\\ quita y pone reyes {\tiny(Dn 2:21)}};
+ \node[caja,text width=1.6cm,align=center] (c) at (2.1,-0.4) {\textbf{Corazones}\\ el del rey, en su mano {\tiny(Pr 21:1)}};
+ \foreach \i in {a,b,c}\draw[-{Latex[length=2.5mm]},dorado,line width=1.2pt](d)--(\i);
+\end{tikzpicture}
+\end{column}
+\begin{column}{0.48\textwidth}\small
+\begin{itemize}
+\item La soberanía responde a la pregunta \destacar{¿quién es Dios?}: el que reina. No es una función que Dios cumple a veces, sino lo que él es.
+\item Se apoya en otros atributos: si es soberano, es porque es \destacar{eterno} (``cuyo dominio es sempiterno'', Dn 4:34), \destacar{omnipotente} y \destacar{sabio}.
+\end{itemize}
+\precision{clasificación propuesta: Identidad; \emph{incomunicable} como gobierno de todas las cosas; \emph{comunicable} como reflejo en el señorío delegado al ser humano: ``Le hiciste señorear sobre las obras de tus manos'' (Sal 8:6 [8:7]).}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{``Soberano'' en la Biblia}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.40\textwidth}\footnotesize
+\begin{itemize}
+\item La RVR1960 usa ``soberano'' solo \textbf{8 veces}, en 8 versículos; ``soberanía'' no aparece en el texto (solo en un título de sección, Job 26).
+\item La idea, en cambio, está en todas partes: en los \destacar{nombres} de Dios (\emph{Adonay}, \emph{Elyón}), en sus \destacar{verbos} (reinar, gobernar, dominar) y en las fórmulas ``\SENOR{} reina'', ``todo lo que quiso ha hecho''.
+\end{itemize}
+\end{column}
+\begin{column}{0.58\textwidth}
+\scriptsize\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{1.4cm}>{\RaggedRight\arraybackslash}p{2.5cm}>{\RaggedRight\arraybackslash}p{2.8cm}@{}}
+\toprule
+\textbf{Texto} & \textbf{RVR1960} & \textbf{Original} \\ \midrule
+Job 31:28 & ``el Dios soberano'' & \heb{אֵל מִמָּעַל} ``Dios de arriba'' \\
+Ez 38:2, 3; 39:1 & ``príncipe soberano'' (Gog) & \heb{נְשִׂיא רֹאשׁ} \\
+Hch 4:24 & ``Soberano Señor'' & \grc{Δέσποτα} \\
+1 Ti 6:15 & ``el solo Soberano'' & \grc{ὁ μόνος δυνάστης} \\
+Jud 4 & ``el único soberano'' & \grc{τὸν μόνον δεσπότην} \\
+Ap 1:5 & ``el soberano de los reyes'' & \grc{ὁ ἄρχων τῶν βασιλέων} \\
+\bottomrule
+\end{tabular}
+\end{column}
+\end{columns}\par\smallskip
+\precision{conteo propio en la RVR1960, sin títulos de sección. En Jud 4 el título se aplica a Jesucristo (``nuestro único Soberano y Señor'') o a Dios y a Cristo, según cómo se lea la frase; en Ap 1:5, a Jesucristo.}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Daniel 4}
+
+\begin{frame}{Un rey que tuvo que aprender}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+ \draw[line width=1.6pt,azul,-{Latex[length=3mm]}] (-0.3,0) -- (12.0,0);
+ \foreach \x/\t/\b/\r/\pos in {0.5/{El sueño}/{un árbol que llega al cielo}/{Dn 4:10--12}/above,
+   2.9/{La sentencia}/{``para que conozcan los vivientes''}/{Dn 4:17}/below,
+   5.3/{La soberbia}/{``la gran Babilonia que yo edifiqué''}/{Dn 4:30}/above,
+   7.7/{La humillación}/{``comía hierba como los bueyes''}/{Dn 4:33}/below,
+   10.3/{La confesión}/{``alcé mis ojos al cielo''}/{Dn 4:34--37}/above}{
+  \fill[dorado] (\x,0) circle (4pt);
+  \node[\pos=7pt,text width=2.2cm,align=center] at (\x,0) {\textbf{\textcolor{azul}{\t}}\\ \b\\ {\tiny\color{gris}(\r)}};}
+\end{tikzpicture}\par\medskip
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.49\textwidth}
+\begin{cita}habló el rey y dijo: ¿No es ésta la gran Babilonia que yo edifiqué para casa real con la fuerza de mi poder, y para gloria de mi majestad?\fuente{(Dn 4:30 [4:27], RVR1960)}\end{cita}
+\end{column}
+\begin{column}{0.49\textwidth}\footnotesize
+Daniel 4 es una carta del rey más poderoso de su tiempo a ``todos los pueblos'' (4:1). Está escrita en primera persona por el propio rey, y su tema es uno: \destacar{quién gobierna de verdad}.
+\end{column}
+\end{columns}
+\precision{Dn 2:4b--7:28 está en arameo. La numeración española de Dn 4 va tres versículos adelante de la aramea; esta se da entre corchetes.}
+\end{frame}
+
+\begin{frame}{``Hasta que conozcas''}
+\scriptsize\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{1.4cm}>{\RaggedRight\arraybackslash}p{6.1cm}>{\RaggedRight\arraybackslash}p{4.3cm}@{}}
+\toprule
+\textbf{Texto} & \textbf{RVR1960} & \textbf{Arameo} \\ \midrule
+4:17 [4:14] & ``para que conozcan los vivientes que el Altísimo gobierna el reino de los hombres, y que a quien él quiere lo da'' & \heb{דִּי־שַׁלִּיט עִלָּיָא בְּמַלְכוּת אֱנָשָׁא} \\
+4:25 [4:22] & ``hasta que conozcas que el Altísimo tiene dominio en el reino de los hombres, y que lo da a quien él quiere'' & \heb{עַד דִּי־תִנְדַּע דִּי־שַׁלִּיט עִלָּיָא} \\
+4:26 [4:23] & ``luego que reconozcas que el cielo gobierna'' & \heb{דִּי שַׁלִּטִן שְׁמַיָּא} \\
+4:32 [4:29] & ``hasta que reconozcas que el Altísimo tiene el dominio en el reino de los hombres, y lo da a quien él quiere'' & \heb{עַד דִּי־תִנְדַּע דִּי־שַׁלִּיט עִלָּיָא} \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.55\textwidth}\small
+La frase se repite como un \destacar{estribillo}: el capítulo entero está construido para que el lector aprenda lo mismo que el rey. \heb{שַׁלִּיט} \emph{shallit}: ``es soberano, tiene dominio'' (participio). El sujeto es \heb{עִלָּיָא} \emph{Illayá}, ``el Altísimo''.
+\end{column}
+\begin{column}{0.43\textwidth}
+\precision{en 4:26 ``el cielo'' sustituye a ``Dios''. Es un uso que el judaísmo posterior generalizó: \emph{malkhut shamayim}, ``reino de los cielos''.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Texto ancla: Dn 4:34--35}
+\fotolado{panel_daniel4.jpg}{Elaboración propia: Dn 4:35 [4:32] en texto arameo consonántico (BHS).}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.58\textwidth}
+\begin{cita}Mas al fin del tiempo yo Nabucodonosor alcé mis ojos al cielo, y mi razón me fue devuelta; y bendije al Altísimo, y alabé y glorifiqué al que vive para siempre, cuyo dominio es sempiterno, y su reino por todas las edades. Todos los habitantes de la tierra son considerados como nada; y él hace según su voluntad en el ejército del cielo, y en los habitantes de la tierra, y no hay quien detenga su mano, y le diga: ¿Qué haces?\fuente{(Dn 4:34--35 [4:31--32], RVR1960)}\end{cita}
+\end{column}
+\begin{column}{0.40\textwidth}\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Dn 4:34--35 en arameo}
+\begin{center}\heb{דִּי שָׁלְטָנֵהּ שָׁלְטָן עָלַם וּמַלְכוּתֵהּ עִם־דָּר וְדָר}\\[2pt]
+\heb{וּכְמִצְבְּיֵהּ עָבֵד בְּחֵיל שְׁמַיָּא וְדָאֲרֵי אַרְעָא}\\[2pt]
+\heb{וְלָא אִיתַי דִּי־יְמַחֵא בִידֵהּ וְיֵאמַר לֵהּ מָה עֲבַדְתְּ}\end{center}
+\scriptsize\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{3.0cm}>{\RaggedRight\arraybackslash}p{1.1cm}>{\RaggedRight\arraybackslash}p{7.7cm}@{}}
+\toprule
+\textbf{Término} & \textbf{Raíz} & \textbf{Sentido} \\ \midrule
+\heb{שָׁלְטָנֵהּ שָׁלְטָן עָלַם} & \heb{שׁלט} & ``su dominio (es) dominio eterno'': \emph{sholtán}, ``dominio, imperio''. La misma raíz que \emph{shallit} (4:17). \\
+\heb{כְּלָה חֲשִׁיבִין} & \heb{חשׁב} & ``como nada son considerados'': los habitantes de la tierra \destacar{no cuentan} frente a él. \\
+\heb{וּכְמִצְבְּיֵהּ עָבֵד} & \heb{צבא} & ``y conforme a su voluntad hace'': \emph{tsevá}, ``querer'', el mismo verbo de ``a quien él \destacar{quiere} lo da'' (4:17). \\
+\heb{בְּחֵיל שְׁמַיָּא} & \heb{חיל} & ``en el ejército del cielo'': los poderes celestiales. \\
+\heb{יְמַחֵא בִידֵהּ} & \heb{מחא} & ``golpee su mano'': gesto de quien detiene o reprocha. Nadie puede frenar la mano de Dios. \\
+\heb{מָה עֲבַדְתְּ} & \heb{עבד} & ``¿qué has hecho?'': nadie le pide cuentas (cf. Job 9:12; Is 45:9; Ec 8:4). \\
+\bottomrule
+\end{tabular}
+\end{frame}
+
+\begin{frame}{Del orgullo a la confesión}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\begin{cita}Ahora yo Nabucodonosor alabo, engrandezco y glorifico al Rey del cielo, porque todas sus obras son verdaderas, y sus caminos justos; y él puede humillar a los que andan con soberbia.\fuente{(Dn 4:37 [4:34], RVR1960)}\end{cita}
+\begin{center}\heb{לְמֶלֶךְ שְׁמַיָּא}\\ \heb{דִּי כָל־מַעֲבָדוֹהִי קְשֹׁט וְאֹרְחָתֵהּ דִּין}\end{center}
+\end{column}
+\begin{column}{0.48\textwidth}\small
+\begin{itemize}
+\item ``Rey del cielo'' (\heb{מֶלֶךְ שְׁמַיָּא}): el que se creía rey reconoce a \destacar{otro Rey}.
+\item La soberanía de Dios no queda sola: sus obras son \destacar{verdad} (\heb{קְשֹׁט} \emph{qeshot}) y sus caminos \destacar{justicia} (\heb{דִּין} \emph{din}).
+\item El dolor de la humillación fue el medio: ``siete tiempos pasarán sobre ti, hasta que conozcas'' (4:25).
+\end{itemize}
+\end{column}
+\end{columns}\par\smallskip
+\precision{la lectura del castigo de Nabucodonosor como instrumento pedagógico de la soberanía la da el propio texto (``hasta que conozcas''); su relación con el ``megáfono'' de Lewis es una conexión propia de esta serie.}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{El Nombre}
+
+\begin{frame}{Cada nombre revela un atributo}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+ \node[draw=dorado,line width=1.6pt,fill=azul,text=papiro,rounded corners=3pt,text width=2.8cm,align=center,inner sep=6pt,font=\small\bfseries] (c) at (0,0) {SOBERANÍA};
+ \node[caja,text width=3.1cm,align=center] (a) at (-4.4,1.3) {\heb{אֲדֹנָי} \textbf{Adonay}\\ ``mi Señor'', el Dueño\\ {\tiny 437 veces en el AT}};
+ \node[caja,text width=3.1cm,align=center] (b) at (4.4,1.3) {\heb{עֶלְיוֹן} \textbf{Elyón}\\ ``el Altísimo''\\ {\tiny 31 veces de Dios; arameo \emph{Illayá} 10}};
+ \node[caja,text width=3.1cm,align=center] (d) at (-4.4,-1.4) {\heb{יְהוָה מָלָךְ} \textbf{YHWH malaj}\\ ``el \SENOR{} reina''\\ {\tiny Sal 93:1; 97:1; 99:1}};
+ \node[caja,text width=3.1cm,align=center] (e) at (4.4,-1.4) {\heb{מֶלֶךְ שְׁמַיָּא} \textbf{Rey del cielo}\\ {\tiny Dn 4:37; cf. ``Rey grande sobre toda la tierra'', Sal 47:2}};
+ \foreach \i in {a,b,d,e}\draw[dorado,line width=1.1pt] (c)--(\i);
+\end{tikzpicture}\par\medskip
+\small\RaggedRight En la Biblia el nombre revela quién es Dios (Éx 3:15; 34:5--7). El nombre que más directamente expresa la soberanía es \destacar{Adonay}: Dios es el \emph{Señor}, el dueño que dispone de lo suyo. \emph{Elyón} añade la altura: está \destacar{por encima} de todo poder.
+\end{frame}
+
+\begin{frame}{\emph{Adonay}: el Dueño}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}\footnotesize
+\begin{itemize}
+\item \heb{אָדוֹן} \emph{adón}: ``señor, amo, dueño'' (Strong: ``soberano, controlador''). Se dice de un amo con sus siervos y de un rey.
+\item \heb{אֲדֹנָי} \emph{Adonay}: forma enfática, con \emph{qamets} final, reservada a Dios: ``\destacar{el Señor}''.
+\item José es puesto ``por \destacar{señor} (\heb{אָדוֹן}) de toda su casa'' (Gn 45:8): un señorío delegado. El de Dios no es delegado.
+\end{itemize}
+\begin{cita}si soy señor, ¿dónde está mi temor?\fuente{(Mal 1:6, RVR1960)}\end{cita}
+\end{column}
+\begin{column}{0.48\textwidth}
+\scriptsize\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.2cm}>{\RaggedRight\arraybackslash}p{3.6cm}@{}}
+\toprule
+\textbf{Forma} & \textbf{Uso} \\ \midrule
+\heb{אֲדֹנִי} \emph{adoní} & ``mi señor'' (humano): 200 veces \\
+\heb{אֲדֹנָי} \emph{Adonay} & ``el Señor'' (Dios): 437 veces en 422 vv. \\
+\heb{אֲדֹנָי יֱהוִה} & ``Señor \SENOR'' / ``\SENOR{} el Señor'': 301 veces; 210 en Ezequiel \\
+\heb{אֲדֹנֵינוּ} & ``Señor nuestro'' (Sal 8:1 [8:2]) \\
+\bottomrule
+\end{tabular}\par\smallskip
+\precision{conteo propio en la BHS por forma consonántica y vocal final. Verificar en e-Sword.}\par\smallskip
+\precision{al leer en voz alta, el judaísmo dice \emph{Adonay} donde está escrito \heb{יהוה}. Por eso esta serie escribe \SENOR{} en lugar de ``Jehová''.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{``Señor \SENOR'': Abram y el Dueño}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.52\textwidth}
+\begin{cita}Y respondió Abram: Señor \SENOR, ¿qué me darás, siendo así que ando sin hijo, y el mayordomo de mi casa es ese damasceno Eliezer?\fuente{(Gn 15:2, RVR1960)}\end{cita}
+\begin{center}\heb{אֲדֹנָי יֱהוִה מַה־תִּתֶּן־לִי}\end{center}
+\scriptsize Primera vez que la Biblia une \emph{Adonay} y el Nombre. Abram está en la noche de la espera: sin hijo, sin heredero, con una promesa que parece imposible. Justamente ahí llama a Dios \destacar{Dueño}.
+\end{column}
+\begin{column}{0.46\textwidth}
+\scriptsize\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{1.6cm}>{\RaggedRight\arraybackslash}p{4.0cm}@{}}
+\toprule
+TM & \heb{אֲדֹנָי יֱהוִה} \emph{Adonay YHWH} \\
+LXX & \grc{Δέσποτα} (15:2); \grc{Δέσποτα κύριε} (15:8) \\
+RVR1960 & ``Señor Jehová'' \\
+Hch 4:24 & \grc{Δέσποτα}: ``Soberano Señor'' \\
+\bottomrule
+\end{tabular}\par\medskip
+\small La Septuaginta tradujo el primer \emph{Adonay YHWH} con \grc{δέσποτα}, ``amo, soberano''. La iglesia de Jerusalén ora con la misma palabra (Hch 4:24).\par\smallskip
+\precision{en \heb{יֱהוִה} los masoretas pusieron las vocales de \emph{Elohim}: después de \emph{Adonay} se lee \emph{Adonay Elohim}, para no repetir ``Adonay''.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{\emph{Elyón}: el Altísimo}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.52\textwidth}
+\begin{cita}y le bendijo, diciendo: Bendito sea Abram del Dios Altísimo, creador de los cielos y de la tierra; y bendito sea el Dios Altísimo, que entregó tus enemigos en tu mano.\fuente{(Gn 14:19--20, RVR1960)}\end{cita}
+\begin{center}\heb{לְאֵל עֶלְיוֹן קֹנֵה שָׁמַיִם וָאָרֶץ}\end{center}
+\scriptsize \heb{קֹנֵה} \emph{qoné}: ``creador'' (RVR1960), también ``\destacar{dueño}, el que adquiere'' (raíz \heb{קנה}). Dios es dueño de lo que hizo.
+\end{column}
+\begin{column}{0.46\textwidth}\small
+\begin{itemize}
+\item \heb{עֶלְיוֹן} \emph{Elyón}, de \heb{עלה} ``subir'': el que está más alto.
+\item En Gn 14 el Altísimo es soberano sobre los reyes: los cuatro reyes de oriente caen ante Abram (14:20).
+\item ``Cuando el Altísimo hizo heredar a las naciones\ldots{} estableció los límites de los pueblos'' (Dt 32:8): Elyón reparte el mapa del mundo.
+\item En Daniel (arameo \heb{עִלָּיָא} \emph{Illayá}) es el título dominante del capítulo 4.
+\end{itemize}
+\end{column}
+\end{columns}\par\smallskip
+\precision{\emph{qoné} admite ``creador'' y ``poseedor''; los léxicos registran ambos sentidos (HALOT; BDB). La RVR1960 elige ``creador''.}
+\end{frame}
+
+\begin{frame}{El espectro: hebreo y arameo}
+\scriptsize\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.9cm}>{\RaggedRight\arraybackslash}p{3.0cm}>{\RaggedRight\arraybackslash}p{2.3cm}>{\RaggedRight\arraybackslash}p{3.5cm}@{}}
+\toprule
+\textbf{Término} & \textbf{Sentido} & \textbf{RVR1960} & \textbf{Textos} \\ \midrule
+\heb{אֲדֹנָי} \emph{Adonay} & el Señor, el Dueño & Señor & Gn 15:2; Sal 8:1; Is 6:1; Lm 3:37 \\
+\heb{עֶלְיוֹן} \emph{Elyón} & el Altísimo & Altísimo & Gn 14:18--22; Dt 32:8; Sal 47:2; 91:1 \\
+\heb{מָלַךְ} \emph{malaj} & reinar & reinar & Éx 15:18; Sal 93:1; 97:1 \\
+\heb{מָשַׁל} \emph{mashal} & gobernar, dominar & dominar, señorear & 1 Cr 29:12; Sal 103:19; Sal 8:6 \\
+\heb{חָפֵץ} \emph{jafets} & querer, complacerse & querer & Sal 115:3; 135:6; Is 46:10 \\
+\heb{עֵצָה} \emph{etsá} & consejo, plan & consejo & Is 46:10; Pr 19:21 \\ \midrule
+\heb{שַׁלִּיט} \emph{shallit} (arameo) & soberano, que domina & gobierna, tiene dominio & Dn 4:17, 25, 26, 32 \\
+\heb{שָׁלְטָן} \emph{sholtán} (arameo) & dominio, imperio & dominio, señorío & Dn 4:3, 34; 7:14 \\
+\heb{עִלָּיָא} \emph{Illayá} (arameo) & el Altísimo & Altísimo & Dn 4:2, 17, 34; 5:18, 21 \\
+\bottomrule
+\end{tabular}\par\medskip
+\precision{conteos propios (BHS): \emph{Adonay} 437; \emph{Elyón} como título divino 31 de sus 53 apariciones (las demás son ``superior, alto'' en sentido físico); \emph{Illayá} 10 y \emph{elyonín} (``santos del Altísimo'') 4. En la RVR1960, ``Altísimo'' aparece 57 veces. Verificar en e-Sword.}
+\end{frame}
+
+\begin{frame}{El espectro: griego}
+\scriptsize\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.6cm}>{\RaggedRight\arraybackslash}p{3.0cm}>{\RaggedRight\arraybackslash}p{2.6cm}>{\RaggedRight\arraybackslash}p{3.5cm}@{}}
+\toprule
+\textbf{Término} & \textbf{Sentido} & \textbf{RVR1960} & \textbf{Textos} \\ \midrule
+\grc{δεσπότης} (10) & amo con autoridad plena & Señor, Soberano, amo & Lc 2:29; Hch 4:24; Jud 4; Ap 6:10 \\
+\grc{δυνάστης} (3) & potentado, soberano & Soberano, poderoso & 1 Ti 6:15; Lc 1:52 \\
+\grc{κύριος} & señor; en la LXX, el Nombre & Señor & Flp 2:11; Ro 10:9 \\
+\grc{ὕψιστος} (13) & altísimo & Altísimo & Lc 1:32; Hch 7:48 \\
+\grc{βουλή} (12) & consejo, designio & designio, consejo & Hch 2:23; 4:28; Ef 1:11 \\
+\grc{θέλημα} (62) & voluntad & voluntad & Ef 1:5, 9, 11; Ro 9:19 \\
+\grc{πρόθεσις} (12) & propósito & propósito & Ro 8:28; 9:11; Ef 1:11 \\
+\grc{ἐνεργέω} (21) & obrar eficazmente & hacer, operar & Ef 1:11, 20; Flp 2:13 \\
+\bottomrule
+\end{tabular}\par\medskip
+\precision{conteo propio en NA27 con Strong. De los 10 usos de \grc{δεσπότης}, 6 se refieren a Dios o a Cristo; los otros 4, a amos humanos (1 Ti 6:1--2; Tit 2:9; 1 P 2:18).}
+\end{frame}
+
+\begin{frame}{Del hebreo al griego de Pablo}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+ \node[caja,text width=3.3cm,align=center] (h) at (0,0) {\textbf{Hebreo}\\ \heb{אֲדֹנָי} / \heb{יהוה}\\ el Dueño; el Nombre que se lee \emph{Adonay}};
+ \node[caja,text width=3.3cm,align=center] (l) at (4.3,0) {\textbf{Septuaginta}\\ \grc{κύριος}; \grc{δέσποτα} (Gn 15:2)\\ ``Señor'', ``Soberano''};
+ \node[draw=dorado,line width=1.6pt,fill=azul,text=papiro,rounded corners=3pt,text width=3.3cm,align=center,inner sep=5pt] (p) at (8.6,0) {\textbf{Pablo}\\ \grc{κύριος Ἰησοῦς Χριστός}\\ ``Jesucristo es el Señor'' (Flp 2:11)};
+ \draw[-{Latex[length=2.5mm]},dorado,line width=1.3pt] (h)--(l); \draw[-{Latex[length=2.5mm]},dorado,line width=1.3pt] (l)--(p);
+\end{tikzpicture}\par\smallskip
+{\scriptsize\itshape\color{gris} El nombre que Israel pronunciaba en lugar del Nombre, ``Señor'', es el que Pablo confiesa de Jesús.}\par\medskip
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.49\textwidth}
+\begin{cita}\SENOR{} dijo a mi Señor: Siéntate a mi diestra, Hasta que ponga a tus enemigos por estrado de tus pies.\fuente{(Sal 110:1, RVR1960)}\end{cita}
+\end{column}
+\begin{column}{0.49\textwidth}\small
+\heb{נְאֻם יְהוָה לַאדֹנִי}: ``oráculo del \SENOR{} a mi señor (\emph{adoní})''. El salmo más citado del NT es un salmo de \destacar{soberanía}: Dios entroniza a su Señor hasta someter a todos sus enemigos (1 Co 15:25; Ef 1:20--22).
+\end{column}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Definición}
+
+\begin{frame}{¿Qué es la soberanía de Dios?}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.48\textwidth}\small
+De los textos estudiados resulta que la soberanía de Dios:
+\begin{enumerate}
+\item es \destacar{gobierno}, no solo poder (``gobierna el reino de los hombres'');
+\item es \destacar{universal}: cielo, tierra, mares y abismos;
+\item es \destacar{libre}: hace ``lo que quiere'', sin consejero (Is 40:13);
+\item es \destacar{eterna}: ``dominio sempiterno'';
+\item es \destacar{buena}: sus obras son verdad y sus caminos justicia (Dn 4:37).
+\end{enumerate}
+\end{column}
+\begin{column}{0.50\textwidth}
+\begin{tcolorbox}[colback=papiro,colframe=azul,boxrule=1pt,arc=3pt,title={\small Definición},colbacktitle=azul,coltitle=papiro]
+\small La soberanía de Dios es la perfección eterna por la cual Dios, como \destacar{Señor} (\emph{Adonay}) y \destacar{Altísimo} (\emph{Elyón}), gobierna absolutamente todas las cosas según su voluntad: dispone de lo que es suyo con derecho pleno, cumple su consejo por todos los medios, aun los que el hombre usa para mal, y lo encamina todo a su gloria y al bien de su pueblo, sin dejar de ser justo ni de hacer responsable a la criatura.
+\end{tcolorbox}
+\precision{definición de síntesis de esta serie, a partir de la definición de partida y de los textos estudiados.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Lo que la soberanía no es}
+\scriptsize\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.3cm}>{\RaggedRight\arraybackslash}p{4.6cm}>{\RaggedRight\arraybackslash}p{4.9cm}@{}}
+\toprule
+\textbf{Idea} & \textbf{Qué afirma} & \textbf{Por qué no es la soberanía bíblica} \\ \midrule
+Fatalismo & un destino ciego e impersonal decide todo & Dios es una persona que \destacar{quiere}, ama y escucha (Sal 115:3; Hch 4:24--31) \\
+Deísmo & Dios hizo el mundo y lo dejó funcionar solo & ``todas las cosas en él subsisten'' (Col 1:17); la suerte se echa, ``mas de \SENOR{} es la decisión'' (Pr 16:33) \\
+Dualismo & el bien y el mal son dos poderes iguales & ``Yo \SENOR{} soy el que hago todo esto'' (Is 45:7) \\
+Arbitrariedad & Dios actúa por capricho & sus caminos son ``justos'' (Dn 4:37); hace ``misericordia, juicio y justicia'' (Jer 9:24) \\
+Pasividad humana & si Dios decide, el hombre no responde & ``ocupaos en vuestra salvación\ldots{} porque Dios es el que en vosotros produce'' (Flp 2:12--13) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{cita}El corazón del hombre piensa su camino; Mas \SENOR{} endereza sus pasos.\fuente{(Pr 16:9, RVR1960)}\end{cita}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Teología}
+
+\begin{frame}{Pink: supremacía y soberanía}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}\small
+Pink dedica dos capítulos seguidos: ``La supremacía de Dios'' (cap. 5) y ``La soberanía de Dios'' (cap. 6). Define la soberanía como ``el ejercicio de su Supremacía'': Dios ``hace como le place, sólo como le place y siempre como le place'' (Pink, 2020, p. 30).\par\medskip
+Su texto clave es el mismo de este estudio: ``él hace según su voluntad en el ejército del cielo\ldots{}'' (Dn 4:35), junto con Is 46:10 y Ef 1:11.
+\end{column}
+\begin{column}{0.48\textwidth}
+\begin{tcolorbox}[colback=papiro,colframe=dorado,boxrule=1.2pt,arc=3pt]
+\footnotesize ``No hay atributo más reconfortante para sus hijos que el de la soberanía de Dios.''\par\hfill{\scriptsize C. H. Spurgeon, sermón sobre Mt 20:15, citado por Pink (2020, p. 30)}
+\end{tcolorbox}
+\small Para Spurgeon el creyente cree que ``la soberanía ha ordenado sus aflicciones'' y que ``los santificará a todos''. El consuelo no está en entender el dolor, sino en saber \destacar{quién está en el trono}.
+\end{column}
+\end{columns}\par\smallskip
+\precision{Pink se usa como referencia puntual; el orden y la estructura de este estudio son propios de la serie.}
+\end{frame}
+
+\begin{frame}{Soberanía y responsabilidad}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.48\textwidth}\small
+Pink sostiene que la responsabilidad humana \destacar{se basa} en la soberanía divina: Dios colocó a sus criaturas en el estado que quiso y les dio una ley; por eso responden ante él (2020, pp. 31--33).\par\medskip
+La Escritura afirma las dos cosas a la vez, a menudo en el mismo versículo:
+\end{column}
+\begin{column}{0.50\textwidth}
+\scriptsize\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{1.4cm}>{\RaggedRight\arraybackslash}p{2.3cm}>{\RaggedRight\arraybackslash}p{2.3cm}@{}}
+\toprule
+\textbf{Texto} & \textbf{Dios} & \textbf{El hombre} \\ \midrule
+Gn 50:20 & ``Dios lo encaminó a bien'' & ``vosotros pensasteis mal'' \\
+Pr 16:9 & ``\SENOR{} endereza sus pasos'' & ``el corazón del hombre piensa su camino'' \\
+Hch 2:23 & ``el determinado consejo\ldots{} de Dios'' & ``matasteis por manos de inicuos'' \\
+Flp 2:12--13 & ``Dios\ldots{} produce así el querer como el hacer'' & ``ocupaos en vuestra salvación'' \\
+\bottomrule
+\end{tabular}
+\end{column}
+\end{columns}\par\medskip
+\begin{tcolorbox}[colback=papiro,colframe=azul,boxrule=1pt,arc=3pt]
+\small La Biblia no explica \emph{cómo} se unen; muestra \emph{que} se unen. La soberanía no anula la culpa del que hace el mal ni el deber del que obedece.
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}{Soberano sobre el mal}
+\fotolado{panel_isaias45.jpg}{Elaboración propia: Is 45:7 en texto hebreo consonántico (BHS).}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.58\textwidth}
+\begin{cita}que formo la luz y creo las tinieblas, que hago la paz y creo la adversidad. Yo \SENOR{} soy el que hago todo esto.\fuente{(Is 45:7, RVR1960)}\end{cita}
+\scriptsize\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.0cm}>{\RaggedRight\arraybackslash}p{4.6cm}@{}}
+\toprule
+\heb{שָׁלוֹם} // \heb{רָע} & ``paz'' // ``adversidad'': \emph{ra'}, ``mal, desgracia''. El par es paz/calamidad, no virtud/pecado. \\
+\heb{בֹּרֵא} & ``creo'': el verbo de Gn 1:1 (\emph{bará}). \\
+\bottomrule
+\end{tabular}\par\smallskip
+\small Isaías habla a los exiliados frente a Ciro (45:1): no hay un dios de la luz y otro de las tinieblas.
+\end{column}
+\begin{column}{0.40\textwidth}\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{``Lo malo y lo bueno''}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\begin{cita}¿Quién será aquel que diga que sucedió algo que el Señor no mandó? ¿De la boca del Altísimo no sale lo malo y lo bueno?\fuente{(Lm 3:37--38, RVR1960)}\end{cita}
+\begin{cita}¿Habrá algún mal en la ciudad, el cual \SENOR{} no haya hecho?\fuente{(Am 3:6b, RVR1960)}\end{cita}
+\end{column}
+\begin{column}{0.48\textwidth}\small
+\begin{itemize}
+\item Lamentaciones une los dos nombres de la soberanía: \heb{אֲדֹנָי} (3:37) y \heb{עֶלְיוֹן} (3:38).
+\item Lo dice un poeta que llora sobre Jerusalén en ruinas. No es teoría: es \destacar{fe en medio del dolor}.
+\item Pocos versos antes: ``Bueno es \SENOR{} a los que en él esperan'' (3:25) y ``no aflige ni entristece voluntariamente a los hijos de los hombres'' (3:33).
+\end{itemize}
+\end{column}
+\end{columns}\par\smallskip
+\precision{muchos intérpretes ven en Is 45:7 también una respuesta al dualismo persa. \heb{הָרָעוֹת וְהַטּוֹב} (Lm 3:38) y \heb{רָעָה} (Am 3:6) son calamidad o desgracia (juicio sobre la ciudad), no el pecado moral. Dios gobierna el mal sin ser autor del pecado (cf. Stg 1:13).}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{El dolor}
+
+\begin{frame}{C. S. Lewis y el problema del dolor}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.46\textwidth}\small
+\emph{The Problem of Pain} (1940; en español \emph{El problema del dolor}, Rialp, 1994) fue uno de los primeros libros apologéticos de Lewis. No pretende consolar, sino \destacar{pensar}: ¿cómo puede un Dios bueno y todopoderoso permitir el sufrimiento?\par\medskip
+Su respuesta no niega la soberanía de Dios: \destacar{la explica}. Hay que entender bien qué significan ``bueno'', ``todopoderoso'' y ``feliz''.
+\end{column}
+\begin{column}{0.52\textwidth}
+\scriptsize\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.5cm}>{\RaggedRight\arraybackslash}p{2.8cm}>{\RaggedRight\arraybackslash}p{3.1cm}@{}}
+\toprule
+\textbf{Cap.} & \textbf{Título} & \textbf{Idea para este estudio} \\ \midrule
+2 & La omnipotencia divina & qué puede y qué no ``puede'' Dios \\
+3 & La bondad divina & amor no es indulgencia \\
+4 & La maldad humana & el hombre no se ve culpable \\
+5 & La caída del hombre & origen del mal humano \\
+6--7 & El dolor humano & el dolor que causamos; el ``megáfono'' \\
+\bottomrule
+\end{tabular}
+\end{column}
+\end{columns}\par\smallskip
+\precision{títulos de los caps. 2--4 según una traducción española disponible; los de 5--7, traducción del original. Conviene cotejar páginas en la edición de Rialp.}
+\end{frame}
+
+\begin{frame}{La omnipotencia y lo imposible}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}\small
+\textbf{Primera precisión de Lewis (cap. 2).} Que Dios todo lo pueda no significa que pueda hacer contradicciones: un círculo cuadrado no es una ``cosa'' que Dios deje de hacer; es un sinsentido.
+\begin{tcolorbox}[colback=papiro,colframe=dorado,boxrule=1.2pt,arc=3pt]
+\footnotesize ``el disparate sigue siendo disparate aun cuando nos refiramos a Dios''
+\end{tcolorbox}
+\end{column}
+\begin{column}{0.48\textwidth}\small
+\textbf{Segunda precisión (cap. 2).} Un mundo con criaturas libres que se encuentran necesita un \destacar{orden natural estable}: la piedra que sostiene también puede herir. Si se excluye la posibilidad del sufrimiento que traen ese orden y la libertad, se encuentra que se ha excluido ``la vida misma''.
+\end{column}
+\end{columns}\par\medskip
+\begin{cita}Yo conozco que todo lo puedes, Y que no hay pensamiento que se esconda de ti.\fuente{(Job 42:2, RVR1960)}\end{cita}
+\precision{citas de Lewis según una traducción española disponible; el resto es resumen. Lo bíblico equivalente: Dios ``no puede negarse a sí mismo'' (2 Ti 2:13) ni mentir (Tit 1:2; He 6:18).}
+\end{frame}
+
+\begin{frame}{El dolor que nos causamos}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.54\textwidth}\footnotesize
+Lewis observa (cap. 6) que, cuando las almas se vuelven malas, usan la posibilidad del dolor para \destacar{herirse unas a otras}, y que esto explica quizás \destacar{cuatro quintas partes} de los sufrimientos humanos.\par\smallskip
+Y agrega una lista: no fue Dios, sino el ser humano, quien fabricó los potros de tortura, los látigos, las cárceles, la esclavitud, los cañones, las bayonetas y las bombas.
+\end{column}
+\begin{column}{0.44\textwidth}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+ \fill[azul] (0,0) -- (90:1.2) arc (90:-198:1.2) -- cycle;
+ \fill[dorado] (0,0) -- (162:1.2) arc (162:90:1.2) -- cycle;
+ \node[text=papiro,font=\scriptsize\bfseries] at (-50:0.6) {4/5};
+ \node[text=azuloscuro,font=\tiny\bfseries] at (126:0.8) {1/5};
+ \node[text width=4.6cm,align=center,font=\tiny,text=gris] at (0,-1.7) {\textcolor{azul}{\textbf{Azul}}: dolor causado por el ser humano. Estimación de Lewis (``quizás''), no una estadística.};
+\end{tikzpicture}\par\smallskip
+\precision{resumen y paráfrasis del cap. 6 (``Human Pain'') del original; la cifra es una conjetura de Lewis.}
+\end{column}
+\end{columns}\par\smallskip
+\begin{tcolorbox}[colback=papiro,colframe=azul,boxrule=1pt,arc=3pt]
+\footnotesize Aquí está la pregunta de esta serie: \destacar{Dios es soberano aun cuando el dolor lo causa el ser humano}. El que hiere es culpable; Dios no deja de reinar.
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}{El megáfono de Dios}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}\small
+La frase más conocida del libro (cap. 6):
+\begin{tcolorbox}[colback=papiro,colframe=dorado,boxrule=1.2pt,arc=3pt]
+\footnotesize Dios ``nos susurra en nuestros placeres, nos habla en nuestra conciencia, pero nos grita en nuestros dolores: es su megáfono para despertar a un mundo sordo''.
+\end{tcolorbox}
+\scriptsize El dolor no puede ignorarse. Rompe la ilusión de que todo está bien y de que nos bastamos a nosotros mismos.
+\end{column}
+\begin{column}{0.48\textwidth}
+\begin{cita}y siete tiempos pasarán sobre ti, hasta que conozcas que el Altísimo tiene dominio en el reino de los hombres.\fuente{(Dn 4:25 [4:22], RVR1960)}\end{cita}
+\begin{cita}Antes que fuera yo humillado, descarriado andaba; Mas ahora guardo tu palabra.\fuente{(Sal 119:67, RVR1960)}\end{cita}
+\end{column}
+\end{columns}\par\smallskip
+\precision{traducción propia del original inglés (``God whispers to us in our pleasures\ldots''); cotejar con la edición de Rialp. La relación con Nabucodonosor es lectura propia de esta serie.}
+\end{frame}
+
+\begin{frame}{Un Padre, no un abuelo}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}\small
+En ``La bondad divina'' (cap. 3), Lewis distingue \destacar{amor} de mera \destacar{benevolencia}. Queremos un Dios que nos deje hacer lo que nos gusta y nos vea contentos:
+\begin{tcolorbox}[colback=papiro,colframe=dorado,boxrule=1.2pt,arc=3pt]
+\footnotesize ``deseamos no tanto un padre en los cielos, sino más bien un abuelito''
+\end{tcolorbox}
+\scriptsize El amor verdadero quiere el \emph{bien} del amado, no solo su comodidad; por eso puede corregir, y la corrección duele.
+\end{column}
+\begin{column}{0.48\textwidth}
+\begin{cita}Es verdad que ninguna disciplina al presente parece ser causa de gozo, sino de tristeza; pero después da fruto apacible de justicia a los que en ella han sido ejercitados.\fuente{(He 12:11, RVR1960)}\end{cita}
+\small El Dios soberano no es indiferente al dolor: lo \destacar{usa} como Padre.
+\end{column}
+\end{columns}\par\smallskip
+\precision{cita de Lewis según una traducción española disponible; cotejar con Rialp.}
+\end{frame}
+
+\begin{frame}{Lewis y la Escritura: dos acentos}
+\scriptsize\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.6cm}>{\RaggedRight\arraybackslash}p{4.4cm}>{\RaggedRight\arraybackslash}p{4.8cm}@{}}
+\toprule
+\textbf{Tema} & \textbf{Lewis} & \textbf{Pink y los textos} \\ \midrule
+Origen del dolor & la libertad de las criaturas y un orden natural estable & también; pero el mal humano queda dentro del consejo de Dios (Gn 50:20; Hch 4:27--28) \\
+Papel de Dios & permite el dolor y lo usa para despertar & ``hace según su voluntad'' (Dn 4:35); ``\SENOR{} dio, y \SENOR{} quitó'' (Job 1:21) \\
+Consuelo & el dolor tiene sentido y no es la última palabra & ``todas las cosas les ayudan a bien'' (Ro 8:28); ``peso de gloria'' (2 Co 4:17) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.52\textwidth}\small
+Lewis subraya la \destacar{libertad} humana; Pink, la \destacar{soberanía} que la incluye. La Biblia sostiene ambas: el hombre que hiere es culpable, y Dios sigue reinando sobre ese mismo mal.
+\end{column}
+\begin{column}{0.46\textwidth}
+\precision{la comparación es propia de esta serie. Lewis escribe como apologista ante un lector escéptico; Pink, como expositor ante creyentes. Sus acentos difieren; no se excluyen del todo.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Job: el dolor bajo el trono}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\begin{cita}Desnudo salí del vientre de mi madre, y desnudo volveré allá. \SENOR{} dio, y \SENOR{} quitó; sea el nombre de \SENOR{} bendito.\fuente{(Job 1:21, RVR1960)}\end{cita}
+\begin{cita}¿Recibiremos de Dios el bien, y el mal no lo recibiremos? En todo esto no pecó Job con sus labios.\fuente{(Job 2:10, RVR1960)}\end{cita}
+\end{column}
+\begin{column}{0.48\textwidth}\small
+\begin{itemize}
+\item Las pérdidas de Job vienen de sabeos, caldeos, fuego y viento (1:13--19). Detrás, el Satán; por encima, \destacar{el permiso de Dios} (1:12; 2:6).
+\item Job no atribuye su dolor a los sabeos ni al Satán: dice ``\SENOR{} quitó''. No acusa a Dios: lo bendice.
+\item Dios nunca le explica el porqué. Le muestra \destacar{quién es} (Job 38--41), y Job responde: ``todo lo puedes'' (42:2).
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{En Israel}
+
+\begin{frame}{José: trece años de dolor}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+ \draw[line width=1.6pt,azul,-{Latex[length=3mm]}] (-0.3,0) -- (12.0,0);
+ \foreach \x/\t/\b/\r/\pos in {0.5/{Odiado}/{``le aborrecían''}/{Gn 37:4}/above,
+   2.9/{Vendido}/{``por veinte piezas de plata''}/{Gn 37:28}/below,
+   5.3/{Calumniado}/{la cárcel del rey}/{Gn 39:20}/above,
+   7.7/{Olvidado}/{``no se acordó de José''}/{Gn 40:23}/below,
+   10.3/{Exaltado}/{``señor de toda su casa''}/{Gn 41:40; 45:8}/above}{
+  \fill[dorado] (\x,0) circle (4pt);
+  \node[\pos=7pt,text width=2.2cm,align=center] at (\x,0) {\textbf{\textcolor{azul}{\t}}\\ \b\\ {\tiny\color{gris}(\r)}};}
+\end{tikzpicture}\par\medskip
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.49\textwidth}
+\begin{cita}Y cuando pasaban los madianitas mercaderes, sacaron ellos a José de la cisterna\ldots{} y le vendieron a los ismaelitas por veinte piezas de plata.\fuente{(Gn 37:28, RVR1960)}\end{cita}
+\end{column}
+\begin{column}{0.49\textwidth}\small
+De los 17 años (37:2) a los 30 (41:46): trece años de dolor causado por \destacar{otros}: sus hermanos, la mujer de Potifar, el copero que lo olvidó. Es el caso que plantea la pregunta: ¿dónde está Dios cuando el dolor lo causa el ser humano?
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{``No me enviasteis acá vosotros''}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.52\textwidth}
+\begin{cita}Ahora, pues, no os entristezcáis, ni os pese de haberme vendido acá; porque para preservación de vida me envió Dios delante de vosotros\ldots{} Así, pues, no me enviasteis acá vosotros, sino Dios, que me ha puesto por padre de Faraón y por señor de toda su casa, y por gobernador en toda la tierra de Egipto.\fuente{(Gn 45:5, 8, RVR1960)}\end{cita}
+\end{column}
+\begin{column}{0.46\textwidth}
+\scriptsize\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.1cm}>{\RaggedRight\arraybackslash}p{3.6cm}@{}}
+\toprule
+\heb{כִּי־מְכַרְתֶּם אֹתִי} & ``que me vendisteis'': José no niega el pecado. \\
+\heb{שְׁלָחַנִי אֱלֹהִים} & ``me envió Dios'': tres veces (45:5, 7, 8). \\
+\heb{לְמִחְיָה} & ``para preservación de vida''. \\
+\heb{וּלְאָדוֹן} & ``y por \destacar{señor}'' (\emph{adón}). \\
+\heb{וּמֹשֵׁל} & ``y gobernador'' (\emph{moshel}, de \emph{mashal}). \\
+\bottomrule
+\end{tabular}\par\smallskip
+\small El esclavo vendido termina como \emph{adón} y \emph{moshel}: las mismas palabras de la soberanía, ahora \destacar{delegadas}.
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Texto: Gn 50:19--20}
+\fotolado{panel_genesis50.jpg}{Elaboración propia: Gn 50:20 en texto hebreo consonántico (BHS).}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.58\textwidth}
+\begin{cita}Y les respondió José: No temáis; ¿acaso estoy yo en lugar de Dios? Vosotros pensasteis mal contra mí, mas Dios lo encaminó a bien, para hacer lo que vemos hoy, para mantener en vida a mucho pueblo.\fuente{(Gn 50:19--20, RVR1960)}\end{cita}
+\small Muerto Jacob, los hermanos temen la venganza (50:15). José responde con la soberanía de Dios: no ocupa el lugar de Dios para juzgar, porque Dios ya \destacar{gobernó} lo que ellos hicieron.
+\end{column}
+\begin{column}{0.40\textwidth}\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Gn 50:20: un verbo, dos intenciones}
+\begin{center}\large\heb{וְאַתֶּם חֲשַׁבְתֶּם עָלַי רָעָה אֱלֹהִים חֲשָׁבָהּ לְטֹבָה}\end{center}
+\scriptsize\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{3.0cm}>{\RaggedRight\arraybackslash}p{1.1cm}>{\RaggedRight\arraybackslash}p{7.7cm}@{}}
+\toprule
+\textbf{Término} & \textbf{Raíz} & \textbf{Sentido} \\ \midrule
+\heb{הֲתַחַת אֱלֹהִים אָנִי} & \heb{תחת} & ``¿acaso estoy yo en lugar de Dios?'' (50:19). \\
+\heb{חֲשַׁבְתֶּם עָלַי רָעָה} & \heb{חשׁב} & ``vosotros \destacar{planeasteis} contra mí mal'': \emph{jashav}, ``pensar, tramar, calcular''. \\
+\heb{אֱלֹהִים חֲשָׁבָהּ לְטֹבָה} & \heb{חשׁב} & ``Dios lo \destacar{planeó} para bien'': el \destacar{mismo verbo}. El sufijo \heb{ָהּ} (``lo'', femenino) se refiere a la misma \emph{ra'á}. \\
+\heb{לְהַחֲיֹת עַם־רָב} & \heb{חיה} & ``para mantener con vida a mucho pueblo''. \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.52\textwidth}\small
+No son dos hechos, uno malo y otro bueno: es \destacar{un solo hecho} con dos intenciones. Los hermanos son culpables; Dios es soberano. La RVR1960 traduce ``lo encaminó a bien''.
+\end{column}
+\begin{column}{0.46\textwidth}\scriptsize
+\textbf{LXX:} \grc{ὑμεῖς ἐβουλεύσασθε κατ’ ἐμοῦ εἰς πονηρά, ὁ δὲ θεὸς ἐβουλεύσατο περὶ ἐμοῦ εἰς ἀγαθά}: ``vosotros \destacar{deliberasteis} para mal; Dios deliberó para bien''. \grc{βουλεύω} es el verbo de la \grc{βουλή}, el ``designio'' de Ef 1:11.
+\end{column}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Judaísmo}
+
+\begin{frame}{El yugo del reino de los cielos}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}\small
+\textbf{Misná} \emph{Berajot} 2:2. Rabí Yehoshúa ben Qorjá explica por qué el \emph{Shemá} (Dt 6:4--9) precede a Dt 11:13--21:
+\begin{center}\heb{כְּדֵי שֶׁיְּקַבֵּל עָלָיו עֹל מַלְכוּת שָׁמַיִם תְּחִלָּה}\end{center}
+``para que reciba sobre sí primero el \destacar{yugo del reino de los cielos}, y después el yugo de los mandamientos''.\par\smallskip
+Recitar el \emph{Shemá} cada mañana y cada noche es aceptar a Dios como Rey.
+\end{column}
+\begin{column}{0.48\textwidth}\small
+\textbf{La respuesta al \emph{Shemá}} (\emph{Pesajim} 56a):
+\begin{center}\heb{בָּרוּךְ שֵׁם כְּבוֹד מַלְכוּתוֹ לְעוֹלָם וָעֶד}\end{center}
+``Bendito sea el nombre de la gloria de su reino por siempre jamás''.\par\smallskip
+\textbf{\emph{Avinu malkenu}} (\emph{Taanit} 25b): Rabí Aquiba ora ``Padre nuestro, Rey nuestro''. La oración entró en la liturgia de los días terribles.
+\end{column}
+\end{columns}\par\smallskip
+\precision{fuentes rabínicas; traducción propia. El Talmud atribuye a Rabí Aquiba la fórmula ``Padre nuestro, Rey nuestro''; la letanía larga actual es posterior (Elbogen, 1993).}
+\end{frame}
+
+\begin{frame}{\emph{Maljuyot}: los versos de la realeza}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}\small
+En la oración adicional de \emph{Rosh Hashaná} hay tres bendiciones centrales (Misná \emph{Rosh Hashaná} 4:5--6):
+\begin{itemize}
+\item \destacar{\emph{Maljuyot}} (``reinados''): versos que proclaman a Dios Rey;
+\item \emph{Zijronot} (``memorias''): Dios recuerda;
+\item \emph{Shofarot}: el sonido del cuerno.
+\end{itemize}
+La Misná pide no menos de \destacar{diez} versos de realeza: de la Torá, los Profetas y los Escritos.
+\end{column}
+\begin{column}{0.48\textwidth}
+\scriptsize\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{1.6cm}>{\RaggedRight\arraybackslash}p{4.0cm}@{}}
+\toprule
+\textbf{Verso} & \textbf{Texto (RVR1960)} \\ \midrule
+Éx 15:18 & ``\SENOR{} reinará eternamente y para siempre'' \\
+Sal 93:1 & ``\SENOR{} reina; se vistió de magnificencia'' \\
+Abd 21 & ``y el reino será de \SENOR'' \\
+Zac 14:9 & ``\SENOR{} será rey sobre toda la tierra'' \\
+\bottomrule
+\end{tabular}\par\smallskip
+La sección se abre con el \emph{Alenu}: ``nos inclinamos\ldots{} ante el Rey de reyes de reyes, el Santo, bendito sea''.
+\end{column}
+\end{columns}\par\smallskip
+\precision{lista de versos ilustrativa (aparecen en el \emph{Musaf} de \emph{Rosh Hashaná} según el uso común); el orden y la selección varían por rito. Cotejar en un \emph{majzor}.}
+\end{frame}
+
+\begin{frame}{Todo previsto, la libertad dada}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}\small
+\textbf{Rabí Aquiba} (Misná \emph{Avot} 3:15):
+\begin{center}\heb{הַכֹּל צָפוּי וְהָרְשׁוּת נְתוּנָה}\\ \heb{וּבְטוּב הָעוֹלָם נִדּוֹן}\end{center}
+``Todo está previsto, y la libertad está dada; y el mundo es juzgado con bondad''.\par\medskip
+\textbf{Rabí Janiná} (\emph{Berajot} 33b):
+\begin{center}\heb{הַכֹּל בִּידֵי שָׁמַיִם חוּץ מִיִּרְאַת שָׁמַיִם}\end{center}
+``Todo está en manos del Cielo, excepto el temor del Cielo'', y cita Dt 10:12.
+\end{column}
+\begin{column}{0.48\textwidth}\small
+\begin{itemize}
+\item Los sabios sostienen las dos verdades sin resolverlas: Dios lo sabe y gobierna todo, y el ser humano elige.
+\item Maimónides lo repite: ``la libertad está dada a todo hombre'' (\emph{Hiljot Teshuvá} 5:1).
+\item Es el mismo equilibrio de Gn 50:20 y de Flp 2:12--13.
+\end{itemize}
+\precision{interpretaciones rabínicas; traducción propia. En algunas ediciones el dicho de Aquiba es \emph{Avot} 3:19.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{El dedo y el decreto}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}\small
+\textbf{Rabí Janiná} (\emph{Julín} 7b):
+\begin{center}\heb{אֵין אָדָם נוֹקֵף אֶצְבָּעוֹ מִלְּמַטָּה}\\ \heb{אֶלָּא אִם כֵּן מַכְרִיזִין עָלָיו מִלְמַעְלָה}\end{center}
+``Nadie se golpea el dedo aquí abajo si no lo proclaman sobre él desde arriba''. Cita Sal 37:23: ``Por \SENOR{} son ordenados los pasos del hombre''.
+\end{column}
+\begin{column}{0.48\textwidth}\small
+\textbf{Bendecir por lo malo} (Misná \emph{Berajot} 9:5):
+\begin{center}\heb{חַיָּב אָדָם לְבָרֵךְ עַל הָרָעָה}\\ \heb{כְּשֵׁם שֶׁהוּא מְבָרֵךְ עַל הַטּוֹבָה}\end{center}
+``Uno debe bendecir por lo malo así como bendice por lo bueno''. Ante una mala noticia se dice: \heb{בָּרוּךְ דַּיַּן הָאֱמֶת}, ``Bendito el Juez verdadero'' (\emph{Berajot} 9:2).
+\end{column}
+\end{columns}\par\smallskip
+\begin{tcolorbox}[colback=papiro,colframe=dorado,boxrule=1.2pt,arc=3pt]
+\small Es la fe de Job (``sea el nombre de \SENOR{} bendito'', 1:21) hecha liturgia: Israel bendice al Rey también \destacar{en el dolor}.
+\end{tcolorbox}
+\precision{interpretaciones rabínicas; traducción propia.}
+\end{frame}
+
+\begin{frame}{``Todo lo que hace el Misericordioso\ldots''}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}\small
+\textbf{\emph{Berajot} 60b} (Rav Huná en nombre de Rav, en nombre de Rabí Meír, y así se enseñó en nombre de Rabí Aquiba):
+\begin{center}\heb{כׇּל דְּעָבֵיד רַחֲמָנָא לְטַב עָבֵיד}\end{center}
+``Todo lo que hace el Misericordioso, lo hace para bien''.\par\smallskip
+\scriptsize Aquiba no encuentra posada y duerme en el campo; el viento apaga su lámpara, una comadreja se come su gallo, un león su asno. Esa noche un ejército saquea la aldea: si lo hubieran visto o oído, lo habrían capturado.
+\end{column}
+\begin{column}{0.48\textwidth}\small
+\textbf{\emph{Taanit} 21a}: Najúm de Guimzó decía ante cada desgracia:
+\begin{center}\heb{גַּם זוֹ לְטוֹבָה}\end{center}
+``También esto es para bien''.\par\medskip
+\begin{tcolorbox}[colback=papiro,colframe=azul,boxrule=1pt,arc=3pt]
+\scriptsize Es el eco judío de Gn 50:20 (\emph{lejová}, ``para bien'') y la antesala de Ro 8:28 (\grc{εἰς ἀγαθόν}).
+\end{tcolorbox}
+\end{column}
+\end{columns}\par\smallskip
+\precision{relatos rabínicos; traducción y resumen propios. La conexión con Gn 50:20 y Ro 8:28 es lectura propia de esta serie.}
+\end{frame}
+
+\begin{frame}{Josefo y Qumrán}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.48\textwidth}\small
+\textbf{Josefo} (\emph{Antigüedades} 13.171--173) describe tres posturas en tiempos de Pablo:
+\scriptsize\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{1.6cm}>{\RaggedRight\arraybackslash}p{3.6cm}@{}}
+\toprule
+Fariseos & algunas cosas, no todas, son obra del destino; otras dependen de nosotros \\
+Esenios & el destino gobierna todas las cosas \\
+Saduceos & no hay destino; todo depende de nosotros \\
+\bottomrule
+\end{tabular}\par\smallskip
+\small Pablo era fariseo (Flp 3:5).
+\end{column}
+\begin{column}{0.50\textwidth}\small
+\textbf{Qumrán} (\emph{Regla de la Comunidad}, 1QS 3:15):
+\begin{center}\heb{מֵאֵל הַדֵּעוֹת כּוֹל הוֹוֶה וְנִהְיֶה}\\ \heb{וְלִפְנֵי הֱיוֹתָם הֵכִין כּוֹל מַחֲשַׁבְתָּם}\end{center}
+``Del Dios de los conocimientos procede todo lo que es y lo que será; y antes de que existieran estableció todo su designio''.
+\end{column}
+\end{columns}\par\smallskip
+\precision{Josefo escribe para lectores griegos y usa ``destino'' (\grc{εἱμαρμένη}) por ``providencia''. 1QS según García Martínez (1992) y Vermes (2004); vocalización y traducción propias. Cotejar el manuscrito en la Leon Levy Dead Sea Scrolls Digital Library.}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{En Cristo}
+
+\begin{frame}{Ef 1:11: el designio}
+\fotolado{panel_efesios1.jpg}{Elaboración propia: Ef 1:11b en escritura uncial (texto NA28).}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.58\textwidth}
+\begin{cita}En él asimismo tuvimos herencia, habiendo sido predestinados conforme al propósito del que hace todas las cosas según el designio de su voluntad.\fuente{(Ef 1:11, RVR1960)}\end{cita}
+\scriptsize\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.6cm}>{\RaggedRight\arraybackslash}p{4.0cm}@{}}
+\toprule
+\grc{κατὰ πρόθεσιν} & ``conforme al propósito'' \\
+\grc{τοῦ τὰ πάντα ἐνεργοῦντος} & ``del que \destacar{opera} todas las cosas'' \\
+\grc{κατὰ τὴν βουλὴν} & ``según el designio'' (Gn 50:20 LXX) \\
+\grc{τοῦ θελήματος αὐτοῦ} & ``de su voluntad'' (Dn 4:35 Teod.) \\
+\bottomrule
+\end{tabular}\par\smallskip
+\small Es la definición de esta serie en boca de Pablo, y todo ocurre \destacar{``en él''}: en Cristo.
+\end{column}
+\begin{column}{0.40\textwidth}\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{``Todas las cosas les ayudan a bien''}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\begin{cita}Y sabemos que a los que aman a Dios, todas las cosas les ayudan a bien, esto es, a los que conforme a su propósito son llamados.\fuente{(Ro 8:28, RVR1960)}\end{cita}
+\begin{cita}Pues tengo por cierto que las aflicciones del tiempo presente no son comparables con la gloria venidera que en nosotros ha de manifestarse.\fuente{(Ro 8:18, RVR1960)}\end{cita}
+\end{column}
+\begin{column}{0.48\textwidth}
+\scriptsize\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{1.5cm}>{\RaggedRight\arraybackslash}p{4.1cm}@{}}
+\toprule
+Gn 50:20 LXX & \grc{ὁ δὲ θεὸς ἐβουλεύσατο\ldots{} εἰς ἀγαθά} \\
+Ro 8:28 & \grc{πάντα συνεργεῖ εἰς ἀγαθόν\ldots{} κατὰ πρόθεσιν} \\
+\bottomrule
+\end{tabular}\par\smallskip
+\small\begin{itemize}
+\item \grc{συνεργεῖ}: ``obra junto'': las cosas no son buenas en sí; Dios las \destacar{hace cooperar}.
+\item El contexto es el dolor: la creación ``gime'' (8:22), nosotros gemimos (8:23), el Espíritu gime (8:26).
+\item El ``bien'' es la imagen del Hijo (8:29).
+\end{itemize}
+\end{column}
+\end{columns}\par\smallskip
+\precision{el eco de Gn 50:20 en Ro 8:28 es posible, no seguro (comparten \grc{εἰς ἀγαθ-} y la idea de designio); lectura propia.}
+\end{frame}
+
+\begin{frame}{El alfarero: Romanos 9}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\begin{cita}Pero me dirás: ¿Por qué, pues, inculpa? porque ¿quién ha resistido a su voluntad? Mas antes, oh hombre, ¿quién eres tú, para que alterques con Dios? ¿Dirá el vaso de barro al que lo formó: ¿Por qué me has hecho así? ¿O no tiene potestad el alfarero sobre el barro\ldots?\fuente{(Ro 9:19--21, RVR1960)}\end{cita}
+\end{column}
+\begin{column}{0.48\textwidth}
+\scriptsize\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{1.4cm}>{\RaggedRight\arraybackslash}p{4.2cm}@{}}
+\toprule
+Is 45:9 & ``¿Dirá el barro al que lo labra: ¿Qué haces?'' \\
+Is 29:16 & ``¿Acaso la obra dirá de su hacedor: No me hizo?'' \\
+Dn 4:35 & ``no hay quien\ldots{} le diga: ¿Qué haces?'' \\
+Ro 9:20 & ``¿Por qué me has hecho así?'' \\
+\bottomrule
+\end{tabular}\par\smallskip
+\small Pablo responde a la objeción con el lenguaje de \destacar{Isaías} y de \destacar{Daniel}. Y antes cita Éx 33:19: ``Tendré misericordia del que yo tenga misericordia'' (Ro 9:15). La soberanía de Romanos 9 es soberanía \destacar{de misericordia}.
+\end{column}
+\end{columns}\par\smallskip
+\precision{el contexto de Ro 9--11 es el lugar de Israel y de las naciones en el plan de Dios; su aplicación a la salvación individual es discutida entre intérpretes (Moo, 1996; Wright, 2013).}
+\end{frame}
+
+\begin{frame}{``¡Oh profundidad!'': Romanos 11}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\begin{cita}¡Oh profundidad de las riquezas de la sabiduría y de la ciencia de Dios! ¡Cuán insondables son sus juicios, e inescrutables sus caminos! Porque ¿quién entendió la mente del Señor? ¿O quién fue su consejero? ¿O quién le dio a él primero, para que le fuese recompensado? Porque de él, y por él, y para él, son todas las cosas. A él sea la gloria por los siglos. Amén.\fuente{(Ro 11:33--36, RVR1960)}\end{cita}
+\end{column}
+\begin{column}{0.48\textwidth}\small
+\begin{itemize}
+\item Ro 11:34 cita Is 40:13 (LXX): ``¿Quién enseñó al Espíritu de \SENOR, o le aconsejó?''.
+\item Ro 11:35 recoge Job 41:11 [41:3]: ``¿Quién me ha dado a mí primero?''.
+\item La soberanía no termina en una discusión, sino en \destacar{doxología}.
+\end{itemize}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+ \foreach \x/\t/\d in {0/{\grc{ἐξ αὐτοῦ}}/{origen}, 1.9/{\grc{δι’ αὐτοῦ}}/{medio}, 3.8/{\grc{εἰς αὐτόν}}/{meta}}{
+  \node[caja,text width=1.5cm,align=center] at (\x,0) {\t\\ \d};}
+\end{tikzpicture}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{``Jesucristo es el Señor''}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\begin{cita}Por lo cual Dios también le exaltó hasta lo sumo, y le dio un nombre que es sobre todo nombre, para que en el nombre de Jesús se doble toda rodilla de los que están en los cielos, y en la tierra, y debajo de la tierra; y toda lengua confiese que Jesucristo es el Señor, para gloria de Dios Padre.\fuente{(Flp 2:9--11, RVR1960)}\end{cita}
+\end{column}
+\begin{column}{0.48\textwidth}
+\scriptsize\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{1.4cm}>{\RaggedRight\arraybackslash}p{4.2cm}@{}}
+\toprule
+Is 45:23 & \heb{כִּי־לִי תִּכְרַע כׇּל־בֶּרֶךְ} ``a mí se doblará toda rodilla'' \\
+LXX & \grc{ἐμοὶ κάμψει πᾶν γόνυ καὶ ἐξομολογήσεται πᾶσα γλῶσσα τῷ θεῷ} \\
+Flp 2:10--11 & \grc{πᾶν γόνυ κάμψῃ\ldots{} πᾶσα γλῶσσα ἐξομολογήσηται ὅτι κύριος Ἰησοῦς Χριστός} \\
+\bottomrule
+\end{tabular}\par\smallskip
+\small En Isaías 45 habla el Dios que dice ``no hay más que yo'' (45:6) y ``yo hago todo esto'' (45:7). Pablo aplica ese texto de soberanía exclusiva a \destacar{Jesús}. El ``nombre sobre todo nombre'' es \grc{κύριος}: el que la LXX usa por \emph{Adonay} y por el Nombre.
+\end{column}
+\end{columns}\par\smallskip
+\precision{la lectura de \grc{κύριος} como el Nombre divino en Flp 2:9--11 es la mayoritaria (Hays, 1989; Wright, 2013); Pablo usa Is 45:23 también en Ro 14:11.}
+\end{frame}
+
+\begin{frame}{Reinar hasta el fin}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\begin{cita}Porque preciso es que él reine hasta que haya puesto a todos sus enemigos debajo de sus pies. Y el postrer enemigo que será destruido es la muerte. Porque todas las cosas las sujetó debajo de sus pies\ldots{} para que Dios sea todo en todos.\fuente{(1 Co 15:25--28, RVR1960)}\end{cita}
+\end{column}
+\begin{column}{0.48\textwidth}\small
+\begin{itemize}
+\item 15:25 usa Sal 110:1: ``hasta que ponga a tus enemigos por estrado de tus pies''.
+\item 15:27 cita Sal 8:6 [8:7]: ``Todo lo pusiste debajo de sus pies''. El señorío que Adán recibió y perdió, Cristo lo ejerce.
+\item El último enemigo es la \destacar{muerte}: la soberanía de Dios en Cristo termina con el dolor (Ap 21:4).
+\end{itemize}
+\end{column}
+\end{columns}\par\smallskip
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+ \node[caja,text width=2.4cm,align=center] (a) at (0,0) {\textbf{Sal 8:6}\\ el hombre señorea};
+ \node[caja,text width=2.4cm,align=center,fill=gris!18] (b) at (3.2,0) {\textbf{Gn 3}\\ el señorío se pierde};
+ \node[caja,text width=2.4cm,align=center] (c) at (6.4,0) {\textbf{Sal 110:1}\\ el Señor a la diestra};
+ \node[draw=dorado,line width=1.6pt,fill=azul,text=papiro,rounded corners=3pt,text width=2.4cm,align=center,inner sep=4pt] (d) at (9.6,0) {\textbf{1 Co 15:28}\\ ``Dios todo en todos''};
+ \draw[-{Latex[length=2.5mm]},dorado,line width=1.1pt](a)--(b); \draw[-{Latex[length=2.5mm]},dorado,line width=1.1pt](b)--(c); \draw[-{Latex[length=2.5mm]},dorado,line width=1.1pt](c)--(d);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{``El bienaventurado y solo Soberano''}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\begin{cita}la cual a su tiempo mostrará el bienaventurado y solo Soberano, Rey de reyes, y Señor de señores, el único que tiene inmortalidad, que habita en luz inaccesible\ldots{} al cual sea la honra y el imperio sempiterno. Amén.\fuente{(1 Ti 6:15--16, RVR1960)}\end{cita}
+\end{column}
+\begin{column}{0.48\textwidth}\small
+\begin{itemize}
+\item \grc{ὁ μακάριος καὶ μόνος δυνάστης}: ``el dichoso y único Potentado''. Timoteo vive en Éfeso, bajo un emperador que se hace llamar señor.
+\item ``Rey de reyes y Señor de señores'' recoge Dt 10:17 (``Señor de señores'') y lo aplica en Ap 17:14; 19:16 al Cordero.
+\item ``El imperio sempiterno'' (\grc{κράτος αἰώνιον}) es el ``dominio sempiterno'' de Dn 4:34.
+\end{itemize}
+\end{column}
+\end{columns}\par\smallskip
+\precision{la autoría paulina de 1 Timoteo se discute; la doxología coincide con Ro 11:36 y 16:27, cartas indiscutidas.}
+\end{frame}
+
+\begin{frame}{``Soberano Señor'': la iglesia ora}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\begin{cita}Soberano Señor, tú eres el Dios que hiciste el cielo y la tierra\ldots{} Porque verdaderamente se unieron en esta ciudad contra tu santo Hijo Jesús, a quien ungiste, Herodes y Poncio Pilato, con los gentiles y el pueblo de Israel, para hacer cuanto tu mano y tu consejo habían antes determinado que sucediera.\fuente{(Hch 4:24, 27--28, RVR1960)}\end{cita}
+\end{column}
+\begin{column}{0.48\textwidth}\small
+\begin{itemize}
+\item La iglesia, amenazada, llama a Dios \grc{Δέσποτα}: el título de Gn 15:2 LXX.
+\item La cruz es el caso máximo de Gn 50:20: el peor mal humano, el asesinato del Justo, cumple ``tu mano y tu \destacar{consejo}'' (\grc{βουλή}).
+\item La soberanía no los paraliza: piden \destacar{denuedo} para hablar (4:29).
+\end{itemize}
+\end{column}
+\end{columns}\par\smallskip
+\begin{tcolorbox}[colback=papiro,colframe=dorado,boxrule=1.2pt,arc=3pt]
+\small En la cruz el dolor causado por el hombre alcanza a Dios mismo. Ahí se ve la soberanía en su forma más alta: \destacar{el Rey reina desde una cruz} y convierte la injusticia en redención (Hch 2:23--24).
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}{El aguijón: el dolor de Pablo}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.52\textwidth}
+\begin{cita}me fue dado un aguijón en mi carne, un mensajero de Satanás que me abofetee, para que no me enaltezca sobremanera; respecto a lo cual tres veces he rogado al Señor, que lo quite de mí. Y me ha dicho: Bástate mi gracia; porque mi poder se perfecciona en la debilidad.\fuente{(2 Co 12:7--9, RVR1960)}\end{cita}
+\end{column}
+\begin{column}{0.46\textwidth}\small
+\begin{itemize}
+\item \grc{ἐδόθη μοι}: ``me fue dado''. Pasivo: el que da es Dios, aunque el instrumento sea ``un mensajero de Satanás''. Como en Job.
+\item Fin: ``para que no me enaltezca''. Es la lección de Nabucodonosor, aplicada a un apóstol.
+\item Dios no quita el dolor: da \destacar{gracia} en él.
+\end{itemize}
+\end{column}
+\end{columns}\par\smallskip
+\begin{cita}Porque esta leve tribulación momentánea produce en nosotros un cada vez más excelente y eterno peso de gloria.\fuente{(2 Co 4:17, RVR1960)}\end{cita}
+\end{frame}
+
+\begin{frame}{La soberanía de Dios, cumplida en Cristo}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+ \foreach \x/\n/\t/\d in {0/a/{Ef 1:11}/{todo según su \textbf{designio}, ``en él''},
+   3.1/b/{Hch 4:28}/{la cruz dentro de su \textbf{consejo}},
+   6.2/c/{Flp 2:11}/{Jesús recibe el \textbf{Nombre}},
+   9.3/d/{1 Co 15:25}/{\textbf{reina} hasta vencer la muerte}}{
+  \node[caja,text width=2.4cm,align=center] (\n) at (\x,0) {\textbf{\textcolor{azul}{\t}}\\ \d};}
+ \draw[-{Latex[length=2.5mm]},dorado,line width=1.1pt](a)--(b); \draw[-{Latex[length=2.5mm]},dorado,line width=1.1pt](b)--(c); \draw[-{Latex[length=2.5mm]},dorado,line width=1.1pt](c)--(d);
+ \node[draw=dorado,line width=1.6pt,fill=azul,text=papiro,rounded corners=3pt,text width=6.0cm,align=center,inner sep=5pt] (e) at (4.65,-2.0) {``en él habita corporalmente toda la plenitud de la Deidad'' (Col 2:9)};
+ \foreach \i in {a,b,c,d}\draw[dorado!70,line width=0.7pt](\i.south)--(e.north);
+\end{tikzpicture}\par\medskip
+\small\RaggedRight Pablo, judío formado en las Escrituras, lee la soberanía de \emph{Adonay} y de \emph{Elyón} \destacar{cumplida en Cristo}: ``todas las cosas en él subsisten'' (Col 1:17). El trono que Nabucodonosor reconoció tiene hoy un Rey con nombre: Jesús, el Señor.
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Vivirlo}
+
+\begin{frame}{Cinco respuestas al Dios soberano}
+\centering
+\begin{tikzpicture}
+ \foreach \x/\n/\t/\d/\r in {0/1/{Humildad}/{Mis logros no son ``la gran Babilonia que yo edifiqué''.}/{Dn 4:30, 37},
+   2.45/2/{Planes}/{``Si el Señor quiere, viviremos y haremos esto o aquello''.}/{Stg 4:15},
+   4.9/3/{Oración}/{Orar al ``Soberano Señor'' pidiendo valor, no huida.}/{Hch 4:24, 29},
+   7.35/4/{Dolor}/{El mal que otros me hacen no tiene la última palabra.}/{Gn 50:20; Ro 8:28},
+   9.8/5/{Adoración}/{``De él, y por él, y para él, son todas las cosas''.}/{Ro 11:36}}{
+  \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][2.9cm][t]{2.0cm}{\RaggedRight
+    {\small\textbf{\textcolor{azul}{\t}}}\\[5pt]\scriptsize \d\par\vfill{\tiny\color{gris}(\r)}}};
+  \node[circle,fill=azul,text=papiro,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
+\end{tikzpicture}\par\medskip
+\small\RaggedRight Spurgeon tenía razón: ningún atributo consuela tanto en la prueba. Pero el consuelo no consiste en entender cada dolor, sino en saber que el trono no está vacío.
+\end{frame}
+
+\begin{frame}{Cuando el dolor lo causa otro}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.48\textwidth}\small
+\begin{enumerate}
+\item \destacar{Nombrar el mal}: José dice ``me vendisteis'' (Gn 45:5). La soberanía no llama bueno al pecado.
+\item \destacar{No ocupar el lugar de Dios}: ``¿acaso estoy yo en lugar de Dios?'' (Gn 50:19). La venganza le pertenece (Ro 12:19).
+\item \destacar{Mirar más lejos}: ``para mantener en vida a mucho pueblo'' (Gn 50:20).
+\item \destacar{Bendecir en el dolor}: ``sea el nombre de \SENOR{} bendito'' (Job 1:21).
+\end{enumerate}
+\end{column}
+\begin{column}{0.50\textwidth}
+\begin{cita}No paguéis a nadie mal por mal\ldots{} No os venguéis vosotros mismos, amados míos, sino dejad lugar a la ira de Dios; porque escrito está: Mía es la venganza, yo pagaré, dice el Señor\ldots{} No seas vencido de lo malo, sino vence con el bien el mal.\fuente{(Ro 12:17, 19, 21, RVR1960)}\end{cita}
+\end{column}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Síntesis}
+
+\begin{frame}{Síntesis}
+\begin{tcolorbox}[colback=papiro,colframe=azul,boxrule=1pt,arc=3pt]
+\small ``Él hace según su voluntad\ldots{} y no hay quien detenga su mano'' (Dn 4:35). Dios gobierna absolutamente todas las cosas según su voluntad: es \destacar{Adonay}, el Dueño, y \destacar{Elyón}, el Altísimo. Su soberanía alcanza la naturaleza, las naciones, los corazones y aun el mal que el ser humano causa, sin quitarle la culpa: lo que los hombres planean para mal, Dios lo planea para bien (Gn 50:20). El dolor, que Lewis llamó su megáfono, enseña al soberbio ``que el Altísimo gobierna''. En Cristo, la soberanía tiene rostro: el Crucificado recibe el Nombre sobre todo nombre (Flp 2:9--11) y reina hasta vencer la muerte (1 Co 15:25--26).
+\end{tcolorbox}
+\scriptsize\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.4cm}>{\RaggedRight\arraybackslash}p{9.4cm}@{}}
+\toprule
+\textbf{Mirada} & \textbf{Aporte} \\ \midrule
+Hebrea & \emph{Adonay}, \emph{Elyón}, \emph{shallit}; Dn 4 y su estribillo; Is 45:7; José y \emph{jashav} (Gn 50:20). \\
+Judía & yugo del reino de los cielos; \emph{Maljuyot}; ``todo previsto, la libertad dada''; bendecir por lo malo; ``para bien''. \\
+Pink y Lewis & soberanía como ejercicio de la supremacía; el dolor, la libertad y el megáfono. \\
+Paulina & Ef 1:11; Ro 8:28; Ro 9 y 11; Flp 2:11 (Is 45:23); 1 Co 15:25--28; el aguijón. \\
+\bottomrule
+\end{tabular}
+\end{frame}
+
+\begin{frame}{Para la reflexión}
+\begin{cita}Mas alábese en esto el que se hubiere de alabar: en entenderme y conocerme, que yo soy \SENOR, que hago misericordia, juicio y justicia en la tierra; porque estas cosas quiero, dice \SENOR.\fuente{(Jer 9:24 [9:23], RVR1960)}\end{cita}
+\begin{center}\heb{כִּי־בְאֵלֶּה חָפַצְתִּי נְאֻם־יְהוָה}\end{center}
+\small
+\begin{itemize}
+\item ``Estas cosas \destacar{quiero}'' (\emph{jafatsti}): ¿descanso en que la voluntad soberana de Dios es misericordia, juicio y justicia?
+\item ¿Qué ``Babilonia'' digo haber edificado yo solo?
+\item ¿Hay un dolor que otro me causó y que todavía no he puesto bajo Gn 50:20?
+\item ¿Oro como la iglesia de Hechos 4, o como si el trono estuviera vacío?
+\end{itemize}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Glosario}
+
+\begin{frame}{Glosario}
+\scriptsize
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.49\textwidth}
+\begin{description}\setlength{\itemsep}{1pt}
+\item[\emph{Adón}] (\heb{אָדוֹן}) señor, amo, dueño (Gn 45:8; Mal 1:6).
+\item[\emph{Adonay}] (\heb{אֲדֹנָי}) ``el Señor'', título de Dios; lectura judía del Nombre.
+\item[\emph{Boulē}] (\grc{βουλή}) consejo, designio (Hch 2:23; 4:28; Ef 1:11).
+\item[\emph{Despótēs}] (\grc{δεσπότης}) amo con autoridad plena; ``Soberano'' (Hch 4:24).
+\item[\emph{Dynástēs}] (\grc{δυνάστης}) potentado, soberano (1 Ti 6:15).
+\item[\emph{Elyón}] (\heb{עֶלְיוֹן}) el Altísimo (Gn 14:19; Dt 32:8).
+\item[\emph{Illayá}] (\heb{עִלָּיָא}) el Altísimo, en arameo (Dn 4:17, 34).
+\item[\emph{Jafets}] (\heb{חָפֵץ}) querer, complacerse (Sal 115:3; 135:6).
+\end{description}
+\end{column}
+\begin{column}{0.49\textwidth}
+\begin{description}\setlength{\itemsep}{1pt}
+\item[\emph{Jashav}] (\heb{חָשַׁב}) pensar, planear (Gn 50:20).
+\item[\emph{Kýrios}] (\grc{κύριος}) Señor; en la LXX, por \emph{Adonay} y el Nombre (Flp 2:11).
+\item[\emph{Maljuyot}] (\heb{מַלְכֻיּוֹת}) versos de la realeza de Dios (Misná RH 4:5).
+\item[\emph{Mashal}] (\heb{מָשַׁל}) gobernar, dominar (Sal 103:19; 8:6).
+\item[\emph{Ol maljut shamayim}] (\heb{עֹל מַלְכוּת שָׁמַיִם}) yugo del reino de los cielos.
+\item[\emph{Próthesis}] (\grc{πρόθεσις}) propósito (Ro 8:28; Ef 1:11).
+\item[\emph{Shallit}] (\heb{שַׁלִּיט}) que tiene dominio (Dn 4:17, 25).
+\item[\emph{Sholtán}] (\heb{שָׁלְטָן}) dominio, imperio (Dn 4:34).
+\end{description}
+\end{column}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Referencias}
+
+\begin{frame}{Referencias}
+\fontsize{5.2}{6.2}\selectfont
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.49\textwidth}
+\refapa{Bauer, W., Danker, F.~W., Arndt, W.~F., \& Gingrich, F.~W. (2000). \emph{A Greek-English lexicon of the New Testament and other early Christian literature} (3.ª ed.). University of Chicago Press.}
+\refapa{Brown, F., Driver, S.~R., \& Briggs, C.~A. (1906). \emph{A Hebrew and English lexicon of the Old Testament}. Clarendon Press.}
+\refapa{Elbogen, I. (1993). \emph{Jewish liturgy: A comprehensive history} (R.~P. Scheindlin, Trad.). Jewish Publication Society.}
+\refapa{Elliger, K., \& Rudolph, W. (Eds.). (1997). \emph{Biblia Hebraica Stuttgartensia} (5.ª ed.). Deutsche Bibelgesellschaft.}
+\refapa{García Martínez, F. (1992). \emph{Textos de Qumrán}. Trotta.}
+\refapa{Hays, R.~B. (1989). \emph{Echoes of Scripture in the letters of Paul}. Yale University Press.}
+\refapa{Josefo, F. (s.f.). \emph{Antigüedades judías} [13.171--173].}
+\refapa{Koehler, L., \& Baumgartner, W. (2001). \emph{The Hebrew and Aramaic lexicon of the Old Testament} (Ed. de estudio). Brill.}
+\refapa{Lewis, C.~S. (1940). \emph{The problem of pain}. The Centenary Press.}
+\refapa{Lewis, C.~S. (1994). \emph{El problema del dolor} (J.~L. del Barco, Trad.). Rialp. (Obra original publicada en 1940)}
+\refapa{Maimónides. (s.f.). \emph{Mishné Torá: Hiljot Teshuvá} [5:1]. Sefaria. https://www.sefaria.org}
+\refapa{\emph{Misná} [Avot 3:15; Berajot 2:2; 9:2, 5; Rosh Hashaná 4:5--6]. (s.f.). Sefaria. https://www.sefaria.org}
+\end{column}
+\begin{column}{0.49\textwidth}
+\refapa{Moo, D.~J. (1996). \emph{The epistle to the Romans}. Eerdmans.}
+\refapa{Nestle, E., \& Aland, K. (Eds.). (2012). \emph{Novum Testamentum Graece} (28.ª ed.). Deutsche Bibelgesellschaft.}
+\refapa{Pink, A.~W. (2020). \emph{Los atributos de Dios} (E. Rodríguez Cruz, Trad.). Chapel Library. (Obra original publicada en 1930)}
+\refapa{Rahlfs, A., \& Hanhart, R. (Eds.). (2006). \emph{Septuaginta} (Ed. rev.). Deutsche Bibelgesellschaft.}
+\refapa{\emph{Santa Biblia: Reina-Valera 1960}. (1960). Sociedades Bíblicas en América Latina.}
+\refapa{Steinsaltz, A. (Ed.). (2017). \emph{Koren Talmud Bavli: Edición William Davidson} [Berajot 33b, 60b; Julín 7b; Pesajim 56a; Taanit 21a, 25b]. Sefaria. https://www.sefaria.org}
+\refapa{Strong, J. (1890). \emph{The exhaustive concordance of the Bible}. Hunt \& Eaton.}
+\refapa{Vermes, G. (2004). \emph{The complete Dead Sea Scrolls in English} (Ed. rev.). Penguin.}
+\refapa{Vine, W.~E. (1999). \emph{Diccionario expositivo de palabras del Antiguo y del Nuevo Testamento exhaustivo}. Caribe.}
+\refapa{Wright, N.~T. (2013). \emph{Paul and the faithfulness of God}. Fortress Press.}
+\end{column}
+\end{columns}
+\par\smallskip{\color{gris}Las citas bíblicas son de la Reina-Valera 1960; ``Jehová'' se reemplaza por \SENOR. Hebreo y arameo: BHS; griego: NA28 y LXX de Rahlfs-Hanhart (Daniel según Teodoción). Fuentes judías: texto estándar, traducción propia; lo rabínico se marca como \emph{precisión}.}
+\end{frame}
+
+\end{document}
