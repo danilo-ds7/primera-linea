@@ -7,6 +7,7 @@ Compilar siempre con **XeLaTeX** (3 pasadas) desde la carpeta del archivo.
 |---|---|
 | `00_Introduccion/` | `presentacion/Atributos_Introduccion.tex` y `articulo/Introduccion_Libro.tex` |
 | `04_Santo/` | `04_Santo_presentacion.tex` y `04_Santo_capitulo.tex` |
+| `12_Sabiduria/` | `12_Sabiduria_presentacion.tex` y `12_Sabiduria_capitulo.tex` |
 | `14_Misericordia/` | `14_Misericordia_presentacion.tex` y `14_Misericordia_capitulo.tex` |
 | `17_Ira/` | `17_Ira_presentacion.tex` y `17_Ira_capitulo.tex` |
 | `Libro/` | Maestro `La_gloria_de_Dios.tex`, `preambulo.tex`, `capitulos/` y `convertir.py` |
