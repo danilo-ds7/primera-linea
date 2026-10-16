@@ -40,3 +40,8 @@ Al subir cambios a esta carpeta, GitHub Actions compila los PDF y publica cada e
 - El `.tex` con clase `beamer` es la **presentación**: se publica como PDF descargable.
 - `Libro/` se compila como el libro completo *La gloria de Dios*.
 - Los PDF no se suben al repositorio: se generan solos.
+
+## Reglas de formato (16-10-2026)
+
+- **Presentaciones:** una sola tabla de contenidos, después de la portada. No se repite el índice al comenzar cada sección (sin `\AtBeginSection`): la navegación la da la barra lateral.
+- **Artículos, capítulos y libro:** ningún recuadro queda partido entre dos páginas. Todos los `tcolorbox` (versos, citas, notas, filología) son `unbreakable`; si uno es más alto que una página, se divide en dos recuadros.
