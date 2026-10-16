@@ -19,7 +19,8 @@ Compilar siempre con **XeLaTeX** (3 pasadas) desde la carpeta del archivo.
 | `14_Misericordia/` | `14_Misericordia_presentacion.tex` y `14_Misericordia_capitulo.tex` |
 | `16_Celo/` | `16_Celo_presentacion.tex` y `16_Celo_capitulo.tex` |
 | `17_Ira/` | `17_Ira_presentacion.tex` y `17_Ira_capitulo.tex` |
-| `Libro/` | Maestro `La_gloria_de_Dios.tex`, `preambulo.tex`, `capitulos/` y `convertir.py` |
+| `21_Gloria/` | `21_Gloria_presentacion.tex` y `21_Gloria_capitulo.tex` (conclusión: la gloria de Dios, comunión de todos los atributos en Cristo) |
+| `Libro/` | Maestro `La_gloria_de_Dios.tex`, `preambulo.tex`, `capitulos/`, `img/` y `convertir.py` |
 
 En cada atributo, `head.tex` y `body.tex` son piezas que usa la presentación. `crops/` y `papiro*.jpg` son las imágenes, y `fonts/` las fuentes hebreas y griegas.
 Las referencias (APA 7) van dentro de cada `.tex`; no hay archivo `.bib`.
