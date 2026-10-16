@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sincronía perfecta</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Los veinte atributos de Dios en sincronía perfecta: cada uno asegura a otro y todos convergen en Cristo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Spectral:ital,wght@0,400;0,600;1,400&family=Noto+Serif+Hebrew:wght@400;600&display=swap">
+<style>
+[hidden]{display:none!important}
+
+/* Layout: lámina de estudio — diagrama vivo a la izquierda, ficha del atributo a la derecha (debajo en el celular) */
+:root{
+  --papiro:#F6EFDC; --papiro-2:#EFE4C6; --tinta:#0B1F3A; --tinta-2:#46506A;
+  --azul:#15437C; --dorado:#B8902F; --dorado-claro:#E8CD8C; --morado:#4E2A84; --granate:#8E2430;
+  --nodo-ser:#F4E3B5; --nodo-ide:#E3EBF6; --nodo-rel:#ECE5F4; --linea:rgba(11,31,58,.14);
+  --f-disp:"Cinzel","Trajan Pro","Times New Roman",serif;
+  --f-texto:"Spectral","Iowan Old Style",Georgia,serif;
+  --f-heb:"Noto Serif Hebrew","SBL Hebrew","Times New Roman",serif;
+  --bg:var(--papiro); --fg:var(--tinta); --panel:#FBF7EC;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --papiro:#0F1B30; --papiro-2:#16243D; --tinta:#EFE6CF; --tinta-2:#B9B3A2;
+  --azul:#8DB4E8; --dorado:#D9B45A; --dorado-claro:#6E5A2A; --morado:#B79BE6; --granate:#E07A84;
+  --nodo-ser:#3A3020; --nodo-ide:#1C2E4C; --nodo-rel:#2B2244; --linea:rgba(239,230,207,.14);
+  --bg:var(--papiro); --fg:var(--tinta); --panel:#132138; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --papiro:#0F1B30; --papiro-2:#16243D; --tinta:#EFE6CF; --tinta-2:#B9B3A2;
+  --azul:#8DB4E8; --dorado:#D9B45A; --dorado-claro:#6E5A2A; --morado:#B79BE6; --granate:#E07A84;
+  --nodo-ser:#3A3020; --nodo-ide:#1C2E4C; --nodo-rel:#2B2244; --linea:rgba(239,230,207,.14);
+  --bg:var(--papiro); --fg:var(--tinta); --panel:#132138; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{background:var(--bg);color:var(--fg)}
+body{font-family:var(--f-texto);font-size:16px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 40px}
+.envoltura{max-width:1240px;margin:0 auto;display:grid;gap:18px}
+header{display:grid;gap:6px}
+.ceja{font-family:var(--f-disp);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dorado)}
+h1{font-family:var(--f-disp);font-weight:700;font-size:clamp(1.9rem,4.6vw,3rem);line-height:1.05;margin:0;color:var(--dorado);text-wrap:balance}
+.lede{margin:0;max-width:62ch;color:var(--tinta-2)}
+.controles{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.segmento{display:inline-flex;border:1px solid var(--dorado);border-radius:999px;overflow:hidden}
+.segmento button,.boton{font:600 .82rem/1 var(--f-texto);letter-spacing:.02em;padding:10px 16px;border:0;background:transparent;color:var(--fg);cursor:pointer}
+.segmento button[aria-pressed="true"]{background:var(--dorado);color:var(--papiro)}
+.boton{border:1px solid var(--dorado);border-radius:999px}
+.boton.principal{background:var(--tinta);color:var(--papiro);border-color:var(--tinta)}
+button:focus-visible,.nodo:focus-visible{outline:2px solid var(--granate);outline-offset:2px}
+.lienzo{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:22px;align-items:start}
+@media (max-width:860px){.lienzo{grid-template-columns:1fr}}
+.escenario{position:relative;min-width:0}
+svg#rosa{display:block;width:100%;height:auto;max-width:100%;touch-action:manipulation;user-select:none}
+aside.ficha{min-width:0;background:var(--panel);border:1px solid var(--linea);border-radius:6px;padding:20px 20px 22px;display:grid;gap:14px;position:sticky;top:max(12px,env(safe-area-inset-top,0px))}
+@media (max-width:860px){aside.ficha{position:static}}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:600 .72rem/1 var(--f-texto);letter-spacing:.06em;text-transform:uppercase;padding:6px 9px;border-radius:999px;border:1px solid currentColor}
+.chip.ser{color:var(--dorado)} .chip.ide{color:var(--azul)} .chip.rel{color:var(--morado)} .chip.neutro{color:var(--tinta-2)}
+.ficha h2{font-family:var(--f-disp);font-size:1.7rem;margin:0;line-height:1.1;color:var(--fg)}
+.hebreo{font-family:var(--f-heb);font-size:2.3rem;line-height:1.2;direction:rtl;color:var(--fg)}
+.translit{font-style:italic;color:var(--tinta-2)}
+.verso{border-left:3px solid var(--azul);background:color-mix(in srgb,var(--azul) 7%,transparent);padding:10px 12px;font-style:italic;white-space:pre-line}
+.verso .ref{display:block;font-style:normal;font-weight:600;color:var(--azul);margin-top:6px;font-size:.88rem;text-align:right}
+.sc{font-variant:small-caps;letter-spacing:.03em}
+.ficha h3{font-family:var(--f-disp);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;margin:4px 0 0;color:var(--dorado)}
+.par{display:grid;gap:6px;padding:10px 0;border-top:1px solid var(--linea)}
+.par:first-of-type{border-top:0}
+.par p{margin:0}
+.num{display:inline-grid;place-items:center;width:1.45em;height:1.45em;border-radius:50%;background:var(--tinta);color:var(--dorado-claro);font:700 .72rem/1 var(--f-texto);margin-right:6px;vertical-align:.1em}
+:root[data-theme="dark"] .num{color:#E8CD8C}
+details summary{cursor:pointer;color:var(--azul);font-size:.9rem}
+details .verso{margin-top:8px}
+.enlace-atr{font:inherit;color:var(--fg);background:none;border:0;border-bottom:1px dotted var(--dorado);padding:0;cursor:pointer;font-weight:600}
+.nota{font-size:.84rem;color:var(--tinta-2);max-width:80ch}
+footer{display:grid;gap:8px;border-top:1px solid var(--linea);padding-top:14px}
+/* SVG */
+.zona{transition:opacity .2s}
+.rayo{stroke:var(--dorado);stroke-width:.03}
+.cuerda{fill:none;stroke:var(--dorado);stroke-width:.075;stroke-linecap:round;transition:opacity .25s,stroke-width .25s}
+.luz{fill:none;stroke:var(--dorado-claro);stroke-width:.06;stroke-linecap:round;stroke-dasharray:.25 2.2;animation:fluir 3.2s linear infinite}
+:root[data-theme="dark"] .luz{stroke:#F6E3A8}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .luz{stroke:#F6E3A8}}
+@keyframes fluir{to{stroke-dashoffset:-2.45}}
+.hubl{fill:none;stroke-width:.045}
+svg.hay-sel .cuerda:not(.on),svg.hay-sel .luz:not(.on){opacity:.12}
+svg.hay-sel .cuerda.on{stroke-width:.13}
+svg.hay-sel .nodo:not(.sel):not(.vec){opacity:.45}
+.nodo{cursor:pointer;transition:opacity .25s}
+.nodo circle{stroke-width:.07}
+.nodo.ser circle{fill:var(--nodo-ser);stroke:var(--dorado)}
+.nodo.ide circle{fill:var(--nodo-ide);stroke:var(--azul)}
+.nodo.rel circle{fill:var(--nodo-rel);stroke:var(--morado)}
+.nodo.sel circle{stroke-width:.16;stroke:var(--granate)}
+.nodo .nm{font-family:var(--f-disp);font-weight:700;font-size:.33px;text-anchor:middle;fill:var(--fg)}
+.nodo .hb{font-family:var(--f-heb);text-anchor:middle;fill:var(--fg)}
+.nodo .tr{font-family:var(--f-texto);font-style:italic;font-size:.27px;text-anchor:middle;fill:var(--tinta-2)}
+.etq{font-family:var(--f-disp);font-weight:700;font-size:.42px;letter-spacing:.06px;text-anchor:middle}
+.cruz rect{fill:var(--dorado)}
+.halo{fill:url(#resplandor)}
+svg.converge .rayo{stroke-width:.07;stroke-dasharray:.3 .5;animation:entrar 1.1s linear infinite;opacity:1!important}
+@keyframes entrar{to{stroke-dashoffset:.8}}
+svg.converge .halo{animation:latido 1.4s ease-in-out infinite}
+@keyframes latido{50%{opacity:.55}}
+@media (prefers-reduced-motion: reduce){.luz,svg.converge .rayo,svg.converge .halo{animation:none}}
+</style>
+</head>
+<body>
+
+<div class="envoltura">
+  <header>
+    <div class="ceja">La gloria de Dios · Conclusión</div>
+    <h1>Sincronía perfecta</h1>
+    <p class="lede">Veinte perfecciones de un solo Dios que no compiten entre sí: cada una asegura a otra y todas convergen en la Cruz. Toca un atributo para ver qué asegura, quién lo asegura y el texto que lo respalda.</p>
+    <div class="controles">
+      <div class="segmento" role="group" aria-label="Vista del diagrama">
+        <button type="button" id="v-rosa" aria-pressed="true">Rosa de sincronía</button>
+        <button type="button" id="v-zonas" aria-pressed="false">Esquema por zonas</button>
+      </div>
+      <button type="button" class="boton principal" id="b-cruz">Convergencia en la Cruz</button>
+      <button type="button" class="boton" id="b-mov" aria-pressed="true">Pausar movimiento</button>
+    </div>
+  </header>
+
+  <div class="lienzo">
+    <div class="escenario">
+      <svg id="rosa" viewBox="-10.15 -10.15 20.3 20.3" role="img" aria-label="Diagrama de los veinte atributos de Dios unidos por flechas de sincronía">
+        <defs>
+          <radialGradient id="resplandor"><stop offset="0" stop-color="var(--dorado-claro)" stop-opacity=".95"/><stop offset="1" stop-color="var(--dorado-claro)" stop-opacity="0"/></radialGradient>
+          <marker id="punta" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="4.2" markerHeight="4.2" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--dorado)"/></marker>
+        </defs>
+        <g id="capa-fondo"></g>
+        <g id="capa-lineas"></g>
+        <g id="capa-cruz"></g>
+        <g id="capa-nodos"></g>
+      </svg>
+    </div>
+    <aside class="ficha" id="ficha" aria-live="polite"></aside>
+  </div>
+
+  <footer>
+    <p class="nota"><strong>Cómo leerlo.</strong> Cada flecha dorada va del atributo que asegura al atributo asegurado. El anillo punteado es la unidad de Dios (<span lang="he" dir="rtl">אֶחָד</span>, Dt 6:4), que sostiene a todos; los rayos muestran que toda la plenitud converge en Cristo (Col 1:19–20; 2:9).</p>
+    <p class="nota"><strong>Notas.</strong> Versos de la Reina-Valera 1960; donde esa versión dice «Jehová» se escribe <span class="sc">Señor</span>, que traduce el tetragrama. En Salmos e Isaías se indica entre corchetes la numeración del texto hebreo (TM) cuando difiere. Esquema del autor: la asignación de cada par y el papel de la sabiduría como sincronizadora son interpretación propia de esta obra, no categorías de la teología clásica. Danilo Gómez Correa, <em>La gloria de Dios</em>.</p>
+  </footer>
+</div>
+
+<script>
+const D = {"atr": [{"id": "uno", "n": "Uno", "h": "אֶחָד", "t": "ejad", "g": "ser", "a": 90, "rol": "Base: unidad indivisible", "ref": "Dt 6:4", "v": "Oye, Israel: Señor nuestro Dios, Señor uno es.", "com": "incomunicable", "ast": false, "z": [0, 5.25]}, {"id": "esp", "n": "Espíritu", "h": "רוּחַ", "t": "rúaj", "g": "ser", "a": 72, "rol": "Esencia no material", "ref": "Jn 4:24", "v": "Dios es Espíritu; y los que le adoran, en espíritu y en verdad es necesario que adoren.", "com": "comunicable", "ast": false, "z": [2.85, 4.05]}, {"id": "santo", "n": "Santo", "h": "קָדוֹשׁ", "t": "qadosh", "g": "ide", "a": 54, "rol": "Centro que permea todo", "ref": "Is 6:3", "v": "Y el uno al otro daba voces, diciendo: Santo, santo, santo, Señor de los ejércitos; toda la tierra está llena de su gloria.", "com": "comunicable", "ast": false, "z": [0, 0.75]}, {"id": "eterno", "n": "Eterno", "h": "עוֹלָם", "t": "olam", "g": "ide", "a": 36, "rol": "Sin principio ni fin", "ref": "Sal 90:2", "v": "Antes que naciesen los montes\nY formases la tierra y el mundo,\nDesde el siglo y hasta el siglo, tú eres Dios.", "com": "incomunicable", "ast": false, "z": [-4.45, 1.65]}, {"id": "sob", "n": "Soberano", "h": "אֲדֹנָי", "t": "Adonay", "g": "ide", "a": 18, "rol": "Gobierno supremo", "ref": "Sal 115:3", "v": "Nuestro Dios está en los cielos;\nTodo lo que quiso ha hecho.", "com": "comunicable", "ast": false, "z": [-6.75, 0]}, {"id": "justo", "n": "Justo", "h": "צֶדֶק", "t": "tsedeq", "g": "ide", "a": 0, "rol": "Norma de rectitud", "ref": "Sal 97:2", "v": "Nubes y oscuridad alrededor de él;\nJusticia y juicio son el cimiento de su trono.", "com": "comunicable", "ast": false, "z": [-4.45, -1.7]}, {"id": "inm", "n": "Inmutable", "h": "לֹא שָׁנִיתִי", "t": "lo shaniti", "g": "ide", "a": -18, "rol": "No varía", "ref": "Mal 3:6", "v": "Porque yo Señor no cambio; por esto, hijos de Jacob, no habéis sido consumidos.", "com": "incomunicable", "ast": false, "z": [0, -1.95]}, {"id": "omnip", "n": "Omnipotente", "h": "אֵל שַׁדַּי", "t": "El Shadday", "g": "ide", "a": -36, "rol": "Poder suficiente", "ref": "Gn 17:1", "v": "Era Abram de edad de noventa y nueve años, cuando le apareció Señor y le dijo: Yo soy el Dios Todopoderoso; anda delante de mí y sé perfecto.", "com": "incomunicable", "ast": true, "z": [4.45, -1.7]}, {"id": "omnipr", "n": "Omnipresente", "h": "מְלֹא כָל־הָאָרֶץ", "t": "meló kol-haárets", "g": "ide", "a": -54, "rol": "Presencia total", "ref": "Sal 139:7", "v": "¿A dónde me iré de tu Espíritu?\n¿Y a dónde huiré de tu presencia?", "com": "incomunicable", "ast": false, "z": [6.75, 0]}, {"id": "omnis", "n": "Omnisciente", "h": "יָדַע", "t": "yadá", "g": "ide", "a": -72, "rol": "Conocimiento exhaustivo", "ref": "Sal 139:1–2", "v": "Oh Señor, tú me has examinado y conocido. Tú has conocido mi sentarme y mi levantarme;\nHas entendido desde lejos mis pensamientos.", "com": "incomunicable", "ast": true, "z": [4.45, 1.65]}, {"id": "sab", "n": "Sabiduría", "h": "חָכְמָה", "t": "jojmá", "g": "rel", "a": -90, "rol": "Sincronizador", "ref": "Pr 3:19", "v": "Señor con sabiduría fundó la tierra;\nAfirmó los cielos con inteligencia.", "com": "comunicable", "ast": false, "z": [0, -4.35]}, {"id": "ver", "n": "Verdadero", "h": "אֱמֶת", "t": "emet", "g": "rel", "a": -108, "rol": "Firmeza, realidad", "ref": "Éx 34:6", "v": "Y pasando Señor por delante de él, proclamó: ¡Señor! ¡Señor! fuerte, misericordioso y piadoso; tardo para la ira, y grande en misericordia y verdad;", "com": "comunicable", "ast": false, "z": [-3.75, -3.95]}, {"id": "mis", "n": "Misericordioso", "h": "רַחֲמִים", "t": "rajamim", "g": "rel", "a": -126, "rol": "Compasión entrañable", "ref": "Sal 103:13", "v": "Como el padre se compadece de los hijos,\nSe compadece Señor de los que le temen.", "com": "comunicable", "ast": false, "z": [3.75, -3.95]}, {"id": "fiel", "n": "Fiel", "h": "אֱמוּנָה", "t": "emuná", "g": "rel", "a": -144, "rol": "Constancia en el pacto", "ref": "Dt 32:4", "v": "El es la Roca, cuya obra es perfecta,\nPorque todos sus caminos son rectitud;\nDios de verdad, y sin ninguna iniquidad en él;\nEs justo y recto.", "com": "comunicable", "ast": false, "z": [1.35, -6.65]}, {"id": "gra", "n": "Gracia", "h": "חֵן", "t": "jen", "g": "rel", "a": -162, "rol": "Favor inmerecido", "ref": "Éx 34:6", "v": "Y pasando Señor por delante de él, proclamó: ¡Señor! ¡Señor! fuerte, misericordioso y piadoso; tardo para la ira, y grande en misericordia y verdad;", "com": "comunicable", "ast": false, "z": [6.25, -5.0]}, {"id": "bon", "n": "Bondad", "h": "טוֹב", "t": "tov", "g": "rel", "a": 180, "rol": "Favor", "ref": "Sal 145:9", "v": "Bueno es Señor para con todos,\nY sus misericordias sobre todas sus obras.", "com": "comunicable", "ast": false, "z": [-6.25, -5.0]}, {"id": "pac", "n": "Paciencia", "h": "אֶרֶךְ אַפַּיִם", "t": "érej apáyim", "g": "rel", "a": 162, "rol": "Tolerancia: tardo para la ira", "ref": "Éx 34:6", "v": "Y pasando Señor por delante de él, proclamó: ¡Señor! ¡Señor! fuerte, misericordioso y piadoso; tardo para la ira, y grande en misericordia y verdad;", "com": "comunicable", "ast": false, "z": [4.05, -6.45]}, {"id": "ira", "n": "Ira santa", "h": "אַף", "t": "af", "g": "rel", "a": 144, "rol": "Santidad ante el mal", "ref": "Sal 2:12", "v": "Honrad al Hijo, para que no se enoje, y perezcáis en el camino;\nPues se inflama de pronto su ira.\nBienaventurados todos los que en él confían.", "com": "comunicable", "ast": false, "z": [-4.05, -6.45]}, {"id": "celo", "n": "Celo", "h": "קִנְאָה", "t": "qin’á", "g": "rel", "a": 126, "rol": "Protege su gloria y su pueblo", "ref": "Éx 34:14", "v": "Porque no te has de inclinar a ningún otro dios, pues Señor, cuyo nombre es Celoso, Dios celoso es.", "com": "comunicable", "ast": false, "z": [-1.35, -6.65]}, {"id": "amor", "n": "Amor", "h": "חֶסֶד", "t": "jésed", "g": "ser", "a": 108, "rol": "Eje: amor leal de pacto", "ref": "1 Jn 4:8", "v": "El que no ama, no ha conocido a Dios; porque Dios es amor.", "com": "comunicable", "ast": false, "z": [-2.85, 4.05]}], "sinc": [{"n": 1, "s": "santo", "d": ["amor", "omnip", "ira"], "fr": "La santidad asegura que su amor sea puro, su omnipotencia limpia y su ira santa.", "ref": "Is 6:3", "tm": null, "v": "Y el uno al otro daba voces, diciendo: Santo, santo, santo, Señor de los ejércitos; toda la tierra está llena de su gloria."}, {"n": 2, "s": "sab", "d": ["justo", "mis", "ver"], "fr": "La sabiduría asegura que su justicia se aplique con misericordia y respaldada por la verdad.", "ref": "Sal 85:10", "tm": "85:11", "v": "La misericordia y la verdad se encontraron;\nLa justicia y la paz se besaron."}, {"n": 3, "s": "eterno", "d": ["sob"], "fr": "La eternidad asegura que su soberanía sea un reino sin principio ni fin.", "ref": "Sal 145:13", "tm": null, "v": "Tu reino es reino de todos los siglos,\nY tu señorío en todas las generaciones."}, {"n": 4, "s": "omnis", "d": ["justo"], "fr": "La omnisciencia asegura que su justicia sea siempre informada, perfecta y sin error.", "ref": "Heb 4:13", "tm": null, "v": "Y no hay cosa creada que no sea manifiesta en su presencia; antes bien todas las cosas están desnudas y abiertas a los ojos de aquel a quien tenemos que dar cuenta."}, {"n": 5, "s": "inm", "d": ["fiel"], "fr": "La inmutabilidad asegura que su fidelidad y sus promesas sean irrevocables.", "ref": "Ro 11:29", "tm": null, "v": "Porque irrevocables son los dones y el llamamiento de Dios."}, {"n": 6, "s": "esp", "d": ["omnipr"], "fr": "El Espíritu asegura que su omnipresencia trascienda toda barrera física.", "ref": "Jn 4:24", "tm": null, "v": "Dios es Espíritu; y los que le adoran, en espíritu y en verdad es necesario que adoren."}, {"n": 7, "s": "ver", "d": ["mis"], "fr": "La verdad asegura que su misericordia sea auténtica y nunca comprometa su carácter santo.", "ref": "Sal 89:14", "tm": "89:15", "v": "Justicia y juicio son el cimiento de tu trono;\nMisericordia y verdad van delante de tu rostro."}, {"n": 8, "s": "celo", "d": ["sob"], "fr": "El celo asegura que la restauración de su reino soberano sea una garantía absoluta.", "ref": "Is 9:7", "tm": "9:6", "v": "Lo dilatado de su imperio y la paz no tendrán límite, sobre el trono de David y sobre su reino, disponiéndolo y confirmándolo en juicio y en justicia desde ahora y para siempre. El celo de Señor de los ejércitos hará esto."}, {"n": 9, "s": "omnip", "d": ["gra"], "fr": "La omnipotencia asegura que su gracia sea eficaz y suficiente.", "ref": "2 Co 12:9", "tm": null, "v": "Y me ha dicho: Bástate mi gracia; porque mi poder se perfecciona en la debilidad. Por tanto, de buena gana me gloriaré más bien en mis debilidades, para que repose sobre mí el poder de Cristo."}], "extra": {"uno": {"ref": "Dt 6:4", "v": "Oye, Israel: Señor nuestro Dios, Señor uno es.", "fr": "La unidad asegura que todos sus atributos operen en una armonía indivisible, como un solo acto eterno."}, "cruz": {"ref": "Col 1:19–20", "v": "por cuanto agradó al Padre que en él habitase toda plenitud, y por medio de él reconciliar consigo todas las cosas, así las que están en la tierra como las que están en los cielos, haciendo la paz mediante la sangre de su cruz.", "fr": "La plenitud (plḗrōma) de todos sus atributos converge en un solo acto de reconciliación."}, "col29": {"ref": "Col 2:9", "v": "Porque en él habita corporalmente toda la plenitud de la Deidad,"}, "jer": {"ref": "Jer 9:24", "v": "Mas alábese en esto el que se hubiere de alabar: en entenderme y conocerme, que yo soy Señor, que hago misericordia, juicio y justicia en la tierra; porque estas cosas quiero, dice Señor."}}};
+const NS="http://www.w3.org/2000/svg";
+const $=s=>document.querySelector(s);
+const svg=$("#rosa"), capaF=$("#capa-fondo"), capaL=$("#capa-lineas"), capaC=$("#capa-cruz"), capaN=$("#capa-nodos");
+const R=7.3, RN=0.98;
+const A={}; D.atr.forEach(a=>A[a.id]=a);
+const GRUPO={ser:"I. Ser · ¿Qué es?",ide:"II. Identidad · ¿Quién es?",rel:"III. Relación · ¿Cómo se revela?"};
+const COLOR={ser:"var(--dorado)",ide:"var(--azul)",rel:"var(--morado)"};
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+function el(t,at,p){const e=document.createElementNS(NS,t);for(const k in at)e.setAttribute(k,at[k]);if(p)p.appendChild(e);return e}
+function senor(t){return t.replace(/Señor/g,'<span class="sc">Señor</span>')}
+function esc(t){return t.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]))}
+
+/* ---------- fondo: anillo, bandas, zonas ---------- */
+const fondoRosa=el("g",{},capaF), fondoZonas=el("g",{},capaF);
+el("circle",{cx:0,cy:0,r:9.15,fill:"none",stroke:"var(--dorado)","stroke-width":.09},fondoRosa);
+el("circle",{cx:0,cy:0,r:8.95,fill:"none",stroke:"var(--dorado)","stroke-width":.025},fondoRosa);
+function arco(r,a0,a1){const p=a=>[r*Math.cos(a*Math.PI/180),-r*Math.sin(a*Math.PI/180)];const [x0,y0]=p(a0),[x1,y1]=p(a1);const big=Math.abs(a1-a0)>180?1:0;const sw=a1<a0?1:0;return `M${x0} ${y0} A${r} ${r} 0 ${big} ${sw} ${x1} ${y1}`}
+const bandas=el("g",{},fondoRosa);
+[["ser",63,117],["ide",45,-81],["rel",-99,-225]].forEach(([g,a,b])=>el("path",{d:arco(8.5,a,b),fill:"none",stroke:COLOR[g],"stroke-width":.5,opacity:.22},bandas));
+el("circle",{cx:0,cy:0,r:R,fill:"none",stroke:"var(--dorado)","stroke-width":.05,"stroke-dasharray":".08 .14"},fondoRosa);
+const rayos=el("g",{},fondoRosa);
+const halo=el("circle",{cx:0,cy:0,r:2.6,class:"halo"},capaC);
+[["ser",0,6.3,3.6,1.6],["ide",0,0.15,8.1,3.0],["rel",0,-5.3,7.9,2.85]].forEach(([g,x,y,rx,ry])=>{
+  el("ellipse",{cx:x,cy:-y,rx,ry,fill:COLOR[g],"fill-opacity":.07,stroke:COLOR[g],"stroke-width":.04},fondoZonas)});
+[["I. Ser · ¿Qué es?",7.6,"ser"],["II. Identidad · ¿Quién es?",2.6,"ide"],["III. Relación · ¿Cómo se revela?",-7.85,"rel"]].forEach(([t,y,g])=>{
+  const e=el("text",{x:0,y:-y,class:"etq",fill:COLOR[g]},fondoZonas);e.textContent=t});
+// etiquetas curvas de la rosa
+[["ser",112,68],["ide",30,-80],["rel",-100,-232]].forEach(([g,a,b],i)=>{
+  el("path",{id:"arc"+i,d:arco(9.55,a,b),fill:"none"},fondoRosa);
+  const t=el("text",{class:"etq",fill:COLOR[g]},fondoRosa);const tp=el("textPath",{href:"#arc"+i,startOffset:"50%"},t);tp.textContent=GRUPO[g]});
+// zonas: posiciones de Uno, Amor y Espíritu algo más arriba para el marco
+const ZAJ={uno:[0,6.55],amor:[-2.5,5.45],esp:[2.5,5.45]};
+
+/* ---------- cruz ---------- */
+const cruz=el("g",{class:"cruz"},capaC);
+el("rect",{x:-.15,y:-1.15,width:.3,height:2.25,rx:.03},cruz);
+el("rect",{x:-.7,y:-.62,width:1.4,height:.28,rx:.03},cruz);
+const tCruz=el("text",{x:0,y:1.65,class:"etq",fill:"var(--fg)","font-size":".38"},cruz);tCruz.textContent="La Cruz";
+cruz.style.cursor="pointer";cruz.setAttribute("tabindex","0");cruz.setAttribute("role","button");cruz.setAttribute("aria-label","La Cruz: convergencia");
+
+/* ---------- aristas ---------- */
+const cuerdas=[];
+D.sinc.forEach(s=>s.d.forEach(d=>{
+  const p=el("path",{class:"cuerda","marker-end":"url(#punta)"},capaL);
+  const l=el("path",{class:"luz"},capaL);
+  cuerdas.push({s:s.s,d,n:s.n,p,l});
+}));
+const hubs=[["uno","amor","ser"],["uno","esp","ser"],["amor","esp","ser"],
+ ...["eterno","sob","justo","inm","omnip","omnipr","omnis"].map(x=>["santo",x,"ide"]),
+ ...["ver","mis","bon","gra","ira","celo","fiel","pac"].map(x=>["sab",x,"rel"]),
+ ["amor","eterno","x"],["esp","omnis","x"],["santo","sab","x"],["justo","ver","x"],["ira","celo","x"]];
+const capaH=el("g",{},capaL); capaL.insertBefore(capaH,capaL.firstChild);
+const hubEls=hubs.map(([a,b,g])=>({a,b,e:el("path",{class:"hubl",stroke:g==="x"?"var(--granate)":COLOR[g]},capaH)}));
+const rayEls=D.atr.map(a=>({id:a.id,e:el("line",{class:"rayo"},rayos)}));
+
+/* ---------- nodos ---------- */
+const HB={omnipr:.30,pac:.36,inm:.38,omnip:.42};
+const nodos={};
+D.atr.forEach(a=>{
+  const g=el("g",{class:"nodo "+a.g,tabindex:0,role:"button","aria-label":a.n+", "+a.t},capaN);
+  el("circle",{r:RN},g);
+  const nm=el("text",{class:"nm",y:-.34},g);nm.textContent=a.n.toUpperCase();
+  if(a.n.length>8){nm.setAttribute("textLength",Math.min(1.72,.2*a.n.length));nm.setAttribute("lengthAdjust","spacingAndGlyphs");nm.setAttribute("font-size",".3")}
+  const hb=el("text",{class:"hb",y:.2,"font-size":HB[a.id]||.5},g);hb.textContent=a.h;
+  const tr=el("text",{class:"tr",y:.62},g);tr.textContent=a.t;if(a.t.length>11){tr.setAttribute("textLength",1.5);tr.setAttribute("lengthAdjust","spacingAndGlyphs")}
+  g.addEventListener("click",()=>elegir(a.id));
+  g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();elegir(a.id)}});
+  nodos[a.id]=g;
+});
+
+/* ---------- geometría ---------- */
+let vista=0, objetivo=0, giro=0, mover=!reduce, tPrev=performance.now(), pulso=0;
+const rad=g=>g*Math.PI/180;
+function posRosa(a){const ang=rad(a.a+giro);return [R*Math.cos(ang),-R*Math.sin(ang)]}
+function posZona(a){const z=ZAJ[a.id]||a.z;return [z[0],-z[1]]}
+const L=(a,b,t)=>a+(b-a)*t, LP=(p,q,t)=>[L(p[0],q[0],t),L(p[1],q[1],t)];
+function ease(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2}
+function bezRosa(a,b){const pa=posRosa(a),pb=posRosa(b);
+  let diff=Math.abs(((b.a-a.a)%360+540)%360-180);
+  const k=.10+.62*Math.pow(1-diff/180,1.4), rc=R*k+1.2;
+  const c1=[rc*Math.cos(rad(a.a+giro)),-rc*Math.sin(rad(a.a+giro))],c2=[rc*Math.cos(rad(b.a+giro)),-rc*Math.sin(rad(b.a+giro))];
+  return [pa,c1,c2,pb]}
+function bezZona(a,b){const pa=posZona(a),pb=posZona(b);const dx=pb[0]-pa[0],dy=pb[1]-pa[1];const n=[-dy*.28,dx*.28];
+  return [pa,[pa[0]+dx/3+n[0],pa[1]+dy/3+n[1]],[pa[0]+2*dx/3+n[0],pa[1]+2*dy/3+n[1]],pb]}
+function recorta(p,c,r){const dx=c[0]-p[0],dy=c[1]-p[1],m=Math.hypot(dx,dy)||1;return [p[0]+dx/m*r,p[1]+dy/m*r]}
+function dibujar(){
+  const t=ease(vista), P={};
+  D.atr.forEach(a=>{P[a.id]=LP(posRosa(a),posZona(a),t);
+    const s=1+(mover?.025*Math.sin(pulso):0);
+    nodos[a.id].setAttribute("transform",`translate(${P[a.id][0].toFixed(3)} ${P[a.id][1].toFixed(3)}) scale(${(s*L(1,.92,t)).toFixed(3)})`)});
+  cuerdas.forEach(c=>{const a=A[c.s],b=A[c.d];const r=bezRosa(a,b),z=bezZona(a,b);
+    const q=[0,1,2,3].map(i=>LP(r[i],z[i],t));const rr=RN*L(1,.92,t)+.05;
+    const p0=recorta(q[0],q[1],rr),p3=recorta(q[3],q[2],rr+.12);
+    const d=`M${p0} C${q[1]} ${q[2]} ${p3}`;c.p.setAttribute("d",d);c.l.setAttribute("d",d)});
+  hubEls.forEach(h=>{const a=P[h.a],b=P[h.b];const rr=RN*.92+.05;const p0=recorta(a,b,rr),p1=recorta(b,a,rr);h.e.setAttribute("d",`M${p0} L${p1}`)});
+  capaH.setAttribute("opacity",t.toFixed(3));
+  const cz=LP([0,0],[0,9.05],t);
+  cruz.setAttribute("transform",`translate(${cz[0]} ${cz[1]}) scale(${L(1,.55,t)})`);halo.setAttribute("transform",`translate(${cz[0]} ${cz[1]}) scale(${L(1,.45,t)})`);
+  tCruz.setAttribute("opacity",(1-t).toFixed(3));
+  rayEls.forEach(r=>{const p=P[r.id];const q=recorta(p,cz,RN+.05);const o=recorta(cz,p,1.35);
+    r.e.setAttribute("x1",q[0]);r.e.setAttribute("y1",q[1]);r.e.setAttribute("x2",o[0]);r.e.setAttribute("y2",o[1])});
+  fondoRosa.setAttribute("opacity",(1-t).toFixed(3));fondoZonas.setAttribute("opacity",t.toFixed(3));
+}
+function ciclo(now){const dt=Math.min(64,now-tPrev);tPrev=now;
+  if(vista!==objetivo){const paso=dt/1100;vista=objetivo>vista?Math.min(objetivo,vista+paso):Math.max(objetivo,vista-paso)}
+  if(mover){if(objetivo===0&&vista===0)giro=(giro+dt*0.0016)%360;pulso+=dt*2*Math.PI/4200}
+  dibujar();requestAnimationFrame(ciclo)}
+
+/* ---------- ficha ---------- */
+const ficha=$("#ficha");
+function verso(ref,v,tm){return `<div class="verso">${senor(esc(v))}<span class="ref">${ref}${tm?` [TM ${tm}]`:""} · RVR1960</span></div>`}
+function nombre(id){return `<button class="enlace-atr" data-id="${id}">${A[id].n}</button>`}
+function lista(ids){return ids.map(nombre).join(", ").replace(/, ([^,]*)$/," y $1")}
+function fichaInicio(){
+  ficha.innerHTML=`<div class="chips"><span class="chip neutro">Tesis</span></div>
+  <h2>La plenitud en Cristo</h2>
+  <p>La gloria de Dios es la comunión perfecta de todos sus atributos, y esa plenitud habita en Cristo.</p>
+  ${verso(D.extra.col29.ref,D.extra.col29.v)}
+  <p>En la Cruz no vemos a los atributos de Dios compitiendo entre sí, sino convergiendo en una sincronía perfecta: la justicia fue satisfecha, la misericordia fue derramada y la santidad fue vindicada.</p>
+  <h3>Verso clave de la obra</h3>
+  ${verso(D.extra.jer.ref,D.extra.jer.v)}`;
+}
+function fichaCruz(){
+  ficha.innerHTML=`<div class="chips"><span class="chip neutro">Punto de convergencia</span></div>
+  <h2>La Cruz</h2>
+  <p>${D.extra.cruz.fr.replace("plḗrōma","<em>plḗrōma</em>")}</p>
+  ${verso(D.extra.cruz.ref,D.extra.cruz.v)}
+  <p>Lo que el ser humano intentó fragmentar al canjear la gloria de Dios (Ro 1:23, 25), Dios lo unió en la Cruz.</p>`;
+}
+function fichaAtr(id){
+  const a=A[id];
+  const sale=D.sinc.filter(s=>s.s===id), entra=D.sinc.filter(s=>s.d.includes(id));
+  let h=`<div class="chips"><span class="chip ${a.g}">${GRUPO[a.g]}</span><span class="chip neutro">${a.com}${a.ast?" (su reflejo finito sí)":""}</span></div>
+  <h2>${a.n}</h2><div class="hebreo" lang="he">${a.h}</div>
+  <div class="translit">${a.t} · ${a.rol}</div>
+  <h3>Texto ancla</h3>${verso(a.ref,a.v)}`;
+  if(id==="uno"){h+=`<h3>Asegura</h3><div class="par"><p>${D.extra.uno.fr}</p><p class="nota">Es el anillo que une a los veinte.</p></div>`}
+  if(sale.length){h+=`<h3>Asegura</h3>`+sale.map(s=>`<div class="par"><p><span class="num">${s.n}</span>A ${lista(s.d)}. ${s.fr}</p>
+    <details><summary>${s.ref}${s.tm?` [TM ${s.tm}]`:""}</summary>${verso(s.ref,s.v,s.tm)}</details></div>`).join("")}
+  if(entra.length){h+=`<h3>Es asegurado por</h3>`+entra.map(s=>`<div class="par"><p><span class="num">${s.n}</span>${nombre(s.s)}. ${s.fr}</p>
+    <details><summary>${s.ref}${s.tm?` [TM ${s.tm}]`:""}</summary>${verso(s.ref,s.v,s.tm)}</details></div>`).join("")}
+  if(!sale.length&&!entra.length&&id!=="uno"){h+=`<p class="nota">En el cuadro de sincronías no tiene un par propio: lo sostiene el anillo de la unidad (Dt 6:4) y, como todos, converge en la Cruz.</p>`}
+  ficha.innerHTML=h;
+}
+ficha.addEventListener("click",e=>{const b=e.target.closest(".enlace-atr");if(b)elegir(b.dataset.id)});
+
+/* ---------- selección y controles ---------- */
+let sel=null;
+function marcar(){
+  svg.classList.toggle("hay-sel",!!sel&&sel!=="cruz");
+  const vec=new Set();
+  cuerdas.forEach(c=>{const on=sel&&(c.s===sel||c.d===sel||sel==="uno");c.p.classList.toggle("on",!!on);c.l.classList.toggle("on",!!on);if(on){vec.add(c.s);vec.add(c.d)}});
+  Object.entries(nodos).forEach(([id,g])=>{g.classList.toggle("sel",id===sel);g.classList.toggle("vec",vec.has(id)||sel==="uno")});
+}
+function elegir(id){
+  svg.classList.remove("converge");
+  if(sel===id){sel=null;fichaInicio()}else{sel=id;fichaAtr(id)}
+  marcar();
+  if(matchMedia("(max-width:860px)").matches&&sel)ficha.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});
+}
+function convergencia(){sel="cruz";marcar();fichaCruz();setVista(0);svg.classList.add("converge");
+  if(matchMedia("(max-width:860px)").matches)ficha.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"})}
+function setVista(v){objetivo=v;$("#v-rosa").setAttribute("aria-pressed",v===0);$("#v-zonas").setAttribute("aria-pressed",v===1)}
+$("#v-rosa").onclick=()=>setVista(0);
+$("#v-zonas").onclick=()=>{svg.classList.remove("converge");setVista(1)};
+$("#b-cruz").onclick=convergencia;
+cruz.addEventListener("click",convergencia);
+cruz.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();convergencia()}});
+const bMov=$("#b-mov");
+function pintarMov(){bMov.textContent=mover?"Pausar movimiento":"Reanudar movimiento";bMov.setAttribute("aria-pressed",mover);
+  document.querySelectorAll(".luz").forEach(l=>l.style.animationPlayState=mover?"running":"paused")}
+bMov.onclick=()=>{mover=!mover;pintarMov()};
+if(location.hash==="#zonas")setVista(1),vista=1;
+pintarMov();fichaInicio();dibujar();requestAnimationFrame(ciclo);
+</script>
+
+</body>
+</html>

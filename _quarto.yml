@@ -4,6 +4,7 @@ project:
   pre-render: scripts/atributos.py   # convierte los estudios LaTeX en páginas y PDF (todas las series)
   resources:
     - "app/**"
+    - "sincronia/**"
     - "atributos/pdf/**"
     - "atributos/img/**"
     - "festividades/pdf/**"
