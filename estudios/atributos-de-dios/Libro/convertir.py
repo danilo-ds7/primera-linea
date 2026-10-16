@@ -21,7 +21,9 @@ LIBROS = {'1~Co': '1 Corintios', '1~P': '1 Pedro', '1~S': '1 Samuel', '2~Co': '2
           'Pr': 'Proverbios', 'Dn': 'Daniel', 'Ec': 'Eclesiastés', '1~R': '1 Reyes', '2~Ti': '2 Timoteo',
           '2~R': '2 Reyes', '2~S': '2 Samuel', '2~Ts': '2 Tesalonicenses', 'Am': 'Amós', 'Zac': 'Zacarías', 'Gá': 'Gálatas',
           'Ez': 'Ezequiel', 'Cnt': 'Cantares', 'Flp': 'Filipenses', 'Jos': 'Josué',
-          '1 Co': '1 Corintios', '2 Co': '2 Corintios', '1 R': '1 Reyes', '2 R': '2 Reyes', '1 Jn': '1 Juan', 'Rt': 'Rut'}
+          '1 Co': '1 Corintios', '2 Co': '2 Corintios', '1 R': '1 Reyes', '2 R': '2 Reyes', '1 Jn': '1 Juan', 'Rt': 'Rut',
+          '2~P': '2 Pedro', 'Job': 'Job', '1~Cr': '1 Crónicas', '2~Cr': '2 Crónicas'}
+LIBROS.update({k.replace('~', ' '): v for k, v in list(LIBROS.items()) if '~' in k and k.replace('~', ' ') not in LIBROS})
 
 def ref_larga(r):
     r = r.strip('()')
@@ -33,10 +35,13 @@ def ref_larga(r):
     return f"{(libro if libro == 'Salmo' else LIBROS.get(libro, libro))} {cap.replace('--', '–')}{extra}"
 
 # Versos: cita -> verso
+NOBIB = ('(Misná', '(\\emph{', '(1QS', '(Talmud')  # fuentes no bíblicas: cita sin RVR1960
 def verso(m):
     texto, ref = m.group(1).strip(), m.group(2)
+    if ref.startswith(NOBIB):
+        return '\\begin{quote}\\itshape\n%s\\par\\hfill{\\upshape\\small\\bfseries\\textcolor{azulp}{%s}}\n\\end{quote}' % (texto, ref)
     return '\\begin{verso}{%s}\n%s\n\\end{verso}' % (ref_larga(ref), texto)
-body = re.sub(r'\\begin\{cita\}(.*?)\\fuente\{(\([^}]*\))\}\\end\{cita\}', verso, body, flags=re.S)
+body = re.sub(r'\\begin\{cita\}((?:(?!\\begin\{cita\}).)*?)\\fuente\{(\((?:[^{}]|\{[^{}]*\})*\))\}\\end\{cita\}', verso, body, flags=re.S)
 
 # Precisiones
 def prec(m):

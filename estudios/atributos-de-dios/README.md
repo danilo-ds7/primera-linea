@@ -8,6 +8,7 @@ Compilar siempre con **XeLaTeX** (3 pasadas) desde la carpeta del archivo.
 | `00_Introduccion/` | `presentacion/Atributos_Introduccion.tex` y `articulo/Introduccion_Libro.tex` |
 | `04_Santo/` | `04_Santo_presentacion.tex` y `04_Santo_capitulo.tex` |
 | `09_Omnipotente/` | `09_Omnipotente_presentacion.tex` y `09_Omnipotente_capitulo.tex` |
+| `11_Omnisciente/` | `11_Omnisciente_presentacion.tex` y `11_Omnisciente_capitulo.tex` (omnisciencia y presciencia) |
 | `12_Sabiduria/` | `12_Sabiduria_presentacion.tex` y `12_Sabiduria_capitulo.tex` |
 | `13_Verdad/` | `13_Verdad_presentacion.tex` y `13_Verdad_capitulo.tex` |
 | `14_Misericordia/` | `14_Misericordia_presentacion.tex` y `14_Misericordia_capitulo.tex` |
