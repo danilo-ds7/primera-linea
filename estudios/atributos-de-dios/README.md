@@ -15,6 +15,7 @@ Compilar siempre con **XeLaTeX** (3 pasadas) desde la carpeta del archivo.
 | `07_Justo/` | `07_Justo_presentacion.tex` y `07_Justo_capitulo.tex` (la justicia de Dios: Sal 145:17, *tsedaqá* y *mishpat*, Abraham ante Sodoma, Ro 3:26) |
 | `08_Inmutable/` | `08_Inmutable_presentacion.tex` y `08_Inmutable_capitulo.tex` |
 | `09_Omnipotente/` | `09_Omnipotente_presentacion.tex` y `09_Omnipotente_capitulo.tex` |
+| `10_Omnipresente/` | `10_Omnipresente_presentacion.tex` y `10_Omnipresente_capitulo.tex` (Jer 23:23–24; Jehová-sama y Emanuel; Betel y *HaMaqom*) |
 | `11_Omnisciente/` | `11_Omnisciente_presentacion.tex` y `11_Omnisciente_capitulo.tex` (omnisciencia y presciencia) |
 | `12_Sabiduria/` | `12_Sabiduria_presentacion.tex` y `12_Sabiduria_capitulo.tex` |
 | `13_Verdad/` | `13_Verdad_presentacion.tex` y `13_Verdad_capitulo.tex` |
