@@ -9,11 +9,14 @@ project:
     - "atributos/img/**"
     - "festividades/pdf/**"
     - "festividades/img/**"
+    - "israel/pdf/**"
+    - "israel/img/**"
   render:
     - "*.qmd"
     - "estudios/*.qmd"
     - "atributos/*.qmd"
     - "festividades/*.qmd"
+    - "israel/*.qmd"
 
 website:
   title: "Primera Línea"

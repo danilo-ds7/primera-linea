@@ -26,6 +26,12 @@ Igual que Atributos: los estudios en LaTeX van en `estudios/fiestas-santas/` (de
 de estudio «Fiestas Santas») y el mismo `scripts/atributos.py` genera las páginas en `festividades/`
 (carpeta generada) y las muestra en la página **Festividades santas** (`festividades.qmd`).
 
+## Serie «Israel y su restauración»
+
+Igual que Atributos: los estudios en LaTeX van en `estudios/israel-pueblo-de-dios/` (desde el proyecto
+de estudio «Israel») y el mismo `scripts/atributos.py` genera las páginas en `israel/`
+(carpeta generada) y las muestra en la página **Israel y su restauración** (`israel.qmd`).
+
 ## Publicación
 
 Cada cambio que llega a GitHub se publica solo (`.github/workflows/publicar.yml`) en

@@ -1,12 +1,24 @@
 ---
 title: "Israel y su restauración"
 subtitle: "Las promesas a los patriarcas y la restauración que anuncian los profetas"
+body-classes: serie-atributos
+listing:
+  id: lista-israel
+  contents: israel
+  sort: "order"
+  type: grid
+  template: scripts/atributos.ejs
+  fields: [title, subtitle, description, numero]
+  categories: false
+  sort-ui: false
+  filter-ui: false
 ---
 
-El lugar de Israel en el plan de Dios: las promesas hechas a Abraham, Isaac y Jacob, y la restauración que anuncian los profetas.
+Israel, el pueblo de Dios: su lugar en el plan de Dios, las promesas hechas a Abraham, Isaac y Jacob, y la restauración que anuncian los profetas.
 
-::: {.callout-note appearance="simple"}
-Los estudios de esta línea están en preparación y se irán publicando aquí.
+Cada estudio se puede leer aquí o descargar en PDF, junto con la presentación que lo acompaña.
+
+::: {#lista-israel}
 :::
 
 [← Volver a las líneas de estudio](index.qmd#estudios)

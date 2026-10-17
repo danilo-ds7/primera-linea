@@ -2,7 +2,7 @@
 title: "Estudios"
 subtitle: "Ensayos, fichas filológicas y series temáticas"
 listing:
-  contents: [estudios, atributos, festividades]
+  contents: [estudios, atributos, festividades, israel]
   type: default
   sort: "date desc"
   categories: true

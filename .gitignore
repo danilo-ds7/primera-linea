@@ -24,6 +24,8 @@
 # Páginas, PDF y figuras de la serie: se generan desde los .tex (scripts/atributos.py)
 /atributos/
 /festividades/
+/israel/
 # PDF compilados junto a los .tex
 /estudios/atributos-de-dios/**/*.pdf
 /estudios/fiestas-santas/**/*.pdf
+/estudios/israel-pueblo-de-dios/**/*.pdf

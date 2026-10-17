@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Series de estudios en LaTeX («Atributos de Dios», «Festividades santas»): convierte los
+Series de estudios en LaTeX («Atributos de Dios», «Festividades santas», «Israel y su restauración»): convierte los
 estudios en páginas del sitio.
 
 Se ejecuta solo antes de cada `quarto render` / `quarto preview` (ver _quarto.yml).
@@ -36,6 +36,8 @@ SERIES = [
      "etiqueta": "Atributo", "libro_pdf": "la-gloria-de-dios-libro.pdf", "requerida": True},
     {"nombre": "Festividades santas", "fuente": "fiestas-santas", "salida": "festividades",
      "etiqueta": "Fiesta", "libro_pdf": "fiestas-santas-libro.pdf", "requerida": False},
+    {"nombre": "Israel y su restauración", "fuente": "israel-pueblo-de-dios", "salida": "israel",
+     "etiqueta": "Estudio", "libro_pdf": "israel-pueblo-de-dios-libro.pdf", "requerida": False},
 ]
 
 # Serie en proceso (las fija usar_serie)
