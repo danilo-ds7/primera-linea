@@ -444,7 +444,7 @@ def procesar_estudio(carpeta, orden):
 
     titulo, subtitulo, resumen, latex = preparar(tex, slug_base, capitulo.parent, SALIDA / "img" / slug_base)
     for img in capitulo.parent.glob("*"):
-        if img.suffix.lower() in {".jpg", ".jpeg", ".png", ".svg"} and img.stem not in {"papiro", "papiro_crema"}:
+        if img.suffix.lower() in {".jpg", ".jpeg", ".png", ".svg"} and img.stem not in {"papiro", "papiro_crema", "piedra"}:
             (SALIDA / "img" / slug_base).mkdir(parents=True, exist_ok=True)
             shutil.copy2(img, SALIDA / "img" / slug_base / img.name)
             latex = latex.replace("{" + img.name + "}", "{img/" + slug_base + "/" + img.name + "}")
