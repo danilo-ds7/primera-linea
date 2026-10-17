@@ -47,3 +47,5 @@ Al subir cambios a esta carpeta, GitHub Actions compila los PDF y publica cada e
 - **Artículos, capítulos y libro:** ningún recuadro queda partido entre dos páginas. Todos los `tcolorbox` (versos, citas, notas, filología) son `unbreakable`; si uno es más alto que una página, se divide en dos recuadros.
 - **Índice del libro:** una sola página, solo partes y capítulos (`\setcounter{tocdepth}{0}` en `Libro/La_gloria_de_Dios.tex`).
 - **Gráficos:** sobrios, en TikZ incrustado en el .tex (no imágenes PNG/JPG), con la tipografía del documento, líneas finas y los colores de la serie atenuados. Los dos esquemas de la Conclusión están en `21_Gloria/diagramas/` (`*_fig.tex`); tras editarlos, correr `python3 21_Gloria/diagramas/incrustar_diagramas.py`.
+- **El Nombre que revela el atributo:** obligatorio en todos los atributos (p. ej. *YHWH Yiré*, *Adonay*, *El Shaddai*), en la sección "El Nombre que revela [el atributo]", antes de Definición.
+- **Redacción:** prosa expositiva, fluida y argumentada; las tablas y los esquemas acompañan al texto. Las demostraciones se hacen con textos de toda la Biblia leídos en su contexto.
