@@ -1,0 +1,582 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage{fontspec}
+\setmainfont{texgyrepagella}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
+\usepackage[bidi=default]{babel}
+\babelprovide[import,main]{spanish}
+\babelprovide[import]{hebrew}
+\babelprovide[import]{ancientgreek}
+\babelfont[hebrew]{rm}[Path=fonts/,BoldFont=NotoHebrewSerif-700.ttf,Scale=0.95]{NotoHebrewSerif-400.ttf}
+\babelfont[ancientgreek]{rm}[Path=fonts/]{GFSPorson.otf}
+\newcommand{\heb}[1]{\mbox{\foreignlanguage{hebrew}{#1}}}
+\newcommand{\grc}[1]{\foreignlanguage{ancientgreek}{#1}}
+\newcommand{\hebverso}[1]{\par\smallskip{\centering\begin{otherlanguage}{hebrew}\large #1\end{otherlanguage}\par}\smallskip}
+\usepackage[margin=2.5cm,headheight=14pt]{geometry}
+\usepackage{microtype,ragged2e,booktabs,graphicx,xcolor,csquotes,array}
+\usepackage[hidelinks]{hyperref}\usepackage{xurl}\urlstyle{same}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}\usetikzlibrary{arrows.meta,positioning,calc,decorations.pathreplacing}
+\usepackage{titlesec,fancyhdr,extramarks}
+% Paleta "Israel": café ladrillo (ladrillos de Egipto, Éx 1:14), oro del santuario, piedra de Jerusalén
+\definecolor{cafe}{RGB}{96,52,30}\definecolor{cafeosc}{RGB}{50,25,13}\definecolor{tinta}{RGB}{44,28,18}
+\definecolor{oro}{RGB}{196,148,40}\definecolor{ladrillo}{RGB}{158,70,40}
+\definecolor{piedra}{RGB}{240,228,203}\definecolor{sepia}{RGB}{104,86,62}
+\titleformat{\section}{\Large\bfseries\color{ladrillo}}{\thesection.}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{cafe}}{\thesubsection}{0.6em}{}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\foreignlanguage{spanish}{\small\itshape\color{sepia}\firstleftmark}}\fancyhead[R]{\foreignlanguage{spanish}{\small\color{sepia}\thepage}}
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+\setlength{\parindent}{1.27cm}\linespread{1.15}\setlength{\emergencystretch}{3em}
+\newtcolorbox{cita}[1][]{enhanced,colback=piedra,colframe=ladrillo!85!oro,boxrule=0pt,leftrule=2.5pt,arc=0pt,
+  left=8pt,right=8pt,top=5pt,bottom=5pt,before skip=8pt,after skip=8pt,fontupper=\itshape,#1}
+\newcommand{\fuente}[1]{\par\hfill{\upshape\bfseries\small\textcolor{ladrillo}{#1}}}
+\newtcolorbox{nota}[1][]{enhanced,colback=oro!12,colframe=oro!80!ladrillo,boxrule=0.6pt,arc=2pt,
+  fonttitle=\bfseries\small,coltitle=cafe,colbacktitle=oro!35,fontupper=\small,title={#1}}
+\newcommand{\refapa}[1]{\par{\RaggedRight\hangindent=1.27cm\hangafter=1\noindent #1\par}\vspace{4pt}}
+\newcommand{\destacar}[1]{\textbf{\textcolor{ladrillo}{#1}}}
+\title{\color{ladrillo}\bfseries Los reyes y los cautiverios\\[4pt]\large\color{cafe}\mdseries Dos reinos, dos destierros y una promesa que vuelve a reunir a todo Israel}
+\author{}\date{\color{sepia}Serie «Israel, el pueblo de Dios» · Estudio 5}
+\providecommand{\pt}[2]{({#1-30},{#2-29})}
+\usepackage{longtable}
+\begin{document}
+\maketitle\thispagestyle{empty}
+
+\begin{abstract}\noindent
+Este quinto estudio recorre la historia del reino dividido, desde la muerte de Salomón hasta la caída de Jerusalén, y compara los dos cautiverios que lo cierran: Israel, el reino del norte, deportado por Asiria, y Judá, el reino del sur, llevado a Babilonia. Las fechas son c.~931--586 a.\,e.\,c. para el reino dividido, 734--720 a.\,e.\,c. para las deportaciones asirias y 605, 597, 586 y 582 a.\,e.\,c. para las babilónicas. Sostiene dos tesis. Primera: la vocación de Israel como «reino de sacerdotes y nación santa» (Éx 19:6) se quiebra en ambos reinos por la idolatría, la injusticia y la falsa confianza en el templo, pero se preserva en un remanente (1~R 19:18), en los profetas y en desterrados fieles que dan testimonio ante las naciones (Jer 29:7; Dn 1--6). Segunda: en la hora del juicio, Isaías, Jeremías y Ezequiel renuevan la promesa de restauración con mayor amplitud que nunca: un remanente que vuelve, un nuevo pacto «con la casa de Israel y con la casa de Judá» (Jer 31:31 [31:30]) y la unión de los dos reinos bajo un rey davídico (Ez 37). El estudio integra los hallazgos asirios y babilónicos, evalúa la cuestión de las «tribus perdidas» y la teoría de las Dos Casas, y distingue qué promesas se cumplieron en 538 a.\,e.\,c., cuáles en parte y cuáles siguen pendientes, en el camino hacia Romanos~11.
+\par\smallskip\noindent\textbf{Palabras clave:} reino dividido, Samaria, Asiria, Babilonia, remanente, tribus perdidas, nuevo pacto, Ezequiel 37, Romanos 9--11.
+\end{abstract}
+
+\section{Introducción}
+
+¿Qué queda de Israel cuando Israel deja de existir como reino? La pregunta se plantea dos veces en este período. En 722 a.\,e.\,c. cae Samaria y el reino del norte desaparece del mapa político; en 586 a.\,e.\,c. cae Jerusalén, se quema el templo y la casa de David pierde el trono. Los libros de Reyes, escritos para una generación desterrada, responden con una historia teológica: el destierro es juicio por la infidelidad al pacto (2~R 17:7--23; 24:3--4). Los profetas responden además con una promesa: el Dios que dispersa es el mismo que reunirá. Pablo, siglos después, recurrirá a los textos de esta etapa para argumentar que «no ha desechado Dios a su pueblo, al cual antes conoció» (Ro 11:2).
+
+La tesis del estudio es doble. Primero, la vocación sacerdotal de Israel se quiebra en los dos reinos, pero no desaparece: se conserva en un remanente fiel, en la palabra profética y en hombres como Daniel, que en el destierro dan testimonio del Dios de Israel ante los imperios. Segundo, el juicio no anula la promesa: en el momento de mayor ruptura, la profecía amplía el horizonte de la restauración e incluye explícitamente a las dos casas, Israel y Judá, reunidas bajo un solo rey.
+
+\begin{center}\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{3.1cm}>{\RaggedRight\arraybackslash}p{5.6cm}>{\RaggedRight\arraybackslash}p{5.2cm}}
+\toprule
+\textbf{Eje de la serie} & \textbf{Pregunta en esta etapa} & \textbf{Textos centrales}\\
+\midrule
+Nación santa y reino de sacerdotes & ¿Cómo se quiebra la vocación en los dos reinos y quién la preserva? & 1~R 18--19; Is 1; Am 2; Os 4:6; Jer 7; 29:7; Dn 1--6\\
+Promesa de restauración & ¿Qué promete Dios a cada reino en medio del juicio, y qué se cumplió en 538 a.\,e.\,c.? & Is 10--11; 40; 49:6; Jer 29--33; Ez 11:16; 36--37; Os 1:10--11 [2:1--2]; Am 9:11--15\\
+Proyección paulina & ¿Qué textos de esta etapa usa Pablo en Romanos 9--11? & 1~R 19:18 en Ro 11:4; Os 2:1 en Ro 9:26; Is 10:22 en Ro 9:27; Is 59:20 en Ro 11:26\\
+\bottomrule
+\end{tabular}\end{center}
+
+\begin{nota}[Precisión terminológica: tres sentidos de «Israel»]
+Desde la división del reino (1~R 12), la palabra «Israel» tiene tres usos que no deben confundirse. (1)~\textbf{Israel, reino del norte}: las diez tribus encabezadas por Efraín, con capitales en Siquem, Tirsa y luego Samaria; los profetas lo llaman también «Efraín», «Samaria» o «casa de Israel» (Os 5:3; Am 5:1). (2)~\textbf{Judá, reino del sur}: Judá y Benjamín, con Jerusalén como capital y la dinastía de David; incluye también a levitas y a emigrados de otras tribus (2~Cr 11:13--17). (3)~\textbf{Israel, el pueblo completo}: las doce tribus como pueblo del pacto (Jer 31:1; Ez 37:11). En este estudio se escribe «Israel (norte)» o «reino del norte» para el sentido 1, «Judá» para el sentido 2 e «Israel (el pueblo)» o «todo Israel» para el sentido 3, y se indica el sentido cuando un texto bíblico lo deja abierto.
+\end{nota}
+
+\begin{nota}[Sobre traducción, numeración y fechas]
+Las citas bíblicas son traducción propia desde el texto hebreo (BHS) y griego (NA28); la Septuaginta se cita según Rahlfs-Hanhart. Cuando la numeración hebrea difiere de la española, se da la española y la hebrea entre corchetes: Os 1:10 [2:1], Jer 31:31 [31:30], Mi 5:2 [5:1]. En Jeremías, la Septuaginta tiene además otro orden de capítulos (Jer 31 hebreo = Jer 38 griego). Las fechas se dan en a.\,e.\,c. según la cronología de Thiele (1983), con las variantes señaladas donde importan.
+\end{nota}
+
+\section{Marco cronológico}
+
+El período abarca unos 345 años, desde la división del reino (c. 931/930 a.\,e.\,c.) hasta el edicto de Ciro (538 a.\,e.\,c.), que se estudiará en el Estudio~6. El reino del norte duró unos dos siglos y conoció nueve dinastías; Judá duró unos tres siglos y medio con una sola, la de David, interrumpida solo por los seis años de Atalía (2~R 11). Las dinastías del norte fueron las de Jeroboam~I, Baasa, Zimri, Omri (con Acab), Jehú (con Jeroboam~II), Salum, Manahem, Peka y Oseas; en Judá destacan Josafat, Ezequías y Josías como reyes reformadores, y Acaz y Manasés como los más infieles. Esa diferencia es en sí misma un dato teológico: la promesa de 2~S 7:16 sostiene a Judá aun bajo reyes infieles, «por amor a David mi siervo» (1~R 11:13; 2~R 8:19).
+
+\begin{figure}[!t]\centering
+\begin{tikzpicture}[x=1cm,y=1cm]
+\def\X#1{(930-#1)*0.0385}
+% eje y marcas
+\draw[line width=1.6pt,cafe,-{Latex[length=3mm]}] (-0.2,0) -- (15.6,0);
+\foreach \a in {900,850,800,750,700,650,600,550}{\draw[cafe,line width=0.6pt] ({\X{\a}},-0.1) -- ({\X{\a}},0.1);}
+\foreach \a in {900,850,750,650,550}{\node[font=\fontsize{5}{6}\selectfont,text=sepia,anchor=north,inner sep=1pt] at ({\X{\a}},-0.1) {\a};}
+% profetas: norte arriba, sur abajo
+\fill[oro!45] ({\X{870}},0.28) rectangle ({\X{800}},0.48); \node[font=\tiny\itshape,text=cafeosc] at ({\X{835}},0.38) {Elías, Eliseo};
+\fill[oro!45] ({\X{765}},0.28) rectangle ({\X{722}},0.48); \node[font=\tiny\itshape,text=cafeosc] at ({\X{743}},0.38) {Amós, Oseas};
+\fill[ladrillo!25] ({\X{740}},-0.36) rectangle ({\X{700}},-0.56); \node[font=\tiny\itshape,text=cafeosc] at ({\X{720}},-0.46) {Isaías, Miqueas};
+\fill[ladrillo!25] ({\X{627}},-0.36) rectangle ({\X{582}},-0.56); \node[font=\tiny\itshape,text=cafeosc] at ({\X{604}},-0.46) {Jeremías};
+\fill[ladrillo!25] ({\X{593}},-0.62) rectangle ({\X{571}},-0.82); \node[font=\tiny\itshape,text=cafeosc,right] at ({\X{571}},-0.72) {Ezequiel};
+\node[font=\scriptsize\bfseries,text=cafe,anchor=east] at (15.6,1.2) {Israel (reino del norte)};
+\node[font=\scriptsize\bfseries,text=ladrillo,anchor=west] at (-0.2,-2.3) {Judá (reino del sur)};
+% eventos norte
+\foreach \y/\h/\t in {930/0.9/{División del reino (1~R 12)},885/1.75/{Omri; Samaria capital},841/0.9/{Acab en Qarqar (853); Jehú (841)},790/1.6/{Jeroboam~II (2~R 14:25)},722/0.9/{Galilea (732) y Samaria (722--720) deportadas}}{
+  \draw[sepia,line width=0.5pt] ({\X{\y}},0) -- ({\X{\y}},\h);
+  \fill[oro] ({\X{\y}},0) circle (3.2pt);
+  \node[above,font=\tiny\bfseries,text=cafe,text width=1.6cm,align=center,inner sep=1pt] at ({\X{\y}},\h) {\t};}
+% eventos sur
+\foreach \y/\h/\an/\t in {872/0.95/north/{Josafat (2~Cr 17)},701/0.95/north/{Ezequías ante Senaquerib},622/0.95/north east/{Reforma de Josías (2~R 22--23)},605/2.0/north east/{Carquemis (605); Joaquín deportado (597)},586/0.95/north west/{Caída de Jerusalén (2~R 25)},538/2.0/north/{Edicto de Ciro (Est. 6)}}{
+  \draw[sepia,line width=0.5pt] ({\X{\y}},0) -- ({\X{\y}},-\h);
+  \fill[ladrillo] ({\X{\y}},0) circle (3.2pt);
+  \node[anchor=\an,font=\tiny\bfseries,text=ladrillo,text width=1.45cm,align=center,inner sep=1pt] at ({\X{\y}},-\h) {\t};}
+\end{tikzpicture}\\[2pt]
+{\footnotesize\color{sepia}\textit{Nota.} Elaboración propia. Fechas aproximadas según Thiele (1983); arriba, el reino del norte; abajo, Judá; las bandas indican la actividad de los profetas.}
+\end{figure}
+
+
+\begin{nota}[Fechas en debate]
+(1)~\textbf{Samaria}: 2~R 17:3--6 atribuye el asedio a Salmanasar~V, pero Sargón~II reclama la conquista; muchos proponen la toma en 722 y la deportación en 720 (Becking, 1992). (2)~\textbf{Ezequías}: 2~R 18:9--10 lo sincroniza con Oseas de Israel (desde c. 727), y 18:13 sitúa la campaña de 701 en su año 14 (inicio en 715); se propone una corregencia. (3)~\textbf{Jerusalén}: 586 (Thiele) o 587 a.\,e.\,c. Ninguna diferencia altera la secuencia.
+\end{nota}
+
+\section{Contexto histórico y arqueológico}
+
+\subsection{Los imperios que rodean a los dos reinos}
+En el siglo \textsc{ix} a.\,e.\,c. Israel (norte) fue una potencia regional, rival de Aram-Damasco. Desde Tiglat-pileser~III (745--727), Asiria anexó territorios como provincias y deportó poblaciones en ambas direcciones para quebrar las identidades nacionales (Younger, 1998); el reino del norte cayó bajo ese sistema. Babilonia, que heredó el imperio tras Carquemis (605), deportó a las élites de Judá, las asentó en comunidades propias y no trajo colonos extranjeros. Esa diferencia explica en parte por qué los desterrados de Judá conservaron su identidad y pudieron regresar.
+
+\subsection{El reino del norte en las inscripciones}
+\begin{itemize}
+\item \textbf{Estela de Mesa} (c. 840 a.\,e.\,c.; Louvre). El rey de Moab dice que «Omri era rey de Israel y oprimió a Moab muchos días» y que «Israel pereció para siempre»; menciona a YHWH. Confirma la rebelión de 2~R 3:4--5. La lectura «casa de David» en la línea 31 (Lemaire, 1994) está en debate.
+\item \textbf{Monolito de Kurkh} (Salmanasar~III). En Qarqar (853) figura «Acab el israelita» con 2.000 carros, el mayor contingente de la coalición.
+\item \textbf{Estela de Tel Dan} (1993--1994). Un rey arameo, probablemente Hazael, dice haber matado a [Jo]ram, rey de Israel, y a [Ocoz]ías, de la «casa de David»; 2~R 9 atribuye ambas muertes a Jehú. La reconstrucción de los nombres es parcialmente conjetural.
+\item \textbf{Obelisco Negro} (Salmanasar~III; Museo Británico). Muestra a «Jehú, hijo de Omri» postrado ante el rey asirio (841). Es la única imagen conocida de un rey de Israel o de su enviado. «Hijo de Omri» es la designación asiria del reino, no una genealogía.
+\item \textbf{Ostracones de Samaria} (Reisner, 1910). Recibos de vino y aceite de la primera mitad del siglo \textsc{viii}; los nombres con \emph{-yau} (YHWH) conviven con nombres formados con Baal, el sincretismo que denuncia Oseas (Os 2:16--17 [2:18--19]).
+\item \textbf{Tiglat-pileser~III}. Registra el tributo de «Menahem de Samaria» (2~R 15:19, donde se le llama «Pul») y dice: «derrocaron a Peka y puse a Oseas como rey» (cf. 2~R 15:30). La deportación de Galilea y Galaad (733--732; 2~R 15:29; 1~Cr 5:26) es la primera fase del cautiverio del norte.
+\item \textbf{Anales de Sargón~II}. «Sitié y conquisté Samaria; llevé cautivos a 27.290 habitantes» (Jorsabad; el Prisma de Nimrud da 27.280) y la repoblé con gente de otros países (Luckenbill, 1927; Pritchard, 1969; cf. 2~R 17:24).
+\end{itemize}
+
+\begin{nota}[Precisión sobre los datos de la Clase 7]
+El material de la congregación (Departamento de Educación, s.\,f.-a, diapositivas 12--15) usa bien la cifra de Sargón~II; cuatro puntos conviene precisarlos. (1)~Los 27.290 son de Samaria en 720; no incluyen las deportaciones de Galilea y Galaad. (2)~La población del norte (300.000--400.000) y el porcentaje deportado (10--15 \%) son estimaciones modernas (Broshi y Finkelstein, 1992, calculan unos 350.000 habitantes). (3)~Los ostracones de Samaria son anteriores a 722 y no prueban un remanente posterior; este se apoya mejor en 2~Cr 30:6; 34:9 y Jer 41:5. (4)~Neh 11:1--3 nombra a Judá, Benjamín, sacerdotes y levitas, no a «todas las tribus»; el texto que menciona a efraimitas y manasitas en Jerusalén tras el exilio es 1~Cr 9:3.
+\end{nota}
+
+\subsection{Judá en las inscripciones}
+\begin{itemize}
+\item \textbf{Prisma de Senaquerib}. Senaquerib dice haber tomado 46 ciudades de «Ezequías el judaíta» y encerrado a Ezequías «como a un pájaro en su jaula, en Jerusalén»; registra 30 talentos de oro de tributo (2~R 18:14). No afirma haber tomado Jerusalén (cf. 2~R 19:32--36; Is 37:33--37).
+\item \textbf{Relieves de Laquis} (Nínive; Museo Británico). Narran el asedio de 701; en Laquis se excavó la rampa asiria y el estrato destruido (Ussishkin, 1982; cf. 2~R 18:14, 17).
+\item \textbf{Túnel de Ezequías e inscripción de Siloé}. Canal de unos 533 m desde Guijón hasta Siloé (2~R 20:20; 2~Cr 32:30); la inscripción describe el encuentro de las dos cuadrillas. La datación radiométrica apoya c. 700 a.\,e.\,c. (Frumkin et al., 2003).
+\item \textbf{Bulas de Ezequías y de «Isaías»} (Ofel). Una dice «de Ezequías [hijo de] Acaz, rey de Judá». Otra, cercana, dice «Yesha\textquoteright yah[u]» y \emph{nby}, que E. Mazar (2018) completa como \emph{navi}, «profeta»; la lectura es discutida porque falta la última letra.
+\item \textbf{Amuletos de Ketef Hinom} (fines del siglo \textsc{vii} o inicios del \textsc{vi}). Dos rollitos de plata con la bendición sacerdotal de Nm 6:24--26, los textos bíblicos más antiguos conocidos (Barkay et al., 2004).
+\item \textbf{Cartas de Laquis} (c. 588) y \textbf{óstracos de Arad}. La carta~4 de Laquis dice: «estamos atentos a las señales de Laquis [\ldots] porque no vemos Azeca» (Torczyner, 1938; cf. Jer 34:7). En Arad aparece la «casa de YHWH» (Aharoni, 1981).
+\item \textbf{Crónica babilónica} (BM 21946). Registra Carquemis (605) y la toma de Jerusalén «el segundo día del mes de Adar» del año séptimo: el rey fue capturado y se nombró otro «de su elección» (Grayson, 1975; Wiseman, 1956). Es el 16 de marzo de 597 (2~R 24:10--17).
+\item \textbf{Tablillas de raciones} (Weidner, 1939). Listas de aceite del palacio de Babilonia (c. 592) nombran a «Ya\textquoteright ukinu, rey de Yahudu», y a sus cinco hijos: Joaquín en el destierro (2~R 25:27--30).
+\item \textbf{Estrato de 586}. En la Ciudad de David hay casas quemadas, puntas de flecha y la «Casa de las bulas», con la de «Gemaryahu hijo de Safán» (Shiloh, 1986; cf. Jer 36:10). E. Mazar (2009) publicó bulas de «Yehucal hijo de Selemías» y «Gedalías hijo de Pasur» (Jer 38:1). La identificación de personas es probable, no segura.
+\item \textbf{Tablillas de Al-Yahudu} (c. 572--477). Contratos de una aldea babilónica llamada «ciudad de Judá», con nombres yahvistas durante generaciones (Pearce y Wunsch, 2014): ilustran Jer 29:5--7.
+\end{itemize}
+
+\begin{figure}[!t]\centering
+\begin{tikzpicture}[x=0.72cm,y=0.74cm]
+\fill[cafe!18] (0,2.3) -- \pt{31.0}{31.5} -- \pt{32.3}{31.2} -- \pt{34.2}{31.3} -- \pt{34.75}{32.0} -- \pt{34.9}{32.8} -- \pt{35.1}{33.1} -- \pt{35.5}{33.9} -- \pt{35.8}{34.6} -- \pt{35.9}{35.4} -- \pt{36.1}{36.0} -- \pt{36.2}{36.6} -- \pt{35.5}{36.6} -- \pt{34.5}{36.8} -- \pt{33}{36.3} -- (0,7.3) -- cycle;
+\draw[cafe!60,line width=0.6pt] \pt{31.0}{31.5} -- \pt{32.3}{31.2} -- \pt{34.2}{31.3} -- \pt{34.75}{32.0} -- \pt{34.9}{32.8} -- \pt{35.1}{33.1} -- \pt{35.5}{33.9} -- \pt{35.8}{34.6} -- \pt{35.9}{35.4} -- \pt{36.1}{36.0} -- \pt{36.2}{36.6} -- \pt{35.5}{36.6} -- \pt{34.5}{36.8} -- \pt{33}{36.3};
+\fill[cafe!18] \pt{47.4}{29.0} -- \pt{47.9}{29.9} -- \pt{48.6}{30.05} -- \pt{49.4}{29.7} -- \pt{50}{29.3} -- \pt{50}{29.0} -- cycle;
+\node[font=\tiny\itshape,cafe] at \pt{32.3}{33.8} {Mar Grande};
+\draw[cafe!70,line width=0.9pt] plot[smooth] coordinates {\pt{38.0}{37.5} \pt{38.3}{36.9} \pt{39.0}{36.0} \pt{40.1}{35.3} \pt{41.0}{34.4} \pt{42.4}{34.0} \pt{43.6}{33.2} \pt{44.4}{32.4} \pt{45.3}{31.6} \pt{46.1}{31.0} \pt{47.5}{30.5} \pt{48.0}{30.0}};
+\draw[cafe!50,line width=0.7pt] plot[smooth] coordinates {\pt{40.5}{37.8} \pt{42.7}{37.1} \pt{43.1}{36.3} \pt{43.7}{35.0} \pt{44.4}{33.6} \pt{45.7}{32.5} \pt{46.9}{31.2} \pt{47.5}{30.5}};
+\draw[cafe!50,line width=0.6pt] \pt{40.04}{36.83} -- \pt{40.5}{36.3} -- \pt{40.7}{35.6} -- \pt{40.45}{35.15};
+\node[font=\tiny\itshape,cafe,rotate=-28] at \pt{41.4}{34.55} {Éufrates};
+\node[font=\tiny\itshape,cafe!80,rotate=-62] at \pt{44.1}{35.3} {Tigris};
+\node[font=\tiny\itshape,cafe!80] at \pt{40.85}{36.05} {Habor};
+\draw[cafe!70,line width=0.9pt] plot[smooth] coordinates {\pt{31.2}{29.0} \pt{31.2}{30.1} \pt{30.7}{31.4}};
+\draw[cafe!70,line width=0.9pt] \pt{31.2}{30.1} -- \pt{31.9}{31.3};
+\node[font=\tiny\itshape,cafe] at \pt{30.7}{29.4} {Nilo};
+% rutas asirias (norte)
+\draw[cafe,line width=1.2pt,dashed,-{Latex[length=2mm]}] plot[smooth] coordinates {\pt{35.19}{32.28} \pt{36.3}{33.6} \pt{37.3}{35.6} \pt{38.6}{36.6} \pt{40.04}{36.83}};
+\draw[cafe,line width=1.2pt,dashed,-{Latex[length=2mm]}] plot[smooth] coordinates {\pt{40.04}{36.83} \pt{41.8}{36.9} \pt{43.4}{36.65}};
+\draw[cafe,line width=1.2pt,dashed,-{Latex[length=2mm]}] plot[smooth] coordinates {\pt{43.4}{36.65} \pt{45.5}{36.0} \pt{47.3}{35.2} \pt{48.52}{34.8}};
+% repoblamiento
+\draw[sepia,line width=0.8pt,dotted,-{Latex[length=1.6mm]}] plot[smooth] coordinates {\pt{44.42}{32.54} \pt{42.0}{33.6} \pt{39.5}{34.6} \pt{37.0}{34.4} \pt{35.4}{32.45}};
+% rutas babilónicas (Judá)
+\draw[ladrillo,line width=1.2pt,-{Latex[length=2mm]}] plot[smooth] coordinates {\pt{35.23}{31.78} \pt{36.0}{33.2} \pt{36.55}{34.45} \pt{38.4}{35.6} \pt{40.1}{35.0} \pt{41.6}{34.1} \pt{43.4}{33.1} \pt{44.42}{32.54}};
+\draw[oro!90!ladrillo,line width=1.0pt,densely dashed,-{Latex[length=2mm]}] plot[smooth] coordinates {\pt{35.23}{31.78} \pt{34.0}{31.2} \pt{32.17}{30.85}};
+% ciudades
+\foreach \lon/\lat/\n/\p in {35.19/32.28/Samaria/left, 35.23/31.78/Jerusalén/below left, 36.30/33.51/Damasco/right, 36.55/34.45/Ribla/right, 36.75/35.13/Hamat/right, 38.0/36.83/Carquemis/above, 40.04/36.83/Gozán/above, 43.15/36.36/Nínive/below, 43.4/36.65/Halah (?)/above right, 48.52/34.8/Ecbatana (Media)/below, 44.42/32.54/Babilonia/below left, 44.6/32.75/Cuta/above, 45.23/32.13/Nipur (río Quebar)/below right, 32.17/30.85/Tafnes/below}{
+  \fill[cafeosc] \pt{\lon}{\lat} circle (1.6pt);
+  \node[\p,font=\tiny\bfseries,text=tinta,inner sep=1.5pt] at \pt{\lon}{\lat} {\n};}
+% leyenda
+\node[anchor=north west,font=\tiny,text width=5.6cm,align=left,fill=piedra,fill opacity=0.85,text opacity=1,draw=cafe!50,inner sep=3pt] at \pt{30.2}{29.95} {%
+\textcolor{cafe}{\textbf{- - -}} Asiria: Israel (norte) a Gozán, Halah y las ciudades de los medos (2~R 17:6)\\
+\textcolor{sepia}{\textbf{$\cdots$}} Colonos de Babilonia, Cuta y Hamat a Samaria (2~R 17:24)\\
+\textcolor{ladrillo}{\textbf{---}} Babilonia: Judá por Ribla a Babilonia (2~R 25:6--11)\\
+\textcolor{oro!90!ladrillo}{\textbf{- -}} Huida a Egipto con Jeremías (Jer 43:7)};
+\end{tikzpicture}\\[2pt]
+{\footnotesize\color{sepia}\textit{Nota.} Elaboración propia: mapa esquemático con coordenadas reales; la ubicación de Halah es incierta.}
+\end{figure}
+
+\section{Desarrollo bíblico}
+
+\subsection{El reino del norte: un trono sin pacto}
+Dios ofrece a Jeroboam una «casa firme, como la que edifiqué a David», si guarda sus mandamientos (1~R 11:38). Jeroboam, temiendo que el templo de Jerusalén devuelva el pueblo a la casa de David, levanta becerros de oro en Betel y en Dan con las palabras de Éx 32:4: «He aquí tus dioses, oh Israel, que te hicieron subir de la tierra de Egipto» (1~R 12:28); nombra sacerdotes que no eran levitas y cambia el calendario de las fiestas (12:31--33). «El pecado de Jeroboam, que hizo pecar a Israel» será el estribillo con que Reyes juzga a todos los reyes del norte.
+
+La consecuencia inmediata es una migración al sur: sacerdotes, levitas y, «de todas las tribus de Israel, los que habían dispuesto su corazón a buscar a YHWH», vinieron a Jerusalén (2~Cr 11:13--16); bajo Asa llegaron más de Efraín, Manasés y Simeón (2~Cr 15:9). Desde el principio, Judá es el lugar donde se reúnen fieles de todas las tribus. El norte, en cambio, vivió de golpes de Estado: de sus diecinueve reyes, siete murieron asesinados. La dinastía de Omri le dio estabilidad, una capital nueva (Samaria, 1~R 16:24) y el culto oficial a Baal que trajo Jezabel (16:31--33).
+
+\subsection{Elías en el Carmelo y el remanente de los siete mil}
+La confrontación del Carmelo (1~R 18) se plantea como una elección:
+\begin{cita}¿Hasta cuándo saltaréis entre dos ramas? Si YHWH es Dios, seguidle; y si Baal, seguidle a él.\fuente{(1~R 18:21)}\end{cita}
+El verbo \heb{פָּסַח} (\emph{pasaj}), cojear o saltar, es el mismo con el que los profetas de Baal «danzan» en torno al altar (18:26). Elías reconstruye el altar «con doce piedras, conforme al número de las tribus de los hijos de Jacob» (18:31): en pleno reino del norte afirma que Israel sigue siendo un pueblo de doce tribus. Después de la victoria, amenazado por Jezabel, huye al Horeb y se queja: «solo yo he quedado» (19:10, 14). Dios le responde con una corrección:
+\hebverso{וְהִשְׁאַרְתִּי בְיִשְׂרָאֵל שִׁבְעַת אֲלָפִים כָּל־הַבִּרְכַּיִם אֲשֶׁר לֹא־כָרְעוּ לַבַּעַל\\ וְכָל־הַפֶּה אֲשֶׁר לֹא־נָשַׁק לוֹ}
+\begin{cita}Y haré que queden en Israel siete mil: todas las rodillas que no se doblaron ante Baal y todas las bocas que no lo besaron.\fuente{(1~R 19:18)}\end{cita}
+El verbo \heb{וְהִשְׁאַרְתִּי} (\emph{ve-hish'arti}, hifil de \emph{sha'ar}) es causativo: el remanente existe porque Dios lo deja. Es la raíz de \heb{שְׁאָר} y \heb{שְׁאֵרִית}, «remanente», que Isaías convertirá en concepto central. Pablo cita este pasaje en el centro de su argumento sobre Israel:
+\begin{cita}¿No sabéis qué dice la Escritura en Elías [\ldots]? «He dejado para mí siete mil hombres, que no doblaron la rodilla ante Baal». Así también, en el tiempo presente, ha quedado un remanente escogido por gracia.\fuente{(Ro 11:2--5)}\end{cita}
+Pablo dice \grc{κατέλιπον ἐμαυτῷ} («he dejado para mí») y concluye \grc{λεῖμμα κατ᾽ ἐκλογὴν χάριτος γέγονεν}. Su argumento depende de la analogía con Elías: así como en el peor momento del reino del norte Dios conservó a un remanente, así en el tiempo de Pablo los judíos creyentes en el Mesías son prueba de que Dios no ha desechado a su pueblo (Ro 11:1--2). El estudio~8 volverá sobre este punto.
+
+\begin{nota}[Precisión textual: «la Baal» en Ro 11:4]
+La Septuaginta de 1~R 19:18 traduce \grc{τῷ Βααλ}, con artículo masculino; Pablo escribe \grc{τῇ Βάαλ}, femenino, como otros pasajes de la Septuaginta (p. ej., Jer 2:8). Una explicación frecuente es que se leía \grc{αἰσχύνη}, «vergüenza», en lugar del nombre del ídolo, como el hebreo cambia Baal por \emph{bóshet} en Is-boset (2~S 2:8). Es una hipótesis razonable, no demostrada (Moo, 1996).
+\end{nota}
+
+\subsection{Eliseo, Jehú y Jeroboam II}
+Eliseo prolonga el ministerio de Elías con señales de vida (2~R 4). La curación de Naamán, general arameo, que confiesa que «no hay Dios en toda la tierra sino en Israel» (2~R 5:15), muestra la luz de Israel alcanzando a las naciones aun en la apostasía (Lc 4:27). Jehú extermina la casa de Acab y el culto a Baal (2~R 9--10), pero mantiene los becerros (10:29), y Oseas anunciará juicio por «la sangre de Jezreel» (Os 1:4). Bajo Jeroboam~II (793--753) el norte alcanzó su mayor extensión desde Salomón, según la palabra de Jonás hijo de Amitai (2~R 14:25). El narrador lo atribuye a la misericordia, no al mérito:
+\begin{cita}Y YHWH no había dicho que borraría el nombre de Israel de debajo del cielo; y los salvó por mano de Jeroboam hijo de Joás.\fuente{(2~R 14:27)}\end{cita}
+Aquí «Israel» es el reino del norte, y la frase anticipa la pregunta que la serie sigue hasta Romanos~11: aun cuando el juicio llegue, el nombre de Israel no será borrado.
+
+\subsection{Amós y Oseas: profetas para el norte}
+\textbf{Amós}, pastor de Tecoa (Judá), predica en Betel, santuario real del norte (Am 7:10--13), contra una prosperidad levantada sobre la injusticia (2:6). Su teología de la elección es exigente: «Solo a vosotros he conocido de todas las familias de la tierra; por eso os castigaré» (3:2). Pero Dios zarandeará a la casa de Israel entre las naciones «como en una criba, y no caerá un grano a tierra» (9:9).
+
+\textbf{Oseas}, el único profeta escritor del norte, convierte su matrimonio con Gómer en parábola. Sus hijos se llaman \emph{Jezreel}, \emph{Lo-Ruhamá} («no compadecida») y \emph{Lo-Ammí} («no mi pueblo»):
+\hebverso{כִּי אַתֶּם לֹא עַמִּי וְאָנֹכִי לֹא־אֶהְיֶה לָכֶם}
+\begin{cita}Ponle por nombre Lo-Ammí, porque vosotros no sois mi pueblo, y yo no seré vuestro [Dios].\fuente{(Os 1:9)}\end{cita}
+La frase invierte la fórmula del pacto (Lv 26:12) y aun el nombre divino: \heb{לֹא־אֶהְיֶה} (\emph{lo-ehyé}, «no seré») niega el \heb{אֶהְיֶה} de Éx 3:14. Pero enseguida la sentencia se revierte:
+\hebverso{וְהָיָה בִּמְקוֹם אֲשֶׁר־יֵאָמֵר לָהֶם לֹא־עַמִּי אַתֶּם יֵאָמֵר לָהֶם בְּנֵי אֵל־חָי}
+\begin{cita}Y será el número de los hijos de Israel como la arena del mar [\ldots]; y en el lugar donde se les dijo: «No sois mi pueblo», se les dirá: «Hijos del Dios viviente». Y se reunirán los hijos de Judá y los hijos de Israel a una, y se pondrán una sola cabeza, y subirán de la tierra; porque grande será el día de Jezreel.\fuente{(Os 1:10--11 [2:1--2])}\end{cita}
+Oseas distingue con cuidado: Dios no se compadecerá más de la casa de Israel (norte), pero sí de la de Judá (1:6--7); luego promete que los «hijos de Israel» (el norte llamado Lo-Ammí) volverán a ser hijos de Dios y que las dos casas tendrán «una sola cabeza», que Os 3:5 identifica: «buscarán a YHWH su Dios y a David su rey [\ldots] al fin de los días». Jezreel, «Dios siembra», pasa de nombre de juicio a nombre de siembra (2:22--23 [2:24--25]). Pablo cita Os 2:23 [2:25] y 1:10 [2:1] en Ro 9:25--26 casi según la Septuaginta, con un cambio: «diré» se vuelve «llamaré» (\grc{καλέσω τὸν οὐ λαόν μου λαόν μου}), el verbo clave de Ro 9:7, 12, 24. Y aplica el texto a los llamados «no solo de los judíos, sino también de los gentiles» (Ro 9:24).
+
+
+¿Por qué aplica a los gentiles una promesa hecha al norte? La lectura mayoritaria es analógica: si Dios pudo llamar «mi pueblo» a quienes había declarado «no mi pueblo», puede llamar también a quienes nunca lo fueron (Moo, 1996; Hays, 1989). La teoría de las Dos Casas la lee en sentido genealógico; la sección 4.7 evalúa esa lectura.
+
+\subsection{La caída de Samaria (2 R 17)}
+El último rey, Oseas hijo de Ela, buscó la ayuda de Egipto y dejó de pagar tributo; Salmanasar~V sitió Samaria tres años (2~R 17:4--5):
+\begin{cita}En el año noveno de Oseas, el rey de Asiria tomó Samaria y llevó a Israel cautivo a Asiria, y los puso en Halah, en el Habor, río de Gozán, y en las ciudades de los medos.\fuente{(2~R 17:6; cf. 18:10--11)}\end{cita}
+
+El narrador interrumpe entonces la historia con el sermón más extenso de Reyes (2~R 17:7--23). Su estructura, resumida en la tabla adjunta, muestra la lógica teológica del destierro.
+
+\begin{table}[!htbp]\centering\footnotesize
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{2.0cm}>{\RaggedRight\arraybackslash}p{6.2cm}>{\RaggedRight\arraybackslash}p{6.0cm}}
+\toprule
+\textbf{Versículos} & \textbf{Contenido} & \textbf{Observación}\\
+\midrule
+17:7--12 & Pecaron contra YHWH, «que los sacó de Egipto»: lugares altos, aseras, ídolos & El destierro invierte el Éxodo; prácticas prohibidas en Dt 12\\
+17:13 & YHWH amonestó «a Israel y a Judá» por todos los profetas: «Volveos (\heb{שֻׁבוּ}) de vuestros malos caminos» & Judá queda incluido desde ya\\
+17:14--17 & Endurecieron la cerviz, desecharon el pacto, «siguieron la vanidad y se hicieron vanos» (\heb{וַיֵּלְכוּ אַחֲרֵי הַהֶבֶל וַיֶּהְבָּלוּ}); becerros, Baal, hijos pasados por fuego & El juego \emph{hével/yehbalú}: uno se vuelve lo que adora (cf. Jer 2:5; Sal 115:8)\\
+17:18 & «Los quitó de delante de su rostro; no quedó sino solo la tribu de Judá» & «Judá» incluye aquí a Benjamín y a los emigrados del norte\\
+17:19--20 & «Tampoco Judá guardó los mandamientos»; YHWH desechó «a toda la descendencia de Israel» & Aquí «Israel» es el pueblo completo: anuncia el destierro de Judá\\
+17:21--23 & El pecado de Jeroboam, hasta que «Israel fue llevado cautivo de su tierra a Asiria, hasta hoy» & Cierre: la palabra de los profetas se cumplió\\
+\bottomrule
+\end{tabular}\end{table}
+
+
+El sermón concluye: «así fue llevado Israel cautivo de su tierra a Asiria, hasta hoy» (\heb{וַיִּגֶל יִשְׂרָאֵל מֵעַל אַדְמָתוֹ אַשּׁוּרָה}, 17:23). Presenta el destierro como la anulación del Éxodo, mira hacia Judá (17:13, 19--20), pues fue escrito para lectores judaítas en el exilio, y pone en el centro el verbo \emph{shuv}, «volverse» (17:13), el mismo que los profetas usarán para el regreso.
+
+\subsection{Deportación, repoblamiento y origen de los samaritanos}
+Asiria trajo gente de Babilonia, Cuta, Ava, Hamat y Sefarvaim y la estableció «en las ciudades de Samaria en lugar de los hijos de Israel» (2~R 17:24); un sacerdote israelita desterrado volvió a Betel para enseñarles, y el resultado fue un culto mixto: «temían a YHWH y servían a sus dioses» (17:33; cf. Esd 4:2, 10). De Cuta procede el nombre rabínico de los samaritanos, \emph{kutim}, que también usa Josefo (\emph{Ant.} 9.14.3). Ellos se llaman \emph{shamerim}, «guardianes» (de la Torá), y se consideran descendientes de Efraín y Manasés que nunca dejaron la tierra. Ambas versiones contienen verdad: hubo colonos, pero gran parte de la población rural del norte permaneció, y la comunidad del monte Guerizim se formó durante los períodos persa y helenístico (Knoppers, 2013). En los evangelios los samaritanos son a la vez extranjeros (Lc 17:18) y herederos de Jacob (Jn 4:12), y reciben el anuncio del Mesías (Hch 1:8; 8:5--25).
+
+\subsection{¿Qué pasó con las diez tribus?}
+\subsubsection*{Lo que dicen los textos}
+Los datos bíblicos impiden dos simplificaciones opuestas: que las diez tribus desaparecieron por completo, y que se conservaron intactas en algún lugar del mundo.
+\begin{itemize}
+\item \textbf{Migraciones al sur antes de 722}: bajo Roboam (2~Cr 11:13--17) y bajo Asa (2~Cr 15:9).
+\item \textbf{Un remanente del norte después de la caída}: Ezequías invita a Efraín y Manasés a la Pascua: «volveos a YHWH [\ldots] y él se volverá al remanente que ha quedado de la mano de los reyes de Asiria» (2~Cr 30:6); muchos se burlaron, pero vinieron hombres de Aser, Manasés, Zabulón e Isacar (30:10--11, 18). Josías recibe ofrendas «de Manasés, de Efraín y de todo el remanente de Israel» (34:9). Después de 586, hombres de Siquem, Silo y Samaria suben con ofrendas a la casa de YHWH (Jer 41:5).
+\item \textbf{Las tribus del norte en el pueblo judío posterior}: en Jerusalén habitaron «hijos de Judá, de Benjamín, de Efraín y de Manasés» (1~Cr 9:3); se ofrecieron doce machos cabríos «conforme al número de las tribus de Israel» (Esd 6:17); Ana es «de la tribu de Aser» (Lc 2:36); Pablo habla de «nuestras doce tribus» (\grc{τὸ δωδεκάφυλον ἡμῶν}, Hch 26:7; cf. Stg 1:1).
+\item \textbf{Los que no volvieron}: la Biblia no narra un regreso organizado desde Asiria. Josefo dice que en su tiempo las diez tribus están «más allá del Éufrates, una multitud inmensa» (\emph{Ant.} 11.5.2). Tobit (deuterocanónico, c. siglos \textsc{iii}--\textsc{ii} a.\,e.\,c.) imagina la vida de un neftalita deportado en Nínive; es una obra literaria, no una crónica, pero muestra que la memoria de los desterrados del norte seguía viva (Fitzmyer, 2003). 4~Esdras 13:39--47 los sitúa en la lejana Arzaret, de donde volverán (Charlesworth, 1983).
+\end{itemize}
+
+\subsubsection*{Lo que muestra la arqueología}
+Tras 732 la población de Galilea cae con fuerza, mientras las aldeas de las colinas de Samaria muestran más continuidad (Becking, 1992). En Asiria aparecen israelitas: un contingente de carros «samaritano» en el ejército de Sargón~II (Dalley, 1985) y nombres hebreos en la región de Gozán en el siglo \textsc{vii} (Younger, 1998). Jerusalén pasó en los siglos \textsc{viii}--\textsc{vii} de unas 10--12 hectáreas a unas 60 (cf. Is 22:10). Broshi (1974) y Finkelstein (2008) lo explican por refugiados del norte tras 722; Na'aman (2007), por refugiados de la Sefelá tras 701. Las cifras de habitantes que circulan (de unos 5.000 a unos 25.000) son estimaciones a partir de la superficie habitada.
+
+\subsubsection*{La teoría de las Dos Casas: evaluación}
+El material de la congregación expone esta teoría y señala sus debilidades (Departamento de Educación, s.\,f.-b, diapositivas 16--22). Sostiene que Efraín se mezcló con las naciones, que muchos creyentes gentiles son sus descendientes y que Ez 37 y Jer 31 se cumplen en su reunión con Judá bajo el Mesías. Su aporte es real: toma en serio que los profetas prometen reunir a dos casas, algo que la teología del reemplazo suele ignorar. Los textos, sin embargo, plantean objeciones de peso, resumidas en la tabla adjunta.
+
+\begin{table}[!htbp]\centering\footnotesize
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{3.6cm}>{\RaggedRight\arraybackslash}p{5.0cm}>{\RaggedRight\arraybackslash}p{5.4cm}}
+\toprule
+\textbf{Argumento} & \textbf{Lo que el texto sí dice} & \textbf{Dificultad}\\
+\midrule
+Las diez tribus se perdieron entre las naciones & El norte fue deportado en parte (2~R 17:6) & Gran parte del norte quedó o emigró a Judá (2~Cr 11; 15; 30; 34; 1~Cr 9:3); «Judá» ya incluía a todas las tribus\\
+\emph{Melo ha-goyim} (Gn 48:19) = «plenitud de los gentiles» (Ro 11:25) & Efraín llegará a ser \heb{מְלֹא־הַגּוֹיִם}, «multitud de naciones» & La LXX traduce \grc{πλῆθος ἐθνῶν}, no \grc{πλήρωμα}; en Ro 11:13, 25 \grc{ἔθνη} son los no israelitas a quienes Pablo se dirige\\
+Os 1:10 [2:1] en Ro 9:25--26 & Pablo aplica Oseas a gentiles llamados & Pablo funda la inclusión en el llamado y la fe (Ro 9:24, 30), no en una genealogía oculta (cf. Ef 2:11--13)\\
+Ez 37 y Jer 31:31: dos casas & La reunificación es explícita (Ez 37:16--22) & Ez 37:22 la sitúa «en la tierra, en los montes de Israel»; Jer 31:33 ya habla de una sola «casa de Israel»\\
+Identidad de Efraín hoy & --- & Ninguna evidencia histórica o documental permite identificar poblaciones gentiles concretas como Efraín (lo reconoce la propia diapositiva 22)\\
+\bottomrule
+\end{tabular}\end{table}
+
+En síntesis: la promesa de reunificación de las dos casas es bíblica y no debe disolverse; la identificación genealógica de los gentiles creyentes con Efraín no tiene apoyo suficiente. La pregunta de quién es «todo Israel» en Ro 11:26 queda para el Estudio~8.
+
+\subsection{Judá: reyes que buscaron a Dios y reyes que lo abandonaron}
+\textbf{Josafat} (872--848) envió levitas a enseñar «el libro de la ley de YHWH» por las ciudades (2~Cr 17:7--9) y nombró jueces, porque en YHWH «no hay injusticia ni acepción de personas» (19:7). Su alianza matrimonial con Acab trajo a Judá a Atalía, que casi exterminó la descendencia davídica (2~R 11:1--3); la promesa a David sobrevivió en un niño escondido en el templo, Joás.
+
+\textbf{Ezequías} (715--686) «en YHWH Dios de Israel puso su esperanza» (2~R 18:5): purificó el templo, destruyó la serpiente de bronce convertida en ídolo y celebró una Pascua a la que invitó al remanente del norte (2~Cr 30). En 701, ante la burla del Rabsaces («¿qué confianza es esta en que confías?», Is 36:4), llevó la carta de Senaquerib al templo y oró: «sálvanos de su mano, para que sepan todos los reinos de la tierra que solo tú, YHWH, eres Dios» (Is 37:20). Es una oración sacerdotal: pide la salvación de Jerusalén para que las naciones conozcan a Dios. Isaías responde con una promesa: «el remanente de la casa de Judá [\ldots] volverá a echar raíz abajo y dará fruto arriba» (37:31).
+
+\textbf{Manasés} (697--642) llenó Jerusalén de altares a Baal y de «sangre inocente» (2~R 21:1--16), y Reyes lo presenta como causa decisiva del destierro (21:10--15; 24:3--4; Jer 15:4). Las inscripciones de Esarhadón lo nombran como vasallo. Crónicas añade su cautiverio y arrepentimiento (2~Cr 33:11--13), dato cuya historicidad se discute; la tradición judía le atribuye el martirio de Isaías (Talmud, Yevamot 49b; cf. Heb 11:37).
+
+\textbf{Josías} (640--609) intensificó su reforma cuando se halló «el libro de la ley» en el templo (622; 2~R 22:8), que muchos identifican con una forma de Deuteronomio. Renovó el pacto, llegó hasta Betel y «las ciudades de Samaria», donde derribó el altar de Jeroboam (2~R 23:15--20; cf. 1~R 13:2), y celebró una Pascua sin igual (23:22). Pero YHWH «no desistió del ardor de su gran ira» contra Judá (23:26): la reforma de un rey no cambió el corazón del pueblo (Jer 3:10). Josías murió en Meguido en 609 ante el faraón Necao (2~R 23:29).
+
+\subsection{Los últimos reyes y los golpes de Babilonia}
+Necao puso en el trono a Eliaquim, hijo de Josías, con el nombre de \textbf{Joacim} (609--598). En 605 Nabucodonosor venció a Egipto en Carquemis (Jer 46:2) y llevó a Babilonia a jóvenes nobles, entre ellos Daniel (Dn 1:1--6): es la primera deportación. Joacim quemó el rollo de Jeremías (Jer 36:23), se rebeló y murió en 598. Su hijo \textbf{Joaquín} (Jeconías) se rindió a los tres meses, en marzo de 597, y fue llevado a Babilonia con la corte, los guerreros y los artesanos, unos diez mil (2~R 24:12--16), entre ellos el sacerdote Ezequiel (Ez 1:2--3). Su tío Matanías reinó como \textbf{Sedequías} (597--586) y, tras rebelarse, sufrió el asedio desde el décimo mes del año noveno (2~R 25:1). En 586 se abrió brecha en el muro; Sedequías fue capturado, vio morir a sus hijos en Ribla y fue cegado (25:4--7); Nebuzaradán quemó el templo y la ciudad y deportó al resto, dejando a los pobres como viñadores (25:8--12; Jer 39:1--10; 52:12--16).
+
+\textbf{Gedalías} hijo de Ahicam, de una familia que había protegido a Jeremías (Jer 26:24), gobernó desde Mizpa y muchos dispersos volvieron (Jer 40:9--12), pero Ismael, de linaje real, lo asesinó (Jer 41:1--3). Por temor a Babilonia, el resto huyó a Egipto contra la palabra de Jeremías y lo llevó a Tafnes (Jer 42--44). Jer 52:30 registra una tercera deportación en 582.
+
+\begin{nota}[Precisión sobre la «Octava lección»]
+La lección «Israel, el pueblo de Dios» (s.\,f.) resume bien el sentido teológico del destierro; tres datos conviene precisarlos. (1)~Dice que en «el año 606 a.\,C.» Nabucodonosor terminó con el reinado de «Joachim, hijo del gran rey Josías». La primera deportación es de \textbf{605 a.\,e.\,c.}, año de Carquemis (Jer 46:2; Dn 1:1; Crónica babilónica). (2)~En 605 Joacim, hijo de Josías, no fue depuesto: quedó como vasallo y reinó hasta 598; el rey deportado fue su hijo \textbf{Joaquín}, en 597. La Reina-Valera antigua escribe «Joacim» y «Joachîn», y es fácil confundirlos. (3)~El norte no fue deportado solo «a la tierra de los medos»: 2~R 17:6 nombra Halah, el Habor, río de Gozán, «y las ciudades de los medos». Por otra parte, Dn 1:1 dice «año tercero» de Joacim y Jer 46:2 «año cuarto»: la diferencia se explica por los cómputos babilónico y judaíta del año de la subida al trono (Thiele, 1983).
+\end{nota}
+
+\subsection{Los dos cautiverios comparados}
+La tabla adjunta reúne las diferencias entre ambos cautiverios: fechas, imperio, textos, número de deportados, política imperial, destino y retorno.
+\begin{table}[!htbp]\centering\footnotesize
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{2.4cm}>{\RaggedRight\arraybackslash}p{5.9cm}>{\RaggedRight\arraybackslash}p{5.9cm}}
+\toprule
+& \textbf{Israel (norte) bajo Asiria} & \textbf{Judá bajo Babilonia}\\
+\midrule
+Fechas & 733--732 (Galilea, Galaad); 722--720 (Samaria); colonos hasta c. 670 & 605 (nobles, Daniel); 597 (Joaquín, Ezequiel); 586 (Sedequías, templo); 582\\
+Imperio y reyes & Neoasirio: Tiglat-pileser~III, Salmanasar~V, Sargón~II & Neobabilónico: Nabucodonosor~II\\
+Textos & 2~R 15:29; 17:1--41; 18:9--12; 1~Cr 5:26; Is 7--10; Os; Am & 2~R 24--25; 2~Cr 36; Jer 39; 40--44; 52; Dn 1; Ez 1--24; Lm\\
+Deportados & 27.290 de Samaria según Sargón~II, más los de Galilea y Galaad; total desconocido & 2~R 24:14--16: c. 10.000 (597); Jer 52:28--30: 3.023, 832 y 745 (4.600, quizá solo varones adultos)\\
+Política & Deportación en ambas direcciones; colonos extranjeros en Samaria (2~R 17:24) & Deportación de élites; sin colonos extranjeros; comunidades judías agrupadas (Al-Yahudu, río Quebar)\\
+Destino & Halah, Habor, Gozán, ciudades de los medos; asimilación de muchos; parte se integra a Judá; en la tierra, origen de los samaritanos & Babilonia: el exilio produce Ezequiel, Daniel, Lamentaciones; en Egipto, comunidades judías (Jer 44:1); más tarde, la colonia de Elefantina\\
+Retorno & Ningún regreso organizado; promesa pendiente (Is 11:11--13; Jer 31:2--20; Ez 37:15--22) & Edicto de Ciro, 538 (2~Cr 36:22--23; Esd 1); Zorobabel, Esdras, Nehemías (Estudio 6)\\
+\bottomrule
+\end{tabular}\end{table}
+
+\subsection{Los profetas de la crisis}
+\textbf{Isaías} recibe en 740 una comisión dura: endurecer a un pueblo que no oirá, hasta que la tierra quede desolada (Is 6:9--12). Pero el capítulo termina con un brote:
+\hebverso{זֶרַע קֹדֶשׁ מַצַּבְתָּהּ}
+\begin{cita}Y aún quedará en ella la décima parte, y volverá a ser destruida; pero como el terebinto y la encina, que al ser cortados conservan el tocón, la simiente santa será su tocón.\fuente{(Is 6:13)}\end{cita}
+La última frase falta en la Septuaginta; en el TM, la «simiente santa» es el remanente que sobrevive al juicio. En la guerra siro-efraimita (734--732), cuando Aram e Israel (norte) atacaron a Judá, Isaías dio a Acaz una señal: «He aquí que la joven (\heb{הָעַלְמָה}, \emph{ha-almá}) concebirá y dará a luz un hijo, y llamará su nombre Emanuel» (Is 7:14). La Septuaginta tradujo \grc{παρθένος}, «virgen», y así lo lee Mateo (Mt 1:23). En su contexto inmediato, la señal anuncia la caída de Aram y de Efraín (7:16), y 7:8 añade que «dentro de sesenta y cinco años Efraín será quebrantado hasta dejar de ser pueblo».
+
+\textbf{Jeremías} (c. 627--582) ataca en la puerta del templo la confianza mágica en el santuario (Jer 7; cf. 26):
+\begin{cita}No confiéis en palabras de mentira, diciendo: «Templo de YHWH, templo de YHWH, templo de YHWH es este».\fuente{(Jer 7:4)}\end{cita}
+Quien roba, mata y sigue a otros dioses y luego dice en el templo «estamos a salvo» ha hecho de la casa de Dios una «cueva de ladrones» (7:9--11; Mt 21:13); Dios hará con Jerusalén lo que hizo con Silo y desechará a Judá «como deseché a toda la descendencia de Efraín» (7:12--15).
+
+\textbf{Ezequiel}, sacerdote desterrado en 597, ve junto al río Quebar cómo la gloria de Dios abandona el templo por etapas: al umbral (10:4), a la puerta oriental (10:18--19) y al monte que está al oriente de la ciudad (11:22--23). El templo no cae porque Babilonia sea más fuerte, sino porque Dios lo ha dejado.
+
+\textbf{Lamentaciones} llora la ciudad en cinco poemas: los capítulos 1, 2 y 4 son acrósticos de 22 estrofas, el 3 un triple acróstico de 66 versos, y el 5 tiene 22 versos sin acróstico; la forma ordena el dolor «de la \emph{álef} a la \emph{tav}» (Berlin, 2002). En el centro está la confesión:
+\begin{cita}Las misericordias de YHWH: que no hemos sido consumidos, porque nunca se acaban sus compasiones. Nuevas son cada mañana; grande es tu fidelidad.\fuente{(Lm 3:22--23)}\end{cita}
+
+\textbf{Miqueas}, contemporáneo de Isaías, anunció que «Sion será arada como campo» (Mi 3:12), oráculo que un siglo después salvó la vida de Jeremías (Jer 26:18--19). \textbf{Sofonías}, en tiempos de Josías, anunció el «día de YHWH» contra Judá (Sof 1:4--18).
+
+\section{Israel como nación santa y reino de sacerdotes}
+
+\subsection{Cómo se quiebra la vocación}
+Éx 19:5--6 condicionaba la vocación a la obediencia: «si oyereis mi voz y guardareis mi pacto». Los profetas muestran cómo se rompió en tres planos.
+\begin{itemize}
+\item \textbf{El culto se separa de la justicia.} «¿Para qué me sirve la multitud de vuestros sacrificios? [\ldots] Vuestras manos están llenas de sangre [\ldots] buscad el derecho, socorred al oprimido» (Is 1:11--17); «corra el juicio como las aguas» (Am 5:24). Un pueblo sacerdotal que vende al pobre «por un par de sandalias» (Am 2:6) contradice su función.
+\item \textbf{El conocimiento de Dios se pierde.} «Por cuanto tú desechaste el conocimiento (\heb{כִּי־אַתָּה הַדַּעַת מָאַסְתָּ}), yo te desecharé para que no seas mi sacerdote» (Os 4:6). Es el reverso de Éx 19:6: el pueblo que debía enseñar a las naciones ya no conoce a su Dios.
+\item \textbf{El templo se vuelve amuleto} (Jer 7:4--11). La santidad era una vocación que debía practicarse, no un privilegio que pudiera poseerse.
+\end{itemize}
+El resultado es un antitestimonio: «dondequiera que llegaron, profanaron mi santo nombre, cuando se decía de ellos: “Estos son pueblo de YHWH”» (Ez 36:20).
+
+\subsection{Cómo se preserva}
+\begin{enumerate}
+\item \textbf{El remanente.} Los siete mil de Elías (1~R 19:18), los fieles que emigraron a Judá (2~Cr 11:16; 30:11) y el remanente de Is 1:9: «si YHWH no nos hubiera dejado un pequeño remanente, como Sodoma fuéramos», que Pablo cita en Ro 9:29 según la Septuaginta, donde el hebreo \heb{שָׂרִיד} (\emph{sarid}, «sobreviviente») se vuelve \grc{σπέρμα}, «simiente».
+\item \textbf{Los profetas}, que llevan la palabra de Dios al pueblo e interceden por él (Jer 15:1; Ez 22:30), y por medio de los cuales la luz alcanza a un extranjero como Naamán (2~R 5).
+\item \textbf{La oración en el destierro.} «Procurad la paz de la ciudad (\heb{וְדִרְשׁוּ אֶת־שְׁלוֹם הָעִיר}) adonde os hice transportar, y rogad por ella a YHWH» (Jer 29:7). La bendición de Abraham para las naciones (Gn 12:3) se vive en tierra extraña.
+\item \textbf{Daniel y sus compañeros.} No se contaminan con la comida del rey (Dn 1:8), no adoran la estatua (Dn 3) y siguen orando hacia Jerusalén (Dn 6:10); reyes paganos terminan confesando al Dios de Israel (Dn 2:47; 3:28--29; 6:25--27). Son «testigos» en el sentido de Is 43:10. Daniel lee a Jeremías y confiesa los pecados de «todo Israel, los de cerca y los de lejos» (Dn 9:2, 7), una oración que abarca a las dos casas.
+\end{enumerate}
+
+\section{Aporte de la tradición judía}
+
+La tradición judía conserva esta etapa sobre todo en el calendario de ayunos y en la reflexión sobre las causas de la destrucción. Lo que sigue es tradición, no texto bíblico.
+
+\subsection{Tisha be-Av y la lectura de Eijá}
+El 9 de Av (\emph{Tishá be-Av}) es el duelo por los dos templos. La Biblia fecha el incendio el día 7 (2~R 25:8) y el 10 (Jer 52:12) del mes quinto; el Talmud armoniza: entraron el 7, prendieron fuego el 9 al atardecer y el templo ardió el 10 (Taanit 29a). La Mishná enumera cinco desgracias de esa fecha (Taanit 4:6). Ese día se lee Lamentaciones, \emph{Eijá} (\heb{אֵיכָה}, «¡cómo!»), y al final se repite 5:21 para no concluir con el lamento de 5:22:
+\hebverso{הֲשִׁיבֵנוּ יְהוָה אֵלֶיךָ וְנָשׁוּבָה חַדֵּשׁ יָמֵינוּ כְּקֶדֶם}
+\begin{cita}Haznos volver, YHWH, a ti, y volveremos; renueva nuestros días como al principio.\fuente{(Lm 5:21)}\end{cita}
+El verbo \emph{shuv} aparece dos veces: la restauración comienza cuando Dios hace volver. Zac 8:19 menciona además los ayunos de los meses cuarto, quinto, séptimo y décimo, que la tradición relaciona con la brecha en el muro (Jer 39:2), la quema del templo, el asesinato de Gedalías (\emph{Tsom Guedalyá}, Jer 41:1--2) y el comienzo del asedio (2~R 25:1); Zacarías anuncia que se convertirán en «gozo y alegría».
+
+\subsection{Por qué cayó el Primer Templo}
+«¿Por qué fue destruido el primer templo? Por tres cosas: idolatría, inmoralidad sexual y derramamiento de sangre» (Talmud, Yoma 9b); el segundo cayó por el «odio sin causa». La lista coincide con las denuncias de los profetas (2~R 21:16; Jer 7:9; Ez 22:1--12). El mismo pasaje (Yoma 9a) da 410 años al primer templo, la cifra del \emph{Seder Olam Rabbah}, cuya cronología comprime el período persa (Guggenheimer, 1998). Sobre Ez 11:16, «les seré por un pequeño santuario», el Talmud comenta: «estas son las sinagogas y las casas de estudio de Babilonia» (Meguilá 29a). Es una lectura tradicional que refleja un hecho probable: sin templo, la vida judía se organizó en torno a la oración y la lectura de la Torá.
+
+\subsection{Las diez tribus en la Mishná}
+La Mishná registra un debate sobre el destino del reino del norte:
+\begin{cita}Las diez tribus no han de volver, pues está dicho: «y los arrojó a otra tierra, como en este día» (Dt 29:28 [29:27]). Así como el día se va y no vuelve, también ellas se fueron y no vuelven. Palabras de Rabí Akiva. Rabí Eliézer dice: así como el día oscurece y vuelve a aclarar, así a las diez tribus, para las que oscureció, les volverá a aclarar.\fuente{(Mishná, Sanedrín 10:3)}\end{cita}
+La tradición judía no tiene una sola respuesta: Rabí Eliézer se apoya en los profetas que anuncian la reunión de las dos casas; Rabí Akiva, en el carácter definitivo del juicio de Dt 29 (cf. Talmud, Sanedrín 110b).
+
+\subsection{Targum, Josefo y la liturgia}
+\begin{itemize}
+\item \textbf{Targum de Isaías.} Lee mesiánicamente Is 11:1 («saldrá un rey de los hijos de Isaí, y el Mesías será ungido de los hijos de sus hijos») y 52:13 («mi siervo el Mesías prosperará») (Chilton, 1987): la restauración se asocia al Mesías davídico.
+\item \textbf{Josefo}, \emph{Antigüedades} 9--10, atribuye la caída de Samaria a Salmanasar (9.14.1), explica el nombre de «cuteos» y critica que los samaritanos se declaren parientes de los judíos solo cuando a estos les va bien (9.14.3), y narra la caída de Jerusalén y a Gedalías (10.8--9).
+\item \textbf{La Amidá.} La décima bendición pide: «reúnenos juntos de los cuatro extremos de la tierra. Bendito eres tú, YHWH, que reúnes a los dispersos (\heb{נִדְחֵי}) de tu pueblo Israel» (Sacks, 2009), con el lenguaje de Is 11:12.
+\item \textbf{Shabat Najamú.} Tras Tisha be-Av se leen siete haftarot de consolación de Is 40--66, comenzando por «Consolad, consolad a mi pueblo» (Is 40:1): el calendario pasa del lamento a la promesa.
+\item \textbf{Elías}, arrebatado sin morir (2~R 2:11), quedó como anunciador de la redención (Mal 4:5--6 [3:23--24]); al cierre de Yom Kipur se repite siete veces «YHWH es Dios» (1~R 18:39).
+\end{itemize}
+
+\section{La promesa de restauración}
+
+En la etapa del juicio la promesa de restauración se formula con mayor detalle que en ninguna otra. Tiene cuatro rasgos constantes: un \textbf{remanente} sobrevive; Dios \textbf{reúne} a los dispersos de las dos casas; un \textbf{rey davídico} los gobierna; y un \textbf{corazón nuevo} hace posible la obediencia que el pacto antiguo no logró.
+
+\subsection{Isaías: el remanente volverá}
+\textbf{Is 10:20--22.} El hijo de Isaías se llamaba \emph{Shear-yashuv}, «un remanente volverá» (Is 7:3). En 10:21 el nombre se vuelve profecía:
+\hebverso{שְׁאָר יָשׁוּב שְׁאָר יַעֲקֹב אֶל־אֵל גִּבּוֹר}
+\begin{cita}Un remanente volverá, el remanente de Jacob, al Dios fuerte. Porque aunque tu pueblo, Israel, fuere como la arena del mar, solo un remanente de él volverá.\fuente{(Is 10:21--22)}\end{cita}
+\heb{אֵל גִּבּוֹר} («Dios fuerte») es el título del niño davídico de Is 9:6 [9:5]. Pablo cita el texto en Ro 9:27--28, combinado con Os 1:10 [2:1]: \grc{τὸ ὑπόλειμμα σωθήσεται}, «el remanente será salvo». El remanente es a la vez juicio (solo un remanente) y esperanza (un remanente sí volverá).
+
+\textbf{Is 11:11--16.} Es el texto más explícito sobre la reunión de las dos casas:
+\hebverso{וְאָסַף נִדְחֵי יִשְׂרָאֵל וּנְפֻצוֹת יְהוּדָה יְקַבֵּץ מֵאַרְבַּע כַּנְפוֹת הָאָרֶץ}
+\begin{cita}Alzará pendón a las naciones, y reunirá a los desterrados de Israel, y juntará a los esparcidos de Judá de los cuatro confines de la tierra. Y se disipará la envidia de Efraín [\ldots]; Efraín no tendrá envidia de Judá, ni Judá afligirá a Efraín.\fuente{(Is 11:12--13)}\end{cita}
+El paralelismo es preciso: los «desterrados» (\emph{nidjé}) de Israel, el norte, y los «esparcidos» (\emph{nefutsot}) de Judá. La reunión es «por segunda vez» (11:11), desde Asiria, Egipto, Cus, Elam y las costas, por un camino «como el día que Israel subió de Egipto» (11:16), y la encabeza el «renuevo del tronco de Isaí», «pendón para los pueblos» (11:1, 10; Ro 15:12).
+
+\textbf{Is 40; 42; 49.} La consolación de Is 40--55 se dirige a los desterrados: «Consolad, consolad a mi pueblo [\ldots] su tiempo de servicio se ha cumplido» (40:1--2). El Siervo de YHWH será «pacto del pueblo y luz de las naciones» (42:6), y en 49:6 su vocación une los dos ejes de esta serie:
+\begin{cita}Poco es que tú me seas siervo para levantar las tribus de Jacob y restaurar a los preservados de Israel; también te di por luz de las naciones, para que seas mi salvación hasta lo último de la tierra.\fuente{(Is 49:6)}\end{cita}
+La restauración de «las tribus de Jacob», no solo de Judá, y la luz a las naciones van juntas (Lc 2:32; Hch 13:47).
+
+\textbf{Is 59:20--21.} El texto que Pablo cita en Ro 11:26--27 pide una comparación cuidadosa:
+
+\begin{center}\footnotesize
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{4.3cm}>{\RaggedRight\arraybackslash}p{4.6cm}>{\RaggedRight\arraybackslash}p{5.1cm}}
+\toprule
+\textbf{TM (Is 59:20)} & \textbf{LXX (Is 59:20)} & \textbf{Pablo (Ro 11:26--27)}\\
+\midrule
+\heb{וּבָא לְצִיּוֹן גּוֹאֵל} «vendrá \emph{a} Sion el Redentor» & \grc{ἥξει ἕνεκεν Σιων ὁ ῥυόμενος} «vendrá \emph{por causa de} Sion el Libertador» & \grc{ἥξει ἐκ Σιὼν ὁ ῥυόμενος} «vendrá \emph{de} Sion el Libertador»\\
+«a los que se vuelven de la rebelión en Jacob» & «y apartará las impiedades de Jacob» & \grc{ἀποστρέψει ἀσεβείας ἀπὸ Ἰακώβ}\\
+59:21: «este es mi pacto con ellos» & \grc{καὶ αὕτη αὐτοῖς ἡ παρ᾽ ἐμοῦ διαθήκη} & Igual, más «cuando yo quite sus pecados» (Is 27:9 LXX)\\
+\bottomrule
+\end{tabular}\end{center}
+Pablo une Is 59:20--21 con Is 27:9 y escribe «de Sion»; las razones (¿influencia de Sal 14:7?, ¿la Sion celestial?) se discutirán en el Estudio~8.
+
+\subsection{Jeremías: setenta años y un pacto nuevo}
+\textbf{Jer 25:11--12; 29:10--14.} Tras setenta años de servicio a Babilonia, Dios castigará a Babilonia. A los desterrados de 597 Jeremías les escribe:
+\hebverso{כִּי אָנֹכִי יָדַעְתִּי אֶת־הַמַּחֲשָׁבֹת אֲשֶׁר אָנֹכִי חֹשֵׁב עֲלֵיכֶם נְאֻם־יְהוָה\\ מַחְשְׁבוֹת שָׁלוֹם וְלֹא לְרָעָה לָתֵת לָכֶם אַחֲרִית וְתִקְוָה}
+\begin{cita}Porque yo sé los pensamientos que tengo acerca de vosotros, dice YHWH, pensamientos de paz y no de mal, para daros un porvenir y una esperanza.\fuente{(Jer 29:11)}\end{cita}
+Es una promesa a una comunidad desterrada, ligada al plazo de 29:10 y a la condición de 29:13 («me buscaréis de todo vuestro corazón»): «haré volver vuestra cautividad y os reuniré de todas las naciones» (29:14).
+
+\begin{nota}[Precisión: el cómputo de los setenta años]
+2~Cr 36:21--22 vincula el plazo con los sábados de la tierra (Lv 26:34--35) y con Ciro; Dn 9:2 lo medita; Zac 1:12 habla de setenta años de ira hacia 519. Los cómputos modernos más comunes son 605--538 (unos 67 años) y 586--516/515 (unos 70, hasta el segundo templo). Muchos lo entienden como cifra redonda de una vida (Sal 90:10). Es un punto de interpretación, no un dato a forzar.
+\end{nota}
+
+\textbf{Jer 30--33: el libro de la consolación.} Comienza incluyendo a las dos casas: «haré volver la cautividad de mi pueblo Israel y Judá» (30:3). Jer 31 se dirige primero al norte: Raquel, abuela de Efraín, llora por sus hijos desterrados (31:15; Mt 2:18) y Dios le responde: «hay esperanza para tu porvenir [\ldots] y los hijos volverán a su tierra» (31:17 [31:16]). Efraín se arrepiente, y Dios responde como padre:
+\begin{cita}¿No es Efraín hijo precioso para mí? ¿No es niño en quien me deleito? Pues desde que hablé de él, me he acordado de él constantemente. Por eso mis entrañas se conmovieron por él; ciertamente tendré de él misericordia, dice YHWH.\fuente{(Jer 31:20 [31:19])}\end{cita}
+Después viene el nuevo pacto:
+\hebverso{הִנֵּה יָמִים בָּאִים נְאֻם־יְהוָה וְכָרַתִּי אֶת־בֵּית יִשְׂרָאֵל וְאֶת־בֵּית יְהוּדָה בְּרִית חֲדָשָׁה}
+\begin{cita}He aquí que vienen días, dice YHWH, en que haré con la casa de Israel y con la casa de Judá un pacto nuevo [\ldots]. Este es el pacto que haré con la casa de Israel después de aquellos días: pondré mi ley en su interior y la escribiré en su corazón; y yo seré su Dios, y ellos serán mi pueblo [\ldots] porque perdonaré su iniquidad y no me acordaré más de su pecado.\fuente{(Jer 31:31, 33--34 [31:30, 32--33])}\end{cita}
+En 31:31 el pacto se hace con las dos casas; en 31:33 con una sola «casa de Israel»: reunidas, las dos casas son de nuevo Israel, el pueblo completo. Lo nuevo no es la ley («mi ley», la misma Torá), sino su lugar: el corazón. La Septuaginta dice \grc{διαθήκην καινήν} (Jer 38:31 LXX); Jesús habla del «nuevo pacto en mi sangre» (Lc 22:20), Heb 8:8--12 cita el pasaje entero y Pablo alude a él en Ro 11:27. Enseguida Dios ata la permanencia de Israel al orden del cosmos: si faltaran las leyes del sol y la luna, «también la descendencia de Israel faltará para no ser nación delante de mí» (31:35--37 [31:34--36]). Durante el asedio, Jeremías compra un campo en Anatot como señal de que «aún se comprarán casas, heredades y viñas en esta tierra» (32:15), y Dios promete «un pacto eterno» (32:40) y un «Renuevo justo» de David (33:14--17).
+
+\subsection{Ezequiel: corazón nuevo, huesos secos y dos palos}
+\textbf{Ez 11:16--20.} A los desterrados que Jerusalén daba por perdidos, Dios les dice:
+\begin{cita}Aunque los he arrojado lejos entre las naciones [\ldots], les seré por un pequeño santuario en las tierras adonde lleguen.\fuente{(Ez 11:16)}\end{cita}
+La gloria que abandona el templo acompaña a los desterrados, como en Gn 46:4 Dios bajó con Jacob a Egipto; y promete reunirlos y quitarles el corazón de piedra (11:17--20). \textbf{Ez 36:24--28} amplía la promesa:
+\hebverso{וְנָתַתִּי לָכֶם לֵב חָדָשׁ וְרוּחַ חֲדָשָׁה אֶתֵּן בְּקִרְבְּכֶם}
+\begin{cita}Os tomaré de las naciones, os reuniré de todas las tierras y os traeré a vuestra tierra. Esparciré sobre vosotros agua limpia [\ldots]. Os daré un corazón nuevo y pondré un espíritu nuevo dentro de vosotros; quitaré de vuestra carne el corazón de piedra y os daré un corazón de carne. Pondré mi Espíritu dentro de vosotros.\fuente{(Ez 36:24--27)}\end{cita}
+El orden es regreso, purificación, corazón nuevo y Espíritu, y el motivo es «mi santo nombre» (36:22): la restauración repara el antitestimonio de 36:20. \textbf{Ez 37:1--14}, el valle de los huesos secos, trae su propia interpretación:
+\begin{cita}Hijo de hombre, todos estos huesos son toda la casa de Israel. He aquí, ellos dicen: «Nuestros huesos se secaron, y pereció nuestra esperanza».\fuente{(Ez 37:11)}\end{cita}
+«Toda la casa de Israel» es el pueblo completo. La visión tiene dos tiempos: los huesos se cubren de carne, «pero no había en ellos espíritu» (37:8), y después el espíritu entra y viven (37:9--10). El material de la congregación lee esas etapas como un proceso histórico: retorno físico y luego derramamiento del Espíritu (cf. Zac 12:10) (Octava lección, s.\,f.). Es una lectura posible del orden del texto, que se retomará en el Estudio~8. \textbf{Ez 37:15--28} responde directamente a la división del reino:
+\hebverso{וְעָשִׂיתִי אֹתָם לְגוֹי אֶחָד בָּאָרֶץ בְּהָרֵי יִשְׂרָאֵל וּמֶלֶךְ אֶחָד יִהְיֶה לְכֻלָּם לְמֶלֶךְ}
+\begin{cita}Toma un palo y escribe en él: «Para Judá y para los hijos de Israel sus compañeros». Toma después otro palo y escribe en él: «Para José, palo de Efraín, y para toda la casa de Israel sus compañeros». Júntalos el uno con el otro para que sean uno solo [\ldots]. Haré de ellos una sola nación en la tierra, en los montes de Israel, y un solo rey será rey de todos ellos; nunca más serán dos naciones, ni nunca más estarán divididos en dos reinos.\fuente{(Ez 37:16--17, 22)}\end{cita}
+El palo de Judá lleva también a «los hijos de Israel sus compañeros»: los israelitas del norte unidos a Judá (sección~4.7). La reunión es política (un reino), territorial («en los montes de Israel»), mesiánica («mi siervo David será rey sobre ellos», 37:24), espiritual («los limpiaré», 37:23) y perpetua: «pacto de paz, pacto eterno [\ldots] mi santuario entre ellos para siempre» (37:26).
+
+\subsection{Oseas, Amós, Miqueas y Sofonías}
+\begin{itemize}
+\item \textbf{Os 1:10--11 [2:1--2]; 3:4--5; 14.} Lo-Ammí será «hijos del Dios viviente», las dos casas tendrán «una sola cabeza» y buscarán «a David su rey»; el libro cierra con «Vuelve, oh Israel» y «los amaré de pura gracia» (14:1, 4 [14:2, 5]).
+\item \textbf{Am 9:11--15.} «Levantaré el tabernáculo caído de David» (\heb{אָקִים אֶת־סֻכַּת דָּוִיד הַנֹּפֶלֶת}), con «todas las naciones sobre las cuales es invocado mi nombre» (9:11--12); Santiago lo cita según la Septuaginta para la inclusión de los gentiles (Hch 15:16--17). Y: «nunca más serán arrancados» de su tierra (9:15).
+\item \textbf{Mi 4--5.} «De Sion saldrá la ley» para las naciones (4:1--3); Dios hará de la que cojea «un remanente» (4:7); Sion irá a Babilonia y «allí será librada» (4:10); de Belén saldrá el gobernante (5:2 [5:1]; Mt 2:6), y «el resto de sus hermanos volverá a los hijos de Israel» (5:3 [5:2]).
+\item \textbf{Sof 3:14--20.} «YHWH, Rey de Israel, está en medio de ti» (3:15); Dios pondrá a los suyos «por alabanza y renombre entre todos los pueblos» (3:20): la vocación de Éx 19:6 restaurada.
+\end{itemize}
+
+\subsection{Qué se cumplió en 538 y qué quedó pendiente}
+La clasificación es interpretativa y se ofrece como herramienta de estudio.
+
+{\footnotesize
+\renewcommand{\arraystretch}{1.22}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{2.6cm}>{\RaggedRight\arraybackslash}p{4.7cm}>{\RaggedRight\arraybackslash}p{2.6cm}>{\RaggedRight\arraybackslash}p{4.2cm}}
+\toprule
+\textbf{Texto} & \textbf{Promesa} & \textbf{Estado} & \textbf{Proyección en el NT}\\
+\midrule\endhead
+Jer 25:11--12; 29:10 & Setenta años; caída de Babilonia; regreso & Cumplido (539--538) & Dn 9:2; 2~Cr 36:21--23\\
+Is 44:28--45:1 & Ciro reconstruye Jerusalén y el templo & Cumplido (538--515) & ---\\
+Mi 4:10 & «Irás a Babilonia; allí serás librada» & Cumplido (538) & ---\\
+Is 40:1--11 & Consuelo; camino en el desierto & Cumplido en 538; nuevo cumplimiento & Mt 3:3; Lc 3:4--6\\
+Is 10:20--22 & Un remanente volverá & En parte & Ro 9:27--28\\
+Is 49:6 & Restaurar las tribus de Jacob; luz a las naciones & En parte & Lc 2:32; Hch 13:47\\
+Jer 30:3; 31:2--20 & Regreso de Israel (norte) y Judá; Efraín amado & En parte: volvió sobre todo Judá & Mt 2:18\\
+Jer 31:31--34 & Nuevo pacto con las dos casas & En parte: inaugurado; pendiente para la nación & Lc 22:20; Heb 8:8--12; Ro 11:27\\
+Ez 36:24--28 & Reunión, agua limpia, corazón nuevo, Espíritu & En parte & Hch 2; Jn 3:5; Ro 11:26\\
+Am 9:11--12 & Tabernáculo de David; las naciones & En parte & Hch 15:16--17\\
+Mi 5:2 [5:1] & Gobernante de Belén & Cumplido & Mt 2:6\\
+Os 1:10--11 [2:1--2]; 3:4--5 & Lo-Ammí, hijos de Dios; una cabeza; David su rey & En parte / pendiente & Ro 9:25--26\\
+Is 11:11--16 & Segunda reunión de los cuatro confines; Efraín y Judá reconciliados & Pendiente & Ro 15:12 (11:10)\\
+Is 59:20--21 & El Redentor quita la impiedad de Jacob & Pendiente según Pablo & Ro 11:26--27\\
+Ez 37:15--28 & Un solo reino, un rey davídico, santuario perpetuo & Pendiente & Lc 1:32--33; Ap 21:3\\
+Am 9:13--15; Sof 3:14--20 & Plantados para no ser arrancados; renombre entre los pueblos & Pendiente (lectura debatida) & Hch 1:6; 3:21\\
+\bottomrule
+\end{longtable}}
+
+\subsection{La tabla de la Clase 7, revisada}
+La Clase 7 propone una tabla (cautividad, salida, retorno, profecía) con tres filas: Egipto (cumplida), Asiria/Babilonia (cumplida en parte) y dispersión mundial (no cumplida) (Departamento de Educación, s.\,f.-a, diapositiva 32). La intuición es correcta: los destierros forman una serie. Separar Asiria de Babilonia, cuyos resultados fueron distintos, permite precisarla, como muestra la tabla adjunta.
+
+\begin{table}[!htbp]\centering\footnotesize
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{2.4cm}>{\RaggedRight\arraybackslash}p{3.3cm}>{\RaggedRight\arraybackslash}p{3.4cm}>{\RaggedRight\arraybackslash}p{2.9cm}>{\RaggedRight\arraybackslash}p{2.2cm}}
+\toprule
+\textbf{Cautividad} & \textbf{Anuncio} & \textbf{Salida / retorno} & \textbf{Quiénes} & \textbf{Estado}\\
+\midrule
+Egipto & Gn 15:13--16 & Éx 12--14; Gn 50:24--25; Heb 11:22 & Las doce tribus & Cumplida\\
+Asiria (722) & Os 9:3; Am 5:27; 2~R 17:13 & Sin retorno organizado; Is 11:11--13; Jer 31:2--20; Ez 37:15--22 & Israel (norte) & Pendiente\\
+Babilonia (605--586) & Jer 25:8--11; Ez 21:18--27 [21:23--32]; Mi 4:10 & 2~Cr 36:22--23; Esd 1:1--11; Neh 1--2 & Judá, con remanentes de otras tribus & Cumplida en 538; restauración plena pendiente\\
+Dispersión mundial (70 e.\,c.) & Dt 28:64; Lc 21:24 & Dt 30:3--5; Jer 23:7--8; 30:3, 7--11 & Israel (el pueblo) & Pendiente (Estudios 7--8)\\
+\bottomrule
+\end{tabular}\end{table}
+
+\subsection{Proyección hacia Romanos 9--11}
+Pablo construye su argumento sobre Israel con textos de esta etapa. De Oseas toma la reversión de Lo-Ammí (Ro 9:25--26); de Isaías, el remanente (Ro 9:27--29) y el Redentor que viene de Sion (Ro 11:26--27); de 1 Reyes, los siete mil (Ro 11:2--5); de Jeremías, el pacto que quita el pecado (Ro 11:27). Su conclusión, «no ha desechado Dios a su pueblo» (\grc{οὐκ ἀπώσατο ὁ θεὸς τὸν λαὸν αὐτοῦ}, Ro 11:2), es eco de 1~S 12:22 y Sal 94:14 [93:14 LXX], y resume la experiencia de esta etapa: el juicio fue real, pero nunca total. ONE FOR ISRAEL (2025) distingue en Romanos~11 un remanente presente y una restauración futura del pueblo; el Estudio~8 examinará esa articulación. 
+
+\section{Conclusión y puente al Estudio 6}
+
+\begin{enumerate}
+\item \textbf{Dos reinos, dos destinos.} Israel (norte) fue deportado por Asiria y mezclado con colonos; Judá fue deportado por Babilonia como comunidad, y solo de allí hubo un regreso organizado. Pero el norte no se perdió por completo: muchos de sus miembros se unieron a Judá, y la promesa de reunir a las dos casas sigue abierta en los profetas.
+\item \textbf{La vocación se quebró y se preservó.} Idolatría, injusticia y falsa seguridad en el templo rompieron la función sacerdotal de Israel; el remanente, los profetas y los desterrados fieles como Daniel la conservaron ante las naciones.
+\item \textbf{La promesa se amplió en el juicio.} Isaías, Jeremías y Ezequiel anuncian un remanente que vuelve, un nuevo pacto con la casa de Israel y la casa de Judá, un corazón nuevo y el Espíritu, y un solo reino bajo un rey davídico. Pablo usará estos textos para sostener que Dios no ha desechado a su pueblo.
+\end{enumerate}
+
+En el año primero de Ciro, «para que se cumpliese la palabra de YHWH por boca de Jeremías», Dios despertó el espíritu del rey persa, que permitió volver a los desterrados y reedificar la casa de YHWH en Jerusalén (2~Cr 36:22--23; Esd 1:1--4). Con ese edicto termina la Biblia hebrea en su orden judío y comienza el Estudio~6: \emph{el Israel del Segundo Templo}, con Zorobabel, Esdras, Nehemías, Hageo, Zacarías y Malaquías, y los siglos persa, griego, asmoneo y romano.
+
+\section*{Preguntas para la reflexión}\markboth{Preguntas para la reflexión}{}
+\begin{enumerate}
+\item Elías creía estar solo y Dios le reveló siete mil fieles (1~R 19:18). ¿Qué enseña este episodio sobre la manera de evaluar el estado espiritual de un pueblo, y por qué Pablo lo usa en Ro 11:2--5?
+\item Jer 7:4 denuncia la confianza en «el templo de YHWH» como garantía. ¿Qué formas puede tomar hoy esa falsa seguridad en una congregación?
+\item Jeremías pidió a los desterrados orar por la paz de Babilonia (Jer 29:7). ¿Qué significa ser «reino de sacerdotes» en una sociedad que no comparte la fe?
+\item Ez 37:16 incluye en el palo de Judá a «los hijos de Israel sus compañeros». ¿Cómo influye este detalle en la manera de entender la pregunta por las «tribus perdidas»?
+\item ¿Qué promesas de la tabla de la sección~7.5 considera usted cumplidas, en parte o pendientes, y con qué criterios?
+\end{enumerate}
+
+\section*{Glosario}\markboth{Glosario}{}
+\begin{description}
+\item[Berit jadashá] (\heb{בְּרִית חֲדָשָׁה}). «Pacto nuevo» (Jer 31:31 [31:30]); en la LXX \grc{διαθήκη καινή}.
+\item[Efraín] (\heb{אֶפְרַיִם}). Hijo de José; tribu principal del norte y nombre profético del reino del norte (Os 5:3; Is 7:2; Ez 37:16).
+\item[Eijá] (\heb{אֵיכָה}). «¡Cómo!». Primera palabra y nombre hebreo de Lamentaciones, que se lee en Tisha be-Av.
+\item[Galut] (\heb{גָּלוּת}). Destierro, exilio. Del verbo \heb{גָּלָה} (\emph{galá}), «ser llevado cautivo» (2~R 17:23).
+\item[Kutim] (\heb{כּוּתִים}). «Cuteos». Nombre rabínico de los samaritanos, por los colonos de Cuta (2~R 17:24).
+\item[Lo-Ammí] (\heb{לֹא עַמִּי}). «No mi pueblo». Nombre del tercer hijo de Oseas (Os 1:9), revertido en «hijos del Dios viviente» (Os 1:10 [2:1]; Ro 9:26).
+\item[Mikdash meat] (\heb{מִקְדָּשׁ מְעַט}). «Pequeño santuario» (Ez 11:16); la tradición lo aplica a las sinagogas (Meguilá 29a).
+\item[Nidjé Yisrael] (\heb{נִדְחֵי יִשְׂרָאֵל}). «Los desterrados de Israel» (Is 11:12); expresión de la décima bendición de la Amidá.
+\item[Shear-yashuv] (\heb{שְׁאָר יָשׁוּב}). «Un remanente volverá». Hijo de Isaías (Is 7:3) y profecía de Is 10:21.
+\item[She'erit] (\heb{שְׁאֵרִית}). Remanente; en griego \grc{λεῖμμα} (Ro 11:5) o \grc{ὑπόλειμμα} (Ro 9:27).
+\item[Shuv / shevut] (\heb{שׁוּב}, \heb{שְׁבוּת}). Volver; «hacer volver la cautividad» (Jer 29:14; 30:3; Am 9:14).
+\item[Tishá be-Av] (\heb{תִּשְׁעָה בְּאָב}). Ayuno del 9 de Av por la destrucción de los dos templos (Mishná, Taanit 4:6).
+\item[Zera qódesh] (\heb{זֶרַע קֹדֶשׁ}). «Simiente santa»: el tocón que queda del árbol talado (Is 6:13).
+\end{description}
+
+\section*{Referencias}\markboth{Referencias}{}
+\refapa{Aharoni, Y. (1981). \emph{Arad inscriptions}. Israel Exploration Society.}
+\refapa{Barkay, G., Vaughn, A.~G., Lundberg, M.~J., \& Zuckerman, B. (2004). The amulets from Ketef Hinnom: A new edition and evaluation. \emph{Bulletin of the American Schools of Oriental Research, 334}, 41--71.}
+\refapa{Becking, B. (1992). \emph{The fall of Samaria: An historical and archaeological study}. Brill.}
+\refapa{Berlin, A. (2002). \emph{Lamentations: A commentary} (Old Testament Library). Westminster John Knox.}
+\refapa{\emph{Biblia Hebraica Stuttgartensia} (5.ª ed.). (1997). Deutsche Bibelgesellschaft.}
+\refapa{Broshi, M. (1974). The expansion of Jerusalem in the reigns of Hezekiah and Manasseh. \emph{Israel Exploration Journal, 24}(1), 21--26.}
+\refapa{Broshi, M., \& Finkelstein, I. (1992). The population of Palestine in Iron Age II. \emph{Bulletin of the American Schools of Oriental Research, 287}, 47--60.}
+\refapa{Charlesworth, J.~H. (Ed.). (1983). \emph{The Old Testament pseudepigrapha} (Vol. 1). Doubleday.}
+\refapa{Chilton, B.~D. (1987). \emph{The Isaiah Targum} (The Aramaic Bible, Vol. 11). Michael Glazier.}
+\refapa{Cogan, M., \& Tadmor, H. (1988). \emph{II Kings} (Anchor Bible, Vol. 11). Doubleday.}
+\refapa{Dalley, S. (1985). Foreign chariotry and cavalry in the armies of Tiglath-pileser III and Sargon II. \emph{Iraq, 47}, 31--48.}
+\refapa{Danby, H. (Trad.). (1933). \emph{The Mishnah}. Oxford University Press.}
+\refapa{Departamento de Educación, Congregación Iglesia Israelita del Nuevo Pacto. (s.\,f.-a). \emph{Restauración de Israel} (Clase 7) [Presentación].}
+\refapa{Departamento de Educación, Congregación Iglesia Israelita del Nuevo Pacto. (s.\,f.-b). \emph{Interpretación de Romanos 11:25--26} [Presentación].}
+\refapa{Epstein, I. (Ed.). (1935--1948). \emph{The Babylonian Talmud}. Soncino Press.}
+\refapa{Finkelstein, I. (2008). The settlement history of Jerusalem in the eighth and seventh centuries BC. \emph{Revue Biblique, 115}(4), 499--515.}
+\refapa{Fitzmyer, J.~A. (2003). \emph{Tobit} (Commentaries on Early Jewish Literature). De Gruyter.}
+\refapa{Frumkin, A., Shimron, A., \& Rosenbaum, J. (2003). Radiometric dating of the Siloam Tunnel, Jerusalem. \emph{Nature, 425}, 169--171.}
+\refapa{Grayson, A.~K. (1975). \emph{Assyrian and Babylonian chronicles}. J.~J. Augustin.}
+\refapa{Guggenheimer, H.~W. (1998). \emph{Seder Olam: The rabbinic view of biblical chronology}. Jason Aronson.}
+\refapa{Hays, R.~B. (1989). \emph{Echoes of Scripture in the letters of Paul}. Yale University Press.}
+\refapa{Josefo, F. (1987). \emph{The works of Josephus} (W. Whiston, Trad.). Hendrickson.}
+\refapa{Knoppers, G.~N. (2013). \emph{Jews and Samaritans: The origins and history of their early relations}. Oxford University Press.}
+\refapa{Lemaire, A. (1994). «House of David» restored in Moabite inscription. \emph{Biblical Archaeology Review, 20}(3), 30--37.}
+\refapa{Luckenbill, D.~D. (1926--1927). \emph{Ancient records of Assyria and Babylonia} (2 vols.). University of Chicago Press.}
+\refapa{Mazar, E. (2009). \emph{The palace of King David: Excavations at the summit of the City of David}. Shoham.}
+\refapa{Mazar, E. (2018). Is this the prophet Isaiah's signature? \emph{Biblical Archaeology Review, 44}(2), 64--73.}
+\refapa{Moo, D.~J. (1996). \emph{The epistle to the Romans}. Eerdmans.}
+\refapa{Na'aman, N. (2007). When and how did Jerusalem become a great city? The rise of Jerusalem as Judah's premier city in the eighth--seventh centuries B.C.E. \emph{Bulletin of the American Schools of Oriental Research, 347}, 21--56.}
+\refapa{\emph{Novum Testamentum Graece} (28.ª ed.). (2012). Deutsche Bibelgesellschaft.}
+\refapa{\emph{Octava lección. Israel, el pueblo de Dios}. (s.\,f.). [Lección de estudio bíblico].}
+\refapa{ONE FOR ISRAEL Ministry. (2025, 3 de julio). \emph{What does «all Israel will be saved» mean in Romans 11?} \url{https://www.oneforisrael.org/what-does-all-israel-will-be-saved-mean-in-romans-11/}}
+\refapa{Pearce, L.~E., \& Wunsch, C. (2014). \emph{Documents of Judean exiles and West Semites in Babylonia in the collection of David Sofer}. CDL Press.}
+\refapa{Pritchard, J.~B. (Ed.). (1969). \emph{Ancient Near Eastern texts relating to the Old Testament} (3.ª ed.). Princeton University Press.}
+\refapa{Rahlfs, A., \& Hanhart, R. (Eds.). (2006). \emph{Septuaginta} (ed. rev.). Deutsche Bibelgesellschaft.}
+\refapa{Sacks, J. (Trad.). (2009). \emph{The Koren Siddur}. Koren Publishers.}
+\refapa{Shiloh, Y. (1986). A group of Hebrew bullae from the City of David. \emph{Israel Exploration Journal, 36}(1--2), 16--38.}
+\refapa{Thiele, E.~R. (1983). \emph{The mysterious numbers of the Hebrew kings} (nueva ed. rev.). Zondervan.}
+\refapa{Torczyner, H. (1938). \emph{Lachish I: The Lachish letters}. Oxford University Press.}
+\refapa{Ussishkin, D. (1982). \emph{The conquest of Lachish by Sennacherib}. Tel Aviv University.}
+\refapa{Weidner, E.~F. (1939). Jojachin, König von Juda, in babylonischen Keilschrifttexten. En \emph{Mélanges syriens offerts à M. René Dussaud} (Vol. 2, pp. 923--935). Geuthner.}
+\refapa{Wiseman, D.~J. (1956). \emph{Chronicles of Chaldaean kings (626--556 B.C.) in the British Museum}. Trustees of the British Museum.}
+\refapa{Wright, N.~T. (2013). \emph{Paul and the faithfulness of God}. Fortress Press.}
+\refapa{Younger, K.~L. (1998). The deportations of the Israelites. \emph{Journal of Biblical Literature, 117}(2), 201--227.}
+\end{document}

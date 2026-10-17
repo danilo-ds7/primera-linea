@@ -1,0 +1,596 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage{fontspec}
+\setmainfont{texgyrepagella}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
+\usepackage[bidi=default]{babel}
+\babelprovide[import,main]{spanish}
+\babelprovide[import]{hebrew}
+\babelprovide[import]{ancientgreek}
+\babelfont[hebrew]{rm}[Path=fonts/,BoldFont=NotoHebrewSerif-700.ttf,Scale=0.95]{NotoHebrewSerif-400.ttf}
+\babelfont[ancientgreek]{rm}[Path=fonts/]{GFSPorson.otf}
+\newcommand{\heb}[1]{\mbox{\foreignlanguage{hebrew}{#1}}}
+\newcommand{\grc}[1]{\foreignlanguage{ancientgreek}{#1}}
+\newcommand{\hebverso}[1]{\par\smallskip{\centering\begin{otherlanguage}{hebrew}\large #1\end{otherlanguage}\par}\smallskip}
+\usepackage[margin=2.5cm,headheight=14pt]{geometry}
+\usepackage{microtype,ragged2e,booktabs,graphicx,xcolor,csquotes,array}
+\usepackage[hidelinks]{hyperref}\usepackage{xurl}\urlstyle{same}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}\usetikzlibrary{arrows.meta,positioning,calc,decorations.pathreplacing}
+\usepackage{titlesec,fancyhdr,extramarks}
+% Paleta "Israel": café ladrillo (ladrillos de Egipto, Éx 1:14), oro del santuario, piedra de Jerusalén
+\definecolor{cafe}{RGB}{96,52,30}\definecolor{cafeosc}{RGB}{50,25,13}\definecolor{tinta}{RGB}{44,28,18}
+\definecolor{oro}{RGB}{196,148,40}\definecolor{ladrillo}{RGB}{158,70,40}
+\definecolor{piedra}{RGB}{240,228,203}\definecolor{sepia}{RGB}{104,86,62}
+\titleformat{\section}{\Large\bfseries\color{ladrillo}}{\thesection.}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{cafe}}{\thesubsection}{0.6em}{}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\foreignlanguage{spanish}{\small\itshape\color{sepia}\firstleftmark}}\fancyhead[R]{\foreignlanguage{spanish}{\small\color{sepia}\thepage}}
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+\setlength{\parindent}{1.27cm}\linespread{1.15}\setlength{\emergencystretch}{3em}
+\newtcolorbox{cita}[1][]{enhanced,colback=piedra,colframe=ladrillo!85!oro,boxrule=0pt,leftrule=2.5pt,arc=0pt,
+  left=8pt,right=8pt,top=5pt,bottom=5pt,before skip=8pt,after skip=8pt,fontupper=\itshape,#1}
+\newcommand{\fuente}[1]{\par\hfill{\upshape\bfseries\small\textcolor{ladrillo}{#1}}}
+\newtcolorbox{nota}[1][]{enhanced,colback=oro!12,colframe=oro!80!ladrillo,boxrule=0.6pt,arc=2pt,
+  fonttitle=\bfseries\small,coltitle=cafe,colbacktitle=oro!35,fontupper=\small,title={#1}}
+\newcommand{\refapa}[1]{\par{\RaggedRight\hangindent=1.27cm\hangafter=1\noindent #1\par}\vspace{4pt}}
+\newcommand{\destacar}[1]{\textbf{\textcolor{ladrillo}{#1}}}
+\providecommand{\pt}[2]{({#1-30},{#2-29})}
+\title{\color{ladrillo}\bfseries De Cristo a la destrucción del templo\\[4pt]\large\color{cafe}\mdseries El Mesías de Israel, un remanente que cree y un juicio que lleva escrito su «hasta»}
+\author{}\date{\color{sepia}Serie «Israel, el pueblo de Dios» · Estudio 7}
+\begin{document}
+\maketitle\thispagestyle{empty}
+
+\begin{abstract}\noindent
+Este séptimo estudio recorre la historia de Israel desde el nacimiento de Jesús hasta la destrucción del Segundo Templo y la caída de Masada, al final de la guerra judía contra Roma, entre los años 66 y 73/74 de nuestra era. Sostiene dos tesis. La primera: Jesús se presenta y es presentado como el Mesías \emph{de Israel}, en continuidad con sus fiestas, su templo y sus profetas, y como el siervo de Isaías que encarna la vocación de Israel para «levantar las tribus de Jacob» y ser «luz de las naciones» (Is 49:6); alrededor de él se forma un remanente judío creyente, núcleo del pueblo restaurado, al que se incorporan los gentiles sin sustituirlo. La segunda: la caída de Jerusalén fue anunciada por Jesús como un juicio profético semejante al de Jeremías, pero los mismos textos que la anuncian le ponen un límite temporal: «hasta que digáis: Bendito el que viene» (Mt 23:39), «hasta que los tiempos de los gentiles se cumplan» (Lc 21:24), «hasta los tiempos de la restauración» (Hch 3:21). El estudio integra a Flavio Josefo, la arqueología de Jerusalén y Masada, y la respuesta rabínica de Yavne, Tisha be-Av y la oración en lugar del sacrificio. Concluye que el año 70 no significa el rechazo de Israel: Pablo, que escribe antes de esa fecha, ya había respondido que «no ha desechado Dios a su pueblo» (Ro 11:2), y ese es el punto de partida del Estudio~8.
+\par\smallskip\noindent\textbf{Palabras clave:} Mesías, remanente, nuevo pacto, Segundo Templo, guerra judía, Yavne, Tisha be-Av, restauración, Romanos 11.
+\end{abstract}
+
+\section{Introducción}
+
+¿Qué significa para Israel que su templo fuera destruido cuarenta años después de la crucifixión de Jesús? La pregunta tiene dos respuestas extremas. Una, frecuente en la historia de la iglesia, ve en el año 70 la prueba de que Dios rechazó a Israel y entregó sus promesas a otro pueblo. Otra, frecuente en lecturas modernas, separa por completo a Jesús de la historia de Israel, como si el Nazareno hubiera fundado una religión nueva al margen de su pueblo. Los textos del Nuevo Testamento no permiten ninguna de las dos. Jesús nace «bajo la ley» (Gá 4:4), elige a doce, enseña en las fiestas, llora sobre Jerusalén y anuncia su ruina con palabras de Jeremías; y sus seguidores judíos siguen orando en el templo hasta poco antes de la guerra.
+
+La tesis de este estudio es doble. Primero, Jesús encarna la vocación de Israel: es el Hijo llamado de Egipto (Mt 2:15; Os 11:1), el siervo de Isaías que restaura a las tribus y alumbra a las naciones (Is 49:5–6), y el que establece el nuevo pacto prometido «a la casa de Israel y a la casa de Judá» (Jer 31:31 [31:30]; Lc 22:20). En torno a él surge un remanente judío creyente que es el núcleo del pueblo restaurado y al que se suman los gentiles. Segundo, la destrucción del templo es un juicio dentro del pacto, no su anulación: los textos que la anuncian contienen un «hasta» que mira más allá de ella.
+
+\begin{center}\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{3.1cm}>{\RaggedRight\arraybackslash}p{5.6cm}>{\RaggedRight\arraybackslash}p{5.2cm}}
+\toprule
+\textbf{Eje de la serie} & \textbf{Pregunta en esta etapa} & \textbf{Textos centrales}\\
+\midrule
+Nación santa y reino de sacerdotes & ¿Cómo encarna Jesús la vocación de Israel y quién la lleva adelante después de la Pascua? & Is 49:5--6; Mt 2:15; 4:1--11; Hch 1:8; Ro 15:7--16; 1~P 2:9\\
+Promesa de restauración & ¿Qué promete Jesús a Israel mientras anuncia la ruina del templo? & Mt 19:28; 23:37--39; Lc 21:24; 22:20; Hch 1:6; 3:19--21\\
+Proyección hacia Romanos 11 & ¿Significa el año 70 que Dios desechó a su pueblo? & Lv 26:44; Jer 31:35--37 [31:34--36]; Ro 9:1--5; 10:1; 11:1--2, 11, 29\\
+\bottomrule
+\end{tabular}\end{center}
+
+\begin{nota}[Sobre traducción, numeración y fechas]
+Las citas bíblicas son traducción propia desde el texto hebreo (BHS) y griego (NA28); la Septuaginta (LXX) se cita según Rahlfs-Hanhart. Cuando la numeración hebrea difiere de la española, se da la española y la hebrea entre corchetes, por ejemplo Os 14:2 [14:3]. En Jeremías 31 se da entre corchetes la numeración de las ediciones judías tradicionales, que en este capítulo va un versículo atrás; la LXX lo numera como capítulo 38. Josefo se cita por libro y párrafo (\emph{Guerra} 6.420 = \emph{La guerra de los judíos}, libro 6, §420). Las fechas se indican como a.\,e.\,c. y e.\,c. Desde el Estudio~4 la serie distingue «Israel» como pueblo completo de «Israel» como reino del norte; en esta etapa el reino del norte ya no existe, y «Israel» designa casi siempre al pueblo entero. Se indica cuando un texto evoca a las tribus del norte.
+\end{nota}
+
+\section{Marco cronológico}
+
+Los evangelios sitúan el nacimiento de Jesús en los días de Herodes el Grande (Mt 2:1; Lc 1:5), que murió en el 4 a.\,e.\,c.; el nacimiento se fecha, por tanto, entre el 6 y el 4 a.\,e.\,c. Lucas data el comienzo de la predicación de Juan en el año quince de Tiberio (Lc 3:1), hacia el 28--29 e.\,c. La crucifixión se ubica bajo Poncio Pilato, prefecto de Judea entre el 26 y el 36 e.\,c.; las dos fechas más defendidas son el 30 y el 33 e.\,c., según se combine el calendario de la Pascua con el día de la semana. Después vienen la iglesia de Jerusalén, el concilio de Hch 15 (c. 48--49), la carta a los Romanos (c. 57), la muerte de Jacobo, hermano del Señor (62, según Josefo), la revuelta contra Roma (66), la caída del templo (70) y la de Masada (73 o 74).
+
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\draw[line width=1.6pt,cafe,-{Latex[length=3mm]}] (0,0) -- (15.6,0);
+\foreach \x/\t/\b in {0.6/{Nacimiento de Jesús}/{c. 6--4 a.\,e.\,c.},
+                      2.65/{Juan y Jesús en Galilea}/{c. 28--30},
+                      4.7/{Cruz, resurrección, Pentecostés}/{30 o 33},
+                      6.75/{Concilio de Jerusalén}/{Hch 15; c. 48--49},
+                      8.8/{Pablo escribe Romanos}/{c. 57},
+                      10.85/{Muerte de Jacobo}/{62; \emph{Ant.} 20.200},
+                      12.9/{Revuelta contra Roma}/{66},
+                      14.95/{Caída del templo; Masada}/{70; 73/74}}{
+  \fill[oro] (\x,0) circle (4pt);
+  \node[above,font=\scriptsize\bfseries,text=ladrillo,text width=1.9cm,align=center] at (\x,0.2) {\t};
+  \node[below,font=\tiny,text=sepia,text width=1.8cm,align=center] at (\x,-0.2) {\b};}
+\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (0.4,-0.85) -- (4.9,-0.85) node[midway,below=5pt,font=\scriptsize\itshape]{El Mesías en Israel};
+\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (5.4,-0.85) -- (11.1,-0.85) node[midway,below=5pt,font=\scriptsize\itshape]{El remanente en Jerusalén y la misión};
+\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (12.7,-0.85) -- (15.2,-0.85) node[midway,below=5pt,font=\scriptsize\itshape]{Guerra judía};
+\end{tikzpicture}\\[2pt]
+{\footnotesize\color{sepia}\textit{Nota.} Elaboración propia. Fechas aproximadas; el año de la crucifixión y el de la caída de Masada están en debate (véase el texto).}
+\end{center}
+
+\begin{nota}[Fechas en debate]
+\textbf{Crucifixión.} Los sinópticos presentan la Última Cena como cena pascual; Juan sitúa la muerte de Jesús en la víspera de la Pascua, cuando se sacrificaban los corderos (Jn 18:28; 19:14). La combinación con los datos astronómicos deja el 7 de abril del 30 o el 3 de abril del 33 como fechas más probables. \textbf{Masada.} Josefo no da el año; una inscripción sobre la carrera de Flavio Silva, el general que la sitió, llevó a varios historiadores a proponer la primavera del 74 en vez del 73 (Mason, 2016). \textbf{Evangelios.} La fecha de composición de Lucas y de Mateo se discute: muchos los sitúan después del 70; otros, antes. El argumento de este estudio no depende de esa fecha.
+\end{nota}
+
+\section{Contexto histórico y arqueológico}
+
+\subsection{Judea bajo Roma}
+Pompeyo tomó Jerusalén en el 63 a.\,e.\,c. (Estudio~6). Herodes, rey vasallo de Roma entre el 37 y el 4 a.\,e.\,c., reconstruyó el templo y amplió la explanada; la obra seguía en curso en tiempos de Jesús (Jn 2:20). A su muerte el reino se repartió entre sus hijos, y desde el 6 e.\,c. Judea quedó bajo prefectos romanos, con residencia en Cesarea. El sumo sacerdote, nombrado y depuesto por Roma o por los herodianos, presidía el sanedrín y administraba el templo. Junto a él había fariseos, saduceos, esenios y movimientos de resistencia que Josefo agrupa en una «cuarta filosofía» (\emph{Ant.} 18.23). La expectativa de redención era intensa: Lucas presenta a judíos piadosos que «esperaban la consolación de Israel» (Lc 2:25) y «la redención de Jerusalén» (Lc 2:38).
+
+Josefo menciona a Juan el Bautista, ejecutado por Herodes Antipas en Maqueronte (\emph{Ant.} 18.116--119), y a «Jacobo, hermano de Jesús, llamado Cristo» (\emph{Ant.} 20.200); el pasaje sobre Jesús (\emph{Ant.} 18.63--64) contiene añadidos de copistas cristianos sobre un núcleo que la mayoría considera auténtico.
+
+\subsection{La guerra judía (66--73/74 e.\,c.)}
+La fuente principal es \emph{La guerra de los judíos} de Josefo, sacerdote de Jerusalén que comandó las fuerzas judías en Galilea, se rindió en Jotapata en el 67 y escribió en Roma bajo patrocinio de los Flavios. Es testigo directo, pero también apologista de Tito y crítico feroz de los rebeldes; sus cifras y discursos deben leerse con esa cautela (Mason, 2016).
+
+\begin{itemize}
+\item \textbf{Estallido (66).} El procurador Gesio Floro tomó diecisiete talentos del tesoro del templo (\emph{Guerra} 2.293). Eleazar, hijo del sumo sacerdote Ananías, hizo suspender los sacrificios ofrecidos por el emperador (\emph{Guerra} 2.409), lo que equivalía a una declaración de guerra. El gobernador de Siria, Cestio Galo, se retiró de Jerusalén y fue derrotado en el paso de Bet Horón.
+\item \textbf{Vespasiano en Galilea (67--68).} Nerón envió a Vespasiano con su hijo Tito. Cayeron Jotapata y Gamla. Josefo, prisionero, anunció a Vespasiano que sería emperador (\emph{Guerra} 3.400--402). Josefo y Tácito cuentan que un oráculo ambiguo de las Escrituras, según el cual alguien salido de Judea gobernaría el mundo, había impulsado la revuelta; ambos lo aplicaron a Vespasiano (\emph{Guerra} 6.312--313; Tácito, \emph{Historias} 5.13).
+\item \textbf{Guerra civil en Jerusalén (68--70).} Muerto Nerón (68), Vespasiano fue proclamado emperador (69) y dejó a Tito al mando. Dentro de la ciudad, Juan de Giscala, Simón bar Giora y Eleazar ben Simón se disputaban el control; en esas luchas se quemaron las reservas de grano (\emph{Guerra} 5.24--26).
+\item \textbf{Asedio y caída (70).} Tito cercó la ciudad en la primavera, cuando había peregrinos de la Pascua (\emph{Guerra} 6.421). Levantó un muro de circunvalación y el hambre hizo el resto. El templo ardió en el mes de Av; Josefo da el día 10 de Lous (Av) y observa que fue el mismo día en que lo había quemado el rey de Babilonia (\emph{Guerra} 6.250). Según Josefo, Tito quería salvar el santuario (\emph{Guerra} 6.236--243); Sulpicio Severo (\emph{Crónica} 2.30.6--7), quizá a partir de Tácito, afirma lo contrario. A fines del verano Tito mandó arrasar la ciudad, salvo tres torres de Herodes y parte del muro occidental (\emph{Guerra} 7.1--2).
+\item \textbf{Triunfo y Masada (71--73/74).} En Roma, Vespasiano y Tito celebraron el triunfo con los despojos del templo: la mesa, el candelabro y un rollo de la ley (\emph{Guerra} 7.148--150). La fortaleza de Masada, en manos de sicarios dirigidos por Eleazar ben Yaír, resistió hasta el 73 o el 74; Josefo cuenta que 960 defensores se quitaron la vida antes de la entrada romana (\emph{Guerra} 7.389--401).
+\item \textbf{El \emph{Fiscus Iudaicus}.} Vespasiano impuso a todos los judíos del imperio el pago de dos dracmas anuales a Júpiter Capitolino, el mismo monto que antes pagaban al templo de Jerusalén (\emph{Guerra} 7.218; Dion Casio 66.7.2). Bajo Domiciano se cobró con dureza (Suetonio, \emph{Domiciano} 12.2); Nerva acuñó monedas con la leyenda \textsc{fisci ivdaici calvmnia svblata} («suprimido el abuso del fisco judío»).
+\end{itemize}
+
+\begin{nota}[Precisión: la cifra de 1.100.000 muertos]
+Josefo dice que durante el asedio murieron 1.100.000 personas y que 97.000 fueron tomadas cautivas (\emph{Guerra} 6.420). Tácito calcula 600.000 sitiados (\emph{Historias} 5.13). Los historiadores modernos consideran la cifra de Josefo muy exagerada, porque supera con mucho cualquier estimación razonable de la población de Jerusalén aun con los peregrinos (Schürer, 1973; Mason, 2016). La mortandad fue enorme, pero la cifra debe presentarse como «según Josefo».
+\end{nota}
+
+\begin{nota}[Precisión respetuosa sobre la «Octava lección»]
+La lección «Israel, el pueblo de Dios» afirma que en el año 70 «más de un millón de judíos murieron», que «el sacerdocio y el sanedrín dejaron de ser» y que «de esta manera comienza la Diáspora». Tres matices ayudan a enseñarla con exactitud. (1) La cifra procede de Josefo y, como se dijo, se considera exagerada. (2) La diáspora no comenzó en el 70: desde el exilio babilónico había comunidades judías grandes en Babilonia, Egipto, Asia Menor y Roma, y Hch 2:9--11 enumera muchas de ellas antes de la guerra. El 70 multiplicó los cautivos y los refugiados, y la expulsión de los judíos de Jerusalén llegó después de la revuelta de Bar Kojba (132--135), cuando Adriano refundó la ciudad como \emph{Aelia Capitolina}. (3) Cesaron los sacrificios y el sumo sacerdocio, pero la tradición judía cuenta que un tribunal de sabios se reconstituyó en Yavne (§6). Además, las fechas de persecuciones posteriores que la lección enumera necesitan revisión: la expulsión de Inglaterra fue en 1290, las de Francia en 1306 y 1394, la de España en 1492, y la peste negra asoló Europa entre 1347 y 1351 (siglo \textsc{xiv}, no \textsc{xiii}).
+\end{nota}
+
+\subsection{Mapa de la etapa}
+\begin{center}
+\begin{tikzpicture}[x=2.9cm,y=3.4cm]
+% mar Mediterráneo
+\fill[cafe!18] \pt{34.2}{31.2} -- \pt{34.45}{31.2} -- \pt{34.55}{31.67} -- \pt{34.64}{31.8} -- \pt{34.69}{31.92} -- \pt{34.75}{32.05} -- \pt{34.80}{32.2} -- \pt{34.89}{32.5} -- \pt{34.92}{32.62} -- \pt{34.96}{32.83} -- \pt{35.05}{32.82} -- \pt{35.07}{32.93} -- \pt{35.10}{33.0} -- \pt{34.2}{33.0} -- cycle;
+\draw[cafe!60,line width=0.6pt] \pt{34.45}{31.2} -- \pt{34.55}{31.67} -- \pt{34.64}{31.8} -- \pt{34.69}{31.92} -- \pt{34.75}{32.05} -- \pt{34.80}{32.2} -- \pt{34.89}{32.5} -- \pt{34.92}{32.62} -- \pt{34.96}{32.83} -- \pt{35.05}{32.82} -- \pt{35.07}{32.93} -- \pt{35.10}{33.0};
+\node[font=\tiny\itshape,cafe,rotate=72] at \pt{34.45}{32.3} {Mar Grande};
+% mar de Galilea y mar Muerto
+\fill[cafe!18,draw=cafe!60] \pt{35.59}{32.80} ellipse (0.055 and 0.085);
+\fill[cafe!18,draw=cafe!60] plot[smooth cycle] coordinates {\pt{35.48}{31.77} \pt{35.57}{31.70} \pt{35.57}{31.45} \pt{35.52}{31.22} \pt{35.44}{31.10} \pt{35.38}{31.22} \pt{35.41}{31.50} \pt{35.45}{31.70}};
+\node[font=\tiny\itshape,cafe,rotate=90] at \pt{35.49}{31.45} {Mar Muerto};
+% Jordán
+\draw[cafe!70,line width=0.8pt] plot[smooth] coordinates {\pt{35.57}{32.71} \pt{35.56}{32.50} \pt{35.53}{32.20} \pt{35.52}{31.95} \pt{35.53}{31.77}};
+\draw[cafe!70,line width=0.7pt] \pt{35.63}{33.0} -- \pt{35.62}{32.885};
+\node[font=\tiny\itshape,cafe,rotate=-88] at \pt{35.585}{32.12} {Jordán};
+% rutas
+\draw[oro!90!ladrillo,line width=1.1pt,-{Latex[length=2mm]}] plot[smooth] coordinates {\pt{34.89}{32.50} \pt{35.10}{32.30} \pt{35.22}{32.05} \pt{35.23}{31.81}};
+\draw[ladrillo,line width=1.1pt,dashed,-{Latex[length=2mm]}] plot[smooth] coordinates {\pt{35.25}{31.80} \pt{35.45}{31.95} \pt{35.56}{32.25} \pt{35.61}{32.43}};
+% ciudades
+\foreach \lon/\lat/\n/\p in {35.23/31.78/Jerusalén/left, 34.89/32.50/Cesarea/left, 34.74/31.87/Yavne/left, 35.30/32.70/Nazaret/left, 35.28/32.84/Jotapata/left, 35.74/32.90/Gamla/right, 35.52/32.82/Magdala/left, 35.62/32.45/Pela/right, 35.35/31.31/Masada/left, 35.46/31.74/Qumrán/above, 35.19/32.28/Samaria/left}{
+  \fill[cafeosc] \pt{\lon}{\lat} circle (1.6pt);
+  \node[\p,font=\tiny\bfseries,text=tinta,inner sep=2pt] at \pt{\lon}{\lat} {\n};}
+\end{tikzpicture}\\[2pt]
+{\footnotesize\color{sepia}\textit{Nota.} Elaboración propia: mapa esquemático con coordenadas reales. Flecha continua: marcha de Tito desde Cesarea a Jerusalén (70). Flecha discontinua: huida de la iglesia de Jerusalén a Pela según Eusebio (tradición discutida).}
+\end{center}
+
+\subsection{Hallazgos arqueológicos}
+La arqueología de esta etapa es abundante. Los hallazgos siguientes son reales; cuando su interpretación se discute, se indica.
+
+\begin{itemize}
+\item \textbf{Inscripción de Pilato.} Hallada en Cesarea en 1961, reutilizada en el teatro. Dice \textsc{[...]s tiberievm / [po]ntivs pilatvs / [prae]fectvs ivda[eae]}: confirma el nombre y el título de \emph{prefecto} del gobernador que juzgó a Jesús.
+\item \textbf{Osario de Caifás.} En 1990 se encontró en el sur de Jerusalén una tumba familiar con un osario ornamentado que lleva la inscripción aramea «Yehosef bar Qayafa» (José, hijo de Caifás). Josefo llama al sumo sacerdote «José, llamado Caifás» (\emph{Ant.} 18.35, 95). La identificación es probable para muchos, pero se discute la lectura del nombre y si el osario corresponde al sumo sacerdote (Evans, 2003).
+\item \textbf{Piscinas de Siloé y de Betesda.} En 2004, al reparar una cañería en la Ciudad de David, se hallaron las gradas de la piscina de Siloé del Segundo Templo (Jn 9:7), de donde partía una calle escalonada hacia el templo (Reich, 2011). Junto a la iglesia de Santa Ana se excavaron dos estanques separados por un muro central, que muchos identifican con la piscina de «cinco pórticos» de Jn 5:2 (NA28 lee \grc{Βηθζαθά}; otros manuscritos, \grc{Βηθεσδά}).
+\item \textbf{La advertencia del templo.} En 1871 se halló una losa griega que prohíbe a todo extranjero pasar la balaustrada que rodeaba el santuario, bajo pena de muerte; Josefo describe esas placas (\emph{Guerra} 5.193--194). El hallazgo ilumina Hch 21:28--29 y la «pared intermedia de separación» de Ef 2:14 (§5).
+\item \textbf{Inscripción de Teódoto.} Encontrada en la Ciudad de David en 1913--1914, recuerda la construcción de una sinagoga «para la lectura de la ley y la enseñanza de los mandamientos» con hospedaje para los que venían del extranjero. Es anterior al 70 y muestra la vida sinagogal de los judíos de la diáspora en Jerusalén (cf. Hch 6:9).
+\item \textbf{Calle herodiana y piedras derribadas.} Al pie del ángulo suroccidental de la explanada, junto al arco de Robinson, las excavaciones de Benjamin Mazar (1968--1977) y otras posteriores sacaron a la luz la calle pavimentada del siglo \textsc{i} cubierta por grandes sillares caídos desde lo alto del muro en el 70. Allí se halló también la piedra con la inscripción hebrea «al lugar del toque de trompeta [\ldots]», del pináculo desde donde un sacerdote anunciaba el sábado (\emph{Guerra} 4.582). La escena da contexto visual a Mt 24:2: «no quedará aquí piedra sobre piedra».
+\item \textbf{La Casa Quemada.} En el barrio judío, Nahman Avigad excavó en 1970 una vivienda incendiada en el 70, con utensilios, una lanza, los huesos del brazo de una mujer joven y una pesa de piedra con el nombre «Bar Kathros», familia sacerdotal criticada en el Talmud (Pesajim 57a; Avigad, 1983).
+\item \textbf{Monedas de la revuelta e \emph{Iudaea Capta}.} Los rebeldes acuñaron siclos de plata con las leyendas «siclo de Israel» y «Jerusalén la santa», y bronces con «por la libertad de Sion» y, en el año cuarto, «por la redención de Sion», en escritura paleohebrea (Meshorer, 2001). Roma respondió con monedas de Vespasiano y Tito que muestran a una mujer de luto bajo una palmera y la leyenda \textsc{ivdaea capta}, «Judea cautiva».
+\item \textbf{Arco de Tito.} Levantado en la Vía Sacra de Roma después de la muerte de Tito (81), muestra en relieve la procesión con el candelabro de siete brazos, la mesa de los panes de la proposición y las trompetas de plata, en coincidencia con Josefo (\emph{Guerra} 7.148--150). Un estudio de 2012 detectó restos de pigmento ocre en el candelabro (Fine, 2016).
+\item \textbf{Masada.} Yigael Yadin la excavó entre 1963 y 1965: palacios de Herodes, la rampa de asedio romana y los campamentos, una sinagoga, baños rituales y fragmentos de rollos, entre ellos uno de Ezequiel 35--38, con la visión de los huesos secos, enterrado bajo el piso de la sinagoga (Yadin, 1966). Se hallaron óstracos con nombres, uno de ellos «ben Yaír». El relato del suicidio colectivo procede solo de Josefo y su exactitud se discute (Ben-Yehuda, 1995).
+\end{itemize}
+
+\section{Desarrollo bíblico}
+
+\subsection{«Cuando vino la plenitud del tiempo»: un Mesías nacido bajo la ley}
+Pablo resume la venida de Jesús en una frase:
+
+\begin{cita}Cuando vino la plenitud del tiempo, Dios envió a su Hijo, nacido de mujer, nacido bajo la ley, para redimir a los que estaban bajo la ley.\fuente{(Gá 4:4--5)}\end{cita}
+
+\noindent La expresión \grc{τὸ πλήρωμα τοῦ χρόνου} (\emph{to plérōma tou chrónou}) usa la misma palabra que Pablo empleará para la «plenitud» de Israel y de los gentiles (Ro 11:12, 25). Jesús no llega desde fuera de la historia de Israel, sino en su interior: circuncidado al octavo día y presentado en el templo según la ley (Lc 2:21--24).
+
+Lucas abre su evangelio con dos cánticos que leen su venida como cumplimiento del pacto. María canta que Dios «socorrió a Israel su siervo, acordándose de la misericordia, como habló a nuestros padres» (Lc 1:54--55). Zacarías, sacerdote, bendice al «Señor Dios de Israel, que ha visitado y ha hecho redención a su pueblo» y que levanta «un cuerno de salvación en la casa de David», para cumplir «el juramento que hizo a Abraham nuestro padre: concedernos que, librados de nuestros enemigos, le sirvamos sin temor, en santidad y justicia» (Lc 1:68--75). El verbo «servir» es \grc{λατρεύειν}, el del culto. El fin de la redención, según Zacarías, es que Israel pueda cumplir su vocación sacerdotal. Su hijo, Juan, irá delante del Señor «para dar conocimiento de salvación a su pueblo» (1:77), y la visita de Dios se describe como «la aurora de lo alto» (\grc{ἀνατολὴ ἐξ ὕψους}, 1:78), probable eco de la LXX, que traduce con \grc{ἀνατολή} el «Renuevo» davídico de Zac 3:8 y 6:12.
+
+\subsection{Simeón y Ana: la consolación de Israel}
+En el templo, Simeón, que «esperaba la consolación de Israel» (\grc{παράκλησιν τοῦ Ἰσραήλ}, Lc 2:25, cf. Is 40:1), toma al niño y bendice a Dios:
+
+\hebverso{לְהָקִים אֶת־שִׁבְטֵי יַעֲקֹב \foreignlanguage{spanish}{[\ldots]} וּנְתַתִּיךָ לְאוֹר גּוֹיִם לִהְיוֹת יְשׁוּעָתִי עַד־קְצֵה הָאָרֶץ}
+\begin{cita}Poco es que tú me seas siervo para levantar las tribus de Jacob y para restaurar a los preservados de Israel; también te daré por luz de las naciones, para que seas mi salvación hasta el extremo de la tierra.\fuente{(Is 49:6)}\end{cita}
+\begin{cita}Porque han visto mis ojos tu salvación, la que has preparado delante de todos los pueblos: luz para revelación a las naciones y gloria de tu pueblo Israel.\fuente{(Lc 2:30--32)}\end{cita}
+
+Simeón une las dos misiones del siervo de Is 49:6: \destacar{gloria para Israel y luz para las naciones}. No elige una contra la otra. Añade, sin embargo, una advertencia: el niño está puesto «para caída y levantamiento de muchos en Israel» (\grc{εἰς πτῶσιν καὶ ἀνάστασιν πολλῶν ἐν τῷ Ἰσραήλ}, Lc 2:34). Pablo usará el mismo vocabulario de tropiezo y caída en Ro 11:11. Ana, profetisa «de la tribu de Aser», habla del niño «a todos los que esperaban la redención de Jerusalén» (Lc 2:36--38). Aser era una de las tribus del antiguo reino del norte: Lucas muestra que, siglos después de la dispersión asiria, había en Jerusalén israelitas que conservaban la memoria de su tribu (cf. 2~Cr 30:11). En el umbral del evangelio, las «tribus de Jacob» están representadas.
+
+\subsection{Juan el Bautista: la voz en el desierto}
+Los cuatro evangelios presentan a Juan con Is 40:3:
+
+\hebverso{קוֹל קוֹרֵא בַּמִּדְבָּר פַּנּוּ דֶּרֶךְ יְהוָה יַשְּׁרוּ בָּעֲרָבָה מְסִלָּה לֵאלֹהֵינוּ}
+\begin{cita}Una voz clama: En el desierto preparad el camino de YHWH; enderezad en la estepa una calzada para nuestro Dios.\fuente{(Is 40:3)}\end{cita}
+
+Is 40 abre la sección de consuelo para los desterrados: «Consolad, consolad a mi pueblo» (40:1). El camino en el desierto es el del nuevo éxodo. La acentuación masorética une «en el desierto» con «preparad»; la LXX y los evangelios lo unen con «voz»: «voz del que clama en el desierto» (Mc 1:3). La comunidad de Qumrán aplicaba el mismo versículo a su retiro al desierto para estudiar la ley (1QS 8.12--16; Vermes, 2004). Juan, hijo de sacerdote, llama a todo Israel al bautismo de arrepentimiento y advierte que no basta decir «tenemos a Abraham por padre» (Mt 3:9). Su mensaje es de \emph{teshuvá}: volver a Dios antes de que llegue el juicio.
+
+\subsection{Nazaret: el año agradable del Señor}
+En la sinagoga de Nazaret, Jesús lee el rollo de Isaías:
+
+\hebverso{יַעַן מָשַׁח יְהוָה אֹתִי לְבַשֵּׂר עֲנָוִים \foreignlanguage{spanish}{[\ldots]} לִקְרֹא לִשְׁבוּיִם דְּרוֹר \foreignlanguage{spanish}{[\ldots]} לִקְרֹא שְׁנַת־רָצוֹן לַיהוָה}
+\begin{cita}El Espíritu del Señor está sobre mí, porque me ha ungido para anunciar buenas nuevas a los pobres; me ha enviado a proclamar libertad a los cautivos y vista a los ciegos, a poner en libertad a los oprimidos, a proclamar el año agradable del Señor [\ldots]. Hoy se ha cumplido esta Escritura en vuestros oídos.\fuente{(Lc 4:18--19, 21; Is 61:1--2; 58:6)}\end{cita}
+
+La palabra \heb{דְּרוֹר} (\emph{derór}, «libertad») es la del jubileo: «proclamaréis libertad en la tierra» (Lv 25:10). Un texto de Qumrán, 11QMelquisedec (11Q13), ya leía Is 61 junto con el jubileo como anuncio de una redención final. Jesús detiene la lectura antes de «y el día de venganza de nuestro Dios» (Is 61:2b) e inserta una frase de Is 58:6. Lucas presenta el ministerio como el comienzo del jubileo prometido, el tiempo en que los cautivos vuelven y la tierra se restituye. Los ejemplos que Jesús añade, la viuda de Sarepta y Naamán el sirio (Lc 4:25--27), anuncian además que la gracia alcanzará a las naciones.
+
+\subsection{Los Doce y las doce tribus}
+Jesús elige a doce discípulos. El número no es casual:
+
+\begin{cita}De cierto os digo que en la regeneración, cuando el Hijo del Hombre se siente en el trono de su gloria, vosotros que me habéis seguido os sentaréis también sobre doce tronos, para juzgar a las doce tribus de Israel.\fuente{(Mt 19:28; cf. Lc 22:30)}\end{cita}
+
+En el siglo \textsc{i}, la mayoría de los judíos de Judea y Galilea descendía de Judá, Benjamín y Leví; las tribus del antiguo reino del norte se habían dispersado tras el 722 a.\,e.\,c. (Estudio~5). Elegir doce era un acto simbólico: anunciaba la reconstitución de \emph{todo} Israel, incluidas las tribus del norte, como prometen Is 49:6 y Ez 37:15--28 (Sanders, 1985). La «regeneración» (\grc{παλιγγενεσία}) es la renovación final. Por eso, cuando Judas falla, los once completan el número antes de Pentecostés (Hch 1:15--26). Pablo habla ante Agripa de «nuestras doce tribus» (\grc{τὸ δωδεκάφυλον ἡμῶν}, Hch 26:7), y Santiago escribe «a las doce tribus que están en la dispersión» (Stg 1:1). La esperanza de las doce tribus seguía viva.
+
+\subsection{«Las ovejas perdidas de la casa de Israel»}
+Jesús limita su misión terrena y la de los Doce:
+
+\begin{cita}No vayáis por camino de gentiles, ni entréis en ciudad de samaritanos, sino id antes a las ovejas perdidas de la casa de Israel.\fuente{(Mt 10:5--6)}\end{cita}
+\begin{cita}No he sido enviado sino a las ovejas perdidas de la casa de Israel.\fuente{(Mt 15:24)}\end{cita}
+
+\noindent La expresión \grc{τὰ πρόβατα τὰ ἀπολωλότα οἴκου Ἰσραήλ} evoca Jer 50:6 («ovejas perdidas fue mi pueblo», \heb{צֹאן אֹבְדוֹת}) y Ez 34, donde Dios promete buscar a las ovejas dispersas porque los pastores de Israel las abandonaron, y poner sobre ellas «a mi siervo David» (Ez 34:23). El orden es el de Ro 1:16: primero Israel. La misma mujer cananea a la que Jesús dice estas palabras recibe la curación de su hija (Mt 15:28), y el evangelio termina enviando a «todas las naciones» (Mt 28:19). La prioridad de Israel no excluye a las naciones; las precede.
+
+\begin{nota}[Precisión: «casa de Israel» en Mateo]
+Algunas lecturas de las «dos casas» entienden «casa de Israel» en Mt 10:6 y 15:24 como las diez tribus del norte, distintas de Judá. En el contexto de Mateo, sin embargo, Jesús envía a los Doce a las ciudades de Galilea y Judea y les prohíbe entrar en Samaria (10:5); «casa de Israel» designa aquí al pueblo judío entero, el Israel completo de su tiempo, no al antiguo reino del norte. La reunificación de las tribus sí está presente en Mt 19:28, pero por otra vía.
+\end{nota}
+
+\subsection{Jesús en las fiestas de Israel}
+Juan estructura buena parte de su evangelio con las fiestas. En Sucot (Jn 7), «en el último y gran día de la fiesta», Jesús exclama: «Si alguno tiene sed, venga a mí y beba» (7:37). La Mishná describe la libación de agua que se hacía cada mañana de la fiesta y la alegría de esas noches: «quien no vio la alegría de Bet ha-Shoevá no vio alegría en su vida» (Sucá 5:1); también cuenta que los candelabros del atrio de las mujeres iluminaban todos los patios de Jerusalén (Sucá 5:3). En ese marco Jesús dice: «Yo soy la luz del mundo» (Jn 8:12).
+
+En Jn 10:22 aparece la fiesta de la Dedicación: «Se celebraba en Jerusalén la fiesta de la Dedicación; era invierno, y Jesús andaba en el templo, en el pórtico de Salomón». La palabra griega \grc{τὰ ἐγκαίνια} traduce el hebreo \heb{חֲנֻכָּה} (\emph{Janucá}), la fiesta que recordaba la purificación del templo por los macabeos en el 164 a.\,e.\,c. (1~Mac 4:52--59; Estudio~6). En esa fiesta Jesús se declara «aquel a quien el Padre santificó y envió al mundo» (Jn 10:36). La Pascua enmarca su ministerio y su muerte (Jn 2:13; 6:4; 11:55). Jesús no funda un calendario nuevo: vive el de Israel y lo llena de sentido mesiánico.
+
+El Salmo 118 une varias fiestas. Era parte del \emph{Hallel} que se cantaba en Pésaj y en Sucot, y la Mishná dice que en Sucot se agitaba el \emph{lulav} al llegar a «¡Oh YHWH, salva ahora!» (\emph{hoshía na}, Sal 118:25; Sucá 3:9). Esas palabras («hosanna») y el versículo siguiente, «Bendito el que viene en el nombre de YHWH» (118:26), son los que la multitud grita en la entrada de Jesús a Jerusalén (Mt 21:9). El mismo salmo reaparecerá en la parábola de los labradores y en el lamento sobre Jerusalén.
+
+\subsection{El templo y la parábola de los labradores}
+Al llegar a Jerusalén, Jesús expulsa a los cambistas y cita a dos profetas: «Mi casa, casa de oración será llamada» (Is 56:7, que Mc 11:17 completa: «para todas las naciones»), y «vosotros la habéis hecho cueva de ladrones» (Jer 7:11).
+
+\hebverso{כִּי בֵיתִי בֵּית־תְּפִלָּה יִקָּרֵא לְכָל־הָעַמִּים\\
+הַמְעָרַת פָּרִצִים הָיָה הַבַּיִת הַזֶּה אֲשֶׁר־נִקְרָא־שְׁמִי עָלָיו}
+\begin{cita}Porque mi casa será llamada casa de oración para todos los pueblos. [\ldots] ¿Es cueva de ladrones delante de vuestros ojos esta casa, sobre la cual es invocado mi nombre?\fuente{(Is 56:7; Jer 7:11)}\end{cita}
+
+Jer 7 es el «sermón del templo»: Jeremías advirtió que el templo no protegería a quienes lo usaban como refugio para la injusticia, y que Dios haría con él lo que hizo con Silo (Jer 7:12--14). La cita de Jesús anuncia, por tanto, un juicio como el del 586 a.\,e.\,c. (Wright, 1996). Is 56:7 recuerda, al mismo tiempo, la vocación del templo: ser casa de oración para las naciones.
+
+En ese contexto Jesús cuenta la parábola de los labradores malvados (Mt 21:33--46). Un hombre planta una viña, la cerca, cava un lagar y edifica una torre, las mismas acciones de Is 5:1--2, donde «la viña de YHWH de los ejércitos es la casa de Israel» (Is 5:7). Los labradores maltratan a los siervos del dueño y matan a su hijo. Jesús cita entonces Sal 118:22--23: «La piedra que desecharon los edificadores ha venido a ser cabeza del ángulo», y concluye:
+
+\begin{cita}Por tanto os digo que el reino de Dios será quitado de vosotros y será dado a un pueblo que produzca sus frutos.\fuente{(Mt 21:43)}\end{cita}
+
+\noindent El versículo se ha leído a menudo como prueba de que Dios quitó el reino a Israel y lo dio a la iglesia de los gentiles. El texto mismo resiste esa lectura por cuatro razones.
+
+\begin{enumerate}
+\item \textbf{Los destinatarios son los dirigentes.} La parábola responde a «los principales sacerdotes y los ancianos del pueblo» (Mt 21:23), y Mateo comenta: «oyendo sus parábolas los principales sacerdotes y los fariseos, entendieron que hablaba de ellos» (21:45). El pueblo, en cambio, tenía a Jesús por profeta (21:46).
+\item \textbf{La viña no cambia; cambian los labradores.} En Is 5 la viña es Israel. En la parábola de Jesús la viña no es destruida, sino entregada «a otros labradores» (21:41). Lo que se transfiere es la administración, no la identidad del pueblo (Snodgrass, 2008).
+\item \textbf{«Pueblo» es singular.} Mateo escribe \grc{ἔθνει} (\emph{éthnei}, «a un pueblo», «a una nación»), no \grc{τοῖς ἔθνεσιν} («a los gentiles»). Es una comunidad que da fruto; en Mateo, sus primeros miembros son los Doce, judíos, que juzgarán «a las doce tribus de Israel» (19:28).
+\item \textbf{La piedra desechada es el Hijo.} Sal 118 es un canto de Israel; la piedra rechazada por los edificadores llega a ser angular «de parte de YHWH» (118:23). Pedro repite la cita ante el sanedrín (Hch 4:11), dirigida otra vez a los «edificadores», y en el mismo discurso se dirige a «todo el pueblo de Israel» (Hch 4:10) para anunciar que en ese nombre hay salvación (4:12).
+\end{enumerate}
+
+\noindent Mt 21:43 anuncia un cambio de liderazgo sobre el pueblo de Dios: de una dirigencia que rechazó al Hijo a una comunidad, judía en su núcleo, que reconoce al Mesías y a la que se unirán las naciones. No anuncia el reemplazo de Israel. Davies y Allison (1997) recuerdan que el debate exegético sobre este versículo es amplio; la lectura propuesta aquí es la que mejor se ajusta a su contexto inmediato.
+
+\subsection{El lamento sobre Jerusalén y el «hasta» de Mt 23:39}
+El discurso de Jesús contra los escribas y fariseos de Mt 23 termina en llanto:
+
+\begin{cita}¡Jerusalén, Jerusalén, que matas a los profetas y apedreas a los que te son enviados! ¡Cuántas veces quise juntar a tus hijos, como la gallina junta a sus polluelos debajo de las alas, y no quisisteis! He aquí, vuestra casa os es dejada desierta. Porque os digo que desde ahora no me veréis, hasta que digáis: Bendito el que viene en el nombre del Señor.\fuente{(Mt 23:37--39)}\end{cita}
+
+\hebverso{בָּרוּךְ הַבָּא בְּשֵׁם יְהוָה}
+
+«Vuestra casa» es el templo, y la frase evoca Jer 22:5 («esta casa será desolada») y Jer 12:7 («he dejado mi casa»). El juicio es real. Pero el último versículo no termina en el juicio: \grc{οὐ μή με ἴδητε ἀπ᾽ ἄρτι ἕως ἂν εἴπητε} («no me veréis desde ahora \emph{hasta que} digáis»). La cita es Sal 118:26, el saludo de bienvenida de los peregrinos y de los sacerdotes del templo: «Bendito el que viene en el nombre de YHWH; desde la casa de YHWH os bendecimos». Allison (1983) mostró que la construcción con \grc{ἕως ἄν} expresa una condición: Jesús volverá a ser visto por Jerusalén cuando la ciudad le dé la bienvenida. El texto no anuncia un rechazo definitivo, sino una ausencia con fecha de término. Danilo incluye este versículo en su diapositiva «Velo en parte», junto a Hch 4:11 y 2~Co 3:14 (Departamento de Educación, s.\,f., diap. 17); el estudio vuelve a ese grupo de textos en §\ref{sec:velo}.
+
+\begin{nota}[Precisión textual: «desierta» en Mt 23:38]
+NA28 lee \grc{ὁ οἶκος ὑμῶν ἔρημος}, «vuestra casa [queda] desierta»; algunos manuscritos importantes (B, L) omiten \grc{ἔρημος}. En el paralelo de Lucas (13:35), NA28 no la incluye. La traducción sigue NA28.
+\end{nota}
+
+\subsection{Lc 21:20--24: «hasta que los tiempos de los gentiles se cumplan»}
+Lucas conserva la profecía del asedio en términos que Josefo confirmará:
+
+\begin{cita}Cuando veáis a Jerusalén rodeada de ejércitos, sabed entonces que su desolación ha llegado. Entonces los que estén en Judea huyan a los montes [\ldots]. Porque habrá gran angustia sobre la tierra e ira sobre este pueblo. Caerán a filo de espada y serán llevados cautivos a todas las naciones; y Jerusalén será hollada por los gentiles, hasta que los tiempos de los gentiles se cumplan.\fuente{(Lc 21:20--24)}\end{cita}
+
+\noindent La última frase dice en griego: \grc{καὶ Ἰερουσαλὴμ ἔσται πατουμένη ὑπὸ ἐθνῶν, ἄχρι οὗ πληρωθῶσιν καιροὶ ἐθνῶν}. Tres observaciones.
+
+\begin{itemize}
+\item \textbf{El lenguaje es profético.} «A filo de espada» y «cautivos a todas las naciones» repiten el vocabulario de Dt 28:64 y de Jeremías sobre el 586. El verbo «hollar» (\grc{πατέω}) recuerda Zac 12:3 en la LXX, donde Jerusalén es «piedra pisoteada por todas las naciones» (\grc{λίθον καταπατούμενον πᾶσι τοῖς ἔθνεσιν}), y el santuario hollado de Dn 8:13 (posibles ecos).
+\item \textbf{Hay un plazo.} \grc{ἄχρι οὗ} («hasta que») pone un límite a la dominación gentil de Jerusalén. Es la misma construcción que Pablo usa en Ro 11:25: el endurecimiento parcial durará \grc{ἄχρι οὗ τὸ πλήρωμα τῶν ἐθνῶν εἰσέλθῃ}, «hasta que haya entrado la plenitud de los gentiles». El paralelo verbal es exacto y se analizará en el Estudio~8.
+\item \textbf{El sentido de los «tiempos de los gentiles» se discute.} Unos lo entienden como el período de dominio gentil sobre Jerusalén; otros, como el tiempo de la misión a las naciones (cf. Mc 13:10); otros, como el tiempo del juicio sobre ellas. Algunos intérpretes ven un cumplimiento parcial en acontecimientos modernos; el texto no lo precisa. Lo que sí afirma es que la desolación no es la última palabra.
+\end{itemize}
+
+Eusebio cuenta que, antes de la guerra, los cristianos de Jerusalén recibieron por revelación la orden de salir de la ciudad y se establecieron en Pela, en la Decápolis, al otro lado del Jordán (\emph{Historia eclesiástica} 3.5.3); Epifanio repite la noticia. La tradición coincide con Lc 21:21, pero su historicidad se discute: Brandon (1951) la consideró una leyenda de fundación de la iglesia de Pela; otros la aceptan en lo sustancial (Skarsaune y Hvalvik, 2007). Se debe presentar como tradición antigua, no como dato seguro.
+
+\subsection{La Última Cena y el nuevo pacto}
+En la cena de Pascua, Jesús toma la copa:
+
+\hebverso{הִנֵּה יָמִים בָּאִים נְאֻם־יְהוָה וְכָרַתִּי אֶת־בֵּית יִשְׂרָאֵל וְאֶת־בֵּית יְהוּדָה בְּרִית חֲדָשָׁה}
+\begin{cita}He aquí que vienen días, dice YHWH, en que haré un nuevo pacto con la casa de Israel y con la casa de Judá.\fuente{(Jer 31:31 [31:30])}\end{cita}
+\begin{cita}Esta copa es el nuevo pacto en mi sangre, que por vosotros se derrama.\fuente{(Lc 22:20)}\end{cita}
+
+\noindent \grc{ἡ καινὴ διαθήκη} (\emph{hē kainé diathékē}) es la traducción que la LXX da a \heb{בְּרִית חֲדָשָׁה} (\emph{berit jadashá}) en Jer 38:31 LXX. Mateo y Marcos dicen «la sangre del pacto» (Mt 26:28; Mc 14:24), eco de Éx 24:8, donde Moisés rocía al pueblo con «la sangre del pacto». Jesús sitúa su muerte entre el Sinaí y Jeremías: es el pacto de Israel renovado.
+
+Jer 31:31 distingue «la casa de Israel» (el antiguo reino del norte) y «la casa de Judá» (el reino del sur). El nuevo pacto es la promesa de la reunificación: los dos reinos divididos desde 1~R 12 vuelven a ser un solo pueblo bajo un solo pacto. En 31:33 la expresión «la casa de Israel» ya designa al pueblo reunido. El contenido del pacto es interior: «Pondré mi ley en su mente y la escribiré en su corazón [\ldots] y no me acordaré más de su pecado» (31:33--34). La carta a los Hebreos cita el pasaje completo (Heb 8:8--12), la cita más larga del Antiguo Testamento en el Nuevo.
+
+\begin{nota}[Precisión textual: Lc 22:19b--20]
+El códice de Beza (D) y algunos testigos latinos antiguos omiten Lc 22:19b--20. La gran mayoría de los manuscritos, incluidos los más antiguos, los contienen, y NA28 los incluye en el texto. Pablo transmite una fórmula casi idéntica en 1~Co 11:25: «Esta copa es el nuevo pacto en mi sangre».
+\end{nota}
+
+\subsection{La cruz y la resurrección}
+Jesús muere en Pascua como «Rey de los judíos», título escrito «en hebreo, en griego y en latín» (Jn 19:19--20). Juan cita Zac 12:10 ante el costado traspasado: «Mirarán al que traspasaron» (Jn 19:37).
+
+\hebverso{וְהִבִּיטוּ אֵלַי אֵת אֲשֶׁר־דָּקָרוּ וְסָפְדוּ עָלָיו כְּמִסְפֵּד עַל־הַיָּחִיד}
+\begin{cita}Y derramaré sobre la casa de David y sobre los habitantes de Jerusalén espíritu de gracia y de súplica, y mirarán a mí, a quien traspasaron, y harán duelo por él como duelo por el hijo único.\fuente{(Zac 12:10)}\end{cita}
+
+\begin{nota}[Precisión textual: Zac 12:10]
+El TM lee \heb{דָּקָרוּ} (\emph{daqáru}, «traspasaron»). La LXX lee \grc{κατωρχήσαντο} («se burlaron danzando»), probablemente porque leyó \heb{רקדו} (\emph{raqedú}) con las dos primeras consonantes invertidas. Juan no sigue la LXX: su \grc{ὄψονται εἰς ὃν ἐξεκέντησαν} se apoya en el hebreo, como la versión griega de Teodoción. El TM dice «a mí» (\heb{אֵלַי}) y luego «por él» (\heb{עָלָיו}); algunos manuscritos hebreos leen «a él». La traducción sigue el TM.
+\end{nota}
+
+En Zac 12 el duelo es de «la casa de David y los habitantes de Jerusalén», es decir, de Judá, y es el preludio de una purificación: «En aquel día habrá un manantial abierto para la casa de David [\ldots] para la purificación del pecado» (Zac 13:1). Juan cita el texto en la cruz; Ap 1:7 lo proyecta a la venida final. La diapositiva 35 del material de Danilo usa el mismo texto para describir el momento en que «es quitado el velo de la casa de Judá» (Departamento de Educación, s.\,f.).
+
+La resurrección es, para los apóstoles, la vindicación del Mesías de Israel. Pablo transmite la tradición más antigua: Cristo murió, fue sepultado y resucitó al tercer día «conforme a las Escrituras», y se apareció a Cefas, a los Doce, a más de quinientos hermanos y a Jacobo (1~Co 15:3--7). Pedro la anuncia como cumplimiento de la promesa a David (Hch 2:29--36; Sal 16:10; 110:1).
+
+\subsection{Hch 1:6--8: «¿Restaurarás el reino a Israel?»}
+Antes de la ascensión, los discípulos preguntan:
+
+\begin{cita}Señor, ¿restaurarás el reino a Israel en este tiempo? Y les dijo: No os toca a vosotros saber los tiempos o las sazones que el Padre puso en su sola potestad; pero recibiréis poder cuando haya venido sobre vosotros el Espíritu Santo, y me seréis testigos en Jerusalén, en toda Judea, en Samaria y hasta el extremo de la tierra.\fuente{(Hch 1:6--8)}\end{cita}
+
+Este texto abre la presentación de Danilo sobre la restauración (Departamento de Educación, s.\,f., diap. 5), y con razón. Jesús no corrige el contenido de la pregunta, sino el calendario: no niega que el reino será restaurado a Israel; niega que a ellos les toque conocer el tiempo. El verbo \grc{ἀποκαθιστάνεις} es el de Mal 3:23 [4:6] en la LXX, donde Elías «restaurará» el corazón de los padres hacia los hijos, y el de Mt 17:11 («Elías viene primero y restaurará todas las cosas»). Mientras tanto, la misión sigue el mapa de Is 49:6: Jerusalén, Judea, Samaria (la región del antiguo reino del norte, Hch 8) y «hasta el extremo de la tierra» (\grc{ἕως ἐσχάτου τῆς γῆς}), las mismas palabras de Is 49:6 en la LXX. Pablo citará ese versículo de Isaías como mandato propio (Hch 13:47).
+
+\subsection{El remanente creyente: Pentecostés y la iglesia de Jerusalén}
+\textbf{Pentecostés.} El Espíritu es derramado en Shavuot, fiesta de peregrinación, sobre judíos y prosélitos «de todas las naciones bajo el cielo» (Hch 2:5): «partos, medos, elamitas, habitantes de Mesopotamia, de Judea y de Capadocia» y otros (2:9--11). La lista recorre la diáspora de oriente a occidente. Los «medos» y «Mesopotamia» son las regiones adonde Asiria deportó al reino del norte en el 722 a.\,e.\,c. («en las ciudades de los medos», 2~R 17:6); Babilonia, adonde fue llevada Judá. Pedro cita Joel 2:28--32 [3:1--5]: «derramaré mi Espíritu sobre toda carne» y «todo aquel que invoque el nombre del Señor será salvo». Lucas presenta Pentecostés como el comienzo de la reunión del Israel disperso (Jervell, 1972).
+
+\textbf{Miles de judíos creyentes.} Lucas cuenta el crecimiento: unas tres mil personas en Pentecostés (Hch 2:41), cerca de cinco mil hombres poco después (4:4), «una gran multitud de sacerdotes obedecía a la fe» (\grc{πολύς τε ὄχλος τῶν ἱερέων ὑπήκουον τῇ πίστει}, 6:7). Hacia el 57, Jacobo dice a Pablo: «Ya ves, hermano, cuántas decenas de miles (\grc{μυριάδες}) de judíos hay que han creído, y todos son celosos por la ley» (21:20). La palabra puede ser hiperbólica, pero indica un movimiento numeroso. Los creyentes siguen en el templo: «perseverando unánimes cada día en el templo» (2:46), suben «a la hora de la oración, la novena» (3:1). Pablo mismo ofrece en el templo la ofrenda de purificación (21:26).
+
+\textbf{Jacobo y la iglesia de Jerusalén.} Jacobo, hermano del Señor, testigo de la resurrección (1~Co 15:7), llega a ser una de las «columnas» de la iglesia de Jerusalén con Pedro y Juan (Gá 2:9) y preside el concilio de Hch 15. Josefo informa que en el 62 el sumo sacerdote Anán lo hizo lapidar, y que ciudadanos observantes de la ley protestaron por ello (\emph{Ant.} 20.200--201). Hegesipo, citado por Eusebio, lo llama «el Justo» (\emph{Historia eclesiástica} 2.23). La iglesia de Jerusalén era una comunidad judía que confesaba a Jesús como Mesías y guardaba la ley (Bauckham, 1995).
+
+\subsection{Hch 15 y la tienda caída de David}
+Cuando muchos gentiles creen, la iglesia de Jerusalén debe decidir si deben circuncidarse y hacerse prosélitos. Jacobo responde con Amós:
+
+\hebverso{בַּיּוֹם הַהוּא אָקִים אֶת־סֻכַּת דָּוִיד הַנֹּפֶלֶת}
+\begin{cita}Después de esto volveré y reedificaré la tienda de David, que está caída; reedificaré sus ruinas y la levantaré de nuevo, para que el resto de los hombres busque al Señor, y todas las naciones sobre las cuales es invocado mi nombre.\fuente{(Hch 15:16--17; Am 9:11--12 LXX)}\end{cita}
+
+\noindent La «tienda» o «cabaña» de David (\heb{סֻכַּת דָּוִיד}, \emph{sukkat David}) es la casa davídica caída después de la división del reino y el exilio. Amós, profeta en el reino del norte, anunció que se levantaría de nuevo; un texto de Qumrán (4Q174, el \emph{Florilegio}) aplicaba Am 9:11 al «Renuevo de David» (Vermes, 2004). Jacobo ve en la resurrección del Hijo de David la reedificación de esa casa, y en la entrada de las naciones su consecuencia. Los gentiles entran \emph{como gentiles}, sin hacerse judíos, y se les piden cuatro abstenciones (Hch 15:20, 29), que muchos relacionan con las normas para el extranjero que vivía en Israel (Lv 17--18).
+
+\begin{nota}[Precisión textual: Am 9:12]
+El TM dice «para que posean el resto de \emph{Edom} (\heb{אֱדוֹם}) y todas las naciones sobre las cuales es invocado mi nombre». La LXX leyó \heb{אָדָם} (\emph{adam}, «humanidad») en vez de \emph{Edom}, y «buscarán» (\heb{יִדְרְשׁוּ}) en vez de «poseerán» (\heb{יִירְשׁוּ}). Jacobo cita según la LXX. Ambas formas comparten la idea central: la restauración de la casa de David incluye a «todas las naciones sobre las cuales es invocado mi nombre».
+\end{nota}
+
+\subsection{Pablo: «al judío primeramente»}
+Pablo formula la prioridad de Israel como principio del evangelio: es «poder de Dios para salvación a todo el que cree, \emph{al judío primeramente}, y también al griego» (\grc{Ἰουδαίῳ τε πρῶτον καὶ Ἕλληνι}, Ro 1:16). En Hechos la práctica sigue la regla. En Antioquía de Pisidia, ante la oposición, Pablo y Bernabé dicen: «Era necesario que se os hablase primero la palabra de Dios; pero puesto que la desecháis [\ldots] nos volvemos a los gentiles», y citan Is 49:6 (Hch 13:46--47). Pero en la ciudad siguiente vuelven a entrar «en la sinagoga de los judíos» (14:1). El giro hacia los gentiles es local, no definitivo.
+
+En Roma, al final del libro, Pablo convoca a los dirigentes judíos y les dice: «por la esperanza de Israel estoy sujeto con esta cadena» (\grc{ἕνεκεν τῆς ἐλπίδος τοῦ Ἰσραήλ}, Hch 28:20). Unos creen y otros no (28:24); Pablo cita Is 6:9--10 y anuncia que la salvación ha sido enviada a los gentiles (28:28). Tannehill (1985) leyó la obra de Lucas como «una historia trágica» de Israel; Jervell (1972) subrayó que Lucas presenta un Israel dividido, con un remanente creyente numeroso que es el verdadero núcleo del pueblo. El libro termina con Pablo recibiendo «a todos los que venían a él» (28:30): la puerta no se cierra.
+
+\subsection{«Velo en parte»: el endurecimiento según el material de Danilo}\label{sec:velo}
+La presentación de Danilo sobre la restauración de Israel dedica dos diapositivas a esta etapa (Departamento de Educación, s.\,f., diap. 16--18). La primera, «Velo en parte», reúne tres textos:
+
+\begin{itemize}
+\item «Este Jesús es la piedra desechada por vosotros los edificadores, la cual ha venido a ser cabeza del ángulo» (Hch 4:11; Sal 118:22).
+\item «No me veréis desde ahora hasta que digáis: Bendito el que viene en el nombre del Señor» (Mt 23:39; Sal 118:26).
+\item «El entendimiento de ellos se endureció; porque hasta el día de hoy [\ldots] les queda el mismo velo» (2~Co 3:14).
+\end{itemize}
+
+La segunda, «Razones principales del endurecimiento», propone cuatro factores a partir de Romanos: \destacar{soberanía divina} (Ro 9:18; 11:11), \destacar{ignorancia espiritual} (Ro 10:4), \destacar{soberbia religiosa} (Ro 10:3) y \destacar{temporalidad} (Ro 11:26). El texto completo de 2~Co 3:14--16 confirma la estructura de esa diapositiva:
+
+\begin{cita}Pero su entendimiento se endureció; porque hasta el día de hoy, en la lectura del antiguo pacto, permanece el mismo velo sin descorrerse, porque solo en Cristo es quitado. Y hasta hoy, cada vez que se lee a Moisés, el velo está puesto sobre su corazón. Pero cuando se vuelva al Señor, el velo es quitado.\fuente{(2~Co 3:14--16)}\end{cita}
+
+\noindent Tres datos filológicos refuerzan el planteamiento de Danilo. Primero, el verbo de 2~Co 3:14, \grc{ἐπωρώθη} («se endureció»), es de la misma raíz que \grc{πώρωσις ἀπὸ μέρους} («endurecimiento en parte») de Ro 11:25: Pablo describe en las dos cartas el mismo fenómeno. Segundo, el velo tiene un límite: «hasta el día de hoy» (\grc{ἄχρι τῆς σήμερον ἡμέρας}) y «cuando se vuelva al Señor» (\grc{ἡνίκα δὲ ἐὰν ἐπιστρέψῃ πρὸς κύριον}), frase tomada de Éx 34:34 LXX, donde Moisés se quitaba el velo al entrar ante el Señor. El verbo \grc{ἐπιστρέφω} traduce en la LXX el hebreo \heb{שׁוּב} (\emph{shuv}), «volver». Tercero, Is 25:7, que la diapositiva 35 cita, anuncia que Dios quitará en el monte de Sion «el velo que cubre a todos los pueblos»: el velo no es exclusivo de Israel.
+
+\begin{nota}[Precisiones a las diapositivas 17 y 18]
+(1) La diapositiva 17 remite Hch 4:11 a «Salmos 118:2»; debe decir Sal 118:22. (2) «La lección del antiguo testamento» (2~Co 3:14 en la versión antigua) traduce \grc{ἡ ἀνάγνωσις τῆς παλαιᾶς διαθήκης}, «la lectura del antiguo pacto»: Pablo se refiere a la lectura de Moisés en la sinagoga (3:15), no a la colección cristiana llamada «Antiguo Testamento», que aún no existía. (3) La ignorancia que Pablo describe está en Ro 10:3 («ignorando la justicia de Dios», \grc{ἀγνοοῦντες}); 10:4 da la razón: «el fin de la ley es Cristo». (4) Antes de hablar de «soberbia», Pablo reconoce a Israel «celo de Dios, pero no conforme a conocimiento» (Ro 10:2). El matiz importa: Pablo no describe a Israel como despreciativo de Dios, sino como celoso de Él por un camino que no reconoce al Mesías. Con estos ajustes, la diapositiva resume bien la enseñanza paulina, y su cuarto punto, la temporalidad, es el que esta etapa de la historia hace más visible.
+\end{nota}
+
+\section{Israel como nación santa y reino de sacerdotes}
+
+\subsection{Jesús, el Israel fiel}
+Mateo cuenta la infancia de Jesús como un recorrido por la historia de Israel. La familia huye a Egipto y vuelve, y el evangelista cita a Oseas:
+
+\hebverso{כִּי נַעַר יִשְׂרָאֵל וָאֹהֲבֵהוּ וּמִמִּצְרַיִם קָרָאתִי לִבְנִי}
+\begin{cita}Cuando Israel era muchacho, yo lo amé, y de Egipto llamé a mi hijo.\fuente{(Os 11:1; Mt 2:15)}\end{cita}
+
+\noindent En Oseas el «hijo» es el pueblo (Éx 4:22). Mateo no ignora ese sentido: lo aplica a Jesús porque ve en él al representante que recorre de nuevo el camino del pueblo. Mateo sigue aquí el hebreo; la LXX dice «llamé a sus hijos» (\grc{τὰ τέκνα αὐτοῦ}). Después del bautismo, Jesús pasa cuarenta días en el desierto, como Israel cuarenta años, y responde a las tres tentaciones con tres textos del Deuteronomio sobre el desierto: Dt 8:3, 6:16 y 6:13 (Mt 4:1--11). Donde Israel murmuró, el Hijo confía; donde Israel tentó a Dios, el Hijo se niega a tentarlo; donde Israel adoró el becerro, el Hijo adora solo a Dios. Hays (2016) llama a esta lectura de Mateo una «recapitulación» de la historia de Israel.
+
+\subsection{El siervo de Isaías}
+En el bautismo, la voz del cielo une Sal 2:7 con Is 42:1: «este es mi Hijo amado, en quien tengo complacencia» (Mt 3:17). Mateo cita después el primer canto del siervo completo, que termina: «en su nombre esperarán las naciones» (Mt 12:18--21; Is 42:1--4). En Is 49, el siervo se llama «Israel»: «Mi siervo eres, oh Israel, en ti me gloriaré» (49:3). Y, sin embargo, tiene una misión hacia Israel: «hacer volver a Jacob hacia él y reunir a Israel» (49:5). Esa tensión solo se resuelve si el siervo es una figura que encarna a Israel para restaurar a Israel. La interpretación judía tradicional identificó al siervo con el pueblo (Rashi sobre Is 53) o con el Mesías (Targum de Isaías 52:13: «mi siervo, el Mesías»; Chilton, 1987). El Nuevo Testamento lee a Jesús como ambas cosas: el Mesías que es el Israel fiel. Así la vocación de Éx 19:6, ser mediador entre Dios y las naciones, se cumple primero en una persona.
+
+\subsection{Cómo se vivió, se quebró y se preservó la vocación}
+\begin{itemize}
+\item \textbf{Se vivió en el remanente.} Los Doce, el grupo de ciento veinte (Hch 1:15), los miles de Pentecostés y los sacerdotes de Hch 6:7 son judíos que reconocen al Mesías y llevan su mensaje a las naciones. El reino de sacerdotes se ejerce por medio de judíos: Pablo describe su misión con lenguaje del culto: es «ministro (\grc{λειτουργός}) de Cristo Jesús para las naciones, ejerciendo el oficio sacerdotal (\grc{ἱερουργοῦντα}) del evangelio, para que la ofrenda de las naciones sea aceptable» (Ro 15:16), probable eco de Is 66:20, donde los hermanos de Israel son traídos de las naciones «como ofrenda a YHWH».
+\item \textbf{Se quebró en la dirigencia y en la guerra.} La parábola de los labradores acusa a los dirigentes del templo; Jesús llama al santuario «cueva de ladrones». Josefo describe una ciudad desgarrada por facciones que mataban a otros judíos en los atrios del templo (\emph{Guerra} 5.1--20). La tradición rabínica atribuyó la destrucción al «odio gratuito» entre judíos (§6). El templo que debía ser «casa de oración para todos los pueblos» se convirtió en fortaleza.
+\item \textbf{Se preservó en dos caminos.} Por un lado, en el remanente judío creyente y en la iglesia de judíos y gentiles. Por otro, en el judaísmo rabínico, que salvó la Torá, la oración y el estudio cuando cayó el templo (§6). Pablo reconoce que a Israel «le han sido confiadas las palabras de Dios» (Ro 3:2), y esa custodia continuó después del 70.
+\end{itemize}
+
+\subsection{Los gentiles incorporados}
+La carta a los Efesios describe la situación previa de los gentiles: estaban «alejados de la ciudadanía de Israel (\grc{τῆς πολιτείας τοῦ Ἰσραήλ}) y ajenos a los pactos de la promesa» (Ef 2:12). Cristo derribó «la pared intermedia de separación» (\grc{τὸ μεσότοιχον τοῦ φραγμοῦ}, 2:14), imagen que muchos relacionan con la balaustrada del templo que prohibía el paso a los extranjeros (§3.4). El resultado es que ya no son extranjeros, sino «conciudadanos de los santos y miembros de la familia de Dios» (2:19). Los gentiles no forman un pueblo nuevo que sustituya a Israel: entran a la ciudadanía de Israel.
+
+\begin{nota}[Autoría discutida: Efesios]
+Muchos estudiosos consideran que Efesios fue escrita por un discípulo de Pablo; otros defienden la autoría paulina. Por eso el argumento se apoya también en una carta indiscutida, Romanos.
+\end{nota}
+
+La misma idea aparece en Ro 15:7--12. Cristo «se hizo servidor de la circuncisión para mostrar la fidelidad de Dios, para confirmar las promesas hechas a los padres, y para que las naciones glorifiquen a Dios por su misericordia» (15:8--9). Pablo encadena cuatro citas: Sal 18:49 [18:50], Dt 32:43, Sal 117:1 e Is 11:10. La segunda, según la LXX, dice: «Alegraos, naciones, \emph{con su pueblo}» (\grc{εὐφράνθητε, ἔθνη, μετὰ τοῦ λαοῦ αὐτοῦ}, Ro 15:10). Las naciones se alegran con Israel, no en su lugar.
+
+Por último, 1~P 2:9 aplica a los creyentes los títulos de Éx 19:6 e Is 43:20--21: «linaje escogido, real sacerdocio, nación santa, pueblo adquirido» (\grc{γένος ἐκλεκτόν, βασίλειον ἱεράτευμα, ἔθνος ἅγιον, λαὸς εἰς περιποίησιν}). La carta se dirige a los «expatriados de la dispersión» (1:1), término de la diáspora judía, y en 2:10 cita Os 1:9--10 [2:1] y 2:23 [2:25]: «vosotros, que en otro tiempo no erais pueblo, ahora sois pueblo de Dios». En Oseas esa promesa se dirige al reino del norte (Israel, Efraín), declarado «no mi pueblo» y prometido a la restauración; Pablo la aplica también a los gentiles (Ro 9:24--26). Si los destinatarios de 1~Pedro eran judíos, gentiles o ambos se discute, como su autoría. En cualquier caso, los títulos de Israel se comparten con quienes se incorporan al Mesías de Israel; no se le quitan a Israel (Estudio~1, §5).
+
+\section{Aporte de la tradición judía}
+
+La destrucción del templo transformó el judaísmo. La tradición rabínica, escrita entre los siglos \textsc{ii} y \textsc{vi}, conserva su memoria y su respuesta. Lo que sigue es tradición judía, no relato histórico verificado.
+
+\subsection{Yohanán ben Zakai y Yavne}
+Según el Talmud, Rabán Yohanán ben Zakai se hizo sacar de Jerusalén sitiada en un ataúd por sus discípulos Eliezer y Josué, se presentó ante Vespasiano, le anunció que sería emperador y le pidió: «Dame Yavne y a sus sabios, la dinastía de Rabán Gamaliel, y médicos que curen a Rabí Sadoc» (Guitín 56a--b). Avot de-Rabí Natán (versión A, cap. 4) conserva otra forma del relato (Goldin, 1955). Las versiones difieren en detalles, y Neusner (1970) mostró que la historia creció con el tiempo; su núcleo es que en Yavne, en la llanura costera, un grupo de sabios reorganizó la vida judía sin templo.
+
+El mismo capítulo de Avot de-Rabí Natán cuenta que Rabí Josué, al ver el templo en ruinas, exclamó: «¡Ay de nosotros, que está destruido el lugar donde se expiaban las iniquidades de Israel!». Rabán Yohanán respondió: «Hijo mío, no te aflijas. Tenemos otra expiación como esta: los actos de bondad (\emph{gemilut jasadim}), como está dicho: \emph{Porque misericordia quiero y no sacrificio} (Os 6:6)». Jesús había citado dos veces el mismo versículo de Oseas (Mt 9:13; 12:7). La Mishná ya enseñaba que el mundo se sostiene sobre tres cosas: «la Torá, el culto (\emph{avodá}) y los actos de bondad» (Avot 1:2). Cuando cayó el culto del templo, la Torá y la bondad quedaron como sus pilares.
+
+\subsection{El odio gratuito}
+El Talmud compara las causas de las dos destrucciones:
+
+\begin{cita}¿Por qué fue destruido el Primer Templo? Por tres cosas que había en él: idolatría, inmoralidad sexual y derramamiento de sangre. Pero el Segundo Templo, en el que se ocupaban de la Torá, de los mandamientos y de los actos de bondad, ¿por qué fue destruido? Porque había en él odio gratuito, para enseñarte que el odio gratuito equivale a las tres transgresiones.\fuente{(Talmud de Babilonia, Yoma 9b)}\end{cita}
+
+\noindent El odio gratuito (\heb{שִׂנְאַת חִנָּם}, \emph{sinat jinam}) es el odio sin causa entre hermanos. El Talmud ilustra la idea con la historia de Kamtsa y Bar Kamtsa, una humillación en un banquete que acaba en denuncia ante Roma (Guitín 55b--56a). La explicación rabínica coincide con la descripción de Josefo de las facciones que se destruían entre sí, y es una autocrítica notable: la tradición no culpa solo a Roma.
+
+\subsection{Tisha be-Av}
+La Mishná fija la memoria del desastre en el calendario:
+
+\begin{cita}Cinco cosas sucedieron a nuestros padres el 17 de Tamuz y cinco el 9 de Av. [\ldots] El 9 de Av se decretó que nuestros padres no entrarían en la tierra, fue destruida la casa la primera y la segunda vez, fue tomada Betar y la ciudad fue arada. Cuando entra Av se disminuye la alegría.\fuente{(Mishná, Taanit 4:6)}\end{cita}
+
+\noindent El Talmud precisa que el fuego se encendió al anochecer del 9 y ardió todo el 10 (Taanit 29a), lo que armoniza la fecha rabínica con la de Josefo. En Tisha be-Av (\heb{תִּשְׁעָה בְּאָב}) se ayuna, se lee el libro de Lamentaciones (\emph{Eijá}) sentado en el suelo y se recitan elegías (\emph{kinot}). Pero la liturgia no termina en el duelo: el sábado siguiente se llama \emph{Shabat Najamú} por la lectura de Is 40:1, «Consolad, consolad a mi pueblo», el mismo texto que esperaba Simeón.
+
+\subsection{La oración en lugar del sacrificio}
+Sin templo, la oración ocupó el lugar del sacrificio. El Talmud enseña que las oraciones diarias fueron instituidas en correspondencia con las ofrendas diarias del templo (Berajot 26b). El texto bíblico que expresó esa sustitución es Oseas:
+
+\hebverso{קְחוּ עִמָּכֶם דְּבָרִים וְשׁוּבוּ אֶל־יְהוָה \foreignlanguage{spanish}{[\ldots]} וּנְשַׁלְּמָה פָרִים שְׂפָתֵינוּ}
+\begin{cita}Tomad con vosotros palabras y volved a YHWH [\ldots], y te ofreceremos los becerros de nuestros labios.\fuente{(Os 14:2 [14:3])}\end{cita}
+
+\noindent Los «becerros» (\heb{פָרִים}, \emph{parim}) que se ofrecen son palabras. La LXX leyó \emph{peri}, «fruto», y tradujo «fruto de labios» (\grc{καρπὸν χειλέων}). La carta a los Hebreos usa esa forma: «ofrezcamos siempre a Dios, por medio de él, sacrificio de alabanza, es decir, fruto de labios que confiesan su nombre» (Heb 13:15). El judaísmo rabínico y la iglesia apostólica respondieron a la pérdida del altar con el mismo versículo, cada uno desde su centro: la Torá en un caso, el Mesías en el otro. La liturgia judía añadió además a la Amidá la petición diaria por la reconstrucción de Jerusalén y el regreso de la Shejiná a Sion (Sacks, 2009).
+
+\subsection{Birkat ha-minim}
+El Talmud cuenta que en Yavne, por pedido de Rabán Gamaliel, Shmuel ha-Katán compuso una bendición «contra los herejes» (\emph{minim}), que se añadió a la Amidá (Berajot 28b--29a). Unos fragmentos medievales de la Guenizá de El Cairo incluyen en ella a los \emph{notsrim}, probablemente los nazarenos. Justino Mártir, a mediados del siglo \textsc{ii}, afirma que en las sinagogas se maldecía a los creyentes en Cristo (\emph{Diálogo con Trifón} 16). Martyn (1968) relacionó esta bendición con la expulsión de la sinagoga que menciona Juan (\grc{ἀποσυνάγωγος}, Jn 9:22; 16:2). Kimelman (1981) mostró que no hay pruebas de que en el siglo \textsc{i} la bendición se dirigiera específicamente a los cristianos ni de que produjera una expulsión general. El tema sigue en debate. Lo seguro es que en las décadas posteriores al 70 el judaísmo rabínico y la comunidad de seguidores de Jesús se fueron separando, y que en esa separación los judíos creyentes en Jesús quedaron en una posición difícil frente a ambos (Skarsaune y Hvalvik, 2007).
+
+\section{La promesa de restauración}
+
+\subsection{Textos de los profetas en esta etapa}
+Los evangelios y Hechos leen la venida del Mesías y la caída del templo con los mismos profetas que anunciaron el exilio y el regreso. Isaías y Jeremías ocupan el centro.
+
+\begin{center}\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{2.7cm}>{\RaggedRight\arraybackslash}p{5.4cm}>{\RaggedRight\arraybackslash}p{5.8cm}}
+\toprule
+\textbf{Texto} & \textbf{Promesa} & \textbf{Uso en esta etapa}\\
+\midrule
+Is 40:1--3 & Consuelo y camino en el desierto & Juan el Bautista; Simeón (Lc 2:25); \emph{Shabat Najamú}\\
+Is 49:5--6 & Levantar las tribus de Jacob y ser luz de las naciones & Lc 2:32; Hch 1:8; 13:47\\
+Is 53 & El siervo herido por nuestras rebeliones & Hch 8:32--35; 1~P 2:22--25\\
+Is 56:7 & Casa de oración para todos los pueblos & Mc 11:17; Mt 21:13\\
+Is 59:20 & El Redentor vendrá a Sion & Ro 11:26 (Estudio 8)\\
+Is 61:1--2 & Ungido para proclamar el jubileo & Lc 4:16--21\\
+Jer 7:11 & Juicio sobre el templo & Mt 21:13\\
+Jer 31:31--34 [31:30--33] & Nuevo pacto con Israel y Judá & Lc 22:20; 1~Co 11:25; Heb 8:8--12\\
+Jer 31:35--37 [31:34--36] & Israel no dejará de ser nación & Ro 11:1--2, 29\\
+Os 11:1 & De Egipto llamé a mi hijo & Mt 2:15\\
+Am 9:11--12 & La tienda de David levantada & Hch 15:16--17\\
+Zac 12:10 & Mirarán al que traspasaron & Jn 19:37; Ap 1:7\\
+Dn 9:26 & Un ungido cortado; ciudad y santuario destruidos & Lecturas en debate\\
+\bottomrule
+\end{tabular}\end{center}
+
+\subsection{Isaías: el siervo herido y el Redentor de Sion}
+Isaías da a esta etapa sus dos polos: el siervo que sufre y el Redentor que viene. El cuarto canto del siervo dice:
+
+\hebverso{וְהוּא מְחֹלָל מִפְּשָׁעֵנוּ מְדֻכָּא מֵעֲוֹנֹתֵינוּ מוּסַר שְׁלוֹמֵנוּ עָלָיו וּבַחֲבֻרָתוֹ נִרְפָּא־לָנוּ}
+\begin{cita}Mas él fue herido por nuestras rebeliones, molido por nuestras iniquidades; el castigo de nuestra paz fue sobre él, y por su llaga fuimos sanados.\fuente{(Is 53:5)}\end{cita}
+
+\noindent Felipe explica este capítulo al etíope que lo leía (Hch 8:32--35), y Pedro lo aplica a la cruz (1~P 2:22--25). El canto termina con el siervo vindicado: «verá descendencia, prolongará sus días» (Is 53:10). Para el Nuevo Testamento, la cruz y la resurrección son el núcleo de la restauración que Isaías anuncia para Israel.
+
+El otro polo es Is 59:20:
+
+\hebverso{וּבָא לְצִיּוֹן גּוֹאֵל וּלְשָׁבֵי פֶשַׁע בְּיַעֲקֹב נְאֻם יְהוָה}
+\begin{cita}Y vendrá el Redentor a Sion, y a los que se vuelvan de la rebelión en Jacob, dice YHWH.\fuente{(Is 59:20)}\end{cita}
+
+\noindent La liturgia judía abre con este versículo la oración \emph{U-va le-Tsiyón}, que se recita cada día (Sacks, 2009). Pablo lo citará en Ro 11:26 en una forma cercana a la LXX, con una diferencia significativa que se analizará en el Estudio~8. Lo que importa aquí es que el Redentor viene a Sion, la misma ciudad que en el año 70 queda en ruinas. Isaías no conoce una restauración de Israel sin Sion.
+
+\subsection{Jeremías: el templo cae, el pacto permanece}
+Jeremías es el profeta que esta etapa repite. Su «sermón del templo» (Jer 7) es el modelo de Jesús en Mt 21:13; su lamento por la casa desierta (Jer 12:7; 22:5) resuena en Mt 23:38; su nuevo pacto (Jer 31:31--34 [31:30--33]) es la copa de Lc 22:20 y el centro de Heb 8. Y en el mismo capítulo, escrito cuando Jerusalén estaba a punto de caer ante Babilonia, Jeremías ata la permanencia de Israel al orden del cosmos: si las leyes del sol y la luna faltaran, «también la descendencia de Israel faltará para no ser nación delante de mí para siempre» (31:36 [31:35]). La caída del Primer Templo no anuló esa promesa; Jeremías la pronunció precisamente en medio de esa caída. El año 70 se lee mejor a la luz del 586: juicio dentro del pacto, no fin del pacto.
+
+\subsection{Daniel 9:26: lecturas}
+Daniel anuncia que «después de las sesenta y dos semanas se quitará la vida al Mesías, y no tendrá nada; y el pueblo de un príncipe que ha de venir destruirá la ciudad y el santuario»:
+
+\hebverso{וְאַחֲרֵי הַשָּׁבֻעִים שִׁשִּׁים וּשְׁנַיִם יִכָּרֵת מָשִׁיחַ וְאֵין לוֹ}
+
+\noindent El pasaje tiene al menos tres lecturas. (1) La lectura cristiana tradicional ve en el «ungido» (\heb{מָשִׁיחַ}, \emph{mashíaj}) que es «cortado» a Jesús, y en la destrucción de la ciudad y el santuario la obra de Roma en el 70. (2) La lectura histórico-crítica identifica al ungido con el sumo sacerdote Onías~III, asesinado hacia el 171 a.\,e.\,c., y al príncipe con Antíoco~IV (Estudio~6). (3) La tradición judía medieval propone otras identificaciones; Rashi, por ejemplo, aplica el «ungido» a un rey del final del Segundo Templo. Josefo, por su parte, afirmó que Daniel había escrito sobre el dominio romano y la desolación de Jerusalén (\emph{Ant.} 10.276). Los cálculos de las «setenta semanas» varían según el punto de partida y el calendario. Lo prudente es presentar las lecturas y reconocer que el texto relaciona la muerte de un ungido con la destrucción del santuario.
+
+\subsection{Los «hasta» de la caída del templo}
+Los textos del Nuevo Testamento que anuncian el juicio sobre Jerusalén contienen un límite temporal. Leídos juntos, forman una cadena:
+
+\begin{center}\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{2.2cm}>{\RaggedRight\arraybackslash}p{4.6cm}>{\RaggedRight\arraybackslash}p{7.1cm}}
+\toprule
+\textbf{Texto} & \textbf{Expresión griega} & \textbf{Lo que termina}\\
+\midrule
+Mt 23:39 & \grc{ἕως ἂν εἴπητε} & La ausencia del Mesías para Jerusalén, cuando diga: «Bendito el que viene»\\
+Lc 21:24 & \grc{ἄχρι οὗ πληρωθῶσιν} & La Jerusalén hollada, cuando se cumplan los tiempos de los gentiles\\
+Hch 1:6--7 & \grc{ἐν τῷ χρόνῳ τούτῳ} & La pregunta por el reino: no se niega; se remite al tiempo del Padre\\
+Hch 3:21 & \grc{ἄχρι χρόνων ἀποκαταστάσεως} & El Mesías en el cielo, hasta la restauración de todas las cosas\\
+2~Co 3:14--16 & \grc{ἄχρι τῆς σήμερον ... ἡνίκα ἐάν} & El velo, cuando Israel se vuelva al Señor\\
+Ro 11:25 & \grc{ἄχρι οὗ ... εἰσέλθῃ} & El endurecimiento parcial, cuando entre la plenitud de los gentiles (Estudio 8)\\
+\bottomrule
+\end{tabular}\end{center}
+
+El discurso de Pedro en el pórtico de Salomón, en Hch 3, es el más explícito. Pedro se dirige a los «varones israelitas» (3:12), les dice que actuaron «por ignorancia» (3:17) y los llama a volver:
+
+\begin{cita}Así que, arrepentíos y volveos, para que sean borrados vuestros pecados, para que vengan de la presencia del Señor tiempos de refrigerio, y él envíe al Mesías que os fue anunciado, Jesús, a quien es necesario que el cielo reciba hasta los tiempos de la restauración de todas las cosas, de que habló Dios por boca de sus santos profetas.\fuente{(Hch 3:19--21)}\end{cita}
+
+\noindent La palabra \grc{ἀποκατάστασις} (\emph{apokatástasis}) retoma el verbo de Hch 1:6 y apunta a lo que «hablaron los profetas»: el regreso, la reunión de las tribus, la renovación de Sion. Pedro termina recordándoles que son «hijos de los profetas y del pacto que Dios hizo con nuestros padres, diciendo a Abraham: En tu simiente serán benditas todas las familias de la tierra» (3:25, Gn 12:3), y que Dios envió a su siervo «a vosotros primeramente» (3:26). La promesa a Abraham, que abrió esta serie, se proclama a Israel en el templo pocos años antes de su destrucción.
+
+\subsection{Pablo antes del año 70}
+Pablo escribe Romanos hacia el 57, trece años antes de la caída del templo. Conocía la tradición de las palabras de Jesús y la oposición de muchos de sus compatriotas. Tres afirmaciones muestran su posición.
+
+\begin{itemize}
+\item \textbf{Ro 9:1--5}: «Tengo gran tristeza y continuo dolor en mi corazón. Porque desearía yo mismo ser anatema, separado de Cristo, por amor a mis hermanos, mis parientes según la carne, que son israelitas». Los privilegios de Israel siguen en presente: «de ellos \emph{son} la adopción, la gloria, los pactos».
+\item \textbf{Ro 10:1}: «El anhelo de mi corazón y mi oración a Dios por Israel es para salvación».
+\item \textbf{Ro 11:1--2}: «Digo, pues: ¿Ha desechado Dios a su pueblo? ¡De ninguna manera! (\grc{μὴ γένοιτο}). Porque también yo soy israelita, de la descendencia de Abraham, de la tribu de Benjamín. No ha desechado Dios a su pueblo, al cual conoció de antemano». La frase repite Sal 94:14 y 1~S 12:22. Pablo se presenta como prueba: él mismo, benjaminita, es parte del remanente (11:5).
+\end{itemize}
+
+\subsection{Por qué la caída del templo no significa el rechazo de Israel}
+Con estos textos se puede responder a la pregunta de la introducción sin anticipar todo el Estudio~8.
+
+\begin{enumerate}
+\item \textbf{El juicio fue anunciado como juicio profético.} Jesús habló del templo con las palabras de Jeremías, y Jeremías anunció la destrucción del Primer Templo junto con la permanencia de Israel (Jer 31:35--37 [31:34--36]). La Torá misma había previsto el juicio dentro del pacto: «aun estando ellos en tierra de sus enemigos, yo no los desecharé ni los abominaré para consumirlos, invalidando mi pacto con ellos» (Lv 26:44).
+\item \textbf{Los textos del juicio tienen un «hasta».} Mt 23:39, Lc 21:24 y Hch 3:21 ponen un límite a la desolación y miran a un regreso.
+\item \textbf{Hubo siempre un remanente.} Antes y después del 70 había judíos que reconocían al Mesías; Pablo, Pedro, Jacobo y los miles de Hch 21:20 eran israelitas. Dios no rechazó a un pueblo del que procedían el Mesías, los apóstoles y la primera iglesia (Ro 11:1--5).
+\item \textbf{El tropiezo tiene un propósito.} «¿Han tropezado para caer? ¡De ninguna manera! Pero por su transgresión vino la salvación a los gentiles, para provocarlos a celos» (Ro 11:11). El endurecimiento sirve a la misión, y la misión está ordenada a la restauración de Israel.
+\item \textbf{El llamamiento es irrevocable.} «Irrevocables son los dones y el llamamiento de Dios» (\grc{ἀμεταμέλητα γὰρ τὰ χαρίσματα καὶ ἡ κλῆσις τοῦ θεοῦ}, Ro 11:29). Pablo lo escribe antes del 70, pero lo funda en el carácter de Dios, no en la situación política de Jerusalén. Ninguna destrucción de una ciudad puede revocar lo que Dios no revoca.
+\end{enumerate}
+
+\noindent ONE FOR ISRAEL (2025), un ministerio de judíos israelíes que creen en Yeshúa, sostiene la misma conclusión: hubo en el siglo \textsc{i} un remanente numeroso, la mayoría no creyó, y la palabra clave de Romanos 11 y de Lc 21:24 es «hasta». Israel es ampliado por los gentiles creyentes, no reemplazado por ellos.
+
+\section{Conclusión y puente al Estudio 8}
+
+La séptima etapa deja establecido que Jesús es el Mesías \emph{de Israel} y encarna su vocación como Hijo llamado de Egipto y siervo de Isaías; que un remanente judío creyente es el núcleo del pueblo restaurado, al que las naciones se incorporan sin sustituirlo; que el templo cayó en un juicio anunciado, que la tradición judía leyó como fruto del odio gratuito y al que respondió con la Torá, la oración y los actos de bondad; y que ese juicio lleva escrito su límite: los «hasta» de Mt 23:39, Lc 21:24 y Hch 3:21, y la palabra de Pablo en Ro 11:1, 11 y 29, impiden leer el año 70 como el rechazo definitivo de Israel.
+
+Queda la pregunta que Pablo plantea y responde en Romanos 9--11: si Israel en su mayoría no reconoció al Mesías, ¿qué será de él? Pablo habla de un remanente escogido por gracia, de un olivo con ramas naturales desgajadas e injertadas de nuevo, de un endurecimiento parcial «hasta que haya entrado la plenitud de los gentiles», y de un misterio: «y así todo Israel será salvo» (Ro 11:25--26). Ese es el tema del Estudio~8, \emph{Romanos 11: la restauración de Israel}, que reunirá los hilos de toda la serie: el pacto con Abraham, la vocación del Sinaí, la casa de David, los dos reinos y sus destierros, el regreso de Babilonia y el Mesías que llora sobre Jerusalén y promete volver.
+
+\section*{Preguntas para la reflexión}\markboth{Preguntas para la reflexión}{}
+\begin{enumerate}
+\item Simeón une «luz para las naciones» y «gloria de tu pueblo Israel» (Lc 2:32). ¿Qué se pierde cuando la iglesia se queda solo con la primera mitad del versículo?
+\item ¿Por qué es importante que Mt 21:43 hable de los dirigentes y de «un pueblo» en singular? ¿Cómo cambia esto la lectura habitual de la parábola?
+\item Jesús llora sobre Jerusalén antes de anunciar su ruina (Lc 19:41--44; Mt 23:37). ¿Qué actitud pide esto a los creyentes de las naciones cuando hablan del juicio sobre Israel (Ro 11:18--21)?
+\item Yohanán ben Zakai consoló a su discípulo con Os 6:6, el mismo texto que citó Jesús. ¿Qué tienen en común y en qué se diferencian la respuesta rabínica y la apostólica a la pérdida del templo?
+\item ¿Qué «hasta» de esta etapa le parece más significativo para la esperanza de Israel, y por qué?
+\end{enumerate}
+
+\section*{Glosario}\markboth{Glosario}{}
+\begin{description}
+\item[Apokatástasis] (\grc{ἀποκατάστασις}). Restauración. «Hasta los tiempos de la restauración de todas las cosas» (Hch 3:21); verbo en Hch 1:6 y Mal 3:23 [4:6] LXX.
+\item[Birkat ha-minim] (\heb{בִּרְכַּת הַמִּינִים}). «Bendición contra los herejes», añadida a la Amidá en Yavne según el Talmud (Berajot 28b). Su alcance en el siglo \textsc{i} se discute.
+\item[Brit jadashá] (\heb{בְּרִית חֲדָשָׁה}). Nuevo pacto (Jer 31:31 [31:30]); en griego \grc{καινὴ διαθήκη} (Lc 22:20).
+\item[Derór] (\heb{דְּרוֹר}). Libertad del jubileo (Lv 25:10; Is 61:1), proclamada por Jesús en Nazaret.
+\item[Enkainia] (\grc{τὰ ἐγκαίνια}). «Dedicación». Nombre griego de Janucá (\heb{חֲנֻכָּה}) en Jn 10:22.
+\item[Gemilut jasadim] (\heb{גְּמִילוּת חֲסָדִים}). Actos de bondad. Según Yohanán ben Zakai, expiación que sustituye al sacrificio (Avot de-Rabí Natán 4; Os 6:6).
+\item[Kairoí ethnōn] (\grc{καιροὶ ἐθνῶν}). «Tiempos de los gentiles» (Lc 21:24), plazo al que está sujeta la Jerusalén hollada.
+\item[Kálymma] (\grc{κάλυμμα}). Velo. El que está sobre la lectura de Moisés «hasta hoy» y se quita al volverse al Señor (2~Co 3:14--16; Éx 34:34).
+\item[Pléroma] (\grc{πλήρωμα}). Plenitud. «La plenitud del tiempo» (Gá 4:4); «la plenitud» de Israel y de los gentiles (Ro 11:12, 25).
+\item[Pórosis] (\grc{πώρωσις}). Endurecimiento. «Endurecimiento en parte» (Ro 11:25); el verbo en 2~Co 3:14.
+\item[Sinat jinam] (\heb{שִׂנְאַת חִנָּם}). Odio gratuito. Causa de la destrucción del Segundo Templo según Yoma 9b.
+\item[Sukkat David] (\heb{סֻכַּת דָּוִיד}). «Tienda de David», la casa davídica caída que Dios levantará (Am 9:11; Hch 15:16).
+\item[Tisha be-Av] (\heb{תִּשְׁעָה בְּאָב}). Nueve de Av, ayuno por la destrucción del Primer y del Segundo Templo (Mishná, Taanit 4:6).
+\item[Yavne] (\heb{יַבְנֶה}). Ciudad de la llanura costera donde, según la tradición, Yohanán ben Zakai reunió a los sabios después del 70.
+\end{description}
+
+\section*{Referencias}\markboth{Referencias}{}
+\refapa{Allison, D.~C., Jr. (1983). Matt. 23:39 = Luke 13:35b as a conditional prophecy. \emph{Journal for the Study of the New Testament, 5}(18), 75--84.}
+\refapa{Avigad, N. (1983). \emph{Discovering Jerusalem}. Thomas Nelson.}
+\refapa{Bauckham, R. (1995). James and the Jerusalem church. En R. Bauckham (Ed.), \emph{The book of Acts in its Palestinian setting}. Eerdmans.}
+\refapa{Ben-Yehuda, N. (1995). \emph{The Masada myth: Collective memory and mythmaking in Israel}. University of Wisconsin Press.}
+\refapa{\emph{Biblia Hebraica Stuttgartensia} (5.ª ed.). (1997). Deutsche Bibelgesellschaft.}
+\refapa{Brandon, S.~G.~F. (1951). \emph{The fall of Jerusalem and the Christian church}. SPCK.}
+\refapa{Chilton, B.~D. (1987). \emph{The Isaiah Targum} (The Aramaic Bible, Vol. 11). Michael Glazier.}
+\refapa{Congregación Iglesia Israelita del Nuevo Pacto. (s.\,f.). \emph{Israel, el pueblo de Dios} (Octava lección) [Material de estudio].}
+\refapa{Danby, H. (Trad.). (1933). \emph{The Mishnah}. Oxford University Press.}
+\refapa{Davies, W.~D., \& Allison, D.~C. (1997). \emph{A critical and exegetical commentary on the Gospel according to Saint Matthew} (Vol. 3). T\&T Clark.}
+\refapa{Departamento de Educación, Congregación Iglesia Israelita del Nuevo Pacto. (s.\,f.). \emph{Restauración de Israel} (Clase 7) [Presentación].}
+\refapa{Epstein, I. (Ed.). (1935--1948). \emph{The Babylonian Talmud}. Soncino Press.}
+\refapa{Eusebio de Cesarea. (1926). \emph{The ecclesiastical history} (K. Lake, Trad.; Vol. 1). Harvard University Press.}
+\refapa{Evans, C.~A. (2003). \emph{Jesus and the ossuaries}. Baylor University Press.}
+\refapa{Fine, S. (2016). \emph{The menorah: From the Bible to modern Israel}. Harvard University Press.}
+\refapa{Goldin, J. (Trad.). (1955). \emph{The fathers according to Rabbi Nathan}. Yale University Press.}
+\refapa{Goodman, M. (2007). \emph{Rome and Jerusalem: The clash of ancient civilizations}. Allen Lane.}
+\refapa{Hays, R.~B. (2016). \emph{Echoes of Scripture in the Gospels}. Baylor University Press.}
+\refapa{Jervell, J. (1972). \emph{Luke and the people of God: A new look at Luke-Acts}. Augsburg.}
+\refapa{Josefo, F. (1987). \emph{The works of Josephus} (W. Whiston, Trad.). Hendrickson.}
+\refapa{Kimelman, R. (1981). Birkat ha-minim and the lack of evidence for an anti-Christian Jewish prayer in late antiquity. En E.~P. Sanders, A.~I. Baumgarten y A. Mendelson (Eds.), \emph{Jewish and Christian self-definition} (Vol. 2). Fortress Press.}
+\refapa{Martyn, J.~L. (1968). \emph{History and theology in the Fourth Gospel}. Harper \& Row.}
+\refapa{Mason, S. (2016). \emph{A history of the Jewish War, A.D. 66--74}. Cambridge University Press.}
+\refapa{Meshorer, Y. (2001). \emph{A treasury of Jewish coins: From the Persian period to Bar Kokhba}. Amphora Books.}
+\refapa{Neusner, J. (1970). \emph{Development of a legend: Studies on the traditions concerning Yohanan ben Zakkai}. Brill.}
+\refapa{\emph{Novum Testamentum Graece} (28.ª ed.). (2012). Deutsche Bibelgesellschaft.}
+\refapa{ONE FOR ISRAEL Ministry. (2025, 3 de julio). \emph{What does «all Israel will be saved» mean in Romans 11?} \url{https://www.oneforisrael.org/what-does-all-israel-will-be-saved-mean-in-romans-11/}}
+\refapa{Rahlfs, A., \& Hanhart, R. (Eds.). (2006). \emph{Septuaginta} (ed. rev.). Deutsche Bibelgesellschaft.}
+\refapa{Reich, R. (2011). \emph{Excavating the City of David: Where Jerusalem's history began}. Israel Exploration Society.}
+\refapa{Sacks, J. (Trad.). (2009). \emph{The Koren Siddur}. Koren Publishers.}
+\refapa{Sanders, E.~P. (1985). \emph{Jesus and Judaism}. Fortress Press.}
+\refapa{Schürer, E. (1973--1987). \emph{The history of the Jewish people in the age of Jesus Christ} (G. Vermes, F. Millar y M. Goodman, Eds.; ed. rev., 3 vols.). T\&T Clark.}
+\refapa{Skarsaune, O., \& Hvalvik, R. (Eds.). (2007). \emph{Jewish believers in Jesus: The early centuries}. Hendrickson.}
+\refapa{Snodgrass, K.~R. (2008). \emph{Stories with intent: A comprehensive guide to the parables of Jesus}. Eerdmans.}
+\refapa{Tácito. (1931). \emph{Histories, books IV--V; Annals, books I--III} (C.~H. Moore y J. Jackson, Trads.). Harvard University Press.}
+\refapa{Tannehill, R.~C. (1985). Israel in Luke-Acts: A tragic story. \emph{Journal of Biblical Literature, 104}(1), 69--85.}
+\refapa{Vermes, G. (Trad.). (2004). \emph{The complete Dead Sea Scrolls in English} (ed. rev.). Penguin.}
+\refapa{Wright, N.~T. (1996). \emph{Jesus and the victory of God}. Fortress Press.}
+\refapa{Yadin, Y. (1966). \emph{Masada: Herod's fortress and the Zealots' last stand}. Random House.}
+\end{document}

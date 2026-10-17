@@ -1,0 +1,970 @@
+\title[Israel 8: Romanos 11]{\bfseries{Israel, el pueblo de Dios}}
+\subtitle{Estudio 8. Romanos 11: la restauración de Israel}
+\author{}\institute{}\date{}
+\titlegraphic{\includegraphics[width=0.85\linewidth,height=0.38\textheight,keepaspectratio]{portada.jpg}\\[-1pt]
+  {\fontsize{5}{6}\selectfont\color{sepia}\textit{Nota.} Elaboración propia: Ro 11:26a en escritura uncial (texto NA28).}}
+\AtBeginSection[]{\begin{frame}\frametitle{Contenidos}\tableofcontents[currentsection]\end{frame}}
+\newcommand{\mpt}[2]{({(#1-12)*0.26},{(#2-30)*0.33})}
+\begin{document}
+\frame{\titlepage}
+\begin{frame}\frametitle{Contenidos}\tableofcontents\end{frame}
+
+% ===================================================
+\section{Introducción}
+\begin{frame}{¿Ha desechado Dios a su pueblo?}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.52\textwidth}
+\begin{cita}Digo, pues: ¿Ha desechado Dios a su pueblo? ¡De ningún modo! Porque también yo soy israelita, de la descendencia de Abraham, de la tribu de Benjamín. No ha desechado Dios a su pueblo, al cual conoció de antemano.\fuente{(Ro 11:1--2)}\end{cita}
+\begin{cita}Porque irrevocables son los dones y el llamamiento de Dios.\fuente{(Ro 11:29)}\end{cita}
+\end{column}
+\begin{column}{0.45\textwidth}\small
+Roma, c. 57 e.\,c.: la mayoría de Israel no cree en Jesús; crecen las iglesias de gentiles. Conclusión rápida: \emph{Dios cambió de pueblo}. Pablo la desmonta.\par\medskip
+\destacar{Tesis 1. Identidad y vocación.} La vocación de Israel se preserva en un remanente y alcanzará su plenitud (11:5, 12, 29).\par\medskip
+\destacar{Tesis 2. Restauración.} El endurecimiento es parcial y temporal; «y así todo Israel será salvo» (11:25--27).
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{La culminación de la serie}
+\centering
+\begin{tikzpicture}
+ \foreach \x/\y/\n/\t/\r in {0/0/1/{Abraham y el pacto}/{Raíz santa; «amados por causa de los padres» (11:16, 28)},
+   3.15/0/2/{Sinaí y vocación}/{Celos por «lo que no es pueblo» (Dt 32:21; 11:11)},
+   6.3/0/3/{Jueces y Samuel}/{«YHWH no desamparará a su pueblo» (1~S 12:22; 11:1)},
+   9.45/0/4/{David y la división}/{David testigo (11:9); raíz de Isaí (15:12)},
+   1.6/-2.7/5/{Reyes y cautiverios}/{Los 7000 de Elías; nuevo pacto (11:4, 27)},
+   4.75/-2.7/6/{Segundo Templo}/{«Vendrá de Sion el Redentor» (Is 59:20; 11:26)},
+   7.9/-2.7/7/{Cristo y el año 70}/{Remanente; «hasta que» (Lc 21:24; 11:25)}}{
+  \node[caja,anchor=north] (b\n) at (\x,\y) {\parbox[t][1.95cm][t]{2.65cm}{\RaggedRight
+    {\small\textbf{\textcolor{ladrillo}{\t}}}\\[3pt]\scriptsize \r}};
+  \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
+\end{tikzpicture}\par\vspace{4pt}
+{\small\itshape\color{sepia}Romanos 11 no inventa una teología de Israel: recoge la historia de los siete estudios anteriores.}
+\end{frame}
+
+\begin{frame}{Cuatro dimensiones}
+\centering
+\begin{tikzpicture}
+ \foreach \x/\n/\t/\d/\r in {0/1/{Histórica}/{¿Qué situación de Roma y de Israel explica Ro 11?}/{Hch 18:2; 21:20; Ro 15:25--27; Suetonio},
+   3.15/2/{Literaria}/{¿Cómo está construido el argumento de Ro 9--11?}/{Diatriba; citas del AT; olivo; doxología},
+   6.3/3/{Filológica}/{¿Qué dicen exactamente las palabras griegas?}/{NA28; BHS; LXX (Rahlfs)},
+   9.45/4/{Teológica}/{¿Qué afirma sobre elección, remanente y salvación de Israel?}/{Ro 11:1--2, 5, 11--15, 25--32}}{
+  \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][2.9cm][t]{2.65cm}{\RaggedRight
+    {\small\textbf{\textcolor{ladrillo}{\t}}}\\[4pt]\small \d\par\vfill{\tiny\color{sepia}(\r)}}};
+  \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
+\end{tikzpicture}\par\vspace{6pt}
+{\scriptsize\color{sepia}Las citas bíblicas son traducción propia desde el texto hebreo (BHS) y griego (NA28); LXX según Rahlfs-Hanhart. Numeración española [hebrea o griega] cuando difiere. En Ro 9--11, «Israel» es siempre el pueblo completo, no el antiguo reino del norte.}
+\end{frame}
+
+% ===================================================
+\section{Historia}
+\begin{frame}{Roma y la carta: cronología}
+\centering
+\begin{tikzpicture}[x=0.82cm]
+\draw[line width=1.6pt,cafe,-{Latex[length=3mm]}] (0,0) -- (15.6,0);
+\foreach \x/\t/\b in {0.5/{Pompeyo toma Jerusalén}/{63 a.\,e.\,c.; cautivos a Roma},
+                      2.2/{Expulsión bajo Tiberio}/{19 e.\,c.; Josefo, \emph{Ant.} 18.81--84},
+                      3.9/{Edicto de Claudio}/{c. 49; Suetonio; Hch 18:2},
+                      5.6/{Pablo en Corinto}/{c. 50--52; Hch 18},
+                      7.3/{Muere Claudio}/{54; regreso (Ro 16:3)},
+                      9.0/{Carta a los Romanos}/{c. 56--57, desde Corinto},
+                      10.7/{Colecta y arresto}/{c. 57; Hch 21},
+                      12.4/{Persecución de Nerón}/{64; Tácito, \emph{Ann.} 15.44},
+                      14.1/{Caída del templo}/{70 (Estudio 7)}}{
+  \fill[oro] (\x,0) circle (4pt);
+  \node[above,font=\scriptsize\bfseries,text=ladrillo,text width=1.25cm,align=center] at (\x,0.2) {\t};
+  \node[below,font=\tiny,text=sepia,text width=1.25cm,align=center] at (\x,-0.2) {\b};}
+\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (3.6,-1.2) -- (7.6,-1.2) node[midway,below=5pt,font=\scriptsize\itshape]{expulsión y regreso};
+\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (8.7,-1.2) -- (11.0,-1.2) node[midway,below=5pt,font=\scriptsize\itshape]{Ro 15:25--32};
+\end{tikzpicture}\par\vspace{6pt}
+\begin{minipage}{0.95\linewidth}\precision{Galión, procónsul de Acaya c. 51--52, está atestiguado por una inscripción de Delfos. La identificación del Erasto de Ro 16:23 con el edil de la inscripción de Corinto está en debate.}\end{minipage}\par
+{\fontsize{5}{6}\selectfont\color{sepia}\raggedleft\textit{Nota.} Elaboración propia. Fechas aproximadas.\par}
+\end{frame}
+
+\begin{frame}{Corinto, Roma y Jerusalén}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.60\textwidth}
+\centering
+\begin{tikzpicture}
+% costas esquemáticas
+\draw[cafe!60,line width=0.6pt] plot[smooth] coordinates {\mpt{7.5}{43.8} \mpt{9.0}{44.4} \mpt{10.3}{43.5} \mpt{11.0}{42.4} \mpt{12.3}{41.6} \mpt{13.6}{41.2} \mpt{14.3}{40.8} \mpt{15.6}{40.0} \mpt{15.7}{38.2} \mpt{16.1}{38.0} \mpt{16.6}{38.9} \mpt{17.1}{39.4} \mpt{16.6}{40.4} \mpt{18.5}{40.1} \mpt{18.0}{40.6} \mpt{16.0}{41.4} \mpt{14.3}{42.3} \mpt{13.6}{43.5} \mpt{12.3}{44.5} \mpt{12.5}{45.4} \mpt{13.8}{45.6}};
+\draw[cafe!60,line width=0.6pt] plot[smooth cycle] coordinates {\mpt{12.4}{38.1} \mpt{15.6}{38.3} \mpt{15.1}{36.7} \mpt{12.6}{37.6}};
+\draw[cafe!60,line width=0.6pt] plot[smooth] coordinates {\mpt{19.4}{41.8} \mpt{20.0}{39.6} \mpt{21.1}{38.4} \mpt{21.6}{37.0} \mpt{22.4}{36.5} \mpt{23.1}{36.6} \mpt{22.8}{37.6} \mpt{23.4}{37.9} \mpt{24.0}{38.1} \mpt{23.0}{38.9} \mpt{22.6}{40.3} \mpt{23.8}{40.4} \mpt{24.4}{40.9} \mpt{26.0}{40.8}};
+\draw[cafe!60,line width=0.6pt] plot[smooth] coordinates {\mpt{26.2}{40.1} \mpt{26.8}{38.6} \mpt{27.3}{37.0} \mpt{28.3}{36.7} \mpt{30.5}{36.8} \mpt{32.6}{36.1} \mpt{34.0}{36.3} \mpt{35.9}{36.8} \mpt{36.1}{36.0} \mpt{35.9}{35.0} \mpt{35.5}{33.9} \mpt{35.1}{33.1} \mpt{34.9}{32.8} \mpt{34.5}{31.6} \mpt{34.2}{31.3} \mpt{32.3}{31.2} \mpt{31.0}{31.5} \mpt{29.9}{31.2} \mpt{25.0}{31.7} \mpt{20.0}{30.6} \mpt{19.9}{31.8} \mpt{15.2}{32.4} \mpt{11.1}{33.3} \mpt{10.2}{36.9} \mpt{8.5}{37.0}};
+\draw[cafe!60,line width=0.6pt] plot[smooth cycle] coordinates {\mpt{23.6}{35.3} \mpt{26.3}{35.2} \mpt{25.6}{35.0} \mpt{24.0}{35.0}};
+\draw[cafe!60,line width=0.6pt] plot[smooth cycle] coordinates {\mpt{32.3}{35.1} \mpt{34.6}{35.7} \mpt{33.9}{34.6} \mpt{32.6}{34.7}};
+\node[font=\tiny\itshape,cafe] at \mpt{18.5}{34.6} {Mar Mediterráneo};
+% rutas
+\draw[ladrillo,line width=1.1pt,dashed,-{Latex[length=2mm]}] plot[smooth] coordinates {\mpt{22.99}{37.88} \mpt{26.5}{36.6} \mpt{31}{34.0} \mpt{34.6}{32.4} \mpt{35.23}{31.78}};
+\draw[oro!90!ladrillo,line width=1.1pt,dashed,-{Latex[length=2mm]}] plot[smooth] coordinates {\mpt{22.93}{37.94} \mpt{20.5}{38.3} \mpt{17}{38.4} \mpt{14.5}{39.6} \mpt{12.5}{41.9}};
+% ciudades
+\foreach \lon/\lat/\n/\p in {12.50/41.90/Roma/above, 22.93/37.94/Corinto/above, 35.23/31.78/Jerusalén/below, 36.16/36.20/Antioquía/above, 27.34/37.94/Éfeso/above}{
+  \fill[cafeosc] \mpt{\lon}{\lat} circle (1.6pt);
+  \node[\p,font=\tiny\bfseries,text=tinta,inner sep=1.5pt] at \mpt{\lon}{\lat} {\n};}
+\end{tikzpicture}
+\end{column}
+\begin{column}{0.36\textwidth}\scriptsize
+\textcolor{ladrillo}{\textbf{- - -}} Pablo lleva la colecta a Jerusalén (Ro 15:25--27)\par\smallskip
+\textcolor{oro!90!ladrillo}{\textbf{- - -}} La carta viaja a Roma con Febe, de Cencrea (Ro 16:1--2)\par\medskip
+Pablo escribe desde \textbf{Corinto} (Hch 20:2--3; Ro 16:1, 23) a una iglesia que \textbf{no fundó}, antes de ir a Jerusalén y, después, a España (Ro 15:24, 28).\par\medskip
+{\fontsize{5}{6}\selectfont\color{sepia}\textit{Nota.} Elaboración propia: mapa esquemático con coordenadas reales de las ciudades; costas simplificadas.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{El edicto de Claudio}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\begin{cita}A los judíos, que provocaban continuos tumultos por instigación de Cresto, los expulsó de Roma.\fuente{(Suetonio, \emph{Claudio} 25.4)}\end{cita}
+\begin{cita}Encontró a un judío llamado Aquila [\ldots] recién venido de Italia con Priscila su mujer, porque Claudio había mandado que todos los judíos salieran de Roma.\fuente{(Hch 18:2)}\end{cita}
+\end{column}
+\begin{column}{0.47\textwidth}\small\RaggedRight
+\begin{itemize}
+\item \emph{Chrestus} y \emph{Christus} sonaban casi igual: probablemente, disputas en las sinagogas sobre Jesús como Mesías.
+\item Fecha: c. 49 (Orosio 7.6.15); Dión Casio 60.6.6 habla de una prohibición de reunirse (41).
+\item 49--54: iglesias casi solo de gentiles. 54: muere Claudio; los judíos vuelven (Ro 16:3--5).
+\end{itemize}
+\precision{la hipótesis de Wiefel (1991) explica así la arrogancia gentil que Pablo corrige; es discutida en sus detalles.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Remanente, colecta y arrogancia}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.49\textwidth}
+\begin{cita}Ya ves, hermano, cuántas \textbf{miríadas} de judíos hay que han creído, y todos son celosos de la ley.\fuente{(Hch 21:20)}\end{cita}
+\begin{cita}[fontupper=\scriptsize\itshape]Si los gentiles han sido hechos \textbf{participantes} de sus bienes espirituales, deben también servirles con los materiales.\fuente{(Ro 15:27)}\end{cita}
+\small \grc{ἐκοινώνησαν} (15:27) anticipa \grc{συγκοινωνός} del olivo (11:17).
+\end{column}
+\begin{column}{0.49\textwidth}\small
+\textbf{\textcolor{cafe}{«A vosotros hablo, gentiles»}} (11:13)
+\begin{itemize}
+\item «No te jactes contra las ramas» (11:18).
+\item «No te ensoberbezcas, sino teme» (11:20).
+\item «Para que no seáis sabios en vuestra propia opinión» (11:25).
+\end{itemize}
+\textbf{\textcolor{cafe}{Romanos en contexto judío}}: Stendahl (1976), Ro 9--11 es el clímax; Sanders (1977); Nanos (1996); Das (2007).\par\smallskip
+\destacar{Ro 11 es corrección pastoral, no curiosidad escatológica.}
+\end{column}
+\end{columns}
+\end{frame}
+
+% ===================================================
+\section{Literatura}
+\begin{frame}{Mapa de Romanos 9--11}
+\centering
+\begin{tikzpicture}[node distance=0.25cm]
+\node[caja,text width=1.9cm,align=center,minimum height=1.9cm] (a) {\textbf{\textcolor{ladrillo}{Lamento}}\\[2pt]9:1--5\\[2pt]{\tiny privilegios de Israel; «bendito por los siglos, amén»}};
+\node[caja,text width=2.1cm,align=center,minimum height=1.9cm,right=of a] (b) {\textbf{\textcolor{ladrillo}{La palabra no ha fallado}}\\[2pt]9:6--29\\[2pt]{\tiny elección; remanente (Is 10:22)}};
+\node[caja,text width=2.1cm,align=center,minimum height=1.9cm,right=of b] (c) {\textbf{\textcolor{ladrillo}{La justicia de la fe}}\\[2pt]9:30--10:21\\[2pt]{\tiny tropiezo; «todo el que invoque»; celos}};
+\node[caja,text width=2.1cm,align=center,minimum height=1.9cm,right=of c] (d) {\textbf{\textcolor{ladrillo}{No ha desechado}}\\[2pt]11:1--32\\[2pt]{\tiny remanente; olivo; misterio}};
+\node[caja,text width=1.9cm,align=center,minimum height=1.9cm,right=of d,fill=oro!25] (e) {\textbf{\textcolor{ladrillo}{Doxología}}\\[2pt]11:33--36\\[2pt]{\tiny «a él la gloria, amén»}};
+\foreach \u/\v in {a/b,b/c,c/d,d/e}{\draw[-{Latex[length=2mm]},oro!90!ladrillo,line width=1.2pt] (\u) -- (\v);}
+\draw[sepia,line width=0.8pt,-{Latex[length=2mm]}] (a.north) to[bend left=22] node[midway,above,font=\scriptsize\itshape]{inclusión: bendición con «amén» (9:5) — doxología con «amén» (11:36)} (e.north);
+\node[below=0.25cm of b,font=\scriptsize,text=cafe,text width=2.3cm,align=center] {¿Por qué no creen? \emph{Elección}};
+\node[below=0.25cm of c,font=\scriptsize,text=cafe,text width=2.3cm,align=center] {¿Son culpables? \emph{Responsabilidad}};
+\node[below=0.25cm of d,font=\scriptsize,text=cafe,text width=2.3cm,align=center] {¿Qué hará Dios? \emph{Restauración}};
+\end{tikzpicture}\par\vspace{6pt}
+{\small\itshape\color{sepia}Leer Ro 9:6 («no todos los de Israel son Israel») sin Ro 11:26 («todo Israel será salvo») es leer la mitad del argumento.}\par
+{\fontsize{5}{6}\selectfont\color{sepia}\raggedleft\textit{Nota.} Elaboración propia: estructura de Ro 9--11.\par}
+\end{frame}
+
+\begin{frame}{Diatriba y argumento}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.42\textwidth}\small\RaggedRight
+\textbf{\textcolor{cafe}{\grc{μὴ γένοιτο}: «¡de ningún modo!»}}\par\smallskip
+Fórmula de la diatriba (Stowers, 1981); diez veces en Romanos (conteo propio).
+\begin{itemize}
+\item \grc{μὴ ἀπώσατο ὁ θεὸς τὸν λαὸν αὐτοῦ;} (11:1)
+\item \grc{μὴ ἔπταισαν ἵνα πέσωσιν;} (11:11)
+\end{itemize}
+\grc{μή} anticipa respuesta negativa.\par\smallskip
+Cambio de interlocutor: Israel en 3.ª persona (11:1--12) → «a vosotros, gentiles» (11:13) → «tú, olivo silvestre» (11:17).
+\end{column}
+\begin{column}{0.56\textwidth}
+\centering
+\begin{tikzpicture}[y=-1.05cm]
+\foreach \i/\t/\r/\d in {0/{1. Remanente}/{11:1--10}/{presente: un resto escogido por gracia},
+                        1/{2. Tropiezo, no caída}/{11:11--24}/{«cuánto más»; el olivo},
+                        2/{3. Misterio}/{11:25--32}/{futuro: todo Israel será salvo},
+                        3/{4. Doxología}/{11:33--36}/{el argumento se vuelve alabanza}}{
+  \node[caja,text width=5.6cm,minimum height=0.8cm] (s\i) at (0,\i) {\textbf{\textcolor{ladrillo}{\t}} {\tiny\color{sepia}(\r)}\\{\scriptsize \d}};}
+\foreach \a/\b in {0/1,1/2,2/3}{\draw[-{Latex[length=2mm]},oro!90!ladrillo,line width=1.2pt] (s\a) -- (s\b);}
+\end{tikzpicture}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Las citas del AT en Ro 11}
+\centering\tiny\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{1.9cm}>{\RaggedRight\arraybackslash}p{2.9cm}>{\RaggedRight\arraybackslash}p{2.7cm}>{\RaggedRight\arraybackslash}p{3.6cm}}
+\toprule
+\textbf{Ro 11 / fuente} & \textbf{TM} & \textbf{LXX} & \textbf{Pablo}\\\midrule
+11:4; 1~R 19:18 & «Dejaré (\heb{וְהִשְׁאַרְתִּי}) siete mil» & «Dejarás siete mil» & \grc{κατέλιπον ἐμαυτῷ}: más cerca del TM; «para mí»\\
+11:8; Dt 29:4 [29:3] + Is 29:10 & «no os dio corazón»; \heb{רוּחַ תַּרְדֵּמָה} & \grc{πνεῦμα κατανύξεως} & Funde dos textos: «les dio ojos para no ver»\\
+11:9--10; Sal 69:22--23 [69:23--24; LXX 68:23--24] & «Sea su mesa un lazo» & \grc{εἰς παγίδα\ldots} & Sigue la LXX; añade \grc{εἰς θήραν}\\
+11:26--27; Is 59:20--21 + 27:9 & «vendrá \emph{a} Sion» & «\emph{por causa de} Sion» & «\emph{de} Sion»; Is 27:9 LXX; eco de Jer 31:33--34\\
+11:34; Is 40:13 & «¿quién midió el espíritu de YHWH?» & \grc{τίς ἔγνω νοῦν κυρίου;} & LXX casi literal\\
+11:35; Job 41:11 [41:3] & «¿quién se me adelantó?» & otra lectura & Sigue el sentido del TM\\
+\bottomrule
+\end{tabular}\par\vspace{6pt}
+\begin{minipage}{0.95\linewidth}\precision{\grc{τῇ Βάαλ} (11:4), con artículo femenino: los lectores sustituían «Baal» por \heb{בֹּשֶׁת} (\emph{bóshet}), «vergüenza», en griego \grc{αἰσχύνη} (femenino). Pablo conocía la LXX y el hebreo (Stanley, 1992; Wagner, 2002).}\end{minipage}
+\end{frame}
+
+\begin{frame}{Las metáforas}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.32\textwidth}\small\RaggedRight
+\textbf{\textcolor{ladrillo}{Primicias y masa}} (11:16a)\par\smallskip
+Nm 15:20: \heb{רֵאשִׁית עֲרִסֹתֵכֶם}; LXX \grc{ἀπαρχὴν φυράματος}. La porción ofrecida santifica la masa. Tratado \emph{Jalá} de la Mishná.
+\end{column}
+\begin{column}{0.33\textwidth}\small\RaggedRight
+\textbf{\textcolor{ladrillo}{Raíz y ramas}} (11:16b)\par\smallskip
+«Si la raíz es santa, también las ramas». La raíz: los padres (11:28), según la mayoría de los comentaristas (Moo, 1996).
+\end{column}
+\begin{column}{0.32\textwidth}\small\RaggedRight
+\textbf{\textcolor{ladrillo}{El olivo}} (11:17--24)\par\smallskip
+\heb{זַיִת רַעֲנָן}, «olivo verde», nombre de Judá (Jer 11:16); «su esplendor como el olivo» (Os 14:6 [14:7]); Sal 52:8 [52:10].
+\end{column}
+\end{columns}\vspace{8pt}
+\begin{tcolorbox}[colback=piedra,colframe=cafe,boxrule=0.8pt,arc=3pt,fontupper=\small]
+Un solo árbol, una sola raíz. Las ramas desgajadas siguen siendo «naturales» (\grc{κατὰ φύσιν}); los injertados siguen siendo «silvestres por naturaleza» (11:24). Ambos permanecen por la fe (11:20, 23).
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}{La doxología en quiasmo}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\begin{cita}[fontupper=\scriptsize\itshape]¡Oh profundidad de las riquezas, y de la sabiduría y del conocimiento de Dios! [\ldots] ¿Quién conoció la mente del Señor? ¿O quién fue su consejero? ¿O quién le dio a él primero? [\ldots] Porque de él, por él y para él son todas las cosas.\fuente{(Ro 11:33--36)}\end{cita}
+\scriptsize Is 40:13 (consuelo del exilio) y Job 41:11 [41:3]; \grc{ἀνεξιχνίαστοι}, cf. Job 5:9; 9:10 LXX.
+\end{column}
+\begin{column}{0.47\textwidth}
+\centering
+\begin{tikzpicture}[y=-0.62cm]
+\foreach \i/\t/\x in {0/{a. riqueza}/0,1/{b. sabiduría}/0.5,2/{c. conocimiento}/1.0,3/{c'. ¿quién conoció la mente?}/1.0,4/{b'. ¿quién fue su consejero?}/0.5,5/{a'. ¿quién le dio primero?}/0}{
+  \node[caja,anchor=west,inner sep=3pt] at (\x,\i) {\t};}
+\node[font=\tiny,text=sepia,anchor=west] at (4.6,1) {v.\,33};
+\node[font=\tiny,text=sepia,anchor=west] at (4.6,4) {vv.\,34--35};
+\node[caja,fill=oro!25,anchor=west] at (0,6.4) {\grc{ἐξ αὐτοῦ καὶ δι᾿ αὐτοῦ καὶ εἰς αὐτόν} (v.\,36)};
+\end{tikzpicture}
+\end{column}
+\end{columns}
+\end{frame}
+
+% ===================================================
+\section{Filología}
+\begin{frame}{Ro 11:25--27 en griego}
+\begin{cita}[fontupper=\upshape\small]\grc{Οὐ γὰρ θέλω ὑμᾶς ἀγνοεῖν, ἀδελφοί, τὸ μυστήριον τοῦτο, ἵνα μὴ ἦτε [παρ᾿] ἑαυτοῖς φρόνιμοι, ὅτι πώρωσις ἀπὸ μέρους τῷ Ἰσραὴλ γέγονεν ἄχρι οὗ τὸ πλήρωμα τῶν ἐθνῶν εἰσέλθῃ καὶ οὕτως πᾶς Ἰσραὴλ σωθήσεται, καθὼς γέγραπται· ἥξει ἐκ Σιὼν ὁ ῥυόμενος, ἀποστρέψει ἀσεβείας ἀπὸ Ἰακώβ. καὶ αὕτη αὐτοῖς ἡ παρ᾿ ἐμοῦ διαθήκη, ὅταν ἀφέλωμαι τὰς ἁμαρτίας αὐτῶν.}\end{cita}
+\begin{cita}[fontupper=\scriptsize\itshape]No quiero, hermanos, que ignoréis este misterio, para que no seáis sabios en vuestra propia opinión: que un endurecimiento en parte le ha sobrevenido a Israel hasta que haya entrado la plenitud de las naciones; y así todo Israel será salvo, como está escrito: «Vendrá de Sion el Libertador, apartará de Jacob las impiedades. Y este será mi pacto con ellos, cuando yo quite sus pecados».\fuente{(Ro 11:25--27, NA28; trad. propia)}\end{cita}
+\precision{variantes menores: 11:6 (adición bizantina), 11:17 («de la raíz \emph{y} de la grosura»), 11:25 (\grc{παρ᾿}/\grc{ἐν}), 11:31 (segundo \grc{νῦν} entre corchetes).}
+\end{frame}
+
+\begin{frame}{Elección y remanente}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.46\textwidth}\small\RaggedRight
+\begin{itemize}
+\item \grc{ἀπώσατο} (11:1): eco de \grc{οὐκ ἀπώσεται κύριος τὸν λαὸν αὐτοῦ} (1~S 12:22; Sal 94:14 [LXX 93:14]).
+\item \heb{כִּי לֹא־יִטֹּשׁ יְהוָה אֶת־עַמּוֹ}: «YHWH no desamparará a su pueblo» (1~S 12:22; Estudio 3).
+\item \grc{προέγνω} (11:2): «conoció» = eligió (Am 3:2). La elección precede a la incredulidad.
+\end{itemize}
+\end{column}
+\begin{column}{0.52\textwidth}
+\centering
+\begin{tikzpicture}[y=-1.15cm]
+\node[caja,text width=4.6cm,align=center] (a) at (0,0) {\textbf{Gn 45:7}: \heb{שְׁאֵרִית} (José; Est. 1)};
+\node[caja,text width=4.6cm,align=center] (b) at (0,1) {\textbf{1~R 19:18}: siete mil (reino del norte; Est. 5)};
+\node[caja,text width=4.6cm,align=center] (c) at (0,2) {\textbf{Is 10:21}: \heb{שְׁאָר יָשׁוּב}, «un resto volverá»};
+\node[caja,text width=4.6cm,align=center,fill=oro!25] (d) at (0,3) {\textbf{Ro 11:5}: \grc{λεῖμμα κατ᾿ ἐκλογὴν χάριτος}};
+\foreach \u/\v in {a/b,b/c,c/d}{\draw[-{Latex[length=2mm]},oro!90!ladrillo,line width=1.2pt] (\u) -- (\v);}
+\end{tikzpicture}\par\smallskip
+{\scriptsize\itshape\color{sepia}\grc{γέγονεν}, perfecto: el remanente existe ahora y garantiza que la historia continúa.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Endurecimiento, tropiezo y celos}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.49\textwidth}\small\RaggedRight
+\textbf{\textcolor{cafe}{\grc{πώρωσις}} (11:7, 25)}: de \grc{πῶρος}, callo óseo, piedra porosa: insensibilidad. Velo «hasta el día de hoy» (2~Co 3:14--16).\par\smallskip
+\textbf{\textcolor{cafe}{\grc{πνεῦμα κατανύξεως}} (11:8)}: Is 29:10 \heb{רוּחַ תַּרְדֵּמָה}, el «sueño profundo» de Gn 2:21 y 15:12.\par\smallskip
+\textbf{\textcolor{cafe}{\grc{ἔπταισαν ἵνα πέσωσιν;}} (11:11)}: tropezar (\grc{πταίω}) no es caer (\grc{πίπτω}). \grc{παράπτωμα}: «paso en falso».
+\end{column}
+\begin{column}{0.49\textwidth}
+\centering{\heb{וַאֲנִי אַקְנִיאֵם בְּלֹא־עָם}}\par\smallskip
+\begin{cita}[fontupper=\scriptsize\itshape]Yo también los provocaré a celos con lo que no es pueblo.\fuente{(Dt 32:21; LXX \grc{παραζηλώσω})}\end{cita}
+\begin{cita}[fontupper=\scriptsize\itshape]Por si de algún modo provoco a celos a los de mi carne, y salvo a algunos de ellos.\fuente{(Ro 11:14)}\end{cita}
+\scriptsize La misión a los gentiles tiene una finalidad que vuelve sobre Israel (Estudio 2).
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Plenitud y aceptación}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.49\textwidth}
+\begin{cita}[fontupper=\scriptsize\itshape]Si su transgresión es la riqueza del mundo, y su disminución la riqueza de las naciones, ¡cuánto más su plenitud!\fuente{(Ro 11:12)}\end{cita}
+\scriptsize
+\begin{itemize}
+\item \grc{ἥττημα}: «disminución», «derrota».
+\item \grc{πλήρωμα αὐτῶν} (11:12) // \grc{πλήρωμα τῶν ἐθνῶν} (11:25): plenitud de Israel y de las naciones, en paralelo.
+\end{itemize}
+\precision{Gn 48:19 \heb{מְלֹא־הַגּוֹיִם} (Efraín) en la LXX es \grc{πλῆθος ἐθνῶν}, no \grc{πλήρωμα}; Pablo no lo cita.}
+\end{column}
+\begin{column}{0.49\textwidth}
+\begin{cita}[fontupper=\scriptsize\itshape]Si su exclusión es la reconciliación del mundo, ¿qué será su aceptación sino vida de entre los muertos?\fuente{(Ro 11:15)}\end{cita}
+\scriptsize
+\begin{itemize}
+\item \grc{ἀποβολή}: exclusión (temporal) por parte de Dios.
+\item \grc{πρόσλημψις}: «acogida»; hápax del NT.
+\item \grc{ζωὴ ἐκ νεκρῶν}: resurrección o bendición inmensa; trasfondo de Ez 37:11--14 (Estudio 5).
+\item \grc{ἀπαρχή}/\grc{φύραμα} (11:16): \heb{רֵאשִׁית} y la masa.
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{El vocabulario del olivo}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.49\textwidth}\small\RaggedRight
+\begin{itemize}
+\item \grc{ἀγριέλαιος}: olivo silvestre, acebuche.
+\item \grc{καλλιέλαιος}: olivo cultivado, «hermoso».
+\item \grc{ἐγκεντρίζω}: injertar por incisión; 6 veces en 11:17--24 (conteo propio).
+\item \grc{ἐξεκλάσθησαν}: «fueron desgajadas».
+\item \grc{συγκοινωνὸς τῆς ῥίζης τῆς πιότητος}: copartícipe de la savia de la raíz.
+\item \grc{χρηστότης} y \grc{ἀποτομία} (11:22): bondad y «corte tajante».
+\end{itemize}
+\end{column}
+\begin{column}{0.49\textwidth}
+\begin{tcolorbox}[colback=piedra,colframe=cafe,boxrule=0.8pt,arc=3pt,fontupper=\scriptsize,title={\scriptsize ¿Sabía Pablo injertar?},colbacktitle=cafe,coltitle=piedra]
+Lo común era injertar la púa cultivada en patrón silvestre. Pablo describe lo contrario y lo llama \grc{παρὰ φύσιν}, «contra la naturaleza» (11:24). Columela (\emph{De re rustica} 5.9.16) describe insertar una rama de acebuche en olivos viejos para revitalizarlos (Baxter y Ziesler, 1985). Debate abierto: práctica real conocida o inversión deliberada para subrayar la gracia.
+\end{tcolorbox}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Misterio, «en parte», «hasta que»}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.33\textwidth}\small\RaggedRight
+\textbf{\textcolor{ladrillo}{\grc{μυστήριον}}}\par\smallskip
+Designio antes oculto, ahora revelado (Ro 16:25--26). Trasfondo: arameo \heb{רָז} (\emph{raz}) de Dn 2:18--30; Qumrán (1QpHab 7). Lo nuevo no es la restauración, sino \destacar{el orden}.
+\end{column}
+\begin{column}{0.31\textwidth}\small\RaggedRight
+\textbf{\textcolor{ladrillo}{\grc{ἀπὸ μέρους}}}\par\smallskip
+«En parte»: endurecimiento parcial o sobre una parte de Israel. Mismo resultado: el remanente no está endurecido (11:5, 7).
+\end{column}
+\begin{column}{0.33\textwidth}\small\RaggedRight
+\textbf{\textcolor{ladrillo}{\grc{ἄχρι οὗ}}}\par\smallskip
+«Hasta que» + subjuntivo: término de una situación.
+\begin{itemize}
+\item Lc 21:24: Jerusalén hollada \grc{ἄχρι οὗ} se cumplan los tiempos de los gentiles.
+\item 1~Co 11:26; 15:25.
+\end{itemize}
+\grc{εἰσέλθῃ}: verbo de «entrar en el reino».
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{«Y así»: tres lecturas}
+\centering\scriptsize\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{2.3cm}>{\RaggedRight\arraybackslash}p{4.3cm}>{\RaggedRight\arraybackslash}p{4.4cm}}
+\toprule
+\textbf{\grc{καὶ οὕτως}} & \textbf{Sentido} & \textbf{Defensores}\\\midrule
+Modal: «y de esta manera» & Mediante el proceso descrito: endurecimiento, entrada de las naciones, celos & Cranfield (1979); Moo (1996); Schreiner (1998); Fitzmyer (1993)\\
+Temporal: «y entonces» & Después de la entrada de las naciones & Van der Horst (2000); RVR: «y luego»\\
+Correlativa: «así, como está escrito» & \grc{οὕτως} anticipa \grc{καθὼς γέγραπται} & Matiz señalado por Dunn (1988)\\
+\bottomrule
+\end{tabular}\par\vspace{8pt}
+\begin{tcolorbox}[colback=piedra,colframe=ladrillo,boxrule=1pt,arc=3pt,fontupper=\small,width=0.92\linewidth]
+Las tres coinciden: la salvación de «todo Israel» \textbf{sigue} al endurecimiento parcial y a la entrada de la plenitud de las naciones. En 11:25, a un versículo, «Israel» se distingue de «las naciones».
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}{\grc{πᾶς Ἰσραήλ}: «todo Israel»}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.49\textwidth}\small
+\textbf{\textcolor{cafe}{Uso colectivo en el AT}} (\heb{כָּל־יִשְׂרָאֵל})
+\begin{itemize}
+\item 1~S 25:1: todo Israel llora a Samuel.
+\item 1~R 12:1: todo Israel en Siquem (Est. 4).
+\item 2~Cr 12:1: «todo Israel» = el reino de Judá.
+\item Dn 9:11: «todo Israel traspasó tu ley».
+\item Neh 12:47: todo Israel sostiene a los cantores.
+\end{itemize}
+\scriptsize Nunca cada individuo; nunca no israelitas.
+\end{column}
+\begin{column}{0.49\textwidth}\small
+\textbf{\textcolor{cafe}{Mishná, Sanedrín 10:1}}\par\smallskip
+\centering{\heb{כל ישראל יש להם חלק לעולם הבא}}\par\smallskip
+\raggedright «Todo Israel tiene parte en el mundo venidero» \ldots{} \textbf{y a continuación enumera quiénes no la tienen}.\par\medskip
+\grc{Ἰσραήλ}: 11 veces en Ro 9--11, siempre el pueblo étnico (9:6b: un Israel \emph{dentro} de Israel).\par\smallskip
+\grc{σωθήσεται}: futuro pasivo; obra de Dios; salvación por la fe (10:9--13).
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Is 59:20: TM, LXX y Pablo}
+\centering\scriptsize\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{1.6cm}>{\RaggedRight\arraybackslash}p{4.3cm}>{\RaggedRight\arraybackslash}p{5.2cm}}
+\toprule
+\textbf{Versión} & \textbf{Texto} & \textbf{Traducción}\\\midrule
+TM & \heb{וּבָא לְצִיּוֹן גּוֹאֵל וּלְשָׁבֵי פֶשַׁע בְּיַעֲקֹב} & «Vendrá \textbf{a} Sion un Redentor, y a los que se vuelven de la rebelión en Jacob»\\
+LXX & \grc{ἥξει ἕνεκεν Σιων ὁ ῥυόμενος καὶ ἀποστρέψει ἀσεβείας ἀπὸ Ιακωβ} & «Vendrá \textbf{por causa de} Sion el que libra, y apartará las impiedades de Jacob»\\
+Pablo & \grc{ἥξει ἐκ Σιὼν ὁ ῥυόμενος, ἀποστρέψει ἀσεβείας ἀπὸ Ἰακώβ} & «Vendrá \textbf{de} Sion el Libertador, apartará de Jacob las impiedades»\\
+\bottomrule
+\end{tabular}\par\vspace{6pt}
+\begin{minipage}{0.95\linewidth}\scriptsize
+\textbf{\grc{ἐκ Σιών}}: ecos de Sal 14:7 e Is 2:3; la Sion celestial y la segunda venida (Cranfield, 1979; Moo, 1996; cf. 1~Ts 1:10, \grc{τὸν ῥυόμενον}), o la misión desde Jerusalén (Wright, 2013).\par\smallskip
+\textbf{Pacto}: Is 59:21 + 27:9 LXX («cuando yo quite sus pecados») evocan Jer 31:33--34 [31:32--33]: el nuevo pacto con Israel y Judá (Estudio 5).
+\end{minipage}
+\end{frame}
+
+\begin{frame}{El Redentor de Sion}
+\fotolado{panel_is59.jpg}{Elaboración propia: Is 59:20--21a en texto hebreo consonántico (BHS).}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.57\textwidth}
+\centering{\large\heb{וּבָא לְצִיּוֹן גּוֹאֵל}}\par\smallskip
+\begin{cita}Y vendrá a Sion el Redentor, y a los que se vuelven de la rebelión en Jacob, dice YHWH. Y en cuanto a mí, este es mi pacto con ellos.\fuente{(Is 59:20--21)}\end{cita}
+\scriptsize
+\begin{itemize}
+\item \heb{גּוֹאֵל} (\emph{go'el}): el pariente que rescata (Rut; Is 41:14).
+\item El TM pone el arrepentimiento antes; la LXX y Pablo, la acción del Libertador.
+\item Estos versículos abren la oración diaria \emph{U-va le-Tsiyyón} de la liturgia judía.
+\end{itemize}
+\end{column}
+\begin{column}{0.41\textwidth}\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{«Y así todo Israel»}
+\fotolado{panel_ro26.jpg}{Elaboración propia: Ro 11:25b--26 en escritura uncial (texto NA28).}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.57\textwidth}
+\begin{cita}Un endurecimiento en parte le ha sobrevenido a Israel hasta que haya entrado la plenitud de las naciones; y así todo Israel será salvo.\fuente{(Ro 11:25b--26a)}\end{cita}
+\scriptsize
+\begin{itemize}
+\item \grc{ἀμεταμέλητα} (11:29): «sin arrepentimiento»; Nm 23:19.
+\item \grc{ἐχθροί … ἀγαπητοί} (11:28): enemigos y amados \emph{a la vez}.
+\item \grc{συνέκλεισεν} (11:32): «encerró juntos», como la red (Lc 5:6; Gá 3:22).
+\item \grc{βάθος} (11:33): la última palabra es «profundidad».
+\end{itemize}
+\end{column}
+\begin{column}{0.41\textwidth}\end{column}
+\end{columns}
+\end{frame}
+
+% ===================================================
+\section{Teología}
+\begin{frame}{La fidelidad de Dios}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.49\textwidth}\small\RaggedRight
+Si Dios abandonó a Israel, ¿qué valor tiene Ro 8:39, «nada nos podrá separar»?\par\medskip
+\destacar{Ro 9:6}: «no es que la palabra de Dios haya fallado».\par\medskip
+Ro 11 completa la prueba: la elección precede a la historia (\grc{προέγνω}) y es irrevocable (\grc{ἀμεταμέλητα}).
+\end{column}
+\begin{column}{0.49\textwidth}\small\RaggedRight
+\textbf{\textcolor{cafe}{El endurecimiento tiene tres límites}}
+\begin{enumerate}
+\item \textbf{Parcial} (\grc{ἀπὸ μέρους}): existe el remanente.
+\item \textbf{Temporal} (\grc{ἄχρι οὗ}): tiene término.
+\item \textbf{Con propósito}: salvación de las naciones y celos de Israel (11:11).
+\end{enumerate}
+\scriptsize Razones según la Clase 7: soberanía (9:18), ignorancia (10:4), justicia propia (10:3), temporalidad (11:26).
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{El olivo}
+\centering
+\begin{tikzpicture}[x=0.95cm,y=0.68cm]
+\fill[cafe!75] (-0.35,0) -- (-0.28,3.1) -- (0.28,3.1) -- (0.35,0) -- cycle;
+\foreach \a in {-55,-28,0,28,55}{\draw[cafe,line width=1.4pt] (0,0) -- ++(-90+\a:1.0);}
+\node[font=\scriptsize\bfseries,text=ladrillo] at (0,-1.55) {Raíz santa: los padres (11:16, 28)};
+\foreach \x/\y in {-1.7/4.5, 0/5.0, 1.7/4.5}{\draw[oro!75!cafe,line width=2.4pt] (0,2.9) -- (\x,\y); \fill[oro!85!cafe] (\x,\y) circle (5pt);}
+\node[font=\tiny,text=cafeosc,text width=3.2cm,align=center] at (0,5.7) {Ramas naturales que permanecen: el remanente (11:5)};
+\draw[ladrillo,line width=2.4pt] (0,2.2) -- (-2.4,3.0); \fill[ladrillo] (-2.4,3.0) circle (4.5pt);
+\draw[ladrillo,line width=2.4pt] (0,2.0) -- (2.4,2.9); \fill[ladrillo] (2.4,2.9) circle (4.5pt);
+\node[font=\tiny,text=ladrillo,text width=2.8cm,align=center] at (-4.7,3.3) {\textbf{Ramas silvestres injertadas} por la fe (11:17, 20)};
+\draw[oro!75!cafe,line width=2.4pt,dashed] (-2.6,1.3) -- (-3.5,0.7); \fill[oro!45!piedra,draw=oro!75!cafe] (-3.5,0.7) circle (4.5pt);
+\node[font=\tiny,text=sepia,text width=2.8cm,align=center] at (-4.7,1.4) {Ramas naturales desgajadas por incredulidad (11:17, 20)};
+\draw[oro!75!cafe,line width=2.4pt,dashed] (2.9,0.9) -- (3.8,0.4); \fill[oro!45!piedra,draw=oro!75!cafe] (3.8,0.4) circle (4.5pt);
+\draw[oro!75!cafe,line width=2.4pt] (0,1.5) -- (2.2,1.8); \fill[oro!85!cafe] (2.2,1.8) circle (4.5pt);
+\draw[-{Latex[length=2mm]},cafeosc,line width=0.9pt,dashed] (3.7,0.62) to[bend right=25] (2.45,1.75);
+\node[font=\tiny,text=cafeosc,text width=3.0cm,align=center] at (5.0,2.6) {\textbf{Reinjertadas} «si no permanecen en incredulidad» (11:23--24)};
+\end{tikzpicture}\par\vspace{2pt}
+{\scriptsize Injertados «entre» las ramas (\grc{ἐν αὐτοῖς}): \destacar{inclusión sin reemplazo}. «No sustentas tú a la raíz, sino la raíz a ti» (11:18).}\par
+{\fontsize{5}{6}\selectfont\color{sepia}\raggedleft\textit{Nota.} Elaboración propia: esquema del olivo de Ro 11:16--24.\par}
+\end{frame}
+
+\begin{frame}{El misterio: la secuencia}
+\centering
+\begin{tikzpicture}[node distance=0.5cm]
+\node[caja,text width=3.0cm,align=center,minimum height=2.0cm] (a) {\small\textbf{\textcolor{ladrillo}{Endurecimiento en parte}}\\[3pt]\grc{πώρωσις}\\\grc{ἀπὸ μέρους}\\[2pt]{\tiny remanente creyente + mayoría endurecida}};
+\node[caja,text width=3.0cm,align=center,minimum height=2.0cm,right=of a] (b) {\small\textbf{\textcolor{ladrillo}{Entra la plenitud de las naciones}}\\[3pt]\grc{ἄχρι οὗ τὸ πλήρωμα}\\\grc{τῶν ἐθνῶν εἰσέλθῃ}};
+\node[caja,text width=3.0cm,align=center,minimum height=2.0cm,right=of b,fill=oro!25] (c) {\small\textbf{\textcolor{ladrillo}{Y así todo Israel será salvo}}\\[3pt]\grc{καὶ οὕτως πᾶς}\\\grc{Ἰσραὴλ σωθήσεται}};
+\draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (a) -- (b);
+\draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (b) -- (c);
+\end{tikzpicture}\par\vspace{8pt}
+\begin{cita}[fontupper=\scriptsize\itshape]Vendrá de Sion el Libertador, apartará de Jacob las impiedades. Y este será mi pacto con ellos, cuando yo quite sus pecados.\fuente{(Ro 11:26b--27; Is 59:20--21; 27:9; Jer 31:33--34)}\end{cita}
+{\scriptsize Los profetas: Israel restaurado y las naciones acuden (Is 2:2--4; Zac 8:23). \destacar{El misterio invierte el orden}: primero entran las naciones.}\par
+{\fontsize{5}{6}\selectfont\color{sepia}\raggedleft\textit{Nota.} Elaboración propia: la secuencia de Ro 11:25--27.\par}
+\end{frame}
+
+\begin{frame}{Amados por los padres}
+\fotolado{panel_jer31.jpg}{Elaboración propia: Jer 31:35a, 36 en texto hebreo consonántico (BHS).}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.57\textwidth}
+\begin{cita}[fontupper=\scriptsize\itshape]En cuanto al evangelio, enemigos por causa de vosotros; en cuanto a la elección, amados por causa de los padres.\fuente{(Ro 11:28)}\end{cita}
+\centering{\heb{גַּם זֶרַע יִשְׂרָאֵל יִשְׁבְּתוּ מִהְיוֹת גּוֹי}}\par\smallskip
+\begin{cita}[fontupper=\scriptsize\itshape]Si faltaren estas leyes delante de mí, dice YHWH, también la descendencia de Israel dejará de ser nación delante de mí todos los días.\fuente{(Jer 31:36 [31:35])}\end{cita}
+\scriptsize El pacto que perdona (Jer 31:31--34) es el pacto que conserva al pueblo (31:35--37).
+\end{column}
+\begin{column}{0.41\textwidth}\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Misericordia para todos}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.52\textwidth}
+\begin{cita}Porque Dios encerró a todos en desobediencia, para tener misericordia de todos.\fuente{(Ro 11:32)}\end{cita}
+\small «Todos» (\grc{τοὺς πάντας}): los dos grupos del contexto, gentiles e Israel.\par\medskip
+Ningún grupo reclama mérito: ambos se salvan por la misma misericordia.
+\end{column}
+\begin{column}{0.45\textwidth}
+\centering
+\begin{tikzpicture}[node distance=0.6cm]
+\node[caja,text width=3.6cm,align=center] (g) {\textbf{Gentiles}: desobedientes $\to$ misericordia por la desobediencia de Israel (11:30)};
+\node[caja,text width=3.6cm,align=center,below=of g] (i) {\textbf{Israel}: desobediente $\to$ misericordia por la misericordia a los gentiles (11:31)};
+\draw[-{Latex[length=2mm]},oro!90!ladrillo,line width=1.2pt] (g.east) to[bend left=50] (i.east);
+\draw[-{Latex[length=2mm]},oro!90!ladrillo,line width=1.2pt] (i.west) to[bend left=50] (g.west);
+\end{tikzpicture}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Nación santa en Romanos 11}
+\centering
+\begin{tikzpicture}
+ \foreach \x/\n/\t/\d/\r in {0/1/{Santidad}/{«Si las primicias son santas, también la masa; si la raíz es santa, también las ramas».}/{Ro 11:16; Éx 19:6},
+   4.2/2/{Mediación}/{Por el tropiezo de Israel «vino la salvación a las naciones»; el remanente apostólico llevó el evangelio. Pablo, «sacerdote del evangelio».}/{Ro 11:11; 15:16},
+   8.4/3/{Plenitud}/{Si el tropiezo fue riqueza, la plenitud será «vida de entre los muertos». «Seréis llamados sacerdotes de YHWH».}/{Ro 11:12, 15; Is 61:6}}{
+  \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][3.0cm][t]{3.55cm}{\RaggedRight
+    {\small\textbf{\textcolor{ladrillo}{\t}}}\\[5pt]\scriptsize \d\par\vfill{\tiny\color{sepia}(\r)}}};
+  \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
+\end{tikzpicture}\par\vspace{6pt}
+{\small\itshape\color{sepia}La vocación sacerdotal de Israel no está cancelada: espera su forma completa.}
+\end{frame}
+
+% ===================================================
+\section{«Todo Israel»}
+\begin{frame}{Seis lecturas de «todo Israel»}
+\centering
+\begin{tikzpicture}[level distance=1.25cm,
+  level 1/.style={sibling distance=6.6cm},
+  level 2/.style={sibling distance=1.9cm},
+  every node/.style={caja,align=center,text width=1.6cm,font=\tiny}]
+\node[text width=2.6cm,font=\scriptsize\bfseries,fill=oro!25] {«Todo Israel» (Ro 11:26)}
+  child {node[text width=2.6cm,font=\scriptsize\bfseries] {No étnico}
+    child {node {1. La iglesia (Israel espiritual)}}
+    child {node {5. Dos Casas (Judá + «Efraín» gentil)}}}
+  child {node[text width=2.6cm,font=\scriptsize\bfseries] {Israel étnico}
+    child {node {2. Remanente de todas las épocas}}
+    child {node {3. Todos los judíos}}
+    child {node {4. Dos caminos (sin Cristo)}}
+    child {node[fill=oro!25] {6. Conjunto futuro que reconoce al Mesías}}};
+\end{tikzpicture}\par\vspace{6pt}
+{\scriptsize Organización basada en el material de Danilo Gómez Correa (s.\,f.), con la postura de los «dos caminos» añadida.}
+\end{frame}
+
+\begin{frame}{1. La iglesia como Israel}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.49\textwidth}\small\RaggedRight
+\textbf{\textcolor{cafe}{Exposición}}\par
+«Extiendo el nombre de Israel a todo el pueblo de Dios» (Calvino, 1540/1849). Wright (2013): Israel redefinido en torno al Mesías. Coalición por el Evangelio (en la Clase 7): las promesas se cumplen en la iglesia. Reemplazo estricto: Justino (\emph{Diálogo} 11, 135).\par\smallskip
+\textbf{\textcolor{cafe}{Fortaleza}}: unidad en Cristo (Ef 2:14--16; Gá 3:28--29).
+\end{column}
+\begin{column}{0.49\textwidth}\scriptsize\RaggedRight
+\textbf{\textcolor{ladrillo}{Debilidades}}
+\begin{itemize}
+\item En 11:25 «Israel» se distingue de «las naciones»: cambiar el sentido en 11:26 es improbable.
+\item El «cuánto más» (11:12, 15) pierde sentido.
+\item La irrevocabilidad se dice del Israel \emph{no creyente} (11:28--29).
+\item Desarraiga Jer 31:35--37; Ez 36:24--28; Am 9:14--15.
+\item El olivo enseña injerto, no reemplazo (11:17, 24).
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{2--4. Remanente, todos, dos caminos}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.32\textwidth}\scriptsize\RaggedRight
+\textbf{\textcolor{ladrillo}{2. Remanente de todas las épocas}}\par\smallskip
+Hendriksen (1981); Robertson (2000).\par\smallskip
+\textbf{A favor}: «Israel» étnico; doctrina del remanente.\par
+\textbf{En contra}: 11:26 repetiría 11:5; no habría «misterio»; ignora «hasta que» y la «plenitud» frente al remanente.
+\end{column}
+\begin{column}{0.32\textwidth}\scriptsize\RaggedRight
+\textbf{\textcolor{ladrillo}{3. Todos los judíos}}\par\smallskip
+Sin respaldo exegético serio.\par\smallskip
+\textbf{En contra}: Ro 9:6--8; 10:1 (Pablo ora por su salvación); 11:23 («si no permanecen en incredulidad»). La Mishná misma pone excepciones.
+\end{column}
+\begin{column}{0.33\textwidth}\scriptsize\RaggedRight
+\textbf{\textcolor{ladrillo}{4. Dos caminos (\emph{Sonderweg})}}\par\smallskip
+Stendahl (1976); Gaston (1987); Gager (2000): Israel salvado por su pacto, sin fe en Jesús.\par\smallskip
+\textbf{A favor}: rechaza el desprecio cristiano a Israel.\par
+\textbf{En contra}: Ro 10:9--13 («no hay diferencia»); 11:23; el Libertador es Jesús (1~Ts 1:10); Fil 3:4--9.
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{5. Las Dos Casas}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.47\textwidth}\small\RaggedRight
+\textbf{\textcolor{cafe}{Exposición}} (Koniuchowsky, 2003)\par
+Efraín, dispersado por Asiria (722 a.\,e.\,c.), estaría entre las naciones; la «plenitud de los gentiles» sería la \heb{מְלֹא־הַגּוֹיִם} de Gn 48:19; «todo Israel» = Judá + Efraín (Ez 37:15--28; Os 1:10--11 [2:1--2]).\par\smallskip
+\textbf{\textcolor{cafe}{Fortalezas}}: rechaza el reemplazo; toma en serio Ez 37 y Zac 12:10.
+\end{column}
+\begin{column}{0.51\textwidth}\scriptsize\RaggedRight
+\textbf{\textcolor{ladrillo}{Debilidades}}
+\begin{enumerate}
+\item Los gentiles son \grc{κατὰ φύσιν ἀγριέλαιος}, silvestres \emph{por naturaleza} (11:24).
+\item Inclusión por fe, no por linaje (Ro 9:24; Ef 2:11--13).
+\item Os 2:23 en Ro 9:25--26: analogía, no genealogía.
+\item LXX de Gn 48:19: \grc{πλῆθος}, no \grc{πλήρωμα}.
+\item Muchos del norte se integraron en Judá (2~Cr 11:13--17; 15:9; 30:1--11); Ana, de Aser (Lc 2:36); «nuestras doce tribus» (Hch 26:7).
+\item Sin evidencia que identifique pueblos gentiles con las tribus.
+\end{enumerate}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{6. Israel étnico futuro}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.49\textwidth}\small\RaggedRight
+\textbf{\textcolor{cafe}{Exposición}}\par
+El pueblo judío como conjunto, no cada individuo, reconocerá a Jesús como Mesías cuando entre la plenitud de las naciones: Murray (1965); Cranfield (1979); Dunn (1988); Fitzmyer (1993); Moo (1996); Schreiner (1998).\par\smallskip
+\textbf{\textcolor{cafe}{Debilidad}}: depende de un cumplimiento futuro no detallado; relación colectivo-individual (el colectivo está hecho de individuos que creen).
+\end{column}
+\begin{column}{0.49\textwidth}\scriptsize\RaggedRight
+\textbf{\textcolor{ladrillo}{Fortalezas}}
+\begin{itemize}
+\item Mismo sentido de «Israel» en 11:25 y 11:26.
+\item Explica «hasta que», remanente/plenitud y «cuánto más».
+\item Reinjerto condicionado a la fe (11:23).
+\item Uso colectivo de \emph{kol Yisra'el}.
+\item Is 59 y Jer 31: pacto con Jacob/Israel.
+\item Jesús: «no me veréis más hasta que digáis: Bendito el que viene» (Mt 23:39); Lc 21:24.
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Tabla comparativa}
+\centering\tiny\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{3.4cm}>{\centering\arraybackslash}p{0.95cm}>{\centering\arraybackslash}p{0.95cm}>{\centering\arraybackslash}p{0.95cm}>{\centering\arraybackslash}p{0.95cm}>{\centering\arraybackslash}p{0.95cm}>{\centering\arraybackslash}p{0.95cm}}
+\toprule
+\textbf{Criterio (Ro 11)} & \textbf{1. Iglesia} & \textbf{2. Rema\-nente} & \textbf{3. Todos} & \textbf{4. Dos caminos} & \textbf{5. Dos Casas} & \textbf{6. Israel futuro}\\\midrule
+Mismo «Israel» en 11:25 y 26 & no & sí & sí & sí & no & \textbf{sí}\\
+Explica «hasta que» & no & no & parcial & sí & sí & \textbf{sí}\\
+Plenitud mayor que remanente (11:12, 15) & no & no & sí & sí & parcial & \textbf{sí}\\
+Exige fe (10:9--13; 11:23) & sí & sí & no & no & sí & \textbf{sí}\\
+Gentiles, olivo silvestre (11:24) & parcial & sí & sí & sí & no & \textbf{sí}\\
+Irrevocable para el Israel no creyente (11:28--29) & no & parcial & sí & sí & parcial & \textbf{sí}\\
+\bottomrule
+\end{tabular}\par\vspace{6pt}
+\scriptsize\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{2.4cm}>{\RaggedRight\arraybackslash}p{4.0cm}>{\RaggedRight\arraybackslash}p{4.4cm}}
+\toprule
+\textbf{Postura} & \textbf{Fortaleza} & \textbf{Debilidad}\\\midrule
+Israel espiritual & Unidad en Cristo & Ignora la dimensión literal y nacional\\
+Dos Casas & Cumplimiento literal; Judá e Israel & Gentiles como Efraín: especulativo\\
+Israel étnico con Mesías & Literal y espiritual; integra a los gentiles & Depende de un cumplimiento futuro\\
+\bottomrule
+\end{tabular}\par
+{\fontsize{5}{6}\selectfont\color{sepia}\raggedleft\textit{Nota.} Criterios de elaboración propia; segunda tabla adaptada de Gómez Correa (s.\,f.).\par}
+\end{frame}
+
+\begin{frame}{Conclusión sobre «todo Israel»}
+\begin{tcolorbox}[colback=piedra,colframe=ladrillo,boxrule=1pt,arc=3pt,fontupper=\small]
+La lectura más consistente con el contexto de Romanos 11 es la \textbf{restauración futura del Israel étnico como conjunto, que reconocerá al Mesías}.
+\end{tcolorbox}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.44\textwidth}\small
+\begin{itemize}
+\item \textbf{No cada individuo}: colectivo, como en el AT y la Mishná.
+\item \textbf{No por etnia sin fe}: «si no permanecen en incredulidad» (11:23).
+\item \textbf{No en reemplazo de la iglesia}: un solo olivo.
+\end{itemize}
+\end{column}
+\begin{column}{0.53\textwidth}
+\begin{cita}[fontupper=\scriptsize\itshape]«Todo Israel» significa un futuro volverse masivo del pueblo judío a Yeshúa como Mesías, no la salvación de cada judío individual. Israel es ampliado, no reemplazado.\fuente{(ONE FOR ISRAEL, 2025; síntesis)}\end{cita}
+\scriptsize Estimación del ministerio: c. 1 millón de judíos creyentes de c. 15 millones: un remanente.
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Lo que queda abierto}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.32\textwidth}\small\RaggedRight
+\textbf{\textcolor{ladrillo}{El momento}}\par\smallskip
+Pablo no fecha la plenitud ni la salvación de Israel. «No os toca saber los tiempos» (Hch 1:7).
+\end{column}
+\begin{column}{0.33\textwidth}\small\RaggedRight
+\textbf{\textcolor{ladrillo}{La parusía}}\par\smallskip
+¿El Libertador de Sion es la segunda venida? Zac 12:10 («mirarán a mí, a quien traspasaron»); Mt 23:39; Hch 3:19--21 (\grc{ἀποκατάστασις πάντων}).
+\end{column}
+\begin{column}{0.32\textwidth}\small\RaggedRight
+\textbf{\textcolor{ladrillo}{La tierra}}\par\smallskip
+Ro 11 no la menciona; los profetas sí (Ez 36--37; Jer 31:38--40). 1948 como Ez 37:1--8 es interpretación teológica de la congregación, no texto de Romanos.
+\end{column}
+\end{columns}\vspace{8pt}
+\centering
+\begin{tikzpicture}[node distance=0.25cm]
+\foreach \i/\t/\r in {1/{Se juntan los huesos}/{Ez 37:1--7},2/{Cuerpo sin espíritu}/{Ez 37:8},3/{Espíritu: «mirarán»}/{Zac 12:10--14},4/{Un solo pueblo}/{Ez 37:15--25}}{
+  \node[caja,text width=2.3cm,align=center] (e\i) at (\i*2.85,0) {\textbf{\textcolor{ladrillo}{\i. \t}}\\{\tiny\color{sepia}\r}};}
+\foreach \a/\b in {1/2,2/3,3/4}{\draw[-{Latex[length=2mm]},oro!90!ladrillo,line width=1.2pt] (e\a) -- (e\b);}
+\end{tikzpicture}\par
+{\fontsize{5}{6}\selectfont\color{sepia}\raggedleft\textit{Nota.} Las cuatro etapas de Ez 37, según la Clase 7 y la Octava lección de la congregación.\par}
+\end{frame}
+
+% ===================================================
+\section{Hilos}
+\begin{frame}{Siete estudios, un capítulo}
+\centering\tiny\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{2.0cm}>{\RaggedRight\arraybackslash}p{3.4cm}>{\RaggedRight\arraybackslash}p{2.4cm}>{\RaggedRight\arraybackslash}p{3.4cm}}
+\toprule
+\textbf{Estudio} & \textbf{Hilo} & \textbf{Textos} & \textbf{En Romanos 11}\\\midrule
+1. Abraham--Éxodo & Pacto perpetuo; remanente de José & Gn 15; 17:7; 45:7 & Raíz santa (11:16); amados por los padres (11:28)\\
+2. Éxodo--Josué & Reino de sacerdotes; celos & Éx 19:6; Dt 29:4; 32:21 & Celos (11:11, 14); ojos que no ven (11:8)\\
+3. Jueces--David & YHWH no desampara; Benjamín & 1~S 12:22 & «¿Ha desechado Dios?» (11:1)\\
+4. David--división & Pacto davídico; raíz de Isaí & 2~S 7; Is 11:10 & David testigo (11:9); Ro 15:12\\
+5. Reyes y cautiverios & Elías en el norte; «no pueblo mío»; nuevo pacto; Ez 37 & 1~R 19:18; Os 1--2; Jer 31 & Siete mil (11:4); pacto (11:27); irrevocable (11:29)\\
+6. Segundo Templo & Redentor de Sion; «todo Israel» confiesa & Is 59:20; Dn 9:11 & «Vendrá de Sion» (11:26)\\
+7. Cristo--año 70 & Remanente; «hasta que» & Hch 21:20; Lc 21:24; Mt 23:39 & Remanente (11:5); «hasta que» (11:25)\\
+\bottomrule
+\end{tabular}
+\end{frame}
+
+\begin{frame}{Tres hilos mayores}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.82,transform shape]
+\node[caja,fill=oro!25,text width=2.4cm,align=center,font=\scriptsize\bfseries] (r) at (0,0) {\textcolor{ladrillo}{Romanos 11}};
+\foreach \ang/\n/\t in {90/1/{1: padres y pacto},38.6/2/{2: sacerdocio y celos},-12.9/3/{3: no desamparará},-64.3/4/{4: David y la raíz},-115.7/5/{5: remanente, nuevo pacto},-167.1/6/{6: Redentor de Sion},141.4/7/{7: «hasta que»}}{
+  \node[caja,text width=1.9cm,align=center,font=\tiny] (n\n) at (\ang:2.9) {Est. \t};
+  \draw[-{Latex[length=2mm]},oro!90!ladrillo,line width=1pt] (n\n) -- (r);}
+\end{tikzpicture}
+\end{column}
+\begin{column}{0.47\textwidth}\small
+\begin{enumerate}
+\item \destacar{Remanente}: José (Gn 45:7), Elías (1~R 19:18), «un resto volverá» (Is 10:21), el retorno (Esd 9:8), Hch 21:20, Pablo.
+\item \destacar{Reunificación}: Judá y José «un solo palo» (Ez 37:15--28). En tiempos de Pablo, «Israel» ya es el heredero de todas las tribus.
+\item \destacar{Nuevo pacto}: Jer 31; Ez 36 $\to$ Lc 22:20 $\to$ Ro 11:27.
+\end{enumerate}
+\end{column}
+\end{columns}
+\end{frame}
+
+% ===================================================
+\section{Tradición judía}
+\begin{frame}{La Mishná: «todo Israel»}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.52\textwidth}
+\centering{\heb{כל ישראל יש להם חלק לעולם הבא}}\par\smallskip
+\begin{cita}[fontupper=\scriptsize\itshape]Todo Israel tiene parte en el mundo venidero, porque está dicho: «Tu pueblo, todos ellos justos» (Is 60:21). Y estos no tienen parte: el que niega la resurrección [\ldots], el que dice que la Torá no es del cielo, y el epicúreo.\fuente{(Mishná, Sanedrín 10:1)}\end{cita}
+\scriptsize 10:2 añade Jeroboam, Acab, Manasés, Balaam, Doeg, Ajitófel y Guejazí. \destacar{«Todo Israel» es colectivo con excepciones.}
+\end{column}
+\begin{column}{0.45\textwidth}\small\RaggedRight
+\textbf{\textcolor{cafe}{Las diez tribus (Sanedrín 10:3)}}\par\smallskip
+R. Aquiba: «las diez tribus no volverán» (Dt 29:28 [29:27]).\par\smallskip
+R. Eliézer: como el día que se oscurece y vuelve a aclarar, así vendrá la luz para ellas.\par\medskip
+\precision{Mishná c. 200 e.\,c.: posterior a Pablo. Algunos manuscritos no traen la frase inicial; verificar en edición crítica. Is 60:21 sigue a Is 59:20--21.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Talmud, Targum y liturgia}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.49\textwidth}\scriptsize\RaggedRight
+\textbf{\textcolor{ladrillo}{Sanedrín 97b--98a}} (tradiciones posteriores)
+\begin{itemize}
+\item R. Eliézer: «si Israel se arrepiente, es redimido».
+\item Is 60:22: «si lo merecen, lo apresuraré; si no, a su tiempo» (R. Josué ben Leví).
+\item El Mesías responde «hoy»: Sal 95:7, «si oís su voz».
+\item R. Yojanán: angustias como un río $\to$ «vendrá a Sion el Redentor» (Is 59:19--20).
+\end{itemize}
+\textbf{\textcolor{ladrillo}{Targum de Is 59:20}}: el redentor viene para hacer volver a la Torá a los rebeldes de Jacob (Chilton, 1987).
+\end{column}
+\begin{column}{0.49\textwidth}\scriptsize\RaggedRight
+\textbf{\textcolor{ladrillo}{\emph{U-va le-Tsiyyón}}}: Is 59:20--21 abre una oración del servicio diario de la mañana.\par\smallskip
+\textbf{\textcolor{ladrillo}{La Amidá}}\par\smallskip
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{1.3cm}>{\RaggedRight\arraybackslash}p{3.6cm}}
+\toprule
+10.ª & «Reúnes a los dispersos de tu pueblo Israel» (Is 11:12; Ez 37:21)\\
+14.ª & «Edificas Jerusalén» (Lc 21:24)\\
+15.ª & «Haz brotar el renuevo de David» (Jer 23:5; Ro 15:12)\\
+\bottomrule
+\end{tabular}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Israel como olivo}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.52\textwidth}
+\centering{\large\heb{זַיִת רַעֲנָן יְפֵה פְרִי־תֹאַר}}\par\smallskip
+\begin{cita}Olivo verde, hermoso en fruto y en aspecto, llamó YHWH tu nombre; [\ldots] y quebraron sus ramas.\fuente{(Jer 11:16)}\end{cita}
+\end{column}
+\begin{column}{0.45\textwidth}
+\begin{cita}[fontupper=\scriptsize\itshape]¿Por qué Israel es comparado con el olivo? Así como las hojas del olivo no caen ni en verano ni en invierno, así Israel no será desechado nunca, ni en este mundo ni en el venidero.\fuente{(Talmud, Menajot 53b, R. Josué ben Leví)}\end{cita}
+\end{column}
+\end{columns}\vspace{6pt}
+{\small\itshape\color{sepia}\centering El olivo puede perder ramas, pero no es arrancado: la imagen de Pablo habla el idioma de Israel.\par}
+\end{frame}
+
+% ===================================================
+\section{Implicaciones}
+\begin{frame}{Para la iglesia de las naciones}
+\centering
+\begin{tikzpicture}
+ \foreach \x/\n/\t/\d/\r in {0/1/{Humildad}/{«No te jactes contra las ramas». La historia del desprecio cristiano a Israel debe reconocerse como pecado.}/{Ro 11:18},
+   3.15/2/{Gratitud}/{Somos «deudores»: Escritura, pactos, Mesías y apóstoles vinieron de Israel.}/{Ro 15:27; 9:4--5},
+   6.3/3/{Provocar celos}/{Que Israel vea en la iglesia la bendición que es suya.}/{Ro 11:11, 14},
+   9.45/4/{Temor}/{Estamos en el olivo por la fe; la advertencia sigue vigente.}/{Ro 11:20--22}}{
+  \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][2.9cm][t]{2.65cm}{\RaggedRight
+    {\small\textbf{\textcolor{ladrillo}{\t}}}\\[4pt]\scriptsize \d\par\vfill{\tiny\color{sepia}(\r)}}};
+  \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Israel hoy y la esperanza}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.49\textwidth}\small\RaggedRight
+\textbf{\textcolor{cafe}{Teología, no política}}\par\smallskip
+Ro 11 habla del pueblo de Israel ante Dios y el Mesías; no es un programa político. Amar a Israel «por causa de los padres» no obliga a aprobar cada acción de un gobierno: los profetas amaban a Israel y denunciaban a sus reyes. Pero Ro 11 impide la indiferencia (Jer 31:35--37).
+\end{column}
+\begin{column}{0.49\textwidth}
+\textbf{\small\textcolor{cafe}{La esperanza}}\par\smallskip
+\begin{cita}[fontupper=\scriptsize\itshape]El anhelo de mi corazón y mi oración a Dios por Israel es para salvación.\fuente{(Ro 10:1)}\end{cita}
+\small La historia termina con la plenitud de ambos: de las naciones y de Israel.
+\end{column}
+\end{columns}
+\end{frame}
+
+% ===================================================
+\section{Síntesis}
+\begin{frame}{Síntesis}
+\begin{tcolorbox}[colback=piedra,colframe=ladrillo,boxrule=1pt,arc=3pt,fontupper=\small]
+\textbf{\textcolor{cafe}{Romanos 11:}} Dios no ha desechado a su pueblo. Hoy hay un remanente escogido por gracia; el resto está endurecido en parte y por un tiempo, para que entren las naciones y para provocar celos a Israel. Cuando haya entrado la plenitud de las naciones, todo Israel será salvo por el Libertador de Sion y el nuevo pacto, porque los dones y el llamamiento de Dios son irrevocables.
+\end{tcolorbox}
+\scriptsize\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{2.4cm}>{\RaggedRight\arraybackslash}p{8.9cm}}
+\toprule
+\textbf{Dimensión} & \textbf{Aporte}\\\midrule
+Histórica & Roma tras el edicto de Claudio: Pablo corrige la arrogancia gentil (11:13--25)\\
+Literaria & Ro 9--11 es una unidad; cuatro pasos: remanente, tropiezo, misterio, doxología\\
+Filológica & \grc{πώρωσις ἀπὸ μέρους}, \grc{ἄχρι οὗ}, \grc{πλήρωμα}, \grc{καὶ οὕτως}, \grc{πᾶς Ἰσραήλ}, \grc{ἐκ Σιών}\\
+Teológica & Fidelidad de Dios; inclusión sin reemplazo; salvación futura del Israel étnico por la fe\\
+\bottomrule
+\end{tabular}
+\end{frame}
+
+\begin{frame}{La doxología de la serie}
+\fotolado{panel_ro33.jpg}{Elaboración propia: Ro 11:33--34a en escritura uncial (texto NA28).}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.57\textwidth}
+\small De Gn 15:5, «mira los cielos y cuenta las estrellas», a un apóstol de la tribu de Benjamín que contempla el plan de Dios:
+\begin{cita}¡Oh profundidad de las riquezas, y de la sabiduría y del conocimiento de Dios! ¡Cuán insondables son sus juicios e inescrutables sus caminos! [\ldots] Porque de él, por él y para él son todas las cosas. A él sea la gloria por los siglos. Amén.\fuente{(Ro 11:33, 36)}\end{cita}
+\end{column}
+\begin{column}{0.41\textwidth}\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Para la reflexión}
+\small
+\begin{enumerate}
+\item Pablo prueba la fidelidad de Dios con su propia persona (11:1). ¿Qué significa que la prueba sea alguien del remanente?
+\item El endurecimiento es parcial, temporal y con propósito. ¿Cómo cambia esto la manera de hablar del pueblo judío?
+\item ¿Qué formas de «jactancia contra las ramas» reconoce en la historia de la iglesia y en su comunidad (11:18--22)?
+\item ¿Qué versículos de Ro 11 son decisivos para elegir entre «la iglesia» y «el Israel étnico futuro»?
+\item La Mishná dice «todo Israel» y enumera excepciones. ¿Qué enseña sobre la frase de Pablo?
+\item ¿Qué significa, en la práctica, ser «deudores» de Israel (Ro 15:27)?
+\end{enumerate}
+\end{frame}
+
+% ===================================================
+\section{Glosario y fuentes}
+\begin{frame}{Glosario}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.49\textwidth}\tiny
+\textbf{Agriélaios} (\grc{ἀγριέλαιος}): olivo silvestre (11:17, 24).\par\smallskip
+\textbf{Ametamélēta} (\grc{ἀμεταμέλητα}): irrevocables (11:29).\par\smallskip
+\textbf{Aparchḗ} (\grc{ἀπαρχή}): primicia; \heb{רֵאשִׁית} (11:16).\par\smallskip
+\textbf{Enkentrízō} (\grc{ἐγκεντρίζω}): injertar (11:17--24).\par\smallskip
+\textbf{Go'el} (\heb{גֹּאֵל}): redentor (Is 59:20).\par\smallskip
+\textbf{Jéleq} (\heb{חֵלֶק}): parte en el mundo venidero (Mishná).\par\smallskip
+\textbf{Kaì hoútōs} (\grc{καὶ οὕτως}): «y así» (11:26).\par\smallskip
+\textbf{Kol Yisra'el} (\heb{כָּל־יִשְׂרָאֵל}): todo Israel, colectivo.\par\smallskip
+\textbf{Leîmma} (\grc{λεῖμμα}): remanente (11:5).\par\smallskip
+\textbf{Mḕ génoito} (\grc{μὴ γένοιτο}): «¡de ningún modo!».
+\end{column}
+\begin{column}{0.49\textwidth}\tiny
+\textbf{Mystḗrion} (\grc{μυστήριον}): designio revelado (11:25).\par\smallskip
+\textbf{Parazēlóō} (\grc{παραζηλόω}): provocar a celos (11:11).\par\smallskip
+\textbf{Pâs Israḗl} (\grc{πᾶς Ἰσραήλ}): todo Israel (11:26).\par\smallskip
+\textbf{Plḗrōma} (\grc{πλήρωμα}): plenitud (11:12, 25).\par\smallskip
+\textbf{Pṓrōsis} (\grc{πώρωσις}): endurecimiento (11:25).\par\smallskip
+\textbf{Próslēmpsis} (\grc{πρόσλημψις}): aceptación (11:15).\par\smallskip
+\textbf{She'erit} (\heb{שְׁאֵרִית}): remanente (Gn 45:7).\par\smallskip
+\textbf{Sōthḗsetai} (\grc{σωθήσεται}): será salvo (11:26).\par\smallskip
+\textbf{U-va le-Tsiyyón} (\heb{ובא לציון}): «y vendrá a Sion».\par\smallskip
+\textbf{Zayit} (\heb{זַיִת}): olivo; Israel (Jer 11:16).
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Referencias}
+\tiny
+\refapa{Baxter, A.~G., \& Ziesler, J.~A. (1985). Paul and arboriculture: Romans 11.17--24. \emph{Journal for the Study of the New Testament, 8}(24), 25--32.}
+\refapa{Beale, G.~K., \& Carson, D.~A. (Eds.). (2007). \emph{Commentary on the New Testament use of the Old Testament}. Baker Academic.}
+\refapa{\emph{Biblia Hebraica Stuttgartensia} (5.ª ed.). (1997). Deutsche Bibelgesellschaft.}
+\refapa{Calvino, J. (1849). \emph{Commentaries on the epistle of Paul the apostle to the Romans} (J. Owen, Trad.). Calvin Translation Society. (Obra original publicada en 1540)}
+\refapa{Chilton, B.~D. (1987). \emph{The Isaiah Targum} (The Aramaic Bible, Vol. 11). Michael Glazier.}
+\refapa{Coalición por el Evangelio. (s.\,f.). [Artículo sobre la teología del reemplazo]. Citado en Departamento de Educación (s.\,f.).}
+\refapa{Cranfield, C.~E.~B. (1979). \emph{A critical and exegetical commentary on the epistle to the Romans} (Vol. 2). T\&T Clark.}
+\refapa{Danby, H. (Trad.). (1933). \emph{The Mishnah}. Oxford University Press.}
+\refapa{Das, A.~A. (2007). \emph{Solving the Romans debate}. Fortress Press.}
+\refapa{Departamento de Educación, Congregación Iglesia Israelita del Nuevo Pacto. (s.\,f.). \emph{Restauración de Israel} (Clase 7) [Presentación].}
+\refapa{Dunn, J.~D.~G. (1988). \emph{Romans 9--16} (Word Biblical Commentary, Vol. 38B). Word Books.}
+\refapa{Epstein, I. (Ed.). (1935--1948). \emph{The Babylonian Talmud}. Soncino Press.}
+\refapa{Fitzmyer, J.~A. (1993). \emph{Romans} (The Anchor Bible, Vol. 33). Doubleday.}
+\refapa{Gager, J.~G. (2000). \emph{Reinventing Paul}. Oxford University Press.}
+\refapa{Gaston, L. (1987). \emph{Paul and the Torah}. University of British Columbia Press.}
+\refapa{Gómez Correa, D. (s.\,f.). \emph{Interpretación de Romanos 11:25--26} [Presentación].}
+\refapa{Hays, R.~B. (1989). \emph{Echoes of Scripture in the letters of Paul}. Yale University Press.}
+\refapa{Hendriksen, W. (1981). \emph{Exposition of Paul's epistle to the Romans}. Baker.}
+\refapa{\emph{Israel, el pueblo de Dios} (Octava lección). (s.\,f.). [Material de estudio]. Congregación Iglesia Israelita del Nuevo Pacto.}
+\refapa{Jewett, R. (2007). \emph{Romans: A commentary} (Hermeneia). Fortress Press.}
+\refapa{Kaiser, W.~C. (1998). \emph{The Messiah in the Old Testament}. Zondervan.}
+\refapa{Koniuchowsky, M.~Y. (2003). \emph{The Restoration Scriptures: True Name Edition}. Your Arms to Israel.}
+\refapa{Moo, D.~J. (1996). \emph{The epistle to the Romans}. Eerdmans.}
+\refapa{Murray, J. (1965). \emph{The epistle to the Romans} (Vol. 2). Eerdmans.}
+\refapa{Nanos, M.~D. (1996). \emph{The mystery of Romans: The Jewish context of Paul's letter}. Fortress Press.}
+\refapa{\emph{Novum Testamentum Graece} (28.ª ed.). (2012). Deutsche Bibelgesellschaft.}
+\refapa{ONE FOR ISRAEL Ministry. (2025, 3 de julio). \emph{What does «all Israel will be saved» mean in Romans 11?} \url{https://www.oneforisrael.org/what-does-all-israel-will-be-saved-mean-in-romans-11/}}
+\refapa{Rahlfs, A., \& Hanhart, R. (Eds.). (2006). \emph{Septuaginta} (ed. rev.). Deutsche Bibelgesellschaft.}
+\refapa{Robertson, O.~P. (2000). \emph{The Israel of God: Yesterday, today, and tomorrow}. P\&R Publishing.}
+\refapa{Sacks, J. (Trad.). (2009). \emph{The Koren Siddur}. Koren Publishers.}
+\refapa{Sanders, E.~P. (1977). \emph{Paul and Palestinian Judaism}. Fortress Press.}
+\refapa{Schreiner, T.~R. (1998). \emph{Romans} (Baker Exegetical Commentary on the New Testament). Baker Academic.}
+\refapa{Stanley, C.~D. (1992). \emph{Paul and the language of Scripture}. Cambridge University Press.}
+\refapa{Stendahl, K. (1976). \emph{Paul among Jews and Gentiles}. Fortress Press.}
+\refapa{Stowers, S.~K. (1981). \emph{The diatribe and Paul's letter to the Romans}. Scholars Press.}
+\refapa{Suetonio. (1914). \emph{The lives of the Caesars} (J.~C. Rolfe, Trad.). Harvard University Press.}
+\refapa{van der Horst, P.~W. (2000). «Only then will all Israel be saved»: A short note on the meaning of \emph{kai houtōs} in Romans 11:26. \emph{Journal of Biblical Literature, 119}(3), 521--525.}
+\refapa{Wagner, J.~R. (2002). \emph{Heralds of the good news: Isaiah and Paul «in concert» in the letter to the Romans}. Brill.}
+\refapa{Wiefel, W. (1991). The Jewish community in ancient Rome and the origins of Roman Christianity. En K.~P. Donfried (Ed.), \emph{The Romans debate} (ed. rev.). Hendrickson.}
+\refapa{Wright, N.~T. (2013). \emph{Paul and the faithfulness of God}. Fortress Press.}
+\end{frame}
+\end{document}
