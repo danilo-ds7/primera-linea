@@ -27,7 +27,7 @@ LIBROS.update({k.replace('~', ' '): v for k, v in list(LIBROS.items()) if '~' in
 
 def ref_larga(r):
     r = r.strip('()')
-    m = re.match(r'(.+?)\s+([\d:\-, ]+?)(\s*\[[^\]]*\])?$', r)
+    m = re.match(r'(.+?)\s+([\d:\-, ]+?[ab]?)(\s*\[[^\]]*\])?$', r)
     libro, cap = m.group(1), m.group(2)
     extra = (m.group(3) or '').replace('--', '–')
     if libro == 'Sal':
