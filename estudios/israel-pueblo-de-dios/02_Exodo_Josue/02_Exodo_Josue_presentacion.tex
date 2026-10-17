@@ -65,7 +65,11 @@
 \newcommand{\refapa}[1]{\par\hangindent=1.2em\hangafter=1\noindent #1\par\vspace{3pt}}
 \usepackage{xurl}\urlstyle{same}
 \newcommand{\destacar}[1]{\textbf{\textcolor{ladrillo}{#1}}}
-\tikzset{caja/.style={draw=cafe,line width=0.8pt,fill=piedra,fill opacity=0.9,text opacity=1,rounded corners=3pt,inner sep=5pt,font=\scriptsize}}
+\usetikzlibrary{shadows}
+\tikzset{caja/.style={draw=cafe!80!black,line width=0.7pt,top color=piedra!55!white,bottom color=piedra!92!oro,
+  rounded corners=4pt,inner sep=5pt,font=\scriptsize,
+  drop shadow={shadow xshift=0.7pt,shadow yshift=-0.8pt,opacity=0.25,fill=cafeosc}},
+  >={Stealth[length=2.4mm,width=1.8mm]}, every picture/.style={line cap=round,line join=round}}
 \newcommand{\precision}[1]{{\footnotesize\color{sepia}\textbf{Precisión:} #1}}
 \newcommand{\pt}[2]{({#1-30},{#2-29})}
 \title[Israel 2: Éxodo--Josué]{\bfseries{Israel, el pueblo de Dios}}
@@ -159,45 +163,28 @@ Ninguna fecha está demostrada. La elección cambia la lectura de los hallazgos 
 \section{Arqueología}
 \begin{frame}{Del mar al Jordán}
 \begin{columns}[c,onlytextwidth]
-\begin{column}{0.52\textwidth}
-\centering
-\begin{tikzpicture}[x=1.0cm,y=1.12cm]
-% Mediterráneo
-\fill[cafe!18] \pt{30.7}{31.45} -- \pt{31.0}{31.55} -- \pt{31.9}{31.5} -- \pt{32.3}{31.25} -- \pt{33.5}{31.15} -- \pt{34.2}{31.32} -- \pt{34.75}{32.05} -- \pt{34.95}{32.8} -- \pt{35.1}{33.2} -- \pt{35.15}{33.4} -- \pt{30.7}{33.4} -- cycle;
-\draw[cafe!60,line width=0.6pt] \pt{30.7}{31.45} -- \pt{31.0}{31.55} -- \pt{31.9}{31.5} -- \pt{32.3}{31.25} -- \pt{33.5}{31.15} -- \pt{34.2}{31.32} -- \pt{34.75}{32.05} -- \pt{34.95}{32.8} -- \pt{35.1}{33.2} -- \pt{35.15}{33.4};
-\node[font=\tiny\itshape,cafe] at \pt{32.4}{32.6} {Mar Grande};
-% golfos de Suez y Aqaba
-\fill[cafe!18] \pt{32.55}{29.97} -- \pt{32.45}{29.6} -- \pt{32.65}{29.1} -- \pt{33.0}{28.5} -- \pt{33.35}{28.0} -- \pt{33.55}{27.6} -- \pt{34.75}{27.6} -- \pt{34.85}{28.1} -- \pt{34.9}{28.6} -- \pt{35.0}{29.53} -- \pt{34.9}{29.48} -- \pt{34.7}{29.0} -- \pt{34.6}{28.5} -- \pt{34.43}{28.0} -- \pt{34.25}{27.73} -- \pt{33.85}{28.1} -- \pt{33.5}{28.5} -- \pt{33.1}{29.0} -- \pt{32.75}{29.5} -- \pt{32.6}{29.95} -- cycle;
-\node[font=\tiny\itshape,cafe,rotate=-55] at \pt{32.85}{28.95} {golfo de Suez};
-\node[font=\tiny\itshape,cafe,rotate=75] at \pt{35.08}{28.6} {Aqaba};
-% Mar Muerto, Galilea, Jordán, Nilo
-\fill[cafe!18] \pt{35.48}{31.76} -- \pt{35.58}{31.75} -- \pt{35.6}{31.4} -- \pt{35.55}{31.1} -- \pt{35.42}{31.1} -- \pt{35.4}{31.45} -- cycle;
-\fill[cafe!18] \pt{35.59}{32.82} ellipse (0.07 and 0.11);
-\draw[cafe!70,line width=0.8pt] \pt{35.57}{32.7} -- \pt{35.55}{32.3} -- \pt{35.53}{31.76};
-\draw[cafe!70,line width=0.9pt] plot[smooth] coordinates {\pt{31.25}{29.6} \pt{31.2}{30.1} \pt{30.9}{31.0} \pt{30.75}{31.45}};
-\draw[cafe!70,line width=0.9pt] \pt{31.2}{30.1} -- \pt{31.9}{31.45};
-\node[font=\tiny\itshape,cafe] at \pt{31.0}{29.8} {Nilo};
-% ruta del desierto (tradicional)
-\draw[ladrillo,line width=1.1pt,dashed,-{Latex[length=2mm]}] plot[smooth] coordinates {\pt{31.82}{30.80} \pt{32.10}{30.55} \pt{32.6}{30.1} \pt{33.0}{29.4} \pt{33.5}{28.9} \pt{33.97}{28.54}};
-\draw[ladrillo,line width=1.1pt,dashed,-{Latex[length=2mm]}] plot[smooth] coordinates {\pt{33.97}{28.54} \pt{34.3}{29.3} \pt{34.43}{30.65}};
-\draw[ladrillo,line width=1.1pt,dashed,-{Latex[length=2mm]}] plot[smooth] coordinates {\pt{34.43}{30.65} \pt{35.2}{30.2} \pt{35.7}{30.6} \pt{35.8}{31.3} \pt{35.73}{31.77}};
-% entrada y conquista
-\draw[oro!90!ladrillo,line width=1.2pt,-{Latex[length=2mm]}] \pt{35.73}{31.77} -- \pt{35.44}{31.87};
-\draw[oro!90!ladrillo,line width=1.2pt,-{Latex[length=2mm]}] \pt{35.44}{31.87} -- \pt{35.26}{31.92};
-\draw[oro!90!ladrillo,line width=1.2pt,-{Latex[length=2mm]}] \pt{35.26}{31.92} -- \pt{35.28}{32.21};
-\draw[oro!90!ladrillo,line width=1.2pt,dashed,-{Latex[length=2mm]}] \pt{35.28}{32.21} -- \pt{35.57}{33.02};
-% lugares
-\foreach \lon/\lat/\n/\p in {31.82/30.80/Ramsés/left, 32.10/30.55/Sucot/below, 33.97/28.54/{Sinaí (trad.)}/right, 34.43/30.65/Cades-barnea/left, 35.73/31.77/Nebo/right, 35.44/31.87/Jericó/below left, 35.26/31.92/Hai/above left, 35.28/32.21/Siquem (Ebal)/left, 35.57/33.02/Hazor/right}{
-  \fill[cafeosc] \pt{\lon}{\lat} circle (1.5pt);
-  \node[\p,font=\tiny\bfseries,text=tinta,inner sep=1.5pt] at \pt{\lon}{\lat} {\n};}
-\end{tikzpicture}
+\begin{column}{0.56\textwidth}\centering\includegraphics[width=\linewidth,height=0.86\textheight,keepaspectratio]{mapa_exodo.pdf}\par\vspace{1pt}{\fontsize{4.5}{5.5}\selectfont\color{sepia}\textit{Nota.} Elaboración propia (GSHHS/WDB, Basemap); ubicaciones aproximadas.\par}\end{column}
+\begin{column}{0.42\textwidth}\scriptsize\RaggedRight
+\input{crops/mapa_exodo_leyenda.tex}\medskip
+
+\textbf{Ruta tradicional} (Nm 33): Ramsés, Sucot, el mar, el Sinaí, Cades y el rodeo de Edom hasta las llanuras de Moab.\par\medskip
+\textbf{En debate}: el lugar del paso (\heb{יַם־סוּף}, \emph{yam suf}, «mar de los juncos»; LXX «mar Rojo») y el monte Sinaí (Yébel Musa, norte del Sinaí o Madián).\par\medskip
+Ein el-Qudeirat (¿Cades?) solo tiene fortalezas del Hierro; un pueblo de tiendas no deja arquitectura.
 \end{column}
-\begin{column}{0.45\textwidth}\scriptsize\RaggedRight
-\textcolor{ladrillo}{\textbf{- - -}} Desierto: Ramsés $\to$ Sinaí $\to$ Cades $\to$ Moab (Nm 33)\par\smallskip
-\textcolor{oro!90!ladrillo}{\textbf{---}} Tierra: Jordán, Jericó, Hai, Siquem; campaña del norte hasta Hazor (Jos 3--11)\par\medskip
-\textbf{En debate}: el lugar del paso (\heb{יַם־סוּף}, \emph{yam suf}, «mar de los juncos»; LXX «mar Rojo») y el monte Sinaí (Jebel Musa, norte del Sinaí o Madián).\par\medskip
-Ein el-Qudeirat (¿Cades?) solo tiene fortalezas del Hierro; un pueblo de tiendas no deja arquitectura.\par\medskip
-{\fontsize{5}{6}\selectfont\color{sepia}\textit{Nota.} Elaboración propia: mapa esquemático con coordenadas reales; ruta tradicional, en debate.}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Conquista y reparto}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.46\textwidth}\centering\includegraphics[width=\linewidth,height=0.86\textheight,keepaspectratio]{mapa_tribus.pdf}\par\vspace{1pt}{\fontsize{4.5}{5.5}\selectfont\color{sepia}\textit{Nota.} Elaboración propia (GSHHS/WDB, Basemap); ubicaciones aproximadas.\par}\end{column}
+\begin{column}{0.52\textwidth}\scriptsize\RaggedRight
+\input{crops/mapa_tribus_leyenda.tex}\medskip
+
+\textbf{Centro} (Jos 6--9): Jericó, Hai y el pacto con Gabaón; Siquem y el Ebal (8:30--35).\par\smallskip
+\textbf{Sur} (Jos 10): de Gabaón a Laquis y Hebrón.\par\smallskip
+\textbf{Norte} (Jos 11): Hazor, «cabeza de todos aquellos reinos».\par\medskip
+\textbf{Reparto} (Jos 13--19): nueve tribus y media al oeste del Jordán; Rubén, Gad y media Manasés al este. Leví no recibe territorio: «YHWH es su heredad» (Jos 13:33).\par\medskip
+\precision{los límites tribales se representan con rótulos aproximados.}
 \end{column}
 \end{columns}
 \end{frame}

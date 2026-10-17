@@ -123,33 +123,20 @@ La lección «Israel, el pueblo de Dios» afirma que en el año 70 «más de un 
 \end{nota}
 
 \subsection{Mapa de la etapa}
-\begin{center}
-\begin{tikzpicture}[x=2.9cm,y=3.4cm]
-% mar Mediterráneo
-\fill[cafe!18] \pt{34.2}{31.2} -- \pt{34.45}{31.2} -- \pt{34.55}{31.67} -- \pt{34.64}{31.8} -- \pt{34.69}{31.92} -- \pt{34.75}{32.05} -- \pt{34.80}{32.2} -- \pt{34.89}{32.5} -- \pt{34.92}{32.62} -- \pt{34.96}{32.83} -- \pt{35.05}{32.82} -- \pt{35.07}{32.93} -- \pt{35.10}{33.0} -- \pt{34.2}{33.0} -- cycle;
-\draw[cafe!60,line width=0.6pt] \pt{34.45}{31.2} -- \pt{34.55}{31.67} -- \pt{34.64}{31.8} -- \pt{34.69}{31.92} -- \pt{34.75}{32.05} -- \pt{34.80}{32.2} -- \pt{34.89}{32.5} -- \pt{34.92}{32.62} -- \pt{34.96}{32.83} -- \pt{35.05}{32.82} -- \pt{35.07}{32.93} -- \pt{35.10}{33.0};
-\node[font=\tiny\itshape,cafe,rotate=72] at \pt{34.45}{32.3} {Mar Grande};
-% mar de Galilea y mar Muerto
-\fill[cafe!18,draw=cafe!60] \pt{35.59}{32.80} ellipse (0.055 and 0.085);
-\fill[cafe!18,draw=cafe!60] plot[smooth cycle] coordinates {\pt{35.48}{31.77} \pt{35.57}{31.70} \pt{35.57}{31.45} \pt{35.52}{31.22} \pt{35.44}{31.10} \pt{35.38}{31.22} \pt{35.41}{31.50} \pt{35.45}{31.70}};
-\node[font=\tiny\itshape,cafe,rotate=90] at \pt{35.49}{31.45} {Mar Muerto};
-% Jordán
-\draw[cafe!70,line width=0.8pt] plot[smooth] coordinates {\pt{35.57}{32.71} \pt{35.56}{32.50} \pt{35.53}{32.20} \pt{35.52}{31.95} \pt{35.53}{31.77}};
-\draw[cafe!70,line width=0.7pt] \pt{35.63}{33.0} -- \pt{35.62}{32.885};
-\node[font=\tiny\itshape,cafe,rotate=-88] at \pt{35.585}{32.12} {Jordán};
-% rutas
-\draw[oro!90!ladrillo,line width=1.1pt,-{Latex[length=2mm]}] plot[smooth] coordinates {\pt{34.89}{32.50} \pt{35.10}{32.30} \pt{35.22}{32.05} \pt{35.23}{31.81}};
-\draw[ladrillo,line width=1.1pt,dashed,-{Latex[length=2mm]}] plot[smooth] coordinates {\pt{35.25}{31.80} \pt{35.45}{31.95} \pt{35.56}{32.25} \pt{35.61}{32.43}};
-% ciudades
-\foreach \lon/\lat/\n/\p in {35.23/31.78/Jerusalén/left, 34.89/32.50/Cesarea/left, 34.74/31.87/Yavne/left, 35.30/32.70/Nazaret/left, 35.28/32.84/Jotapata/left, 35.74/32.90/Gamla/right, 35.52/32.82/Magdala/left, 35.62/32.45/Pela/right, 35.35/31.31/Masada/left, 35.46/31.74/Qumrán/above, 35.19/32.28/Samaria/left}{
-  \fill[cafeosc] \pt{\lon}{\lat} circle (1.6pt);
-  \node[\p,font=\tiny\bfseries,text=tinta,inner sep=2pt] at \pt{\lon}{\lat} {\n};}
-\end{tikzpicture}\\[2pt]
-{\footnotesize\color{sepia}\textit{Nota.} Elaboración propia: mapa esquemático con coordenadas reales. Flecha continua: marcha de Tito desde Cesarea a Jerusalén (70). Flecha discontinua: huida de la iglesia de Jerusalén a Pela según Eusebio (tradición discutida).}
-\end{center}
+\begin{center}\begin{minipage}{\linewidth}\centering
+\includegraphics[width=0.62\linewidth]{mapa_galilea.png}\\[2pt]
+{\footnotesize\color{sepia}\textit{Nota.} Elaboración propia: costas, lagos y ríos GSHHS/WDB y relieve sombreado (Basemap); ubicaciones antiguas aproximadas. La huida a Pela es tradición discutida (Eusebio, HE 3.5.3).}
+\end{minipage}\end{center}
+
 
 \subsection{Hallazgos arqueológicos}
 La arqueología de esta etapa es abundante. Los hallazgos siguientes son reales; cuando su interpretación se discute, se indica.
+
+\begin{center}\begin{minipage}{\linewidth}\centering
+\includegraphics[width=1\linewidth]{mapa_pentecostes.png}\\[2pt]
+{\footnotesize\color{sepia}\textit{Nota.} Elaboración propia: costas, lagos y ríos GSHHS/WDB y relieve sombreado (Basemap); ubicaciones antiguas aproximadas. Procedencia de los oyentes según Hch 2:9--11.}
+\end{minipage}\end{center}
+
 
 \begin{itemize}
 \item \textbf{Inscripción de Pilato.} Hallada en Cesarea en 1961, reutilizada en el teatro. Dice \textsc{[...]s tiberievm / [po]ntivs pilatvs / [prae]fectvs ivda[eae]}: confirma el nombre y el título de \emph{prefecto} del gobernador que juzgó a Jesús.

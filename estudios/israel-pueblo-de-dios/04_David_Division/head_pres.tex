@@ -65,6 +65,10 @@
 \newcommand{\refapa}[1]{\par\hangindent=1.2em\hangafter=1\noindent #1\par\vspace{3pt}}
 \usepackage{xurl}\urlstyle{same}
 \newcommand{\destacar}[1]{\textbf{\textcolor{ladrillo}{#1}}}
-\tikzset{caja/.style={draw=cafe,line width=0.8pt,fill=piedra,fill opacity=0.9,text opacity=1,rounded corners=3pt,inner sep=5pt,font=\scriptsize}}
+\usetikzlibrary{shadows}
+\tikzset{caja/.style={draw=cafe!80!black,line width=0.7pt,top color=piedra!55!white,bottom color=piedra!92!oro,
+  rounded corners=4pt,inner sep=5pt,font=\scriptsize,
+  drop shadow={shadow xshift=0.7pt,shadow yshift=-0.8pt,opacity=0.25,fill=cafeosc}},
+  >={Stealth[length=2.4mm,width=1.8mm]}, every picture/.style={line cap=round,line join=round}}
 \newcommand{\precision}[1]{{\footnotesize\color{sepia}\textbf{Precisión:} #1}}
 \newcommand{\pt}[2]{({#1-30},{#2-29})}

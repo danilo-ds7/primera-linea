@@ -65,7 +65,11 @@
 \newcommand{\refapa}[1]{\par\hangindent=1.2em\hangafter=1\noindent #1\par\vspace{3pt}}
 \usepackage{xurl}\urlstyle{same}
 \newcommand{\destacar}[1]{\textbf{\textcolor{ladrillo}{#1}}}
-\tikzset{caja/.style={draw=cafe,line width=0.8pt,fill=piedra,fill opacity=0.9,text opacity=1,rounded corners=3pt,inner sep=5pt,font=\scriptsize}}
+\usetikzlibrary{shadows}
+\tikzset{caja/.style={draw=cafe!80!black,line width=0.7pt,top color=piedra!55!white,bottom color=piedra!92!oro,
+  rounded corners=4pt,inner sep=5pt,font=\scriptsize,
+  drop shadow={shadow xshift=0.7pt,shadow yshift=-0.8pt,opacity=0.25,fill=cafeosc}},
+  >={Stealth[length=2.4mm,width=1.8mm]}, every picture/.style={line cap=round,line join=round}}
 \newcommand{\precision}[1]{{\footnotesize\color{sepia}\textbf{Precisión:} #1}}
 \newcommand{\pt}[2]{({#1-30},{#2-29})}
 \title[Israel 4: David--división]{\bfseries{Israel, el pueblo de Dios}}
@@ -175,32 +179,14 @@ Arqueología & Cientos de miles en todo el territorio en el s. \textsc{viii} (Br
 \section{Arqueología}
 \begin{frame}{Los dos reinos}
 \begin{columns}[c,onlytextwidth]
-\begin{column}{0.50\textwidth}
-\centering
-\begin{tikzpicture}[x=2.1cm,y=2.45cm]
-\fill[cafe!18] \pt{34.20}{31.20} -- \pt{34.45}{31.52} -- \pt{34.55}{31.67} -- \pt{34.75}{32.05} -- \pt{34.92}{32.62} -- \pt{34.97}{32.83} -- \pt{35.07}{32.92} -- \pt{35.20}{33.27} -- \pt{35.22}{33.40} -- \pt{34.20}{33.40} -- cycle;
-\draw[cafe!60,line width=0.6pt] \pt{34.20}{31.20} -- \pt{34.45}{31.52} -- \pt{34.55}{31.67} -- \pt{34.75}{32.05} -- \pt{34.92}{32.62} -- \pt{34.97}{32.83} -- \pt{35.07}{32.92} -- \pt{35.20}{33.27} -- \pt{35.22}{33.40};
-\node[font=\tiny\itshape,cafe] at \pt{34.45}{32.55} {Mar Grande};
-\fill[cafe!18] \pt{35.58}{32.82} ellipse (0.03 and 0.05);
-\draw[cafe!70,line width=0.8pt] \pt{35.62}{33.25} -- \pt{35.60}{32.93};
-\draw[cafe!70,line width=0.8pt] plot[smooth] coordinates {\pt{35.57}{32.70} \pt{35.55}{32.40} \pt{35.53}{32.10} \pt{35.55}{31.78}};
-\fill[cafe!18] \pt{35.50}{31.75} -- \pt{35.58}{31.75} -- \pt{35.55}{31.25} -- \pt{35.42}{31.25} -- \pt{35.40}{31.50} -- cycle;
-\draw[ladrillo,line width=1pt,dashed] \pt{34.70}{31.88} -- \pt{35.05}{31.86} -- \pt{35.25}{31.86} -- \pt{35.52}{31.83};
-\node[font=\scriptsize\bfseries,ladrillo] at \pt{34.98}{32.45} {ISRAEL};
-\node[font=\scriptsize\bfseries,ladrillo] at \pt{34.80}{31.38} {JUDÁ};
-\foreach \lon/\lat/\n/\p in {35.65/33.25/Dan/right, 35.57/33.02/Hazor/left, 35.18/32.58/Meguido/left, 35.19/32.28/Samaria/left, 35.28/32.21/Siquem/right, 35.67/32.18/Penuel/right, 35.22/31.93/Betel/right, 34.92/31.86/Gezer/left, 35.23/31.78/Jerusalén/right, 34.96/31.70/Qeiyafa/left, 35.10/31.53/Hebrón/right}{
-  \fill[cafeosc] \pt{\lon}{\lat} circle (1.4pt);
-  \node[\p,font=\tiny\bfseries,text=tinta,inner sep=1.4pt] at \pt{\lon}{\lat} {\n};}
-\draw[oro!90!ladrillo,line width=1.2pt] \pt{35.22}{31.93} circle (3pt);
-\draw[oro!90!ladrillo,line width=1.2pt] \pt{35.65}{33.25} circle (3pt);
-\end{tikzpicture}
-\end{column}
-\begin{column}{0.46\textwidth}\scriptsize
-\textcolor{ladrillo}{\textbf{- - -}} Frontera aproximada (cambió con las guerras).\par\smallskip
-\textcolor{oro!90!ladrillo}{\textbf{$\bigcirc$}} Santuarios de Jeroboam: Betel y Dan (1~R 12:29).\par\medskip
-\textbf{Israel (norte)}: más extenso, fértil y poblado; capitales Siquem, Penuel, Tirsa, Samaria.\par\smallskip
-\textbf{Judá (sur)}: montañoso; Jerusalén, en la frontera con Benjamín, y la casa de David.\par\medskip
-{\fontsize{5}{6}\selectfont\color{sepia}\textit{Nota.} Elaboración propia: mapa esquemático con coordenadas reales de las ciudades.}
+\begin{column}{0.44\textwidth}\centering\includegraphics[width=\linewidth,height=0.86\textheight,keepaspectratio]{mapa_division.pdf}\par\vspace{1pt}{\fontsize{4.5}{5.5}\selectfont\color{sepia}\textit{Nota.} Elaboración propia (GSHHS/WDB, Basemap); ubicaciones aproximadas.\par}\end{column}
+\begin{column}{0.54\textwidth}\scriptsize\RaggedRight
+\input{crops/mapa_division_leyenda.tex}\medskip
+
+\textcolor{cafeosc}{\textbf{- - -}} Frontera aproximada: cambió con las guerras (1~R 15:16--22).\par\smallskip
+\textbf{Israel (norte)}: más extenso, fértil y poblado; capitales Siquem, Penuel, Tirsá y luego Samaria. Santuarios de Jeroboam en Betel y Dan (1~R 12:29).\par\smallskip
+\textbf{Judá (sur)}: montañoso; Jerusalén, en la frontera con Benjamín, y la casa de David.\par\smallskip
+Al este, Moab: la estela de Mesa (Dibón) nombra a Omri, rey de Israel.
 \end{column}
 \end{columns}
 \end{frame}

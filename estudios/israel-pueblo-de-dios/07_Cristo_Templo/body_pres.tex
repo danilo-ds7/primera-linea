@@ -101,30 +101,17 @@ Dos respuestas extremas: \emph{Dios rechazó a Israel} o \emph{Jesús no tiene q
 
 \begin{frame}{El escenario de la guerra}
 \begin{columns}[c,onlytextwidth]
-\begin{column}{0.50\textwidth}
-\centering
-\begin{tikzpicture}[x=2.4cm,y=2.8cm]
-\fill[cafe!18] \pt{34.2}{31.2} -- \pt{34.45}{31.2} -- \pt{34.55}{31.67} -- \pt{34.64}{31.8} -- \pt{34.69}{31.92} -- \pt{34.75}{32.05} -- \pt{34.80}{32.2} -- \pt{34.89}{32.5} -- \pt{34.92}{32.62} -- \pt{34.96}{32.83} -- \pt{35.05}{32.82} -- \pt{35.07}{32.93} -- \pt{35.10}{33.0} -- \pt{34.2}{33.0} -- cycle;
-\draw[cafe!60,line width=0.6pt] \pt{34.45}{31.2} -- \pt{34.55}{31.67} -- \pt{34.64}{31.8} -- \pt{34.69}{31.92} -- \pt{34.75}{32.05} -- \pt{34.80}{32.2} -- \pt{34.89}{32.5} -- \pt{34.92}{32.62} -- \pt{34.96}{32.83} -- \pt{35.05}{32.82} -- \pt{35.07}{32.93} -- \pt{35.10}{33.0};
-\node[font=\tiny\itshape,cafe,rotate=72] at \pt{34.42}{32.3} {Mar Grande};
-\fill[cafe!18,draw=cafe!60] \pt{35.59}{32.80} ellipse (0.055 and 0.085);
-\fill[cafe!18,draw=cafe!60] plot[smooth cycle] coordinates {\pt{35.48}{31.77} \pt{35.57}{31.70} \pt{35.57}{31.45} \pt{35.52}{31.22} \pt{35.44}{31.10} \pt{35.38}{31.22} \pt{35.41}{31.50} \pt{35.45}{31.70}};
-\draw[cafe!70,line width=0.8pt] plot[smooth] coordinates {\pt{35.57}{32.71} \pt{35.56}{32.50} \pt{35.53}{32.20} \pt{35.52}{31.95} \pt{35.53}{31.77}};
-\draw[cafe!70,line width=0.7pt] \pt{35.63}{33.0} -- \pt{35.62}{32.885};
-\draw[oro!90!ladrillo,line width=1.1pt,-{Latex[length=2mm]}] plot[smooth] coordinates {\pt{34.89}{32.50} \pt{35.10}{32.30} \pt{35.22}{32.05} \pt{35.23}{31.81}};
-\draw[ladrillo,line width=1.1pt,dashed,-{Latex[length=2mm]}] plot[smooth] coordinates {\pt{35.25}{31.80} \pt{35.45}{31.95} \pt{35.56}{32.25} \pt{35.61}{32.43}};
-\foreach \lon/\lat/\n/\p in {35.23/31.78/Jerusalén/left, 34.89/32.50/Cesarea/left, 34.74/31.87/Yavne/left, 35.30/32.70/Nazaret/left, 35.28/32.84/Jotapata/left, 35.74/32.90/Gamla/right, 35.62/32.45/Pela/right, 35.35/31.31/Masada/left, 35.46/31.74/Qumrán/above, 35.19/32.28/Samaria/left}{
-  \fill[cafeosc] \pt{\lon}{\lat} circle (1.4pt);
-  \node[\p,font=\tiny\bfseries,text=tinta,inner sep=1.5pt] at \pt{\lon}{\lat} {\n};}
-\end{tikzpicture}
-\end{column}
-\begin{column}{0.46\textwidth}\scriptsize
-\textcolor{oro!90!ladrillo}{\textbf{---}} Tito: Cesarea $\to$ Jerusalén (70)\par\smallskip
-\textcolor{ladrillo}{\textbf{- - -}} Huida a Pela (Eusebio, HE 3.5.3): tradición discutida (Brandon, 1951; Skarsaune y Hvalvik, 2007); cf. Lc 21:21.\par\medskip
+\begin{column}{0.44\textwidth}\centering\includegraphics[width=\linewidth,height=0.86\textheight,keepaspectratio]{mapa_galilea.pdf}\par\vspace{1pt}{\fontsize{4.5}{5.5}\selectfont\color{sepia}\textit{Nota.} Elaboración propia (GSHHS/WDB, Basemap); ubicaciones aproximadas.\par}\end{column}
+\begin{column}{0.54\textwidth}\scriptsize\RaggedRight
+\input{crops/mapa_galilea_leyenda.tex}\medskip
+
+\textbf{67}: Vespasiano somete Galilea; Jotapata y Gamla.\par\smallskip
+\textbf{70}: Tito sube de Cesarea y sitia Jerusalén; el templo arde el 9/10 de Av.\par\smallskip
+\textbf{73/74}: cae Masada.\par\smallskip
+\textbf{Huida a Pela} (Eusebio, HE 3.5.3): tradición discutida; cf. Lc 21:21.\par\medskip
 \begin{tcolorbox}[colback=piedra,colframe=cafe,boxrule=0.8pt,arc=3pt,fontupper=\scriptsize]
-\textbf{1.100.000 muertos}: cifra de Josefo (\emph{Guerra} 6.420), con 97.000 cautivos. Tácito da 600.000 sitiados (\emph{Hist.} 5.13). Los historiadores la consideran \textbf{exagerada}: debe citarse «según Josefo».
+\textbf{1.100.000 muertos}: cifra de Josefo (\emph{Guerra} 6.420). Los historiadores la consideran \textbf{exagerada}: debe citarse «según Josefo».
 \end{tcolorbox}
-{\fontsize{5}{6}\selectfont\color{sepia}\textit{Nota.} Elaboración propia: mapa esquemático con coordenadas reales.}
 \end{column}
 \end{columns}
 \end{frame}
@@ -359,6 +346,19 @@ Pedro cita Joel 2:28--32 [3:1--5]: «derramaré mi Espíritu sobre toda carne».
   \node[caja,text width=4.7cm,minimum height=0.5cm,inner sep=2.5pt] at (0,\i) {\textbf{\v}\hfill{\tiny\color{sepia}\h}};}
 \end{tikzpicture}\par\smallskip
 \scriptsize «Todos son celosos por la ley» (21:20); oran en el templo (2:46; 3:1).
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{De todas las naciones}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.70\textwidth}\centering\includegraphics[width=\linewidth,height=0.86\textheight,keepaspectratio]{mapa_pentecostes.pdf}\par\vspace{1pt}{\fontsize{4.5}{5.5}\selectfont\color{sepia}\textit{Nota.} Elaboración propia (GSHHS/WDB, Basemap); ubicaciones aproximadas.\par}\end{column}
+\begin{column}{0.28\textwidth}\scriptsize\RaggedRight
+\input{crops/mapa_pentecostes_leyenda.tex}\medskip
+
+\begin{cita}[fontupper=\scriptsize\itshape]Moraban en Jerusalén judíos, varones piadosos, de todas las naciones bajo el cielo.\fuente{(Hch 2:5)}\end{cita}
+Partos, medos, elamitas; Mesopotamia, Judea, Capadocia, Ponto, Asia, Frigia, Panfilia; Egipto, Libia, Roma; cretenses y árabes (Hch 2:9--11).\par\medskip
+El primer anuncio llega a la diáspora reunida en Shavuot.
 \end{column}
 \end{columns}
 \end{frame}

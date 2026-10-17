@@ -65,7 +65,11 @@
 \newcommand{\refapa}[1]{\par\hangindent=1.2em\hangafter=1\noindent #1\par\vspace{3pt}}
 \usepackage{xurl}\urlstyle{same}
 \newcommand{\destacar}[1]{\textbf{\textcolor{ladrillo}{#1}}}
-\tikzset{caja/.style={draw=cafe,line width=0.8pt,fill=piedra,fill opacity=0.9,text opacity=1,rounded corners=3pt,inner sep=5pt,font=\scriptsize}}
+\usetikzlibrary{shadows}
+\tikzset{caja/.style={draw=cafe!80!black,line width=0.7pt,top color=piedra!55!white,bottom color=piedra!92!oro,
+  rounded corners=4pt,inner sep=5pt,font=\scriptsize,
+  drop shadow={shadow xshift=0.7pt,shadow yshift=-0.8pt,opacity=0.25,fill=cafeosc}},
+  >={Stealth[length=2.4mm,width=1.8mm]}, every picture/.style={line cap=round,line join=round}}
 \newcommand{\precision}[1]{{\footnotesize\color{sepia}\textbf{Precisión:} #1}}
 \newcommand{\pt}[2]{({#1-30},{#2-29})}
 \title[Israel 6: Segundo Templo]{\bfseries{Israel, el pueblo de Dios}}
@@ -164,40 +168,15 @@ Libro de Daniel & Siglo \textsc{vi} (tradición) & Redacción final c. 167--164 
 \section{Arqueología}
 \begin{frame}{El mundo de la diáspora}
 \begin{columns}[c,onlytextwidth]
-\begin{column}{0.64\textwidth}
-\centering
-\begin{tikzpicture}[x=0.30cm,y=0.40cm]
-\clip \pt{28.8}{23.6} rectangle \pt{50.6}{37.8};
-% mares
-\fill[cafe!18] \pt{29.0}{30.95} -- \pt{29.9}{31.2} -- \pt{30.4}{31.45} -- \pt{31.0}{31.55} -- \pt{32.3}{31.25} -- \pt{34.2}{31.3} -- \pt{34.75}{32.0} -- \pt{34.9}{32.8} -- \pt{35.1}{33.1} -- \pt{35.5}{33.9} -- \pt{35.8}{34.6} -- \pt{35.9}{35.4} -- \pt{36.1}{36.0} -- \pt{36.2}{36.6} -- \pt{35.5}{36.6} -- \pt{34.5}{36.8} -- \pt{33}{36.3} -- \pt{31.5}{36.6} -- \pt{30.5}{36.3} -- \pt{29.0}{36.4} -- cycle;
-\fill[cafe!18] \pt{47.95}{30.0} -- \pt{48.9}{30.1} -- \pt{50.2}{29.4} -- \pt{51.2}{28.2} -- \pt{51.2}{26.0} -- \pt{50.2}{26.2} -- \pt{49.7}{26.8} -- \pt{48.6}{27.9} -- \pt{48.0}{29.3} -- cycle;
-\fill[cafe!18] \pt{32.55}{29.95} -- \pt{33.2}{28.5} -- \pt{34.0}{26.9} -- \pt{34.9}{25.5} -- \pt{35.6}{24.0} -- \pt{37.3}{24.0} -- \pt{36.5}{25.4} -- \pt{35.7}{27.0} -- \pt{35.0}{28.2} -- \pt{34.95}{29.5} -- \pt{34.6}{28.6} -- \pt{34.25}{27.8} -- \pt{33.6}{28.4} -- \pt{32.75}{29.9} -- cycle;
-\node[font=\tiny\itshape,cafe] at \pt{32.2}{34.0} {Mar Grande};
-\node[font=\tiny\itshape,cafe] at \pt{49.4}{27.6} {Golfo};
-% ríos
-\draw[cafe!70,line width=0.8pt] plot[smooth] coordinates {\pt{38.0}{37.5} \pt{38.3}{36.9} \pt{39.0}{36.0} \pt{40.1}{35.3} \pt{41.0}{34.4} \pt{42.4}{34.0} \pt{43.6}{33.2} \pt{44.4}{32.4} \pt{45.3}{31.6} \pt{46.1}{31.0} \pt{47.5}{30.5} \pt{48.2}{30.0}};
-\draw[cafe!50,line width=0.6pt] plot[smooth] coordinates {\pt{40.5}{37.8} \pt{42.7}{37.1} \pt{43.1}{36.3} \pt{43.7}{35.0} \pt{44.4}{33.6} \pt{45.7}{32.5} \pt{46.9}{31.2} \pt{47.5}{30.5}};
-\draw[cafe!70,line width=0.8pt] plot[smooth] coordinates {\pt{32.9}{24.0} \pt{32.8}{25.0} \pt{32.65}{25.7} \pt{32.7}{26.2} \pt{31.8}{27.0} \pt{30.85}{28.1} \pt{31.2}{29.5} \pt{31.25}{30.1}};
-\draw[cafe!70,line width=0.7pt] \pt{31.25}{30.1} -- \pt{30.4}{31.45};
-\draw[cafe!70,line width=0.7pt] \pt{31.25}{30.1} -- \pt{31.8}{31.45};
-\draw[cafe!70,line width=0.6pt] \pt{35.6}{33.0} -- \pt{35.55}{31.8} -- \pt{35.45}{31.2};
-\node[font=\tiny\itshape,cafe,rotate=-30] at \pt{41.4}{34.75} {Éufrates};
-\node[font=\tiny\itshape,cafe] at \pt{31.4}{26.2} {Nilo};
-% ruta del retorno
-\draw[ladrillo,line width=1.1pt,dashed,-{Latex[length=2mm]}] plot[smooth] coordinates {\pt{44.42}{32.54} \pt{43.3}{33.6} \pt{41.0}{34.7} \pt{39.4}{35.9} \pt{37.6}{36.3} \pt{36.75}{35.13} \pt{36.3}{33.5} \pt{35.4}{32.2} \pt{35.23}{31.78}};
-% ciudades
-\foreach \lon/\lat/\n/\p in {35.23/31.78/Jerusalén/below, 35.19/32.28/Samaria y Garizim/left, 29.92/31.20/Alejandría/above right, 32.89/24.09/Elefantina/left, 44.42/32.54/Babilonia/above left, 45.23/32.13/Nippur/below, 48.25/32.19/Susa/below, 48.51/34.80/Ecbatana/above, 36.16/36.20/Antioquía/above}{
-  \fill[cafeosc] \pt{\lon}{\lat} circle (1.5pt);
-  \node[\p,font=\tiny\bfseries,text=tinta,inner sep=1.5pt] at \pt{\lon}{\lat} {\n};}
-\end{tikzpicture}
-\end{column}
-\begin{column}{0.34\textwidth}\scriptsize
-\textcolor{ladrillo}{\textbf{- - -}} Ruta del retorno, Babilonia $\to$ Jerusalén por el Éufrates y Siria (Esd 1--2; 7--8).\par\medskip
-\textbf{Babilonia}: Al-Yahudu (región central, sitio exacto desconocido); archivo de Murashu en Nippur.\par\smallskip
+\begin{column}{0.68\textwidth}\centering\includegraphics[width=\linewidth,height=0.86\textheight,keepaspectratio]{mapa_diaspora.pdf}\par\vspace{1pt}{\fontsize{4.5}{5.5}\selectfont\color{sepia}\textit{Nota.} Elaboración propia (GSHHS/WDB, Basemap); ubicaciones aproximadas.\par}\end{column}
+\begin{column}{0.30\textwidth}\scriptsize\RaggedRight
+\input{crops/mapa_diaspora_leyenda.tex}\medskip
+
+\textbf{El retorno} sigue el Éufrates y baja por Siria: unos 1.400 km (Esd 1--2; 7--8).\par\medskip
+\textbf{Babilonia}: Al-Yahudu (sitio exacto desconocido); archivo de Murashu en Nipur.\par\smallskip
 \textbf{Susa}: Ester; Nehemías, copero del rey.\par\smallskip
 \textbf{Ecbatana}: memorándum de Ciro (Esd 6:2).\par\smallskip
-\textbf{Egipto}: Elefantina, Alejandría.\par\medskip
-{\fontsize{5}{6}\selectfont\color{sepia}\textit{Nota.} Elaboración propia: mapa esquemático con coordenadas reales de las ciudades.}
+\textbf{Egipto}: Elefantina, Leontópolis, Alejandría.
 \end{column}
 \end{columns}
 \end{frame}

@@ -29,3 +29,4 @@
 /estudios/atributos-de-dios/**/*.pdf
 /estudios/fiestas-santas/**/*.pdf
 /estudios/israel-pueblo-de-dios/**/*.pdf
+!/estudios/israel-pueblo-de-dios/**/crops/mapa_*.pdf

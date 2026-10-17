@@ -108,43 +108,11 @@ El material de la congregación (Departamento de Educación, s.\,f.-a, diapositi
 \item \textbf{Tablillas de Al-Yahudu} (c. 572--477). Contratos de una aldea babilónica llamada «ciudad de Judá», con nombres yahvistas durante generaciones (Pearce y Wunsch, 2014): ilustran Jer 29:5--7.
 \end{itemize}
 
-\begin{figure}[!t]\centering
-\begin{tikzpicture}[x=0.72cm,y=0.74cm]
-\fill[cafe!18] (0,2.3) -- \pt{31.0}{31.5} -- \pt{32.3}{31.2} -- \pt{34.2}{31.3} -- \pt{34.75}{32.0} -- \pt{34.9}{32.8} -- \pt{35.1}{33.1} -- \pt{35.5}{33.9} -- \pt{35.8}{34.6} -- \pt{35.9}{35.4} -- \pt{36.1}{36.0} -- \pt{36.2}{36.6} -- \pt{35.5}{36.6} -- \pt{34.5}{36.8} -- \pt{33}{36.3} -- (0,7.3) -- cycle;
-\draw[cafe!60,line width=0.6pt] \pt{31.0}{31.5} -- \pt{32.3}{31.2} -- \pt{34.2}{31.3} -- \pt{34.75}{32.0} -- \pt{34.9}{32.8} -- \pt{35.1}{33.1} -- \pt{35.5}{33.9} -- \pt{35.8}{34.6} -- \pt{35.9}{35.4} -- \pt{36.1}{36.0} -- \pt{36.2}{36.6} -- \pt{35.5}{36.6} -- \pt{34.5}{36.8} -- \pt{33}{36.3};
-\fill[cafe!18] \pt{47.4}{29.0} -- \pt{47.9}{29.9} -- \pt{48.6}{30.05} -- \pt{49.4}{29.7} -- \pt{50}{29.3} -- \pt{50}{29.0} -- cycle;
-\node[font=\tiny\itshape,cafe] at \pt{32.3}{33.8} {Mar Grande};
-\draw[cafe!70,line width=0.9pt] plot[smooth] coordinates {\pt{38.0}{37.5} \pt{38.3}{36.9} \pt{39.0}{36.0} \pt{40.1}{35.3} \pt{41.0}{34.4} \pt{42.4}{34.0} \pt{43.6}{33.2} \pt{44.4}{32.4} \pt{45.3}{31.6} \pt{46.1}{31.0} \pt{47.5}{30.5} \pt{48.0}{30.0}};
-\draw[cafe!50,line width=0.7pt] plot[smooth] coordinates {\pt{40.5}{37.8} \pt{42.7}{37.1} \pt{43.1}{36.3} \pt{43.7}{35.0} \pt{44.4}{33.6} \pt{45.7}{32.5} \pt{46.9}{31.2} \pt{47.5}{30.5}};
-\draw[cafe!50,line width=0.6pt] \pt{40.04}{36.83} -- \pt{40.5}{36.3} -- \pt{40.7}{35.6} -- \pt{40.45}{35.15};
-\node[font=\tiny\itshape,cafe,rotate=-28] at \pt{41.4}{34.55} {Éufrates};
-\node[font=\tiny\itshape,cafe!80,rotate=-62] at \pt{44.1}{35.3} {Tigris};
-\node[font=\tiny\itshape,cafe!80] at \pt{40.85}{36.05} {Habor};
-\draw[cafe!70,line width=0.9pt] plot[smooth] coordinates {\pt{31.2}{29.0} \pt{31.2}{30.1} \pt{30.7}{31.4}};
-\draw[cafe!70,line width=0.9pt] \pt{31.2}{30.1} -- \pt{31.9}{31.3};
-\node[font=\tiny\itshape,cafe] at \pt{30.7}{29.4} {Nilo};
-% rutas asirias (norte)
-\draw[cafe,line width=1.2pt,dashed,-{Latex[length=2mm]}] plot[smooth] coordinates {\pt{35.19}{32.28} \pt{36.3}{33.6} \pt{37.3}{35.6} \pt{38.6}{36.6} \pt{40.04}{36.83}};
-\draw[cafe,line width=1.2pt,dashed,-{Latex[length=2mm]}] plot[smooth] coordinates {\pt{40.04}{36.83} \pt{41.8}{36.9} \pt{43.4}{36.65}};
-\draw[cafe,line width=1.2pt,dashed,-{Latex[length=2mm]}] plot[smooth] coordinates {\pt{43.4}{36.65} \pt{45.5}{36.0} \pt{47.3}{35.2} \pt{48.52}{34.8}};
-% repoblamiento
-\draw[sepia,line width=0.8pt,dotted,-{Latex[length=1.6mm]}] plot[smooth] coordinates {\pt{44.42}{32.54} \pt{42.0}{33.6} \pt{39.5}{34.6} \pt{37.0}{34.4} \pt{35.4}{32.45}};
-% rutas babilónicas (Judá)
-\draw[ladrillo,line width=1.2pt,-{Latex[length=2mm]}] plot[smooth] coordinates {\pt{35.23}{31.78} \pt{36.0}{33.2} \pt{36.55}{34.45} \pt{38.4}{35.6} \pt{40.1}{35.0} \pt{41.6}{34.1} \pt{43.4}{33.1} \pt{44.42}{32.54}};
-\draw[oro!90!ladrillo,line width=1.0pt,densely dashed,-{Latex[length=2mm]}] plot[smooth] coordinates {\pt{35.23}{31.78} \pt{34.0}{31.2} \pt{32.17}{30.85}};
-% ciudades
-\foreach \lon/\lat/\n/\p in {35.19/32.28/Samaria/left, 35.23/31.78/Jerusalén/below left, 36.30/33.51/Damasco/right, 36.55/34.45/Ribla/right, 36.75/35.13/Hamat/right, 38.0/36.83/Carquemis/above, 40.04/36.83/Gozán/above, 43.15/36.36/Nínive/below, 43.4/36.65/Halah (?)/above right, 48.52/34.8/Ecbatana (Media)/below, 44.42/32.54/Babilonia/below left, 44.6/32.75/Cuta/above, 45.23/32.13/Nipur (río Quebar)/below right, 32.17/30.85/Tafnes/below}{
-  \fill[cafeosc] \pt{\lon}{\lat} circle (1.6pt);
-  \node[\p,font=\tiny\bfseries,text=tinta,inner sep=1.5pt] at \pt{\lon}{\lat} {\n};}
-% leyenda
-\node[anchor=north west,font=\tiny,text width=5.6cm,align=left,fill=piedra,fill opacity=0.85,text opacity=1,draw=cafe!50,inner sep=3pt] at \pt{30.2}{29.95} {%
-\textcolor{cafe}{\textbf{- - -}} Asiria: Israel (norte) a Gozán, Halah y las ciudades de los medos (2~R 17:6)\\
-\textcolor{sepia}{\textbf{$\cdots$}} Colonos de Babilonia, Cuta y Hamat a Samaria (2~R 17:24)\\
-\textcolor{ladrillo}{\textbf{---}} Babilonia: Judá por Ribla a Babilonia (2~R 25:6--11)\\
-\textcolor{oro!90!ladrillo}{\textbf{- -}} Huida a Egipto con Jeremías (Jer 43:7)};
-\end{tikzpicture}\\[2pt]
-{\footnotesize\color{sepia}\textit{Nota.} Elaboración propia: mapa esquemático con coordenadas reales; la ubicación de Halah es incierta.}
-\end{figure}
+\begin{center}\begin{minipage}{\linewidth}\centering
+\includegraphics[width=1\linewidth]{mapa_cautiverios.png}\\[2pt]
+{\footnotesize\color{sepia}\textit{Nota.} Elaboración propia: costas, lagos y ríos GSHHS/WDB y relieve sombreado (Basemap); ubicaciones antiguas aproximadas. La ubicación de Halah es incierta.}
+\end{minipage}\end{center}
+
 
 \section{Desarrollo bíblico}
 

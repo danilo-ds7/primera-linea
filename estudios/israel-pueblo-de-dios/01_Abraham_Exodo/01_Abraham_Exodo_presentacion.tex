@@ -65,7 +65,11 @@
 \newcommand{\refapa}[1]{\par\hangindent=1.2em\hangafter=1\noindent #1\par\vspace{3pt}}
 \usepackage{xurl}\urlstyle{same}
 \newcommand{\destacar}[1]{\textbf{\textcolor{ladrillo}{#1}}}
-\tikzset{caja/.style={draw=cafe,line width=0.8pt,fill=piedra,fill opacity=0.9,text opacity=1,rounded corners=3pt,inner sep=5pt,font=\scriptsize}}
+\usetikzlibrary{shadows}
+\tikzset{caja/.style={draw=cafe!80!black,line width=0.7pt,top color=piedra!55!white,bottom color=piedra!92!oro,
+  rounded corners=4pt,inner sep=5pt,font=\scriptsize,
+  drop shadow={shadow xshift=0.7pt,shadow yshift=-0.8pt,opacity=0.25,fill=cafeosc}},
+  >={Stealth[length=2.4mm,width=1.8mm]}, every picture/.style={line cap=round,line join=round}}
 \newcommand{\precision}[1]{{\footnotesize\color{sepia}\textbf{Precisión:} #1}}
 \newcommand{\pt}[2]{({#1-30},{#2-29})}
 \title[Israel 1: Abraham--Éxodo]{\bfseries{Israel, el pueblo de Dios}}
@@ -161,37 +165,13 @@ Seder Olam; Rashi & 400 años desde Isaac; c. 210 en Egipto\\
 \section{Arqueología}
 \begin{frame}{El camino de Abraham}
 \begin{columns}[c,onlytextwidth]
-\begin{column}{0.60\textwidth}
-\centering
-\begin{tikzpicture}[x=0.44cm,y=0.52cm]
-% mar
-\fill[cafe!18] (0,2.3) -- \pt{31.0}{31.5} -- \pt{32.3}{31.2} -- \pt{34.2}{31.3} -- \pt{34.75}{32.0} -- \pt{34.9}{32.8} -- \pt{35.1}{33.1} -- \pt{35.5}{33.9} -- \pt{35.8}{34.6} -- \pt{35.9}{35.4} -- \pt{36.1}{36.0} -- \pt{36.2}{36.6} -- \pt{35.5}{36.6} -- \pt{34.5}{36.8} -- \pt{33}{36.3} -- (0,7.3) -- cycle;
-\draw[cafe!60,line width=0.6pt] \pt{31.0}{31.5} -- \pt{32.3}{31.2} -- \pt{34.2}{31.3} -- \pt{34.75}{32.0} -- \pt{34.9}{32.8} -- \pt{35.1}{33.1} -- \pt{35.5}{33.9} -- \pt{35.8}{34.6} -- \pt{35.9}{35.4} -- \pt{36.1}{36.0} -- \pt{36.2}{36.6} -- \pt{35.5}{36.6} -- \pt{34.5}{36.8} -- \pt{33}{36.3};
-\node[font=\tiny\itshape,cafe] at \pt{32.4}{34.0} {Mar Grande};
-% ríos
-\draw[cafe!70,line width=0.9pt] plot[smooth] coordinates {\pt{38.0}{37.5} \pt{38.3}{36.9} \pt{39.0}{36.0} \pt{40.1}{35.3} \pt{41.0}{34.4} \pt{42.4}{34.0} \pt{43.6}{33.2} \pt{44.4}{32.4} \pt{45.3}{31.6} \pt{46.1}{31.0} \pt{47.5}{30.5}};
-\draw[cafe!50,line width=0.7pt] plot[smooth] coordinates {\pt{40.5}{37.8} \pt{42.7}{37.1} \pt{43.1}{36.3} \pt{43.7}{35.0} \pt{44.4}{33.6} \pt{45.7}{32.5} \pt{46.9}{31.2} \pt{47.5}{30.5}};
-\node[font=\tiny\itshape,cafe,rotate=-28] at \pt{41.6}{34.75} {Éufrates};
-\node[font=\tiny\itshape,cafe!80,rotate=-55] at \pt{44.3}{35.2} {Tigris};
-\draw[cafe!70,line width=0.9pt] plot[smooth] coordinates {\pt{31.2}{29.0} \pt{31.2}{30.1} \pt{30.7}{31.4}};
-\draw[cafe!70,line width=0.9pt] \pt{31.2}{30.1} -- \pt{31.9}{31.3};
-\node[font=\tiny\itshape,cafe] at \pt{30.7}{29.4} {Nilo};
-\draw[cafe!70,line width=0.7pt] \pt{35.6}{33.0} -- \pt{35.55}{31.8} -- \pt{35.45}{31.2};
-% rutas
-\draw[ladrillo,line width=1.1pt,dashed,-{Latex[length=2mm]}] plot[smooth] coordinates {\pt{46.1}{30.96} \pt{44.4}{32.7} \pt{42.4}{34.3} \pt{40.1}{35.6} \pt{39.03}{36.87}};
-\draw[ladrillo,line width=1.1pt,dashed,-{Latex[length=2mm]}] plot[smooth] coordinates {\pt{39.03}{36.87} \pt{37.2}{35.8} \pt{36.3}{33.5} \pt{35.28}{32.21}};
-\draw[oro!90!ladrillo,line width=1.1pt,-{Latex[length=2mm]}] plot[smooth] coordinates {\pt{34.79}{31.25} \pt{33.5}{30.9} \pt{31.82}{30.79}};
-% ciudades
-\foreach \lon/\lat/\n/\p in {46.10/30.96/Ur/below, 39.03/36.87/Harán/above, 35.28/32.21/Siquem/right, 35.22/31.93/Betel/left, 35.10/31.53/Hebrón/right, 34.79/31.25/Beerseba/below, 31.82/30.79/Avaris (Gosén)/below}{
-  \fill[cafeosc] \pt{\lon}{\lat} circle (1.6pt);
-  \node[\p,font=\tiny\bfseries,text=tinta,inner sep=1.5pt] at \pt{\lon}{\lat} {\n};}
-\end{tikzpicture}
-\end{column}
-\begin{column}{0.36\textwidth}\scriptsize
-\textcolor{ladrillo}{\textbf{- - -}} Abram: Ur $\to$ Harán $\to$ Canaán (Gn 11:31--12:6)\par\smallskip
-\textcolor{oro!90!ladrillo}{\textbf{---}} Jacob: Beerseba $\to$ Egipto (Gn 46:1--7)\par\medskip
-Ur y Harán eran centros del culto a la luna. «Vuestros padres [\ldots] servían a otros dioses» (Jos 24:2): el llamado es una ruptura religiosa, no solo geográfica.\par\medskip
-{\fontsize{5}{6}\selectfont\color{sepia}\textit{Nota.} Elaboración propia: mapa esquemático con coordenadas reales de las ciudades.}
+\begin{column}{0.70\textwidth}\centering\includegraphics[width=\linewidth,height=0.86\textheight,keepaspectratio]{mapa_patriarcas.pdf}\par\vspace{1pt}{\fontsize{4.5}{5.5}\selectfont\color{sepia}\textit{Nota.} Elaboración propia (GSHHS/WDB, Basemap); ubicaciones aproximadas.\par}\end{column}
+\begin{column}{0.28\textwidth}\scriptsize\RaggedRight
+\input{crops/mapa_patriarcas_leyenda.tex}\medskip
+
+\textbf{\textcolor{ladrillo}{Ur $\to$ Harán $\to$ Siquem}}: unos 1.500 km siguiendo el Éufrates y la ruta de Damasco (Gn 11:31--12:6).\par\medskip
+Ur y Harán eran centros del culto a la luna: «vuestros padres [\ldots] servían a otros dioses» (Jos 24:2). El llamado es una ruptura religiosa, no solo geográfica.\par\medskip
+Canaán queda entre los dos imperios del río: Egipto y Mesopotamia. Por allí pasarán Abram, Jacob y todo Israel.
 \end{column}
 \end{columns}
 \end{frame}

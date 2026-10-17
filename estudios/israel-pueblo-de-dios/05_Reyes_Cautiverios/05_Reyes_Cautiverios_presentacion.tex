@@ -65,7 +65,11 @@
 \newcommand{\refapa}[1]{\par\hangindent=1.2em\hangafter=1\noindent #1\par\vspace{3pt}}
 \usepackage{xurl}\urlstyle{same}
 \newcommand{\destacar}[1]{\textbf{\textcolor{ladrillo}{#1}}}
-\tikzset{caja/.style={draw=cafe,line width=0.8pt,fill=piedra,fill opacity=0.9,text opacity=1,rounded corners=3pt,inner sep=5pt,font=\scriptsize}}
+\usetikzlibrary{shadows}
+\tikzset{caja/.style={draw=cafe!80!black,line width=0.7pt,top color=piedra!55!white,bottom color=piedra!92!oro,
+  rounded corners=4pt,inner sep=5pt,font=\scriptsize,
+  drop shadow={shadow xshift=0.7pt,shadow yshift=-0.8pt,opacity=0.25,fill=cafeosc}},
+  >={Stealth[length=2.4mm,width=1.8mm]}, every picture/.style={line cap=round,line join=round}}
 \newcommand{\precision}[1]{{\footnotesize\color{sepia}\textbf{Precisión:} #1}}
 \newcommand{\pt}[2]{({#1-30},{#2-29})}
 \title[Israel 5: Reyes y cautiverios]{\bfseries{Israel, el pueblo de Dios}}
@@ -141,28 +145,10 @@
 
 \begin{frame}{Dos reinos en el mapa}
 \begin{columns}[c,onlytextwidth]
-\begin{column}{0.44\textwidth}
-\centering
-\begin{tikzpicture}
-\fill[cafe!18] \pq{34.2}{31.32} -- \pq{34.25}{31.32} -- \pq{34.55}{31.67} -- \pq{34.75}{32.05} -- \pq{34.88}{32.45} -- \pq{34.92}{32.62} -- \pq{34.96}{32.83} -- \pq{35.07}{32.92} -- \pq{35.10}{33.07} -- \pq{35.20}{33.27} -- \pq{35.25}{33.4} -- \pq{34.2}{33.4} -- cycle;
-\draw[cafe!60,line width=0.6pt] \pq{34.25}{31.32} -- \pq{34.55}{31.67} -- \pq{34.75}{32.05} -- \pq{34.88}{32.45} -- \pq{34.92}{32.62} -- \pq{34.96}{32.83} -- \pq{35.07}{32.92} -- \pq{35.10}{33.07} -- \pq{35.20}{33.27} -- \pq{35.25}{33.4};
-\fill[cafe!18,draw=cafe!60] \pq{35.48}{31.76} -- \pq{35.58}{31.75} -- \pq{35.56}{31.45} -- \pq{35.48}{31.12} -- \pq{35.40}{31.12} -- \pq{35.42}{31.45} -- cycle;
-\fill[cafe!18,draw=cafe!60] \pq{35.59}{32.82} ellipse (0.13 and 0.22);
-\draw[cafe!70,line width=0.8pt] plot[smooth] coordinates {\pq{35.63}{33.25} \pq{35.6}{32.95}};
-\draw[cafe!70,line width=0.8pt] plot[smooth] coordinates {\pq{35.57}{32.70} \pq{35.55}{32.3} \pq{35.52}{31.95} \pq{35.53}{31.77}};
-\draw[ladrillo,line width=1.1pt,dash pattern=on 3pt off 2pt] \pq{34.70}{31.95} -- \pq{35.1}{31.925} -- \pq{35.30}{31.90} -- \pq{35.53}{31.87};
-\node[font=\scriptsize\bfseries,text=cafe] at \pq{35.3}{33.07} {ISRAEL};
-\node[font=\tiny\itshape,text=cafe] at \pq{35.3}{32.98} {(norte)};
-\node[font=\scriptsize\bfseries,text=ladrillo] at \pq{35.05}{31.42} {JUDÁ};
-\node[font=\tiny\itshape,text=cafe!80] at \pq{34.45}{32.2} {Mar Grande};
-\node[font=\tiny\itshape,text=sepia] at \pq{35.8}{31.45} {Moab};
-\foreach \lon/\lat/\n/\p in {35.65/33.25/Dan/right, 35.19/32.28/Samaria/left, 35.28/32.21/Siquem/right, 35.33/32.56/Jezreel/right, 35.18/32.58/Meguido/left, 35.09/32.67/Carmelo/above left, 35.22/31.93/Betel/above right, 35.23/31.78/Jerusalén/right, 34.85/31.56/Laquis/left, 35.21/31.63/Tecoa/right, 35.13/31.28/Arad/right, 34.79/31.25/Beerseba/left}{
-  \fill[cafeosc] \pq{\lon}{\lat} circle (1.5pt);
-  \node[\p,font=\tiny\bfseries,text=tinta,inner sep=1.3pt] at \pq{\lon}{\lat} {\n};}
-\end{tikzpicture}\\
-{\fontsize{5}{6}\selectfont\color{sepia}\textit{Nota.} Elaboración propia: esquema con coordenadas reales; frontera aproximada.}
-\end{column}
-\begin{column}{0.54\textwidth}\scriptsize
+\begin{column}{0.40\textwidth}\centering\includegraphics[width=\linewidth,height=0.86\textheight,keepaspectratio]{mapa_division.pdf}\par\vspace{1pt}{\fontsize{4.5}{5.5}\selectfont\color{sepia}\textit{Nota.} Elaboración propia (GSHHS/WDB, Basemap); ubicaciones aproximadas.\par}\end{column}
+\begin{column}{0.58\textwidth}\scriptsize
+\input{crops/mapa_division_leyenda.tex}\medskip
+
 \renewcommand{\arraystretch}{1.15}
 \begin{tabular}{>{\RaggedRight\arraybackslash}p{2.75cm}>{\RaggedRight\arraybackslash}p{3.05cm}}
 \toprule
@@ -297,30 +283,13 @@ La promesa a David sostiene a Judá aun bajo reyes infieles, «por amor a David 
 
 \begin{frame}{La caída de Samaria}
 \begin{columns}[c,onlytextwidth]
-\begin{column}{0.64\textwidth}
-\centering
-\begin{tikzpicture}[x=0.4cm,y=0.42cm]
-\fill[cafe!18] (0,2.3) -- \pt{31.0}{31.5} -- \pt{32.3}{31.2} -- \pt{34.2}{31.3} -- \pt{34.75}{32.0} -- \pt{34.9}{32.8} -- \pt{35.1}{33.1} -- \pt{35.5}{33.9} -- \pt{35.8}{34.6} -- \pt{35.9}{35.4} -- \pt{36.1}{36.0} -- \pt{36.2}{36.6} -- \pt{35.5}{36.6} -- \pt{34.5}{36.8} -- \pt{33}{36.3} -- (0,7.3) -- cycle;
-\fill[cafe!18] \pt{47.4}{29.0} -- \pt{47.9}{29.9} -- \pt{48.6}{30.05} -- \pt{49.4}{29.7} -- \pt{50}{29.3} -- \pt{50}{29.0} -- cycle;
-\draw[cafe!70,line width=0.8pt] plot[smooth] coordinates {\pt{38.0}{37.5} \pt{38.3}{36.9} \pt{39.0}{36.0} \pt{40.1}{35.3} \pt{41.0}{34.4} \pt{42.4}{34.0} \pt{43.6}{33.2} \pt{44.4}{32.4} \pt{45.3}{31.6} \pt{46.1}{31.0} \pt{47.5}{30.5} \pt{48.0}{30.0}};
-\draw[cafe!50,line width=0.6pt] plot[smooth] coordinates {\pt{40.5}{37.8} \pt{42.7}{37.1} \pt{43.1}{36.3} \pt{43.7}{35.0} \pt{44.4}{33.6} \pt{45.7}{32.5} \pt{46.9}{31.2} \pt{47.5}{30.5}};
-\draw[cafe,line width=1.1pt,dashed,-{Latex[length=1.8mm]}] plot[smooth] coordinates {\pt{35.19}{32.28} \pt{36.3}{33.6} \pt{37.3}{35.6} \pt{38.6}{36.6} \pt{40.04}{36.83}};
-\draw[cafe,line width=1.1pt,dashed,-{Latex[length=1.8mm]}] plot[smooth] coordinates {\pt{40.04}{36.83} \pt{41.8}{36.9} \pt{43.4}{36.65}};
-\draw[cafe,line width=1.1pt,dashed,-{Latex[length=1.8mm]}] plot[smooth] coordinates {\pt{43.4}{36.65} \pt{45.5}{36.0} \pt{47.3}{35.2} \pt{48.52}{34.8}};
-\draw[sepia,line width=0.7pt,dotted,-{Latex[length=1.5mm]}] plot[smooth] coordinates {\pt{44.42}{32.54} \pt{42.0}{33.6} \pt{39.5}{34.6} \pt{37.0}{34.4} \pt{35.4}{32.45}};
-\draw[ladrillo,line width=1.1pt,-{Latex[length=1.8mm]}] plot[smooth] coordinates {\pt{35.23}{31.78} \pt{36.0}{33.2} \pt{36.55}{34.45} \pt{38.4}{35.6} \pt{40.1}{35.0} \pt{41.6}{34.1} \pt{43.4}{33.1} \pt{44.42}{32.54}};
-\draw[oro!90!ladrillo,line width=0.9pt,densely dashed,-{Latex[length=1.8mm]}] plot[smooth] coordinates {\pt{35.23}{31.78} \pt{34.0}{31.2} \pt{32.17}{30.85}};
-\foreach \lon/\lat/\n/\p in {35.19/32.28/Samaria/left, 35.23/31.78/Jerusalén/below, 36.55/34.45/Ribla/right, 40.04/36.83/Gozán/above, 43.15/36.36/Nínive/below, 43.4/36.65/Halah (?)/above right, 48.52/34.8/Media/below, 44.42/32.54/Babilonia/below left, 32.17/30.85/Tafnes/below}{
-  \fill[cafeosc] \pt{\lon}{\lat} circle (1.4pt);
-  \node[\p,font=\fontsize{4.5}{5}\selectfont\bfseries,text=tinta,inner sep=1.2pt] at \pt{\lon}{\lat} {\n};}
-\end{tikzpicture}\\[1pt]
-{\fontsize{4.5}{5.5}\selectfont\color{sepia}\textcolor{cafe}{- - -} Asiria (2~R 17:6) \quad \textcolor{sepia}{$\cdots$} colonos a Samaria (17:24) \quad \textcolor{ladrillo}{---} Babilonia (2~R 25) \quad \textcolor{oro!90!ladrillo}{- -} Egipto (Jer 43)\par
-\textit{Nota.} Elaboración propia: esquema con coordenadas reales; ubicación de Halah incierta.}
-\end{column}
-\begin{column}{0.34\textwidth}
+\begin{column}{0.66\textwidth}\centering\includegraphics[width=\linewidth,height=0.86\textheight,keepaspectratio]{mapa_cautiverios.pdf}\par\vspace{1pt}{\fontsize{4.5}{5.5}\selectfont\color{sepia}\textit{Nota.} Elaboración propia (GSHHS/WDB, Basemap); ubicaciones aproximadas.\par}\end{column}
+\begin{column}{0.32\textwidth}\scriptsize\RaggedRight
+\input{crops/mapa_cautiverios_leyenda.tex}\medskip
+
 \begin{cita}[fontupper=\scriptsize\itshape]El rey de Asiria tomó Samaria y llevó a Israel cautivo a Asiria, y los puso en Halah, en el Habor, río de Gozán, y en las ciudades de los medos.\fuente{(2~R 17:6)}\end{cita}
-\scriptsize Fases: Galilea y Galaad (733--732; 2~R 15:29); Samaria (722--720).\par\smallskip
-\precision{los 27.290 de Sargón son de Samaria; la población del norte (c. 350.000) y el 10--15 \% deportado son estimaciones (Broshi y Finkelstein, 1992).}
+Fases: Galilea y Galaad (733--732); Samaria (722--720).\par\smallskip
+\precision{27.290 deportados según Sargón; el resto son estimaciones. Halah: ubicación incierta.}
 \end{column}
 \end{columns}
 \end{frame}

@@ -92,37 +92,16 @@ Hch 13:20 & NA28: 450 años \emph{antes} de los jueces (Egipto, desierto, conqui
 \section{Arqueología}
 \begin{frame}{El escenario de la etapa}
 \begin{columns}[c,onlytextwidth]
-\begin{column}{0.56\textwidth}
-\centering
-\begin{tikzpicture}[x=4.1cm,y=4.75cm]
-% mar
-\fill[cafe!18] (34.3,31.35) -- (34.42,31.50) -- (34.48,31.58) -- (34.54,31.67) -- (34.63,31.80) -- (34.75,32.05) -- (34.80,32.20) -- (34.86,32.40) -- (34.89,32.60) -- (34.93,32.72) -- (34.3,32.72) -- cycle;
-\draw[cafe!60,line width=0.6pt] (34.38,31.45) -- (34.42,31.50) -- (34.48,31.58) -- (34.54,31.67) -- (34.63,31.80) -- (34.75,32.05) -- (34.80,32.20) -- (34.86,32.40) -- (34.89,32.60) -- (34.93,32.72);
-\node[font=\tiny\itshape,cafe,rotate=62] at (34.52,32.15) {Mar Grande};
-% mar Muerto y Jordán
-\fill[cafe!18] (35.45,31.78) -- (35.58,31.78) -- (35.56,31.40) -- (35.40,31.40) -- cycle;
-\node[font=\tiny\itshape,cafe,rotate=90] at (35.49,31.58) {Mar Salado};
-\draw[cafe!70,line width=0.9pt] plot[smooth] coordinates {(35.57,32.72) (35.56,32.45) (35.53,32.15) (35.52,31.95) (35.52,31.78)};
-\node[font=\tiny\itshape,cafe,rotate=-88] at (35.62,32.25) {Jordán};
-% regiones
-\node[font=\tiny\itshape,sepia] at (34.62,31.55) {Filistea};
-\node[font=\tiny\itshape,sepia] at (35.12,32.00) {Efraín};
-\node[font=\tiny\itshape,sepia] at (35.05,31.45) {Judá};
-% ciudades
-\foreach \lon/\lat/\n/\p in {35.29/32.055/Silo/right, 35.21/31.885/Mizpa/left, 35.23/31.82/Guibeá/above right, 35.235/31.777/Jebús/right, 35.20/31.705/Belén/right, 35.10/31.53/Hebrón/right,
-  34.98/31.75/Bet-semes/above, 34.85/31.78/Ecrón/left, 34.85/31.70/Gat/left, 34.65/31.80/Asdod/below left, 34.55/31.665/Ascalón/left, 34.45/31.50/Gaza/left,
-  34.93/32.105/Afec/left, 34.957/31.696/Qeiyafa/below, 35.40/32.47/Gilboa/left, 35.50/32.50/Bet-seán/right, 35.62/32.37/Jabes/right, 35.28/32.21/Siquem/right, 35.42/32.63/Endor/left}{
-  \fill[cafeosc] (\lon,\lat) circle (1.3pt);
-  \node[\p,font=\tiny\bfseries,text=tinta,inner sep=1.3pt] at (\lon,\lat) {\n};}
-\draw[ladrillo,line width=0.9pt,dashed,-{Latex[length=1.6mm]}] (35.0,32.15) -- (35.15,32.68) node[above,font=\tiny,text=ladrillo]{Dan $\uparrow$};
-\end{tikzpicture}
-\end{column}
-\begin{column}{0.40\textwidth}\scriptsize
+\begin{column}{0.47\textwidth}\centering\includegraphics[width=\linewidth,height=0.86\textheight,keepaspectratio]{mapa_jueces.pdf}\par\vspace{1pt}{\fontsize{4.5}{5.5}\selectfont\color{sepia}\textit{Nota.} Elaboración propia (GSHHS/WDB, Basemap); ubicaciones aproximadas.\par}\end{column}
+\begin{column}{0.51\textwidth}\scriptsize\RaggedRight
+\input{crops/mapa_jueces_leyenda.tex}\medskip
+
 \textbf{\textcolor{cafe}{Sierra central}}: Silo, Mizpa, Guibeá; las aldeas israelitas del Hierro~I.\par\smallskip
 \textbf{\textcolor{cafe}{Pentápolis filistea}}: Gaza, Asdod, Ascalón, Gat, Ecrón (Jue 3:3).\par\smallskip
-\textbf{\textcolor{cafe}{Frontera}}: Bet-semes y el valle de Ela (Qeiyafa).\par\smallskip
-\textbf{\textcolor{cafe}{Norte}}: Gilboa y Bet-seán (1~S 31); Dan emigra a Lais (Jue 18).\par\medskip
-{\fontsize{5}{6}\selectfont\color{sepia}\textit{Nota.} Elaboración propia: mapa esquemático con coordenadas reales; Jabes de Galaad y Eben-ezer tienen identificación debatida.}
+\textbf{\textcolor{cafe}{Frontera}}: Bet-semes y el valle de Elá (Qeiyafa).\par\smallskip
+\textbf{\textcolor{cafe}{Norte}}: Tabor (Jue 4), Harod (Jue 7), Gilboa y Bet-seán (1~S 31).\par\smallskip
+\textbf{\textcolor{cafe}{Rut}}: de Belén a Moab y de regreso, cruzando el Jordán junto a Jericó.\par\medskip
+\precision{Eben-ezer y otros sitios tienen identificación debatida.}
 \end{column}
 \end{columns}
 \end{frame}

@@ -1,0 +1,253 @@
+"""Definición de los mapas de la serie (coordenadas reales lon, lat; WGS84).
+Identificaciones antiguas debatidas se marcan con (?) en el rótulo."""
+from mapas import C
+
+CAP = {"tipo": "capital"}
+MON = {"tipo": "monte"}
+
+def d(dx, dy, **k):
+    k["d"] = (dx, dy); return k
+
+# ---------------------------------------------------------------- 1. Abraham y los patriarcas
+MAPAS = {}
+MAPAS["patriarcas"] = dict(
+    titulo="Los caminos de los patriarcas",
+    extension=(29.6, 49.2, 27.6, 38.6), ancho=7.4, escala_km=200, resolucion="h", area_min=10,
+    rios_res="l", rio_lw=0.5, rio_alpha=0.7, escala_pos=(0.08, 0.06),
+    regiones=[(46.6, 34.3, "Mesopotamia"), (31.6, 28.9, "Egipto", {"tam": 8.5}), (35.02, 33.0, "Canaán", {"tam": 7.2, "rot": 80}),
+              (39.3, 34.0, "Desierto de Siria", {"estilo": "italic", "tam": 7.5, "espaciado": False}),
+              (40.6, 37.7, "Aram-Naharáyim", {"estilo": "italic", "tam": 7.5, "espaciado": False}),
+              (47.7, 31.2, "Caldea", {"tam": 7.5})],
+    aguas=[(32.3, 33.6, "Mar Grande"), (34.4, 27.9, "Mar Rojo", {"tam": 6.5}), (48.4, 28.6, "Golfo\nPérsico", {"tam": 6.5}),
+           (41.8, 35.0, "Éufrates", {"rot": -28}), (44.4, 35.6, "Tigris", {"rot": -62}), (31.05, 28.4, "Nilo", {"rot": 85})],
+    rutas=[
+        dict(pts=[(46.10, 30.96), (45.2, 31.9), (44.4, 32.6), (43.0, 33.9), (41.3, 34.6), (40.1, 35.6), (39.03, 36.87)],
+             leyenda="Taré y Abram: Ur → Harán (Gn 11:31)", flechas=[0.5]),
+        dict(pts=[(39.03, 36.87), (38.2, 36.45), (37.16, 36.0), (36.6, 34.8), (36.29, 33.51), (35.6, 32.6), (35.28, 32.21)],
+             leyenda="Abram: Harán → Siquem (Gn 12:4–6)", flechas=[0.45]),
+        dict(pts=[(35.24, 31.93), (35.10, 31.53), (34.84, 31.245), (33.6, 31.0), (32.4, 30.85), (31.6, 30.4)],
+             color=C["oro"], lw=1.8, ls=(0, (5, 2.5)), leyenda="Abram a Egipto (Gn 12:10)", flechas=[0.5]),
+        dict(pts=[(35.10, 31.53), (34.84, 31.245), (34.0, 31.05), (33.0, 30.95), (31.95, 30.8)],
+             color=C["cafe"], lw=1.6, ls=(0, (1.5, 2.2)), leyenda="Jacob y su casa a Egipto (Gn 46)", flechas=[0.45]),
+    ],
+    ciudades=[(46.10, 30.96, "Ur", d(4, -6)), (39.03, 36.87, "Harán", d(4, 3)), (44.42, 32.54, "Babilonia", d(-4, 4)),
+              (43.15, 36.36, "Nínive", d(4, 2)), (40.89, 34.55, "Mari", d(4, -6)), (38.03, 36.83, "Carquemis", d(-4, 3)),
+              (36.29, 33.51, "Damasco", d(4, 2)), (35.28, 32.21, "Siquem", d(4, 3)), (35.24, 31.93, "Betel", d(4, 0)),
+              (35.10, 31.53, "Hebrón (Mamre)", d(-4, -5)), (34.84, 31.245, "Beerseba", d(-4, -6)),
+              (31.82, 30.79, "Avaris (Gosén)", d(-4, 4)), (31.25, 29.85, "Menfis", d(-4, -4))],
+    leyenda_pos=(0.52, 0.03), leyenda_ancho=0.46, norte=(0.95, 0.84),
+)
+
+# ---------------------------------------------------------------- 2. Éxodo y conquista
+MAPAS["exodo"] = dict(
+    titulo="Del mar al Jordán",
+    extension=(31.0, 36.9, 27.5, 32.6), ancho=6.6, escala_km=100, resolucion="f",
+    regiones=[(32.3, 29.6, "Egipto", {"tam": 8}), (33.9, 29.6, "Sinaí", {"tam": 8}), (35.75, 30.45, "Edom", {"tam": 7.5}),
+              (35.95, 31.35, "Moab", {"tam": 7.5}), (35.0, 31.95, "Canaán", {"tam": 7.5}),
+              (34.3, 30.25, "Desierto\nde Parán", {"estilo": "italic", "tam": 6.8, "espaciado": False}),
+              (34.95, 30.95, "Néguev", {"estilo": "italic", "tam": 6.8, "espaciado": False})],
+    aguas=[(32.4, 32.15, "Mar Grande"), (32.75, 28.9, "Golfo de Suez", {"rot": -55, "tam": 6}),
+           (34.75, 28.6, "Golfo de\nÁqaba", {"rot": 72, "tam": 6}), (35.62, 31.45, "Mar\nSalado", {"tam": 5.6})],
+    rutas=[dict(pts=[(31.83, 30.80), (32.10, 30.55), (32.35, 30.25), (32.6, 29.6), (33.15, 29.05), (33.6, 28.7), (33.975, 28.54)],
+                leyenda="Ruta tradicional: Ramsés → Sinaí", flechas=[0.35, 0.7]),
+           dict(pts=[(33.975, 28.54), (34.3, 29.3), (34.42, 30.62)], leyenda="Sinaí → Cades (Dt 1:2)", flechas=[0.5],
+                color=C["cafe"], lw=1.7),
+           dict(pts=[(34.42, 30.62), (34.95, 29.6), (35.45, 30.1), (35.72, 30.75), (35.78, 31.45), (35.68, 31.80), (35.47, 31.86)],
+                color=C["oro"], lw=1.9, ls=(0, (5, 2.5)), leyenda="Rodeo de Edom → llanuras de Moab (Nm 20–22)",
+                flechas=[0.3, 0.7])],
+    ciudades=[(31.83, 30.80, "Ramsés (Pi-Ramsés)", d(4, 4)), (32.10, 30.55, "Sucot", d(4, 2)),
+              (33.975, 28.54, "Sinaí (Yébel Musa, trad.)", dict(MON, d=(-5, -6))),
+              (34.42, 30.62, "Cades-barnea", d(-4, 3)), (34.95, 29.55, "Ezión-guéber", d(-5, -3)),
+              (35.725, 31.768, "Monte Nebo", dict(MON, d=(5, 1))), (35.444, 31.871, "Jericó", d(-4, 2)),
+              (35.235, 31.778, "Jerusalén", d(-4, -1)), (35.28, 32.21, "Siquem", d(-4, 2))],
+    leyenda_pos=(0.02, 0.03), leyenda_ancho=0.52, norte=(0.94, 0.86),
+)
+
+MAPAS["tribus"] = dict(
+    titulo="Conquista y reparto de la tierra",
+    extension=(34.15, 36.55, 30.85, 33.45), ancho=5.2, escala_km=30, resolucion="f",
+    regiones=[(35.18, 33.05, "Aser"), (35.52, 33.05, "Neftalí"), (35.27, 32.76, "Zabulón"), (35.47, 32.61, "Isacar"),
+              (35.12, 32.38, "Manasés"), (35.92, 32.62, "Manasés"), (35.22, 32.08, "Efraín"), (35.33, 31.79, "Benjamín", {"tam": 6.6}),
+              (34.86, 31.93, "Dan", {"tam": 7}), (35.0, 31.42, "Judá"), (34.72, 31.12, "Simeón", {"tam": 7}),
+              (35.82, 32.08, "Gad"), (35.82, 31.62, "Rubén"), (35.78, 33.22, "Dan", {"tam": 6.5})],
+    aguas=[(34.5, 32.6, "Mar Grande"), (35.56, 31.5, "Mar\nSalado", {"tam": 5.6}), (35.6, 32.82, "Kinéret", {"tam": 5.6}),
+           (35.58, 32.25, "Jordán", {"rot": 88, "tam": 6})],
+    rutas=[dict(pts=[(35.47, 31.86), (35.444, 31.871), (35.30, 31.90), (35.26, 31.92)], leyenda="Jericó y Hai (Jos 6–8)",
+                lw=1.6, flechas=[0.5]),
+           dict(pts=[(35.18, 31.85), (35.10, 31.88), (34.98, 31.78), (34.85, 31.565)], color=C["oro"], lw=1.6,
+                ls=(0, (4, 2)), leyenda="Gabaón → sur (Jos 10)", flechas=[0.6]),
+           dict(pts=[(35.30, 32.20), (35.40, 32.6), (35.57, 33.017)], color=C["cafe"], lw=1.6, ls=(0, (1.5, 2)),
+                leyenda="Campaña del norte (Jos 11)", flechas=[0.6])],
+    ciudades=[(35.444, 31.871, "Jericó", d(4, -5)), (35.26, 31.92, "Hai", d(-4, 3)), (35.18, 31.85, "Gabaón", d(-4, 2)),
+              (35.235, 31.778, "Jerusalén", d(-4, -5)), (34.85, 31.565, "Laquis", d(-4, -2)), (35.10, 31.53, "Hebrón", d(4, -3)),
+              (35.28, 32.21, "Siquem", d(4, 2)), (35.27, 32.235, "Ebal", dict(MON, d=(-4, 4))), (35.29, 32.055, "Silo", d(4, 0)),
+              (35.57, 33.017, "Hazor", d(4, 0)), (34.84, 31.245, "Beerseba", d(-4, -4))],
+    leyenda_pos=(0.47, 0.02), leyenda_ancho=0.51, norte=(0.93, 0.87), escala_pos=(0.08, 0.05),
+    leyenda_extra=[("Tribus: ubicación aproximada (Jos 13–19)", "ciudad")],
+)
+
+# ---------------------------------------------------------------- 3. Jueces a David
+MAPAS["jueces"] = dict(
+    titulo="Jueces, Rut y Samuel: escenarios",
+    extension=(34.15, 36.35, 30.95, 33.35), ancho=5.4, escala_km=30, resolucion="f",
+    regiones=[(34.62, 31.55, "Filistea", {"tam": 7}), (35.85, 32.35, "Galaad", {"tam": 7.5}), (35.9, 31.45, "Moab", {"tam": 7.5}),
+              (35.15, 32.62, "Valle de Jezreel", {"estilo": "italic", "tam": 6.4, "espaciado": False}),
+              (35.15, 31.98, "Monte de Efraín", {"estilo": "italic", "tam": 6.4, "espaciado": False})],
+    aguas=[(34.45, 32.55, "Mar Grande"), (35.56, 31.5, "Mar\nSalado", {"tam": 5.6}), (35.6, 32.82, "Kinéret", {"tam": 5.6})],
+    rutas=[dict(pts=[(35.20, 31.72), (35.32, 31.80), (35.444, 31.885), (35.58, 31.86), (35.72, 31.72), (35.86, 31.52)], color=C["oro"], lw=1.7, ls=(0, (4, 2)),
+                leyenda="Elimelec y Noemí a Moab (Rt 1:1)", flechas=[0.6]),
+           dict(pts=[(35.82, 31.47), (35.66, 31.70), (35.55, 31.82), (35.42, 31.84), (35.30, 31.76), (35.22, 31.705)], lw=1.7,
+                leyenda="Noemí y Rut regresan a Belén (Rt 1:22)", flechas=[0.6]),
+           dict(pts=[(34.97, 32.10), (35.05, 31.95), (34.85, 31.78), (34.98, 31.75), (35.10, 31.80)], color=C["cafe"], lw=1.5,
+                ls=(0, (1.5, 2)), leyenda="El arca: Eben-ezer → Asdod… → Quiriat-jearim (1 S 4–7)", suave=True, flechas=[0.5])],
+    ciudades=[(35.39, 32.687, "Tabor", dict(MON, d=(4, 2))), (35.35, 32.55, "Harod", d(-4, -2)),
+              (35.41, 32.47, "Gilboa", dict(MON, d=(4, -3))), (35.29, 32.055, "Silo", d(4, 1)),
+              (35.21, 31.89, "Mizpa", d(-4, 2)), (35.23, 31.82, "Guibeá", d(4, -1)), (35.20, 31.705, "Belén", d(-4, -3)),
+              (34.97, 32.10, "Eben-ezer / Afec", d(-4, 3)), (34.98, 31.75, "Bet-semes", d(4, -5)),
+              (35.10, 31.80, "Quiriat-jearim", d(4, 2)), (34.66, 31.75, "Asdod", d(-4, 2)), (34.85, 31.78, "Ecrón", d(-4, 3)),
+              (34.85, 31.70, "Gat", d(-4, -3)), (34.55, 31.665, "Ascalón", d(-4, -2)), (34.46, 31.50, "Gaza", d(-4, -2)),
+              (35.50, 32.50, "Bet-seán", d(4, 0)), (35.652, 33.249, "Dan", d(4, 0)),
+              (35.10, 31.53, "Hebrón", d(4, -3)), (34.96, 31.70, "Valle de Elá", dict(tipo="region", d=(0, -9), tam=6.2, estilo="italic"))],
+    leyenda_pos=(0.02, 0.02), leyenda_ancho=0.6, norte=(0.93, 0.87),
+)
+
+# ---------------------------------------------------------------- 4. David, Salomón y la división
+MAPAS["division"] = dict(
+    titulo="El reino dividido (c. 930 a. e. c.)",
+    extension=(34.15, 36.75, 30.6, 33.55), ancho=5.4, escala_km=30, resolucion="f",
+    regiones=[(35.48, 32.42, "Israel", {"tam": 11, "color": C["ladrillo"], "alpha": 0.95, "peso": "bold"}),
+              (34.92, 31.12, "Judá", {"tam": 11, "color": C["ladrillo"], "alpha": 0.95, "peso": "bold"}),
+              (35.95, 31.4, "Moab", {"tam": 7.2}), (35.75, 30.85, "Edom", {"tam": 7.2}), (36.15, 32.05, "Amón", {"tam": 7.2}),
+              (34.6, 31.6, "Filistea", {"tam": 6.8}), (35.42, 33.08, "Fenicia", {"tam": 6.5}), (36.3, 33.2, "Aram", {"tam": 7.2})],
+    aguas=[(34.45, 32.6, "Mar Grande"), (35.56, 31.5, "Mar\nSalado", {"tam": 5.6}), (35.6, 32.82, "Kinéret", {"tam": 5.6})],
+    lineas=[dict(pts=[(34.72, 31.98), (34.95, 31.90), (35.13, 31.90), (35.22, 31.905), (35.40, 31.89), (35.55, 31.88)],
+                 rotulo=(34.92, 31.97, "frontera aproximada"))],
+    ciudades=[(35.235, 31.778, "Jerusalén", dict(CAP, d=(-5, -4))), (35.28, 32.21, "Siquem", d(4, -6)),
+              (35.34, 32.285, "Tirsá", dict(CAP, d=(4, 1))), (35.19, 32.28, "Samaria (desde Omri)", d(-4, 3)),
+              (35.24, 31.93, "Betel (becerro)", d(4, 1)), (35.652, 33.249, "Dan (becerro)", d(4, -1)),
+              (35.68, 32.19, "Penuel", d(4, -2)), (35.10, 31.53, "Hebrón", d(-4, -3)), (34.92, 31.86, "Gézer", d(-4, -3)),
+              (35.185, 32.585, "Meguido", d(-4, 2)), (35.57, 33.017, "Hazor", d(4, 0)), (35.13, 31.28, "Arad", d(4, -3)),
+              (34.85, 31.565, "Laquis", d(-4, -2)), (35.20, 33.27, "Tiro", d(-4, 0)), (35.93, 31.95, "Rabá", d(4, 0)),
+              (35.78, 31.50, "Dibón (estela de Mesa)", d(4, -3))],
+    leyenda_extra=[("Capital", "capital"), ("Ciudad", "ciudad")], leyenda_pos=(0.02, 0.02), leyenda_ancho=0.3,
+    norte=(0.93, 0.87),
+)
+
+# ---------------------------------------------------------------- 5. Los dos cautiverios
+MAPAS["cautiverios"] = dict(
+    rios_res="l", rio_lw=0.5, rio_alpha=0.7,
+    titulo="Los dos cautiverios: Asiria (722) y Babilonia (605–586)",
+    extension=(29.8, 52.5, 27.6, 39.0), ancho=7.4, escala_km=200, resolucion="h", area_min=10,
+    regiones=[(43.6, 37.6, "Asiria", {"tam": 8.5}), (45.4, 31.3, "Babilonia", {"tam": 8.5}), (49.6, 35.4, "Media", {"tam": 8.5}),
+              (49.2, 31.2, "Elam", {"tam": 7.5}), (31.9, 28.6, "Egipto", {"tam": 8}), (37.8, 33.0, "Aram", {"tam": 7})],
+    aguas=[(32.4, 33.6, "Mar Grande"), (48.8, 28.4, "Golfo Pérsico", {"tam": 6.5}),
+           (41.9, 34.85, "Éufrates", {"rot": -28}), (44.25, 35.25, "Tigris", {"rot": -62})],
+    rutas=[dict(pts=[(35.19, 32.28), (36.29, 33.51), (36.75, 35.13), (38.0, 36.4), (40.04, 36.83), (42.0, 36.7), (43.3, 36.6),
+                     (45.5, 35.8), (48.52, 34.80)], leyenda="Israel (norte): Samaria → Gozán, Halah, Media (2 R 17:6)",
+                flechas=[0.25, 0.55, 0.8]),
+           dict(pts=[(35.235, 31.778), (36.29, 33.51), (36.55, 34.47), (37.4, 35.6), (38.03, 36.83), (39.5, 35.8), (40.9, 34.5),
+                     (42.6, 33.9), (43.7, 33.0), (44.42, 32.54)], color=C["cafe"], lw=2.0, ls=(0, (5, 2.5)),
+                leyenda="Judá (sur): Jerusalén → Ribla → Babilonia (2 R 25)", flechas=[0.3, 0.6, 0.85]),
+           dict(pts=[(35.235, 31.778), (34.6, 31.3), (33.4, 31.0), (32.17, 30.87)], color=C["oro"], lw=1.6, ls=(0, (1.5, 2)),
+                leyenda="Remanente a Egipto: Tafnes (Jer 43:7)", flechas=[0.6])],
+    ciudades=[(35.19, 32.28, "Samaria", dict(CAP, d=(-5, 3))), (35.235, 31.778, "Jerusalén", dict(CAP, d=(-5, -5))),
+              (43.15, 36.36, "Nínive", d(4, 3)), (43.26, 35.46, "Asur", d(4, -2)), (40.04, 36.83, "Gozán (Habor)", d(4, 4)),
+              (43.3, 36.6, "Halah (?)", d(-4, 5)), (48.52, 34.80, "Ecbatana", d(-4, 4)), (44.42, 32.54, "Babilonia", d(-6, -5)),
+              (45.23, 32.13, "Nipur (río Quebar)", d(4, -4)), (48.26, 32.19, "Susa", d(4, -3)), (36.55, 34.47, "Ribla", d(4, -3)),
+              (38.03, 36.83, "Carquemis", d(-4, 3)), (36.29, 33.51, "Damasco", d(4, -3)), (32.17, 30.87, "Tafnes", d(-4, 3)),
+              (31.25, 29.85, "Menfis", d(-4, -3))],
+    leyenda_pos=(0.02, 0.03), leyenda_ancho=0.56, norte=(0.95, 0.84),
+)
+
+# ---------------------------------------------------------------- 6. Retorno y diáspora
+MAPAS["diaspora"] = dict(
+    rios_res="l", rio_lw=0.5, rio_alpha=0.7,
+    titulo="Retorno y diáspora en el período persa y helenístico",
+    extension=(24.5, 53.0, 23.0, 39.2), ancho=7.4, escala_km=300, resolucion="h", area_min=10,
+    regiones=[(45.6, 31.0, "Babilonia", {"tam": 8}), (50.5, 33.0, "Persia", {"tam": 8.5}), (31.2, 26.8, "Egipto", {"tam": 8.5}),
+              (36.7, 30.7, "Yehud", {"tam": 7.5, "color": C["ladrillo"], "alpha": 0.95}), (49.2, 35.6, "Media", {"tam": 7.5})],
+    aguas=[(29.5, 33.4, "Mar Grande"), (36.4, 23.8, "Mar Rojo", {"tam": 6.5, "rot": -55}),
+           (50.0, 27.2, "Golfo Pérsico", {"tam": 6.5}), (32.4, 25.5, "Nilo", {"rot": 75})],
+    rutas=[dict(pts=[(44.42, 32.54), (42.6, 33.9), (40.9, 34.5), (39.5, 35.8), (38.0, 36.3), (37.16, 36.20), (36.75, 35.13),
+                     (36.29, 33.51), (35.6, 32.6), (35.235, 31.778)], leyenda="El retorno: Babilonia → Jerusalén (Esd 1–2; 7–8)",
+                flechas=[0.3, 0.65, 0.92])],
+    ciudades=[(35.235, 31.778, "Jerusalén", dict(CAP, d=(-5, -5))), (44.42, 32.54, "Babilonia", d(-6, -5)),
+              (48.26, 32.19, "Susa", d(4, -3)), (48.52, 34.80, "Ecbatana", d(4, 2)), (52.89, 29.93, "Persépolis", d(-4, -4)),
+              (29.92, 31.20, "Alejandría", d(-4, 3)), (31.33, 30.29, "Leontópolis", d(-4, -3)),
+              (32.89, 24.08, "Elefantina", d(4, 0)), (36.16, 36.20, "Antioquía", d(-4, 3)),
+              (35.27, 32.20, "Garizim", dict(MON, d=(-5, 3))), (45.23, 32.13, "Nipur", d(4, -4))],
+    leyenda_pos=(0.02, 0.03), leyenda_ancho=0.5, norte=(0.95, 0.84),
+)
+
+# ---------------------------------------------------------------- 7. Galilea, Judea y la guerra
+MAPAS["galilea"] = dict(
+    titulo="Tierra de Israel en tiempos de Jesús y de la guerra (66–70)",
+    extension=(34.25, 36.15, 30.75, 33.4), ancho=5.2, escala_km=30, resolucion="f",
+    regiones=[(35.33, 32.95, "Galilea", {"tam": 8}), (35.17, 32.27, "Samaria", {"tam": 7.5}), (35.02, 31.6, "Judea", {"tam": 8}),
+              (35.85, 32.42, "Decápolis", {"tam": 6.8}), (35.85, 31.75, "Perea", {"tam": 6.8}), (34.55, 31.25, "Idumea", {"tam": 6.6})],
+    aguas=[(34.55, 32.55, "Mar Grande"), (35.56, 31.5, "Mar\nMuerto", {"tam": 5.6}), (35.63, 32.78, "Mar de\nGalilea", {"tam": 5.2})],
+    rutas=[dict(pts=[(35.07, 32.92), (35.28, 32.75), (35.28, 32.84)], lw=1.6, leyenda="Vespasiano, 67: Ptolemaida → Jotapata",
+                flechas=[0.6]),
+           dict(pts=[(34.89, 32.50), (34.95, 32.15), (35.05, 31.95), (35.235, 31.778)], color=C["cafe"], lw=2.0, ls=(0, (5, 2.5)),
+                leyenda="Tito, 70: Cesarea → Jerusalén", flechas=[0.6]),
+           dict(pts=[(35.235, 31.778), (35.44, 31.95), (35.55, 32.2), (35.61, 32.45)], color=C["oro"], lw=1.5, ls=(0, (1.5, 2)),
+                leyenda="Huida a Pela (tradición; Eusebio, HE 3.5.3)", flechas=[0.6])],
+    ciudades=[(35.30, 32.70, "Nazaret", d(-4, -4)), (35.575, 32.88, "Cafarnaúm", d(4, 2)), (35.28, 32.75, "Séforis", d(-4, 2)),
+              (35.28, 32.84, "Jotapata", d(-4, 3)), (35.74, 32.90, "Gamla", d(4, -6)), (35.53, 32.79, "Tiberíades", d(-4, -4)),
+              (35.69, 33.25, "Cesarea de Filipo", d(-4, -6)), (35.07, 32.92, "Ptolemaida", d(-4, 0)),
+              (34.89, 32.50, "Cesarea", d(-4, 0)), (34.75, 32.05, "Jope", d(-4, 0)), (34.74, 31.87, "Yavne", d(-4, -2)),
+              (35.235, 31.778, "Jerusalén", dict(CAP, d=(-5, -4))), (35.20, 31.705, "Belén", d(-4, -3)),
+              (35.444, 31.871, "Jericó", d(4, 2)), (35.46, 31.74, "Qumrán", d(4, -2)), (35.354, 31.316, "Masada", d(4, 0)),
+              (35.24, 31.67, "Herodión", d(4, -4)), (35.65, 31.56, "Maqueronte", d(4, 0)), (35.61, 32.45, "Pela", d(4, 0)),
+              (35.27, 32.20, "Garizim", dict(MON, d=(-5, 2)))],
+    leyenda_pos=(0.02, 0.02), leyenda_ancho=0.62, norte=(0.93, 0.87),
+)
+
+MAPAS["pentecostes"] = dict(
+    rios_res="l", rio_lw=0.5, rio_alpha=0.7,
+    titulo="Pentecostés: «judíos… de todas las naciones» (Hch 2:5–11)",
+    extension=(9.0, 56.0, 25.5, 45.5), ancho=7.4, escala_km=500, resolucion="i", area_min=50,
+    regiones=[(52.5, 36.2, "Partos", {"tam": 7.5}), (48.6, 35.2, "Medos", {"tam": 7.5}), (48.6, 31.6, "Elam", {"tam": 7.5}),
+              (43.4, 35.4, "Mesopotamia", {"tam": 7.5}), (35.6, 31.15, "Judea", {"tam": 7, "color": C["ladrillo"], "alpha": 1}),
+              (35.8, 38.4, "Capadocia", {"tam": 7.5}), (36.5, 41.2, "Ponto", {"tam": 7.5}), (27.9, 38.2, "Asia", {"tam": 7.5}),
+              (31.0, 39.5, "Frigia", {"tam": 7.2}), (31.0, 36.85, "Panfilia", {"tam": 6.6}), (29.6, 28.6, "Egipto", {"tam": 8}),
+              (21.6, 31.7, "Libia / Cirene", {"tam": 7.2}), (24.9, 34.75, "Creta", {"tam": 7}),
+              (41.0, 28.0, "Arabia", {"tam": 8})],
+    aguas=[(18.5, 35.3, "Mar Mediterráneo"), (35.0, 43.6, "Ponto Euxino", {"tam": 6.5})],
+    rutas=[dict(pts=p + [(35.235, 31.778)], color=C["oro"], lw=1.1, ls=(0, (1.5, 2)), flechas=[], suave=True)
+           for p in [[(52.0, 35.6), (44.0, 33.5)], [(48.0, 34.6), (41.0, 33.8)], [(36.5, 40.8), (36.4, 36.3)],
+                     [(28.4, 38.4), (32.0, 35.6)], [(12.49, 41.89), (24.0, 35.5)], [(21.8, 32.3), (29.0, 31.5)],
+                     [(30.0, 28.9), (33.0, 30.0)], [(41.0, 28.5), (37.8, 30.5)]]],
+    ciudades=[(35.235, 31.778, "Jerusalén", dict(CAP, d=(-6, -5))), (12.49, 41.89, "Roma", d(4, -4)),
+              (29.92, 31.20, "Alejandría", d(-4, -5)), (44.42, 32.54, "Babilonia", d(4, -4)), (36.16, 36.20, "Antioquía", d(4, 2))],
+    leyenda_extra=[("Procedencia de los oyentes (Hch 2:9–11)", "ciudad")], leyenda_pos=(0.02, 0.03), leyenda_ancho=0.42,
+    norte=(0.95, 0.84),
+)
+
+# ---------------------------------------------------------------- 8. Pablo, Corinto, Roma y Jerusalén
+MAPAS["romanos"] = dict(
+    rios_res="l", rio_lw=0.5, rio_alpha=0.7,
+    titulo="Romanos: Corinto, Roma y Jerusalén (c. 56–57)",
+    extension=(9.5, 38.2, 29.5, 43.6), ancho=7.4, escala_km=300, resolucion="i", area_min=20,
+    regiones=[(12.9, 42.9, "Italia", {"tam": 7.5}), (22.3, 39.4, "Acaya", {"tam": 7}), (22.8, 41.5, "Macedonia", {"tam": 7}),
+              (29.2, 38.6, "Asia", {"tam": 7.5}), (35.7, 31.0, "Judea", {"tam": 7, "color": C["ladrillo"], "alpha": 1}),
+              (31.0, 30.0, "Egipto", {"tam": 7.5})],
+    aguas=[(19.0, 34.5, "Mar Mediterráneo"), (16.6, 43.0, "Adriático", {"rot": -40, "tam": 6.2}),
+           (25.0, 39.4, "Egeo", {"tam": 6.2})],
+    rutas=[dict(pts=[(12.49, 41.89), (15.5, 39.6), (18.8, 38.6), (22.0, 38.0), (22.88, 37.905)], color=C["cafe"], lw=1.7,
+                ls=(0, (1.5, 2)), leyenda="Edicto de Claudio: Aquila y Priscila (Hch 18:2)", flechas=[0.6]),
+           dict(pts=[(22.99, 37.88), (21.0, 37.6), (18.6, 38.2), (15.8, 39.8), (12.49, 41.89)], lw=2.0,
+                leyenda="La carta con Febe: Cencrea → Roma (Ro 16:1)", flechas=[0.55]),
+           dict(pts=[(22.88, 37.905), (22.94, 40.64), (24.29, 41.01), (26.2, 39.75), (27.28, 37.53), (29.9, 36.4),
+                     (33.6, 34.4), (34.89, 32.50), (35.235, 31.778)], color=C["oro"], lw=1.8, ls=(0, (5, 2.5)),
+                leyenda="La colecta: Corinto → Jerusalén (Ro 15:25–26; Hch 20–21)", flechas=[0.35, 0.75]),
+           dict(pts=[(12.0, 41.8), (10.2, 41.3)], color=C["ladrillo"], lw=1.5, ls=(0, (1, 2)), flechas=[],
+                leyenda="Proyecto: hacia España (Ro 15:24, 28)")],
+    ciudades=[(12.49, 41.89, "Roma", dict(CAP, d=(4, 3))), (14.12, 40.82, "Puteoli", d(4, -4)),
+              (22.88, 37.905, "Corinto", dict(CAP, d=(-6, 3))), (22.99, 37.88, "Cencrea", d(5, -4)),
+              (23.73, 37.98, "Atenas", d(4, 2)), (22.94, 40.64, "Tesalónica", d(-4, 2)), (24.29, 41.01, "Filipos", d(4, 2)),
+              (27.34, 37.94, "Éfeso", d(4, 2)), (27.28, 37.53, "Mileto", d(-4, -4)), (34.90, 36.92, "Tarso", d(4, 2)),
+              (36.16, 36.20, "Antioquía", d(-4, -4)), (34.89, 32.50, "Cesarea", d(-4, 0)),
+              (35.235, 31.778, "Jerusalén", dict(CAP, d=(-6, -5))), (29.92, 31.20, "Alejandría", d(-4, -4))],
+    leyenda_pos=(0.02, 0.03), leyenda_ancho=0.56, norte=(0.95, 0.84),
+)
