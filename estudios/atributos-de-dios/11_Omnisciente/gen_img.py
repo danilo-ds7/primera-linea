@@ -70,3 +70,7 @@ fundir(manuscrito(840, 1200, ro, 56, 200, 330, 150, GR, rtl=False, anc='ls', tin
 port = manuscrito(1600, 600, ['יהוה חקרתני ותדע', 'אתה ידעת שבתי וקומי'], 92, 800, 160, 175, HEB, anc='ma')
 port.save('crops/portada.jpg', quality=88)
 print('ok')
+# Gn 16:13 (BHS, consonantico): אתה אל ראי ... הגם הלם ראיתי אחרי ראי
+gn16 = ['אתה אל ראי', 'הגם הלם', 'ראיתי', 'אחרי ראי']
+fundir(manuscrito(840, 1200, gn16, 88, 790, 300, 200, HEB), 'panel_genesis16.jpg')
+print('ok gn16')
