@@ -1423,23 +1423,26 @@ main h2 {
 .card.bonus .art.photo img { position: absolute; inset: 0; }
 @media (max-width: 600px) { .card.bonus .art.photo { min-height: 0; aspect-ratio: 16 / 10; } }
 
-/* Etiqueta de la portada: al tocarla se levanta "Sobre mí" */
-button.hero-badge { font: inherit; color: inherit; text-align: left; cursor: pointer; transition: transform .2s, box-shadow .2s; z-index: 3; }
-button.hero-badge:hover { transform: translateY(-2px); box-shadow: 0 24px 48px -20px rgba(19, 26, 44, 0.45); }
-button.hero-badge:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-.sobre-pop {
-  position: absolute; left: -28px; bottom: 112px; z-index: 4;
-  width: min(440px, calc(100% + 28px));
-  background: var(--surface); border: 1px solid var(--line); border-radius: 20px;
-  padding: 22px 24px 20px; box-shadow: 0 30px 70px -28px rgba(19, 26, 44, 0.55);
-  opacity: 0; visibility: hidden; transform: translateY(18px) scale(.98); transform-origin: bottom left;
-  transition: opacity .28s ease, transform .32s cubic-bezier(.2,.7,.2,1), visibility 0s linear .32s;
-}
-.sobre-pop.open { opacity: 1; visibility: visible; transform: none; transition: opacity .28s ease, transform .32s cubic-bezier(.2,.7,.2,1), visibility 0s; }
-.sobre-pop .sobre-label { display: block; font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
-.sobre-pop p { font-size: .93rem; line-height: 1.6; color: var(--ink); margin: 0 0 10px; }
-.sobre-pop p:last-child { margin-bottom: 0; }
-.sobre-cerrar { position: absolute; top: 10px; right: 12px; border: 0; background: none; font-size: 1.5rem; line-height: 1; color: var(--muted); cursor: pointer; padding: 4px 6px; }
-.sobre-cerrar:hover { color: var(--ink); }
-@media (max-width: 900px) { .sobre-pop { left: 12px; width: calc(100% - 24px); bottom: 136px; } }
-@media (prefers-reduced-motion: reduce) { .sobre-pop, .sobre-pop.open, button.hero-badge { transition: none; } }
+/* Etiqueta de la portada: el mismo recuadro crece y muestra "Sobre mí" */
+.hero-badge { flex-direction: column; align-items: stretch; gap: 0; padding: 0; z-index: 3; width: auto; transition: width .35s cubic-bezier(.2,.7,.2,1), box-shadow .25s, transform .2s; }
+.hero-badge:not(.open):hover { transform: translateY(-2px); box-shadow: 0 24px 48px -20px rgba(19, 26, 44, 0.45); }
+.hero-badge.open { width: min(460px, calc(100% + 28px)); max-width: none; box-shadow: 0 30px 70px -28px rgba(19, 26, 44, 0.55); }
+.badge-head { display: flex; align-items: center; gap: 12px; padding: 12px 18px 12px 14px; border: 0; background: none; font: inherit; color: inherit; text-align: left; cursor: pointer; border-radius: 18px; width: 100%; }
+.badge-head:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.badge-txt b { display: block; font-size: .9rem; }
+.badge-txt span { display: block; font-size: .8rem; color: var(--muted); line-height: 1.3; }
+.badge-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .4s cubic-bezier(.2,.7,.2,1); }
+.hero-badge.open .badge-body { grid-template-rows: 1fr; }
+.badge-inner { overflow: hidden; position: relative; min-height: 0; padding: 0 22px; opacity: 0; transition: opacity .25s ease, padding .4s cubic-bezier(.2,.7,.2,1); }
+.hero-badge.open .badge-inner { opacity: 1; padding: 20px 22px 6px; border-bottom: 1px solid var(--line); }
+.hero-badge .badge-inner .sobre-label { display: block; font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+.badge-inner p { font-size: .93rem; line-height: 1.6; color: var(--ink); margin: 0 0 12px; }
+.badge-cerrar { position: absolute; top: 12px; right: 12px; border: 0; background: none; font-size: 1.5rem; line-height: 1; color: var(--muted); cursor: pointer; padding: 4px 6px; }
+.badge-cerrar:hover { color: var(--ink); }
+@media (max-width: 900px) { .hero-badge.open { width: calc(100% - 24px); } }
+@media (prefers-reduced-motion: reduce) { .hero-badge, .badge-body, .badge-inner { transition: none; } }
+.hero-badge .badge-txt { display: block; color: var(--ink); font-size: 1rem; }
+.hero-badge .badge-txt span { color: var(--muted); }
+.hero-badge span.badge-txt { display: block; color: var(--ink); font-size: 1rem; }
+.hero-badge .badge-txt b { color: var(--ink); }
+.hero-badge:not(.open) { width: fit-content; }

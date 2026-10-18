@@ -22,21 +22,23 @@ body-classes: inicio
 :::: {.hero-media}
 ```{=html}
 <img class="hero-img" src="images/predica2.jpg" alt="Danilo predicando desde el púlpito">
-<button type="button" class="hero-badge" aria-expanded="false" aria-controls="sobre-pop" title="Sobre mí"><img class="avatar" src="images/retrato.jpg" alt="Retrato de Danilo Gómez Correa"><div><b>Danilo Gómez Correa</b><span>Estudiante · Israel Institute of Biblical Studies</span></div></button>
-<div class="sobre-pop" id="sobre-pop" role="dialog" aria-label="Sobre mí" aria-hidden="true">
-<button type="button" class="sobre-cerrar" aria-label="Cerrar">&times;</button>
+<div class="hero-badge">
+<div class="badge-body" id="badge-body" aria-hidden="true"><div class="badge-inner">
+<button type="button" class="badge-cerrar" aria-label="Cerrar">&times;</button>
 <span class="sobre-label">Sobre mí</span>
 <p>Soy Danilo Gómez Correa y estudio en el Israel Institute of Biblical Studies. Mi punto de partida es conocer al Dios de Israel, el Dios de la Biblia: quién es Él y cuáles son sus atributos. Ese conocimiento es el que hace posible estudiar la Escritura y explicarla de manera coherente, porque toda ella procede de un mismo Autor.</p>
 <p>Busco la coherencia interna de la Biblia partiendo por lo primero: ser guiado por el Espíritu de Dios para someterme a su Palabra. Después viene el método, histórico, filológico, teológico y literario, porque la Biblia interpreta la Biblia. Primera Línea es donde ordeno y comparto lo que aprendo.</p>
+</div></div>
+<button type="button" class="badge-head" aria-expanded="false" aria-controls="badge-body" title="Sobre mí"><img class="avatar" src="images/retrato.jpg" alt="Retrato de Danilo Gómez Correa"><span class="badge-txt"><b>Danilo Gómez Correa</b><span>Estudiante · Israel Institute of Biblical Studies</span></span></button>
 </div>
 <script>
 (function(){
-  var b=document.querySelector('.hero-badge'), p=document.getElementById('sobre-pop');
-  if(!b||!p) return;
-  function set(on){ p.classList.toggle('open',on); b.setAttribute('aria-expanded',on); p.setAttribute('aria-hidden',!on); }
-  b.addEventListener('click',function(e){ e.stopPropagation(); set(!p.classList.contains('open')); });
-  p.querySelector('.sobre-cerrar').addEventListener('click',function(){ set(false); b.focus(); });
-  p.addEventListener('click',function(e){ e.stopPropagation(); });
+  var w=document.querySelector('.hero-badge'); if(!w) return;
+  var h=w.querySelector('.badge-head'), body=w.querySelector('.badge-body');
+  function set(on){ w.classList.toggle('open',on); h.setAttribute('aria-expanded',on); body.setAttribute('aria-hidden',!on); }
+  h.addEventListener('click',function(e){ e.stopPropagation(); set(!w.classList.contains('open')); });
+  w.querySelector('.badge-cerrar').addEventListener('click',function(e){ e.stopPropagation(); set(false); h.focus(); });
+  w.addEventListener('click',function(e){ e.stopPropagation(); });
   document.addEventListener('click',function(){ set(false); });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape') set(false); });
 })();
