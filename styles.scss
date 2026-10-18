@@ -1486,3 +1486,30 @@ details.plegable > summary::after { content: "+"; font-size: 1.4rem; font-weight
 details.plegable[open] > summary { background: var(--accent-soft); }
 details.plegable[open] > summary::after { transform: rotate(45deg); }
 .plegable-body { padding: 6px 20px 14px; }
+
+/* Metodología: comparación dinámica de los cuatro métodos */
+.cmp { margin: 12px 0 30px; }
+.cmp-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.cmp-tab { --c: #2350b8; --c1: #eef3ff; appearance: none; border: 1px solid transparent; border-radius: 999px; padding: 9px 18px; font: 700 .92rem/1 "Plus Jakarta Sans", system-ui, sans-serif; color: var(--c); background: var(--c1); cursor: pointer; transition: background .2s, color .2s, transform .2s; }
+.cmp-tab:nth-child(1) { --c: #a3541c; --c1: #fbf3e8; }
+.cmp-tab:nth-child(2) { --c: #2350b8; --c1: #eef3ff; }
+.cmp-tab:nth-child(3) { --c: #5b3fa8; --c1: #f3effc; }
+.cmp-tab:nth-child(4) { --c: #11766b; --c1: #ebf7f4; }
+.cmp-tab.cmp-todos { --c: var(--ink); --c1: transparent; border-color: var(--line); }
+.cmp-tab:hover { transform: translateY(-2px); }
+.cmp-tab[aria-selected="true"] { background: var(--c); color: #fff; }
+.cmp-tab.cmp-todos[aria-selected="true"] { background: #1a2340; color: #fff; border-color: #1a2340; }
+.cmp-fichas { display: grid; gap: 12px; }
+.cmp-ficha { display: grid; grid-template-columns: 170px repeat(3, minmax(0,1fr)); gap: 12px; align-items: stretch; }
+.cmp-ficha[hidden] { display: none; }
+.cmp-ficha.in { animation: mtIn .35s ease; }
+.cmp-nombre { --c: #2350b8; --c1: #eef3ff; --c2: #d5e2fb; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; font-weight: 700; color: var(--ink); background: linear-gradient(155deg, var(--c1), var(--c2)); }
+.cmp-nombre em { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-weight: 400; font-size: 1.6rem; color: var(--c); margin-top: 2px; }
+.cmp-ficha[data-i="0"] .cmp-nombre { --c: #a3541c; --c1: #fbf3e8; --c2: #f3dfc4; }
+.cmp-ficha[data-i="2"] .cmp-nombre { --c: #5b3fa8; --c1: #f3effc; --c2: #e0d6f6; }
+.cmp-ficha[data-i="3"] .cmp-nombre { --c: #11766b; --c1: #ebf7f4; --c2: #cfeae4; }
+.cmp-col { background: var(--surface, #fff); border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px; border-top: 4px solid var(--k); }
+.cmp-col.f { --k: #1f8a5b; } .cmp-col.d { --k: #c0563a; } .cmp-col.u { --k: #2350b8; }
+.cmp-col span { display: block; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--k); margin-bottom: 6px; }
+.cmp-col p { margin: 0; font-size: .95rem; line-height: 1.5; text-align: left !important; }
+@media (max-width: 760px) { .cmp-ficha { grid-template-columns: 1fr; } .cmp.todos .cmp-ficha { padding-bottom: 8px; border-bottom: 1px solid var(--line); } }

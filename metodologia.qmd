@@ -183,12 +183,23 @@ document.addEventListener('DOMContentLoaded',function(){
 
 ## Los cuatro métodos, comparados
 
-| Método | Fortalezas | Debilidades | Uso sugerido |
-|---|---|---|---|
-| Histórico | Profundiza en el macro y microentorno real del texto. | A veces es especulativo por falta de datos. | Situar los hechos bíblicos en su tiempo. |
-| Filológico | Alta precisión; aclara variantes y profundiza en el significado original. | Depende de los manuscritos disponibles y exige dominio de lenguas antiguas. | Verificar el texto y comprender a fondo sus palabras. |
-| Teológico | Profundiza la comprensión doctrinal. | Requiere una formación teológica sólida. | Estudios doctrinales y predicación. |
-| Literario | Revela la belleza y complejidad del texto. | Puede pasar por alto el contexto histórico. | Apreciar la composición y el estilo. |
+```{=html}
+<div class="cmp" id="cmp">
+<div class="cmp-tabs" role="tablist" aria-label="Comparar métodos"><button type="button" class="cmp-tab" role="tab" aria-selected="true" data-i="0">Histórico</button><button type="button" class="cmp-tab" role="tab" aria-selected="false" data-i="1">Filológico</button><button type="button" class="cmp-tab" role="tab" aria-selected="false" data-i="2">Teológico</button><button type="button" class="cmp-tab" role="tab" aria-selected="false" data-i="3">Literario</button><button type="button" class="cmp-tab cmp-todos" role="tab" aria-selected="false" data-i="todos">Ver todos</button></div>
+<div class="cmp-fichas"><div class="cmp-ficha" data-i="0"><div class="cmp-nombre">Histórico<em>contexto</em></div><div class="cmp-col f"><span>Fortalezas</span><p>Profundiza en el macro y microentorno real del texto.</p></div><div class="cmp-col d"><span>Debilidades</span><p>A veces es especulativo por falta de datos.</p></div><div class="cmp-col u"><span>Uso sugerido</span><p>Situar los hechos bíblicos en su tiempo.</p></div></div><div class="cmp-ficha" data-i="1" hidden><div class="cmp-nombre">Filológico<em>palabras</em></div><div class="cmp-col f"><span>Fortalezas</span><p>Alta precisión; aclara variantes y profundiza en el significado original.</p></div><div class="cmp-col d"><span>Debilidades</span><p>Depende de los manuscritos disponibles y exige dominio de lenguas antiguas.</p></div><div class="cmp-col u"><span>Uso sugerido</span><p>Verificar el texto y comprender a fondo sus palabras.</p></div></div><div class="cmp-ficha" data-i="2" hidden><div class="cmp-nombre">Teológico<em>revelación</em></div><div class="cmp-col f"><span>Fortalezas</span><p>Profundiza la comprensión doctrinal.</p></div><div class="cmp-col d"><span>Debilidades</span><p>Requiere una formación teológica sólida.</p></div><div class="cmp-col u"><span>Uso sugerido</span><p>Estudios doctrinales y predicación.</p></div></div><div class="cmp-ficha" data-i="3" hidden><div class="cmp-nombre">Literario<em>forma</em></div><div class="cmp-col f"><span>Fortalezas</span><p>Revela la belleza y complejidad del texto.</p></div><div class="cmp-col d"><span>Debilidades</span><p>Puede pasar por alto el contexto histórico.</p></div><div class="cmp-col u"><span>Uso sugerido</span><p>Apreciar la composición y el estilo.</p></div></div></div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  var c=document.getElementById('cmp'); if(!c) return;
+  var ts=c.querySelectorAll('.cmp-tab'), fs=c.querySelectorAll('.cmp-ficha');
+  ts.forEach(function(t){ t.addEventListener('click',function(){
+    ts.forEach(function(x){x.setAttribute('aria-selected','false');}); t.setAttribute('aria-selected','true');
+    var todos=t.dataset.i==='todos'; c.classList.toggle('todos',todos);
+    fs.forEach(function(f){ f.hidden=!(todos||f.dataset.i===t.dataset.i); if(!f.hidden){ f.classList.remove('in'); void f.offsetWidth; f.classList.add('in'); } });
+  }); });
+});
+</script>
+```
 
 ## Herramientas y referencias
 
