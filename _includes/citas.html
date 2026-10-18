@@ -12,6 +12,13 @@
 .cita-pop .cp-pie { display: flex; justify-content: space-between; gap: 10px; margin-top: 10px; font-size: .78rem; color: var(--muted, #5b6478); }
 .cita-pop .cp-pie a { font-weight: 700; text-decoration: none; }
 .cita-pop .cp-x { position: absolute; top: 6px; right: 8px; border: 0; background: none; font-size: 1.3rem; line-height: 1; color: var(--muted, #5b6478); cursor: pointer; padding: 4px; }
+.strong-sup { font: 600 .62em/1 var(--sans, system-ui), sans-serif; vertical-align: super; margin: 0 1px 0 2px; white-space: nowrap; direction: ltr; unicode-bidi: isolate; }
+.strong-ref { color: var(--accent, #2350b8); cursor: pointer; text-decoration: none; border-bottom: 1px dotted currentColor; letter-spacing: .02em; }
+.strong-sep { color: var(--muted, #5b6478); margin: 0 2px; }
+.cita-pop .cp-lema { font-size: 1.35rem; line-height: 1.3; margin: 0 0 4px; }
+.cita-pop .cp-lema .heb { font-family: "Noto Serif Hebrew", "SBL Hebrew", serif; }
+.cita-pop .cp-sub { display: block; font-size: .78rem; color: var(--muted, #5b6478); margin-bottom: 8px; }
+.cita-pop .cp-def { margin: 6px 0 0; font-size: .86rem; color: var(--muted, #5b6478); text-align: justify; hyphens: auto; }
 </style>
 <script>
 (function(){
@@ -99,14 +106,68 @@
       var tot=0; a.dataset.vs.replace(/\s/g,"").split(/[.,]/).forEach(function(q){ var m=q.split(/[-–]/); tot+=(m[1]?(+m[1]-(+m[0])+1):1); }); if(hay && tot>vs.length) p.appendChild(document.createTextNode(" […]"));
     }).catch(function(){ if(pop===este) pop.querySelector(".cp-txt").textContent="No se pudo cargar el texto. Ábrelo en el Lector."; });
   }
+  /* ---------- Números Strong para palabras en hebreo y griego ---------- */
+  var CANT=/[\u0591-\u05AF\u05BD\u05C0\u05C3-\u05C6]/g, MARK=/[\u0591-\u05C7]/g;
+  function hePunt(w){ return w.normalize("NFC").replace(CANT,"").replace(/\u05BE/g,"").replace(/^[\s׃׀,.;:()«»"]+|[\s׃׀,.;:()«»"]+$/g,""); }
+  function heEsq(w){ return w.normalize("NFC").replace(MARK,"").replace(/\u05BE/g,"").replace(/^[\s׃׀,.;:()«»"]+|[\s׃׀,.;:()«»"]+$/g,""); }
+  function grNorm(w){ return w.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f\u0345]/g,"").replace(/ς/g,"σ").replace(/^[\s,.;:·'’()«»"]+|[\s,.;:·'’()«»"]+$/g,""); }
+  var IDX={}, FIC={};
+  function cargar(tipo,cual){ var k=tipo+cual, store=cual==="indice"?IDX:FIC; if(!store[tipo]) store[tipo]=fetch(raiz+"datos/strong-"+tipo+"-"+cual+".json").then(function(r){ if(!r.ok) throw 0; return r.json(); }); return store[tipo]; }
+  function codigo(tipo,ix,w){
+    if(tipo==="h"){ var p=hePunt(w), s=heEsq(w); if(!s) return null; return ix.f[p] || (ix.l[p]||[])[0] || (ix.l[s]||[])[0] || ix.s[s] || null; }
+    var g=grNorm(w); if(!g) return null; return ix.f[g] || (ix.l[g]||[])[0] || ix.s[g] || null;
+  }
+  function strongs(){
+    var sel='main span.heb[lang="he"], main span.grk[lang="grc"], .hero span.heb[lang="he"]';
+    var spans=[].slice.call(document.querySelectorAll(sel)).filter(function(s){
+      if(s.closest("h1,.cita-pop,.no-strong,svg,.navbar,nav,a,button,.flip,.mflip")) return false;
+      var n=s.textContent.trim().split(/[\s\u05BE]+/).filter(Boolean).length; return n>0 && n<=4; });
+    if(!spans.length) return;
+    ["h","g"].forEach(function(tipo){
+      var lista=spans.filter(function(s){ return (s.getAttribute("lang")==="he")===(tipo==="h"); }); if(!lista.length) return;
+      cargar(tipo,"indice").then(function(ix){
+        lista.forEach(function(s){
+          var cods=[]; s.textContent.trim().split(/[\s\u05BE]+/).forEach(function(w){ var c=codigo(tipo,ix,w); if(c && cods.indexOf(c)<0) cods.push(c); });
+          if(!cods.length) return;
+          var sup=document.createElement("sup"); sup.className="strong-sup";
+          cods.forEach(function(c,i){ if(i){ var sp=document.createElement("span"); sp.className="strong-sep"; sp.textContent="·"; sup.appendChild(sp); }
+            var a=document.createElement("a"); a.className="strong-ref"; a.href="#"; a.textContent=c; a.dataset.s=c; a.dataset.t=tipo; a.setAttribute("role","button"); a.title="Número Strong "+c; sup.appendChild(a); });
+          s.parentNode.insertBefore(sup,s.nextSibling);
+        });
+      }).catch(function(){});
+    });
+  }
+  function abrirStrong(a){
+    cerrar(); actual=a;
+    var tipo=a.dataset.t, cod=a.dataset.s;
+    pop=document.createElement("div"); pop.className="cita-pop"; pop.setAttribute("role","dialog");
+    pop.innerHTML='<button type="button" class="cp-x" aria-label="Cerrar">&times;</button><span class="cp-ref"></span><p class="cp-lema"></p><span class="cp-sub"></span><p class="cp-txt">Cargando…</p><p class="cp-def"></p><div class="cp-pie"><span>Concordancia de Strong</span><span></span></div>';
+    pop.querySelector(".cp-ref").textContent="Strong "+cod+(tipo==="h"?" · hebreo":" · griego");
+    pop.querySelector(".cp-x").addEventListener("click",cerrar);
+    pop.addEventListener("click",function(e){ e.stopPropagation(); });
+    document.body.appendChild(pop);
+    var r=a.getBoundingClientRect(), w=pop.offsetWidth, x=Math.max(12,Math.min(window.scrollX+r.left-20, window.scrollX+document.documentElement.clientWidth-w-12));
+    pop.style.left=x+"px"; pop.style.top=(window.scrollY+r.bottom+8)+"px";
+    requestAnimationFrame(function(){ pop && pop.classList.add("open"); });
+    var este=pop;
+    cargar(tipo,"fichas").then(function(fx){ if(pop!==este) return;
+      var f=fx[cod]; if(!f){ pop.querySelector(".cp-txt").textContent="No se encontró la ficha."; return; }
+      var lema=pop.querySelector(".cp-lema"), sp=document.createElement("span"); sp.className=tipo==="h"?"heb":"grk"; sp.lang=tipo==="h"?"he":"grc"; sp.textContent=f[0]; lema.appendChild(sp);
+      pop.querySelector(".cp-sub").textContent=f[1];
+      pop.querySelector(".cp-txt").textContent=f[2]?("En la Reina-Valera 1909 se traduce: "+f[2]+"."):"";
+      pop.querySelector(".cp-def").textContent=f[3]?("Definición de Strong (inglés): "+f[3]):"";
+    }).catch(function(){ if(pop===este) pop.querySelector(".cp-txt").textContent="No se pudo cargar la ficha."; });
+  }
   document.addEventListener("click",function(e){
+    var sg=e.target.closest&&e.target.closest(".strong-ref");
+    if(sg){ e.preventDefault(); e.stopPropagation(); if(actual===sg){ cerrar(); } else { abrirStrong(sg); } return; }
     var a=e.target.closest&&e.target.closest(".cita-ref");
     if(a){ if(e.metaKey||e.ctrlKey) return; e.preventDefault(); e.stopPropagation(); if(actual===a){ cerrar(); } else { abrir(a); } return; }
     cerrar();
   });
   document.addEventListener("keydown",function(e){ if(e.key==="Escape") cerrar(); });
   window.addEventListener("resize",cerrar);
-  function iniciar(){ var m=document.querySelector("main")||document.body; recorrer(m); var h=document.querySelector(".hero"); if(h && !m.contains(h)) recorrer(h); }
+  function iniciar(){ var m=document.querySelector("main")||document.body; recorrer(m); var h=document.querySelector(".hero"); if(h && !m.contains(h)) recorrer(h); strongs(); }
   if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",iniciar); else iniciar();
 })();
 </script>
