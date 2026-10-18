@@ -26,8 +26,8 @@ body-classes: inicio
 <div class="badge-body" id="badge-body" aria-hidden="true"><div class="badge-inner">
 <button type="button" class="badge-cerrar" aria-label="Cerrar">&times;</button>
 <span class="sobre-label">Sobre mí</span>
-<p>Soy Danilo Gómez Correa y estudio en el Israel Institute of Biblical Studies. Mi punto de partida es conocer al Dios de Israel, el Dios de la Biblia: quién es Él y cuáles son sus atributos. Ese conocimiento es el que hace posible estudiar la Escritura y explicarla de manera coherente, porque toda ella procede de un mismo Autor.</p>
-<p>Busco la coherencia interna de la Biblia partiendo por lo primero: ser guiado por el Espíritu de Dios para someterme a su Palabra. Después viene el método, histórico, filológico, teológico y literario, porque la Biblia interpreta la Biblia. Primera Línea es donde ordeno y comparto lo que aprendo.</p>
+<p>Soy Danilo Gómez Correa y estudio en el Israel Institute of Biblical Studies. Mi punto de partida es conocer al Dios de la Biblia, al Dios de Israel, cuyo nombre es sin igual, porque no hay Dios como Él: quién es Él y cuáles son sus atributos. Ese conocimiento es el que hace posible estudiar la Escritura y explicarla de manera coherente, porque toda ella procede de un mismo Autor.</p>
+<p>Busco ser guiado por el Espíritu de Dios para someterme a su Palabra. Después viene el método, histórico, filológico, teológico y literario, porque la Biblia interpreta la Biblia. Primera Línea es donde ordeno y comparto lo que aprendo.</p>
 </div></div>
 <button type="button" class="badge-head" aria-expanded="false" aria-controls="badge-body" title="Sobre mí"><img class="avatar" src="images/retrato.jpg" alt="Retrato de Danilo Gómez Correa"><span class="badge-txt"><b>Danilo Gómez Correa</b><span>Estudiante · Israel Institute of Biblical Studies</span></span></button>
 </div>
@@ -79,30 +79,6 @@ body-classes: inicio
         </g>
       </svg>
 ```
-</div>
-:::
-::::
-
-<!-- SOBRE MÍ ------------------------------------------------------>
-
-:::: {.band .g #sobre}
-::: {.wrap .about}
-<div class="photos">
-<img class="about-img" src="images/familia.jpg" alt="Danilo junto a su familia al aire libre">
-<span class="cap">Con mi familia en Sukkot</span>
-</div>
-<div>
-[Sobre mí]{.label}
-
-## La Biblia se explica a sí misma
-
-[Soy Danilo Gómez Correa y estudio en el Israel Institute of Biblical Studies. Mi punto de partida es conocer al Dios de Israel, el Dios de la Biblia: quién es Él y cuáles son sus atributos. Ese conocimiento es como un paraguas que lo cubre todo: permite entender sus planes y su voluntad, perfecta y soberana en nuestras vidas, coherente con su naturaleza y con el propósito para el cual fuimos creados. Por eso hace posible estudiar la Escritura y explicarla de manera integral, porque toda ella procede del mismo Autor y no hay contradicción en sus lineamientos.]{.body}
-
-[Mi propósito es buscar la armonía interna de la Biblia, partiendo por lo primero: ser guiado por el Espíritu de Dios para someterme a su Palabra. Después viene el método, histórico, filológico, teológico y literario, porque la Biblia interpreta la Biblia. Primera Línea es donde ordeno y comparto lo que aprendo.]{.body}
-
-> Empero Dios nos lo reveló a nosotros por el Espíritu: porque el Espíritu todo lo escudriña, aun lo profundo de Dios.
-> [1 Corintios 2:10 · Reina-Valera 1909]{.cite}
-
 </div>
 :::
 ::::
