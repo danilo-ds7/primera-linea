@@ -64,6 +64,9 @@ format:
     anchor-sections: false
     toc: false
     include-in-header: _includes/version.html
+    include-after-body: _includes/citas.html
+    citations-hover: true
+    footnotes-hover: true
 
 bibliography: referencias.bib
 csl: apa.csl

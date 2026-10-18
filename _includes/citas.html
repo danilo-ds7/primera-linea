@@ -1,0 +1,112 @@
+<!-- Primera Línea: citas bíblicas con ventana emergente (Reina-Valera 1909, desde los archivos de la app). -->
+<style>
+.cita-ref { color: var(--accent, #2350b8); text-decoration: underline dotted; text-underline-offset: 3px; cursor: pointer; white-space: nowrap; }
+.cita-ref:hover { text-decoration-style: solid; }
+.cita-pop { position: absolute; z-index: 2000; width: min(380px, calc(100vw - 24px)); background: var(--surface, #fff); color: var(--ink, #131a2c);
+  border: 1px solid var(--line, #e3e7ef); border-radius: 16px; padding: 14px 16px 12px; box-shadow: 0 24px 60px -24px rgba(19,26,44,.5);
+  font-size: .92rem; line-height: 1.55; text-align: left; opacity: 0; transform: translateY(6px); transition: opacity .18s, transform .18s; }
+.cita-pop.open { opacity: 1; transform: none; }
+.cita-pop .cp-ref { display: block; font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent, #2350b8); margin-bottom: 6px; padding-right: 22px; }
+.cita-pop .cp-txt { margin: 0; text-align: justify; hyphens: auto; }
+.cita-pop .cp-txt sup { color: var(--muted, #5b6478); font-size: .68em; margin-right: 2px; }
+.cita-pop .cp-pie { display: flex; justify-content: space-between; gap: 10px; margin-top: 10px; font-size: .78rem; color: var(--muted, #5b6478); }
+.cita-pop .cp-pie a { font-weight: 700; text-decoration: none; }
+.cita-pop .cp-x { position: absolute; top: 6px; right: 8px; border: 0; background: none; font-size: 1.3rem; line-height: 1; color: var(--muted, #5b6478); cursor: pointer; padding: 4px; }
+</style>
+<script>
+(function(){
+  var LIBROS=["Génesis","Éxodo","Levítico","Números","Deuteronomio","Josué","Jueces","Rut","1 Samuel","2 Samuel","1 Reyes","2 Reyes","1 Crónicas","2 Crónicas","Esdras","Nehemías","Ester","Job","Salmos","Proverbios","Eclesiastés","Cantares","Isaías","Jeremías","Lamentaciones","Ezequiel","Daniel","Oseas","Joel","Amós","Abdías","Jonás","Miqueas","Nahúm","Habacuc","Sofonías","Hageo","Zacarías","Malaquías","Mateo","Marcos","Lucas","Juan","Hechos","Romanos","1 Corintios","2 Corintios","Gálatas","Efesios","Filipenses","Colosenses","1 Tesalonicenses","2 Tesalonicenses","1 Timoteo","2 Timoteo","Tito","Filemón","Hebreos","Santiago","1 Pedro","2 Pedro","1 Juan","2 Juan","3 Juan","Judas","Apocalipsis"];
+  /* Nombres y abreviaturas usuales en español (sin punto final; se acepta con o sin punto). */
+  var ALIAS={1:"Gn Gén Gen Génesis Genesis",2:"Éx Ex Éxo Exo Éxodo Exodo",3:"Lv Lev Levítico Levitico",4:"Nm Núm Num Números Numeros",5:"Dt Deut Deuteronomio",6:"Jos Josué Josue",7:"Jue Jc Jueces",8:"Rt Rut",
+    9:"1 S|1 Sam|1 Samuel",10:"2 S|2 Sam|2 Samuel",11:"1 R|1 Re|1 Rey|1 Reyes",12:"2 R|2 Re|2 Rey|2 Reyes",13:"1 Cr|1 Crón|1 Cro|1 Crónicas|1 Cronicas",14:"2 Cr|2 Crón|2 Cro|2 Crónicas|2 Cronicas",
+    15:"Esd Esdras",16:"Neh Nehemías Nehemias",17:"Est Ester",18:"Job",19:"Sal Salmo Salmos",20:"Pr Prov Proverbios",21:"Ec Ecl Eclesiastés Eclesiastes",22:"Cnt Cant Cantares",23:"Is Isa Isaías Isaias",
+    24:"Jer Jeremías Jeremias",25:"Lm Lam Lamentaciones",26:"Ez Ezeq Ezequiel",27:"Dn Dan Daniel",28:"Os Oseas",29:"Jl Joel",30:"Am Amós Amos",31:"Abd Abdías Abdias",32:"Jon Jonás Jonas",33:"Miq Miqueas",
+    34:"Nah Nahúm Nahum",35:"Hab Habacuc",36:"Sof Sofonías Sofonias",37:"Ag Hag Hageo",38:"Zac Zacarías Zacarias",39:"Mal Malaquías Malaquias",40:"Mt Mat Mateo",41:"Mc Mr Mar Marcos",42:"Lc Luc Lucas",43:"Jn Juan",
+    44:"Hch Hech Hechos",45:"Ro Rom Romanos",46:"1 Co|1 Cor|1 Corintios",47:"2 Co|2 Cor|2 Corintios",48:"Gá Gál Ga Gal Gálatas Galatas",49:"Ef Efe Efesios",50:"Flp Fil Filipenses",51:"Col Colosenses",
+    52:"1 Ts|1 Tes|1 Tesalonicenses",53:"2 Ts|2 Tes|2 Tesalonicenses",54:"1 Ti|1 Tim|1 Timoteo",55:"2 Ti|2 Tim|2 Timoteo",56:"Tit Tito",57:"Flm Filem Filemón Filemon",58:"Heb Hebreos",59:"Stg Sant Santiago",
+    60:"1 P|1 Pe|1 Ped|1 Pedro",61:"2 P|2 Pe|2 Ped|2 Pedro",62:"1 Jn|1 Juan",63:"2 Jn|2 Juan",64:"3 Jn|3 Juan",65:"Jud Judas",66:"Ap Apoc Apocalipsis"};
+  var MAPA={}, nombres=[];
+  Object.keys(ALIAS).forEach(function(n){
+    var s=ALIAS[n], lista=s.indexOf("|")>=0 ? s.split("|") : s.split(" ");
+    lista.forEach(function(a){ MAPA[a.toLowerCase().replace(/\s+/g," ")]=+n; nombres.push(a); });
+  });
+  nombres.sort(function(a,b){ return b.length-a.length; });
+  function esc(t){ return t.replace(/[.*+?^${}()|[\]\\]/g,"\\$&").replace(/ /g,"\\s?"); }
+  var LIB="(?:"+nombres.map(esc).join("|")+")";
+  /* Libro + capítulo:versículos, con continuaciones «; 2:24» o «, 5» del mismo libro. */
+  var RE=new RegExp("(^|[^\\wÀ-ÿ])("+LIB+")\\.?\\s?(\\d{1,3}):(\\d{1,3}(?:\\s?[-–]\\s?\\d{1,3})?(?:\\s?[.,]\\s?\\d{1,3}(?:\\s?[-–]\\s?\\d{1,3})?)*)((?:\\s?;\\s?\\d{1,3}:\\d{1,3}(?:\\s?[-–]\\s?\\d{1,3})?(?:\\s?[.,]\\s?\\d{1,3}(?:\\s?[-–]\\s?\\d{1,3})?)*)*)","g");
+  var GRUPOS=[[1,5],[6,12],[13,17],[18,22],[23,27],[28,39],[40,44],[45,66]];
+  function grupo(n){ for(var i=0;i<GRUPOS.length;i++) if(n>=GRUPOS[i][0]&&n<=GRUPOS[i][1]) return i+1; return 1; }
+  var raiz=(function(){ var l=document.querySelector('link[href*="site_libs/"],script[src*="site_libs/"]'); if(!l) return ""; var u=l.href||l.src; return u.slice(0,u.indexOf("site_libs/")); })();
+  var cache={};
+  function datos(n){ var g=grupo(n); if(!cache[g]) cache[g]=fetch(raiz+"app/biblias/valera/g"+g+".json").then(function(r){ if(!r.ok) throw 0; return r.json(); }); return cache[g]; }
+  function versos(spec){ /* "5-7,9" -> [5,6,7,9] */
+    var out=[]; spec.replace(/\s/g,"").split(/[.,]/).forEach(function(p){ var m=p.split(/[-–]/); var a=+m[0], b=m[1]?+m[1]:a; if(b<a) b=a; for(var v=a;v<=b&&out.length<12;v++) out.push(v); }); return out;
+  }
+  function envolver(nodo){
+    var t=nodo.nodeValue; RE.lastIndex=0; if(!RE.test(t)) return; RE.lastIndex=0;
+    var frag=document.createDocumentFragment(), ult=0, m;
+    while((m=RE.exec(t))){
+      var libroTxt=m[2], n=MAPA[libroTxt.toLowerCase().replace(/\s+/g," ")]; if(!n){ continue; }
+      var ini=m.index+m[1].length;
+      frag.appendChild(document.createTextNode(t.slice(ult,ini)));
+      var primero=libroTxt+t.slice(m.index+m[1].length+libroTxt.length, m.index+m[0].length-m[5].length);
+      frag.appendChild(enlace(primero,n,+m[3],m[4]));
+      if(m[5]){ var partes=m[5].split(";"); partes.forEach(function(p,i){ if(i===0) return; frag.appendChild(document.createTextNode(";"));
+          var mm=p.match(/^(\s?)(\d{1,3}):(.+)$/); if(!mm){ frag.appendChild(document.createTextNode(p)); return; }
+          frag.appendChild(document.createTextNode(mm[1])); frag.appendChild(enlace(mm[2]+":"+mm[3],n,+mm[2],mm[3])); }); }
+      ult=m.index+m[0].length;
+    }
+    if(ult===0) return;
+    frag.appendChild(document.createTextNode(t.slice(ult)));
+    nodo.parentNode.replaceChild(frag,nodo);
+  }
+  function enlace(texto,n,cap,vs){
+    var a=document.createElement("a"); a.className="cita-ref"; a.textContent=texto;
+    a.href=raiz+"app/index.html#e/"+encodeURIComponent(LIBROS[n-1]+" "+cap+":"+versos(vs)[0]);
+    a.dataset.n=n; a.dataset.cap=cap; a.dataset.vs=vs; a.setAttribute("role","button"); a.setAttribute("aria-haspopup","dialog");
+    return a;
+  }
+  function recorrer(raizEl){
+    var w=document.createTreeWalker(raizEl,NodeFilter.SHOW_TEXT,{acceptNode:function(x){
+      var p=x.parentElement; if(!p) return NodeFilter.FILTER_REJECT;
+      if(p.closest(".flip,.mflip,.attr,a,code,pre,script,style,h1,h2,h3,button,.cita-pop,.no-citas,svg,nav,.navbar,footer,textarea,input")) return NodeFilter.FILTER_REJECT;
+      return /\d:\d/.test(x.nodeValue)?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_SKIP; }});
+    var lista=[]; while(w.nextNode()) lista.push(w.currentNode); lista.forEach(envolver);
+  }
+  var pop=null, actual=null;
+  function cerrar(){ if(pop){ pop.remove(); pop=null; actual=null; } }
+  function abrir(a){
+    cerrar(); actual=a;
+    var n=+a.dataset.n, cap=+a.dataset.cap, vs=versos(a.dataset.vs);
+    pop=document.createElement("div"); pop.className="cita-pop"; pop.setAttribute("role","dialog");
+    var titulo=LIBROS[n-1]+" "+cap+":"+a.dataset.vs.replace(/\s/g,"");
+    pop.innerHTML='<button type="button" class="cp-x" aria-label="Cerrar">&times;</button><span class="cp-ref"></span><p class="cp-txt">Cargando…</p><div class="cp-pie"><span>Reina-Valera 1909</span><a href="">Abrir en el Lector →</a></div>';
+    pop.querySelector(".cp-ref").textContent=titulo; pop.querySelector(".cp-pie a").href=a.href;
+    pop.querySelector(".cp-x").addEventListener("click",cerrar);
+    pop.addEventListener("click",function(e){ e.stopPropagation(); });
+    document.body.appendChild(pop);
+    var r=a.getBoundingClientRect(), w=pop.offsetWidth, x=Math.max(12,Math.min(window.scrollX+r.left, window.scrollX+document.documentElement.clientWidth-w-12));
+    pop.style.left=x+"px"; pop.style.top=(window.scrollY+r.bottom+8)+"px";
+    requestAnimationFrame(function(){ pop && pop.classList.add("open"); });
+    var este=pop;
+    datos(n).then(function(d){ if(pop!==este) return;
+      var c=(d[String(n)]||{})[String(cap)]||{}, p=pop.querySelector(".cp-txt"); p.textContent="";
+      var hay=false; vs.forEach(function(v,i){ var tx=c[String(v)]; if(!tx) return; hay=true;
+        if(vs.length>1){ var s=document.createElement("sup"); s.textContent=v; p.appendChild(s); }
+        p.appendChild(document.createTextNode(tx+(i<vs.length-1?" ":""))); });
+      if(!hay) p.textContent="No se encontró este versículo.";
+      var tot=0; a.dataset.vs.replace(/\s/g,"").split(/[.,]/).forEach(function(q){ var m=q.split(/[-–]/); tot+=(m[1]?(+m[1]-(+m[0])+1):1); }); if(hay && tot>vs.length) p.appendChild(document.createTextNode(" […]"));
+    }).catch(function(){ if(pop===este) pop.querySelector(".cp-txt").textContent="No se pudo cargar el texto. Ábrelo en el Lector."; });
+  }
+  document.addEventListener("click",function(e){
+    var a=e.target.closest&&e.target.closest(".cita-ref");
+    if(a){ if(e.metaKey||e.ctrlKey) return; e.preventDefault(); e.stopPropagation(); if(actual===a){ cerrar(); } else { abrir(a); } return; }
+    cerrar();
+  });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape") cerrar(); });
+  window.addEventListener("resize",cerrar);
+  function iniciar(){ var m=document.querySelector("main")||document.body; recorrer(m); var h=document.querySelector(".hero"); if(h && !m.contains(h)) recorrer(h); }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",iniciar); else iniciar();
+})();
+</script>

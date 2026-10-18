@@ -1446,3 +1446,8 @@ main h2 {
 .hero-badge span.badge-txt { display: block; color: var(--ink); font-size: 1rem; }
 .hero-badge .badge-txt b { color: var(--ink); }
 .hero-badge:not(.open) { width: fit-content; }
+
+/* Texto justificado en todo el sitio */
+:where(main, #quarto-document-content) :where(p, li, dd, .body, blockquote) { text-align: justify; -webkit-hyphens: auto; hyphens: auto; }
+.badge-inner p { text-align: justify; -webkit-hyphens: auto; hyphens: auto; }
+:where(.attr, .enfoque, .tex-hebverso, .tex-centro, .flip, .mflip, .hero-text, .head, .cta, .metodo-link, .method, .card, .vids, .chan, nav, footer) :where(p, li, .body, blockquote) { text-align: inherit; }
