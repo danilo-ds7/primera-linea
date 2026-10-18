@@ -15,14 +15,32 @@ body-classes: inicio
 
 [La Escritura explicada *por el conocimiento del Dios de la Biblia.*]{.sub}
 
-[Ensayos, estudios y videos breves sobre los atributos de Dios, las festividades santas y la cristología.]{.lead}
+[Ensayos, estudios, videos y podcast.]{.lead}
 
 
 ::::
 :::: {.hero-media}
 ```{=html}
 <img class="hero-img" src="images/predica2.jpg" alt="Danilo predicando desde el púlpito">
-<div class="hero-badge"><img class="avatar" src="images/retrato.jpg" alt="Retrato de Danilo Gómez Correa"><div><b>Danilo Gómez Correa</b><span>Estudiante · Israel Institute of Biblical Studies</span></div></div>
+<button type="button" class="hero-badge" aria-expanded="false" aria-controls="sobre-pop" title="Sobre mí"><img class="avatar" src="images/retrato.jpg" alt="Retrato de Danilo Gómez Correa"><div><b>Danilo Gómez Correa</b><span>Estudiante · Israel Institute of Biblical Studies</span></div></button>
+<div class="sobre-pop" id="sobre-pop" role="dialog" aria-label="Sobre mí" aria-hidden="true">
+<button type="button" class="sobre-cerrar" aria-label="Cerrar">&times;</button>
+<span class="sobre-label">Sobre mí</span>
+<p>Soy Danilo Gómez Correa y estudio en el Israel Institute of Biblical Studies. Mi punto de partida es conocer al Dios de Israel, el Dios de la Biblia: quién es Él y cuáles son sus atributos. Ese conocimiento es el que hace posible estudiar la Escritura y explicarla de manera coherente, porque toda ella procede de un mismo Autor.</p>
+<p>Busco la coherencia interna de la Biblia partiendo por lo primero: ser guiado por el Espíritu de Dios para someterme a su Palabra. Después viene el método, histórico, filológico, teológico y literario, porque la Biblia interpreta la Biblia. Primera Línea es donde ordeno y comparto lo que aprendo.</p>
+</div>
+<script>
+(function(){
+  var b=document.querySelector('.hero-badge'), p=document.getElementById('sobre-pop');
+  if(!b||!p) return;
+  function set(on){ p.classList.toggle('open',on); b.setAttribute('aria-expanded',on); p.setAttribute('aria-hidden',!on); }
+  b.addEventListener('click',function(e){ e.stopPropagation(); set(!p.classList.contains('open')); });
+  p.querySelector('.sobre-cerrar').addEventListener('click',function(){ set(false); b.focus(); });
+  p.addEventListener('click',function(e){ e.stopPropagation(); });
+  document.addEventListener('click',function(){ set(false); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') set(false); });
+})();
+</script>
 <span class="gen heb" lang="he" aria-hidden="true">בְּרֵאשִׁית</span>
 ```
 ::::
@@ -76,9 +94,9 @@ body-classes: inicio
 
 ## La Biblia se explica a sí misma
 
-[Soy Danilo Gómez Correa y estudio en el Israel Institute of Biblical Studies. Mi punto de partida es conocer al Dios de Israel, el Dios de la Biblia: quién es Él y cuáles son sus atributos. Ese conocimiento es el que hace posible estudiar la Escritura y explicarla de manera coherente, porque toda ella procede de un mismo Autor.]{.body}
+[Soy Danilo Gómez Correa y estudio en el Israel Institute of Biblical Studies. Mi punto de partida es conocer al Dios de Israel, el Dios de la Biblia: quién es Él y cuáles son sus atributos. Ese conocimiento es como un paraguas que lo cubre todo: permite entender sus planes y su voluntad, perfecta y soberana en nuestras vidas, coherente con su naturaleza y con el propósito para el cual fuimos creados. Por eso hace posible estudiar la Escritura y explicarla de manera integral, porque toda ella procede del mismo Autor y no hay contradicción en sus lineamientos.]{.body}
 
-[Busco la coherencia interna de la Biblia partiendo por lo primero: ser guiado por el Espíritu de Dios para someterme a su Palabra. Después viene el método, histórico, filológico, teológico y literario, porque la Biblia interpreta la Biblia. Primera Línea es donde ordeno y comparto lo que aprendo.]{.body}
+[Mi propósito es buscar la armonía interna de la Biblia, partiendo por lo primero: ser guiado por el Espíritu de Dios para someterme a su Palabra. Después viene el método, histórico, filológico, teológico y literario, porque la Biblia interpreta la Biblia. Primera Línea es donde ordeno y comparto lo que aprendo.]{.body}
 
 > Empero Dios nos lo reveló a nosotros por el Espíritu: porque el Espíritu todo lo escudriña, aun lo profundo de Dios.
 > [1 Corintios 2:10 · Reina-Valera 1909]{.cite}
@@ -133,7 +151,7 @@ document.querySelectorAll('.enfoque .flip, .method .mflip').forEach(function(c){
 
 ## Del estudio al púlpito
 
-[Lo que estudio termina en la exposición de la Palabra frente a la congregación. Como aprendiz de la Palabra, intento mostrar cómo un pasaje se conecta con el resto de la Biblia, para que quien escucha pueda abrir su Biblia y comprobarlo.]{.body}
+[Lo que estudio termina en la exposición de la Palabra frente a la congregación. Como aprendiz de la Palabra, intento mostrar cómo un pasaje de la Escritura se subordina armónicamente a la voluntad del Dios de Israel y cómo se conecta con el resto de la Biblia, para que quien escucha pueda abrir su Biblia y comprobarlo.]{.body}
 
 > Y éstos eran más nobles que los que estaban en Tesalónica, pues recibieron la palabra con toda solicitud, escudriñando cada día las Escrituras para ver si estas cosas eran así.
 > [Hechos 17:11 · Reina-Valera 1960]{.cite}

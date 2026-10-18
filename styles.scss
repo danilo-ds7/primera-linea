@@ -1422,3 +1422,24 @@ main h2 {
 .card.bonus .art.photo { position: relative; min-height: 240px; }
 .card.bonus .art.photo img { position: absolute; inset: 0; }
 @media (max-width: 600px) { .card.bonus .art.photo { min-height: 0; aspect-ratio: 16 / 10; } }
+
+/* Etiqueta de la portada: al tocarla se levanta "Sobre mí" */
+button.hero-badge { font: inherit; color: inherit; text-align: left; cursor: pointer; transition: transform .2s, box-shadow .2s; z-index: 3; }
+button.hero-badge:hover { transform: translateY(-2px); box-shadow: 0 24px 48px -20px rgba(19, 26, 44, 0.45); }
+button.hero-badge:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.sobre-pop {
+  position: absolute; left: -28px; bottom: 112px; z-index: 4;
+  width: min(440px, calc(100% + 28px));
+  background: var(--surface); border: 1px solid var(--line); border-radius: 20px;
+  padding: 22px 24px 20px; box-shadow: 0 30px 70px -28px rgba(19, 26, 44, 0.55);
+  opacity: 0; visibility: hidden; transform: translateY(18px) scale(.98); transform-origin: bottom left;
+  transition: opacity .28s ease, transform .32s cubic-bezier(.2,.7,.2,1), visibility 0s linear .32s;
+}
+.sobre-pop.open { opacity: 1; visibility: visible; transform: none; transition: opacity .28s ease, transform .32s cubic-bezier(.2,.7,.2,1), visibility 0s; }
+.sobre-pop .sobre-label { display: block; font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+.sobre-pop p { font-size: .93rem; line-height: 1.6; color: var(--ink); margin: 0 0 10px; }
+.sobre-pop p:last-child { margin-bottom: 0; }
+.sobre-cerrar { position: absolute; top: 10px; right: 12px; border: 0; background: none; font-size: 1.5rem; line-height: 1; color: var(--muted); cursor: pointer; padding: 4px 6px; }
+.sobre-cerrar:hover { color: var(--ink); }
+@media (max-width: 900px) { .sobre-pop { left: 12px; width: calc(100% - 24px); bottom: 136px; } }
+@media (prefers-reduced-motion: reduce) { .sobre-pop, .sobre-pop.open, button.hero-badge { transition: none; } }
