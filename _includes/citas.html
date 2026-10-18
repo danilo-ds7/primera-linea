@@ -77,7 +77,7 @@
   function recorrer(raizEl){
     var w=document.createTreeWalker(raizEl,NodeFilter.SHOW_TEXT,{acceptNode:function(x){
       var p=x.parentElement; if(!p) return NodeFilter.FILTER_REJECT;
-      if(p.closest(".flip,.mflip,.attr,a,code,pre,script,style,h1,h2,h3,button,.cita-pop,.no-citas,svg,nav,.navbar,footer,textarea,input")) return NodeFilter.FILTER_REJECT;
+      if(p.closest("blockquote,.flip,.mflip,.attr,a,code,pre,script,style,h1,h2,h3,button,.cita-pop,.no-citas,svg,nav,.navbar,footer,textarea,input")) return NodeFilter.FILTER_REJECT;
       return /\d:\d/.test(x.nodeValue)?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_SKIP; }});
     var lista=[]; while(w.nextNode()) lista.push(w.currentNode); lista.forEach(envolver);
   }
@@ -167,7 +167,7 @@
   });
   document.addEventListener("keydown",function(e){ if(e.key==="Escape") cerrar(); });
   window.addEventListener("resize",cerrar);
-  function iniciar(){ var m=document.querySelector("main")||document.body; recorrer(m); var h=document.querySelector(".hero"); if(h && !m.contains(h)) recorrer(h); strongs(); }
+  function iniciar(){ var m=document.querySelector("main")||document.body; if(!document.querySelector(".hero-badge")) recorrer(m); strongs(); }
   if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",iniciar); else iniciar();
 })();
 </script>

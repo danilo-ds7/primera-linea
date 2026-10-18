@@ -26,8 +26,8 @@ body-classes: inicio
 <div class="badge-body" id="badge-body" aria-hidden="true"><div class="badge-inner">
 <button type="button" class="badge-cerrar" aria-label="Cerrar">&times;</button>
 <span class="sobre-label">Sobre mí</span>
-<p>Soy Danilo Gómez Correa y estudio en el Israel Institute of Biblical Studies. Mi punto de partida es conocer al Dios de la Biblia, al Dios de Israel, cuyo nombre es sin igual, porque no hay Dios como Él: quién es Él y cuáles son sus atributos. Ese conocimiento es el que hace posible estudiar la Escritura y explicarla de manera coherente, porque toda ella procede de un mismo Autor.</p>
-<p>Busco ser guiado por el Espíritu de Dios para someterme a su Palabra. Después viene el método, histórico, filológico, teológico y literario, porque la Biblia interpreta la Biblia. Primera Línea es donde ordeno y comparto lo que aprendo.</p>
+<p>Soy Danilo Gómez Correa y estudio en el Israel Institute of Biblical Studies. Mi punto de partida es conocer al Dios de la Biblia, al Dios de Israel, cuyo nombre es sin igual, porque no hay Dios como Él: quién es Él y cuáles son sus atributos.</p>
+<p>Procuro, principalmente, ser guiado por el Espíritu de Dios para estudiar su Palabra. Después viene el método: histórico, filológico, teológico y literario. Primera Línea es donde ordeno y comparto lo que aprendo.</p>
 </div></div>
 <button type="button" class="badge-head" aria-expanded="false" aria-controls="badge-body" title="Sobre mí"><img class="avatar" src="images/retrato.jpg" alt="Retrato de Danilo Gómez Correa"><span class="badge-txt"><b>Danilo Gómez Correa</b><span>Estudiante · Israel Institute of Biblical Studies</span></span></button>
 </div>
@@ -89,12 +89,10 @@ body-classes: inicio
 ::: {.wrap}
 <div class="head">
 <div>
-[Método de estudio]{.label}
-
-## La Biblia interpreta la Biblia
+## Método de estudio
 </div>
 
-Cada estudio busca dar a conocer al Dios de Israel: conocer al Autor y sus perfecciones eternas, ver la armonía perfecta de sus atributos y leer una Escritura coherente con su carácter.
+Cada estudio busca dar a conocer al Dios de Israel: conocer al Autor y sus perfecciones eternas, ver la armonía perfecta de sus atributos y contemplar una Escritura coherente con su carácter.
 </div>
 
 ```{=html}
@@ -109,10 +107,10 @@ document.querySelectorAll('.enfoque .flip, .method .mflip').forEach(function(c){
 </script>
 <p class="enfoque-sub">Para eso, cada pasaje se estudia con cuatro métodos:</p>
 <div class="method">
-  <div class="m mflip" role="button" tabindex="0" aria-pressed="false" aria-label="Método histórico: ver definición"><div class="inner"><div class="face front"><span class="mk">Histórico</span><h3>El contexto</h3><p>Quién escribe, a quién, cuándo y en qué situación del pueblo de Dios.</p><span class="hint">Toca para ver la definición ↻</span></div><div class="face back"><span class="mk">Definición</span><h3>Método histórico</h3><p>El análisis histórico estudia el contexto en que se escribió el texto: quién lo escribió, a quién, cuándo y en qué circunstancias sociales, políticas y religiosas. Así se entiende qué significó para sus primeros lectores.</p><span class="hint">Toca para volver ↻</span></div></div></div>
-  <div class="m mflip" role="button" tabindex="0" aria-pressed="false" aria-label="Método filológico: ver definición"><div class="inner"><div class="face front"><span class="mk">Filológico</span><h3>Las palabras</h3><p>El hebreo y el griego detrás de la traducción: raíz, forma y uso en otros pasajes.</p><span class="hint">Toca para ver la definición ↻</span></div><div class="face back"><span class="mk">Definición</span><h3>Método filológico</h3><p>El análisis filológico estudia el texto en sus lenguas originales, hebreo, arameo y griego: el significado de cada palabra, su raíz, su forma gramatical y cómo se usa en el resto de la Escritura.</p><span class="hint">Toca para volver ↻</span></div></div></div>
-  <div class="m mflip" role="button" tabindex="0" aria-pressed="false" aria-label="Método teológico: ver definición"><div class="inner"><div class="face front"><span class="mk">Teológico</span><h3>La revelación</h3><p>Qué enseña el pasaje sobre Dios y cómo encaja en el conjunto de la doctrina bíblica.</p><span class="hint">Toca para ver la definición ↻</span></div><div class="face back"><span class="mk">Definición</span><h3>Método teológico</h3><p>El análisis teológico explora lo que el texto enseña sobre Dios, sus doctrinas, principios y mensaje, y lo lee en armonía con el conjunto de la Escritura, sin contradecir lo que ella enseña con claridad.</p><span class="hint">Toca para volver ↻</span></div></div></div>
-  <div class="m mflip" role="button" tabindex="0" aria-pressed="false" aria-label="Método literario: ver definición"><div class="inner"><div class="face front"><span class="mk">Literario</span><h3>La forma</h3><p>Género, estructura, paralelismos y el lugar del texto dentro del libro y del canon.</p><span class="hint">Toca para ver la definición ↻</span></div><div class="face back"><span class="mk">Definición</span><h3>Método literario</h3><p>El análisis literario estudia el texto como obra escrita: su género, estilo, estructura y recursos como el paralelismo, y el lugar que ocupa dentro del libro y del canon bíblico.</p><span class="hint">Toca para volver ↻</span></div></div></div>
+  <div class="m mflip" role="button" tabindex="0" aria-pressed="false" aria-label="Método histórico: ver definición"><div class="inner"><div class="face front"><h3>Histórico: contexto</h3></div><div class="face back"><h3>Método histórico</h3><p>El análisis histórico estudia el contexto en que se escribió el texto: quién lo escribió, a quién, cuándo y en qué circunstancias sociales, políticas y religiosas. Así se entiende qué significó para sus primeros lectores.</p></div></div></div>
+  <div class="m mflip" role="button" tabindex="0" aria-pressed="false" aria-label="Método filológico: ver definición"><div class="inner"><div class="face front"><h3>Filológico: palabras</h3></div><div class="face back"><h3>Método filológico</h3><p>El análisis filológico estudia el texto en sus lenguas originales, hebreo, arameo y griego: el significado de cada palabra, su raíz, su forma gramatical y cómo se usa en el resto de la Escritura.</p></div></div></div>
+  <div class="m mflip" role="button" tabindex="0" aria-pressed="false" aria-label="Método teológico: ver definición"><div class="inner"><div class="face front"><h3>Teológico: revelación</h3></div><div class="face back"><h3>Método teológico</h3><p>El análisis teológico explora lo que el texto enseña sobre Dios, sus doctrinas, principios y mensaje, y lo lee en armonía con el conjunto de la Escritura, sin contradecir lo que ella enseña con claridad.</p></div></div></div>
+  <div class="m mflip" role="button" tabindex="0" aria-pressed="false" aria-label="Método literario: ver definición"><div class="inner"><div class="face front"><h3>Literario: forma</h3></div><div class="face back"><h3>Método literario</h3><p>El análisis literario estudia el texto como obra escrita: su género, estilo, estructura y recursos como el paralelismo, y el lugar que ocupa dentro del libro y del canon bíblico.</p></div></div></div>
 </div>
 <p class="principle"><span>Principio</span>La Escritura se explica con la Escritura: los pasajes claros gobiernan y dan luz a los menos claros, de Génesis a Apocalipsis.</p>
 <p class="metodo-link"><a class="btn ghost" href="metodologia.html">Ver la metodología completa</a></p>
@@ -134,7 +132,7 @@ document.querySelectorAll('.enfoque .flip, .method .mflip').forEach(function(c){
 > Y éstos eran más nobles que los que estaban en Tesalónica, pues recibieron la palabra con toda solicitud, escudriñando cada día las Escrituras para ver si estas cosas eran así.
 > [Hechos 17:11 · Reina-Valera 1960]{.cite}
 
-[Mi propósito es, primero, transmitir el conocimiento del Dios de la Biblia, el Dios de Israel, en sus perfecciones eternas; y también llegar a ser un heraldo de su evangelio eterno, para que Él sea exaltado, admirado, honrado y, principalmente, temido por sus maravillas y sus proezas. Ir del estudio al púlpito es exhibir, honrar y engrandecer a Dios en toda su magnitud, y comprender esa multiforme sabiduría de Dios que sincroniza todo el universo.]{.body}
+[Mi propósito es, primero, transmitir el conocimiento de Dios, para que Él sea exaltado, admirado, honrado y, principalmente, temido por sus maravillas y sus proezas. Ir del estudio al púlpito es exhibir, honrar y engrandecer a Dios en toda su magnitud, y comprender la multiforme sabiduría de Dios que sincroniza todo el universo.]{.body}
 
 > Alabadle por sus proezas; alabadle conforme a la muchedumbre de su grandeza.
 > [Salmos 150:2 · Reina-Valera 1960]{.cite}
