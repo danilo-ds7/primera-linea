@@ -286,6 +286,9 @@ def preparar(tex, slug, carpeta_tex, destino_img):
         cuerpo = cuerpo.replace(ma.group(0), "\\begin{resumen}" + ma.group(1) + "\\end{resumen}")
 
     cuerpo = figuras_tikz(cuerpo, preambulo, carpeta_tex, destino_img, slug)
+    # \resizebox{ancho}{alto}{figura} y \scalebox{f}{figura}: solo ajustan el PDF; pandoc los descarta con su contenido
+    cuerpo = reemplazar_comando(cuerpo, "resizebox", lambda w, h, c: c, nargs=3)
+    cuerpo = reemplazar_comando(cuerpo, "scalebox", lambda f, c: c, nargs=2)
 
     entornos = entornos_definidos(preambulo)
 

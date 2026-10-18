@@ -1,0 +1,864 @@
+\title[Las solemnidades]{\bfseries{Las solemnidades del \SENOR}}
+\subtitle{``Las fiestas solemnes del \SENOR, las cuales proclamaréis como santas convocaciones'' (Lv 23:2)}
+\author{}\institute{}\date{}
+\titlegraphic{\includegraphics[width=0.80\linewidth,height=0.36\textheight,keepaspectratio]{portada.jpg}\\[-1pt]
+  {\fontsize{5}{6}\selectfont\color{sepia}\textit{Nota.} Elaboración propia: Lv 23:2 en texto hebreo consonántico (BHS).}}
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}\frametitle{Contenidos}\tableofcontents\end{frame}
+
+% ------------------------------------------------------------------
+\section{Introducción}
+
+\begin{frame}{¿Fiestas ``de los judíos'' o ``del \SENOR''?}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.48\textwidth}
+\begin{cita}Después de estas cosas había una fiesta de los judíos, y subió Jesús a Jerusalén.\fuente{(Jn 5:1)}\end{cita}
+\begin{cita}Las fiestas solemnes del \SENOR, las cuales proclamaréis como santas convocaciones, serán estas\ldots\fuente{(Lv 23:2)}\end{cita}
+\end{column}
+\begin{column}{0.50\textwidth}\small
+\begin{itemize}
+\item Juan escribe para lectores que miran el calendario de Israel \destacar{desde fuera} (Jn 2:13; 6:4; 7:2).
+\item Moisés lo recibe de boca de \destacar{quien lo dicta}: ``habló el \SENOR''.
+\item El hebreo cierra Lv 23:2 con un posesivo: \heb{אֵלֶּה הֵם מוֹעֲדָי}, ``estas son \emph{mis} citas''.
+\end{itemize}
+\precision{RVR1960 en todas las citas; \SENOR{} donde dice ``Jehová''.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Tesis y ruta del estudio}
+\begin{tcolorbox}[colback=papiro,colframe=tierraroja,boxrule=1pt,arc=3pt,left=5pt,right=5pt,top=3pt,bottom=3pt]
+\small Lv 23 presenta las \destacar{citas de Dios} (\emph{moadim}) que Israel proclama como \destacar{convocaciones santas}; el Shabat las encabeza y el siete las ordena. Son \emph{memorial} de lo que Dios hizo, \emph{figura} de lo que haría en el Mesías y \emph{esperanza} de lo que hará.
+\end{tcolorbox}
+\centering
+\begin{tikzpicture}
+ \foreach \x/\n/\t/\r in {0/1/{Histórica}/{Gézer, meses}, 2.45/2/{Filológica}/{\emph{moed}, \emph{mikrá}}, 4.9/3/{Textual}/{cómputo}, 7.35/4/{Literaria}/{fórmulas}, 9.8/5/{La serie}/{dos rieles}}{
+  \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][0.85cm][t]{1.95cm}{\RaggedRight
+    {\small\textbf{\textcolor{tierraroja}{\t}}}\par\vfill{\tiny\color{sepia}\r}}};
+  \node[circle,fill=tierraroja,text=papiro,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
+\end{tikzpicture}\par\smallskip
+\scriptsize Método de la serie: histórico, filológico, textual y literario; \destacar{la Biblia interpreta la Biblia}.
+\end{frame}
+
+\begin{frame}{El ciclo anual de Levítico 23}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[x=1cm,y=1cm,font=\scriptsize]
+ \def\fiestaactual{0}
+ \draw[line width=1.2pt,tierraroja!70,-{Latex[length=2.5mm]}] (0,0) -- (13.2,0);
+ \draw[decorate,decoration={brace,amplitude=5pt},sepia] (0.2,0.95) -- (5.9,0.95) node[midway,above=5pt,font=\scriptsize\itshape]{Primavera: Abib/Nisán -- Siván};
+ \draw[decorate,decoration={brace,amplitude=5pt},sepia] (7.6,0.95) -- (13.0,0.95) node[midway,above=5pt,font=\scriptsize\itshape]{Otoño: mes séptimo (Tishri)};
+ \foreach \n/\x/\t/\d in {1/0.6/Pésaj/{14 Abib},2/2.0/Matsot/{15--21 Abib},3/3.4/Primicias/{día después del sábado},4/5.4/Shavuot/{50 días},5/8.1/Yom Teruá/{1 Tishri},6/9.9/Yom Kipur/{10 Tishri},7/11.9/Sukkot/{15--22 Tishri}}{
+   \ifnum\n=\fiestaactual
+     \node[circle,fill=tierraroja,draw=caferojizo,minimum size=5.5mm,text=papiro,font=\scriptsize\bfseries] at (\x,0) {\n};
+     \node[above=3pt,font=\scriptsize\bfseries,text=tierraroja] at (\x,0.28) {\t};
+   \else
+     \node[circle,fill=mostaza!70,draw=sepia,minimum size=4.5mm,text=caferojizo,font=\tiny\bfseries] at (\x,0) {\n};
+     \node[above=3pt,text=sepia] at (\x,0.25) {\t};
+   \fi
+   \node[below=6pt,text width=1.6cm,align=center,font=\tiny,text=sepia] at (\x,0) {\d};}
+ \node[font=\tiny\itshape,text=sepia] at (6.75,-0.32) {\ldots\ verano\ldots};
+\end{tikzpicture}}\par\medskip
+\small Siete fiestas entre primavera y otoño; el \destacar{Shabat semanal} (Lv 23:3) atraviesa todo el ciclo. Esquema estándar de la serie: en cada estudio se resalta su fiesta.
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{El texto}
+
+\begin{frame}{Texto ancla: Lv 23:2}
+\fotolado{panel_levitico23_2.jpg}{Elaboración propia: Lv 23:2 en texto hebreo consonántico (BHS).}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.57\textwidth}
+\begin{cita}Habla a los hijos de Israel y diles: Las fiestas solemnes del \SENOR, las cuales proclamaréis como santas convocaciones, serán estas:\fuente{(Lv 23:2)}\end{cita}
+\small
+\begin{itemize}
+\item \heb{מוֹעֲדֵי יְהוָה} \emph{moadé YHWH}: ``las \destacar{citas} del \SENOR''.
+\item \heb{מִקְרָאֵי קֹדֶשׁ} \emph{mikraé kódesh}: ``convocaciones santas''.
+\item ``Habló el \SENOR{} a Moisés'': \destacar{cinco veces} (vv. 1, 9, 23, 26, 33).
+\end{itemize}
+\end{column}
+\begin{column}{0.41\textwidth}\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Shabat entre dos títulos}
+\fotolado{panel_levitico23_3.jpg}{Elaboración propia: Lv 23:3 en texto hebreo consonántico (BHS).}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.57\textwidth}
+\begin{cita}Seis días se trabajará, mas el séptimo día será de reposo, santa convocación; ningún trabajo haréis; día de reposo es del \SENOR{} en dondequiera que habitéis. Estas son las fiestas solemnes del \SENOR, las convocaciones santas, a las cuales convocaréis en sus tiempos:\fuente{(Lv 23:3--4)}\end{cita}
+\scriptsize El día séptimo es a la vez \destacar{una de las citas} y \destacar{el fundamento de todas}. Las citas tienen fecha: \heb{בְּמוֹעֲדָם} (\emph{bemoadam}), ``en su tiempo señalado''.
+\end{column}
+\begin{column}{0.41\textwidth}\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Recorrido de Levítico 23}
+\scriptsize\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{@{}L{1.1cm}L{2.8cm}L{2.4cm}L{5.4cm}@{}}
+\toprule
+\textbf{Vv.} & \textbf{Solemnidad} & \textbf{Fecha} & \textbf{Rasgos} \\ \midrule
+3 & Shabat & cada 7.º día & \emph{shabat shabatón}; ``ningún trabajo'' \\
+5 & Pascua & 14 mes primero & ``entre las dos tardes''; no es convocación \\
+6--8 & Panes sin levadura & 15--21 & \emph{jag}; convocación día 1 y 7 \\
+9--14 & Gavilla (\emph{ómer}) & día siguiente del sábado & primicia de la cebada; ``estatuto perpetuo'' \\
+15--21 & Semanas (\emph{Shavuot}) & día 50 & dos panes \emph{con} levadura \\
+23--25 & Memorial de trompetas & 1 mes séptimo & \emph{shabatón}, \emph{zijrón teruá} \\
+26--32 & Día de las expiaciones & 10 mes séptimo & \emph{shabat shabatón}; afligir el alma \\
+33--43 & Tabernáculos y 8.º día & 15--22 mes séptimo & \emph{jag}; cabañas; ``para que sepan'' \\
+\bottomrule
+\end{tabular}\par\smallskip
+\small Días anuales de convocación con reposo: \destacar{siete} (1.º y 7.º de Matsot, Shavuot, 1 y 10 Tishri, 1.º y 8.º de Sukkot).
+\end{frame}
+
+\begin{frame}{Cinco calendarios en la Torá}
+\scriptsize\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{@{}L{1.9cm}L{2.6cm}L{7.2cm}@{}}
+\toprule
+\textbf{Texto} & \textbf{Contexto} & \textbf{Lo que añade} \\ \midrule
+Éx 23:14--17 & Código de la alianza & ``tres veces'' (\emph{shalosh regalim}); ázimos, siega (\emph{katsir}), cosecha (\emph{asif}) ``a la salida del año'' \\
+Éx 34:18--26 & Renovación del pacto & primicias del trigo; Shabat ``aun en la arada y en la siega'' \\
+Lv 23 & Ley de santidad & fechas exactas; convocación; reposo; Shabat a la cabeza \\
+Nm 28--29 & Ofrendas públicas & víctimas de cada tiempo; lunas nuevas; 70 becerros de Sukkot \\
+Dt 16:1--17 & Discurso de Moisés & ``el lugar que escogiere''; gozo con el levita, el extranjero, el huérfano y la viuda \\
+\bottomrule
+\end{tabular}\par\medskip
+\small Éxodo nombra las fiestas por la \destacar{tierra}; Levítico, por el \destacar{tiempo}; Números, por el \destacar{altar}; Deuteronomio, por el \destacar{lugar} y la \destacar{comunidad}.
+\end{frame}
+
+\begin{frame}{Las tres peregrinaciones}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.55\textwidth}
+\centering\scriptsize\heb{שָׁלוֹשׁ פְּעָמִים בַּשָּׁנָה יֵרָאֶה כָל־זְכוּרְךָ}
+\begin{cita}Tres veces cada año aparecerá todo varón tuyo delante del \SENOR{} tu Dios en el lugar que él escogiere: en la fiesta solemne de los panes sin levadura, y en la fiesta solemne de las semanas, y en la fiesta solemne de los tabernáculos.\fuente{(Dt 16:16)}\end{cita}
+\end{column}
+\begin{column}{0.43\textwidth}\small
+\begin{itemize}
+\item \heb{שָׁלֹשׁ רְגָלִים}, ``tres pies'' (Éx 23:14): tres veces a pie.
+\item Las tres son \heb{חַג} (\emph{jag}), fiesta de peregrinación.
+\item El Shabat santifica \destacar{la casa}; las peregrinaciones llevan a \destacar{la casa de Dios}.
+\end{itemize}
+\precision{\emph{yeraé}, ``aparecerá'', puede ser vocalización que evita ``verá el rostro de Dios'' (Tigay, 1996).}
+\end{column}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Calendario}
+
+\begin{frame}{Un año de luna y de sol}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.52\textwidth}
+\begin{cita}Haya lumbreras en la expansión de los cielos para separar el día de la noche; y sirvan de señales para las estaciones, para días y años.\fuente{(Gn 1:14)}\end{cita}
+\scriptsize ``Estaciones'' = \heb{וּלְמוֹעֲדִים} (\emph{ulemoadim}), la palabra de Lv 23:2. ``Hizo la luna para los tiempos'' (Sal 104:19).
+\end{column}
+\begin{column}{0.46\textwidth}\small
+\begin{itemize}
+\item \heb{חֹדֶשׁ} \emph{jódesh}: ``luna nueva'' y ``mes'' (raíz \emph{j-d-sh}, ``nuevo'').
+\item 12 lunas $\approx$ 354 días: \destacar{11 menos} que el año solar.
+\item Las cosechas siguen al sol: hace falta un calendario \destacar{lunisolar}.
+\item Rosh Jódesh: Nm 10:10; 28:11--15; 1~S 20:5; Am 8:5; Is 66:23.
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Tres capas de nombres}
+\scriptsize\renewcommand{\arraystretch}{1.05}
+\begin{tabular}{@{}L{0.5cm}L{1.5cm}L{1.6cm}L{1.3cm}L{3.0cm}L{3.3cm}@{}}
+\toprule
+\textbf{N.º} & \textbf{Posexílico} & \textbf{Antiguo} & \textbf{Aprox.} & \textbf{Campo} & \textbf{Fiestas} \\ \midrule
+1 & Nisán & Abib & mar--abr & cebada; lluvia tardía & Pésaj, Matsot, ómer \\
+2 & Iyar & Zif (1 R 6:1) & abr--may & cebada & (Pésaj segundo) \\
+3 & Siván & --- & may--jun & trigo & Shavuot \\
+4--6 & Tamuz, Av, Elul & --- & jun--sep & uvas, higos, vendimia & --- \\
+7 & Tishri & Etanim (1 R 8:2) & sep--oct & recolección & Teruá, Kipur, Sukkot \\
+8 & Jeshván & Bul (1 R 6:38) & oct--nov & lluvia temprana; siembra & --- \\
+9--11 & Kislev, Tevet, Shevat & --- & nov--feb & lluvias de invierno & Janucá (Jn 10:22) \\
+12 & Adar (+ Adar II) & --- & feb--mar & lino, espigas & Purim (Est 9) \\
+\bottomrule
+\end{tabular}\par\smallskip
+\small Nombres \destacar{cananeos} (Abib, Zif, Etanim, Bul) → \destacar{ordinales} (Lv 23) → \destacar{babilónicos} (Est 3:7: ``el mes primero, que es el mes de Nisán'').
+\end{frame}
+
+\begin{frame}{La rueda del año hebreo}
+\centering
+\resizebox{!}{0.86\textheight}{%
+\begin{tikzpicture}[font=\scriptsize]
+ \fill[oliva!20] (0,0) -- ({90-7*30}:6.15) arc[start angle={90-7*30},end angle={90-13*30},radius=6.15] -- cycle;
+ \fill[mostaza!25] (0,0) -- ({90-1*30}:6.15) arc[start angle={90-1*30},end angle={90-7*30},radius=6.15] -- cycle;
+ \fill[white,opacity=0.9] (0,0) circle (5.0);
+ \fill[papiro] (0,0) circle (3.3);
+ \draw[sepia!70,line width=0.5pt] (0,0) circle (1.3) circle (3.3) circle (5.0) circle (6.15);
+ \foreach \i in {0,...,11}{\draw[sepia!60,line width=0.4pt] ({90-\i*30}:1.3) -- ({90-\i*30}:5.0);}
+ \foreach \i/\n/\o in {1/Nisán/Abib,2/Iyar/Zif,3/Siván/{},4/Tamuz/{},5/Av/{},6/Elul/{},7/Tishri/Etanim,8/Jeshván/Bul,9/Kislev/{},10/Tevet/{},11/Shevat/{},12/Adar/{}}{
+   \node[align=center,inner sep=0pt,font=\tiny] at ({90-(\i-0.5)*30}:2.35) {\textbf{\textcolor{tierraroja}{\i}}\\[1pt] \textbf{\n}\\ \textit{\o}};}
+ \foreach \i/\t in {1/{\textbf{Pésaj} 14\\ \textbf{Matsot} 15--21\\ \textbf{Ómer}}, 3/{\textbf{Shavuot}\\ (50 días)}, 7/{\textbf{Teruá} 1\\ \textbf{Kipur} 10\\ \textbf{Sukkot} 15--21\\ \textbf{Atséret} 22}}{
+   \node[align=center,font=\tiny,text=caferojizo,fill=mostaza!45,draw=tierraroja!60,rounded corners=2pt,inner sep=2pt] at ({90-(\i-0.5)*30}:4.15) {\t};}
+ \node[align=center,font=\tiny,text=black!55,draw=black!40,dashed,rounded corners=2pt,inner sep=2pt] at ({90-(9-0.5)*30}:4.15) {Janucá 25\\ (Jn 10:22)};
+ \node[align=center,font=\tiny,text=black!55,draw=black!40,dashed,rounded corners=2pt,inner sep=2pt] at ({90-(12-0.5)*30}:4.15) {Purim 14--15\\ (Est 9)};
+ \draw[black!50,dashed,line width=0.7pt] ({90-12*30+5}:1.3) -- ({90-12*30+5}:3.3);
+ \node[font=\tiny,text=black!60,anchor=west] at ({90-12*30+4}:3.33) {Adar II};
+ \foreach \i/\t in {1.0/{siega de la cebada}, 2.6/{siega del trigo}, 4.7/{higos, uvas}, 6.2/{vendimia}, 7.7/{aceituna; arado}, 9.0/{siembra}, 10.6/{lluvias de invierno}, 12.0/{lino; espigas}}{
+   \node[font=\tiny\itshape,text=caferojizo,align=center,text width=1.4cm] at ({90-(\i-0.5)*30}:5.58) {\t};}
+ \fill[tierraroja] ({90-7*30}:6.15) circle (2.2pt); \node[font=\tiny,text=tierraroja,anchor=north east] at ({90-7*30}:6.2) {lluvia temprana (\emph{yoré})};
+ \fill[tierraroja] ({90-0.2*30}:6.15) circle (2.2pt); \node[font=\tiny,text=tierraroja,anchor=south] at ({90-0.2*30}:6.2) {lluvia tardía (\emph{malkosh})};
+ \node[font=\scriptsize\itshape,text=sepia,anchor=west] at ({90-3.2*30}:6.3) {estación seca};
+ \node[font=\scriptsize\itshape,text=oliva,anchor=east] at ({90-9.2*30}:6.3) {estación lluviosa};
+ \node[align=center,font=\scriptsize,text=tierraroja] at (0,0) {\textbf{El año}\\ \textbf{hebreo}};
+\end{tikzpicture}}\par
+{\fontsize{5}{6}\selectfont\color{sepia}\textit{Nota.} Elaboración propia, inspirada en el ciclo de Danilo Gómez Correa. Janucá y Purim (gris): fiestas no levíticas.}
+\end{frame}
+
+
+\begin{frame}{Gézer, lluvias e intercalación}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\begin{cita}Dos meses de recolección; dos de siembra; dos de siembra tardía; uno de corte del lino; uno de siega de la cebada; uno de siega y medida; dos de poda; uno de fruta de verano.\fuente{(Calendario de Gézer, s. X a.\,e.\,c., trad. propia)}\end{cita}
+\precision{lectura de \emph{zamir} (poda o vendimia) y de la escritura discutidas (de Vaux, 1985).}
+\end{column}
+\begin{column}{0.48\textwidth}\scriptsize
+\begin{itemize}
+\item Lluvia \emph{temprana} (\heb{יוֹרֶה}) y \emph{tardía} (\heb{מַלְקוֹשׁ}): Dt 11:14; Jl 2:23; Stg 5:7.
+\item Cebada en Abib (Rt 1:22); trigo en Shavuot (Éx 34:22); recolección antes de Sukkot (Lv 23:39).
+\item Si la espiga no está, se añade \destacar{Adar II} (Veadar).
+\end{itemize}
+\precision{la intercalación es práctica rabínica (Tosefta, \emph{Sanedrín} 2:2; TB \emph{Sanedrín} 11b); el calendario fijo se atribuye por tradición a Hilel II (s. IV). La Biblia no describe el método.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Testimonios del calendario}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[font=\scriptsize]
+ \draw[line width=1.6pt,tierraroja,-{Latex[length=3mm]}] (0,0) -- (16.0,0);
+ \foreach \x/\a/\b/\c in {0.7/{Éxodo}/{Abib, mes primero}/{Éx 12:2; 13:4}, 2.65/{Gézer}/{año agrícola}/{s. X a.\,e.\,c.}, 4.6/{Salomón}/{Zif, Bul, Etanim}/{1 R 6:1, 38; 8:2}, 6.55/{Exilio}/{meses babilónicos}/{s. VI a.\,e.\,c.}, 8.5/{Ester, Nehemías}/{``Nisán''}/{Est 3:7; Neh 2:1}, 10.45/{Jubileos, Qumrán}/{364 días}/{s. II a.\,e.\,c.}, 12.4/{Misná}/{testigos, intercalación}/{ca. 200 e.\,c.}, 14.35/{Hilel II}/{calendario fijo}/{s. IV e.\,c. (trad.)}}{
+   \fill[mostaza] (\x,0) circle (4pt);
+   \node[above=6pt,font=\scriptsize\bfseries,text=tierraroja,text width=1.85cm,align=center] at (\x,0) {\a};
+   \node[below=6pt,text width=1.85cm,align=center,font=\tiny] at (\x,0) {\b\\ \textcolor{sepia}{(\c)}};}
+ \draw[decorate,decoration={brace,amplitude=6pt,mirror},sepia] (0.3,-1.25) -- (9.4,-1.25) node[midway,below=7pt,font=\tiny,text=sepia] {calendario bíblico: luna nueva y año de la espiga};
+ \draw[decorate,decoration={brace,amplitude=6pt,mirror},sepia] (9.6,-1.25) -- (15.1,-1.25) node[midway,below=7pt,font=\tiny,text=sepia] {disputas y sistematización};
+\end{tikzpicture}}\par\medskip
+\small En el s. II a.\,e.\,c., 1 Enoc 72--82, Jubileos (6:32--38) y Qumrán defienden un año de \destacar{364 días}: 52 semanas exactas, cada fiesta siempre el mismo día de la semana. Para el \emph{Documento de Damasco}, Israel se extravió en ``sus sábados santos y sus fiestas gloriosas'' (CD 3:14--15).
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{El Shabat}
+
+\begin{frame}{El séptimo día (Gn 2:2--3)}
+\fotolado{panel_genesis2_3.jpg}{Elaboración propia: Gn 2:3 en texto hebreo consonántico (BHS).}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.57\textwidth}
+\begin{cita}Y acabó Dios en el día séptimo la obra que hizo; y reposó el día séptimo de toda la obra que hizo. Y bendijo Dios al día séptimo, y lo santificó\ldots\fuente{(Gn 2:2--3)}\end{cita}
+\scriptsize
+\begin{itemize}
+\item \heb{וַיִּשְׁבֹּת} \emph{vayishbot}: ``y \destacar{cesó}'' (cf. Jos 5:12).
+\item \heb{וַיְקַדֵּשׁ}: primer uso de \emph{k-d-sh}: lo primero santo es \destacar{un día}.
+\item Tres frases de \destacar{7 palabras}; Gn 2:1--3 = \destacar{35} (5 × 7).
+\end{itemize}
+\precision{conteo propio; verificar en BHS. Si Gn 2 es mandato para la humanidad se discute (Bacchiocchi, 1977 / Lincoln, en Carson, 1982).}
+\end{column}
+\begin{column}{0.41\textwidth}\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{El maná y las dos raíces del Shabat}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.40\textwidth}
+\begin{cita}Mirad que el \SENOR{} os dio el día de reposo, y por eso en el sexto día os da pan para dos días.\fuente{(Éx 16:29)}\end{cita}
+\scriptsize Antes del Sinaí, el Shabat se aprende \destacar{comiendo}: ``período tácito de la ley'' de la serie (cf. Gn 26:5).
+\end{column}
+\begin{column}{0.58\textwidth}\centering
+\begin{tikzpicture}[font=\scriptsize]
+ \node[caja,text width=2.7cm,align=center] (ex) at (-1.7,0) {\textbf{\textcolor{tierraroja}{Éx 20:8--11}}\\ \heb{זָכוֹר} ``acuérdate''\\ \textit{creación}};
+ \node[caja,text width=2.7cm,align=center] (dt) at (1.7,0) {\textbf{\textcolor{tierraroja}{Dt 5:12--15}}\\ \heb{שָׁמוֹר} ``guarda''\\ \textit{liberación de Egipto}};
+ \node[draw=mostaza,line width=1.4pt,fill=tierraroja,text=papiro,rounded corners=3pt,text width=2.4cm,align=center,inner sep=4pt] (sh) at (0,-2.0) {\textbf{Shabat}\\ ``señal'' (Éx 31:13)};
+ \draw[-{Latex[length=2.5mm]},mostaza,line width=1.2pt] (ex.south) to[out=-90,in=180] (sh.west);
+ \draw[-{Latex[length=2.5mm]},mostaza,line width=1.2pt] (dt.south) to[out=-90,in=0] (sh.east);
+\end{tikzpicture}\par\smallskip
+\scriptsize ``para que descanse tu siervo y tu sierva como tú'' (Dt 5:14).\\
+\precision{``\emph{zajor} y \emph{shamor} en una sola palabra'': Mejiltá; TB \emph{Shevuot} 20b.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Señal y pacto perpetuo (Éx 31:16--17)}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.52\textwidth}
+\centering\scriptsize\heb{בְּרִית עוֹלָם \foreignlanguage{spanish}{[\ldots]} אוֹת הִוא לְעֹלָם}
+\begin{cita}Guardarán, pues, el día de reposo los hijos de Israel, celebrándolo por sus generaciones por pacto perpetuo. Señal es para siempre entre mí y los hijos de Israel; porque en seis días hizo el \SENOR{} los cielos y la tierra, y en el séptimo día cesó y reposó.\fuente{(Éx 31:16--17)}\end{cita}
+\end{column}
+\begin{column}{0.46\textwidth}\small
+\begin{itemize}
+\item \heb{אוֹת} \emph{ot}, ``señal'': como el arco (Gn 9) y la circuncisión (Gn 17).
+\item \heb{בְּרִית עוֹלָם}, ``pacto perpetuo''.
+\item \heb{וַיִּנָּפַשׁ}: ``y \destacar{tomó aliento}'' (de \emph{néfesh}).
+\item Lv 23:3: ``ningún trabajo'' (\emph{kol melajá}) y ``\destacar{en dondequiera que habitéis}''.
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Los profetas y el Shabat}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\begin{cita}A todos los que guarden el día de reposo para no profanarlo, y abracen mi pacto, yo los llevaré a mi santo monte\ldots{} porque mi casa será llamada casa de oración para todos los pueblos.\fuente{(Is 56:6--7)}\end{cita}
+\end{column}
+\begin{column}{0.48\textwidth}\scriptsize
+\begin{itemize}
+\item Abierto a \destacar{extranjeros y eunucos} (Is 56:1--8; cf. Mc 11:17).
+\item ``lo llamares \destacar{delicia}'' (\heb{עֹנֶג}, Is 58:13--14).
+\item Frontera de la ciudad: no llevar carga por las puertas (Jer 17:19--27).
+\item Señal y profanación (Ez 20:12, 20; 22:26).
+\item Nehemías cierra las puertas ``antes del día de reposo'' (Neh 13:15--22).
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Jesús, Señor del día de reposo}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\begin{cita}El día de reposo fue hecho por causa del hombre, y no el hombre por causa del día de reposo. Por tanto, el Hijo del Hombre es Señor aun del día de reposo.\fuente{(Mc 2:27--28)}\end{cita}
+\begin{cita}\ldots{}¿no se le debía desatar de esta ligadura en el día de reposo?\fuente{(Lc 13:16)}\end{cita}
+\end{column}
+\begin{column}{0.48\textwidth}\scriptsize
+\begin{itemize}
+\item En la sinagoga ``conforme a su costumbre'' (Lc 4:16).
+\item Las disputas versan sobre \destacar{cómo} guardarlo (Mc 2:23--3:6; Jn 5; 9).
+\item Lc 13 razona desde Dt 5: si el Shabat recuerda la liberación, es el día para \destacar{desatar}.
+\item ``Mi Padre hasta ahora trabaja'' (Jn 5:17).
+\item Las mujeres ``descansaron el día de reposo, conforme al mandamiento'' (Lc 23:56).
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{``Queda un reposo'' (He 4:9)}
+\fotolado{panel_hebreos4_9.jpg}{Elaboración propia: He 4:9 en escritura uncial (texto NA28).}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.57\textwidth}
+\begin{cita}Porque si Josué les hubiera dado el reposo, no hablaría después de otro día. Por tanto, queda un reposo para el pueblo de Dios.\fuente{(He 4:8--9)}\end{cita}
+\scriptsize
+\begin{itemize}
+\item \grc{κατάπαυσις} (Sal 95:11 LXX) + \grc{κατέπαυσεν} (Gn 2:2) → \grc{σαββατισμός}, hápax del NT (Plutarco: observancia del sábado).
+\item ¿Práctica que anticipa el fin (Bacchiocchi) o reposo escatológico (Lincoln; Lane; Attridge)?
+\end{itemize}
+\precision{Hebreos es anónimo; la serie lo atribuye a Pablo, como la tradición griega. Orígenes: ``solo Dios lo sabe'' (Eusebio, \emph{Hist. ecl.} 6.25).}
+\end{column}
+\begin{column}{0.41\textwidth}\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{El Shabat en la lectura de la serie}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.50\textwidth}\small
+De Éx 31:13--17, la serie deduce que el Shabat es:
+\begin{enumerate}\scriptsize
+\item mandato instituido por Dios;
+\item memorial de la obra creadora;
+\item señal entre Dios y su pueblo;
+\item mandato perpetuo;
+\item \destacar{símbolo de la vida eterna después del Milenio}: el encuentro del Padre con sus hijos en la Jerusalén celestial (Ap 21:1--4).
+\end{enumerate}
+\end{column}
+\begin{column}{0.48\textwidth}
+\begin{cita}He aquí el tabernáculo de Dios con los hombres, y él morará con ellos\ldots{} Enjugará Dios toda lágrima\ldots\fuente{(Ap 21:3--4)}\end{cita}
+\precision{1--4 están en Éx 31; 5 es lectura tipológica apoyada en He 4 e Is 66:22--23; Ap 21 no nombra el Shabat.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Un debate de veinte siglos}
+\scriptsize\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{@{}L{2.3cm}L{5.2cm}L{4.3cm}@{}}
+\toprule
+\textbf{Postura} & \textbf{Tesis} & \textbf{Apoyos} \\ \midrule
+Séptimo día & ordenanza de la creación y señal perpetua; el domingo surge en Roma, s. II & Gn 2:3; Éx 31:16; Bacchiocchi (1977); la serie \\
+Domingo, ``sábado cristiano'' & mandamiento moral; el día pasa al primero de la semana & Hch 20:7; Ap 1:10; Westminster 21.7 \\
+Cumplimiento en Cristo & el Shabat es sombra; el día del Señor no es traslado; reposo escatológico & Col 2:16--17; Ro 14:5; Carson (Ed., 1982) \\
+Tradición judía & señal del pacto de Israel; ``palacio en el tiempo'' & Éx 31:13; Heschel (1951) \\
+\bottomrule
+\end{tabular}\par\smallskip
+\begin{cita}nadie os juzgue\ldots{} en cuanto a días de fiesta, luna nueva o días de reposo, todo lo cual es sombra de lo que ha de venir; pero el cuerpo es de Cristo.\fuente{(Col 2:16--17)}\end{cita}
+\vspace{-4pt}\precision{la tríada ``fiesta, luna nueva, sábado'' es la del calendario de Israel (1 Cr 23:31; Os 2:11). ¿Pablo relativiza (Dunn, 1998) o defiende a quienes las guardan (Martin, 1996)?}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{El siete}
+
+\begin{frame}{La escalera del siete}
+\centering
+\resizebox{!}{0.70\textheight}{%
+\begin{tikzpicture}[font=\footnotesize,x=1cm,y=1cm]
+ \foreach \n/\t/\d/\r/\e in {0/{Día 7}/{Shabat semanal}/{Gn 2:2--3; Lv 23:3}/{+1: octavo día de Sukkot}, 1/{7 semanas + 1}/{Shavuot, día 50}/{Lv 23:15--16}/{+1: ``cincuenta días''}, 2/{Mes 7}/{Tishri: Teruá, Kipur, Sukkot}/{Lv 23:24--36}/{tres fiestas}, 3/{Año 7}/{\emph{Shemitá}: reposo de la tierra}/{Lv 25:1--7; Dt 15}/{estudio 08}, 4/{7 × 7 años + 1}/{Jubileo, año 50}/{Lv 25:8--12}/{+1: estudio 09}}{
+   \node[draw=tierraroja,line width=0.8pt,fill=papiro,rounded corners=2pt,text width=2.85cm,align=left,anchor=south west,inner sep=4pt] (s\n) at (\n*3.15,\n*1.55) {\textbf{\textcolor{tierraroja}{\t}}\\ \d\\[-1pt] {\tiny\color{sepia}(\r)}\\[-1pt] {\tiny\itshape\color{oliva}\e}};}
+ \foreach \a/\b in {0/1,1/2,2/3,3/4}{\draw[-{Latex[length=2.5mm]},mostaza,line width=1.2pt] (s\a.north) |- (s\b.west);}
+ \draw[decorate,decoration={brace,amplitude=6pt,mirror},sepia] (0,-0.3) -- (9.25,-0.3) node[midway,below=7pt,font=\scriptsize\itshape,text=sepia] {Levítico 23: el tiempo de las fiestas};
+ \draw[decorate,decoration={brace,amplitude=6pt},sepia] (9.45,8.0) -- (15.9,8.0) node[midway,above=7pt,font=\scriptsize\itshape,text=sepia] {Levítico 25: el tiempo de la tierra};
+\end{tikzpicture}}\par\smallskip
+\scriptsize La tierra recibe el título del día séptimo: \heb{שַׁבַּת שַׁבָּתוֹן יִהְיֶה לָאָרֶץ} (Lv 25:4). El ``uno más'' (día 8, día 50, año 50) abre un ciclo nuevo.
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Filología}
+
+\begin{frame}{\heb{מוֹעֵד} \emph{moed}: la cita}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.46\textwidth}\centering
+\resizebox{0.95\linewidth}{!}{%
+\begin{tikzpicture}[font=\scriptsize]
+ \node[draw=mostaza,line width=1.4pt,fill=tierraroja,text=papiro,rounded corners=3pt,align=center,inner sep=5pt] (c) at (0,0) {\heb{יעד} \emph{y-'-d}\\ ``fijar, citar''};
+ \node[caja,text width=2.2cm,align=center] (t) at (-1.6,1.6) {\textbf{tiempo}\\ Gn 1:14; Hab 2:3};
+ \node[caja,text width=2.2cm,align=center] (l) at (1.6,1.6) {\textbf{lugar}\\ \emph{óhel moed} (Éx 29:42)};
+ \node[caja,text width=2.2cm,align=center] (a) at (-1.6,-1.6) {\textbf{fiesta}\\ \emph{moadé YHWH} (Lv 23:2)};
+ \node[caja,text width=2.2cm,align=center] (g) at (1.6,-1.6) {\textbf{LXX}\\ \grc{ἑορτή}, \grc{καιρός}};
+ \foreach \n in {t,l,a,g}{\draw[-{Latex[length=2mm]},mostaza,line width=1pt] (c) -- (\n);}
+\end{tikzpicture}}
+\end{column}
+\begin{column}{0.52\textwidth}
+\begin{cita}\ldots{}a la puerta del tabernáculo de reunión, delante del \SENOR, en el cual me reuniré con vosotros\ldots\fuente{(Éx 29:42)}\end{cita}
+\scriptsize El tabernáculo es el \emph{moed} en el \destacar{espacio}; las fiestas, en el \destacar{tiempo}.\par\smallskip \destacar{Reloj profético}: LXX \emph{moadim} = \grc{καιροί} (Gn 1:14; Sal 104:19); Pablo: ``los tiempos (\grc{καιρῶν})'' (1 Ts 5:1; Ef 1:10); fiestas, ``sombra de lo que ha de venir'' (Col 2:17).\par \precision{\grc{καιρός} traduce también \emph{et}; 1 Ts 5:1 depende de Dn 2:21.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{\heb{מִקְרָא קֹדֶשׁ} y \heb{חַג}}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}\small
+\destacar{\emph{Mikrá kódesh}} (\emph{k-r-'}, ``llamar, leer''):
+\begin{itemize}\scriptsize
+\item convocación: ``el convocar asambleas'' (Is 1:13);
+\item lectura: ``entendiesen la lectura'' (\emph{bamikrá}, Neh 8:8);
+\item 11 veces en Lv 23 (conteo propio); LXX \grc{κλητὴ ἁγία}.
+\end{itemize}
+\precision{``ensayo'' (Chumney, 1994) es analogía homilética, no significado.}
+\end{column}
+\begin{column}{0.48\textwidth}\small
+\destacar{\emph{Jag}} (\emph{j-g-g}), fiesta de peregrinación:
+\begin{itemize}\scriptsize
+\item Matsot, Shavuot, Sukkot (Dt 16:16);
+\item ``tres veces me celebraréis fiesta'' (Éx 23:14);
+\item cognado del árabe \emph{ḥajj};
+\item LXX y NT \grc{ἑορτή} (Jn 5:1); \grc{ἑορτάζωμεν} (1 Co 5:8).
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}{Del hebreo al español}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[font=\footnotesize]
+ \tikzset{c/.style={draw=tierraroja,line width=0.8pt,fill=papiro,rounded corners=3pt,text width=2.95cm,align=center,inner sep=4pt,minimum height=1.0cm}}
+ \node[font=\small\bfseries,text=tierraroja] at (0,0) {Hebreo};
+ \node[font=\small\bfseries,text=tierraroja] at (3.85,0) {Septuaginta};
+ \node[font=\small\bfseries,text=tierraroja] at (7.7,0) {Nuevo Testamento};
+ \node[font=\small\bfseries,text=tierraroja] at (11.55,0) {RVR1960};
+ \foreach \y/\h/\l/\n/\e in {-1.15/{\heb{מוֹעֲדֵי יְהוָה}\\ \emph{moadé YHWH}}/{\grc{αἱ ἑορταὶ κυρίου}\\ (Lv 23:2)}/{\grc{ἑορτή}\\ (Jn 5:1; Col 2:16)}/{``fiestas solemnes''}, -2.45/{\heb{מִקְרָא קֹדֶשׁ}\\ \emph{mikrá kódesh}}/{\grc{κλητὴ ἁγία}\\ (Lv 23:2--4)}/{\grc{κλητοῖς ἁγίοις}\\ (Ro 1:7; 1 Co 1:2)}/{``santa convocación''}, -3.75/{\heb{חַג}\\ \emph{jag}}/{\grc{ἑορτή}\\ (Éx 23:14; Dt 16:16)}/{\grc{ἑορτάζωμεν}\\ (1 Co 5:8)}/{``fiesta solemne''}, -5.05/{\heb{שַׁבָּת} / \heb{שַׁבָּתוֹן}\\ \emph{shabat / shabatón}}/{\grc{σάββατα / ἀνάπαυσις}\\ (Éx 16:23; Lv 23:3)}/{\grc{σάββατον / σαββατισμός}\\ (Mc 2:27; He 4:9)}/{``día de reposo''}}{
+   \node[c] (h) at (0,\y) {\h}; \node[c] (l) at (3.85,\y) {\l}; \node[c,fill=tierraroja!8] (n) at (7.7,\y) {\n}; \node[c,draw=mostaza,fill=white] (e) at (11.55,\y) {\e};
+   \draw[-{Latex[length=2.5mm]},mostaza,line width=1.1pt] (h)--(l); \draw[-{Latex[length=2.5mm]},mostaza,line width=1.1pt] (l)--(n); \draw[-{Latex[length=2.5mm]},mostaza,line width=1.1pt] (n)--(e);}
+\end{tikzpicture}}\par\smallskip
+\precision{\grc{κλητὴ ἁγία} / \grc{κλητοῖς ἁγίοις}: coincidencia léxica; la alusión de Pablo a Lv 23 es solo un eco posible.}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Cómputo}
+
+\begin{frame}{Problemas de texto y de cómputo}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}\scriptsize
+\destacar{Doble título (vv. 2 y 4).} Crítica: el Shabat fue antepuesto por la escuela de santidad (Milgrom, 2001). Lectura canónica: el Shabat como modelo y cabeza (Hartley, 1992; Wenham, 1979).\par\medskip
+\destacar{\heb{מִמָּחֳרַת הַשַּׁבָּת}} (Lv 23:11, 15): ¿día después del 1.º de Matsot (LXX \grc{τῆς πρώτης}; Josefo; fariseos) o del sábado semanal (saduceos, caraítas; Qumrán)? → estudios 03--04.
+\end{column}
+\begin{column}{0.48\textwidth}\scriptsize
+\destacar{``Entre las dos tardes''} (Éx 12:6; Lv 23:5): ocaso--oscuridad o tarde (Misná, \emph{Pesajim} 5:1) → estudio 01.\par\medskip
+\destacar{Comienzo del día}: ``de tarde a tarde'' (Lv 23:32; Neh 13:19).\par\medskip
+\begin{tcolorbox}[colback=mostaza!12,colframe=mostaza!85!tierraroja,boxrule=0.6pt,arc=2pt,left=3pt,right=3pt,top=2pt,bottom=2pt,fonttitle=\bfseries\scriptsize,coltitle=caferojizo,colbacktitle=mostaza!30,title={Precisión textual}]
+\scriptsize TM, Pentateuco Samaritano, LXX y Qumrán no difieren en las fechas de Lv 23. Los debates son de \emph{interpretación} y de \emph{sistema}, no de texto.
+\end{tcolorbox}
+\end{column}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Literatura}
+
+\begin{frame}{Estructura de Levítico 23}
+\centering
+\resizebox{!}{0.82\textheight}{%
+\begin{tikzpicture}[font=\footnotesize,x=1cm,y=1cm]
+ \tikzset{b/.style={draw=tierraroja,line width=0.7pt,fill=papiro,rounded corners=2pt,minimum height=0.62cm,anchor=west,inner sep=3pt,align=left},
+          f/.style={draw=sepia,fill=mostaza!35,rounded corners=2pt,minimum height=0.62cm,anchor=west,inner sep=3pt,align=left},
+          d/.style={circle,fill=tierraroja,text=papiro,font=\scriptsize\bfseries,inner sep=1.5pt}}
+ \foreach \y/\v/\t/\s in {0/{1--2}/{\textbf{Título}: \emph{moadé YHWH}\ldots{} \emph{éle hem moaday}}/f, -0.75/{3}/{\textbf{Shabat}: \emph{shabat shabatón}, ``en dondequiera que habitéis''}/b, -1.5/{4}/{\textbf{Título}: \emph{éle moadé YHWH}\ldots{} \emph{bemoadam}}/f, -2.25/{5--8}/{\textbf{Pascua} (14) y \textbf{Matsot} (15--21)}/b, -3.0/{9--21}/{\textbf{Gavilla} del ómer y \textbf{Shavuot} (50 días)}/b, -3.75/{22}/{rebusco para el pobre; ``Yo el \SENOR{} vuestro Dios''}/f, -4.5/{23--25}/{\textbf{Memorial de trompetas} (1 del mes séptimo)}/b, -5.25/{26--32}/{\textbf{Día de las expiaciones} (10)}/b, -6.0/{33--36}/{\textbf{Sukkot} (15--21) y \textbf{octavo día} (22)}/b, -6.75/{37--38}/{\textbf{Suscripción}: \emph{éle moadé YHWH}}/f, -7.5/{39--43}/{suplemento de Sukkot; ``Yo el \SENOR{} vuestro Dios''}/b, -8.25/{44}/{\textbf{Cierre}: Moisés habló \emph{moadé YHWH}}/f}{
+   \node[font=\scriptsize\bfseries,text=sepia,anchor=east] at (1.6,\y) {vv. \v};
+   \node[\s,text width=8.3cm] at (1.8,\y) {\t};}
+ \foreach \y/\n in {0.0/1,-3.0/2,-4.5/3,-5.25/4,-6.0/5}{\node[d] at (11.0,\y) {\n};}
+ \node[font=\tiny,text=tierraroja,align=center] at (11.0,0.55) {discurso\\ divino};
+ \draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia,line width=0.6pt] (-0.15,-2.0) -- (-0.15,-4.05) node[midway,left=6pt,font=\tiny,text=sepia] {primavera};
+ \draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia,line width=0.6pt] (-0.15,-4.25) -- (-0.15,-7.8) node[midway,left=6pt,font=\tiny,text=sepia] {otoño};
+ \draw[tierraroja!60,dashed,line width=0.6pt] (10.25,0) -- (10.6,0) -- (10.6,-8.25) -- (10.25,-8.25);
+ \node[font=\tiny,text=tierraroja,rotate=90] at (10.4,-4.1) {inclusión \emph{moadé YHWH}};
+\end{tikzpicture}}
+\end{frame}
+
+\begin{frame}{Fórmulas repetidas}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.60\textwidth}
+\scriptsize\renewcommand{\arraystretch}{1.06}
+\begin{tabular}{@{}L{3.6cm}L{0.6cm}L{2.6cm}@{}}
+\toprule
+\textbf{Fórmula} & \textbf{N.º} & \textbf{Vv.} \\ \midrule
+``Habló el \SENOR{} a Moisés'' & 5 & 1, 9, 23, 26, 33 \\
+``santa convocación'' & 11 & 2--4, 7, 8, 21, 24, 27, 35--37 \\
+``ningún trabajo de siervos'' & 6 & 7, 8, 21, 25, 35, 36 \\
+``ningún trabajo'' & 3 & 3, 28, 31 \\
+``estatuto perpetuo'' & 4 & 14, 21, 31, 41 \\
+``en dondequiera que habitéis'' & 4 & 3, 14, 21, 31 \\
+\emph{shabatón} & 5 & 3, 24, 32, 39 (2×) \\
+``Yo el \SENOR{} vuestro Dios'' & 2 & 22, 43 \\
+\bottomrule
+\end{tabular}\par
+\precision{conteo propio; verificar en BHS o e-Sword.}
+\end{column}
+\begin{column}{0.38\textwidth}\small
+El capítulo legisla menos sobre \destacar{qué hacer} que sobre \destacar{cuándo detenerse y reunirse}.\par\medskip
+\scriptsize Lv 23 está en el centro de la santidad: personas (18--22), \destacar{tiempo} (23), santuario (24), \destacar{tierra} (25). ``Mis días de reposo guardaréis, y mi santuario tendréis en reverencia'' (19:30; 26:2).
+\end{column}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{La serie}
+
+\begin{frame}{Reglamento del Culto y ley de los sacrificios}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[font=\footnotesize]
+ \node[draw=mostaza,line width=1.4pt,fill=tierraroja,text=papiro,rounded corners=3pt,text width=8.6cm,align=center,inner sep=5pt] (he) at (0,0) {\textbf{``Tenía empero el primer pacto reglamento del culto, y santuario mundano''}\\ \grc{δικαιώματα λατρείας τό τε ἅγιον κοσμικόν} (He 9:1, RV1909)};
+ \node[draw=tierraroja,line width=0.8pt,fill=papiro,rounded corners=3pt,text width=6.3cm,align=left,inner sep=5pt,anchor=north] (rc) at (-3.7,-1.1) {\textbf{\textcolor{tierraroja}{Reglamento del Culto}} (Lv 23)\\[2pt] las citas del \SENOR{} en sus tiempos\\ convocación santa, reposo, memorial\\ ``guardaréis este rito'' (\emph{haavodá}, Éx 12:25)\\ ``como está escrito'' (\emph{kakatuv}, Esd 3:4)};
+ \node[draw=tierraroja,line width=0.8pt,fill=papiro,rounded corners=3pt,text width=6.3cm,align=left,inner sep=5pt,anchor=north] (ls) at (3.7,-1.1) {\textbf{\textcolor{tierraroja}{Santuario y ley de los sacrificios}} (Lv 1--7; Nm 28--29)\\[2pt] víctimas, holocausto continuo, ofrendas\\ sacerdocio levítico, purificaciones\\ ``es la víctima de la pascua'' (Éx 12:27)\\ ``conforme al rito'' (\emph{kemishpat}, Esd 3:4)};
+ \draw[-{Latex[length=3mm]},mostaza,line width=1.3pt] (he.south) -- ++(0,-0.3) -| (rc.north);
+ \draw[-{Latex[length=3mm]},mostaza,line width=1.3pt] (he.south) -- ++(0,-0.3) -| (ls.north);
+ \node[draw=oliva,line width=0.8pt,fill=oliva!12,rounded corners=3pt,text width=6.3cm,align=center,inner sep=4pt,anchor=north] (r1) at ([yshift=-0.55cm]rc.south) {\textbf{permanece} como memorial y figura};
+ \node[draw=sepia,line width=0.8pt,fill=white,rounded corners=3pt,text width=6.3cm,align=center,inner sep=4pt,anchor=north] (r2) at ([yshift=-0.55cm]ls.south) {\textbf{cesa}, ``clavada en la cruz'' (Ef 2:15; Col 2:14)};
+ \draw[-{Latex[length=2.5mm]},oliva,line width=1.1pt] (rc.south) -- (r1.north);
+ \draw[-{Latex[length=2.5mm]},sepia,line width=1.1pt] (ls.south) -- (r2.north);
+\end{tikzpicture}}\par\smallskip
+\precision{\emph{avodá} (Éx 12:25) es todo el ``servicio''; en He 9:10 los \grc{δικαιώματα} son ``ordenanzas acerca de la carne'' provisionales; Ef 2:15 y Col 2:14 admiten lecturas más amplias (Dunn, 1998; Moo, 1996).}
+\end{frame}
+
+\begin{frame}{Tres períodos de la Ley y de la Iglesia}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[font=\footnotesize]
+ \draw[line width=1.6pt,tierraroja,-{Latex[length=3mm]}] (0,0) -- (16.2,0);
+ \foreach \x in {0.2,5.4,10.8}{\fill[mostaza] (\x,0) circle (4pt);}
+ \node[above=4pt,font=\scriptsize\bfseries,text=tierraroja] at (0.2,0) {Adán};
+ \node[above=4pt,font=\scriptsize\bfseries,text=tierraroja] at (5.4,0) {Abraham / Sinaí};
+ \node[above=4pt,font=\scriptsize\bfseries,text=tierraroja] at (10.8,0) {Cristo};
+ \node[draw=tierraroja,fill=papiro,rounded corners=3pt,line width=0.8pt,text width=4.6cm,anchor=north,align=left,inner sep=4pt] at (2.8,-0.4) {\textbf{1. Congregación de los Primogénitos}\\ ``período tácito de la Ley''\\ He 12:23; Gn 18:19; 26:5\\ Lot: panes sin levadura (Gn 19:3)\\ Abraham en tiendas (He 11:9)\\ Melquisedec (Gn 14:18--20)};
+ \node[draw=tierraroja,fill=papiro,rounded corners=3pt,line width=0.8pt,text width=4.6cm,anchor=north,align=left,inner sep=4pt] at (8.1,-0.4) {\textbf{2. Israel, congregación del desierto}\\ \grc{ἐκκλησία ἐν τῇ ἐρήμῳ} (Hch 7:38)\\ Reglamento del Culto (Lv 23)\\ santuario y sacrificios (He 9:1)\\ libro de la Ley (Éx 34:27)};
+ \node[draw=tierraroja,fill=tierraroja!8,rounded corners=3pt,line width=0.8pt,text width=4.6cm,anchor=north,align=left,inner sep=4pt] at (13.5,-0.4) {\textbf{3. Iglesia del Nuevo Pacto}\\ ``escribiré mi ley en su corazón'' (Jer 31:33; He 8:10)\\ gentiles ``conciudadanos'' (Ef 2:19)\\ las fiestas como memorial y figura};
+\end{tikzpicture}}\par\medskip
+\precision{\emph{matsot} también eran pan de prisa (Jue 6:19; 1 S 28:24), aunque Rashi a Gn 19:3 dice ``era Pascua''; He 11:9 no nombra Sukkot; He 12:23 describe la asamblea celestial; Melquisedec es figura histórica que Hebreos lee como tipo (He 7): estudio 06.}
+\end{frame}
+
+\newcommand{\rieles}[2]{%
+\begin{tikzpicture}[x=1cm,y=1cm,font=\scriptsize]
+ \def\dy{1.3}
+ \tikzset{f/.style={draw=caferojizo,line width=0.8pt,fill=mostaza!55,rounded corners=3pt,text width=2.3cm,align=center,inner sep=2pt,minimum height=0.9cm},
+          L/.style={text width=3.6cm,align=right,anchor=east,inner sep=1pt},
+          R/.style={text width=3.9cm,align=left,anchor=west,inner sep=1pt},
+          ex/.style={tierraroja,line width=0.9pt}, ty/.style={tierraroja,line width=0.9pt,dashed}}
+ \node[font=\scriptsize\bfseries,text=tierraroja] at (2.0,0.85) {Israel (memorial)};
+ \node[font=\scriptsize\bfseries,text=tierraroja] at (6.2,0.85) {La fiesta};
+ \node[font=\scriptsize\bfseries,text=tierraroja] at (10.5,0.85) {La Iglesia (figura)};
+ \draw[sepia,line width=2.2pt] (4.15,0.45) -- (4.15,-#1*\dy-0.45);
+ \draw[sepia,line width=2.2pt] (8.25,0.45) -- (8.25,-#1*\dy-0.45);
+ \foreach \k/\fa/\la/\ra/\cl/\cr in {#2}{
+   \node[f] (f\k) at (6.2,-\k*\dy) {\fa};
+   \node[L] at (3.85,-\k*\dy) {\la};
+   \node[R] at (8.55,-\k*\dy) {\ra};
+   \fill[tierraroja] (4.15,-\k*\dy) circle (2.4pt); \fill[tierraroja] (8.25,-\k*\dy) circle (2.4pt);
+   \draw[\cl] (4.25,-\k*\dy) -- (f\k.west);
+   \draw[\cr] (f\k.east) -- (8.15,-\k*\dy);}
+\end{tikzpicture}}
+
+\begin{frame}{Dos rieles (I): la primavera}
+\centering
+\resizebox{\linewidth}{!}{\rieles{3}{
+   0/{\textbf{Pascua}\\ 14 Abib}/{Salvado de la muerte de los primogénitos (Éx 12:13)}/{Cristo, nuestra Pascua (1 Co 5:7); la Cena, memorial (1 Co 11:24--26)}/ex/ex,
+   1/{\textbf{Panes sin levadura}\\ 15--21 Abib}/{Sale de Egipto (Éx 12:17)}/{La Iglesia sin levadura de pecado, libre de Satanás (1 Co 5:7--8)}/ex/ex,
+   2/{\textbf{Ómer}\\ día siguiente del sábado}/{Libre del faraón: primicia de las naciones, ``18 de Abib'' (Éx 19:5--6)}/{Cristo, primicia de los resucitados (1 Co 15:20--23)}/ty/ex,
+   3/{\textbf{Pentecostés}\\ día 50}/{El Sinaí: presencia de Dios y entrega de la Ley (Éx 19--20)}/{El Espíritu (Hch 2); dos panes con levadura (Lv 23:17); lluvias de Jl 2:23}/ty/ex}}\par\smallskip
+{\scriptsize línea continua: vínculo expreso en el texto \quad línea discontinua: lectura tipológica de la serie}
+\end{frame}
+
+\begin{frame}{Dos rieles (II): el otoño y el Sábado}
+\centering
+\resizebox{!}{0.80\textheight}{\rieles{4}{
+   0/{\textbf{Trompetas}\\ 1 Tishri}/{Caída de Jericó al son de trompetas (Jos 6)}/{Retorno de Cristo a la final trompeta (1 Co 15:52; 1 Ts 4:16)}/ty/ty,
+   1/{\textbf{Expiación}\\ 10 Tishri}/{Fin del juicio del desierto; perdón antes de entrar}/{Cristo Sumo Sacerdote; fin del juicio a la casa de Dios (1 P 4:17); Azazel: Satanás atado (Ap 20:1--3)}/ty/ty,
+   2/{\textbf{Cabañas}\\ 15--21 Tishri}/{Entrada en Canaán; Israel establecido como reino}/{El Reino milenial: la cabaña, lo pasajero (Ap 20:4--6)}/ty/ty,
+   3/{\textbf{Octavo día}\\ 22 Tishri}/{(después)}/{Gog y Magog, gran trono blanco; ``luego el fin'' (Ap 20:7--15; 1 Co 15:24--28)}/ty/ty,
+   4/{\textbf{Sábado}\\ 7.º día}/{Reposo no alcanzado con Josué (He 4:8)}/{Reposo que queda; Jerusalén celestial (He 4:9; Ap 21:1--4)}/ex/ex}}\par
+{\scriptsize\precision{He 9:7--12 sí vincula Kipur con el sacerdocio de Cristo; Lv 23:43 vincula Sukkot con el desierto, no con Canaán.}}
+\end{frame}
+
+\begin{frame}{Precisiones a la tabla maestra}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}\scriptsize
+\begin{enumerate}
+\item \destacar{Explícito / tipológico}: la Torá une Pascua, Ázimos y Sukkot a hechos del éxodo (Éx 12:13, 17; Lv 23:43). Shavuot--Sinaí: Jubileos 6:17--21; TB \emph{Shabat} 86b. Trompetas--Jericó, Kipur--fin del juicio y Cabañas--Canaán no están en el texto.
+\item \destacar{Jericó cayó en primavera}: Pascua en Gilgal el 14 del mes primero (Jos 5:10), luego Jos 6.
+\item \destacar{Fecha del éxodo}: la serie, 1529/1530 a.\,e.\,c.; 1 R 6:1 da ca. 1446; muchos historiadores, ca. 1260 (Sarna, 1991; Propp, 1999).
+\end{enumerate}
+\end{column}
+\begin{column}{0.48\textwidth}\scriptsize
+\begin{enumerate}\setcounter{enumi}{3}
+\item \destacar{Cruce del mar}: la serie, 17 de Abib (tercer día, Nm 33:5--8); la tradición rabínica, 21 de Nisán (\emph{Seder Olam} 5; Rashi a Éx 14:5). El texto no lo fecha.
+\item \destacar{Citas corregidas}: Jn 4:23--24 (no ``1 Jn''); Hch 27:9 (no 28:9); Col 1:18 (no 2:18); He 10:7--9; Ro 6:22--23; Mt 7:21--23.
+\item \destacar{Textos de vigencia}: unos son marcas de tiempo (Hch 12:3; 20:6; 27:9), otros teológicos (1 Co 5:7--8; Col 2:16--17). 1 Co 5:8: metáfora (Fee, 1987) o fiesta literal (la serie).
+\end{enumerate}
+\end{column}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{¿Para quién?}
+
+\begin{frame}{Israel, Efraín y las naciones}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.52\textwidth}
+\centering\scriptsize\heb{וְזַרְעוֹ יִהְיֶה מְלֹא־הַגּוֹיִם}
+\begin{cita}Pero su hermano menor será más grande que él, y su descendencia formará multitud de naciones.\fuente{(Gn 48:19)}\end{cita}
+\scriptsize \emph{meló hagoyim} → \grc{τὸ πλήρωμα τῶν ἐθνῶν}, ``la plenitud de los gentiles'' (Ro 11:25).
+\end{column}
+\begin{column}{0.46\textwidth}\scriptsize
+\begin{itemize}
+\item Asiria dispersa al norte (2 R 17:6); ``no pueblo mío'' → ``hijos del Dios viviente'' (Os 1:9--10).
+\item Dos varas en una mano (Ez 37:15--22).
+\item ``las ovejas perdidas de la casa de Israel'' (Mt 10:6; 15:24); ``otras ovejas'' (Jn 10:16).
+\item ``las doce tribus\ldots{} en la dispersión'' (Stg 1:1; 1 P 1:1).
+\item Pablo aplica Oseas a los \destacar{gentiles} (Ro 9:24--26).
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{El olivo y la ciudadanía de Israel}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.52\textwidth}\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[font=\scriptsize]
+ \fill[sepia!60] (-0.35,0) -- (-0.25,3.0) -- (0.25,3.0) -- (0.35,0) -- cycle;
+ \foreach \a in {-60,-35,-15,15,35,60}{\draw[sepia!70,line width=1.2pt] (0,0) -- (\a-90:1.0);}
+ \node[draw=tierraroja,fill=papiro,rounded corners=2pt,text width=4.2cm,align=center,inner sep=3pt] at (0,-1.55) {\textbf{raíz santa}: patriarcas y promesa (Ro 11:16, 28)};
+ \foreach \x/\y/\a in {-0.3/2.0/150,-0.3/2.6/165,0.3/2.3/20}{\draw[oliva!80!black,line width=2pt] (\x,\y) -- ++(\a:1.9);}
+ \node[text=oliva!80!black,font=\scriptsize\bfseries] at (-2.6,3.6) {ramas naturales};
+ \foreach \x/\y/\a in {0.3/1.4/-10,-0.3/1.5/190}{\draw[black!40,line width=2pt,dashed] (\x,\y) ++(\a:0.35) -- ++(\a:1.6);}
+ \node[text=black!55,align=center] at (3.1,1.0) {desgajadas\\ (11:17, 20)};
+ \foreach \x/\y/\a in {0.3/2.9/45,0.25/2.65/5}{\draw[mostaza!90!black,line width=2pt] (\x,\y) -- ++(\a:1.8);}
+ \node[text=caferojizo,align=center,font=\scriptsize\bfseries] at (3.1,3.95) {olivo silvestre injertado};
+ \node[draw=tierraroja,fill=tierraroja!8,rounded corners=2pt,text width=3.4cm,align=center,inner sep=3pt] at (-3.2,0.9) {``volverlos a injertar'' (11:23--24); ``todo Israel será salvo'' (11:26)};
+\end{tikzpicture}}
+\end{column}
+\begin{column}{0.46\textwidth}
+\begin{cita}Así que ya no sois extranjeros ni advenedizos, sino conciudadanos de los santos, y miembros de la familia de Dios.\fuente{(Ef 2:19)}\end{cita}
+\scriptsize ``La misma ley será para el natural, y para el extranjero'' (Éx 12:49); Is 56:6--7; Zac 14:16; nuevo pacto ``con la casa de Israel y con la casa de Judá'' (Jer 31:31; He 8:8).
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{La tesis de Danilo y sus precisiones}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}\scriptsize
+\destacar{Conclusiones de la presentación:}
+\begin{enumerate}
+\item Jacob da a Efraín heredad, nombre y ``multitud de naciones''.
+\item La división fue voluntad de Dios: ``esto lo he hecho yo'' (1 R 11:31; 12:24); pacto con ``los que no están aquí hoy'' (Dt 29:14--15).
+\item El Mesías viene por las ovejas esparcidas (Jer 50:6; Ez 34:12; Mt 15:24).
+\item Muere para casarse de nuevo con su novia: carta de repudio (Jer 3:8) y Ro 7:1--4; bodas del Cordero.
+\item El nuevo pacto es con Israel y Judá; su contenido es la \emph{torá}, ``instrucción'' (Jer 31:33).
+\end{enumerate}
+\end{column}
+\begin{column}{0.48\textwidth}\scriptsize
+\destacar{Precisiones:}
+\begin{itemize}
+\item Sostienen el texto: Gn 48:19; Os 1:10 en Ro 9:24--26; Ro 11; Ef 2.
+\item En Ro 7 ``muere'' a la ley el creyente; la aplicación a la Israel repudiada es lectura de la serie (Moo, 1996).
+\item Identificar las ``diez tribus'' con naciones modernas es hipótesis sin apoyo textual.
+\item Del norte, muchos se unieron a Judá (2 Cr 11:16; 30:11); Ana era ``de la tribu de Aser'' (Lc 2:36).
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{En el NT}
+
+\begin{frame}{Las fiestas en el Nuevo Testamento}
+\scriptsize\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{@{}L{2.2cm}L{4.4cm}L{5.2cm}@{}}
+\toprule
+\textbf{Fiesta} & \textbf{Textos} & \textbf{Uso} \\ \midrule
+Shabat & Lc 4:16; Mc 2:23--3:6; Lc 23:56; He 4:9 & costumbre de Jesús; reposo escatológico \\
+Pascua, Ázimos & Mt 26:17--29; 1 Co 5:7--8; Hch 12:3 & la Cena; ``Cristo nuestra pascua'' \\
+Primicias & 1 Co 15:20--23; Stg 1:18 & Cristo \grc{ἀπαρχή} \\
+Pentecostés & Hch 2:1; 20:16; 1 Co 16:8 & el Espíritu; fecha de viaje \\
+Trompetas & 1 Co 15:52; 1 Ts 4:16 & la trompeta final (la fiesta no se nombra) \\
+Expiación & Hch 27:9; He 9:7--12 & ``el ayuno''; Cristo en el santuario \\
+Tabernáculos & Jn 7:2, 37--39; Jn 1:14; Ap 21:3 & agua y luz; el Verbo ``habitó'' (\grc{ἐσκήνωσεν}) \\
+Janucá & Jn 10:22 & ``era invierno'' \\
+\bottomrule
+\end{tabular}\par\smallskip
+\small Usos \destacar{narrativo}, \destacar{tipológico} y \destacar{escatológico}. Sin Levítico, ``Cristo nuestra pascua'' o ``la final trompeta'' quedan mudos (Hays, 1989).
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Debate}
+
+\begin{frame}{Tradición judía y posturas en la Iglesia}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.44\textwidth}\scriptsize
+\destacar{Tradición judía} (posterior a la Biblia):
+\begin{itemize}
+\item Orden \emph{Moed} de la Misná: 12 tratados (Danby, 1933).
+\item \emph{shalosh regalim}; \emph{Yamim Noraim} (nombre medieval); Purim y Janucá.
+\item \emph{kidush} y \emph{havdalá}; 39 trabajos (Misná, \emph{Shabat} 7:2).
+\item segundo día de fiesta en la diáspora.
+\item Filón: diez fiestas (\emph{Spec.} 2.41); Josefo, \emph{C. Ap.} 2.282.
+\end{itemize}
+\end{column}
+\begin{column}{0.54\textwidth}
+\scriptsize\renewcommand{\arraystretch}{1.05}
+\begin{tabular}{@{}L{2.0cm}L{4.4cm}@{}}
+\toprule
+\textbf{Postura} & \textbf{Tesis y apoyo} \\ \midrule
+Vigencia & Reglamento perpetuo; cesan los sacrificios (la serie; Iglesia de Dios Unida, 2011) \\
+Cumplimiento & sombra y cuerpo (Col 2:17; He 10:1; Dunn; Moo) \\
+Ensayos & primavera cumplida, otoño por cumplir (Chumney, 1994) \\
+Transformación & Pascua y Pentecostés cristianos; cuartodecimanos (Eusebio, 5.23--25) \\
+Lectura judía & señal del pacto de Israel (Éx 31:13) \\
+\bottomrule
+\end{tabular}
+\end{column}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Síntesis}
+
+\begin{frame}{Definición}
+\begin{tcolorbox}[colback=papiro,colframe=tierraroja,boxrule=1pt,arc=3pt,left=5pt,right=5pt,top=3pt,bottom=3pt]
+\small Las \emph{moadé YHWH} son las \destacar{citas que Dios fija} en el tiempo de su pueblo y que Israel proclama como convocaciones santas (Lv 23:2, 4). Las encabeza el \destacar{Shabat}, memorial de la creación y de la liberación (Éx 20:11; Dt 5:15); las ordena el \destacar{siete}, del día séptimo al Jubileo (Lv 23; 25); las arraiga la \destacar{tierra} (Éx 23:14--17) y las sostiene la \destacar{memoria del éxodo} (Éx 12:14; Lv 23:43). Son sombra cuyo cuerpo es Cristo (Col 2:17), nuestra Pascua y primicia (1 Co 5:7; 15:20), y anuncian un reposo que queda (He 4:9).
+\end{tcolorbox}
+\scriptsize\renewcommand{\arraystretch}{1.05}
+\begin{tabular}{@{}L{2.1cm}L{9.8cm}@{}}
+\toprule
+Histórica & año lunisolar desde Abib; Gézer; intercalación; calendario rival de 364 días \\
+Filológica & \emph{moed} = cita; \emph{mikrá} = convocación y lectura; \emph{jag} = peregrinación; \emph{zikarón} = memoria \\
+Literaria & cinco discursos; marco \emph{moadé YHWH}; siete días de convocación \\
+La serie & memorial, figura y esperanza en dos rieles: Israel y la Iglesia \\
+\bottomrule
+\end{tabular}
+\end{frame}
+
+\begin{frame}{Para la reflexión}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.56\textwidth}\small
+\begin{enumerate}
+\item ¿Qué cambia si la santidad se piensa primero como \destacar{tiempo} y no como espacio (Gn 2:3)?
+\item ¿A quién deja descansar mi descanso (Dt 5:14)?
+\item ¿Acudo cuando a mí me conviene o cuando Dios \destacar{convoca} (Lv 23:4)?
+\item ¿Qué forma tiene hoy la mesa con el levita, el extranjero y la viuda (Dt 16:11)?
+\item ¿Cómo se vive cuando ``queda un reposo'' (He 4:9--11)?
+\end{enumerate}
+\end{column}
+\begin{column}{0.42\textwidth}\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[font=\scriptsize]
+ \foreach \n/\t/\x/\y in {00/{Introducción}/0/0, 01/{Pésaj}/1.9/0, 02/{Matsot}/3.8/0, 03/{Primicias}/0/-1.25, 04/{Shavuot}/1.9/-1.25, 05/{Yom Teruá}/3.8/-1.25, 06/{Yom Kipur}/0/-2.5, 07/{Sukkot}/1.9/-2.5, 08/{Shemitá}/3.8/-2.5, 09/{Jubileo}/1.9/-3.75}{
+   \node[draw=tierraroja,line width=0.7pt,fill=papiro,rounded corners=3pt,text width=1.55cm,minimum height=0.8cm,align=center,inner sep=2pt] (m\n) at (\x,\y) {\textbf{\textcolor{tierraroja}{\t}}};
+   \node[circle,fill=tierraroja,text=papiro,font=\tiny\bfseries,inner sep=1.2pt] at (m\n.north west) {\n};}
+\end{tikzpicture}}\par
+{\scriptsize Mapa de la serie: diez estudios}
+\end{column}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Glosario}
+
+\begin{frame}{Glosario}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}\scriptsize
+\textbf{Abib} (\heb{אָבִיב}): espiga verde; primer mes.\par
+\textbf{Jag} (\heb{חַג}): fiesta de peregrinación.\par
+\textbf{Jódesh} (\heb{חֹדֶשׁ}): luna nueva, mes.\par
+\textbf{Jukat olam} (\heb{חֻקַּת עוֹלָם}): estatuto perpetuo.\par
+\textbf{Melejet avodá} (\heb{מְלֶאכֶת עֲבֹדָה}): trabajo de siervos.\par
+\textbf{Mikrá kódesh} (\heb{מִקְרָא קֹדֶשׁ}): santa convocación.\par
+\textbf{Moed} (\heb{מוֹעֵד}): cita, tiempo señalado.\par
+\textbf{Óhel moed} (\heb{אֹהֶל מוֹעֵד}): tabernáculo de reunión.
+\end{column}
+\begin{column}{0.48\textwidth}\scriptsize
+\textbf{Sabbatismós} (\grc{σαββατισμός}): reposo sabático (He 4:9).\par
+\textbf{Shabat} (\heb{שַׁבָּת}): cese, séptimo día.\par
+\textbf{Shabatón} (\heb{שַׁבָּתוֹן}): reposo solemne.\par
+\textbf{Shalosh regalim} (\heb{שָׁלֹשׁ רְגָלִים}): las tres peregrinaciones.\par
+\textbf{Shemitá} (\heb{שְׁמִטָּה}): año séptimo de remisión.\par
+\textbf{Yovel} (\heb{יוֹבֵל}): Jubileo, año cincuenta.\par
+\textbf{Zikarón} (\heb{זִכָּרוֹן}): memorial.
+\end{column}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Referencias}
+
+\begin{frame}{Referencias (I)}
+\tiny
+\refapa{Attridge, H. W. (1989). \emph{The epistle to the Hebrews} (Hermeneia). Fortress Press.}
+\refapa{Bacchiocchi, S. (1977). \emph{From Sabbath to Sunday}. Pontifical Gregorian University Press.}
+\refapa{Carson, D. A. (Ed.). (1982). \emph{From Sabbath to Lord's Day}. Zondervan.}
+\refapa{Chumney, E. (1994). \emph{The seven festivals of the Messiah}. Destiny Image.}
+\refapa{Danby, H. (Trad.). (1933). \emph{The Mishnah}. Oxford University Press.}
+\refapa{de Vaux, R. (1985). \emph{Instituciones del Antiguo Testamento} (4.ª ed.). Herder.}
+\refapa{Dunn, J. D. G. (1998). \emph{The theology of Paul the apostle}. Eerdmans.}
+\refapa{Elliger, K., \& Rudolph, W. (Eds.). (1997). \emph{Biblia Hebraica Stuttgartensia} (5.ª ed.). Deutsche Bibelgesellschaft.}
+\refapa{Eusebio de Cesarea. (1926--1932). \emph{The ecclesiastical history} (K. Lake \& J. E. L. Oulton, Trads.). Harvard University Press.}
+\refapa{Fee, G. D. (1987). \emph{The first epistle to the Corinthians} (NICNT). Eerdmans.}
+\refapa{García Martínez, F. (1992). \emph{Textos de Qumrán}. Trotta.}
+\refapa{Hartley, J. E. (1992). \emph{Leviticus} (WBC 4). Word Books.}
+\refapa{Hays, R. B. (1989). \emph{Echoes of Scripture in the letters of Paul}. Yale University Press.}
+\refapa{Heschel, A. J. (1951). \emph{The Sabbath}. Farrar, Straus and Young.}
+\refapa{Iglesia de Dios Unida. (2011). \emph{Las fiestas santas de Dios: esperanza segura para toda la humanidad}.}
+\refapa{Lane, W. L. (1991). \emph{Hebrews} (WBC 47A--B). Word Books.}
+\end{frame}
+
+\begin{frame}{Referencias (II)}
+\tiny
+\refapa{Martin, T. W. (1996). Pagan and Judeo-Christian time-keeping schemes in Galatians 4.10 and Colossians 2.16. \emph{New Testament Studies}, \emph{42}(1), 105--119.}
+\refapa{Milgrom, J. (2001). \emph{Leviticus 23--27} (Anchor Bible 3B). Doubleday.}
+\refapa{Moo, D. J. (1996). \emph{The epistle to the Romans} (NICNT). Eerdmans.}
+\refapa{Nestle, E., \& Aland, K. (Eds.). (2012). \emph{Novum Testamentum Graece} (28.ª ed.). Deutsche Bibelgesellschaft.}
+\refapa{Propp, W. H. C. (1999). \emph{Exodus 1--18} (Anchor Bible 2). Doubleday.}
+\refapa{Rahlfs, A., \& Hanhart, R. (Eds.). (2006). \emph{Septuaginta}. Deutsche Bibelgesellschaft.}
+\refapa{Sarna, N. M. (1991). \emph{Exodus} (JPS Torah Commentary). Jewish Publication Society.}
+\refapa{Sefaria. (s. f.). \emph{Sefaria: A living library of Jewish texts}. https://www.sefaria.org}
+\refapa{Sociedades Bíblicas en América Latina. (1960). \emph{Santa Biblia: Reina-Valera 1960}.}
+\refapa{Tigay, J. H. (1996). \emph{Deuteronomy} (JPS Torah Commentary). Jewish Publication Society.}
+\refapa{VanderKam, J. C. (1998). \emph{Calendars in the Dead Sea Scrolls}. Routledge.}
+\refapa{Wenham, G. J. (1979). \emph{The book of Leviticus} (NICOT). Eerdmans.}
+\refapa{Wright, N. T. (2013). \emph{Paul and the faithfulness of God}. Fortress Press.}
+\par\medskip
+\scriptsize\textit{Citas bíblicas: Reina-Valera 1960 (\SENOR{} por ``Jehová''); hebreo según la BHS; griego según NA28 y Rahlfs-Hanhart.}
+\end{frame}
+
+\end{document}

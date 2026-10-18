@@ -1,0 +1,913 @@
+\documentclass[hyperref={bookmarks=false},aspectratio=169]{beamer}
+\usepackage{hyperref,ragged2e,amsmath,amssymb,url,bm}
+\usepackage{graphicx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,shapes.geometric,decorations.pathreplacing,matrix}
+\graphicspath{{crops/}}
+\usetheme{Goettingen}
+% --- Paleta de la serie Festividades santas: tierra roja, café rojizo, mostaza y papiro ---
+\definecolor{tierraroja}{RGB}{122,40,18}
+\definecolor{caferojizo}{RGB}{58,18,8}
+\definecolor{mostaza}{RGB}{214,160,58}
+\definecolor{papiro}{RGB}{243,228,192}
+\definecolor{sepia}{RGB}{98,66,44}
+\definecolor{oliva}{RGB}{92,98,48}
+\setbeamercolor{structure}{fg=tierraroja}
+\setbeamertemplate{sidebar canvas right}[vertical shading][top=tierraroja!92!black,bottom=caferojizo]
+\setbeamercolor{title in sidebar}{fg=mostaza}
+\setbeamercolor{author in sidebar}{fg=papiro}
+\setbeamercolor{section in sidebar}{fg=papiro}
+\setbeamercolor{section in sidebar shaded}{fg=mostaza!55!papiro!75!tierraroja}
+\setbeamercolor{subsection in sidebar}{fg=papiro}
+\setbeamercolor{subsection in sidebar shaded}{fg=mostaza!55!papiro!75!tierraroja}
+\let\raggedright\justifying
+\setlength{\RaggedRightRightskip}{0pt plus 1fil}
+\setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth,height=\paperheight]{papiro.jpg}}
+\setbeamercolor{normal text}{fg=caferojizo!90!black}
+\setbeamercolor{frametitle}{fg=tierraroja}
+\setbeamerfont{frametitle}{series=\bfseries}
+\setbeamertemplate{section in toc shaded}{\leavevmode{\color{sepia!85!black}\inserttocsection}\par}
+\setbeamercolor{title}{fg=tierraroja}
+\setbeamercolor{subtitle}{fg=sepia}
+\setbeamercolor{item projected}{bg=tierraroja,fg=papiro}
+\setbeamertemplate{itemize item}{\small\textcolor{mostaza!80!tierraroja}{$\blacktriangleright$}}
+\setbeamertemplate{navigation symbols}{}
+% --- Español + hebreo + griego (XeLaTeX) con fuentes empaquetadas en fonts/ ---
+\usepackage[bidi=default]{babel}
+\babelprovide[import,main]{spanish}
+\babelprovide[import]{hebrew}
+\babelprovide[import]{ancientgreek}
+\babelfont[hebrew]{sf}[Path=fonts/, BoldFont=NotoHebrewSans-700.ttf]{NotoHebrewSans-400.ttf}
+\babelfont[hebrew]{rm}[Path=fonts/, BoldFont=NotoHebrewSans-700.ttf]{NotoHebrewSans-400.ttf}
+\babelfont[ancientgreek]{sf}[Path=fonts/]{GFSPorson.otf}
+\babelfont[ancientgreek]{rm}[Path=fonts/]{GFSPorson.otf}
+\newcommand{\heb}[1]{\mbox{\foreignlanguage{hebrew}{#1}}}
+\newcommand{\grc}[1]{\foreignlanguage{ancientgreek}{#1}}
+\newcommand{\SENOR}{S{\fontsize{0.78em}{1em}\selectfont EÑOR}}
+% --- Citas, imágenes, referencias ---
+\usepackage[most]{tcolorbox}
+\newtcolorbox{cita}[1][]{enhanced, colback=papiro, opacityback=0.80, colframe=tierraroja!85!mostaza,
+  boxrule=0pt, leftrule=2.5pt, arc=0pt, left=6pt, right=6pt, top=4pt, bottom=4pt,
+  before skip=4pt, after skip=6pt, fontupper=\small\itshape, #1}
+\newcommand{\fuente}[1]{\par\hfill{\upshape\bfseries\footnotesize\textcolor{tierraroja}{#1}}}
+\newcommand{\imagen}[3][0.80]{%
+  \centering\includegraphics[height=#1\textheight,width=\linewidth,keepaspectratio]{#2}\par\vspace{2pt}
+  {\fontsize{5}{6}\selectfont\color{sepia}{\raggedleft\textit{Nota.} #3\par}}}
+\makeatletter
+\newcommand{\fotolado}[2]{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north east,inner sep=0pt] (foto) at ([xshift=-\beamer@sidebarwidth]current page.north east)
+      {\includegraphics[height=\paperheight]{#1}};
+    \node[anchor=south east,inner sep=2pt,text=papiro,fill=caferojizo,fill opacity=0.55,text opacity=1,
+      font=\fontsize{4.5}{5.5}\selectfont,align=right,text width=4.2cm] at ([xshift=-3pt,yshift=3pt]foto.south east)
+      {\textit{Nota.} #2};
+  \end{tikzpicture}}
+\makeatother
+\newcommand{\refapa}[1]{\par{\RaggedRight\hangindent=1.2em\hangafter=1\noindent #1\par}\vspace{3pt}}
+\usepackage{xurl}\urlstyle{same}
+\newcommand{\destacar}[1]{\textbf{\textcolor{tierraroja}{#1}}}
+\newcommand{\precision}[1]{{\footnotesize\color{sepia}\textbf{Precisión:} #1}}
+\newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+\tikzset{caja/.style={draw=tierraroja,line width=0.8pt,fill=papiro,fill opacity=0.90,text opacity=1,rounded corners=3pt,inner sep=5pt,font=\scriptsize}}
+\title[Sukkot]{\bfseries{Sukkot: la fiesta de las Cabañas y el Octavo día}}
+\subtitle{``En tabernáculos habitaréis siete días\ldots{} para que sepan vuestros descendientes'' (Lv 23:42--43)}
+\author{}\institute{}\date{}
+\titlegraphic{\includegraphics[width=0.80\linewidth,height=0.34\textheight,keepaspectratio]{portada.jpg}\\[-1pt]
+  {\fontsize{5}{6}\selectfont\color{sepia}\textit{Nota.} Elaboración propia: Lv 23:42 en texto hebreo consonántico (BHS).}}
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}\frametitle{Contenidos}\tableofcontents\end{frame}
+
+% ------------------------------------------------------------------
+\section{Introducción}
+
+\begin{frame}{Siete días bajo un techo de ramas}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.52\textwidth}
+\small\destacar{``La fiesta de la alegría''}, ``el fin del ciclo'' (presentación de Danilo): ``cuando hayas hecho la cosecha de tu era y de tu lagar'' (Dt 16:13).\par\smallskip Con las eras limpias y los lagares llenos, Israel deja la casa de piedra y vive \destacar{siete días en una cabaña}. La fiesta de mayor abundancia se celebra en la vivienda más pobre.\par\medskip
+\begin{tcolorbox}[colback=papiro,colframe=tierraroja,boxrule=1pt,arc=3pt,left=4pt,right=4pt]
+\small\itshape ¿Por qué Dios unió la alegría de la cosecha con la memoria de la intemperie?
+\end{tcolorbox}
+\end{column}
+\begin{column}{0.46\textwidth}\small
+\begin{itemize}
+\item Razón histórica: ``para que sepan vuestros descendientes'' (Lv 23:43).
+\item Razón de la alegría: ``te habrá bendecido\ldots{} y estarás verdaderamente alegre'' (Dt 16:15).
+\item Tesis: Sukkot es la fiesta de la \destacar{morada}: Dios hace habitar a su pueblo y habita con él (Éx 25:8; Ap 21:3).
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{La última fiesta del ciclo}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[x=1cm,y=1cm,font=\scriptsize]
+ \def\fiestaactual{7}
+ \draw[line width=1.2pt,tierraroja!70,-{Latex[length=2.5mm]}] (0,0) -- (13.2,0);
+ \draw[decorate,decoration={brace,amplitude=5pt},sepia] (0.2,0.95) -- (5.9,0.95) node[midway,above=5pt,font=\scriptsize\itshape]{Primavera: Abib/Nisán -- Siván};
+ \draw[decorate,decoration={brace,amplitude=5pt},sepia] (7.6,0.95) -- (13.0,0.95) node[midway,above=5pt,font=\scriptsize\itshape]{Otoño: mes séptimo (Tishri)};
+ \foreach \n/\x/\t/\d in {1/0.6/Pésaj/{14 Abib},2/2.0/Matsot/{15--21 Abib},3/3.4/Primicias/{día después del sábado},4/5.4/Shavuot/{50 días},5/8.1/Yom Teruá/{1 Tishri},6/9.9/Yom Kipur/{10 Tishri},7/11.9/Sukkot/{15--22 Tishri}}{
+   \ifnum\n=\fiestaactual
+     \node[circle,fill=tierraroja,draw=caferojizo,minimum size=5.5mm,text=papiro,font=\scriptsize\bfseries] at (\x,0) {\n};
+     \node[above=3pt,font=\scriptsize\bfseries,text=tierraroja] at (\x,0.28) {\t};
+   \else
+     \node[circle,fill=mostaza!70,draw=sepia,minimum size=4.5mm,text=caferojizo,font=\tiny\bfseries] at (\x,0) {\n};
+     \node[above=3pt,text=sepia] at (\x,0.25) {\t};
+   \fi
+   \node[below=6pt,text width=1.6cm,align=center,font=\tiny,text=sepia] at (\x,0) {\d};}
+ \node[font=\tiny\itshape,text=sepia] at (6.75,-0.32) {\ldots\ verano\ldots};
+\end{tikzpicture}}\par\medskip
+\begin{tikzpicture}
+ \foreach \x/\n/\t/\r in {0/1/{El texto}/{Lv 23; Nm 29; Dt 16}, 2.85/2/{Cuatro lecturas}/{historia, palabra, texto, forma}, 5.7/3/{La serie}/{Milenio y Octavo día}, 8.55/4/{En Cristo}/{Jn 7--8; Ap 7; 21}}{
+  \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][0.85cm][t]{2.3cm}{\RaggedRight
+    {\small\textbf{\textcolor{tierraroja}{\t}}}\par\vfill{\tiny\color{sepia}(\r)}}};
+  \node[circle,fill=tierraroja,text=papiro,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
+\end{tikzpicture}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{El texto}
+
+\begin{frame}{Texto ancla: Lv 23:42--43}
+\fotolado{panel_levitico23.jpg}{Elaboración propia: Lv 23:42--43a en texto hebreo consonántico (BHS).}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.57\textwidth}
+\begin{cita}En tabernáculos habitaréis siete días; todo natural de Israel habitará en tabernáculos, para que sepan vuestros descendientes que en tabernáculos hice yo habitar a los hijos de Israel cuando los saqué de la tierra de Egipto. Yo \SENOR{} vuestro Dios.\fuente{(Lv 23:42--43, RVR1960)}\end{cita}
+\scriptsize \heb{הוֹשַׁבְתִּי} (\emph{hoshávti}), ``\destacar{hice habitar}'': la cabaña no recuerda lo que Israel construyó, sino \destacar{dónde Dios lo hizo vivir}.
+\end{column}
+\begin{column}{0.41\textwidth}\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Dos instrucciones en Levítico 23}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.49\textwidth}
+\begin{cita}A los quince días de este mes séptimo será la fiesta solemne de los tabernáculos a \SENOR{} por siete días. El primer día habrá santa convocación\ldots{} el octavo día tendréis santa convocación\ldots; es fiesta, ningún trabajo de siervos haréis.\fuente{(Lv 23:34--36)}\end{cita}
+\scriptsize ``Es fiesta'' = \heb{עֲצֶרֶת הִוא} (\emph{atséret hi}), ``es asamblea de clausura''.
+\end{column}
+\begin{column}{0.49\textwidth}
+\begin{cita}Y tomaréis el primer día ramas con fruto de árbol hermoso, ramas de palmeras, ramas de árboles frondosos, y sauces de los arroyos, y os regocijaréis delante de \SENOR{} vuestro Dios por siete días.\fuente{(Lv 23:40)}\end{cita}
+\scriptsize Después del colofón (vv. 37--38) viene un ``Pero'' (\heb{אַךְ}, v. 39): cosecha, especies, \destacar{alegría}, cabañas y motivo histórico.
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Propósito y prácticas}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.47\textwidth}
+\destacar{Tres propósitos}\par\smallskip\scriptsize\RaggedRight
+\begin{enumerate}
+\item \textbf{Hacer fiesta al \SENOR}: cada día holocaustos (\heb{עֹלָה}, \emph{olá}), ofrendas (\heb{מִנְחָה}, \emph{minjá}) y un macho cabrío ``por expiación'' (Nm 29:12ss).
+\item \textbf{Regocijarse}: ``estarás verdaderamente alegre'' por la bendición de la cosecha (Dt 16:13--16).
+\item \textbf{Recordar}: habitar en \emph{sucot} (Lv 23:43).
+\end{enumerate}
+\end{column}
+\begin{column}{0.51\textwidth}
+\destacar{Consideraciones}\par\smallskip\scriptsize\RaggedRight
+\begin{itemize}
+\item Habitar siete días: comer y dormir en la cabaña (Lv 23:42).
+\item El primer día, las cuatro especies (Lv 23:40).
+\item Reposo el primero y el octavo día (Lv 23:39).
+\item ``Ninguno se presentará delante de \SENOR{} con las manos vacías'' (Dt 16:16).
+\item Estatuto perpetuo (Lv 23:41).
+\end{itemize}
+\end{column}
+\end{columns}\par\medskip
+{\fontsize{6}{7}\selectfont\color{sepia}\textit{Fuente:} presentación de Danilo, ``La fiesta de la alegría''.}\par
+\precision{en Nm 29 el macho cabrío es \emph{jatat} (``por expiación''); el verbo \emph{kipper} aparece en Nm 29:5, 11. ``Comer y dormir'' es la definición rabínica de ``habitar'' (b. Sukká 28b).}
+\end{frame}
+
+\begin{frame}{Tabla sinóptica}
+\scriptsize\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}L{1.8cm}L{2.5cm}L{7.6cm}@{}}
+\toprule
+\textbf{Texto} & \textbf{Nombre} & \textbf{Qué añade} \\ \midrule
+Éx 23:16 & \emph{jag haasif} & ``a la salida del año'' (\heb{בְּצֵאת הַשָּׁנָה}); fiesta de peregrinación \\
+Éx 34:22 & \emph{jag haasif} & ``a la vuelta del año'' (\heb{תְּקוּפַת הַשָּׁנָה}, trad. propia) \\
+Lv 23:33--43 & \emph{jag hasucot} & 15--21 del mes séptimo; 1.º y 8.º santos; \emph{atséret}; cuatro especies; alegría; cabañas; éxodo \\
+Nm 29:12--38 & --- & 13, 12, 11, 10, 9, 8, 7 novillos (= 70); el 8.º día, uno solo \\
+Dt 16:13--15 & \emph{jag hasucot} & ``en el lugar que \SENOR{} escogiere''; levita, extranjero, huérfano, viuda; ``estarás verdaderamente alegre'' \\
+Dt 31:9--13 & \emph{haqhel} & cada siete años, en la \emph{shemitá}: lectura pública de la Torá \\
+\bottomrule
+\end{tabular}\par\medskip
+\precision{la serie distingue el ``Reglamento del Culto'' (Lv 23: las convocaciones) de ``la Ley de los sacrificios'' (Nm 28--29: los ritos). Lv 23 manda ``ofrenda encendida''; Nm 29 da el detalle.}
+\end{frame}
+
+\begin{frame}{Los ocho días y sus sacrificios}
+\centering
+\begin{tikzpicture}[x=1.2cm,y=0.22cm,font=\scriptsize]
+ \draw[sepia!60] (0.4,0) -- (8.8,0);
+ \foreach \d/\n in {1/13,2/12,3/11,4/10,5/9,6/8,7/7}{
+   \fill[tierraroja!70] (\d-0.28,0) rectangle (\d+0.28,\n);
+   \node[above,font=\scriptsize\bfseries,text=caferojizo] at (\d,\n) {\n};
+   \node[below,text=sepia,font=\tiny] at (\d,-0.2) {Día \d};}
+ \fill[mostaza] (8.1-0.28,0) rectangle (8.1+0.28,1);
+ \node[above,font=\scriptsize\bfseries,text=caferojizo] at (8.1,1) {1};
+ \node[below,text=tierraroja,font=\tiny\bfseries] at (8.1,-0.2) {Día 8};
+ \draw[dashed,sepia] (7.55,-2.6) -- (7.55,15);
+ \node[text=tierraroja,font=\tiny\itshape,align=center] at (8.55,9) {\emph{atséret}\\1 novillo\\1 carnero\\7 corderos\\1 macho\\cabrío};
+ \draw[decorate,decoration={brace,amplitude=4pt,mirror},sepia] (0.7,-3.2) -- (7.3,-3.2) node[midway,below=5pt,text=sepia,font=\tiny]{7 días: 70 novillos, 14 carneros, 98 corderos, 7 machos cabríos};
+\end{tikzpicture}\par\smallskip
+\scriptsize Todo es múltiplo de siete; el \destacar{octavo día} rompe la serie y vuelve a las cifras de Trompetas y Expiación (Nm 29:2, 8, 36).\par
+\precision{``Setenta novillos por las setenta naciones'' es tradición talmúdica (b. Sukká 55b), no afirmación del texto.}
+\end{frame}
+
+\begin{frame}{Cada siete años: \emph{haqhel}}
+\begin{cita}Al fin de cada siete años, en el año de la remisión, en la fiesta de los tabernáculos\ldots{} leerás esta ley delante de todo Israel a oídos de ellos. Harás congregar al pueblo, varones y mujeres y niños, y tus extranjeros\ldots\fuente{(Dt 31:10--12, RVR1960)}\end{cita}
+\centering
+\begin{tikzpicture}[x=1.15cm,y=1cm,font=\tiny]
+ \foreach \a in {1,...,6}{\node[draw=sepia,fill=papiro,minimum width=0.95cm,minimum height=0.55cm,rounded corners=2pt] at (\a,0) {Año \a};}
+ \node[draw=tierraroja,line width=1pt,fill=mostaza!35,minimum width=0.95cm,minimum height=0.55cm,rounded corners=2pt,font=\tiny\bfseries,text=tierraroja] (a7) at (7,0) {Año 7};
+ \node[draw=sepia,dashed,fill=papiro,minimum width=0.95cm,minimum height=0.55cm,rounded corners=2pt,text=sepia] (a8) at (8.1,0) {Año 1};
+ \node[caja,anchor=west,text width=3.4cm,font=\tiny] (h) at (9.0,0) {\textbf{\textcolor{tierraroja}{Haqhel}} en Sukkot: la Torá leída a todos, incluso niños y extranjeros};
+ \node[above=2pt,text=tierraroja,font=\tiny\itshape] at (7,0.3) {\emph{shemitá}};
+ \node[below=2pt,text=sepia,font=\tiny\itshape] at (8.1,-0.3) {Misná Sotá 7:8};
+\end{tikzpicture}\par\smallskip
+\scriptsize La Ley se oye en la fiesta de la abundancia del año en que la tierra descansó: el pueblo aprende que \destacar{vive de lo que Dios da}. (Véase el estudio 08 de la serie.)
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Historia}
+
+\begin{frame}{La cosecha final y el giro del año}
+\centering
+\begin{tikzpicture}
+ \foreach \x/\n/\t/\d/\r in {0/1/{Recolección}/{Uva pisada, aceite prensado, grano trillado: \emph{jag haasif}.}/{Éx 23:16; Dt 16:13}, 4.1/2/{Luna llena}/{15 del mes séptimo, en espejo con Matsot (15 de Abib), a seis meses.}/{Lv 23:6, 34}, 8.2/3/{Las lluvias}/{Después viene la \emph{yoré}. ``En la Fiesta [el mundo] es juzgado respecto del agua''.}/{Dt 11:14; Misná RH 1:2}}{
+  \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][2.35cm][t]{3.45cm}{\RaggedRight
+    {\small\textbf{\textcolor{tierraroja}{\t}}}\\[4pt]\scriptsize \d\par\vfill{\tiny\color{sepia}(\r)}}};
+  \node[circle,fill=tierraroja,text=papiro,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
+\end{tikzpicture}\par\medskip
+\scriptsize ``A la vuelta del año'' (Éx 34:22) es el giro del año agrícola en otoño; el año cultual empieza en Abib (Éx 12:2).\par
+\precision{las chozas de vendimia (Is 1:8) y la fiesta de Silo ``en las viñas'' (Jue 21:19) sugieren un origen agrícola (de Vaux, 1985); el texto da la razón del éxodo (Lv 23:43).}
+\end{frame}
+
+\begin{frame}{La \emph{sucá}: una casa que no dura}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.55\textwidth}
+\centering
+\begin{tikzpicture}[x=0.62cm,y=0.62cm,font=\tiny]
+ \draw[sepia,line width=0.8pt] (-0.4,0) -- (7.4,0);
+ \fill[mostaza!25] (0,0) rectangle (0.18,3.2); \fill[mostaza!25] (5.82,0) rectangle (6,3.2);
+ \fill[mostaza!15] (0.18,0) -- (1.2,0.9) -- (1.2,4.1) -- (0.18,3.2) -- cycle;
+ \draw[sepia] (0,0) rectangle (0.18,3.2) (5.82,0) rectangle (6,3.2);
+ \draw[sepia] (0.18,0) -- (1.2,0.9) -- (1.2,4.1) -- (0.18,3.2);
+ \draw[sepia,dashed] (6,0) -- (7.0,0.9) -- (7.0,2.0);
+ \foreach \x in {0.1,0.5,...,6.9}{\draw[oliva,line width=0.8pt] (\x,3.25) .. controls (\x+0.15,3.5) and (\x+0.3,3.4) .. (\x+0.45,3.6);}
+ \foreach \x in {1.7,3.6,5.1}{\draw[mostaza,line width=0.5pt,dashed] (\x,4.6) -- (\x,3.3);}
+ \draw[{Latex[length=1.2mm]}-{Latex[length=1.2mm]},tierraroja] (-0.3,0) -- (-0.3,3.6);
+ \node[text=tierraroja,align=right,anchor=east] at (-0.35,1.8) {10 palmos\\--\\20 codos};
+ \draw[{Latex[length=1.2mm]}-{Latex[length=1.2mm]},tierraroja] (0.2,-0.35) -- (5.8,-0.35);
+ \node[text=tierraroja,below] at (3,-0.4) {$\geq 7 \times 7$ palmos};
+\end{tikzpicture}
+\end{column}
+\begin{column}{0.43\textwidth}\scriptsize
+\begin{itemize}
+\item \textbf{Techo} (\emph{sejaj}) vegetal cortado; más sombra que sol (Misná Sukká 1:1).
+\item \textbf{Paredes}: dos y una parcial bastan (b. Sukká 6b).
+\item ``Durante los siete días, la persona hace de su sucá su morada \destacar{fija} y de su casa su morada \destacar{provisoria}'' (Misná Sukká 2:9).
+\end{itemize}
+\precision{medidas y normas rabínicas; la Torá solo manda ``habitar en cabañas''.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Sukkot en la historia narrada}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[font=\scriptsize]
+ \draw[line width=1.6pt,tierraroja,-{Latex[length=3mm]}] (0,0) -- (14.8,0);
+ \foreach \x/\a/\b/\c in {0.6/{Desierto}/{Éx 12:37; Lv 23:43}/{tiendas y Sucot}, 2.6/{Silo}/{Jue 21:19}/{fiesta en las viñas}, 4.6/{Templo}/{1 R 8:2, 65}/{dedicación}, 6.6/{Betel}/{1 R 12:32}/{mes octavo}, 8.6/{Regreso}/{Esd 3:4}/{antes del templo}, 10.6/{Esdras}/{Neh 8:13--18}/{``como Josué''}, 12.6/{Macabeos}/{2 Mac 10:6}/{Janucá ``a la manera de''}, 14.3/{Juan 7}/{Jn 7:2, 37}/{agua y luz}}{
+   \fill[mostaza] (\x,0) circle (3.5pt);
+   \node[above=5pt,font=\scriptsize\bfseries,text=tierraroja,text width=1.8cm,align=center] at (\x,0) {\a};
+   \node[below=5pt,text width=1.8cm,align=center,font=\tiny] at (\x,0) {\b\\\textit{\color{sepia}\c}};}
+ \draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (0.2,-1.15) -- (7.1,-1.15) node[midway,below=6pt,font=\tiny,text=sepia]{Primer Templo};
+ \draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (8.1,-1.15) -- (14.7,-1.15) node[midway,below=6pt,font=\tiny,text=sepia]{Segundo Templo};
+\end{tikzpicture}}\par\medskip
+\small Fundación (el templo dedicado en la fiesta), ruptura (Jeroboam) y refundación (Esdras y Nehemías): \destacar{Sukkot acompaña los comienzos}.\par\smallskip
+\precision{la identificación de la fiesta de Silo con Sukkot es probable, no explícita.}
+\end{frame}
+
+\begin{frame}{El templo y la fiesta inventada}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.49\textwidth}
+\begin{cita}Y se reunieron con el rey Salomón todos los varones de Israel en el mes de Etanim, que es el mes séptimo, en el día de la fiesta solemne.\fuente{(1 R 8:2)}\end{cita}
+\begin{cita}Y al octavo día despidió al pueblo; y ellos\ldots{} se fueron a sus moradas alegres y gozosos de corazón\ldots\fuente{(1 R 8:66)}\end{cita}
+\scriptsize Crónicas: siete días de altar, siete de fiesta, \emph{atséret} el octavo, regreso el 23 (2~Cr 7:7--10); todos los sacerdotes santificados, sin guardar turnos (2~Cr 5:11): la consagración termina en Sukkot.
+\end{column}
+\begin{column}{0.49\textwidth}
+\begin{cita}Sacrificó, pues, sobre el altar que él había hecho en Bet-el, a los quince días del mes octavo, el mes que él había inventado de su propio corazón\ldots\fuente{(1 R 12:33)}\end{cita}
+\scriptsize Primera alteración deliberada del calendario. Ilustra la tesis de la serie: las fiestas son ``de \SENOR'' (Lv 23:2) y \destacar{no se trasladan por conveniencia} (cf. Is 29:13).
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Del regreso a Nehemías}
+\begin{cita}Celebraron asimismo la fiesta solemne de los tabernáculos, como está escrito, y holocaustos cada día por orden conforme al rito, cada cosa en su día.\fuente{(Esd 3:4)}\end{cita}
+\begin{cita}\ldots{}porque desde los días de Josué hijo de Nun hasta aquel día, no habían hecho así los hijos de Israel. Y hubo alegría muy grande.\fuente{(Neh 8:17)}\end{cita}
+\small\begin{itemize}
+\item ``Como está escrito'' / ``conforme al rito'': la serie distingue \destacar{Reglamento del Culto} y \destacar{Ley de los sacrificios}.
+\item ``No habían hecho \emph{así}'': toda la comunidad en cabañas, con lectura diaria de la Ley (Rubenstein, 1995).
+\item Único texto que une Sukkot con \destacar{la generación de Josué}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{El Segundo Templo}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}\scriptsize
+\begin{itemize}
+\item \textbf{Josefo}: ``la fiesta más santa y más grande'' (\emph{Ant.} 8.100); tiendas, mirto, sauce, palma y cidra (\emph{Ant.} 3.244--247).
+\item \textbf{Jubileos} 16:20--31: Abraham celebra el primer Sukkot en Beerseba.
+\item \textbf{2 Macabeos} 10:6--7: Janucá, ocho días ``a la manera de la fiesta de las cabañas'', con palmas (cf. Jn 10:22).
+\end{itemize}
+\end{column}
+\begin{column}{0.48\textwidth}\scriptsize
+\begin{itemize}
+\item \textbf{1 Macabeos} 13:51: Simón entra en la ciudadela ``con ramos de palmera''.
+\item \textbf{Qumrán}: cabañas en la azotea del atrio para los ancianos (11QT 42:10--17).
+\item \textbf{Josefo}: Alejandro Janeo, atacado con cidras en el altar (\emph{Ant.} 13.372); Aristóbulo III, aclamado en la fiesta y ahogado (\emph{Ant.} 15.50--56).
+\end{itemize}
+\end{column}
+\end{columns}\par\medskip
+\precision{Jubileos y Qumrán son relecturas del Segundo Templo, no historia del período bíblico.}
+\end{frame}
+
+\begin{frame}{Agua, luz y ``Hosanna''}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.52\textwidth}\scriptsize
+\begin{itemize}
+\item \textbf{Libación del agua}: jarro de oro llenado en Siloé, Puerta de las Aguas, dos copas de plata sobre el altar, siete días (Misná Sukká 4:9).
+\item \textbf{Luces}: cuatro candelabros de oro en el atrio de las mujeres; ``no había patio en Jerusalén que no se iluminara'' (5:2--3).
+\item \textbf{Sauces}: vueltas al altar diciendo \emph{hoshía na} (Sal 118:25); siete el séptimo día (4:5).
+\end{itemize}
+\end{column}
+\begin{column}{0.46\textwidth}
+\begin{cita}Quien no ha visto la alegría de la casa de la extracción del agua no ha visto alegría en su vida.\fuente{(Misná Sukká 5:1, trad. propia)}\end{cita}
+\precision{la Misná es posterior al 70 e.\,c.; la libación la confirma Josefo. ``Hoshaná Rabá'' es nombre posterior. Que de allí se ``extrajera el Espíritu'' (Is 12:3) es y. Sukká 5:1.}
+\end{column}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Filología}
+
+\begin{frame}{\heb{סֻכָּה} (\emph{sucá}): techo entretejido}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+ \node[draw=tierraroja,line width=1pt,fill=papiro,rounded corners=3pt,inner sep=6pt,align=center] (c) at (0,0) {\large\heb{סֻכָּה}\\[1pt]\tiny raíz \heb{סכך}\\\tiny ``cubrir, entretejer''};
+ \foreach \a/\t/\r in {90/{querubines que ``cubren''}/{Éx 25:20}, 30/{enramada en la viña}/{Is 1:8}, -30/{tiendas del campamento}/{2 S 11:11}, -90/{abrigo contra el calor}/{Is 4:6}, -150/{``me esconderá en su tabernáculo''}/{Sal 27:5}, 150/{``el tabernáculo caído de David''}/{Am 9:11 $\rightarrow$ Hch 15:16}}{
+   \node[caja,text width=2.55cm,align=center,font=\tiny] (n\a) at (\a:3.6cm and 1.75cm) {\t\\{\color{sepia}\r}};
+   \draw[-{Latex[length=1.8mm]},mostaza!80!tierraroja] (c) -- (n\a);}
+\end{tikzpicture}\par\smallskip
+\scriptsize \textbf{Strong H5521}, femenino de H5520 \heb{סֹךְ} (\emph{sok}, ``guarida''): choza, guarida, cabaña, enramada, escondedero, morada, abrigo, tabernáculo, tienda. Sentido principal: \destacar{morada frágil y temporal}, como nuestra existencia (2 Co 5:1).
+\end{frame}
+
+\begin{frame}{\emph{Ohel}, \emph{mishkán} y \emph{shakhan}}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}\small
+\begin{itemize}
+\item \heb{אֹהֶל} (\emph{ohel}): la tienda del nómada (Gn 18:1); \emph{ohel moed} (Éx 33:7); ``aún te haré morar en tiendas'' (Os 12:9 [12:10]).
+\item \heb{מִשְׁכָּן} (\emph{mishkán}), de \heb{שָׁכַן} (\emph{shakhan}) ``morar'': ``habitaré en medio de ellos'' (Éx 25:8); ``mi tabernáculo'' (Ez 37:27).
+\end{itemize}
+\end{column}
+\begin{column}{0.48\textwidth}
+\begin{cita}Y harán un santuario para mí, y habitaré en medio de ellos.\fuente{(Éx 25:8)}\end{cita}
+\scriptsize La LXX traduce \emph{sucá}, \emph{ohel} y \emph{mishkán} con \destacar{una sola palabra}: \grc{σκηνή}.\par\smallskip
+\precision{\emph{shejiná} es término rabínico, no bíblico. La asonancia \grc{σκηνή}~/~\emph{sh-k-n} es fonética, no etimológica.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{\heb{עֲצֶרֶת} (\emph{atséret}): el día que retiene}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.52\textwidth}\small
+\begin{itemize}
+\item Raíz \heb{עצר} ``detener, retener, cerrar'': ``me ha hecho estéril'' (Gn 16:2); ``que la lluvia no te ataje'' (1 R 18:44).
+\item Asamblea de clausura: 8.º día de Sukkot (Lv 23:36; Nm 29:35; Neh 8:18); 7.º de Matsot (Dt 16:8).
+\item LXX \grc{ἐξόδιον}: ``fiesta de salida''.
+\end{itemize}
+\end{column}
+\begin{column}{0.46\textwidth}
+\begin{tcolorbox}[colback=papiro,colframe=mostaza!80!tierraroja,boxrule=0.8pt,arc=3pt,left=4pt,right=4pt]
+\scriptsize\itshape ``Os he retenido conmigo\ldots{} vuestra partida me es difícil; quedaos un día más''.\par\hfill\upshape\textbf{\textcolor{tierraroja}{(Rashi a Lv 23:36)}}
+\end{tcolorbox}
+\precision{lectura homilética rabínica de la raíz (cf. b. Sukká 55b).}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Las cuatro especies (Lv 23:40)}
+\scriptsize\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}L{2.9cm}L{2.7cm}L{2.6cm}L{3.6cm}@{}}
+\toprule
+\textbf{Hebreo} & \textbf{Literal} & \textbf{RVR1960} & \textbf{Identificación posterior} \\ \midrule
+\heb{פְּרִי עֵץ הָדָר} \emph{perí ets hadar} & fruto de árbol de esplendor & fruto de árbol hermoso & \emph{etrog}, cidra (Onkelos; Josefo) \\
+\heb{כַּפֹּת תְּמָרִים} \emph{kapot temarim} & palmas de palmeras & ramas de palmeras & \emph{lulav}, brote de palmera \\
+\heb{עֲנַף עֵץ־עָבֹת} \emph{anaf ets avot} & rama de árbol frondoso & ramas de árboles frondosos & \emph{hadás}, mirto (b. Sukká 32b) \\
+\heb{עַרְבֵי־נָחַל} \emph{arvé najal} & sauces del torrente & sauces de los arroyos & \emph{aravá}, sauce (Sal 137:2) \\
+\bottomrule
+\end{tabular}\par\medskip
+\small \heb{הָדָר} (\emph{hadar}) es ``esplendor'' (Sal 96:6): nombra una \destacar{calidad}, no una especie.\par\smallskip
+\precision{\emph{lulav} y \emph{etrog} son términos de la Misná; atar el ramo y agitarlo es práctica rabínica (Misná Sukká 3).}
+\end{frame}
+
+\begin{frame}{``Estarás verdaderamente alegre''}
+\fotolado{panel_deuteronomio16.jpg}{Elaboración propia: Dt 16:15b en texto hebreo consonántico (BHS).}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.57\textwidth}
+\begin{cita}Siete días celebrarás fiesta solemne a \SENOR{} tu Dios en el lugar que \SENOR{} escogiere; porque te habrá bendecido \SENOR{} tu Dios en todos tus frutos, y en toda la obra de tus manos, y estarás verdaderamente alegre.\fuente{(Dt 16:15, RVR1960)}\end{cita}
+\scriptsize \heb{וְהָיִיתָ אַךְ שָׂמֵחַ} (\emph{vehayita aj saméaj}): ``y serás \destacar{solo alegre}''. LXX: \grc{καὶ ἔσῃ εὐφραινόμενος}.
+\end{column}
+\begin{column}{0.41\textwidth}\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{De la cabaña a la morada}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[font=\scriptsize,node distance=0.5cm]
+ \node[caja,text width=2.8cm,align=center] (h) {\textbf{\textcolor{tierraroja}{Hebreo}}\\[2pt]\heb{סֻכָּה} \emph{sucá}\\\heb{אֹהֶל} \emph{ohel}\\\heb{מִשְׁכָּן} \emph{mishkán}};
+ \node[caja,text width=2.7cm,align=center,right=of h] (g) {\textbf{\textcolor{tierraroja}{Septuaginta}}\\[2pt]\grc{σκηνή}\\\grc{σκηνοπηγία}\\\grc{ἐξόδιον}};
+ \node[caja,text width=3.0cm,align=center,right=of g] (n) {\textbf{\textcolor{tierraroja}{Nuevo Testamento}}\\[2pt]\grc{ἐσκήνωσεν} (Jn 1:14)\\\grc{σκῆνος} (2 Co 5:1)\\\grc{ἡ σκηνὴ τοῦ θεοῦ} (Ap 21:3)};
+ \node[caja,text width=2.5cm,align=center,right=of n] (e) {\textbf{\textcolor{tierraroja}{RVR1960}}\\[2pt]tabernáculo\\enramada, tienda\\``habitó''};
+ \draw[-{Latex[length=2.2mm]},mostaza!80!tierraroja,line width=1pt] (h) -- (g);
+ \draw[-{Latex[length=2.2mm]},mostaza!80!tierraroja,line width=1pt] (g) -- (n);
+ \draw[-{Latex[length=2.2mm]},mostaza!80!tierraroja,line width=1pt] (n) -- (e);
+\end{tikzpicture}}\par\medskip
+{\small\itshape\color{sepia} La cabaña de la fiesta, la tienda del patriarca y la morada de Dios se dicen igual en la Biblia griega.}\par\medskip
+\scriptsize\grc{ἡ ἑορτὴ τῶν Ἰουδαίων ἡ σκηνοπηγία} (Jn 7:2), único uso en el NT; Pablo era \grc{σκηνοποιός}, ``hacedor de tiendas'' (Hch 18:3); Pedro, ``la deposición de mi tienda'' (\grc{σκηνώματος}, 2 P 1:14).
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Texto}
+
+\begin{frame}{Una segunda instrucción; Neh 8:15}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.47\textwidth}\scriptsize
+\destacar{Lv 23:39--43} viene después del colofón (vv. 37--38). Llama \emph{shabatón} a los días 1 y 8 y añade especies, alegría, cabañas y éxodo.\par\smallskip
+Para muchos críticos es un apéndice de la Escuela de Santidad (Knohl, 1995; Milgrom, 2001); otros lo leen como suplemento intencional dirigido al pueblo (Wenham, 1979; Hartley, 1992).
+\end{column}
+\begin{column}{0.51\textwidth}\scriptsize\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}L{2.6cm}L{2.9cm}@{}}
+\toprule
+\textbf{Lv 23:40} & \textbf{Neh 8:15} \\ \midrule
+fruto de árbol de esplendor & olivo \\
+palmas & olivo silvestre (\heb{עֵץ שֶׁמֶן}) \\
+árbol frondoso & arrayán (\heb{הֲדַס}) \\
+sauces & palmeras; árbol frondoso \\ \midrule
+``tomaréis\ldots{} os regocijaréis'' & ``para hacer tabernáculos, como está escrito'' \\
+\bottomrule
+\end{tabular}
+\end{column}
+\end{columns}\par\medskip
+\precision{¿texto distinto, lectura de Lv 23:40 como materiales (luego, los caraítas), o ``como está escrito'' referido a Lv 23:42? La práctica tuvo historia (Milgrom, 2001; Rubenstein, 1995).}
+\end{frame}
+
+\begin{frame}{Jn 7:38: ¿de quién brotan?}
+\fotolado{panel_juan7.jpg}{Elaboración propia: Jn 7:38 en escritura uncial, sin puntuación (texto NA28).}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.57\textwidth}\scriptsize
+Los papiros no tienen puntuación. Dos cortes posibles:\par\smallskip
+\begin{tcolorbox}[colback=papiro,colframe=tierraroja!60,boxrule=0.6pt,arc=2pt,left=3pt,right=3pt,top=2pt,bottom=2pt]
+\textbf{Del creyente} (RVR1960): ``venga a mí y beba. \emph{El que cree en mí}\ldots{} de su interior correrán ríos''. Carson (1991).
+\end{tcolorbox}
+\begin{tcolorbox}[colback=papiro,colframe=tierraroja!60,boxrule=0.6pt,arc=2pt,left=3pt,right=3pt,top=2pt,bottom=2pt]
+\textbf{De Cristo}: ``venga a mí; y beba \emph{el que cree en mí}. Como dice la Escritura: de su interior [de Cristo]\ldots''. Brown (1966); Keener (2003). Cf. Ez 47:1; Zac 14:8; Jn 19:34.
+\end{tcolorbox}
+En ambas, el agua es \destacar{el Espíritu} (7:39).
+\end{column}
+\begin{column}{0.41\textwidth}\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Precisión textual}
+\small
+\begin{itemize}
+\item \textbf{Jn 7:8}: \grc{οὐκ ἀναβαίνω} ``no subo'' (Sinaítico, Beza; NA28) / \grc{οὔπω} ``no subo todavía'' (P66, P75, Vaticano; RVR1960). ``No'' es la lectura más difícil (Metzger, 1994).
+\item \textbf{Jn 7:53--8:11} falta en P66, P75, Sinaítico y Vaticano: ``Yo soy la luz del mundo'' (8:12) seguía al discurso del agua.
+\item \textbf{Hch 18:21}: ``Es necesario que\ldots{} yo guarde en Jerusalén la fiesta que viene'' falta en los manuscritos principales y en NA28; la fiesta no se nombra.
+\item \textbf{Zac 14:18}: el TM tiene la negación (``y no sobre ellos''); LXX y Peshitta no. RVR1960 suple ``lluvia''.
+\item \textbf{Sal 27:5}: \emph{ketiv} \heb{בְּסֻכֹּה}, \emph{qeré} \heb{בְּסֻכּוֹ}. Lv 23:42 \heb{בַּסֻּכֹּת} (defectivo) / 23:43 \heb{בַסֻּכּוֹת} (pleno): base de b. Sukká 6b.
+\end{itemize}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Literatura}
+
+\begin{frame}{La estructura de Lv 23:33--44}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[font=\scriptsize,x=1cm,y=1cm]
+ \node[caja,text width=5.0cm,anchor=west] (a) at (0,0) {\textbf{\textcolor{tierraroja}{A. vv. 33--36}} fecha, convocaciones, ofrendas, \emph{atséret}};
+ \node[caja,text width=5.0cm,anchor=west,fill=mostaza!20] (c) at (0,-1.1) {\textbf{\textcolor{tierraroja}{Colofón vv. 37--38}} ``Estas son las fiestas\ldots''};
+ \node[caja,text width=5.0cm,anchor=west] (b) at (0,-2.2) {\textbf{\textcolor{tierraroja}{B. vv. 39--43}} ``Pero\ldots'': cosecha, especies, alegría, cabañas};
+ \node[caja,text width=5.0cm,anchor=west,fill=mostaza!20] (d) at (0,-3.3) {\textbf{\textcolor{tierraroja}{Cierre v. 44}} ``Así habló Moisés\ldots''};
+ \node[anchor=west,text=tierraroja,font=\scriptsize\bfseries] at (6.6,0.3) {Lectura concéntrica de B (propuesta)};
+ \foreach \y/\i/\t/\r in {-0.3/0/{a\ \ fiesta siete días}/v. 39, -1.0/0.45/{b\ \ especies; alegría siete días}/v. 40, -1.7/0.9/{c\ \ estatuto perpetuo}/v. 41, -2.4/0.45/{b'\ \ cabañas siete días}/v. 42, -3.1/0/{a'\ \ ``para que sepan\ldots{} Yo \SENOR''}/v. 43}{
+   \node[anchor=west] at (6.6+\i,\y) {\t\ {\color{sepia}(\r)}};}
+ \draw[decorate,decoration={brace,amplitude=5pt},sepia] (6.45,-3.35) -- (6.45,-0.05);
+ \draw[-{Latex[length=2mm]},mostaza!80!tierraroja] (b.east) -- (6.3,-1.7);
+\end{tikzpicture}}\par\medskip
+\small \heb{שִׁבְעַת יָמִים} (``siete días'') seis veces en vv. 33--43; el ``octavo día'', dos (conteo propio; verificar en BHS). La fiesta termina en \destacar{conocimiento de Dios}: ``para que sepan''.
+\end{frame}
+
+\begin{frame}{La alegría mandada; el siete y el octavo}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.49\textwidth}\small
+\destacar{Alegría en Dt 16}\par\smallskip
+\scriptsize
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}L{2.1cm}L{3.1cm}@{}}
+\toprule
+Pésaj/Matsot & ninguna (``pan de aflicción'', 16:3) \\
+Shavuot & ``te alegrarás'' (16:11) \\
+Sukkot & ``te alegrarás'' (16:14) y ``estarás verdaderamente alegre'' (16:15) \\
+\bottomrule
+\end{tabular}\par\smallskip
+Con el levita, el extranjero, el huérfano y la viuda (16:14): \destacar{una mesa abierta}. (Conteo propio.)
+\end{column}
+\begin{column}{0.49\textwidth}\small
+\destacar{El octavo día}\par\smallskip\scriptsize
+\begin{itemize}
+\item Circuncisión ``a los ocho días'' (Gn 17:12).
+\item Sacerdotes, ``en el día octavo'' (Lv 9:1).
+\item Purificación (Lv 14:10; 15:14).
+\item Altar futuro ``del octavo día en adelante'' (Ez 43:27).
+\end{itemize}
+Lo preparado en siete \destacar{empieza a funcionar}. Bernabé: el octavo, ``principio de otro mundo'' (Bern. 15:8--9).
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Una fiesta para las naciones}
+\fotolado{panel_zacarias14.jpg}{Elaboración propia: Zac 14:16b en texto hebreo consonántico (BHS).}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.57\textwidth}
+\begin{cita}Y todos los que sobrevivieren de las naciones que vinieron contra Jerusalén, subirán de año en año para adorar al Rey, a \SENOR{} de los ejércitos, y a celebrar la fiesta de los tabernáculos.\fuente{(Zac 14:16, RVR1960)}\end{cita}
+\scriptsize El extranjero en la alegría (Dt 16:14) y en la lectura (Dt 31:12); la oración de Salomón por el extranjero (1~R 8:41--43); ``¿se irá\ldots{} a los griegos?'' (Jn 7:35).\par\smallskip
+\precision{70 novillos = 70 naciones: b. Sukká 55b.}
+\end{column}
+\begin{column}{0.41\textwidth}\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{De la tienda a la morada de Dios}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[font=\scriptsize,x=1cm,y=1cm]
+ \foreach \x/\n/\t/\r/\h in {0/1/{Tienda}/{Éx 25:8; 40:34}/{``habitaré en medio''}, 2.55/2/{Templo}/{1 R 8:2, 10--11}/{dedicado en Sukkot}, 5.1/3/{Promesa}/{Ez 37:27; Os 12:9}/{``mi tabernáculo''}, 7.65/4/{Encarnación}/{Jn 1:14}/{\grc{ἐσκήνωσεν}}, 10.2/5/{Iglesia}/{2 Co 6:16; Ap 7:15}/{templo del Dios viviente}, 12.75/6/{Consumación}/{Ap 21:3}/{\grc{ἡ σκηνὴ τοῦ θεοῦ}}}{
+   \node[caja,text width=2.0cm,align=center,minimum height=1.55cm] (t\n) at (\x,0) {\textbf{\textcolor{tierraroja}{\t}}\\[2pt]{\tiny\color{sepia}\r}\\[1pt]{\tiny\itshape \h}};}
+ \foreach \a/\b in {1/2,2/3,3/4,4/5,5/6}{\draw[-{Latex[length=2mm]},mostaza!80!tierraroja,line width=1pt] (t\a) -- (t\b);}
+ \draw[sepia,line width=0.6pt] (0,-1.2) -- (12.75,-1.2);
+ \foreach \x/\t in {0/{Israel en cabañas (Lv 23:43)}, 3.8/{Abraham en tiendas (He 11:9)}, 7.65/{el cuerpo, ``tienda'' (2 Co 5:1)}, 12.0/{``casa no hecha de manos''}}{
+   \fill[mostaza] (\x,-1.2) circle (2pt);
+   \node[below=3pt,font=\tiny,text=sepia,text width=2.6cm,align=center] at (\x,-1.2) {\t};}
+ \node[anchor=east,font=\tiny\itshape,text=tierraroja] at (-1.2,0) {Dios mora};
+ \node[anchor=east,font=\tiny\itshape,text=tierraroja] at (-1.2,-1.2) {el hombre mora};
+\end{tikzpicture}}\par\medskip
+\small Dos líneas: la morada de Dios y la tienda provisoria del hombre. \destacar{Se encuentran en Ap 21:3}: ``He aquí el tabernáculo de Dios con los hombres''.
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{La serie}
+
+\begin{frame}{Memorial y figura}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}\small
+La relación con la historia de Israel ``es dual'':
+\begin{itemize}
+\item en la letra: ``en cabañas hice yo habitar'' (Lv 23:43): \destacar{el desierto};
+\item en la secuencia: Trompetas (Jericó) $\rightarrow$ Expiación (fin del juicio) $\rightarrow$ Cabañas: \destacar{establecerse como reino} en la tierra, ``aunque\ldots{} solo una situación temporal''.
+\end{itemize}
+\end{column}
+\begin{column}{0.48\textwidth}\scriptsize
+Tres razones para guardarla: carácter perpetuo (Lv 23:41), sentido histórico (23:42--43) y ``perspectiva simbólica'' (Col 2:16--17).\par\medskip
+\precision{el nexo con el desierto está en el texto; el nexo con Canaán es tipología de la serie. Apoyos: cosecha en la tierra; ``desde los días de Josué'' (Neh 8:17). Pero el Jordán se cruzó el 10 de Abib (Jos 4:19): correspondencia de sentido, no de calendario.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{El Reino milenial y la cabaña}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.49\textwidth}
+\begin{cita}Bienaventurado y santo el que tiene parte en la primera resurrección\ldots{} serán sacerdotes de Dios y de Cristo, y reinarán con él mil años.\fuente{(Ap 20:6)}\end{cita}
+\scriptsize Trompetas y Expiación = retorno, resurrección, fin del juicio, Satanás atado: ``el preludio del establecimiento del Reino Milenial''.
+\end{column}
+\begin{column}{0.49\textwidth}
+\begin{tcolorbox}[colback=papiro,colframe=tierraroja,boxrule=1pt,arc=3pt,left=4pt,right=4pt]
+\scriptsize\itshape ``La morada endeble que habitamos durante la Fiesta representa\ldots{} la levedad de nuestra propia existencia''. ``Lo temporal del habitar las cabañas\ldots{} indica, con claridad, que el Milenio no es la Eternidad''.\par\hfill\upshape\textbf{\textcolor{tierraroja}{(Documento de referencia, lecc. 14)}}
+\end{tcolorbox}
+\scriptsize Apoyo filológico: la \emph{sucá} es siempre provisoria (Is 1:8; Jon 4:5); la tienda es lo que se deshace (2 Co 5:1).
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{El Octavo día: después del Milenio}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.53\textwidth}
+\begin{cita}Cuando los mil años se cumplan, Satanás será suelto de su prisión, y saldrá a engañar a las naciones\ldots{} a Gog y a Magog\ldots\fuente{(Ap 20:7--8)}\end{cita}
+\begin{cita}Y vi un gran trono blanco\ldots{} y fueron juzgados los muertos\ldots{} según sus obras.\fuente{(Ap 20:11--12)}\end{cita}
+\end{column}
+\begin{column}{0.45\textwidth}\small
+El Octavo día figura ``el tiempo después del Milenio'' (Ap 20:7--15), que culmina en el juicio final.\par\medskip
+\begin{cita}Luego el fin, cuando entregue el reino al Dios y Padre\ldots\fuente{(1 Co 15:24)}\end{cita}
+\scriptsize Se permanece en la cabaña el octavo día ``por la condición de sábado'' de ese día.
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{La secuencia final según la serie}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[font=\scriptsize,x=1cm,y=1cm]
+ \draw[line width=1.6pt,tierraroja,-{Latex[length=3mm]}] (-0.3,0) -- (14.4,0);
+ \foreach \x/\f/\d/\e/\r in {0.9/{Trompetas}/{1 Tishri}/{retorno de Cristo; resurrección}/{1 Co 15:52; 1 Ts 4:16}, 3.9/{Expiación}/{10 Tishri}/{fin del juicio; Satanás atado}/{1 P 4:17; Ap 20:1--3}, 7.4/{Cabañas}/{15--21 Tishri}/{Reino milenial}/{Ap 20:4--6}, 10.6/{Octavo día}/{22 Tishri}/{Gog y Magog; trono blanco}/{Ap 20:7--15; 1 Co 15:24}, 13.4/{(Sábado)}/{---}/{Jerusalén celestial}/{He 4:9; Ap 21:1--4}}{
+   \fill[mostaza] (\x,0) circle (4pt);
+   \node[above=7pt,font=\scriptsize\bfseries,text=tierraroja,align=center] at (\x,0) {\f\\[-1pt]{\tiny\mdseries\color{sepia}\d}};
+   \node[below=6pt,text width=2.3cm,align=center,font=\tiny] at (\x,0) {\e\\[1pt]{\color{sepia}\r}};}
+ \draw[decorate,decoration={brace,amplitude=6pt},sepia] (6.3,1.2) -- (11.7,1.2) node[midway,above=6pt,font=\tiny,text=sepia]{la cabaña: lo pasajero};
+ \draw[decorate,decoration={brace,amplitude=6pt,mirror},sepia] (0.2,-1.55) -- (4.6,-1.55) node[midway,below=6pt,font=\tiny,text=sepia]{el retorno};
+ \draw[decorate,decoration={brace,amplitude=6pt,mirror},sepia] (12.4,-1.55) -- (14.3,-1.55) node[midway,below=6pt,font=\tiny,text=sepia]{la eternidad};
+\end{tikzpicture}}\par\medskip
+\small Así como Israel entró en su tierra precedido por trompetas y después del juicio del desierto, la Iglesia entra en el Reino \destacar{precedida por la trompeta} (1 Ts 4:16--17) y \destacar{concluido el juicio} (1 P 4:17).\par
+\precision{la relación del Sábado con la Jerusalén celestial es también lectura de la serie.}
+\end{frame}
+
+\begin{frame}{Dos suposiciones refutadas}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.49\textwidth}
+\begin{tcolorbox}[colback=papiro,colframe=tierraroja!70,boxrule=0.8pt,arc=2pt,left=4pt,right=4pt,title={\scriptsize 1. ``En el Milenio, no ahora''},fonttitle=\bfseries,coltitle=papiro,colbacktitle=tierraroja!80]
+\scriptsize Se apoya en Zac 14:16. Pero ¿quiénes suben? ``Los que sobrevivieren de las \destacar{naciones que vinieron contra Jerusalén}'': pueblos sometidos que aprenderán la fiesta. El Milenio \destacar{extiende} a las naciones una fiesta que el pueblo de Dios ya guarda (Lv 23:41; Jn 7).
+\end{tcolorbox}
+\end{column}
+\begin{column}{0.49\textwidth}
+\begin{tcolorbox}[colback=papiro,colframe=tierraroja!70,boxrule=0.8pt,arc=2pt,left=4pt,right=4pt,title={\scriptsize 2. ``Sukkot simboliza la eternidad''},fonttitle=\bfseries,coltitle=papiro,colbacktitle=tierraroja!80]
+\scriptsize ``La cabaña\ldots{} no puede simbolizar la Eternidad. El sentido de la cabaña representa \destacar{lo pasajero}, la levedad de la existencia''. La eternidad viene después del Octavo día.
+\end{tcolorbox}
+\end{column}
+\end{columns}\par\medskip
+\small A favor del argumento: Zac 14:17--19 supone naciones que aún pueden desobedecer y castigos posibles, lo que no corresponde a Ap 21:4.
+\end{frame}
+
+\begin{frame}{El Octavo día: dos lecturas}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.49\textwidth}
+\begin{tcolorbox}[colback=papiro,colframe=tierraroja!70,boxrule=0.8pt,arc=2pt,left=4pt,right=4pt,title={\scriptsize Documento de referencia},fonttitle=\bfseries,coltitle=papiro,colbacktitle=tierraroja!80]
+\scriptsize Tiempo \destacar{después del Milenio}: Gog y Magog, trono blanco (Ap 20:7--15); ``luego el fin'' (1 Co 15:24). La eternidad la figura el Sábado (Ap 21:1--4).
+\end{tcolorbox}
+\end{column}
+\begin{column}{0.49\textwidth}
+\begin{tcolorbox}[colback=papiro,colframe=tierraroja!70,boxrule=0.8pt,arc=2pt,left=4pt,right=4pt,title={\scriptsize Presentación de Danilo},fonttitle=\bfseries,coltitle=papiro,colbacktitle=tierraroja!80]
+\scriptsize Siete días = reino milenial con sus santos (Ap 20:4; Zac 14:16). El octavo ``representaría \destacar{la eternidad}, cuando el Padre mismo establece su tabernáculo entre los hombres'' (Ap 21:3).
+\end{tcolorbox}
+\end{column}
+\end{columns}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+ \node[caja,text width=2.5cm,align=center] (a) at (0,0) {7 días: Milenio\\{\tiny\color{sepia}la cabaña, lo pasajero}};
+ \node[caja,text width=2.8cm,align=center] (b) at (4.3,0) {8.º día: juicio final\\{\tiny\color{sepia}Ap 20:7--15}};
+ \node[caja,text width=2.8cm,align=center,fill=mostaza!25] (c) at (8.6,0) {morada eterna\\{\tiny\color{sepia}Ap 21:1--3}};
+ \draw[-{Latex[length=2mm]},mostaza!80!tierraroja,line width=1pt] (a) -- (b);
+ \draw[-{Latex[length=2mm]},mostaza!80!tierraroja,line width=1pt] (b) -- node[above=1pt,font=\tiny,text=sepia]{desemboca} (c);
+ \draw[decorate,decoration={brace,amplitude=4pt,mirror},sepia] (2.6,-0.6) -- (10.2,-0.6) node[midway,below=4pt,font=\tiny,text=sepia]{lectura articulada: el octavo día como umbral (\emph{atséret}, LXX \grc{ἐξόδιον} ``salida'')};
+\end{tikzpicture}\par\smallskip
+\precision{\textbf{para que Danilo decida}: el capítulo expone (a) como marco de la serie, (b) como lectura de su presentación y la articulación como propuesta.}
+\end{frame}
+
+\begin{frame}{Precisiones a la lectura de la serie}
+\scriptsize
+\begin{itemize}
+\item \textbf{Misma familia, otro acento}: el folleto \emph{Las fiestas santas de Dios} (Iglesia de Dios Unida, 2011) lee el Octavo día, ``Último Gran Día'' (Jn 7:37), como segunda resurrección con oportunidad de salvación (Ez 37); el documento de referencia acentúa el juicio y ``luego el fin''. Ambos lo sitúan después del Milenio.
+\item \textbf{``El último y gran día''} (Jn 7:37) puede ser el 7.º o el 8.º día; la libación duraba siete días (Misná Sukká 4:1) (Brown, 1966; Keener, 2003).
+\item \textbf{``Luego el fin''} (\grc{εἶτα τὸ τέλος}, 1 Co 15:24): leer ``el resto'' es minoritario; Fee (1987) lee ``el fin''. El intervalo está en Pablo; su duración, en Ap 20.
+\item \textbf{He 11:9} dice \grc{ἐν σκηναῖς}, ``en tiendas''; leer ``cabañas'' es legítimo porque la LXX usa \grc{σκηναί} para las \emph{sucot}. Autoría de Hebreos: discutida (Attridge, 1989; Lane, 1991).
+\end{itemize}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Mesías}
+
+\begin{frame}{Juan 7--8: el agua y la luz}
+\centering
+\begin{tikzpicture}[font=\scriptsize,x=1cm,y=1cm]
+ \node[text=sepia,font=\tiny\itshape] at (0,1.25) {Rito del Segundo Templo (Misná)};
+ \node[text=sepia,font=\tiny\itshape] at (7.0,1.25) {Proclamación de Jesús (Juan)};
+ \node[caja,text width=4.3cm] (r1) at (0,0.15) {\textbf{\textcolor{tierraroja}{Libación del agua}}: Siloé, jarro de oro, altar, siete días; ``Sacaréis con gozo aguas'' (Is 12:3).};
+ \node[caja,text width=4.3cm] (j1) at (7.0,0.15) {\textbf{\textcolor{tierraroja}{Jn 7:37--39}}: ``Si alguno tiene sed, venga a mí y beba''; ríos de agua viva = el Espíritu.};
+ \node[caja,text width=4.3cm] (r2) at (0,-1.85) {\textbf{\textcolor{tierraroja}{Las luces del atrio}}: cuatro candelabros; ``no había patio en Jerusalén que no se iluminara''.};
+ \node[caja,text width=4.3cm] (j2) at (7.0,-1.85) {\textbf{\textcolor{tierraroja}{Jn 8:12; 9:5}}: ``Yo soy la luz del mundo''; cf. ``al caer la tarde habrá luz'' (Zac 14:7).};
+ \draw[-{Latex[length=2.4mm]},mostaza!80!tierraroja,line width=1.2pt] (r1) -- (j1);
+ \draw[-{Latex[length=2.4mm]},mostaza!80!tierraroja,line width=1.2pt] (r2) -- (j2);
+\end{tikzpicture}\par\medskip
+\scriptsize Dicho ``en el lugar de las ofrendas'' (8:20), en el atrio de las luces; el ciego se lava ``en el estanque de Siloé'' (9:7). Lo que el templo hacía con agua y lámparas \destacar{se cumple en una persona} (Keener, 2003).
+\end{frame}
+
+\begin{frame}{``Habitó entre nosotros''}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\centering\grc{Καὶ ὁ λόγος σὰρξ ἐγένετο καὶ ἐσκήνωσεν ἐν ἡμῖν}
+\begin{cita}Y aquel Verbo fue hecho carne, y habitó entre nosotros (y vimos su gloria\ldots)\fuente{(Jn 1:14)}\end{cita}
+\scriptsize Tienda, gloria y presencia ``en medio'' (Éx 25:8; 40:34). El cuerpo de Jesús es el templo (Jn 2:19--21; Coloe, 2001).\par\smallskip
+\precision{Jn 1:14 no fecha el nacimiento en Sukkot.}
+\end{column}
+\begin{column}{0.48\textwidth}
+\begin{cita}Señor, bueno es para nosotros que estemos aquí; si quieres, hagamos aquí tres enramadas\ldots\fuente{(Mt 17:4)}\end{cita}
+\scriptsize Hablaban ``de su partida'', \grc{τὴν ἔξοδον} (Lc 9:31). La voz no aprueba las tiendas: ``a él oíd'' (17:5). Las enramadas querían \destacar{fijar la gloria}; el camino pasa por el éxodo de Jerusalén (Daniélou, 1956).
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Palmas, tiendas y peregrinos}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.49\textwidth}\scriptsize
+\begin{itemize}
+\item \textbf{Jn 12:13}: palmas y ``¡Hosanna!'' (Sal 118:25), pero \destacar{antes de la Pascua} (12:1): símbolo de victoria (1 Mac 13:51), no un Sukkot fuera de fecha.
+\item \textbf{Ap 7:9--17}: naciones, ropas blancas, \destacar{palmas}; ``extenderá su tabernáculo sobre ellos'' (\grc{σκηνώσει}); ``fuentes de aguas de vida'' (Ulfgard, 1989; Bauckham, 1993).
+\end{itemize}
+\end{column}
+\begin{column}{0.49\textwidth}\scriptsize
+\begin{itemize}
+\item \textbf{He 11:9--10}: Abraham ``morando en tiendas\ldots{} porque esperaba la ciudad que tiene fundamentos''.
+\item \textbf{2 Co 5:1, 4}: ``si nuestra morada terrestre, este tabernáculo, se deshiciere, tenemos de Dios\ldots{} una casa no hecha de manos''.
+\item \textbf{Col 2:16--17}: ``sombra de lo que ha de venir''. La serie: figura abierta y vigente; otros: sombra cumplida en Cristo (Dunn, 1996).
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Tradición}
+
+\begin{frame}{Sukkot en la tradición judía}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}\scriptsize
+\begin{itemize}
+\item Sucá y cuatro especies; agitar el ramo en el Hallel (Misná Sukká 3).
+\item \emph{Hoshanot}: vueltas alrededor de la \emph{bimá} con el rollo. Hoshaná Rabá: siete vueltas, golpear el sauce, ``sello final del juicio'', leer Deuteronomio y estudiar toda la noche: costumbres medievales y cabalísticas.
+\item Zac 14 y 1 R 8 como \emph{haftarot} (b. Meguilá 31a); el Eclesiastés en el sábado de la fiesta.
+\item \emph{Ushpizin}: invitados patriarcas (Zóhar, s. XIII).
+\end{itemize}
+\end{column}
+\begin{column}{0.48\textwidth}\scriptsize
+\begin{itemize}
+\item \textbf{Shemini Atséret}: fiesta propia (b. Sukká 47a); comienza la súplica por la lluvia (Misná Taanit 1:1).
+\item \textbf{Simjat Torá}: fin y reinicio de la lectura anual: \destacar{medieval}.
+\item ``El Misericordioso levante para nosotros la sucá de David caída'' (bendición de la mesa; Am 9:11).
+\item Sucá de piel de Leviatán para los justos (b. Bava Batra 75a).
+\end{itemize}
+\end{column}
+\end{columns}\par\medskip
+\precision{todo lo de esta lámina es tradición rabínica o posterior, no texto bíblico.}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Síntesis}
+
+\begin{frame}{Discusión de interpretaciones}
+\scriptsize\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}L{2.5cm}L{5.0cm}L{4.2cm}@{}}
+\toprule
+\textbf{Postura} & \textbf{Sukkot} & \textbf{Autores} \\ \midrule
+Milenial sabatista & Milenio; cabaña = no eternidad; 8.º = post-Milenio & Documento de referencia; Iglesia de Dios Unida (2011) \\
+Patrística & Sukkot en el séptimo milenio; el octavo, la eternidad & Metodio, \emph{Banquete} 9 (Daniélou, 1956) \\
+Dispensacional / mesiánica & Reino de Cristo en la tierra & Chumney (1994); Baker (2013) \\
+Premilenarismo histórico & Ap 20 futuro, sin mapa de fiestas & Ladd (1972) \\
+Amilenarismo & Jn 1:14; 7:39 $\rightarrow$ Ap 7:15; 21:3 & Hoekema (1979); Beale (1999) \\
+Judía & fiesta de las naciones; sucá de David & Misná; Rubenstein (1995) \\
+\bottomrule
+\end{tabular}\par\medskip
+\small En Ap 21:3 la tienda es \destacar{de Dios} (\grc{ἡ σκηνὴ τοῦ θεοῦ}), no del hombre: la cabaña humana figura lo pasajero; la tienda divina, la presencia que permanece.
+\end{frame}
+
+\begin{frame}{Síntesis}
+\begin{tcolorbox}[colback=papiro,colframe=tierraroja,boxrule=1pt,arc=3pt,left=5pt,right=5pt]
+\scriptsize \textbf{Sukkot}: siete días (15--21 del mes séptimo) en cabañas, después de la cosecha, en memoria de que Dios hizo habitar a Israel en ellas (Lv 23:42--43), con alegría ``verdadera'' y compartida (Dt 16:14--15). \textbf{Octavo día}: \emph{atséret}, clausura fuera del siete. En la serie: memorial del desierto y figura de la tierra; para la Iglesia, el \destacar{Reino milenial}, que no es aún la eternidad; el Octavo día, el tiempo \destacar{después del Milenio} y ``luego el fin'' (Ap 20:7--15; 1 Co 15:24--28).
+\end{tcolorbox}
+\scriptsize\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{@{}L{2.0cm}L{9.8cm}@{}}
+\toprule
+Histórica & cosecha final, dedicación del templo, Esdras; agua y luz del Segundo Templo \\
+Filológica & \emph{sucá} provisoria; \emph{mishkán}; \emph{atséret}; todo en \grc{σκηνή} \\
+Textual & segunda instrucción; Neh 8:15; puntuación de Jn 7:38 \\
+Literaria & siete y octavo; alegría mandada; naciones; de la tienda a Ap 21:3 \\
+Cristológica & agua viva y luz del mundo; el Verbo que ``puso su tienda'' \\
+\bottomrule
+\end{tabular}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Reflexión}
+
+\begin{frame}{Oportunidades que nos da Sukkot}
+\centering
+\begin{tikzpicture}
+ \foreach \x/\y/\n/\t/\r in {0/0/1/{Alegrarnos ante el \SENOR}/{Dt 16:14--15}, 4.1/0/2/{Fortalecer el espíritu}/{Mt 4:4}, 8.2/0/3/{Lazos de hermandad}/{He 10:24}, 0/-1.75/4/{Somos peregrinos}/{He 11:9}, 4.1/-1.75/5/{Primero, la comunión con Dios}/{Mt 6:33}, 8.2/-1.75/6/{Todos en la misma condición}/{1 Ti 6:17}}{
+  \node[caja,anchor=north] (b\n) at (\x,\y) {\parbox[t][1.0cm][t]{3.45cm}{\RaggedRight
+    {\small\textbf{\textcolor{tierraroja}{\t}}}\par\vfill{\tiny\color{sepia}(\r)}}};
+  \node[circle,fill=tierraroja,text=papiro,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
+\end{tikzpicture}\par\medskip
+\scriptsize En la cabaña el rico y el pobre viven igual: ``que no sean altivos, ni pongan la esperanza en las riquezas, las cuales son inciertas'' (1 Ti 6:17).\par\smallskip
+{\fontsize{6}{7}\selectfont\color{sepia}\textit{Fuente:} presentación de Danilo, ``La fiesta de la alegría''.}
+\end{frame}
+
+\begin{frame}{Para la reflexión}
+\small
+\begin{enumerate}
+\item ``Para que sepan vuestros descendientes'': ¿qué prácticas de su casa transmiten que Dios sostuvo a su pueblo en el desierto, y no solo en la abundancia?
+\item La cabaña ``fija'' y la casa ``provisoria'': ¿qué trata como fijo, aunque la Escritura lo llame tienda (2 Co 5:1)?
+\item Dt 16:14: ¿a quién debería sentar a su mesa para que la alegría sea la que Dios manda?
+\item ``Si alguno tiene sed\ldots'': ¿qué sed sigue intacta en medio de la celebración?
+\item Si el Milenio no es aún la eternidad, ¿cómo cambia su manera de esperar ``la ciudad que tiene fundamentos'' (He 11:10)?
+\item Jeroboam y ``el mes que él había inventado'': ¿dónde ajustamos el culto a la conveniencia?
+\end{enumerate}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Glosario}
+
+\begin{frame}{Glosario}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.49\textwidth}\scriptsize
+\textbf{Asif} (\heb{אָסִף}): recolección; \emph{jag haasif}.\par
+\textbf{Atséret} (\heb{עֲצֶרֶת}): asamblea de clausura; LXX \grc{ἐξόδιον}.\par
+\textbf{Etrog} (\heb{אֶתְרוֹג}): cidra; ``fruto de árbol de esplendor''.\par
+\textbf{Haqhel} (\heb{הַקְהֵל}): lectura de la Torá en la \emph{shemitá}.\par
+\textbf{Hoshaná Rabá}: séptimo día, ``el gran Hosanna''.\par
+\textbf{Lulav} (\heb{לוּלָב}): brote de palmera; el ramo.\par
+\textbf{Mishkán} (\heb{מִשְׁכָּן}): morada, tabernáculo.\par
+\textbf{Ohel} (\heb{אֹהֶל}): tienda.\par
+\textbf{Sejaj} (\heb{סְכָךְ}): techo vegetal de la sucá.
+\end{column}
+\begin{column}{0.49\textwidth}\scriptsize
+\textbf{Shabatón} (\heb{שַׁבָּתוֹן}): reposo solemne (Lv 23:39).\par
+\textbf{Shemini Atséret}: el octavo día como fiesta propia.\par
+\textbf{Simjá} (\heb{שִׂמְחָה}): alegría.\par
+\textbf{Simjat Beit haShoevá}: alegría de la extracción del agua.\par
+\textbf{Skēnē} (\grc{σκηνή}): tienda (LXX; Ap 21:3).\par
+\textbf{Skēnopēgía} (\grc{σκηνοπηγία}): nombre griego de la fiesta (Jn 7:2).\par
+\textbf{Sucá} (\heb{סֻכָּה}): cabaña de techo entretejido.\par
+\textbf{Tequfá} (\heb{תְּקוּפָה}): vuelta del año (Éx 34:22).
+\end{column}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Referencias}
+
+\begin{frame}{Referencias (1)}
+\fontsize{6}{7.2}\selectfont
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.49\textwidth}
+\refapa{Attridge, H.~W. (1989). \emph{The epistle to the Hebrews} (Hermeneia). Fortress.}
+\refapa{Baker, D. (2013). \emph{El poder espiritual de las siete fiestas de Dios}. Editorial Imagen.}
+\refapa{Bauckham, R. (1993). \emph{The climax of prophecy}. T\&T Clark.}
+\refapa{Beale, G.~K. (1999). \emph{The book of Revelation} (NIGTC). Eerdmans.}
+\refapa{Brown, R.~E. (1966). \emph{The Gospel according to John I--XII} (AB 29). Doubleday.}
+\refapa{Carson, D.~A. (1991). \emph{The Gospel according to John} (PNTC). Eerdmans.}
+\refapa{Chumney, E. (1994). \emph{The seven festivals of the Messiah}. Destiny Image.}
+\refapa{Coloe, M.~L. (2001). \emph{God dwells with us}. Liturgical Press.}
+\refapa{Danby, H. (Trad.). (1933). \emph{The Mishnah}. Oxford University Press.}
+\refapa{Daniélou, J. (1956). \emph{The Bible and the liturgy}. University of Notre Dame Press.}
+\refapa{de Vaux, R. (1985). \emph{Instituciones del Antiguo Testamento}. Herder.}
+\refapa{Dunn, J.~D.~G. (1996). \emph{The epistles to the Colossians and to Philemon} (NIGTC). Eerdmans.}
+\end{column}
+\begin{column}{0.49\textwidth}
+\refapa{Elliger, K., \& Rudolph, W. (Eds.). (1997). \emph{Biblia Hebraica Stuttgartensia} (5.ª ed.). Deutsche Bibelgesellschaft.}
+\refapa{Fee, G.~D. (1987). \emph{The first epistle to the Corinthians} (NICNT). Eerdmans.}
+\refapa{Hartley, J.~E. (1992). \emph{Leviticus} (WBC 4). Word.}
+\refapa{Hoekema, A.~A. (1979). \emph{The Bible and the future}. Eerdmans.}
+\refapa{Iglesia de Dios Unida. (2011). \emph{Las fiestas santas de Dios: esperanza segura para toda la humanidad}.}
+\refapa{Josefo, F. (1997). \emph{Antigüedades judías} (J.~Vara Donado, Trad.). Akal.}
+\refapa{Keener, C.~S. (2003). \emph{The Gospel of John: A commentary}. Hendrickson.}
+\refapa{Knohl, I. (1995). \emph{The sanctuary of silence}. Fortress.}
+\refapa{Ladd, G.~E. (1972). \emph{A commentary on the Revelation of John}. Eerdmans.}
+\refapa{Lane, W.~L. (1991). \emph{Hebrews} (WBC 47A--B). Word.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Referencias (2)}
+\fontsize{6}{7.2}\selectfont
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.49\textwidth}
+\refapa{Levine, B.~A. (1989). \emph{Leviticus} (JPS Torah Commentary). Jewish Publication Society.}
+\refapa{Metzger, B.~M. (1994). \emph{A textual commentary on the Greek New Testament} (2.ª ed.). Deutsche Bibelgesellschaft.}
+\refapa{Milgrom, J. (1990). \emph{Numbers} (JPS Torah Commentary). Jewish Publication Society.}
+\refapa{Milgrom, J. (2001). \emph{Leviticus 23--27} (AB 3B). Doubleday.}
+\refapa{Nestle, E., \& Aland, K. (Eds.). (2012). \emph{Novum Testamentum Graece} (28.ª ed.). Deutsche Bibelgesellschaft.}
+\refapa{Rahlfs, A., \& Hanhart, R. (Eds.). (2006). \emph{Septuaginta}. Deutsche Bibelgesellschaft.}
+\refapa{Rubenstein, J.~L. (1995). \emph{The history of Sukkot in the Second Temple and rabbinic periods}. Scholars Press.}
+\end{column}
+\begin{column}{0.49\textwidth}
+\refapa{Sefaria. (s.~f.). \emph{Mishnah, Talmud y Rashi}. https://www.sefaria.org}
+\refapa{Sociedades Bíblicas en América Latina. (1960). \emph{Santa Biblia Reina-Valera 1960}.}
+\refapa{Ulfgard, H. (1989). \emph{Feast and future: Revelation 7:9--17 and the Feast of Tabernacles}. Almqvist \& Wiksell.}
+\refapa{Wenham, G.~J. (1979). \emph{The book of Leviticus} (NICOT). Eerdmans.}
+\refapa{Yadin, Y. (1983). \emph{The Temple Scroll}. Israel Exploration Society.}
+\end{column}
+\end{columns}\par\medskip
+{\fontsize{6}{7.2}\selectfont\color{sepia}\textit{Nota sobre el texto.} Citas bíblicas de la Reina-Valera 1960; \SENOR{} traduce el tetragrama donde la RVR1960 dice ``Jehová''. Hebreo: BHS; griego: NA28 y LXX (Rahlfs-Hanhart). Lo rabínico y tipológico se marca como precisión.}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,850 @@
+\documentclass[hyperref={bookmarks=false},aspectratio=169]{beamer}
+\usepackage{hyperref,ragged2e,amsmath,amssymb,url,bm}
+\usepackage{graphicx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,shapes.geometric,decorations.pathreplacing,matrix}
+\graphicspath{{crops/}}
+\usetheme{Goettingen}
+% --- Paleta de la serie Festividades santas: tierra roja, café rojizo, mostaza y papiro ---
+\definecolor{tierraroja}{RGB}{122,40,18}
+\definecolor{caferojizo}{RGB}{58,18,8}
+\definecolor{mostaza}{RGB}{214,160,58}
+\definecolor{papiro}{RGB}{243,228,192}
+\definecolor{sepia}{RGB}{98,66,44}
+\definecolor{oliva}{RGB}{92,98,48}
+\setbeamercolor{structure}{fg=tierraroja}
+\setbeamertemplate{sidebar canvas right}[vertical shading][top=tierraroja!92!black,bottom=caferojizo]
+\setbeamercolor{title in sidebar}{fg=mostaza}
+\setbeamercolor{author in sidebar}{fg=papiro}
+\setbeamercolor{section in sidebar}{fg=papiro}
+\setbeamercolor{section in sidebar shaded}{fg=mostaza!55!papiro!75!tierraroja}
+\setbeamercolor{subsection in sidebar}{fg=papiro}
+\setbeamercolor{subsection in sidebar shaded}{fg=mostaza!55!papiro!75!tierraroja}
+\let\raggedright\justifying
+\setlength{\RaggedRightRightskip}{0pt plus 1fil}
+\setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth,height=\paperheight]{papiro.jpg}}
+\setbeamercolor{normal text}{fg=caferojizo!90!black}
+\setbeamercolor{frametitle}{fg=tierraroja}
+\setbeamerfont{frametitle}{series=\bfseries}
+\setbeamertemplate{section in toc shaded}{\leavevmode{\color{sepia!85!black}\inserttocsection}\par}
+\setbeamercolor{title}{fg=tierraroja}
+\setbeamercolor{subtitle}{fg=sepia}
+\setbeamercolor{item projected}{bg=tierraroja,fg=papiro}
+\setbeamertemplate{itemize item}{\small\textcolor{mostaza!80!tierraroja}{$\blacktriangleright$}}
+\setbeamertemplate{navigation symbols}{}
+% --- Español + hebreo + griego (XeLaTeX) con fuentes empaquetadas en fonts/ ---
+\usepackage[bidi=default]{babel}
+\babelprovide[import,main]{spanish}
+\babelprovide[import]{hebrew}
+\babelprovide[import]{ancientgreek}
+\babelfont[hebrew]{sf}[Path=fonts/, BoldFont=NotoHebrewSans-700.ttf]{NotoHebrewSans-400.ttf}
+\babelfont[hebrew]{rm}[Path=fonts/, BoldFont=NotoHebrewSans-700.ttf]{NotoHebrewSans-400.ttf}
+\babelfont[ancientgreek]{sf}[Path=fonts/]{GFSPorson.otf}
+\babelfont[ancientgreek]{rm}[Path=fonts/]{GFSPorson.otf}
+\newcommand{\heb}[1]{\mbox{\foreignlanguage{hebrew}{#1}}}
+\newcommand{\grc}[1]{\foreignlanguage{ancientgreek}{#1}}
+\newcommand{\SENOR}{S{\fontsize{0.78em}{1em}\selectfont EÑOR}}
+% --- Citas, imágenes, referencias ---
+\usepackage[most]{tcolorbox}
+\newtcolorbox{cita}[1][]{enhanced, colback=papiro, opacityback=0.80, colframe=tierraroja!85!mostaza,
+  boxrule=0pt, leftrule=2.5pt, arc=0pt, left=6pt, right=6pt, top=4pt, bottom=4pt,
+  before skip=4pt, after skip=6pt, fontupper=\small\itshape, #1}
+\newcommand{\fuente}[1]{\par\hfill{\upshape\bfseries\footnotesize\textcolor{tierraroja}{#1}}}
+\newcommand{\imagen}[3][0.80]{%
+  \centering\includegraphics[height=#1\textheight,width=\linewidth,keepaspectratio]{#2}\par\vspace{2pt}
+  {\fontsize{5}{6}\selectfont\color{sepia}{\raggedleft\textit{Nota.} #3\par}}}
+\makeatletter
+\newcommand{\fotolado}[2]{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north east,inner sep=0pt] (foto) at ([xshift=-\beamer@sidebarwidth]current page.north east)
+      {\includegraphics[height=\paperheight]{#1}};
+    \node[anchor=south east,inner sep=2pt,text=papiro,fill=caferojizo,fill opacity=0.55,text opacity=1,
+      font=\fontsize{4.5}{5.5}\selectfont,align=right,text width=4.2cm] at ([xshift=-3pt,yshift=3pt]foto.south east)
+      {\textit{Nota.} #2};
+  \end{tikzpicture}}
+\makeatother
+\newcommand{\refapa}[1]{\par{\RaggedRight\hangindent=1.2em\hangafter=1\noindent #1\par}\vspace{3pt}}
+\usepackage{xurl}\urlstyle{same}
+\newcommand{\destacar}[1]{\textbf{\textcolor{tierraroja}{#1}}}
+\newcommand{\precision}[1]{{\footnotesize\color{sepia}\textbf{Precisión:} #1}}
+\newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+\tikzset{caja/.style={draw=tierraroja,line width=0.8pt,fill=papiro,fill opacity=0.90,text opacity=1,rounded corners=3pt,inner sep=5pt,font=\scriptsize}}
+\title[Yom Teruá]{\bfseries{Yom Teruá: el día del sonido de trompeta}}
+\subtitle{``A la final trompeta; porque se tocará la trompeta'' (1~Co 15:52)}
+\author{}\institute{}\date{}
+\titlegraphic{\includegraphics[width=0.80\linewidth,height=0.36\textheight,keepaspectratio]{portada.jpg}\\[-1pt]
+  {\fontsize{5}{6}\selectfont\color{sepia}\textit{Nota.} Elaboración propia: Lv 23:24 y Nm 29:1 en texto hebreo consonántico (BHS).}}
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}\frametitle{Contenidos}\tableofcontents\end{frame}
+
+% ------------------------------------------------------------------
+\section{Introducción}
+
+\begin{frame}{Una fiesta que solo se oye}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\begin{tcolorbox}[colback=papiro,colframe=mostaza,boxrule=1.2pt,arc=3pt]
+\centering\itshape En el mes séptimo, al primero del mes tendréis día de reposo, una conmemoración al son de trompetas, y una santa convocación.\par\upshape\footnotesize\textcolor{tierraroja}{\textbf{(Lv 23:24)}}
+\end{tcolorbox}
+\end{column}
+\begin{column}{0.48\textwidth}\small\RaggedRight
+Pésaj recuerda Egipto; Sukkot, las cabañas del desierto (Lv 23:43). El primero del mes séptimo solo tiene \destacar{un sonido}: la \emph{teruá}.\par\medskip
+La ley da nombre, fecha, reposo y ofrenda, pero \destacar{no dice qué hecho conmemora}. Por eso la fiesta ha recibido tantas lecturas.
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{El ciclo de Levítico 23}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[x=1cm,y=1cm,font=\scriptsize]
+ \def\fiestaactual{5}
+ \draw[line width=1.2pt,tierraroja!70,-{Latex[length=2.5mm]}] (0,0) -- (13.2,0);
+ \draw[decorate,decoration={brace,amplitude=5pt},sepia] (0.2,0.95) -- (5.9,0.95) node[midway,above=5pt,font=\scriptsize\itshape]{Primavera: Abib/Nisán -- Siván};
+ \draw[decorate,decoration={brace,amplitude=5pt},sepia] (7.6,0.95) -- (13.0,0.95) node[midway,above=5pt,font=\scriptsize\itshape]{Otoño: mes séptimo (Tishri)};
+ \foreach \n/\x/\t/\d in {1/0.6/Pésaj/{14 Abib},2/2.0/Matsot/{15--21 Abib},3/3.4/Primicias/{día después del sábado},4/5.4/Shavuot/{50 días},5/8.1/Yom Teruá/{1 Tishri},6/9.9/Yom Kipur/{10 Tishri},7/11.9/Sukkot/{15--22 Tishri}}{
+   \ifnum\n=\fiestaactual
+     \node[circle,fill=tierraroja,draw=caferojizo,minimum size=5.5mm,text=papiro,font=\scriptsize\bfseries] at (\x,0) {\n};
+     \node[above=3pt,font=\scriptsize\bfseries,text=tierraroja] at (\x,0.28) {\t};
+   \else
+     \node[circle,fill=mostaza!70,draw=sepia,minimum size=4.5mm,text=caferojizo,font=\tiny\bfseries] at (\x,0) {\n};
+     \node[above=3pt,text=sepia] at (\x,0.25) {\t};
+   \fi
+   \node[below=6pt,text width=1.6cm,align=center,font=\tiny,text=sepia] at (\x,0) {\d};}
+ \node[font=\tiny\itshape,text=sepia] at (6.75,-0.32) {\ldots\ verano\ldots};
+\end{tikzpicture}}\par\medskip
+\small\RaggedRight La quinta convocación abre el \destacar{mes séptimo}. \textbf{Tesis}: la Escritura explica la \emph{teruá} hacia atrás (el toque hace que Israel ``sea recordado'' ante Dios, Nm 10:9--10) y hacia adelante (los profetas y los apóstoles oyen en él el día del \SENOR{} y la \destacar{venida de Cristo}).\par\medskip
+{\fontsize{5}{6}\selectfont\color{sepia}\textit{Nota.} Elaboración propia, esquema estándar de la serie.}
+\end{frame}
+
+
+
+% ------------------------------------------------------------------
+\section{El texto}
+
+\begin{frame}{Levítico 23:23--25}
+\fotolado{panel_levitico23.jpg}{Elaboración propia: Lv 23:24 en texto hebreo consonántico (BHS).}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.57\textwidth}
+\begin{cita}Habla a los hijos de Israel y diles: En el mes séptimo, al primero del mes tendréis día de reposo, una conmemoración al son de trompetas, y una santa convocación. Ningún trabajo de siervos haréis; y ofreceréis ofrenda encendida a \SENOR.\fuente{(Lv 23:24--25, RVR1960)}\end{cita}
+\small\RaggedRight Tres sustantivos en aposición: \destacar{\emph{shabatón}}, \destacar{\emph{zijrón teruá}}, \destacar{\emph{mikrá kódesh}}. El texto no dice ``trompeta'': dice \emph{teruá}, un sonido.
+\end{column}
+\begin{column}{0.41\textwidth}\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Lv 23:24 palabra por palabra}
+\begin{center}\heb{יִהְיֶה לָכֶם שַׁבָּתוֹן זִכְרוֹן תְּרוּעָה מִקְרָא־קֹדֶשׁ}\end{center}
+\renewcommand{\arraystretch}{1.15}\scriptsize
+\begin{tabular}{@{}L{2.7cm}L{1.6cm}L{7.2cm}@{}}
+\toprule
+\textbf{Término} & \textbf{Raíz} & \textbf{Sentido} \\ \midrule
+\heb{שַׁבָּתוֹן} \emph{shabatón} & \heb{שׁבת} & ``reposo solemne''; RVR1960 ``día de reposo''. LXX \grc{ἀνάπαυσις}. \\
+\heb{זִכְרוֹן} \emph{zijrón} & \heb{זכר} & ``memoria, recordación''; lo que se pone ante Dios (Nm 10:10) o lo que el pueblo recuerda (Éx 12:14). \\
+\heb{תְּרוּעָה} \emph{teruá} & \heb{רוע} & ``clamor, toque de alarma, aclamación''. LXX \grc{μνημόσυνον σαλπίγγων}, ``memorial de trompetas''. \\
+\heb{מִקְרָא־קֹדֶשׁ} \emph{mikrá kódesh} & \heb{קרא} & ``convocación santa''. LXX \grc{κλητὴ ἁγία}. \\
+\heb{אִשֶּׁה} \emph{ishé} (v.~25) & \heb{אשׁ} & ``ofrenda encendida''; el detalle está en Nm 29:2--6. \\
+\bottomrule
+\end{tabular}\par\smallskip
+\precision{Lv 23:23--25 no nombra instrumento ni hecho recordado, ni dice ``estatuto perpetuo''; la perpetuidad de las trompetas está en Nm 10:8.}
+\end{frame}
+
+\begin{frame}{Números 29:1: el nombre}
+\fotolado{panel_numeros29.jpg}{Elaboración propia: Nm 29:1 en texto hebreo consonántico (BHS).}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.57\textwidth}
+\begin{cita}En el séptimo mes, el primero del mes, tendréis santa convocación; ninguna obra de siervos haréis; os será día de sonar las trompetas.\fuente{(Nm 29:1, RVR1960)}\end{cita}
+\small\RaggedRight \heb{יוֹם תְּרוּעָה} (\emph{yom teruá}), LXX \grc{ἡμέρα σημασίας}, ``día de señal''.\par\smallskip
+\footnotesize Ofrenda: 1 becerro, 1 carnero, \destacar{7 corderos}, 1 macho cabrío ``para reconciliaros'' (vv.~2--5), además de la ofrenda de la \destacar{luna nueva} (v.~6).
+\end{column}
+\begin{column}{0.41\textwidth}\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Números 10: las dos trompetas de plata}
+\centering
+\begin{tikzpicture}
+ \foreach \x/\n/\t/\d/\r in {0/1/{Convocar}/{dos: toda la congregación; una: los príncipes}/{Nm 10:3--4, 7}, 2.95/2/{Partir}/{\emph{teruá}: se mueven los campamentos}/{Nm 10:5--6}, 5.9/3/{Guerra}/{``seréis recordados por \SENOR''}/{Nm 10:9}, 8.85/4/{Fiestas}/{lunas nuevas y solemnidades: ``por memoria''}/{Nm 10:10}}{
+  \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][2.0cm][t]{2.4cm}{\RaggedRight
+    {\small\textbf{\textcolor{tierraroja}{\t}}}\\[4pt]\scriptsize \d\par\vfill{\tiny\color{sepia}(\r)}}};
+  \node[circle,fill=tierraroja,text=papiro,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
+\end{tikzpicture}\par\medskip
+\begin{cita}\ldots{}y seréis recordados por \SENOR{} vuestro Dios, y seréis salvos de vuestros enemigos\ldots{} y os serán por memoria delante de vuestro Dios.\fuente{(Nm 10:9--10, RVR1960)}\end{cita}
+\small\RaggedRight \heb{וְנִזְכַּרְתֶּם} / \heb{לְזִכָּרוֹן}: la Biblia interpreta la Biblia. La memoria \destacar{sube ante Dios}.
+\end{frame}
+
+\begin{frame}{Sinopsis de los textos}
+\renewcommand{\arraystretch}{1.12}\scriptsize
+\begin{tabular}{@{}L{2.1cm}L{3.0cm}L{6.5cm}@{}}
+\toprule
+\textbf{Texto} & \textbf{Fórmula} & \textbf{Qué añade} \\ \midrule
+Lv 23:23--25 & \heb{זִכְרוֹן תְּרוּעָה} & fecha, reposo, ``conmemoración'', convocación, ofrenda \\
+Nm 29:1--6 & \heb{יוֹם תְּרוּעָה} & el nombre y las ofrendas; se suma a la luna nueva \\
+Nm 10:1--10 & \heb{וְנִזְכַּרְתֶּם} & dos \emph{jatsotsrot}: convocar, partir, guerra, fiestas \\
+Sal 81:3--5 [4--6] & \heb{תִּקְעוּ בַחֹדֶשׁ שׁוֹפָר} & \emph{shofar} en la luna nueva y ``en el \emph{kese}'' (debate) \\
+Esd 3:1--6 & \heb{מִיּוֹם אֶחָד לַחֹדֶשׁ} & el altar restaurado; culto antes de los cimientos \\
+Neh 7:73--8:12 & \heb{קָדוֹשׁ הַיּוֹם} & lectura de la Torá; llanto vuelto gozo; sin trompetas \\
+Lv 25:9 & \heb{שׁוֹפַר תְּרוּעָה} & el \emph{shofar} del jubileo, el 10 del mes séptimo \\
+\bottomrule
+\end{tabular}\par\medskip
+\small\RaggedRight La Torá define la fiesta por su \destacar{forma}; los textos posteriores la llenan con \destacar{culto, Palabra y libertad}.
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Historia}
+
+\begin{frame}{El mes séptimo: triple convocación}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[x=0.66cm,y=1cm,font=\scriptsize]
+ \draw[line width=1pt,sepia!70] (0.5,0) -- (23.5,0);
+ \foreach \d in {1,...,23}{\draw[sepia!60] (\d,-0.08) -- (\d,0.08);}
+ \foreach \d in {5,20}{\node[below=3pt,font=\tiny,text=sepia] at (\d,0) {\d};}
+ \fill[caferojizo] (1,-0.75) circle (0.16);
+ \draw[sepia] (15,-0.75) circle (0.16); \fill[mostaza!40] (15,-0.75) circle (0.15);
+ \node[right=3pt,font=\tiny\itshape,text=sepia] at (1.1,-0.75) {luna nueva};
+ \node[right=3pt,font=\tiny\itshape,text=sepia] at (15.1,-0.75) {luna llena};
+ \node[circle,fill=tierraroja,text=papiro,inner sep=2pt,font=\scriptsize\bfseries] at (1,0) {1};
+ \node[circle,fill=mostaza!80,draw=sepia,inner sep=2pt,font=\scriptsize\bfseries] at (10,0) {10};
+ \fill[oliva!25] (15,-0.12) rectangle (21,0.12);
+ \node[circle,fill=mostaza!80,draw=sepia,inner sep=2pt,font=\scriptsize\bfseries] at (15,0) {15};
+ \node[circle,fill=mostaza!80,draw=sepia,inner sep=2pt,font=\scriptsize\bfseries] at (22,0) {22};
+ \node[above=10pt,text width=2.8cm,align=center,text=tierraroja] at (1.6,0) {\textbf{Yom Teruá}\\ sonido\\ {\tiny Lv 23:24; Nm 29:1}};
+ \node[above=10pt,text width=2.8cm,align=center] at (10,0) {\textbf{Yom Kipur}\\ aflicción y expiación\\ {\tiny Lv 16; 23:27}};
+ \node[above=10pt,text width=3.4cm,align=center] at (18,0) {\textbf{Sukkot}\\ gozo en cabañas\\ {\tiny Lv 23:34--43}};
+ \node[above=10pt,text width=1.6cm,align=center] at (22.6,-1.55) {\textbf{Atséret}\\ {\tiny Lv 23:36}};
+ \draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (0.6,-1.15) -- (21.4,-1.15) node[midway,below=6pt,font=\tiny\itshape,text=sepia] {sonar $\rightarrow$ afligirse $\rightarrow$ alegrarse};
+\end{tikzpicture}}\par\medskip
+\small\RaggedRight Etanim, ``mes de las corrientes perennes'' (1~R 8:2), luego \emph{Tishri}. Cosecha guardada ``a la salida del año'' (Éx 23:16); se espera la \destacar{lluvia temprana} (Dt 11:14; Jl 2:23).\par
+{\fontsize{5}{6}\selectfont\color{sepia}\textit{Nota.} Elaboración propia con Lv 23 y Nm 29.}
+\end{frame}
+
+\begin{frame}{El ritmo del siete y el jubileo}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[font=\scriptsize]
+ \tikzset{n/.style={draw=tierraroja!80,line width=0.7pt,fill=papiro,rounded corners=3pt,text width=3.0cm,align=center,inner sep=4pt,minimum height=1.55cm}}
+ \node[n] (a) at (0,0) {\textbf{\textcolor{tierraroja}{Día 7}}\\ \emph{shabat}\\ {\tiny Lv 23:3}};
+ \node[n] (b) at (3.75,0) {\textbf{\textcolor{tierraroja}{Mes 7}}\\ Teruá, Kipur, Sukkot\\ {\tiny Lv 23:23--43}};
+ \node[n] (c) at (7.5,0) {\textbf{\textcolor{tierraroja}{Año 7}}\\ \emph{shemitá}\\ {\tiny Lv 25:4; Dt 15:1}};
+ \node[n,fill=tierraroja,text=papiro] (d) at (11.25,0) {\textbf{Año 50}\\ \emph{yovel}: ``libertad''\\ {\tiny Lv 25:9--10}};
+ \foreach \u/\v in {a/b,b/c,c/d}{\draw[-{Latex[length=2.2mm]},mostaza!90!tierraroja,line width=1pt] (\u)--(\v);}
+\end{tikzpicture}}\par\medskip
+\begin{cita}Entonces harás tocar fuertemente la trompeta en el mes séptimo a los diez días del mes; el día de la expiación haréis tocar la trompeta por toda vuestra tierra.\fuente{(Lv 25:9, RVR1960)}\end{cita}
+\small\RaggedRight El \emph{shofar teruá} vuelve en el jubileo para pregonar \heb{דְּרוֹר} (\emph{derór}, ``libertad''); cf. Is 61:1--2; Lc 4:18--21 (eco posible).
+\end{frame}
+
+\begin{frame}{Dos instrumentos, un sonido}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[font=\scriptsize]
+ \node[draw=tierraroja,line width=0.8pt,fill=papiro,rounded corners=3pt,text width=4.6cm,inner sep=6pt] (j) at (0,0) {\centering\textbf{\textcolor{tierraroja}{Jatsotsrá}} \heb{חֲצֹצְרָה}\par\RaggedRight
+   plata batida, en par, sacerdotal\\ $\bullet$ convocar / partir\\ $\bullet$ guerra: ``seréis recordados''\\ $\bullet$ fiestas y lunas nuevas\\ {\tiny\color{sepia} Nm 10; 2 Cr 5:12; 13:12}};
+ \node[draw=tierraroja,line width=0.8pt,fill=papiro,rounded corners=3pt,text width=4.6cm,inner sep=6pt] (s) at (9,0) {\centering\textbf{\textcolor{tierraroja}{Shofar}} \heb{שׁוֹפָר}\par\RaggedRight
+   cuerno de carnero, natural\\ $\bullet$ teofanía: Sinaí\\ $\bullet$ guerra santa: Jericó, Gedeón\\ $\bullet$ coronación; jubileo\\ {\tiny\color{sepia} Éx 19; Jos 6; 1 R 1:34; Lv 25:9}};
+ \node[ellipse,draw=mostaza!90!tierraroja,line width=1.2pt,fill=mostaza!25,inner sep=3pt,text width=2.4cm,align=center] (t) at (4.5,0) {\textbf{teruá} \heb{תְּרוּעָה}\\ el sonido común};
+ \draw[-{Latex[length=2.5mm]},mostaza!90!tierraroja,line width=1pt] (j) -- (t);
+ \draw[-{Latex[length=2.5mm]},mostaza!90!tierraroja,line width=1pt] (s) -- (t);
+\end{tikzpicture}}\par\medskip
+\small\RaggedRight La LXX traduce ambos \grc{σάλπιγξ}. Sal 98:6 los une: ``Aclamad con trompetas y sonidos de bocina, delante del rey \SENOR''.\par\smallskip
+\precision{Lv 23:24 nombra el sonido, no el instrumento. El Arco de Tito muestra dos \emph{jatsotsrot} entre los despojos del templo.}
+\end{frame}
+
+\begin{frame}{Sinaí: el primer shofar}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.54\textwidth}
+\begin{cita}\ldots{}vinieron truenos y relámpagos, y espesa nube sobre el monte, y sonido de bocina muy fuerte; y se estremeció todo el pueblo que estaba en el campamento.\fuente{(Éx 19:16, RVR1960)}\end{cita}
+\begin{cita}El sonido de la bocina iba aumentando en extremo; Moisés hablaba, y Dios le respondía con voz tronante.\fuente{(Éx 19:19, RVR1960)}\end{cita}
+\end{column}
+\begin{column}{0.44\textwidth}\small\RaggedRight
+\begin{itemize}
+\item El primer \emph{shofar} no lo toca un hombre: es \destacar{teofánico}.
+\item ``Cuando suene largamente la bocina (\heb{בִּמְשֹׁךְ הַיֹּבֵל}), subirán al monte'' (19:13).
+\item Hebreos lo recuerda: ``el sonido de la trompeta, y la voz que hablaba'' (He 12:19).
+\item Filón vio en la fiesta la memoria del Sinaí (\emph{Spec.} 2.188--189).
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Jericó: Josué 6:4--5}
+\fotolado{panel_josue6.jpg}{Elaboración propia: Jos 6:5 en texto hebreo consonántico (BHS).}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.57\textwidth}
+\begin{cita}Y siete sacerdotes llevarán siete bocinas de cuernos de carnero delante del arca; y al séptimo día daréis siete vueltas a la ciudad\ldots{} así que oigáis el sonido de la bocina, todo el pueblo gritará a gran voz, y el muro de la ciudad caerá.\fuente{(Jos 6:4--5, RVR1960)}\end{cita}
+\small\RaggedRight ``Gritó con gran vocerío'' (6:20) = \heb{תְּרוּעָה גְדוֹלָה} (\emph{teruá gedolá}): \destacar{la palabra de Lv 23:24}.
+\end{column}
+\begin{column}{0.41\textwidth}\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Seis días y un séptimo día}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[font=\scriptsize]
+ \foreach \d in {1,...,6}{
+   \pgfmathsetmacro{\x}{(\d-1)*1.55}
+   \fill[sepia!35] (\x-0.18,-0.18) rectangle (\x+0.18,0.18);
+   \draw[tierraroja,line width=0.8pt,-{Latex[length=1.6mm]}] (\x,0) ++(0:0.42) arc (0:330:0.42);
+   \node[font=\tiny\bfseries,text=caferojizo] at (\x,0.75) {día \d};
+   \node[font=\tiny,text=sepia] at (\x,-0.72) {1 vuelta};}
+ \fill[sepia!35] (10.6,-0.18) rectangle (11.0,0.18);
+ \foreach \r in {1,...,7}{\draw[tierraroja!70!mostaza,line width=0.6pt] (10.8,0) circle ({0.26+0.11*\r});}
+ \node[font=\tiny\bfseries,text=tierraroja] at (10.8,1.35) {día 7};
+ \node[font=\tiny,text=sepia] at (10.8,-1.25) {7 vueltas};
+ \draw[-{Latex[length=2.5mm]},mostaza!90!tierraroja,line width=1.2pt] (11.95,0) -- (12.9,0);
+ \node[draw=tierraroja,fill=tierraroja,text=papiro,rounded corners=2pt,text width=2.1cm,align=center,inner sep=3pt] at (14.2,0) {\textbf{teruá gedolá}\\ el muro cae\\ {\tiny Jos 6:20}};
+ \draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (-0.4,-1.0) -- (8.15,-1.0) node[midway,below=6pt,font=\tiny,text=sepia] {$6\times1$; los sacerdotes tocan, el pueblo calla (6:10)};
+\end{tikzpicture}}\par\medskip
+\small\RaggedRight Siete sacerdotes, siete \emph{shofarot}, siete días, siete vueltas: ``siete'' aparece \destacar{14 veces} en Jos 6 (conteo propio; verificar). Una \destacar{liturgia sabática} de victoria.\par\smallskip
+\precision{Jericó cayó en el mes \emph{primero}: cruce del Jordán el 10 (Jos 4:19), Pascua el 14 (5:10). El vínculo con la fiesta es tipológico, no de calendario.}
+\end{frame}
+
+\begin{frame}{Esdras lee la Torá}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\begin{cita}Y leían en el libro de la ley de Dios claramente, y ponían el sentido, de modo que entendiesen la lectura.\fuente{(Neh 8:8, RVR1960)}\end{cita}
+\begin{cita}Día santo es a \SENOR{} nuestro Dios; no os entristezcáis, ni lloréis\ldots\fuente{(Neh 8:9, RVR1960)}\end{cita}
+\scriptsize\RaggedRight El 1 del mes séptimo, ``desde el alba hasta el mediodía'' (8:3); antes, el \destacar{altar antes que el templo} (Esd 3:6). ``El gozo de \SENOR{} es vuestra fuerza'' (8:10).
+\end{column}
+\begin{column}{0.48\textwidth}
+\begin{tcolorbox}[colback=papiro,colframe=tierraroja,boxrule=0.8pt,arc=3pt,fontupper=\scriptsize,title={\heb{מִקְרָא} \emph{mikrá}},fonttitle=\bfseries\scriptsize,colbacktitle=tierraroja,coltitle=papiro]
+\RaggedRight De \heb{קָרָא}, ``llamar, leer'': \textbf{convocación} (Lv 23:2), \textbf{llamado} (Nm 10:2) y \textbf{lectura}: \heb{בַּמִּקְרָא}, ``la lectura'' (Neh 8:8), justo en esta fecha (BDB; HALOT).\par\smallskip
+Strong (H4744) glosa también \emph{rehearsal}; de ahí la lectura de Danilo: la solemnidad como \destacar{``ensayo''} de lo que vendrá.
+\end{tcolorbox}
+\precision{``ensayo'' es analogía; el sentido de anticipo viene de Col 2:16--17 (``sombra de lo por venir''), no del sustantivo.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{La trompeta en la historia}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[font=\scriptsize]
+ \draw[line width=1.6pt,tierraroja,-{Latex[length=3mm]}] (0,0) -- (16.2,0);
+ \foreach \x/\a/\b in {0.6/{Sinaí}/{Éx 19:16--19}, 2.6/{Jericó}/{Jos 6}, 4.6/{Templo de Salomón}/{1 R 8:2; 2 Cr 5:12; ca. 960}, 6.6/{Altar restaurado}/{Esd 3:6; ca. 537}, 8.6/{Esdras lee la Torá}/{Neh 8:2; ca. 445}, 10.6/{Jubileos, Qumrán}/{Jub 6; 11Q19; 1QM}, 12.6/{Filón, Josefo}/{s. I e.\,c.}, 14.6/{Misná}/{RH 1--4; ca. 200 e.\,c.}}{
+   \fill[mostaza] (\x,0) circle (4pt);
+   \node[above=6pt,font=\scriptsize\bfseries,text=tierraroja,text width=1.9cm,align=center] at (\x,0) {\a};
+   \node[below=6pt,text width=1.85cm,align=center,font=\tiny] at (\x,0) {\b};}
+ \draw[decorate,decoration={brace,amplitude=6pt,mirror},sepia] (0.2,-1.15) -- (9.3,-1.15) node[midway,below=7pt,font=\tiny,text=sepia] {Biblia hebrea};
+ \draw[decorate,decoration={brace,amplitude=6pt,mirror},sepia] (9.8,-1.15) -- (15.4,-1.15) node[midway,below=7pt,font=\tiny,text=sepia] {fuentes posteriores (interpretación)};
+\end{tikzpicture}}\par\medskip
+\small\RaggedRight La Misná describe el templo: \emph{shofar} al centro y dos trompetas a los lados; ``el precepto del día es el \emph{shofar}'' (\emph{Rosh haShaná} 3:3).\par\smallskip
+\precision{fechas aproximadas a.\,e.\,c.; el Sinaí y Jericó dependen de la fecha del éxodo (ca.~1446 o ca.~1260; la serie propone 1529/1530).}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Filología}
+
+\begin{frame}{\heb{תְּרוּעָה} (\emph{teruá}): campo semántico}
+\centering
+\resizebox{0.95\linewidth}{!}{%
+\begin{tikzpicture}[font=\scriptsize]
+ \node[ellipse,draw=tierraroja,line width=1.2pt,fill=papiro,inner sep=4pt,align=center] (c) at (0,0) {\large\heb{תְּרוּעָה}\\ \textbf{teruá}\\ {\tiny raíz \heb{רוע}}};
+ \node (a) at (-4.6,1.3) [caja,text width=3.6cm] {\textbf{\textcolor{tierraroja}{Alarma}}\\ partir, peligro\\ {\tiny\color{sepia}Nm 10:5--6, 9; Jer 4:19}};
+ \node (g) at (4.6,1.3) [caja,text width=3.6cm] {\textbf{\textcolor{tierraroja}{Guerra}}\\ grito de combate, victoria\\ {\tiny\color{sepia}Jos 6:5, 20; 1 S 17:20}};
+ \node (j) at (-4.6,-1.3) [caja,text width=3.6cm] {\textbf{\textcolor{tierraroja}{Júbilo y realeza}}\\ aclamación al Rey\\ {\tiny\color{sepia}Nm 23:21; 1 S 4:5; Sal 47:5}};
+ \node (m) at (4.6,-1.3) [caja,text width=3.6cm] {\textbf{\textcolor{tierraroja}{Memoria ante Dios}}\\ ``seréis recordados''\\ {\tiny\color{sepia}Nm 10:9--10; Lv 23:24}};
+ \foreach \n in {a,g,j,m}{\draw[-{Latex[length=2.2mm]},mostaza!90!tierraroja,line width=1pt] (c) -- (\n);}
+\end{tikzpicture}}\par\medskip
+\small\RaggedRight ``Bienaventurado el pueblo que sabe aclamarte'' (Sal 89:15 [89:16]): \heb{יֹדְעֵי תְרוּעָה}, ``los que \destacar{conocen la teruá}''.
+\end{frame}
+
+\begin{frame}{Instrumentos y verbos}
+\scriptsize\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}L{2.5cm}L{9.0cm}@{}}
+\toprule
+\textbf{Palabra} & \textbf{Sentido y usos} \\ \midrule
+\heb{שׁוֹפָר} \emph{shofar} & cuerno usado como instrumento; la Misná excluye el de vaca porque es \emph{qéren} (RH 3:2). \\
+\heb{יוֹבֵל} \emph{yovel} & ``carnero'': \heb{שׁוֹפְרוֹת הַיּוֹבְלִים} (Jos 6:4); Rabí Aquiba oyó en Arabia \emph{yuvla} = carnero (b.~RH 26a). De ahí el jubileo. \\
+\heb{חֲצֹצְרָה} \emph{jatsotsrá} & trompeta recta de plata, en par, sacerdotal (Nm 10:2; 2~Cr 5:12--13). \\
+\heb{תָּקַע} \emph{taqa'} & ``clavar'' (estaca, Jue 4:21), ``batir palmas'' (Sal 47:1), ``tocar'': \heb{תִּקְעוּ שׁוֹפָר} (Jl 2:1). Nm 10:7: tocar ``mas no con sonido de alarma'' $\rightarrow$ \emph{tekiá} frente a \emph{teruá}. \\
+\heb{זָכַר} \emph{zajar} & recordar \destacar{para actuar}: ``se acordó Dios de Noé'' (Gn 8:1); ``se acordó de su pacto'' (Éx 2:24); ``se acordó de ella'' (1~S 1:19). \\
+\heb{זִכָּרוֹן} \emph{zikarón} & lo puesto ``delante de \SENOR'': piedras del efod (Éx 28:12), plata (Éx 30:16), trompetas (Nm 10:10); y memoria del pueblo (Éx 12:14). \\
+\bottomrule
+\end{tabular}
+\end{frame}
+
+\begin{frame}{\emph{Shabatón} y \emph{kese}}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.48\textwidth}\small\RaggedRight
+\textbf{\textcolor{tierraroja}{\heb{שַׁבָּתוֹן} \emph{shabatón}}}\par\smallskip
+``Reposo solemne'': el sábado (\emph{shabat shabatón}, Lv 23:3), Yom Kipur (23:32), el año sabático (25:4); solo \emph{shabatón}: Yom Teruá y el 1.º y 8.º de Sukkot (23:24, 39).
+\end{column}
+\begin{column}{0.50\textwidth}\small\RaggedRight
+\textbf{\textcolor{tierraroja}{\heb{כֵּסֶה} \emph{kese}}}\par\smallskip
+Sal 81:3 [81:4]; Pr 7:20 (\heb{כֵּסֶא}, ``el día señalado'').
+\begin{itemize}
+\item siríaco \emph{kes'a}, acadio \emph{kusê}: \destacar{luna llena}.
+\item Talmud: \emph{kasá}, ``cubrir'': luna \destacar{cubierta}, luna nueva (b.~RH 8a--b).
+\item LXX \grc{ἐν εὐσήμῳ ἡμέρᾳ}: ``día bien señalado''.
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Del hebreo a ``la final trompeta''}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[font=\scriptsize,node distance=0.55cm]
+ \node[draw=tierraroja,line width=0.8pt,fill=papiro,rounded corners=3pt,text width=3.2cm,align=center,inner sep=5pt] (h) {\textbf{Hebreo}\\ \heb{זִכְרוֹן תְּרוּעָה} (Lv 23:24)\\ \heb{יוֹם תְּרוּעָה} (Nm 29:1)\\ \heb{שׁוֹפָר}, \heb{חֲצֹצְרָה}};
+ \node[draw=tierraroja,line width=0.8pt,fill=papiro,rounded corners=3pt,text width=3.2cm,align=center,inner sep=5pt,right=of h] (l) {\textbf{Septuaginta}\\ \grc{μνημόσυνον σαλπίγγων}\\ \grc{ἡμέρα σημασίας}\\ \grc{σάλπιγξ}, \grc{ἀλαλαγμός}};
+ \node[draw=mostaza,line width=1.4pt,fill=tierraroja,text=papiro,rounded corners=3pt,text width=3.2cm,align=center,inner sep=5pt,right=of l] (n) {\textbf{Nuevo Testamento}\\ \grc{ἐσχάτῃ σάλπιγγι} (1 Co 15:52)\\ \grc{σάλπιγγι θεοῦ} (1 Ts 4:16)\\ \grc{ἐσάλπισεν} (Ap 11:15)};
+ \node[draw=tierraroja,line width=0.8pt,fill=papiro,rounded corners=3pt,text width=3.2cm,align=center,inner sep=5pt,right=of n] (e) {\textbf{RVR1960}\\ ``conmemoración al son de trompetas''\\ ``día de sonar las trompetas''\\ ``la final trompeta''};
+ \draw[-{Latex[length=2.5mm]},mostaza!90!tierraroja,line width=1.2pt] (h)--(l);
+ \draw[-{Latex[length=2.5mm]},mostaza!90!tierraroja,line width=1.2pt] (l)--(n);
+ \draw[-{Latex[length=2.5mm]},mostaza!90!tierraroja,line width=1.2pt] (n)--(e);
+\end{tikzpicture}}\par\medskip
+\small\RaggedRight La LXX convierte el ``sonido'' en ``trompetas'' y la ``memoria'' en ``memorial''. En el NT: \grc{κέλευσμα} (``voz de mando'', 1~Ts 4:16, \emph{hápax}), \grc{φωνή} (``voz como de trompeta'', Ap 1:10; 4:1).
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Texto y fecha}
+
+\begin{frame}{Instrumento y ``año nuevo''}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}\small\RaggedRight
+\textbf{\textcolor{tierraroja}{¿Qué instrumento?}}
+\begin{itemize}
+\item Con Nm 10:10: las \emph{jatsotsrot}.
+\item Con Sal 81:3 y Lv 25:9: el \emph{shofar}.
+\item Misná: ambos en el templo; primacía del \emph{shofar} (RH 3:3).
+\item Targum Onqelos: \emph{teruá} = \heb{יַבָּבָא} (\emph{yabava}), ``sollozo'' (b.~RH 33b).
+\end{itemize}
+\end{column}
+\begin{column}{0.48\textwidth}\small\RaggedRight
+\textbf{\textcolor{tierraroja}{``Rosh haShaná''}}
+\begin{itemize}
+\item En la Biblia solo Ez 40:1, y no para esta fiesta.
+\item Misná RH 1:1: \destacar{cuatro años nuevos}; el 1 de Tishri, para años, \emph{shemitá} y \emph{yovel}.
+\item Éx 12:2 (primavera) y Éx 23:16; 34:22 (otoño): dos cómputos.
+\end{itemize}
+\end{column}
+\end{columns}\par\medskip
+\precision{la Biblia llama a la fiesta \emph{zijrón teruá} y \emph{yom teruá}; ``Rosh haShaná'' como nombre es uso misnaico.}
+\end{frame}
+
+\begin{frame}{Salmo 81: ¿luna nueva o luna llena?}
+\begin{center}\heb{תִּקְעוּ בַחֹדֶשׁ שׁוֹפָר בַּכֵּסֶה לְיוֹם חַגֵּנוּ}\end{center}
+\begin{cita}Tocad la trompeta en la nueva luna, en el día señalado, en el día de nuestra fiesta solemne. Porque estatuto es de Israel, ordenanza del Dios de Jacob.\fuente{(Sal 81:3--4 [81:4--5], RVR1960)}\end{cita}
+\small\RaggedRight
+\begin{itemize}
+\item \emph{Jag} designa casi siempre una fiesta de peregrinación; el v.~5 [6] recuerda la salida de Egipto.
+\item Si \emph{kese} = luna llena: Sukkot (o Pésaj), del 1 al 15 (debate en comentarios modernos; p.~ej., Tate, 1990).
+\item Si \emph{kese} = luna ``cubierta'': Yom Teruá (b.~RH 8a--b).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{``Nadie sabe el día ni la hora''}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.52\textwidth}\small\RaggedRight
+La fecha dependía del \destacar{avistamiento de la luna nueva} ante el tribunal (Misná RH 1--2). La diáspora guardaba dos días.\par\medskip
+\begin{cita}Pero del día y la hora nadie sabe, ni aun los ángeles de los cielos, sino sólo mi Padre.\fuente{(Mt 24:36, RVR1960)}\end{cita}
+\end{column}
+\begin{column}{0.46\textwidth}
+\begin{tcolorbox}[colback=papiro,colframe=tierraroja,boxrule=1pt,arc=3pt,fontupper=\scriptsize,title={Precisión fuerte},fonttitle=\bfseries\scriptsize,colbacktitle=tierraroja,coltitle=papiro]
+\RaggedRight La idea de que la frase era un \textbf{modismo judío de Rosh haShaná} es \textbf{moderna} (p.~ej., Chumney, 1994). No aparece en la Misná, la Tosefta, los Talmudes ni la liturgia antigua. ``Desde los días de Esdras'' Elul nunca se halló de 30 días (b.~RH 19b): la fecha era previsible. Mt 24 no menciona ninguna fiesta.
+\end{tcolorbox}
+\end{column}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Literatura}
+
+\begin{frame}{Forma: Lv 23 y Josué 6}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}\small\RaggedRight
+\textbf{\textcolor{tierraroja}{La unidad más breve}}
+\begin{itemize}
+\item ``Y habló \SENOR{} a Moisés'': 5 veces en Lv 23 (vv.~1, 9, 23, 26, 33; conteo propio).
+\item Yom Teruá: fecha, triple designación, no trabajo, ofrenda.
+\item Le faltan la \destacar{motivación histórica} y el ``estatuto perpetuo'': el canon llena el contenido.
+\end{itemize}
+\end{column}
+\begin{column}{0.48\textwidth}\small\RaggedRight
+\textbf{\textcolor{tierraroja}{Jos 6: liturgia heptádica}}
+\begin{itemize}
+\item ``Siete/séptimo'': 4 veces en 6:4; 14 en el capítulo ($2\times7$; conteo propio).
+\item Ritmo $6+1$, como la semana de la creación.
+\item El séptimo día no es de reposo, sino de \destacar{victoria dada por Dios}.
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{La trompeta en el canon}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[font=\scriptsize,node distance=0.45cm]
+ \tikzset{et/.style={draw=tierraroja,line width=0.8pt,fill=papiro,rounded corners=3pt,text width=2.75cm,align=center,inner sep=4pt,minimum height=2.3cm}}
+ \node[et] (s) {\textbf{\textcolor{tierraroja}{Sinaí}}\\ Éx 19:13--19\\[2pt] teofanía y convocación};
+ \node[et,right=of s] (j) {\textbf{\textcolor{tierraroja}{Jericó}}\\ Jos 6\\[2pt] victoria y entrada\\ {\tiny\color{sepia}\emph{teruá gedolá}}};
+ \node[et,right=of j] (p) {\textbf{\textcolor{tierraroja}{Profetas}}\\ Jl 2; Sof 1:16; Ez 33\\ Is 27:13; Zac 9:14\\[2pt] día del \SENOR{} y reunión};
+ \node[et,right=of p] (n) {\textbf{\textcolor{tierraroja}{NT}}\\ Mt 24:31; 1 Co 15:52\\ 1 Ts 4:16; Ap 8--11\\[2pt] venida, resurrección, Reino};
+ \foreach \a/\b in {s/j,j/p,p/n}{\draw[-{Latex[length=2.5mm]},mostaza!90!tierraroja,line width=1.2pt] (\a)--(\b);}
+ \draw[sepia,dashed,-{Latex[length=2mm]}] (n.north) to[bend right=14] node[midway,above,font=\tiny\itshape,text=sepia]{Dios ``desciende'' (Éx 19:20; 1 Ts 4:16)} (s.north);
+\end{tikzpicture}}\par\medskip
+\small\RaggedRight El NT no inventa la trompeta escatológica: la \destacar{hereda de los profetas}, que ya leían el \emph{shofar} del Sinaí y de la guerra santa como señal del día en que Dios interviene.
+\end{frame}
+
+\begin{frame}{Los profetas y el shofar}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\begin{cita}Tocad trompeta en Sion, y dad alarma en mi santo monte; tiemblen todos los moradores de la tierra, porque viene el día de \SENOR.\fuente{(Jl 2:1, RVR1960)}\end{cita}
+\begin{cita}\ldots{}día de trompeta y de algazara sobre las ciudades fortificadas, y sobre las altas torres.\fuente{(Sof 1:16, RVR1960)}\end{cita}
+\end{column}
+\begin{column}{0.48\textwidth}
+\begin{cita}\ldots{}se tocará con gran trompeta, y vendrán los que habían sido esparcidos en la tierra de Asiria\ldots{} y adorarán a \SENOR{} en el monte santo, en Jerusalén.\fuente{(Is 27:13, RVR1960)}\end{cita}
+\scriptsize\RaggedRight \heb{יוֹם שׁוֹפָר וּתְרוּעָה} (Sof 1:16): las palabras de la fiesta aplicadas al \destacar{juicio}. El atalaya debe tocar (Ez 33:1--6); Dios mismo toca (Zac 9:14); ``alza tu voz como trompeta'' (Is 58:1).
+\end{column}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{La serie}
+
+\begin{frame}{¿Por qué ``conmemoración''?}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.52\textwidth}\small\RaggedRight
+El documento de referencia (lecciones 8 y 12) pregunta qué hecho podía conmemorar una fiesta instituida en el Sinaí, ``cuando aún estaban lejos de imaginar\ldots{} la vida futura de la nación''.\par\medskip
+Respuesta: \destacar{la caída de Jericó} ``al son de Trompetas'', cuarenta años después, en la puerta de la Tierra Prometida.
+\end{column}
+\begin{column}{0.46\textwidth}
+\begin{tikzpicture}
+ \foreach \y/\n/\t in {0/1/{Llegó el momento de la \textbf{heredad} prometida a los padres},-1.15/2/{Las faltas \textbf{purgadas}: concluyó el juicio del desierto},-2.3/3/{Llegó el momento de \textbf{entrar} en la tierra}}{
+  \node[caja,anchor=north west,text width=4.6cm] (k\n) at (0,\y) {\RaggedRight\scriptsize \t};
+  \node[circle,fill=tierraroja,text=papiro,font=\scriptsize\bfseries,inner sep=1.6pt] at (k\n.north west) {\n};}
+\end{tikzpicture}\par
+{\fontsize{5}{6}\selectfont\color{sepia}Los tres sentidos del toque en Jericó, según la lección 12.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Historia y Reglamento de Culto}
+\renewcommand{\arraystretch}{1.12}\scriptsize
+\begin{tabular}{@{}L{3.1cm}L{2.2cm}L{6.3cm}@{}}
+\toprule
+\textbf{Historia de Israel} & \textbf{Reglamento} & \textbf{Nuevo Pacto (serie)} \\ \midrule
+Israel salvado de la muerte & Pascua & Cristo nuestra Pascua (1~Co 5:7) \\
+Israel libre del cautiverio & Ázimos & la Iglesia sin levadura (1~Co 5:8) \\
+La entrega de la Ley & Pentecostés & el Espíritu derramado (Hch 2) \\
+\textbf{La toma de Jericó} & \textbf{Trompetas} & \textbf{regreso de Cristo a la final trompeta} \\
+Fin del juicio en el desierto & Expiación & fin del juicio a la casa de Dios (1~P 4:17) \\
+Israel entra en Canaán & Cabañas & Reino milenial (Ap 20:4--6) \\
+\bottomrule
+\end{tabular}\par\medskip
+{\fontsize{5}{6}\selectfont\color{sepia}\textit{Nota.} Las dos primeras columnas reproducen la tabla de la lección 12 del documento de referencia.}\par\smallskip
+\small\RaggedRight ``Un acontecimiento majestuoso al son de trompeta que no es otra cosa que el \destacar{regreso de Nuestro Señor Jesús para establecer su Reino y congregar su pueblo}''.
+\end{frame}
+
+\begin{frame}{Memorial, convocación, figura}
+\centering
+\resizebox{0.96\linewidth}{!}{%
+\begin{tikzpicture}[font=\scriptsize]
+ \tikzset{c/.style={draw=tierraroja!80,line width=0.7pt,fill=papiro,rounded corners=3pt,text width=3.7cm,align=center,inner sep=4pt,minimum height=1.05cm}}
+ \tikzset{f/.style={draw=caferojizo,line width=0.9pt,fill=tierraroja,text=papiro,rounded corners=3pt,text width=2.6cm,align=center,inner sep=4pt,minimum height=1.05cm}}
+ \node[font=\scriptsize\bfseries,text=tierraroja] at (0,1.0) {Historia de Israel};
+ \node[font=\scriptsize\bfseries,text=tierraroja] at (4.6,1.0) {Fiesta (Lv 23)};
+ \node[font=\scriptsize\bfseries,text=tierraroja] at (9.2,1.0) {Iglesia (lectura de la serie)};
+ \foreach \k/\y/\h/\fe/\ig in {1/0/{Caída de Jericó al son de trompetas (Jos 6)}/{Yom Teruá\\ 1 del mes 7}/{Regreso de Cristo a la final trompeta (1 Co 15:52)},
+  2/-1.45/{Fin del juicio del desierto}/{Yom Kipur\\ 10 del mes 7}/{Fin del juicio a la casa de Dios (1 P 4:17)},
+  3/-2.9/{Israel establecido en Canaán}/{Sukkot\\ 15--21 del mes 7}/{Reino milenial; la cabaña, lo pasajero}}{
+   \node[c] (h\k) at (0,\y) {\h};
+   \node[f] (f\k) at (4.6,\y) {\fe};
+   \node[c] (i\k) at (9.2,\y) {\ig};
+   \draw[-{Latex[length=2mm]},mostaza!90!tierraroja,line width=1pt] (h\k)--(f\k);
+   \draw[-{Latex[length=2mm]},mostaza!90!tierraroja,line width=1pt] (f\k)--(i\k);}
+\end{tikzpicture}}\par\medskip
+\precision{Lv 23:43 sí vincula Sukkot con las cabañas del desierto; los demás vínculos históricos son tipología de la serie.}
+\end{frame}
+
+\begin{frame}{Lo que la Escritura sostiene}
+\begin{enumerate}\small\RaggedRight
+\item \destacar{Mismo vocabulario}: la \emph{teruá gedolá} de Jericó (Jos 6:5, 20) es la \emph{teruá} de Lv 23:24 y Nm 29:1.
+\item \destacar{El NT lee tipológicamente a Josué}: ``si Josué les hubiera dado el reposo\ldots'' (He 4:8); en griego \grc{Ἰησοῦς}. Josué es \heb{יֵשׁוּעַ} (\emph{Yeshúa}) en Neh 8:17.
+\item \destacar{Trompeta de guerra santa}: Nm 10:9 ``seréis salvos de vuestros enemigos''; algunos ven Jos 6 detrás de Ap 8--11 (Beale, 1999).
+\item \destacar{El otoño es escatológico en los profetas}: Zac 14:4--5 y 14:16, las naciones suben ``a celebrar la fiesta de los tabernáculos''.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Precisiones a la lectura de la serie}
+\scriptsize\RaggedRight
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.49\textwidth}
+\begin{itemize}
+\item Lv 23 \textbf{no menciona Jericó}; ningún texto bíblico hace el vínculo: es tipología.
+\item Jericó cayó en el \textbf{mes primero} (Jos 4:19; 5:10), no el 1 del mes séptimo.
+\item Nm 10:9--10 explica \emph{zijrón}: la memoria \textbf{va hacia Dios}. Ambas lecturas pueden convivir.
+\item Filón propuso otro hito: \textbf{el Sinaí}. El texto no lo fija.
+\end{itemize}
+\end{column}
+\begin{column}{0.49\textwidth}
+\begin{itemize}
+\item En Josué el cruce y la entrada (Jos 3--4) \textbf{preceden} a Jericó, y Acán (Jos 7) muestra que el juicio no había concluido.
+\item 1~Ts 4:16 ``con aclamación'' sigue una versión anterior (RV 1909); RVR1960: ``con \textbf{voz de mando}'' (\grc{ἐν κελεύσματι}).
+\item En Jericó suenan \emph{shofarot}, no las \emph{jatsotsrot} de Nm 10.
+\item ``Estatuto perpetuo'': Nm 10:8, no Lv 23:24--25.
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Mesías}
+
+
+
+\begin{frame}{¿Cuál es la final trompeta?}
+\scriptsize\renewcommand{\arraystretch}{1.05}
+\begin{tabular}{@{}L{0.4cm}L{4.9cm}L{0.4cm}L{5.6cm}@{}}
+\toprule
+\multicolumn{2}{@{}l}{\textbf{Sellos (Ap 6:1--8:1)}} & \multicolumn{2}{l@{}}{\textbf{Trompetas (Ap 8:2--11:19)}} \\ \midrule
+1 & caballo blanco (6:2) & 1 & granizo y fuego (8:7) \\
+2 & caballo bermejo: guerra (6:4) & 2 & monte ardiendo en el mar (8:8) \\
+3 & caballo negro: carestía (6:5) & 3 & la estrella Ajenjo (8:10--11) \\
+4 & caballo amarillo: muerte (6:8) & 4 & un tercio de los astros (8:12) \\
+5 & almas bajo el altar (6:9) & 5 & 1.\textsuperscript{er} ay: Apolión (9:1--12) \\
+6 & sol y luna oscurecidos (6:12; Is 13:9--11; Jl 2:1--2; Mt 24:29) & 6 & 2.º ay: Éufrates (9:13--21) \\
+7 & silencio; siete ángeles; incensario (8:1--5) & \textbf{7} & \textbf{los reinos son del Señor; juicio de los muertos; galardón; el arca (11:15--19)} \\
+\bottomrule
+\end{tabular}\par\smallskip
+\small\RaggedRight Con Mt 24:30--31 (``gran voz de trompeta'', el \emph{shofar gadol} de Is 27:13), Dn 7:13--14 y Dn 12:2 (``serán despertados''), la presentación de Danilo identifica la \destacar{final trompeta} (1~Co 15:52) con la \destacar{séptima} (Ap 11:15).\par
+\precision{lectura canónica coherente, no explícita: 1 Co no cuenta trompetas; \grc{ἐσχάτη} puede ser ``del fin'' (Fee, 1987).}
+\end{frame}
+
+\begin{frame}{El día del despertar}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\begin{cita}Tus muertos vivirán; sus cadáveres resucitarán. ¡Despertad y cantad, moradores del polvo!\fuente{(Is 26:19, RVR1960)}\end{cita}
+\begin{cita}Despiértate, tú que duermes, y levántate de los muertos, y te alumbrará Cristo.\fuente{(Ef 5:14, RVR1960)}\end{cita}
+\end{column}
+\begin{column}{0.48\textwidth}\scriptsize\RaggedRight
+\begin{itemize}
+\item El \emph{shofar} como \destacar{alarma que despierta} y congrega (Nm 10:2--3); llama al arrepentimiento (Is 58:1).
+\item ``Destruirá a la muerte para siempre'' (Is 25:8; 1~Co 15:54); el \SENOR{} ``gritará, voceará'' (\heb{יָרִיעַ}, Is 42:13); el canto de Is 12.
+\item ``¿Qué haréis en el día de la solemnidad?'' (Os 9:5).
+\item ``Sellados para el día de la redención'' (Ef 4:30).
+\end{itemize}
+\precision{Ef 5:14 cita probablemente un himno sobre Is 26:19 y 60:1; el vínculo con Yom Teruá es eco posible. Autoría de Efesios discutida; cf. 1~Co 15:52; 1~Ts 4:16.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{1 Corintios 15:51--52}
+\fotolado{panel_1corintios15.jpg}{Elaboración propia: 1 Co 15:52 en escritura uncial (texto NA28).}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.57\textwidth}
+\begin{cita}He aquí, os digo un misterio: No todos dormiremos; pero todos seremos transformados, en un momento, en un abrir y cerrar de ojos, a la final trompeta; porque se tocará la trompeta, y los muertos serán resucitados incorruptibles.\fuente{(1~Co 15:51--52, RVR1960)}\end{cita}
+\scriptsize\RaggedRight \grc{ἐν τῇ ἐσχάτῃ σάλπιγγι}: la trompeta \destacar{del fin}, no necesariamente la última de una serie (Fee, 1987). Victoria sobre el último enemigo (15:26, 54--55).
+\end{column}
+\begin{column}{0.41\textwidth}\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{1 Tesalonicenses 4:16--17}
+\centering
+\resizebox{0.92\linewidth}{!}{%
+\begin{tikzpicture}[font=\scriptsize]
+ \tikzset{v/.style={draw=tierraroja!80,line width=0.7pt,fill=papiro,rounded corners=3pt,text width=3.3cm,align=center,inner sep=4pt,minimum height=1.0cm}}
+ \node[v] (v1) at (0,0) {\grc{ἐν κελεύσματι}\\ ``con voz de mando''};
+ \node[v] (v2) at (4.5,0) {\grc{ἐν φωνῇ ἀρχαγγέλου}\\ ``con voz de arcángel''};
+ \node[v] (v3) at (9,0) {\grc{ἐν σάλπιγγι θεοῦ}\\ ``con trompeta de Dios''};
+ \node[draw=caferojizo,fill=tierraroja,text=papiro,rounded corners=3pt,text width=6.8cm,align=center,inner sep=5pt] (d) at (4.5,-1.55) {\textbf{el Señor mismo descenderá del cielo} (4:16)};
+ \foreach \n in {v1,v2,v3}{\draw[-{Latex[length=2mm]},mostaza!90!tierraroja,line width=1pt] (\n.south) -- (d.north);}
+ \node[v] (r1) at (1.6,-3.1) {los muertos en Cristo resucitarán \textbf{primero}};
+ \node[v] (r2) at (7.4,-3.1) {los vivos serán \textbf{arrebatados} con ellos};
+ \draw[-{Latex[length=2mm]},mostaza!90!tierraroja,line width=1pt] (d) -- (r1);
+ \draw[-{Latex[length=2mm]},mostaza!90!tierraroja,line width=1pt] (d) -- (r2);
+ \node[draw=tierraroja,line width=1pt,fill=mostaza!25,rounded corners=3pt,text width=6.8cm,align=center,inner sep=5pt] (e) at (4.5,-4.6) {\grc{εἰς ἀπάντησιν τοῦ κυρίου}: ``para recibir al Señor en el aire''; ``y así estaremos siempre con el Señor'' (4:17)};
+ \draw[-{Latex[length=2mm]},mostaza!90!tierraroja,line width=1pt] (r1) -- (e);
+ \draw[-{Latex[length=2mm]},mostaza!90!tierraroja,line width=1pt] (r2) -- (e);
+\end{tikzpicture}}\par\smallskip
+\scriptsize\RaggedRight \grc{ἀπάντησις}: salida al encuentro del dignatario que llega, para \destacar{escoltarlo a la ciudad} (Wright, 2003; Fee, 2009): coherente con el Rey que viene a reinar.
+\end{frame}
+
+\begin{frame}{Apocalipsis 8--11: siete trompetas}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[font=\scriptsize]
+ \foreach \n/\x/\t in {1/0/{tierra\\ 8:7},2/1.55/{mar\\ 8:8--9},3/3.1/{aguas\\ 8:10--11},4/4.65/{astros\\ 8:12},5/6.9/{abismo\\ 9:1--11},6/8.45/{Éufrates\\ 9:13--21}}{
+   \node[circle,fill=mostaza!75,draw=sepia,minimum size=6mm,font=\scriptsize\bfseries] (t\n) at (\x,0) {\n};
+   \node[below=3pt,text width=1.4cm,align=center,font=\tiny,text=sepia] at (t\n.south) {\t};}
+ \node[draw=sepia,dashed,rounded corners=3pt,fill=papiro,text width=2.2cm,align=center,inner sep=3pt] (int) at (10.9,0) {\textbf{interludio}\\ {\tiny librito (10:7); dos testigos (11:1--14)}};
+ \node[circle,fill=tierraroja,draw=caferojizo,minimum size=8mm,text=papiro,font=\small\bfseries] (t7) at (13.4,0) {7};
+ \node[below=3pt,text width=2.4cm,align=center,font=\tiny,text=tierraroja] at (t7.south) {\textbf{el reino de nuestro Señor y de su Cristo}\\ 11:15--19};
+ \draw[decorate,decoration={brace,amplitude=5pt},sepia] (-0.3,0.55) -- (4.95,0.55) node[midway,above=5pt,font=\tiny,text=sepia] {un tercio herido};
+ \draw[decorate,decoration={brace,amplitude=5pt},sepia] (6.6,0.55) -- (13.8,0.55) node[midway,above=5pt,font=\tiny,text=sepia] {tres ayes (8:13; 9:12; 11:14)};
+ \draw[-{Latex[length=2mm]},sepia!70] (t6) -- (int); \draw[-{Latex[length=2mm]},sepia!70] (int) -- (t7);
+\end{tikzpicture}}\par\medskip
+\begin{cita}El séptimo ángel tocó la trompeta, y hubo grandes voces en el cielo, que decían: Los reinos del mundo han venido a ser de nuestro Señor y de su Cristo; y él reinará por los siglos de los siglos.\fuente{(Ap 11:15, RVR1960)}\end{cita}
+\scriptsize\RaggedRight Los juicios parciales no logran el arrepentimiento (9:20--21); el testimonio sí (11:13) (Bauckham, 1993). Tras la séptima, se ve \destacar{el arca del pacto} (11:19): puente hacia Yom Kipur.
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Tradición}
+
+\begin{frame}{Rosh haShaná en la tradición judía}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.50\textwidth}\scriptsize\RaggedRight
+\begin{itemize}
+\item Misná RH 1:2: en Rosh haShaná ``todos los que vienen al mundo pasan delante de Él''.
+\item Tres libros abiertos; los intermedios, hasta Yom Kipur (b.~RH 16b): los \destacar{diez días temibles}.
+\item Toques: \emph{tekiá}, \emph{shevarim}, \emph{teruá} (Rabí Abahu, b.~RH 34a); \emph{tekiá guedolá}.
+\item Lecturas: Gn 21 y 1~S 1--2 (Dios ``se acordó''); \destacar{Gn 22, la \emph{aqedá}}; Jer 31:20.
+\item Maimónides: ``despertad, dormidos, de vuestro sueño'' (\emph{Teshuvá} 3:4).
+\end{itemize}
+\end{column}
+\begin{column}{0.48\textwidth}
+\scriptsize\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}L{1.7cm}L{3.5cm}@{}}
+\toprule
+\textbf{Bendición} & \textbf{Tema y textos} \\ \midrule
+\heb{מַלְכֻיּוֹת} & realeza: Nm 23:21; Sal 47 \\
+\heb{זִכְרוֹנוֹת} & memoria: Gn 8:1; Éx 2:24 \\
+\heb{שׁוֹפָרוֹת} & \emph{shofar}: Éx 19; Is 27:13 \\
+\bottomrule
+\end{tabular}\par\smallskip
+{\fontsize{6}{7}\selectfont ``Decid \emph{maljuyot}, para que me hagáis rey\ldots; \emph{zijronot}, para que vuestro recuerdo suba ante mí\ldots; ¿con qué? Con el \emph{shofar}'' (b.~RH 16a, trad. propia).}
+\end{column}
+\end{columns}\par\smallskip
+\precision{tradición rabínica y medieval (\emph{tashlij}, dos días), no contenido explícito de la Torá.}
+\end{frame}
+
+
+\begin{frame}{Las notas del shofar}
+\renewcommand{\arraystretch}{1.15}\small
+\begin{tabular}{@{}L{3.0cm}L{3.4cm}L{5.2cm}@{}}
+\toprule
+\textbf{Toque} & \textbf{Forma} & \textbf{Texto (presentación de Danilo)} \\ \midrule
+\heb{תְּקִיעָה} \emph{tekiá} & largo, continuo & Éx 19:19: la bocina ``iba aumentando'' \\
+\heb{שְׁבָרִים} \emph{shevarim} & tres quebrados, ``gemido'' & Jos 6:20: cae el muro \\
+\heb{תְּרוּעָה} \emph{teruá} & nueve breves, ``sollozo'' & Sal 98:6: ``aclamad\ldots{} delante del rey'' \\
+\heb{תְּקִיעָה גְדוֹלָה} \emph{tekiá guedolá} & último, prolongado & Zac 9:14: ``\SENOR{} el Señor tocará trompeta'' \\
+\bottomrule
+\end{tabular}\par\medskip
+\scriptsize\RaggedRight ``Tres trompetas'' (presentación de Pentecostés): la primera en el Sinaí (Éx 19:19), la última en Yom Teruá (1~Co 15:52), la gran trompeta en Yom Kipur (Is 27:13).\par\smallskip
+\precision{la Biblia solo distingue \emph{taqa'} y \emph{teruá} (Nm 10:5--7); \emph{shevarim} y \emph{tekiá guedolá} son rabínicos (Misná RH 4:9; b.~RH 34a). Las asociaciones son lectura devocional; las ``tres trompetas'' remiten a la leyenda de los dos cuernos del carnero de Isaac (\emph{Pirqé de Rabí Eliezer} 31).}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Posturas}
+
+\begin{frame}{Seis lecturas de Yom Teruá}
+\renewcommand{\arraystretch}{1.1}\scriptsize
+\begin{tabular}{@{}L{2.4cm}L{5.6cm}L{3.6cm}@{}}
+\toprule
+\textbf{Postura} & \textbf{Tesis} & \textbf{Autores} \\ \midrule
+Sacerdotal-textual & el toque presenta a Israel ante Dios al abrir el mes séptimo y las lluvias & Milgrom (2001); Levine (1989) \\
+Rabínica & año nuevo, juicio, realeza; arrepentimiento antes de Kipur & Misná RH; Maimónides \\
+Alejandrina & memoria del Sinaí; Dios que impone la paz & Filón, \emph{Spec.} 2.188--192 \\
+De la serie & memorial de Jericó; regreso de Cristo para establecer su Reino & documento de referencia; IDU (2011) \\
+Dispensacionalista & arrebatamiento previo a la tribulación & Chumney (1994) \\
+Profético-escatológica & imagen del día del \SENOR{} y de la parusía; el NT no alude a la fiesta como tal & Fee (1987); Bauckham (1993) \\
+\bottomrule
+\end{tabular}\par\medskip
+\precision{la ``final trompeta'' como \emph{tekiá guedolá} es anacronismo: la terminología de los toques es rabínica.}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Síntesis}
+
+\begin{frame}{Yom Teruá: definición}
+\begin{tcolorbox}[colback=papiro,colframe=tierraroja,boxrule=1pt,arc=3pt,fontupper=\small]
+\RaggedRight Convocación santa del \destacar{primer día del mes séptimo}, reposo solemne y ``conmemoración al son de trompetas'' (Lv 23:24; Nm 29:1). Su sonido es alarma, grito de guerra, aclamación del Rey y \destacar{memoria ante Dios} (Nm 10:9--10). Acompañó la venida de Dios al Sinaí y la caída de Jericó; en los profetas anunció el día del \SENOR{} (Jl 2:1; Is 27:13); en los apóstoles, \destacar{la venida del Señor, la resurrección y el Reino} (1~Co 15:52; 1~Ts 4:16; Ap 11:15).
+\end{tcolorbox}
+\scriptsize\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{@{}L{2.2cm}L{9.4cm}@{}}
+\toprule
+Histórica & giro del año agrícola; luna nueva; dos instrumentos; Sinaí, Jericó, Esdras, Nehemías \\
+Filológica & \emph{teruá}: alarma, guerra, júbilo, memoria; \emph{zajar} = recordar para actuar \\
+Textual & sin instrumento ni hecho en Lv 23; ``Rosh haShaná'' es misnaico; \emph{kese} en debate \\
+Literaria & Jos 6 heptádico; trayectoria Sinaí--Jericó--profetas--NT; Ap 8--11 \\
+De la serie & memorial de Jericó y figura del regreso de Cristo, con precisiones \\
+\bottomrule
+\end{tabular}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Reflexión}
+
+\begin{frame}{Para la reflexión}
+\small\RaggedRight
+\begin{enumerate}
+\item Dios ``se acuerda'' para actuar (Gn 8:1; Éx 2:24; Nm 10:9). ¿Qué cambia eso en la oración?
+\item ``Bienaventurado el pueblo que sabe aclamarte'' (Sal 89:15): ¿cómo se aprende a aclamar a Dios como Rey?
+\item Nehemías 8: la ley hace llorar, y el día es santo. ¿Cómo se equilibran conciencia de pecado y gozo?
+\item El atalaya que no toca la trompeta es responsable (Ez 33:6). ¿Qué pide eso a quien enseña?
+\item Seis días sin ver resultado en Jericó (Jos 6:10). ¿Qué enseña ese silencio obediente sobre la espera?
+\item ``Alentaos los unos a los otros con estas palabras'' (1~Ts 4:18): ¿qué uso pastoral tiene la trompeta de Dios ante la muerte?
+\end{enumerate}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Glosario}
+
+\begin{frame}{Glosario}
+\scriptsize\RaggedRight
+\begin{columns}[t,onlytextwidth]
+\begin{column}{0.49\textwidth}
+\textbf{\emph{Aqedá}} (\heb{עֲקֵדָה}): atadura de Isaac (Gn 22).\par
+\textbf{\emph{Etanim}} (\heb{אֵתָנִים}): nombre antiguo del mes séptimo (1~R 8:2).\par
+\textbf{\emph{Jatsotsrá}} (\heb{חֲצֹצְרָה}): trompeta de plata (Nm 10).\par
+\textbf{\emph{Kese}} (\heb{כֵּסֶה}): ``día señalado''; ¿luna llena o cubierta? (Sal 81:3).\par
+\textbf{\emph{Maljuyot}} (\heb{מַלְכֻיּוֹת}): bendiciones de la realeza.\par
+\textbf{\emph{Mikrá kódesh}} (\heb{מִקְרָא־קֹדֶשׁ}): convocación santa.\par
+\textbf{\emph{Rosh haShaná}} (\heb{רֹאשׁ הַשָּׁנָה}): ``cabeza del año''; Ez 40:1; nombre misnaico.\par
+\textbf{\emph{Shabatón}} (\heb{שַׁבָּתוֹן}): reposo solemne.
+\end{column}
+\begin{column}{0.49\textwidth}
+\textbf{\emph{Shofar}} (\heb{שׁוֹפָר}): cuerno de carnero.\par
+\textbf{\emph{Tekiá}} (\heb{תְּקִיעָה}): toque largo (de \emph{taqa'}).\par
+\textbf{\emph{Teruá}} (\heb{תְּרוּעָה}): alarma, grito, aclamación.\par
+\textbf{\emph{Tishri}} (\heb{תִּשְׁרִי}): nombre posexílico del mes séptimo.\par
+\textbf{\emph{Yamim noraim}} (\heb{יָמִים נוֹרָאִים}): días temibles, 1--10 de Tishri.\par
+\textbf{\emph{Yom Teruá}} (\heb{יוֹם תְּרוּעָה}): ``día de \emph{teruá}'' (Nm 29:1).\par
+\textbf{\emph{Yovel}} (\heb{יוֹבֵל}): carnero; jubileo (Lv 25:10).\par
+\textbf{\emph{Zikarón}} (\heb{זִכָּרוֹן}): memoria, memorial (Nm 10:10).
+\end{column}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Referencias}
+
+\begin{frame}{Referencias (1)}
+\fontsize{6}{7.2}\selectfont
+\refapa{Las citas bíblicas son de la \emph{Santa Biblia: Reina-Valera 1960} (Sociedades Bíblicas en América Latina, 1960), con \SENOR{} donde dice ``Jehová''. Hebreo: BHS (Elliger \& Rudolph, 1997); griego: NA28 (2012) y Rahlfs \& Hanhart (2006).}
+\refapa{Attridge, H.~W. (1989). \emph{The epistle to the Hebrews} (Hermeneia). Fortress Press.}
+\refapa{Bauckham, R. (1993). \emph{The climax of prophecy}. T\&T Clark.}
+\refapa{Bauer, W., Danker, F.~W., et al. (2000). \emph{A Greek-English lexicon of the New Testament} (3.\textsuperscript{a} ed.). University of Chicago Press.}
+\refapa{Beale, G.~K. (1999). \emph{The book of Revelation} (NIGTC). Eerdmans.}
+\refapa{Brown, F., Driver, S.~R., \& Briggs, C.~A. (1906). \emph{A Hebrew and English lexicon of the Old Testament}. Clarendon Press.}
+\refapa{Chumney, E. (1994). \emph{The seven festivals of the Messiah}. Destiny Image.}
+\refapa{Danby, H. (Trad.). (1933). \emph{The Mishnah}. Oxford University Press.}
+\refapa{de Vaux, R. (1985). \emph{Instituciones del Antiguo Testamento}. Herder.}
+\refapa{Fee, G.~D. (1987). \emph{The first epistle to the Corinthians} (NICNT). Eerdmans.}
+\refapa{Fee, G.~D. (2009). \emph{The first and second letters to the Thessalonians} (NICNT). Eerdmans.}
+\refapa{Filón de Alejandría. (1937). \emph{De specialibus legibus} (F.~H. Colson, Trad.; Loeb Classical Library, Vol.~7). Harvard University Press.}
+\refapa{García Martínez, F. (1992). \emph{Textos de Qumrán}. Trotta.}
+\end{frame}
+
+\begin{frame}{Referencias (2)}
+\fontsize{6}{7.2}\selectfont
+\refapa{Hartley, J.~E. (1992). \emph{Leviticus} (WBC 4). Word.}
+\refapa{Iglesia de Dios Unida. (2011). \emph{Las fiestas santas de Dios: esperanza segura para toda la humanidad}.}
+\refapa{Josefo, F. (1997). \emph{Antigüedades judías} (J. Vara Donado, Trad.). Akal.}
+\refapa{Koehler, L., \& Baumgartner, W. (2001). \emph{The Hebrew and Aramaic lexicon of the Old Testament}. Brill.}
+\refapa{Lane, W.~L. (1991). \emph{Hebrews} (WBC 47A--B). Word.}
+\refapa{Levine, B.~A. (1989). \emph{Leviticus} (JPS Torah Commentary). Jewish Publication Society.}
+\refapa{Milgrom, J. (2001). \emph{Leviticus 23--27} (Anchor Bible 3B). Doubleday.}
+\refapa{Nestle, E., \& Aland, K. (2012). \emph{Novum Testamentum Graece} (28.\textsuperscript{a} ed.). Deutsche Bibelgesellschaft.}
+\refapa{Rahlfs, A., \& Hanhart, R. (Eds.). (2006). \emph{Septuaginta}. Deutsche Bibelgesellschaft.}
+\refapa{Sefaria. (s.~f.). \emph{Mishnah y Talmud Bavli Rosh Hashanah; Mishneh Torah, Hilchot Teshuvah}. https://www.sefaria.org}
+\refapa{Tate, M.~E. (1990). \emph{Psalms 51--100} (WBC 20). Word.}
+\refapa{Wenham, G.~J. (1979). \emph{The book of Leviticus} (NICOT). Eerdmans.}
+\refapa{Wright, N.~T. (2003). \emph{The resurrection of the Son of God}. Fortress Press.}
+\end{frame}
+\end{document}
