@@ -25,6 +25,8 @@
 /atributos/
 /festividades/
 /israel/
+# Páginas y descargas de las predicaciones: se generan desde estudios/predicaciones/ (scripts/predicaciones.py)
+/predicaciones/
 # PDF compilados junto a los .tex
 /estudios/atributos-de-dios/**/*.pdf
 /estudios/fiestas-santas/**/*.pdf

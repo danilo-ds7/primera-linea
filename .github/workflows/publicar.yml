@@ -30,13 +30,16 @@ jobs:
           sudo apt-get install -y \
             fonts-texgyre texlive-xetex texlive-latex-extra texlive-latex-recommended \
             texlive-lang-greek texlive-lang-european texlive-pictures \
-            texlive-fonts-recommended texlive-science poppler-utils
+            texlive-fonts-recommended texlive-science poppler-utils ffmpeg
 
       - name: Instalar Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
       - name: Compilar los estudios LaTeX y generar sus páginas
         run: python3 scripts/atributos.py
+
+      - name: Publicar las predicaciones (PDF y audio)
+        run: python3 scripts/predicaciones.py
 
       - name: Renderizar el sitio
         run: quarto render

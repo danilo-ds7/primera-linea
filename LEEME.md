@@ -32,6 +32,13 @@ Igual que Atributos: los estudios en LaTeX van en `estudios/israel-pueblo-de-dio
 de estudio «Israel») y el mismo `scripts/atributos.py` genera las páginas en `israel/`
 (carpeta generada) y las muestra en la página **Israel y su restauración** (`israel.qmd`).
 
+## Predicaciones
+
+Las predicaciones van listas, en PDF y audio, en `estudios/predicaciones/`, separadas por tipo
+(`biograficas/`, `tematicas/`, `autoayuda/`, `otras/`) y las series en `series/`. Antes de cada render,
+`scripts/predicaciones.py` genera sus páginas en `predicaciones/` (carpeta generada: no editarla a mano)
+y las muestra en la página **Predicaciones** (`predicaciones.qmd`). Detalle en `estudios/predicaciones/README.md`.
+
 ## Publicación
 
 Cada cambio que llega a GitHub se publica solo (`.github/workflows/publicar.yml`) en

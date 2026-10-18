@@ -1,0 +1,11 @@
+---
+title: "Predicaciones"
+subtitle: "Del estudio al púlpito: la Palabra expuesta para escucharla y leerla"
+body-classes: serie-atributos pagina-predicaciones
+---
+
+Predicaciones biográficas, temáticas, de autoayuda y series completas. Cada predicación se puede escuchar aquí o descargar en audio, junto con el PDF para leerla y estudiarla con la Biblia abierta.
+
+{{< include predicaciones/_indice.md >}}
+
+[← Volver al inicio](index.qmd#predicacion)

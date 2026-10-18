@@ -1,7 +1,9 @@
 project:
   type: website
   output-dir: _site
-  pre-render: scripts/atributos.py   # convierte los estudios LaTeX en páginas y PDF (todas las series)
+  pre-render:
+    - scripts/atributos.py       # convierte los estudios LaTeX en páginas y PDF (todas las series)
+    - scripts/predicaciones.py   # publica las predicaciones (PDF + audio) de estudios/predicaciones/
   resources:
     - "app/**"
     - "datos/**"
@@ -12,20 +14,23 @@ project:
     - "festividades/img/**"
     - "israel/pdf/**"
     - "israel/img/**"
+    - "predicaciones/pdf/**"
+    - "predicaciones/audio/**"
   render:
     - "*.qmd"
     - "estudios/*.qmd"
     - "atributos/*.qmd"
     - "festividades/*.qmd"
     - "israel/*.qmd"
+    - "predicaciones/*.qmd"
 
 website:
   title: "Primera Línea"
   site-url: "https://danilo-ds7.github.io/primera-linea"
   navbar:
     left:
-      - href: index.qmd#predicacion
-        text: Predicación
+      - href: predicaciones.qmd
+        text: Predicaciones
       - text: Estudios
         menu:
           - href: atributos.qmd

@@ -137,6 +137,8 @@ document.querySelectorAll('.enfoque .flip, .method .mflip').forEach(function(c){
 > Alabadle por sus proezas; alabadle conforme a la muchedumbre de su grandeza.
 > [Salmos 150:2 · Reina-Valera 1960]{.cite}
 
+[Escuchar las predicaciones](predicaciones.qmd){.btn .primary .pred-cta}
+
 </div>
 :::
 ::::

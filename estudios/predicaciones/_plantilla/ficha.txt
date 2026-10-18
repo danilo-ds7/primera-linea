@@ -1,0 +1,9 @@
+# Ficha de la predicación (opcional). Copia este archivo dentro de la carpeta de la predicación.
+# Todas las líneas son opcionales; lo que falte se toma del nombre de la carpeta.
+titulo: Abraham, el peregrino
+pasaje: Génesis 12:1-9
+fecha: 2026-10-18
+lugar: Iglesia ...
+descripcion: Dios llama a Abraham a salir de su tierra sin saber adónde iba.
+  Una descripción larga puede seguir en las líneas de abajo, con sangría.
+# audio: https://...   (solo si el audio está alojado afuera, por ejemplo en Spotify o Drive)

@@ -1513,3 +1513,68 @@ details.plegable[open] > summary::after { transform: rotate(45deg); }
 .cmp-col span { display: block; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--k); margin-bottom: 6px; }
 .cmp-col p { margin: 0; font-size: .95rem; line-height: 1.5; text-align: left !important; }
 @media (max-width: 760px) { .cmp-ficha { grid-template-columns: 1fr; } .cmp.todos .cmp-ficha { padding-bottom: 8px; border-bottom: 1px solid var(--line); } }
+
+/* ===================== Predicaciones ===================== */
+.pred-cta { margin-top: 26px; }
+.pred-filtros { display: flex; flex-wrap: wrap; gap: 8px; margin: 26px 0 8px; }
+.pred-filtros button {
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+  padding: 8px 16px; border-radius: 999px; font: 600 .88rem var(--sans); cursor: pointer;
+}
+.pred-filtros button:hover { border-color: var(--accent); }
+.pred-filtros button.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+.pred-seccion { margin-top: 34px; }
+.pred-seccion-head { margin-bottom: 18px; }
+.pred-seccion-head h2 { font-size: 1.7rem; margin-bottom: 4px; }
+.pred-seccion-head p { color: var(--muted); margin: 0 !important; }
+.pred-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.pred-card {
+  display: flex; flex-direction: column; min-width: 0;
+  border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line);
+  overflow: hidden; transition: transform .2s, border-color .2s, box-shadow .2s;
+}
+.pred-card:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 30px 50px -30px rgba(19,26,44,.35); }
+.pred-card a { color: inherit; text-decoration: none; }
+.pred-card-link { display: flex; flex-direction: column; gap: 8px; padding: 24px 24px 14px; flex: 1; }
+.pred-card .attr-num { font: 700 .72rem/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+.pred-card h3 { font-size: 1.35rem; margin: 0; }
+.pred-card p { color: var(--muted); font-size: .95rem; margin: 0 !important; text-align: left; hyphens: none; }
+.pred-meta { display: flex; flex-wrap: wrap; gap: 6px 14px; color: var(--muted); font-size: .88rem; }
+.pred-meta .pred-pasaje { font: italic 400 1.12rem/1.3 var(--serif); color: var(--gold); }
+.pred-audio { display: block; width: 100%; max-width: 100%; margin: 4px 0 0; }
+.pred-audio.compacto { width: calc(100% - 32px); margin: 0 16px 6px; height: 40px; }
+.pred-card-pie {
+  display: flex; justify-content: space-between; align-items: center; gap: 10px;
+  padding: 12px 24px 16px; border-top: 1px solid var(--line); font-size: .85rem;
+}
+.pred-card-pie span { color: var(--muted); font-weight: 600; letter-spacing: .04em; white-space: nowrap; }
+.pred-card-pie b { color: var(--accent); white-space: nowrap; }
+.pred-serie {
+  margin: 0 0 26px; padding: 22px; border-radius: var(--radius);
+  background: var(--accent-soft); scroll-margin-top: 90px;
+}
+.pred-serie-head { margin-bottom: 16px; }
+.pred-serie-head h3 { font-size: 1.5rem; margin: 6px 0 4px; }
+.pred-serie-head p { color: var(--muted); margin: 0 !important; }
+@media (max-width: 600px) {
+  .pred-grid { grid-template-columns: 1fr; }
+  .pred-serie { padding: 16px; }
+}
+
+/* Página de cada predicación */
+.predicacion-pag .pred-cabecera { max-width: 760px; }
+.predicacion-pag .pred-meta { margin: 10px 0 14px; font-size: .95rem; }
+.predicacion-pag .pred-meta .pred-pasaje { font-size: 1.35rem; }
+.predicacion-pag .pred-desc { color: var(--muted); font-size: 1.02rem; }
+.predicacion-pag .pred-audio { margin: 18px 0 16px; }
+.predicacion-pag .descargas { display: flex; flex-wrap: wrap; gap: 10px; margin: 6px 0 22px; }
+.predicacion-pag .descargas .btn { font-size: .9rem; padding: 10px 18px; }
+.pred-serie-nav { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 26px; }
+.pred-serie-nav .btn { font-size: .85rem; padding: 8px 14px; }
+.pred-serie-volver { flex-basis: 100%; font-weight: 700; font-size: .9rem; }
+.pred-pdf { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
+.pred-pdf object { display: block; width: 100%; height: 80vh; min-height: 520px; }
+.pred-pdf object p { padding: 22px; margin: 0; }
+.pred-volver { margin-top: 26px; }
+/* En el celular el visor de PDF no funciona bien: basta el botón de descarga */
+@media (max-width: 600px) { .pred-pdf { display: none; } }
