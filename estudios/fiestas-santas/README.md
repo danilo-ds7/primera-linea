@@ -3,7 +3,8 @@
 Serie de estudios (capítulo/artículo y presentación Beamer, XeLaTeX) sobre las solemnidades de Levítico 23,
 el año sabático y el Jubileo, escritos en el proyecto de estudio «Fiestas Santas». Misma estructura que
 `atributos-de-dios/`. Compilar siempre con **XeLaTeX** (3 pasadas) desde la carpeta del archivo.
-Método: lectura histórica, filológica, textual y literaria; la Biblia interpreta la Biblia. Marco de la serie:
+Método: lectura histórica, filológica, textual y literaria; la Biblia interpreta la Biblia.
+**Regla de redacción** (obligatoria para capítulos y presentaciones): ver `ESTILO.md` — prosa humana, con voz de autor, siempre en registro académico. Marco de la serie:
 el documento «Fiestas» (lecciones 6–14: Reglamento del Culto, memorial → figura → esperanza).
 
 | Carpeta | Estudio |
