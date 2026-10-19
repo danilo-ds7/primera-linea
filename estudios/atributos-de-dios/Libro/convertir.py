@@ -44,9 +44,19 @@ def verso(m):
 body = re.sub(r'\\begin\{cita\}((?:(?!\\begin\{cita\}).)*?)\\fuente\{(\((?:[^{}]|\{[^{}]*\})*\))\}\\end\{cita\}', verso, body, flags=re.S)
 
 # Precisiones
+PROPIOS = {'Pink','Lucas','Sal','Rashi','Pablo','Juan','Jesús','Carson','Maimónides','Ónkelos','Targum','Dios','Israel',
+           'Isaías','Jeremías','Job','Moisés','Agustín','Calvino','LXX','1QS','BDAG','HALOT','Vine','Berkhof','Grudem','Hebreos',
+           'Gn','Éx','Dt','Lv','Nm','Jos','Jue','Rt','Esd','Neh','Pr','Ec','Cnt','Is','Jer','Lm','Ez','Dn','Os','Jl','Am','Abd',
+           'Jon','Mi','Nah','Hab','Sof','Hag','Zac','Mal','Mt','Mr','Lc','Jn','Hch','Ro','Gá','Ef','Flp','Col','Tit','Flm','He',
+           'Stg','Jud','Ap','Oseas','Daniel','Ezequiel','Josué','Salomón','David','Abraham','Jacob','Washer','Wright','Bauckham',
+           'Dunn','Hays','Fee','Hengel','Oswalt','Tov','Sanders','Vermes','Barclay','Steinsaltz','Block','Moran','Cassuto','Sasson',
+           'Sefaria','Qumrán','Henry','MacArthur','Núñez','Krakauer','Charnock','Spurgeon','Booth','Hervey','Bishop','Puech','Hackett','Cross',
+           'Resh','Rav','Rabí','R.','Elías','Ezequías','Acaz','Ciro','Manasés','Aarón','Pinjás','Ana','Betel','Horeb','Sodoma','Babel','Siquem'}
 def prec(m):
     t = m.group(1).strip()
-    t = t[0].lower() + t[1:]
+    w = t.split()[0].rstrip(',;:.') if t.split() else ''
+    if w not in PROPIOS and not re.match(r'^[1-3]~?[A-Z]', w) and not w.isupper():
+        t = t[0].lower() + t[1:]
     return '\\precision{%s}' % t
 body = re.sub(r'\\begin\{nota\}\[Precisión\](.*?)\\end\{nota\}', prec, body, flags=re.S)
 def prectext(m):
