@@ -5,6 +5,15 @@ las promesas a los patriarcas y la restauración que anuncian los profetas. Se e
 de estudio «Israel». Misma estructura que `atributos-de-dios/` y `fiestas-santas/`.
 Compilar siempre con **XeLaTeX** (3 pasadas) desde la carpeta del archivo.
 
+## Regla de redacción
+
+En todos los capítulos y presentaciones de la serie: **redacción humana, siempre en registro académico**.
+Voz de autor que domina el tema, frases de largo variado y transiciones naturales; sin andamiaje mecánico
+en la prosa (listas numeradas dentro del párrafo, «primero… segundo…», tres frases paralelas seguidas,
+cierres de síntesis en cada párrafo, muletillas como «cabe señalar» o «en este sentido»). Nada coloquial.
+En las presentaciones, enunciados breves de lámina, no párrafos copiados del capítulo. Rigor, citas bíblicas,
+referencias, estructura y paleta no cambian.
+
 ## Cómo se agrega un estudio
 
 - Cada estudio va en su propia carpeta `NN_Nombre/` (el número fija el orden; `00` es la introducción).
