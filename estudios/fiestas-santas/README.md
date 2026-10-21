@@ -1,11 +1,12 @@
 # Festividades santas — fuentes LaTeX
 
 Serie de estudios (capítulo/artículo y presentación Beamer, XeLaTeX) sobre las solemnidades de Levítico 23,
-el año sabático y el Jubileo, escritos en el proyecto de estudio «Fiestas Santas». Misma estructura que
+el año sabático y el Jubileo. Misma estructura que
 `atributos-de-dios/`. Compilar siempre con **XeLaTeX** (3 pasadas) desde la carpeta del archivo.
-Método: lectura histórica, filológica, textual y literaria; la Biblia interpreta la Biblia.
-**Regla de redacción** (obligatoria para capítulos y presentaciones): ver `ESTILO.md` — prosa humana, con voz de autor, siempre en registro académico. Marco de la serie:
-el documento «Fiestas» (lecciones 6–14: Reglamento del Culto, memorial → figura → esperanza).
+**Marco de la serie:** el método histórico, filológico, teológico y literario (con la lectura textual cuando el texto
+lo pide), sostenido en fuentes académicas (léxicos, gramáticas, comentarios, fuentes antiguas y libros publicados);
+la Biblia interpreta la Biblia. Cada estudio lee la fiesta como memorial → figura → esperanza.
+**Regla de redacción** (obligatoria para capítulos y presentaciones): ver `ESTILO.md` — prosa humana, con voz de autor, siempre en registro académico.
 
 | Carpeta | Estudio |
 |---|---|
