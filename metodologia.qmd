@@ -74,11 +74,11 @@ El análisis textual examina y compara los manuscritos y fragmentos de manuscrit
 | Año | Fuente | Traducción o texto | Qué aporta |
 |---|---|---|---|
 | Siglo III a. C. | Textos hebreos | Septuaginta | Traducción al griego hecha por sabios judíos en Alejandría. |
-| Siglo II d. C. | Textos hebreos y griegos | Peshitta | Traducción al siríaco, usada en las iglesias del Medio Oriente. |
+| Siglo II d. C. | Textos hebreos y griegos | Peshitta | Traducción al siríaco, usada en el cristianismo de lengua siríaca. |
 | c. 170 d. C. | Libros del Nuevo Testamento | Fragmento de Muratori | La lista más antigua conocida de libros del Nuevo Testamento. |
-| 382 d. C. | Textos hebreos y griegos | Vulgata latina | Traducción de Jerónimo; Biblia estándar de la Iglesia latina por siglos. |
+| 382 d. C. | Textos hebreos y griegos | Vulgata latina | Traducción de Jerónimo; Biblia estándar del Occidente latino por siglos. |
 | Siglo IX d. C. | Textos hebreos | Texto masorético | Manuscritos con vocales y cantilación añadidas por los masoretas; base de las versiones modernas del Antiguo Testamento. |
-| 1516 | Nuevo Testamento griego | Textus Receptus | Edición de Erasmo, base de las traducciones protestantes clásicas. |
+| 1516 | Nuevo Testamento griego | Textus Receptus | Edición de Erasmo, base de traducciones clásicas como la King James y la Reina-Valera. |
 | 1569 | Textos hebreos y griegos | Biblia del Oso | Traducción de Casiodoro de Reina, revisada por Cipriano de Valera en 1602. |
 | 1947–1956 | Manuscritos del Mar Muerto | — | Copias del Antiguo Testamento anteriores al texto masorético, halladas en Qumrán. |
 
