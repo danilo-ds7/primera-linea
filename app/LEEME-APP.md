@@ -74,3 +74,10 @@ En «Comparación filológica», para los versículos del Antiguo Testamento, la
 ## Número Strong y raíces
 
 El botón «Strong» de la comparación muestra u oculta el número Strong bajo cada palabra del original. Al tocar una palabra, la ficha muestra además su origen (raíz primitiva, deriva de…, compuesta de…), la cadena hasta la raíz, la familia de palabras de esa raíz y la definición de Strong. Cada raíz y cada palabra de la familia se puede tocar para ver su propia ficha. La definición de Strong está en inglés (las ediciones de dominio público son en inglés); dentro de Claude se puede traducir con la guía.
+
+## Diccionarios por número Strong (modo privado)
+
+En la ficha de cada palabra (Comparación filológica) y en las palabras clave de la Lectura filológica aparece la sección «Diccionarios», con los diccionarios de la biblioteca enlazados por número Strong: Strong en español, Vine (AT y NT, cada artículo con su número), Chávez (hebreo), Ortiz CGE (griego, enlazado por el lema), Barclay (griego), BDB y Thayer en portugués (Strong-PT) y la concordancia NCSE (cómo traduce la RV1960 cada número, con sus pasajes). Los números Strong dentro de un diccionario se pueden tocar para abrir su ficha.
+
+Todos tienen derechos de autor: se leen en modo privado con la misma clave de GitHub de los comentarios privados (se guarda solo en el dispositivo) desde la rama `app-privado` del repositorio privado (`app-privado/lexicos/` y `app-privado/concordancia/`). Lo leído queda guardado en el celular para usarlo sin conexión. Los datos se generan con `herramientas/lexicos_privados.py` del repositorio privado. El código compartido está en `diccionarios.js`, que también usan las páginas del sitio: en los estudios, cada número Strong (escrito en el texto o junto a una palabra hebrea o griega) abre la misma ficha con los diccionarios.
+

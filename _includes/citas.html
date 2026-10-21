@@ -2,7 +2,7 @@
 <style>
 .cita-ref { color: var(--accent, #2350b8); text-decoration: underline dotted; text-underline-offset: 3px; cursor: pointer; white-space: nowrap; }
 .cita-ref:hover { text-decoration-style: solid; }
-.cita-pop { position: absolute; z-index: 2000; width: min(380px, calc(100vw - 24px)); background: var(--surface, #fff); color: var(--ink, #131a2c);
+.cita-pop { box-sizing: border-box; position: absolute; z-index: 2000; width: min(380px, calc(100vw - 24px)); background: var(--surface, #fff); color: var(--ink, #131a2c);
   border: 1px solid var(--line, #e3e7ef); border-radius: 16px; padding: 14px 16px 12px; box-shadow: 0 24px 60px -24px rgba(19,26,44,.5);
   font-size: .92rem; line-height: 1.55; text-align: left; opacity: 0; transform: translateY(6px); transition: opacity .18s, transform .18s; }
 .cita-pop.open { opacity: 1; transform: none; }
@@ -19,6 +19,9 @@
 .cita-pop .cp-lema .heb { font-family: "Noto Serif Hebrew", "SBL Hebrew", serif; }
 .cita-pop .cp-sub { display: block; font-size: .78rem; color: var(--muted, #5b6478); margin-bottom: 8px; }
 .cita-pop .cp-def { margin: 6px 0 0; font-size: .86rem; color: var(--muted, #5b6478); text-align: justify; hyphens: auto; }
+.cita-pop.cp-strong { width: min(460px, calc(100vw - 24px)); }
+.cita-pop .cp-dic:empty { display: none; }
+.strong-txt { white-space: nowrap; }
 </style>
 <script>
 (function(){
@@ -128,6 +131,7 @@
       cargar(tipo,"indice").then(function(ix){
         lista.forEach(function(s){
           var cods=[]; s.textContent.trim().split(/[\s\u05BE]+/).forEach(function(w){ var c=codigo(tipo,ix,w); if(c && cods.indexOf(c)<0) cods.push(c); });
+          var bloque=s.closest("p,li,td,dd,blockquote,figcaption")||s.parentNode; cods=cods.filter(function(c){ return !bloque.querySelector('.strong-txt[data-s="'+c+'"]'); });
           if(!cods.length) return;
           var sup=document.createElement("sup"); sup.className="strong-sup";
           cods.forEach(function(c,i){ if(i){ var sp=document.createElement("span"); sp.className="strong-sep"; sp.textContent="·"; sup.appendChild(sp); }
@@ -137,19 +141,43 @@
       }).catch(function(){});
     });
   }
-  function abrirStrong(a){
+  var DIC=null;
+  function diccionarios(){ if(!DIC) DIC=window.PLDic ? Promise.resolve(window.PLDic) : new Promise(function(ok,mal){ var s=document.createElement("script"); s.src=raiz+"app/diccionarios.js"; s.onload=function(){ ok(window.PLDic); }; s.onerror=function(){ DIC=null; mal(); }; document.head.appendChild(s); }); return DIC; }
+  function strongTexto(){
+    var m=document.querySelector("main"); if(!m) return;
+    var re=/\b([HG])(\d{1,5})\b/g;
+    var w=document.createTreeWalker(m,NodeFilter.SHOW_TEXT,{acceptNode:function(x){
+      var p=x.parentElement; if(!p) return NodeFilter.FILTER_REJECT;
+      if(p.closest("a,code,pre,script,style,h1,button,.cita-pop,.no-strong,svg,nav,.navbar,footer,textarea,input,.strong-sup")) return NodeFilter.FILTER_REJECT;
+      re.lastIndex=0; return re.test(x.nodeValue)?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_SKIP; }});
+    var lista=[]; while(w.nextNode()) lista.push(w.currentNode);
+    lista.forEach(function(n){
+      var t=n.nodeValue, f=document.createDocumentFragment(), ult=0, mm; re.lastIndex=0;
+      while((mm=re.exec(t))){
+        f.appendChild(document.createTextNode(t.slice(ult,mm.index)));
+        var a=document.createElement("a"); a.className="strong-ref strong-txt"; a.href="#"; a.textContent=mm[0]; a.dataset.s=mm[1]+(+mm[2]); a.dataset.t=mm[1]==="H"?"h":"g"; a.setAttribute("role","button"); a.title="Número Strong "+mm[0];
+        f.appendChild(a); ult=mm.index+mm[0].length;
+      }
+      f.appendChild(document.createTextNode(t.slice(ult))); n.parentNode.replaceChild(f,n);
+    });
+  }
+  function abrirStrong(a, codOtro, posAnt){
+    var tipo=codOtro ? (codOtro[0]==="H"?"h":"g") : a.dataset.t, cod=codOtro || a.dataset.s;
     cerrar(); actual=a;
-    var tipo=a.dataset.t, cod=a.dataset.s;
-    pop=document.createElement("div"); pop.className="cita-pop"; pop.setAttribute("role","dialog");
-    pop.innerHTML='<button type="button" class="cp-x" aria-label="Cerrar">&times;</button><span class="cp-ref"></span><p class="cp-lema"></p><span class="cp-sub"></span><p class="cp-txt">Cargando…</p><p class="cp-def"></p><div class="cp-pie"><span>Concordancia de Strong</span><span></span></div>';
+    pop=document.createElement("div"); pop.className="cita-pop cp-strong"; pop.setAttribute("role","dialog");
+    pop.innerHTML='<button type="button" class="cp-x" aria-label="Cerrar">&times;</button><span class="cp-ref"></span><p class="cp-lema"></p><span class="cp-sub"></span><p class="cp-txt">Cargando…</p><p class="cp-def"></p><div class="cp-dic"></div><div class="cp-pie"><span>Concordancia de Strong</span><span></span></div>';
     pop.querySelector(".cp-ref").textContent="Strong "+cod+(tipo==="h"?" · hebreo":" · griego");
     pop.querySelector(".cp-x").addEventListener("click",cerrar);
     pop.addEventListener("click",function(e){ e.stopPropagation(); });
     document.body.appendChild(pop);
-    var r=a.getBoundingClientRect(), w=pop.offsetWidth, x=Math.max(12,Math.min(window.scrollX+r.left-20, window.scrollX+document.documentElement.clientWidth-w-12));
-    pop.style.left=x+"px"; pop.style.top=(window.scrollY+r.bottom+8)+"px";
+    if(posAnt){ pop.style.left=posAnt[0]; pop.style.top=posAnt[1]; }
+    else { var r=a.getBoundingClientRect(), w=pop.offsetWidth, x=Math.max(12,Math.min(window.scrollX+r.left-20, window.scrollX+document.documentElement.clientWidth-w-12));
+      pop.style.left=x+"px"; pop.style.top=(window.scrollY+r.bottom+8)+"px"; }
     requestAnimationFrame(function(){ pop && pop.classList.add("open"); });
     var este=pop;
+    diccionarios().then(function(D){ if(pop!==este || !D) return;
+      D.render(pop.querySelector(".cp-dic"), cod, {onStrong:function(c){ abrirStrong(a, c, [este.style.left, este.style.top]); }});
+    }).catch(function(){});
     cargar(tipo,"fichas").then(function(fx){ if(pop!==este) return;
       var f=fx[cod]; if(!f){ pop.querySelector(".cp-txt").textContent="No se encontró la ficha."; return; }
       var lema=pop.querySelector(".cp-lema"), sp=document.createElement("span"); sp.className=tipo==="h"?"heb":"grk"; sp.lang=tipo==="h"?"he":"grc"; sp.textContent=f[0]; lema.appendChild(sp);
@@ -166,8 +194,8 @@
     cerrar();
   });
   document.addEventListener("keydown",function(e){ if(e.key==="Escape") cerrar(); });
-  window.addEventListener("resize",cerrar);
-  function iniciar(){ var m=document.querySelector("main")||document.body; if(!document.querySelector(".hero-badge")) recorrer(m); strongs(); }
+  window.addEventListener("resize",function(){ if(pop && pop.contains(document.activeElement)) return; cerrar(); });
+  function iniciar(){ var m=document.querySelector("main")||document.body; if(!document.querySelector(".hero-badge")) recorrer(m); strongTexto(); strongs(); }
   if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",iniciar); else iniciar();
 })();
 </script>
