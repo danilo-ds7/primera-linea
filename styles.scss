@@ -1486,6 +1486,14 @@ details.plegable > summary::after { content: "+"; font-size: 1.4rem; font-weight
 details.plegable[open] > summary { background: var(--accent-soft); }
 details.plegable[open] > summary::after { transform: rotate(45deg); }
 .plegable-body { padding: 6px 20px 14px; }
+/* Referencias de los estudios: pestaña desplegable, en orden alfabético */
+details.plegable-refs { margin: 34px 0 18px; }
+details.plegable-refs > summary { gap: 10px; }
+details.plegable-refs .refs-n { margin-left: auto; margin-right: 12px; font-size: .78rem; font-weight: 700; color: var(--accent); background: var(--accent-soft); border-radius: 999px; padding: 3px 10px; }
+details.plegable-refs[open] .refs-n { background: var(--surface, #fff); }
+.refs-lista { padding-top: 14px; }
+.refs-lista .tex-refapa p, .refs-lista .csl-entry { overflow-wrap: anywhere; }
+@media (max-width: 600px) { details.plegable > summary { padding: 14px 16px; } .plegable-body { padding: 6px 14px 12px; } }
 
 /* Metodología: comparación dinámica de los cuatro métodos */
 .cmp { margin: 12px 0 30px; }

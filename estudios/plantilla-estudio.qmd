@@ -40,7 +40,13 @@ Ejemplos de enlaces y citas:
 - PDF para descargar:     [Descargar el estudio en PDF](santidad.pdf)  (pon el PDF en esta misma carpeta)
 -->
 
-## Referencias
+```{=html}
+<details class="plegable plegable-refs" id="referencias"><summary>Referencias</summary><div class="plegable-body refs-lista">
+```
 
 ::: {#refs}
 :::
+
+```{=html}
+</div></details>
+```

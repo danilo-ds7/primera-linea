@@ -94,3 +94,80 @@ function Figure(el)
   if #imgs == 1 then return pandoc.Para({ imgs[1] }) end
   return el
 end
+
+-- Referencias: se ordenan alfabéticamente (APA) y quedan en una pestaña desplegable
+local titulos_ref = {
+  ["referencias"] = true, ["referencias bibliograficas"] = true,
+  ["bibliografia"] = true, ["obras citadas"] = true,
+}
+
+local acentos = {
+  ["á"]="a", ["é"]="e", ["í"]="i", ["ó"]="o", ["ú"]="u", ["ü"]="u", ["ñ"]="n",
+  ["Á"]="a", ["É"]="e", ["Í"]="i", ["Ó"]="o", ["Ú"]="u", ["Ü"]="u", ["Ñ"]="n",
+  ["à"]="a", ["è"]="e", ["ì"]="i", ["ò"]="o", ["ù"]="u", ["ç"]="c", ["ö"]="o", ["ä"]="a",
+}
+
+local function normal(t)
+  for k, v in pairs(acentos) do t = t:gsub(k, v) end
+  t = t:lower():gsub("^[%s%p]+", "")
+  -- APA: en obras sin autor se ignora el artículo inicial del título
+  for _, art in ipairs({ "the ", "an ", "a ", "el ", "la ", "los ", "las ", "lo ", "un ", "una " }) do
+    if t:sub(1, #art) == art then t = t:sub(#art + 1); break end
+  end
+  return t
+end
+
+-- Separa el bloque de referencias en entradas individuales
+local function entradas(bloques)
+  local lista = {}
+  for _, b in ipairs(bloques) do
+    if b.t == "BulletList" or b.t == "OrderedList" then
+      for _, item in ipairs(b.content) do table.insert(lista, pandoc.Div(item, { class = "tex-refapa" })) end
+    elseif b.t == "Div" and not b.classes:includes("tex-refapa") and #b.content > 1 then
+      for _, x in ipairs(entradas(b.content)) do table.insert(lista, x) end
+    elseif b.t == "Para" or b.t == "Plain" then
+      table.insert(lista, pandoc.Div({ b }, { class = "tex-refapa" }))
+    elseif b.t ~= "HorizontalRule" then
+      table.insert(lista, b)
+    end
+  end
+  return lista
+end
+
+local n_refs = 0
+local function plegable(bloques)
+  n_refs = n_refs + 1
+  local lista = entradas(bloques)
+  local claves = {}
+  for i, e in ipairs(lista) do claves[e] = { normal(pandoc.utils.stringify(e)), i } end
+  table.sort(lista, function(a, b)
+    local x, y = claves[a], claves[b]
+    if x[1] == y[1] then return x[2] < y[2] end
+    return x[1] < y[1]
+  end)
+  local out = pandoc.List({ pandoc.RawBlock("html",
+    '<details class="plegable plegable-refs" id="referencias' .. (n_refs > 1 and ('-' .. n_refs) or '') .. '"><summary>Referencias <span class="refs-n">' ..
+    #lista .. '</span></summary><div class="plegable-body refs-lista">') })
+  out:extend(lista)
+  out:insert(pandoc.RawBlock("html", "</div></details>"))
+  return out
+end
+
+function Pandoc(doc)
+  local nuevos, i, b = pandoc.List(), 1, doc.blocks
+  while i <= #b do
+    local blk = b[i]
+    if blk.t == "Header" and titulos_ref[normal(pandoc.utils.stringify(blk))] then
+      local j, cuerpo = i + 1, pandoc.List()
+      while j <= #b and not (b[j].t == "Header" and b[j].level <= blk.level) do
+        cuerpo:insert(b[j]); j = j + 1
+      end
+      if #cuerpo > 0 then nuevos:extend(plegable(cuerpo)) end
+      i = j
+    else
+      nuevos:insert(blk); i = i + 1
+    end
+  end
+  doc.blocks = nuevos
+  return doc
+end
