@@ -81,3 +81,7 @@ En la ficha de cada palabra (Comparación filológica) y en las palabras clave d
 
 Todos tienen derechos de autor: se leen en modo privado con la misma clave de GitHub de los comentarios privados (se guarda solo en el dispositivo) desde la rama `app-privado` del repositorio privado (`app-privado/lexicos/` y `app-privado/concordancia/`). Lo leído queda guardado en el celular para usarlo sin conexión. Los datos se generan con `herramientas/lexicos_privados.py` del repositorio privado. El código compartido está en `diccionarios.js`, que también usan las páginas del sitio: en los estudios, cada número Strong (escrito en el texto o junto a una palabra hebrea o griega) abre la misma ficha con los diccionarios.
 
+### Léxicos de dominio público (para todos, sin clave)
+
+Junto a los diccionarios privados, la sección «Diccionarios» muestra a cualquier usuario dos léxicos de dominio público, en inglés, por número Strong: BDB (Brown, Driver y Briggs, 1906) para el hebreo y arameo, y Abbott-Smith (1922) para el griego del NT. Están en `lexicos/bdb/` y `lexicos/abbott/` (bloques de 250 números) y funcionan sin conexión. Se generan con `scripts/lexicos_publicos.py` a partir de openscriptures/HebrewLexicon (BDB; marcado CC BY 4.0, Open Scriptures Hebrew Bible Project) y translatable-exegetical-tools/Abbott-Smith. El BDB digital de Open Scriptures trae, en muchas entradas, solo el esquema de acepciones, no el artículo completo.
+

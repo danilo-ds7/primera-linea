@@ -1,11 +1,22 @@
 /* Primera Línea · Diccionarios enlazados por número Strong.
    Lo usan el Lector (app/index.html) y las páginas del sitio (_includes/citas.html).
-   Los diccionarios tienen derechos de autor: se leen en modo privado, con la clave personal de GitHub
+   BDB (1906) y Abbott-Smith (1922) son de dominio público: se leen para todos desde app/lexicos/.
+   Los demás tienen derechos de autor: se leen en modo privado, con la clave personal de GitHub
    guardada en este dispositivo (la misma de los comentarios privados del Lector), desde la rama
    app-privado del repositorio privado danilo-ds7/primera-linea-biblioteca. */
 (function(){
   if(window.PLDic) return;
   var REPO="danilo-ds7/primera-linea-biblioteca", RAMA="app-privado", CLAVE="lector-gh", BLOQUE=250, CACHE="pl-dic-privado";
+  var PUBLICOS=[
+    {id:"bdb", n:"BDB (inglés)", carpeta:"bdb", pref:"H", lang:"en", fuente:"Brown, F., Driver, S. R. y Briggs, C. A. (1906). A Hebrew and English lexicon of the Old Testament. Clarendon Press. Dominio público; edición digital: Open Scriptures Hebrew Bible Project (CC BY 4.0)."},
+    {id:"abbott", n:"Abbott-Smith (inglés)", carpeta:"abbott", pref:"G", lang:"en", fuente:"Abbott-Smith, G. (1922). A manual Greek lexicon of the New Testament. Charles Scribner's Sons. Dominio público; edición digital: translatable-exegetical-tools/Abbott-Smith."}
+  ];
+  var BASE=(function(){ var s=document.currentScript&&document.currentScript.src; return s ? s.slice(0, s.lastIndexOf("/")+1) : ""; })(), pubMem={};
+  function publico(d, cod){
+    var url=BASE+"lexicos/"+d.carpeta+"/"+("00"+Math.floor(parseInt(cod.slice(1),10)/BLOQUE)).slice(-3)+".json";
+    if(!pubMem[url]) pubMem[url]=fetch(url).then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); }).catch(function(e){ delete pubMem[url]; throw e; });
+    return pubMem[url].then(function(j){ return j[cod]||null; });
+  }
   var DICS=[
     {id:"sesp", n:"Strong en español", fuente:"Strong, J. (2002). Nueva concordancia Strong exhaustiva: Diccionario de palabras hebreas, arameas y griegas. Editorial Caribe."},
     {id:"vine", n:"Vine", fuente:"Vine, W. E. (1999). Diccionario expositivo de palabras del Antiguo y del Nuevo Testamento exhaustivo. Editorial Caribe."},
@@ -47,7 +58,7 @@
   ".pd-chip[disabled]{opacity:.45;cursor:default}"+
   ".pd-box{border:1px solid var(--line,#e2e6ee);border-radius:14px;padding:12px 14px;background:var(--surface,#fff);max-height:min(60vh,520px);overflow:auto;overscroll-behavior:contain}"+
   ".pd-box p{margin:0 0 .7em;text-align:left;overflow-wrap:anywhere}.pd-box p:last-child{margin-bottom:0}"+
-  ".pd-box h4{font:700 .8rem/1.3 var(--sans,system-ui,sans-serif);letter-spacing:.06em;text-transform:uppercase;color:var(--accent,#2350b8);margin:0 0 6px}"+
+  ".pd-box h4{font:700 .85rem/1.3 var(--sans,system-ui,sans-serif);letter-spacing:.03em;color:var(--accent,#2350b8);margin:0 0 6px}"+
   ".pd-art+.pd-art{border-top:1px solid var(--line,#e2e6ee);margin-top:12px;padding-top:12px}"+
   ".pd-s{all:unset;cursor:pointer;color:var(--accent,#2350b8);font-weight:700;border-bottom:1px dotted currentColor}"+
   ".pd-mas{all:unset;cursor:pointer;color:var(--accent,#2350b8);font-weight:700;font-size:.85rem}"+
@@ -110,38 +121,43 @@
     opts=opts||{}; estilos(); cont.textContent="";
     var raiz=el("div","pd"); cont.append(raiz);
     raiz.append(el("p","pd-t","Diccionarios · "+cod));
-    if(!token()){
-      var aviso=el("p","pd-fuente","Strong en español, Vine, Chávez, Ortiz, Barclay, BDB y Thayer (portugués) y la concordancia NCSE: disponibles en modo privado.");
-      var ab=el("button","pd-btn sec","Activar modo privado"); ab.type="button";
-      ab.onclick=function(){ aviso.remove(); ab.replaceWith(cajaClave(function(){ render(cont, cod, opts); })); };
-      raiz.append(aviso, ab); return;
-    }
-    var chips=el("div","pd-chips"), box=el("div","pd-box"), fuente=el("p","pd-fuente");
-    raiz.append(chips, box, fuente);
+    var chips=el("div","pd-chips"), box=el("div","pd-box"), fuente=el("p","pd-fuente"), pie=el("div");
+    raiz.append(chips, box, fuente, pie);
     box.textContent="Cargando…";
-    entrada(cod).then(function(E){
-      var hay=DICS.filter(function(d){ return d.conc || E[d.id]; });
-      var botones=[];
-      function elegir(d, b){
+    var tk=token(), pubs=PUBLICOS.filter(function(d){ return d.pref===cod[0]; });
+    var pP=Promise.all(pubs.map(function(d){ return publico(d,cod).catch(function(){ return null; }); }));
+    var pV=tk ? entrada(cod).then(function(E){ return {E:E}; }, function(e){ return {err:e}; }) : Promise.resolve({E:null});
+    Promise.all([pP, pV]).then(function(res){
+      var P=res[0], V=res[1], E=V.E||{}, items=[], botones=[];
+      if(tk && V.E) DICS.forEach(function(d){ if(d.conc || E[d.id]) items.push({d:d, v:E[d.id]}); });
+      pubs.forEach(function(d,k){ if(P[k]) items.push({d:d, v:P[k]}); });
+      function elegir(it, b){
+        var d=it.d, v=it.v;
         botones.forEach(function(x){ x.setAttribute("aria-pressed", x===b?"true":"false"); });
-        box.textContent=""; box.scrollTop=0; fuente.textContent=d.fuente+" Uso privado.";
+        box.textContent=""; box.scrollTop=0; fuente.textContent=d.fuente+(d.carpeta?"":" Uso privado.");
         if(d.conc){
           box.textContent="Cargando…";
           concordancia(cod).then(function(c){ box.textContent=""; if(!Object.keys(c).length){ box.append(el("p",null,"La concordancia no registra este número.")); return; } concordar(box,c); })
             .catch(function(){ box.textContent="No se pudo leer la concordancia. Revisa la conexión."; });
           return;
         }
-        var v=E[d.id];
         if(Array.isArray(v)){ v.forEach(function(a){ var art=el("div","pd-art"); art.append(el("h4",null,a[0])); texto(art,a[1],opts.onStrong,d.lang,v.length>1||a[1].length>1400); box.append(art); }); }
         else texto(box, v, opts.onStrong, d.lang, false);
       }
-      hay.forEach(function(d){ var b=el("button","pd-chip",d.n+(Array.isArray(E[d.id])&&E[d.id].length>1?" ("+E[d.id].length+")":"")); b.type="button"; b.setAttribute("aria-pressed","false"); b.onclick=function(){ elegir(d,b); }; botones.push(b); chips.append(b); });
-      if(hay.length) elegir(hay[0], botones[0]);
-      var q=el("button","pd-btn sec","Quitar la clave de este dispositivo"); q.type="button"; q.onclick=function(){ guardarToken(""); render(cont, cod, opts); }; raiz.append(q);
-    }).catch(function(e){
-      box.textContent="";
-      if(e && e.clave){ box.remove(); fuente.remove(); chips.remove(); var p=el("p","pd-fuente","La clave guardada no tiene acceso al repositorio privado. Guarda una nueva."); raiz.append(p, cajaClave(function(){ render(cont, cod, opts); })); }
-      else box.textContent="No se pudieron leer los diccionarios. Revisa la conexión.";
+      items.forEach(function(it){ var n=Array.isArray(it.v)&&it.v.length>1&&!it.d.carpeta?" ("+it.v.length+")":""; var b=el("button","pd-chip",it.d.n+n); b.type="button"; b.setAttribute("aria-pressed","false"); b.onclick=function(){ elegir(it,b); }; botones.push(b); chips.append(b); });
+      if(items.length) elegir(items[0], botones[0]); else { box.remove(); fuente.remove(); }
+      if(!tk){
+        var aviso=el("p","pd-fuente","Strong en español, Vine, Chávez, Ortiz, Barclay, Strong-PT y la concordancia NCSE tienen derechos de autor: disponibles en modo privado.");
+        var ab=el("button","pd-btn sec","Activar modo privado"); ab.type="button";
+        ab.onclick=function(){ aviso.remove(); ab.replaceWith(cajaClave(function(){ render(cont, cod, opts); })); };
+        pie.append(aviso, ab);
+      } else if(V.err && V.err.clave){
+        pie.append(el("p","pd-fuente","La clave guardada no tiene acceso al repositorio privado. Guarda una nueva."), cajaClave(function(){ render(cont, cod, opts); }));
+      } else if(V.err){
+        pie.append(el("p","pd-fuente","No se pudieron leer los diccionarios privados. Revisa la conexión."));
+      } else {
+        var q=el("button","pd-btn sec","Quitar la clave de este dispositivo"); q.type="button"; q.onclick=function(){ guardarToken(""); render(cont, cod, opts); }; pie.append(q);
+      }
     });
   }
 
