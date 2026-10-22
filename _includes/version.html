@@ -7,7 +7,8 @@
     var m=document.querySelector('meta[name="pl-build"]'); if(!m) return;
     var actual=m.getAttribute('content')||''; if(!actual || actual.indexOf('__')===0) return;
     if(!window.fetch) return;
-    fetch('/primera-linea/version.txt?t='+Date.now(),{cache:'no-store'})
+    var raiz=location.pathname.indexOf('/primera-linea/')===0?'/primera-linea/':'/';
+    fetch(raiz+'version.txt?t='+Date.now(),{cache:'no-store'})
       .then(function(r){ return r.ok ? r.text() : ''; })
       .then(function(v){
         v=(v||'').trim(); if(!v || v===actual) return;
