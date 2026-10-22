@@ -16,17 +16,19 @@
 \usepackage[most]{tcolorbox}
 \usepackage{tikz}\usetikzlibrary{arrows.meta,positioning,calc,decorations.pathreplacing}
 \usepackage{titlesec,fancyhdr,extramarks}
-% Paleta "Israel": café ladrillo (ladrillos de Egipto, Éx 1:14), oro del santuario, piedra de Jerusalén
-\definecolor{cafe}{RGB}{96,52,30}\definecolor{cafeosc}{RGB}{50,25,13}\definecolor{tinta}{RGB}{44,28,18}
-\definecolor{oro}{RGB}{196,148,40}\definecolor{ladrillo}{RGB}{158,70,40}
-\definecolor{piedra}{RGB}{240,228,203}\definecolor{sepia}{RGB}{104,86,62}
+% Paleta "Israel": celeste y azul del tejelet (Nm 15:38) con oro del santuario
+% (nombres conservados por compatibilidad: ladrillo = azul tejelet, cafe = azul real, cafeosc = azul noche,
+%  piedra = celeste claro, sepia = azul pizarra)
+\definecolor{cafe}{RGB}{26,82,150}\definecolor{cafeosc}{RGB}{11,33,74}\definecolor{tinta}{RGB}{20,32,56}
+\definecolor{oro}{RGB}{206,162,52}\definecolor{ladrillo}{RGB}{20,68,140}
+\definecolor{piedra}{RGB}{234,243,251}\definecolor{sepia}{RGB}{72,102,140}\definecolor{celeste}{RGB}{96,166,222}
 \titleformat{\section}{\Large\bfseries\color{ladrillo}}{\thesection.}{0.6em}{}
 \titleformat{\subsection}{\large\bfseries\color{cafe}}{\thesubsection}{0.6em}{}
 \pagestyle{fancy}\fancyhf{}
 \fancyhead[L]{\foreignlanguage{spanish}{\small\itshape\color{sepia}\firstleftmark}}\fancyhead[R]{\foreignlanguage{spanish}{\small\color{sepia}\thepage}}
 \renewcommand{\sectionmark}[1]{\markboth{#1}{}}
 \setlength{\parindent}{1.27cm}\linespread{1.15}\setlength{\emergencystretch}{3em}
-\newtcolorbox{cita}[1][]{enhanced,colback=piedra,colframe=ladrillo!85!oro,boxrule=0pt,leftrule=2.5pt,arc=0pt,
+\newtcolorbox{cita}[1][]{enhanced,colback=piedra,colframe=oro!90!ladrillo,boxrule=0pt,leftrule=2.5pt,arc=0pt,
   left=8pt,right=8pt,top=5pt,bottom=5pt,before skip=8pt,after skip=8pt,fontupper=\itshape,#1}
 \newcommand{\fuente}[1]{\par\hfill{\upshape\bfseries\small\textcolor{ladrillo}{#1}}}
 \newtcolorbox{nota}[1][]{enhanced,colback=oro!12,colframe=oro!80!ladrillo,boxrule=0.6pt,arc=2pt,
