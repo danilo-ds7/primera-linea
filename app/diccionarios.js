@@ -4,6 +4,8 @@
      Strong (1890)        datos/strong-{h,g}-fichas.json  (inglés)  y  datos/strong-{h,g}-es.json  (español)
      BDB (1906)           app/lexicos/bdb/     (inglés)  y  app/lexicos/bdb-es/     (español)   números H
      Abbott-Smith (1922)  app/lexicos/abbott/  (inglés)  y  app/lexicos/abbott-es/  (español)   números G
+     Thayer (1889)        app/lexicos/thayer/  (inglés)  y  app/lexicos/thayer-es/  (español)   números G
+     AHLB (Benner, 2005)  app/lexicos/ahlb/    (inglés)  y  app/lexicos/ahlb-es/    (español)   números H (uso educativo sin fines de lucro)
    De cada diccionario se muestran solo las definiciones. Las traducciones al español son de Primera Línea.
    Se elige un diccionario por pestaña y, en cada uno, el idioma (Español / Inglés). */
 (function(){
@@ -16,7 +18,11 @@
     {id:"bdb", n:"BDB", pref:"H", carpeta:"bdb",
       fuente:"Brown, F., Driver, S. R. y Briggs, C. A. (1906). A Hebrew and English lexicon of the Old Testament. Clarendon Press. Dominio público; edición digital: Open Scriptures Hebrew Bible Project (CC BY 4.0)."},
     {id:"abbott", n:"Abbott-Smith", pref:"G", carpeta:"abbott",
-      fuente:"Abbott-Smith, G. (1922). A manual Greek lexicon of the New Testament. Charles Scribner's Sons. Dominio público; edición digital: translatable-exegetical-tools/Abbott-Smith."}
+      fuente:"Abbott-Smith, G. (1922). A manual Greek lexicon of the New Testament. Charles Scribner's Sons. Dominio público; edición digital: translatable-exegetical-tools/Abbott-Smith."},
+    {id:"thayer", n:"Thayer", pref:"G", carpeta:"thayer",
+      fuente:"Thayer, J. H. (1889). A Greek-English lexicon of the New Testament. American Book Company. Dominio público; edición abreviada «Thayer's Greek Definitions» de e-Sword."},
+    {id:"ahlb", n:"Hebreo antiguo (AHLB)", pref:"H", carpeta:"ahlb",
+      fuente:"Benner, J. A. (2005). Ancient Hebrew lexicon of the Bible. Virtualbookworm. © Jeff A. Benner; se permite copiar con fines educativos sin fines de lucro. Edición de e-Sword."}
   ];
   var mem={};
   function json(url){
