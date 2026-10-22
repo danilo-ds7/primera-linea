@@ -17,6 +17,8 @@ project:
     - "israel/img/**"
     - "predicaciones/pdf/**"
     - "predicaciones/audio/**"
+    - "lineas/*/img/**"
+    - "lineas/*/fonts/**"
   render:
     - "*.qmd"
     - "estudios/*.qmd"

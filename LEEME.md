@@ -39,6 +39,17 @@ Las predicaciones van listas, en PDF y audio, en `estudios/predicaciones/`, sepa
 `scripts/predicaciones.py` genera sus páginas en `predicaciones/` (carpeta generada: no editarla a mano)
 y las muestra en la página **Predicaciones** (`predicaciones.qmd`). Detalle en `estudios/predicaciones/README.md`.
 
+## Líneas de tiempo
+
+Cada línea de tiempo es un HTML interactivo (skill «linea-de-tiempo») guardado como fuente en
+`estudios/lineas/<slug>.html`, con sus figuras TikZ en `estudios/lineas/<slug>/img/` y sus fuentes
+(Latin Modern, GFS Porson) en `estudios/lineas/<slug>/fonts/`. Antes de cada render, `scripts/lineas.py`
+integra cada línea en su página `lineas/<slug>.qmd` (acota el CSS, pasa la pantalla completa al
+contenedor) y la muestra en **Líneas de tiempo** (`lineas.qmd`). Los mapas de atlas, la portada y las
+cronologías se dibujan en TikZ con `python3 scripts/lineas_tikz.py <slug>` (XeLaTeX + pdftocairo),
+que anota en el HTML las rutas y los puntos tocables; hay que correrlo cada vez que cambian los
+mapas o los datos de la línea, y subir los SVG resultantes.
+
 ## Publicación
 
 Cada cambio que llega a GitHub se publica solo (`.github/workflows/publicar.yml`) en

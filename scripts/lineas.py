@@ -6,7 +6,7 @@ ese mismo contenedor.
 Se ejecuta antes de cada render (pre-render en _quarto.yml): toma cada estudios/lineas/<slug>.html
 y escribe lineas/_<slug>.html, que lineas/<slug>.qmd incluye con {{< include _<slug>.html >}}.
 """
-import re, sys
+import re, shutil, sys
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
@@ -76,16 +76,19 @@ def embed(src: Path, dst: Path, ID: str):
     css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
     css = scope(css)
     css += f"""
-    #{ID}{{position:relative;height:min(82vh,860px);min-height:560px;border:1px solid var(--rule);border-radius:12px;overflow:hidden;container-type:size;box-shadow:0 30px 50px -30px rgba(19,26,44,.35);font-size:16px;line-height:1.4}}
+    #{ID}{{position:relative;width:min(100vw - 32px,1440px);margin-left:calc(50% - min(50vw - 16px,720px));height:clamp(720px,90vh,1040px);border:1px solid var(--rule);border-radius:12px;overflow:hidden;container-type:size;box-shadow:0 30px 50px -30px rgba(19,26,44,.35);font-size:16px;line-height:1.4}}
     #{ID} *{{box-sizing:border-box}}
-    #{ID} p,#{ID} h1,#{ID} h2,#{ID} h3{{text-align:left;letter-spacing:0;font-family:var(--f-display)}}
+#{ID}{{font-family:var(--f-display);color:var(--ink)}}
+#{ID} .slide{{padding-block:44px 28px}}
+    #{ID} p,#{ID} li,#{ID} h1,#{ID} h2,#{ID} h3{{text-align:left;letter-spacing:0;font-family:var(--f-display)}}
     #{ID} .slide.tl-portada p{{text-align:center}}
     #{ID} .tl-app{{height:100%}}
     #{ID}.tl-full{{position:fixed;inset:0;z-index:3000;height:100vh;height:100dvh;border-radius:0;border:0}}
     #{ID}:fullscreen{{height:100vh;border-radius:0;border:0}}
     #{ID} .scrim{{z-index:2000}} #{ID} .drawer{{z-index:2001}} #{ID} #pop{{z-index:2002}}
     #{ID} .tl-topbar{{z-index:6}}
-    @media (max-width:600px){{#{ID}{{height:78vh;height:78dvh;min-height:520px}}}}
+#{ID} .tn{{height:254px}} #{ID}:fullscreen .tn,#{ID}.tl-full .tn{{height:258px}}
+    @media (max-width:600px){{#{ID} .tn{{height:206px}} #{ID}{{height:88vh;height:88dvh;min-height:600px;width:100vw;margin-left:calc(50% - 50vw);border-radius:0;border-inline:0}}}}
     """
 
     # --- JS: tema, pantalla completa y teclado sobre el contenedor -------------
@@ -136,3 +139,9 @@ if __name__ == "__main__":
     destino.mkdir(exist_ok=True)
     for src in sorted(origen.glob("*.html")):
         embed(src, destino / f"_{src.stem}.html", f"tl-{src.stem}")
+        for sub in ("img", "fonts"):             # mapas TikZ (scripts/lineas_tikz.py), figuras y fuentes
+            d = origen / src.stem / sub
+            if d.is_dir():
+                dst = destino / src.stem / sub
+                if dst.exists(): shutil.rmtree(dst)
+                shutil.copytree(d, dst)
