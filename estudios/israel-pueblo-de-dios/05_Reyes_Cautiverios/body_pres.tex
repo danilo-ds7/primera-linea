@@ -18,15 +18,27 @@
 % ===================================================
 \section{Introducción}
 \begin{frame}{¿Qué queda de Israel?}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.50\textwidth}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}
 \begin{cita}Así fue llevado Israel cautivo de su tierra a Asiria, hasta hoy.\fuente{(2~R 17:23)}\end{cita}
 \begin{cita}No ha desechado Dios a su pueblo, al cual antes conoció.\fuente{(Ro 11:2)}\end{cita}
-\small Dos veces deja Israel de existir como reino: Samaria en 722 y Jerusalén en 586 a.\,e.\,c.
+\vspace{2pt}
+\begin{clave}\footnotesize Dos veces deja Israel de existir como reino: Samaria en 722 y Jerusalén en 586 a.\,e.\,c. Y dos veces la promesa sobrevive al juicio.\end{clave}
 \end{column}
-\begin{column}{0.47\textwidth}\small
-\destacar{Vocación.} Idolatría, injusticia y un templo convertido en amuleto la quiebran en ambos reinos; la sostienen un remanente, los profetas y desterrados fieles.\par\medskip
-\destacar{Promesa.} En la hora del juicio se ensancha: un remanente que vuelve, un nuevo pacto con las dos casas, un solo reino bajo un rey davídico (Jer 31; Ez 37).
+\begin{column}{0.48\textwidth}\centering
+\begin{tikzpicture}
+\node[bloqueazul,text width=5.2cm,anchor=north] (v) at (0,0) {Vocación: nación santa y reino de sacerdotes (Éx 19:6)};
+\node[bloque,text width=2.35cm,anchor=north] (n) at (-1.4,-1.15) {\textbf{Israel (norte)}\\idolatría e injusticia\\cae ante Asiria, 722};
+\node[bloque,text width=2.35cm,anchor=north] (s) at (1.4,-1.15) {\textbf{Judá (sur)}\\templo como amuleto\\cae ante Babilonia, 586};
+\node[bloqueoro,text width=5.2cm,anchor=north] (r) at (0,-3.35) {Lo que la sostiene: un remanente, los profetas y desterrados fieles};
+\node[bloqueazul,text width=5.2cm,anchor=north] (p) at (0,-4.45) {Promesa: remanente que vuelve, nuevo pacto con las dos casas, un solo rey davídico (Jer 31; Ez 37)};
+\draw[flecha] (-1.4,0|-v.south) -- (n.north);
+\draw[flecha] (1.4,0|-v.south) -- (s.north);
+\draw[flecha] (n.south) -- (n.south|-r.north);
+\draw[flecha] (s.south) -- (s.south|-r.north);
+\draw[flecha] (r) -- (p);
+\end{tikzpicture}
+\elabpropia
 \end{column}
 \end{columns}
 \end{frame}
@@ -35,49 +47,74 @@
 \centering
 \tarjetas{2.95cm}{3.55cm}{0/1/{Israel (norte)}/{Diez tribus encabezadas por Efraín; capitales Siquem, Tirsa y Samaria. Los profetas lo llaman «Efraín», «Samaria» o «casa de Israel».}/{1~R 12:16--20; Os 5:3},
    4.2/2/{Judá (sur)}/{Judá y Benjamín, Jerusalén y la casa de David; con levitas y emigrados de otras tribus.}/{1~R 12:21; 2~Cr 11:13--17},
-   8.4/3/{Israel (el pueblo)}/{Las doce tribus como pueblo del pacto: «toda la casa de Israel».}/{Jer 31:1; Ez 37:11}}\par\vspace{6pt}
-\begin{minipage}{0.95\linewidth}\scriptsize Cada texto indica en qué sentido se emplea.\par
-{\color{sepia}Las citas bíblicas son traducción propia desde el texto hebreo (BHS) y griego (NA28). Numeración española [hebrea] cuando difiere. Fechas a.\,e.\,c. según Thiele (1983).}\end{minipage}
+   8.4/3/{Israel (el pueblo)}/{Las doce tribus como pueblo del pacto: «toda la casa de Israel».}/{Jer 31:1; Ez 37:11}}
+\elabpropia
+\vspace{4pt}
+\begin{notalam}[Convenciones del estudio]
+Cada texto indica en qué sentido se emplea «Israel». Las citas bíblicas son traducción propia desde el texto hebreo (BHS) y griego (NA28); la numeración hebrea va entre corchetes cuando difiere de la española. Fechas a.\,e.\,c. según Thiele (1983).
+\end{notalam}
 \end{frame}
 
 % ===================================================
 \section{Cronología}
 \begin{frame}{Dos reinos, 345 años}
 \centering
-\begin{tikzpicture}[x=1cm,y=0.9cm]
+\begin{tikzpicture}[x=0.95cm,y=1.05cm]
 \draw[line width=1.6pt,cafe,-{Latex[length=3mm]}] (-0.2,0) -- (12.4,0);
 \foreach \a in {900,850,800,750,700,650,600,550}{\draw[cafe,line width=0.6pt] ({\X{\a}},-0.1) -- ({\X{\a}},0.1);}
-\foreach \a in {900,850,750,650,550}{\node[font=\fontsize{4.5}{5}\selectfont,text=sepia,anchor=north,inner sep=1pt] at ({\X{\a}},-0.1) {\a};}
-\fill[oro!45] ({\X{870}},0.28) rectangle ({\X{800}},0.5); \node[font=\fontsize{4.5}{5}\selectfont\itshape,text=cafeosc] at ({\X{835}},0.39) {Elías, Eliseo};
-\fill[oro!45] ({\X{765}},0.28) rectangle ({\X{722}},0.5); \node[font=\fontsize{4.5}{5}\selectfont\itshape,text=cafeosc] at ({\X{743}},0.39) {Amós, Oseas};
-\fill[ladrillo!25] ({\X{740}},-0.38) rectangle ({\X{700}},-0.6); \node[font=\fontsize{4.5}{5}\selectfont\itshape,text=cafeosc] at ({\X{720}},-0.49) {Isaías, Miqueas};
-\fill[ladrillo!25] ({\X{627}},-0.38) rectangle ({\X{582}},-0.6); \node[font=\fontsize{4.5}{5}\selectfont\itshape,text=cafeosc] at ({\X{604}},-0.49) {Jeremías};
-\fill[ladrillo!25] ({\X{593}},-0.66) rectangle ({\X{571}},-0.88); \node[font=\fontsize{4.5}{5}\selectfont\itshape,text=cafeosc,right] at ({\X{571}},-0.77) {Ezequiel};
-\node[font=\scriptsize\bfseries,text=cafe,anchor=east] at (12.4,1.3) {Israel (norte)};
-\node[font=\scriptsize\bfseries,text=ladrillo,anchor=west] at (-0.2,-2.5) {Judá (sur)};
+\foreach \a in {900,850,750,650,550}{\node[font=\fontsize{5}{6}\selectfont,text=sepia,anchor=north,inner sep=1pt] at ({\X{\a}},-0.1) {\a};}
+\fill[oro!45] ({\X{870}},0.26) rectangle ({\X{800}},0.48); \node[font=\fontsize{5}{6}\selectfont\itshape,text=cafeosc] at ({\X{835}},0.37) {Elías, Eliseo};
+\fill[oro!45] ({\X{765}},0.26) rectangle ({\X{722}},0.48); \node[font=\fontsize{5}{6}\selectfont\itshape,text=cafeosc] at ({\X{743}},0.37) {Amós, Oseas};
+\fill[ladrillo!25] ({\X{740}},-0.36) rectangle ({\X{700}},-0.56); \node[font=\fontsize{5}{6}\selectfont\itshape,text=cafeosc] at ({\X{720}},-0.46) {Isaías, Miqueas};
+\fill[ladrillo!25] ({\X{627}},-0.36) rectangle ({\X{582}},-0.56); \node[font=\fontsize{5}{6}\selectfont\itshape,text=cafeosc] at ({\X{604}},-0.46) {Jeremías};
+\fill[ladrillo!25] ({\X{593}},-0.62) rectangle ({\X{571}},-0.82); \node[font=\fontsize{5}{6}\selectfont\itshape,text=cafeosc,right] at ({\X{571}},-0.72) {Ezequiel};
+\node[font=\small\bfseries,text=cafe,anchor=east] at (12.4,1.45) {Israel (norte)};
+\node[font=\small\bfseries,text=ladrillo,anchor=west] at (-0.2,-2.55) {Judá (sur)};
 \foreach \y/\h/\t in {930/0.9/{División (1~R 12)},885/1.85/{Omri; Samaria},841/0.9/{Qarqar (853); Jehú (841)},790/1.7/{Jeroboam~II},722/0.9/{Galilea (732); Samaria (722--720)}}{
   \draw[sepia,line width=0.5pt] ({\X{\y}},0) -- ({\X{\y}},\h);
   \fill[oro] ({\X{\y}},0) circle (2.8pt);
-  \node[above,font=\fontsize{5}{6}\selectfont\bfseries,text=cafe,text width=1.35cm,align=center,inner sep=1pt] at ({\X{\y}},\h) {\t};}
+  \node[above,font=\fontsize{5.5}{6.5}\selectfont\bfseries,text=cafe,text width=1.45cm,align=center,inner sep=1pt] at ({\X{\y}},\h) {\t};}
 \foreach \y/\h/\an/\t in {872/1.0/north/{Josafat},701/1.0/north/{Ezequías ante Senaquerib (701)},622/1.0/north east/{Reforma de Josías (622)},605/2.0/north east/{Carquemis (605); Joaquín (597)},586/1.0/north west/{Caída de Jerusalén (586)},538/2.0/north/{Ciro (538)}}{
   \draw[sepia,line width=0.5pt] ({\X{\y}},0) -- ({\X{\y}},-\h);
   \fill[ladrillo] ({\X{\y}},0) circle (2.8pt);
-  \node[anchor=\an,font=\fontsize{5}{6}\selectfont\bfseries,text=ladrillo,text width=1.3cm,align=center,inner sep=1pt] at ({\X{\y}},-\h) {\t};}
-\end{tikzpicture}\par\vspace{2pt}
-{\fontsize{5}{6}\selectfont\color{sepia}\raggedleft\textit{Nota.} Elaboración propia. Fechas aproximadas (Thiele, 1983); bandas: actividad de los profetas.\par}
+  \node[anchor=\an,font=\fontsize{5.5}{6.5}\selectfont\bfseries,text=ladrillo,text width=1.4cm,align=center,inner sep=1pt] at ({\X{\y}},-\h) {\t};}
+\end{tikzpicture}
+\notafig{Elaboración propia a partir de Thiele (1983). Fechas aproximadas; las bandas marcan la actividad de los profetas.}
+\end{frame}
+
+\begin{frame}{Tres fechas en debate}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}\centering
+\begin{tikzpicture}[node distance=0.35cm]
+\node[bloqueazul,text width=1.3cm,minimum height=1.05cm] (a) {Samaria};
+\node[bloque,text width=3.6cm,right=0.3cm of a,minimum height=1.05cm] (a2) {Asedio: Salmanasar~V (2~R 17:3--6). Conquista: Sargón~II. Toma 722, deportación 720.};
+\node[bloqueazul,text width=1.3cm,minimum height=1.05cm,below=of a] (b) {Ezequías};
+\node[bloque,text width=3.6cm,right=0.3cm of b,minimum height=1.05cm] (b2) {Sincronía con Oseas (18:9--10) y año 14 en 701 (18:13): ¿corregencia?};
+\node[bloqueazul,text width=1.3cm,minimum height=1.05cm,below=of b] (c) {Jerusalén};
+\node[bloque,text width=3.6cm,right=0.3cm of c,minimum height=1.05cm] (c2) {586 (Thiele, 1983) o 587 a.\,e.\,c.};
+\foreach \p/\q in {a/a2,b/b2,c/c2}{\draw[flecha] (\p) -- (\q);}
+\end{tikzpicture}
+\notafig{Elaboración propia a partir de Becking (1992) y Thiele (1983).}
+\end{column}
+\begin{column}{0.48\textwidth}
+\begin{notalam}[Por qué difieren]
+Las fuentes asirias y bíblicas atribuyen la caída de Samaria a reyes distintos; los sincronismos de Reyes cuentan los años de reinado con criterios diferentes; el año de la caída de Jerusalén depende del cómputo del año de subida al trono.
+\end{notalam}
+\begin{clave}\footnotesize Ninguna de estas diferencias altera la secuencia de los hechos.\end{clave}
+\end{column}
+\end{columns}
 \end{frame}
 
 \begin{frame}{Dos reinos en el mapa}
 \begin{columns}[c,onlytextwidth]
-\begin{column}{0.40\textwidth}\centering\includegraphics[width=\linewidth,height=0.86\textheight,keepaspectratio]{mapa_division.pdf}\par\vspace{1pt}{\fontsize{4.5}{5.5}\selectfont\color{sepia}\textit{Nota.} Elaboración propia (GSHHS/WDB, Basemap); ubicaciones aproximadas.\par}\end{column}
-\begin{column}{0.58\textwidth}\scriptsize
+\begin{column}{0.40\textwidth}\centering\includegraphics[width=\linewidth,height=0.84\textheight,keepaspectratio]{mapa_division.pdf}\par\vspace{1pt}{\fontsize{4.5}{5.5}\selectfont\color{sepia}\textit{Nota.} Elaboración propia (GSHHS/WDB, Basemap); ubicaciones aproximadas.\par}\end{column}
+\begin{column}{0.57\textwidth}\scriptsize
 \input{crops/mapa_division_leyenda.tex}\medskip
 
-\renewcommand{\arraystretch}{1.15}
+\renewcommand{\arraystretch}{1.18}
 \begin{tabular}{>{\RaggedRight\arraybackslash}p{2.75cm}>{\RaggedRight\arraybackslash}p{3.05cm}}
 \toprule
-\textbf{Israel (norte)} & \textbf{Judá}\\\midrule
-9 dinastías, 19 reyes; 7 asesinados & 1 dinastía (David), 19 reyes y Atalía\\
+{\color{ladrillo}\bfseries Israel (norte)} & {\color{ladrillo}\bfseries Judá}\\\midrule
 Jeroboam~I (931--910) & Roboam (931--913); Asa\\
 Omri (885--874), Acab & Josafat (872--848)\\
 Jehú (841--814) & Joás; Uzías (792--740)\\
@@ -86,10 +123,33 @@ Manahem; Peka & Manasés (697--642)\\
 Oseas (732--722) & Josías (640--609)\\
 --- & Joacim, Joaquín, Sedequías (609--586)\\
 \bottomrule
-\end{tabular}\par\smallskip
-Aun con reyes infieles, Judá se sostiene por la promesa a David: «por amor a David mi siervo» (1~R 11:13; 2~R 8:19).
+\end{tabular}
+\notafig{Elaboración propia a partir de Thiele (1983).}
 \end{column}
 \end{columns}
+\end{frame}
+
+\begin{frame}{Nueve dinastías y una sola}
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm]
+\node[font=\small\bfseries,text=cafe,anchor=west] at (0,2.15) {Israel (norte): 9 dinastías, 19 reyes, 7 asesinados};
+\foreach \i/\n in {0/{Jeroboam~I},1/{Baasa},2/{Zimri},3/{Omri\\(Acab)},4/{Jehú\\(Jerob.~II)},5/{Salum},6/{Manahem},7/{Peka},8/{Oseas}}{
+  \node[bloque,minimum width=1.12cm,minimum height=0.85cm,text width=1.02cm,inner sep=2pt,font=\fontsize{5.5}{6.5}\selectfont] (d\i) at (0.6+\i*1.36,1.3) {\n};}
+\foreach \i [evaluate=\i as \j using int(\i+1)] in {0,...,7}{\draw[oro!90!ladrillo,line width=1pt] (d\i.east) -- (d\j.west);
+  \draw[oro!80!ladrillo,line width=1.2pt] ($(d\i.east)!0.5!(d\j.west)+(-0.03,-0.14)$) -- ++(0.06,0.28);}
+\node[font=\fontsize{5.5}{6.5}\selectfont,text=sepia,anchor=north west] at (0,0.75) {Cada trazo dorado marca un cambio de dinastía, casi siempre por golpe de Estado.};
+\node[font=\small\bfseries,text=ladrillo,anchor=west] at (0,-0.1) {Judá (sur): 1 dinastía, la de David, 19 reyes y Atalía};
+\fill[ladrillo] (0.05,-0.95) rectangle (7.7,-0.5);
+\fill[oro!70] (7.7,-0.95) rectangle (8.25,-0.5);
+\fill[ladrillo] (8.25,-0.95) rectangle (11.9,-0.5);
+\node[font=\scriptsize\bfseries,text=white] at (3.9,-0.725) {Casa de David: Roboam \ldots\ Josafat, Ocozías};
+\node[font=\scriptsize\bfseries,text=white] at (10.07,-0.725) {Joás \ldots\ Josías, Sedequías};
+\draw[sepia,line width=0.5pt] (7.97,-0.95) -- (7.97,-1.3);
+\node[etiq,anchor=north,text width=4.4cm] at (7.97,-1.3) {Atalía (seis años, 2~R 11): la promesa queda a salvo en un niño escondido en el templo, Joás};
+\end{tikzpicture}
+\notafig{Elaboración propia.}
+\vspace{2pt}
+\begin{clave}\footnotesize La promesa de 2~S 7:16 sostiene a Judá aun bajo reyes infieles: «por amor a David mi siervo» (1~R 11:13; 2~R 8:19).\end{clave}
 \end{frame}
 
 % ===================================================
@@ -99,8 +159,11 @@ Aun con reyes infieles, Judá se sostiene por la promesa a David: «por amor a D
 \tarjetas{3.25cm}{2.65cm}{0/1/{Estela de Mesa}/{«Omri era rey de Israel y oprimió a Moab muchos días». Menciona a YHWH (cf. 2~R 3:4--5).}/{c. 840; Louvre},
    3.15/2/{Monolito de Kurkh}/{«Acab el israelita» en Qarqar con 2.000 carros, el mayor contingente de la coalición.}/{853; Salmanasar III},
    6.3/3/{Obelisco Negro}/{«Jehú, hijo de Omri», postrado ante el rey asirio. «Hijo de Omri» designa al reino.}/{841; Museo Británico},
-   9.45/4/{Sargón II}/{«Sitié y conquisté Samaria; llevé cautivos a 27.290 habitantes» y la repoblé (cf. 2~R 17:24).}/{Jorsabad; Nimrud: 27.280}}\par\vspace{5pt}
-\begin{minipage}{0.95\linewidth}\scriptsize También: \textbf{Tel Dan} (un rey arameo dice haber matado a [Jo]ram de Israel y a [Ocoz]ías de la «casa de David»; cf. 2~R 9); \textbf{Tiglat-pileser~III} («derrocaron a Peka y puse a Oseas», cf. 2~R 15:29--30); \textbf{ostracones de Samaria} (s. \textsc{viii}: nombres con \emph{-yau} y con Baal; cf. Os 2:16--17 [2:18--19]).\end{minipage}
+   9.45/4/{Sargón II}/{«Sitié y conquisté Samaria; llevé cautivos a 27.290 habitantes» y la repoblé (cf. 2~R 17:24).}/{Jorsabad; Nimrud: 27.280}}
+\elabpropia
+\begin{notalam}[Otros testimonios del norte]
+\textbf{Tel Dan}: un rey arameo dice haber matado a [Jo]ram de Israel y a [Ocoz]ías de la «casa de David» (cf. 2~R 9). \textbf{Tiglat-pileser~III}: «derrocaron a Peka y puse a Oseas» (cf. 2~R 15:29--30). \textbf{Ostracones de Samaria} (s. \textsc{viii}): nombres con \emph{-yau} y con Baal (cf. Os 2:16--17 [2:18--19]).
+\end{notalam}
 \end{frame}
 
 \begin{frame}{Judá ante Asiria}
@@ -108,8 +171,11 @@ Aun con reyes infieles, Judá se sostiene por la promesa a David: «por amor a D
 \tarjetas{3.25cm}{2.65cm}{0/1/{Prisma de Senaquerib}/{46 ciudades tomadas; Ezequías encerrado «como un pájaro en su jaula». No dice haber tomado Jerusalén.}/{701; cf. 2~R 18:13--19:36},
    3.15/2/{Relieves de Laquis}/{El asedio en piedra en Nínive; en Laquis, la rampa asiria y el estrato destruido.}/{Ussishkin, 1982},
    6.3/3/{Túnel de Siloé}/{Unos 533 m desde Guijón; la inscripción narra el encuentro de las cuadrillas. Datación c. 700.}/{2~R 20:20; Frumkin et al., 2003},
-   9.45/4/{Bulas y amuletos}/{«De Ezequías [hijo de] Acaz, rey de Judá». Ketef Hinom: Nm 6:24--26 en plata.}/{Barkay et al., 2004}}\par\vspace{5pt}
-\begin{minipage}{0.95\linewidth}\precision{la bula «Yesha\textquoteright yah[u] \emph{nby}» se ha propuesto como del profeta Isaías (Mazar, 2018), pero falta la última letra y la lectura es discutida.}\end{minipage}
+   9.45/4/{Bulas y amuletos}/{«De Ezequías [hijo de] Acaz, rey de Judá». Ketef Hinom: Nm 6:24--26 en plata.}/{Barkay et al., 2004}}
+\elabpropia
+\begin{notalam}[Debate: ¿la firma de Isaías?]
+La bula «Yesha\textquoteright yah[u] \emph{nby}» se ha propuesto como del profeta Isaías (Mazar, 2018), pero falta la última letra y la lectura es discutida.
+\end{notalam}
 \end{frame}
 
 \begin{frame}{Judá ante Babilonia}
@@ -117,25 +183,37 @@ Aun con reyes infieles, Judá se sostiene por la promesa a David: «por amor a D
 \tarjetas{3.25cm}{2.65cm}{0/1/{Crónica babilónica}/{Carquemis (605). «El 2 de Adar tomó la ciudad de Judá, capturó al rey y nombró uno de su elección».}/{16 mar. 597; Grayson, 1975},
    3.15/2/{Tablillas de Weidner}/{Raciones de aceite para «Ya\textquoteright ukinu, rey de Yahudu», y sus cinco hijos.}/{c. 592; cf. 2~R 25:27--30},
    6.3/3/{Cartas de Laquis}/{«Estamos atentos a las señales de Laquis [\ldots] porque no vemos Azeca».}/{c. 588; cf. Jer 34:7},
-   9.45/4/{Estrato de 586}/{Casas quemadas, puntas de flecha; bula de «Gemaryahu hijo de Safán».}/{Shiloh, 1986; cf. Jer 36:10}}\par\vspace{5pt}
-\begin{minipage}{0.95\linewidth}\scriptsize \textbf{Al-Yahudu} (c. 572--477): contratos de una aldea babilónica llamada «ciudad de Judá», con nombres yahvistas durante generaciones (Pearce y Wunsch, 2014): los desterrados «edificaron casas y plantaron huertos» (Jer 29:5).\end{minipage}
+   9.45/4/{Estrato de 586}/{Casas quemadas, puntas de flecha; bula de «Gemaryahu hijo de Safán».}/{Shiloh, 1986; cf. Jer 36:10}}
+\elabpropia
+\begin{notalam}[Al-Yahudu, «ciudad de Judá» (c. 572--477)]
+Contratos de una aldea babilónica con nombres yahvistas durante generaciones (Pearce y Wunsch, 2014): los desterrados «edificaron casas y plantaron huertos» (Jer 29:5).
+\end{notalam}
 \end{frame}
 
 % ===================================================
 \section{El norte}
 \begin{frame}{Un trono sin pacto}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.50\textwidth}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.46\textwidth}
 \begin{cita}He aquí tus dioses, oh Israel, que te hicieron subir de la tierra de Egipto.\fuente{(1~R 12:28; cf. Éx 32:4)}\end{cita}
-\small Becerros en Betel y Dan, sacerdotes no levitas, calendario alterado (1~R 12:28--33). Desde entonces, «el pecado de Jeroboam» es el estribillo de Reyes.
+\footnotesize Jeroboam~I da al norte un culto propio, separado de Jerusalén. Desde entonces, «el pecado de Jeroboam» es el estribillo de Reyes.
+\begin{clave}\footnotesize Ya desde el cisma, en Judá confluyen fieles de todas las tribus.\end{clave}
 \end{column}
-\begin{column}{0.47\textwidth}\small
-\textbf{\textcolor{cafe}{Migraciones al sur}}
-\begin{itemize}
-\item Bajo Roboam: sacerdotes, levitas y fieles «de todas las tribus» (2~Cr 11:13--16).
-\item Bajo Asa: de Efraín, Manasés y Simeón (2~Cr 15:9).
-\end{itemize}
-\precision{ya desde el cisma, en Judá confluyen fieles de todas las tribus.}
+\begin{column}{0.50\textwidth}\centering
+\begin{tikzpicture}[node distance=0.3cm]
+\node[bloque,text width=1.65cm,minimum height=0.95cm] (a) {Becerros en Betel y Dan};
+\node[bloque,text width=1.65cm,minimum height=0.95cm,right=0.2cm of a] (b) {Sacerdotes no levitas};
+\node[bloque,text width=1.65cm,minimum height=0.95cm,right=0.2cm of b] (c) {Calendario alterado};
+\node[etiq,above=0.12cm of b] {1~R 12:28--33};
+\node[bloqueazul,text width=5.6cm,below=0.5cm of b] (p) {«El pecado de Jeroboam»};
+\foreach \n in {a,b,c}{\draw[flecha] (\n.south) -- (\n.south|-p.north);}
+\node[bloqueoro,text width=2.45cm,anchor=north] (r) at ($(p.south)+(-1.4,-0.75)$) {\textbf{Bajo Roboam}\\sacerdotes, levitas y fieles «de todas las tribus» (2~Cr 11:13--16)};
+\node[bloqueoro,text width=2.45cm,anchor=north] (s) at ($(p.south)+(1.4,-0.75)$) {\textbf{Bajo Asa}\\de Efraín, Manasés y Simeón (2~Cr 15:9)};
+\draw[flecha] ($(p.south)+(-1.4,0)$) -- (r.north);
+\draw[flecha] ($(p.south)+(1.4,0)$) -- (s.north);
+\node[etiq,font=\tiny\bfseries,text=ladrillo] at ($(p.south)+(0,-0.38)$) {migración a Judá};
+\end{tikzpicture}
+\elabpropia
 \end{column}
 \end{columns}
 \end{frame}
@@ -144,13 +222,11 @@ Aun con reyes infieles, Judá se sostiene por la promesa a David: «por amor a D
 \fotolado{panel_1r19.jpg}{Elaboración propia: 1~R 19:18 en texto hebreo consonántico (BHS).}
 \begin{columns}[c,onlytextwidth]
 \begin{column}{0.57\textwidth}
-\small «¿Hasta cuándo saltaréis entre dos ramas?» (1~R 18:21). Elías reconstruye el altar con \destacar{doce piedras}, una por tribu (18:31): en pleno reino del norte, Israel sigue siendo de doce tribus.
+\footnotesize «¿Hasta cuándo saltaréis entre dos ramas?» (1~R 18:21). Elías reconstruye el altar con \destacar{doce piedras}, una por tribu (18:31): en pleno reino del norte, Israel sigue siendo de doce tribus.
 \begin{cita}Haré que queden en Israel siete mil: todas las rodillas que no se doblaron ante Baal.\fuente{(1~R 19:18)}\end{cita}
-\scriptsize
-\begin{itemize}
-\item \heb{וְהִשְׁאַרְתִּי} (\emph{ve-hish'arti}), hifil causativo: Dios es quien deja el remanente.
-\item Misma raíz que \heb{שְׁאָר} y \heb{שְׁאֵרִית}, «remanente».
-\end{itemize}
+\begin{notalam}[Hebreo]
+\heb{וְהִשְׁאַרְתִּי} (\emph{ve-hish'arti}) es hifil causativo: es Dios quien deja el remanente. Comparte raíz con \heb{שְׁאָר} y \heb{שְׁאֵרִית}, «remanente».
+\end{notalam}
 \end{column}
 \begin{column}{0.41\textwidth}\end{column}
 \end{columns}
@@ -164,43 +240,73 @@ Aun con reyes infieles, Judá se sostiene por la promesa a David: «por amor a D
 \node[caja,text width=3.3cm,align=center,right=of g] (p) {\textbf{Pablo (Ro 11:4--5)}\\[3pt]\grc{κατέλιπον ἐμαυτῷ}\\[2pt]\grc{τῇ Βάαλ}\\[1pt]\grc{λεῖμμα κατ᾽ ἐκλογὴν χάριτος}};
 \draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (h) -- (g);
 \draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (g) -- (p);
-\end{tikzpicture}\par\vspace{6pt}
+\end{tikzpicture}
+\elabpropia
 \begin{cita}Así también, en el tiempo presente, ha quedado un remanente escogido por gracia.\fuente{(Ro 11:5)}\end{cita}
-\begin{minipage}{0.95\linewidth}\precision{el femenino \grc{τῇ Βάαλ} quizá refleja la lectura \grc{αἰσχύνη}, «vergüenza», en lugar del ídolo (cf. Is-boset, 2~S 2:8). Hipótesis razonable, aún sin demostrar (Moo, 1996).}\end{minipage}
+\begin{notalam}[Filología: el femenino \grc{τῇ Βάαλ}]
+Quizá refleja la lectura \grc{αἰσχύνη}, «vergüenza», en lugar del nombre del ídolo (cf. Is-boset, 2~S 2:8). Hipótesis razonable, aún sin demostrar (Moo, 1996).
+\end{notalam}
 \end{frame}
 
 \begin{frame}{Eliseo, Jehú y Jeroboam II}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.48\textwidth}\small
-\begin{itemize}
-\item \textbf{Eliseo}: Naamán el arameo confiesa que «no hay Dios en toda la tierra sino en Israel» (2~R 5:15; Lc 4:27).
-\item \textbf{Jehú}: extermina la casa de Acab y el culto a Baal, pero conserva los becerros (2~R 10:29); Oseas anuncia juicio por «la sangre de Jezreel» (Os 1:4).
-\item \textbf{Jeroboam~II}: máxima extensión del norte, según Jonás hijo de Amitai (2~R 14:25).
-\end{itemize}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}\centering
+\begin{tikzpicture}[x=1cm,y=1cm]
+\coordinate (prev) at (0.25,0.12);
+\foreach \t/\d [count=\k] in {{Eliseo}/{Naamán el arameo: «no hay Dios en toda la tierra sino en Israel» (2~R 5:15; Lc 4:27)},
+  {Jehú (841)}/{Extermina la casa de Acab y el culto a Baal, pero conserva los becerros (2~R 10:29); Oseas: «la sangre de Jezreel» (Os 1:4)},
+  {Jeroboam~II (793--753)}/{Máxima extensión del norte, según Jonás hijo de Amitai (2~R 14:25)}}{
+  \node[anchor=north west,text width=5.2cm,font=\footnotesize,inner sep=1pt] (t\k) at (prev) {\textbf{\textcolor{ladrillo}{\t}}\\[1pt]\d};
+  \coordinate (prev) at ([yshift=-9pt]t\k.south west);}
+\draw[line width=1.4pt,cafe] (0,0.2) -- (0,0|-t3.south);
+\foreach \k in {1,2,3}{\node[hito] at ([yshift=-4pt]0,0|-t\k.north) {};}
+\end{tikzpicture}
+\elabpropia
 \end{column}
-\begin{column}{0.49\textwidth}
+\begin{column}{0.48\textwidth}
 \centering{\heb{וְלֹא־דִבֶּר יְהוָה לִמְחוֹת}}\\[-1pt]{\heb{אֶת־שֵׁם יִשְׂרָאֵל מִתַּחַת הַשָּׁמָיִם}}\par\smallskip
 \begin{cita}Y YHWH no había dicho que borraría el nombre de Israel de debajo del cielo.\fuente{(2~R 14:27)}\end{cita}
-\small «Israel» = reino del norte. Su prosperidad nace de la misericordia divina.
+\begin{clave}\footnotesize Aquí «Israel» es el reino del norte. Su prosperidad bajo Jeroboam~II nace de la misericordia divina, no de su fidelidad.\end{clave}
 \end{column}
 \end{columns}
 \end{frame}
 
 \begin{frame}{Amós y Oseas: «no mi pueblo»}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.48\textwidth}\small
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.45\textwidth}\footnotesize
 \textbf{\textcolor{cafe}{Amós}} (de Tecoa, en Betel): «solo a vosotros he conocido [\ldots]; por eso os castigaré» (Am 3:2). Zarandeados entre las naciones, «no caerá un grano a tierra» (9:9).\par\medskip
-\textbf{\textcolor{cafe}{Oseas}}: Jezreel, Lo-Ruhamá, \destacar{Lo-Ammí}.
+\textbf{\textcolor{cafe}{Oseas}}, único profeta escritor del norte, nombra a sus hijos Jezreel, Lo-Ruhamá y \destacar{Lo-Ammí}.\par\smallskip
 \centering{\heb{כִּי אַתֶּם לֹא עַמִּי וְאָנֹכִי לֹא־אֶהְיֶה לָכֶם}}\par
 \RaggedRight\scriptsize «No sois mi pueblo, y yo no seré vuestro» (Os 1:9): \heb{לֹא־אֶהְיֶה} niega el \heb{אֶהְיֶה} de Éx 3:14.
 \end{column}
-\begin{column}{0.49\textwidth}
-\begin{cita}[fontupper=\scriptsize\itshape]En el lugar donde se les dijo: «No sois mi pueblo», se les dirá: «Hijos del Dios viviente». Y se reunirán los hijos de Judá y los hijos de Israel, y se pondrán una sola cabeza.\fuente{(Os 1:10--11 [2:1--2])}\end{cita}
-\scriptsize
-\begin{itemize}
-\item La cabeza: «David su rey [\ldots] al fin de los días» (Os 3:5).
-\item Pablo cita Oseas en Ro 9:25--26 y lo aplica a los llamados «también de los gentiles» (9:24): lectura analógica (Moo, 1996).
-\end{itemize}
+\begin{column}{0.52\textwidth}\centering
+\begin{tikzpicture}[node distance=0.25cm]
+\node[font=\scriptsize\bfseries,text=ladrillo] at (-1.6,0) {Juicio};
+\node[font=\scriptsize\bfseries,text=ladrillo] at (1.75,0) {Reversión};
+\node[bloque,text width=2.55cm,minimum height=0.95cm] (j1) at (-1.6,-0.75) {\textbf{Jezreel}\\«la sangre de Jezreel» (1:4)};
+\node[bloqueoro,text width=2.55cm,minimum height=0.95cm] (r1) at (1.75,-0.75) {«Dios siembra» (2:22--23 [2:24--25])};
+\node[bloque,text width=2.55cm,minimum height=0.95cm] (j2) at (-1.6,-2.0) {\textbf{Lo-Ammí}\\«no mi pueblo» (1:9)};
+\node[bloqueoro,text width=2.55cm,minimum height=0.95cm] (r2) at (1.75,-2.0) {«Hijos del Dios viviente» (1:10 [2:1])};
+\node[bloque,text width=2.55cm,minimum height=0.95cm] (j3) at (-1.6,-3.25) {\textbf{Dos casas}\\Israel y Judá divididos};
+\node[bloqueoro,text width=2.55cm,minimum height=0.95cm] (r3) at (1.75,-3.25) {«Una sola cabeza» (1:11 [2:2]): «David su rey» (3:5)};
+\foreach \i in {1,2,3}{\draw[flecha] (j\i) -- (r\i);}
+\end{tikzpicture}
+\elabpropia
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Oseas en Romanos 9}
+\begin{cita}En el lugar donde se les dijo: «No sois mi pueblo», se les dirá: «Hijos del Dios viviente». Y se reunirán los hijos de Judá y los hijos de Israel, y se pondrán una sola cabeza.\fuente{(Os 1:10--11 [2:1--2])}\end{cita}
+\vspace{2pt}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}
+\begin{clave}\footnotesize Oseas distingue: los «hijos de Israel» (el norte llamado Lo-Ammí) y los «hijos de Judá» se reúnen bajo una sola cabeza, «David su rey [\ldots] al fin de los días» (Os 3:5).\end{clave}
+\end{column}
+\begin{column}{0.48\textwidth}
+\begin{notalam}[Pablo y Oseas]
+Pablo cita Oseas en Ro 9:25--26 y lo aplica a los llamados «también de los gentiles» (9:24). Lectura mayoritaria: por analogía; si Dios llamó «mi pueblo» a quienes había declarado «no mi pueblo», puede llamar también a quienes nunca lo fueron (Moo, 1996).
+\end{notalam}
 \end{column}
 \end{columns}
 \end{frame}
@@ -214,143 +320,241 @@ Aun con reyes infieles, Judá se sostiene por la promesa a David: «por amor a D
 \end{columns}
 \end{frame}
 
-\begin{frame}{La caída de Samaria: claves}
-\small\RaggedRight
-\begin{cita}[fontupper=\scriptsize\itshape]El rey de Asiria tomó Samaria y llevó a Israel cautivo a Asiria, y los puso en Halah, en el Habor, río de Gozán, y en las ciudades de los medos.\fuente{(2~R 17:6)}\end{cita}
-Fases: Galilea y Galaad (733--732); Samaria (722--720).\par\smallskip
-\precision{27.290 deportados según Sargón; el resto son estimaciones. Halah: ubicación incierta.}
+\begin{frame}{La caída de Samaria: fases}
+\begin{cita}El rey de Asiria tomó Samaria y llevó a Israel cautivo a Asiria, y los puso en Halah, en el Habor, río de Gozán, y en las ciudades de los medos.\fuente{(2~R 17:6)}\end{cita}
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm]
+\draw[line width=1.6pt,cafe,-{Latex[length=3mm]}] (0,0) -- (12.3,0);
+\foreach \x/\a/\t/\d in {1.4/{733--732}/{Galilea y Galaad}/{Tiglat-pileser~III (2~R 15:29; 1~Cr 5:26)},
+   4.5/{c. 725--722}/{Asedio de tres años}/{Salmanasar~V; Oseas dejó de pagar tributo (2~R 17:4--5)},
+   7.6/{722}/{Toma de Samaria}/{«En el año noveno de Oseas» (2~R 17:6)},
+   10.7/{720}/{Deportación}/{Sargón~II: 27.290 cautivos; colonos traídos (17:24)}}{
+  \node[hito,minimum size=7pt] at (\x,0) {};
+  \node[font=\scriptsize\bfseries,text=cafe,above=4pt] at (\x,0) {\a};
+  \node[anchor=north,text width=2.75cm,align=center,font=\scriptsize,inner sep=1pt] at (\x,-0.25) {\textbf{\textcolor{ladrillo}{\t}}\\[1pt]\d};}
+\end{tikzpicture}
+\notafig{Elaboración propia a partir de Becking (1992). Las fases de 725 y 722 siguen 2~R 17:4--6.}
+\begin{notalam}[Precisión sobre las cifras]
+Los 27.290 de Sargón corresponden a Samaria y no incluyen Galilea ni Galaad. La población del norte (300.000--400.000) y el porcentaje deportado son estimaciones modernas (Broshi y Finkelstein, 1992). La ubicación de Halah es incierta.
+\end{notalam}
 \end{frame}
 
 \begin{frame}{El sermón de 2 Reyes 17:7--23}
-\centering\scriptsize\renewcommand{\arraystretch}{1.18}
-\begin{tabular}{>{\RaggedRight\arraybackslash}p{1.35cm}>{\RaggedRight\arraybackslash}p{5.0cm}>{\RaggedRight\arraybackslash}p{4.6cm}}
-\toprule
-\textbf{Vv.} & \textbf{Contenido} & \textbf{Observación}\\\midrule
-17:7--12 & Pecaron contra YHWH, «que los sacó de Egipto»: lugares altos, aseras, ídolos & El destierro invierte el Éxodo\\
-17:13 & Amonestó «a Israel y a Judá»: «Volveos (\heb{שֻׁבוּ}) de vuestros malos caminos» & Judá incluido desde ya\\
-17:14--17 & «Siguieron la vanidad y se hicieron vanos» (\heb{הַהֶבֶל וַיֶּהְבָּלוּ}) & Uno se vuelve lo que adora (Jer 2:5)\\
-17:18 & «No quedó sino solo la tribu de Judá» & Judá con Benjamín y emigrados\\
-17:19--20 & «Tampoco Judá guardó [\ldots]»; desechó a «toda la descendencia de Israel» & Aquí «Israel» = el pueblo completo\\
-17:21--23 & El pecado de Jeroboam; «llevado cautivo [\ldots] hasta hoy» & La palabra profética se cumplió\\
-\bottomrule
-\end{tabular}\par\vspace{6pt}
-\begin{minipage}{0.95\linewidth}\small Escrito para judaítas en el exilio, el sermón tiene a Judá a la vista. Su verbo central, \emph{shuv}, «volverse», será también el del regreso.\end{minipage}
-\end{frame}
-
-\begin{frame}{Repoblamiento y samaritanos}
-\begin{columns}[t,onlytextwidth]
+\centering
+\begin{tikzpicture}[node distance=0.24cm]
+\node[bloque,text width=1.92cm,minimum height=1.25cm] (a) {\textbf{17:7--12}\\Olvidan al Dios «que los sacó de Egipto»};
+\node[bloque,text width=1.92cm,minimum height=1.25cm,right=of a] (b) {\textbf{17:13}\\«Volveos» (\heb{שֻׁבוּ}) a Israel y a Judá};
+\node[bloque,text width=1.92cm,minimum height=1.25cm,right=of b] (c) {\textbf{17:14--17}\\«Siguieron la vanidad y se hicieron vanos»};
+\node[bloque,text width=1.92cm,minimum height=1.25cm,right=of c] (d) {\textbf{17:18--20}\\Solo queda Judá; «tampoco Judá guardó»};
+\node[bloqueazul,text width=1.92cm,minimum height=1.25cm,right=of d] (e) {\textbf{17:21--23}\\«Llevado cautivo [\ldots] hasta hoy»};
+\foreach \p/\q in {a/b,b/c,c/d,d/e}{\draw[flecha] (\p) -- (\q);}
+\node[etiq,below=0.08cm of a,text width=1.95cm] {El destierro invierte el Éxodo};
+\node[etiq,below=0.08cm of b,text width=1.95cm] {Judá incluido desde ya};
+\node[etiq,below=0.08cm of c,text width=1.95cm] {Uno se vuelve lo que adora (Jer 2:5)};
+\node[etiq,below=0.08cm of d,text width=1.95cm] {Aquí «Israel» = el pueblo completo};
+\node[etiq,below=0.08cm of e,text width=1.95cm] {La palabra profética se cumplió};
+\end{tikzpicture}
+\notafig{Elaboración propia a partir de 2~R 17:7--23.}
+\vspace{4pt}
+\begin{columns}[T,onlytextwidth]
 \begin{column}{0.48\textwidth}
-\begin{cita}[fontupper=\scriptsize\itshape]El rey de Asiria trajo gente de Babilonia, de Cuta, de Ava, de Hamat y de Sefarvaim, y la puso en las ciudades de Samaria en lugar de los hijos de Israel.\fuente{(2~R 17:24)}\end{cita}
-\small «Temían a YHWH y servían a sus dioses» (17:33; cf. Esd 4:2, 10).
+\begin{notalam}[Hebreo: \emph{hével / yehbalú}]
+\heb{הַהֶבֶל וַיֶּהְבָּלוּ}: tras la «vanidad» (\emph{hével}), ellos mismos «se hicieron vanos» (cf. Sal 115:8).
+\end{notalam}
 \end{column}
-\begin{column}{0.49\textwidth}\small
-\begin{itemize}
-\item \textbf{Tradición judía}: \emph{kutim}, «cuteos» (Josefo, \emph{Ant.} 9.14.3).
-\item \textbf{Los samaritanos}: \emph{shamerim}, «guardianes», descendientes de Efraín y Manasés.
-\item \textbf{Investigación}: hubo colonos, pero gran parte del norte rural permaneció (Knoppers, 2013).
-\item \textbf{NT}: extranjeros (Lc 17:18) y herederos de Jacob (Jn 4:12); reciben el evangelio (Hch 8).
-\end{itemize}
+\begin{column}{0.48\textwidth}
+\begin{clave}\footnotesize Escrito para judaítas en el exilio, el sermón tiene a Judá a la vista. Su verbo central, \emph{shuv}, «volverse», será también el del regreso.\end{clave}
 \end{column}
 \end{columns}
 \end{frame}
 
-\begin{frame}{¿Se perdieron las diez tribus?}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.49\textwidth}\scriptsize
-\textbf{\small\textcolor{cafe}{Lo que dicen los textos}}
-\begin{itemize}
-\item Ezequías invita al «remanente que ha quedado de la mano de los reyes de Asiria»; vienen de Aser, Manasés, Zabulón e Isacar (2~Cr 30:6--18).
-\item Josías recibe ofrendas de «todo el remanente de Israel» (2~Cr 34:9); tras 586, hombres de Siquem, Silo y Samaria (Jer 41:5).
-\item En Jerusalén: Judá, Benjamín, \destacar{Efraín y Manasés} (1~Cr 9:3); doce machos cabríos (Esd 6:17).
-\item Ana, «de la tribu de Aser» (Lc 2:36); «nuestras doce tribus» (Hch 26:7).
-\end{itemize}
+\begin{frame}{Repoblamiento y samaritanos}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.46\textwidth}
+\begin{cita}[fontupper=\footnotesize\itshape]El rey de Asiria trajo gente de Babilonia, de Cuta, de Ava, de Hamat y de Sefarvaim, y la puso en las ciudades de Samaria en lugar de los hijos de Israel.\fuente{(2~R 17:24)}\end{cita}
+\footnotesize «Temían a YHWH y servían a sus dioses» (17:33; cf. Esd 4:2, 10).
+\begin{notalam}[Dos nombres, dos memorias]
+Tradición judía: \emph{kutim}, «cuteos», de Cuta (Josefo, \emph{Ant.} 9.14.3). Los samaritanos se llaman \emph{shamerim}, «guardianes» de la Torá, descendientes de Efraín y Manasés.
+\end{notalam}
 \end{column}
-\begin{column}{0.49\textwidth}\scriptsize
-\textbf{\small\textcolor{cafe}{Lo que dicen otras fuentes}}
+\begin{column}{0.50\textwidth}\centering
+\begin{tikzpicture}[node distance=0.35cm]
+\node[bloque,text width=2.3cm,minimum height=1.25cm,anchor=north] (c) at (-1.4,0) {\textbf{Colonos}\\de Cuta, Hamat, Sefarvaim\ldots};
+\node[bloque,text width=2.3cm,minimum height=1.25cm,anchor=north] (i) at (1.4,0) {\textbf{Israelitas}\\que permanecieron en el norte rural};
+\node[bloqueazul,text width=5.2cm,anchor=north] (m) at (0,-1.85) {Población mixta de Samaria};
+\draw[flecha] (c.south) -- (c.south|-m.north);
+\draw[flecha] (i.south) -- (i.south|-m.north);
+\node[bloqueoro,text width=5.2cm,below=of m] (g) {Comunidad del monte Guerizim (períodos persa y helenístico)};
+\draw[flecha] (m) -- (g);
+\node[bloque,text width=5.2cm,below=of g] (nt) {NT: extranjeros (Lc 17:18) y herederos de Jacob (Jn 4:12); reciben el evangelio (Hch 8)};
+\draw[flecha] (g) -- (nt);
+\end{tikzpicture}
+\notafig{Elaboración propia a partir de Knoppers (2013).}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{¿Se perdieron las diez tribus? Los textos}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.53\textwidth}\centering
+\begin{tikzpicture}[x=1cm,y=1cm]
+\coordinate (prev) at (0.25,0.12);
+\foreach \t/\d [count=\k] in {{Antes de 722}/{Migran al sur bajo Roboam y Asa (2~Cr 11:13--17; 15:9)},
+  {Ezequías}/{Invita al «remanente» del norte; vienen de Aser, Manasés, Zabulón e Isacar (2~Cr 30:6--18)},
+  {Josías y después de 586}/{Ofrendas de «todo el remanente de Israel» (2~Cr 34:9); hombres de Siquem, Silo y Samaria (Jer 41:5)},
+  {Tras el destierro y en el NT}/{Efraín y Manasés en Jerusalén (1~Cr 9:3); doce machos cabríos (Esd 6:17); Ana, de Aser (Lc 2:36); «nuestras doce tribus» (Hch 26:7)}}{
+  \node[anchor=north west,text width=6.0cm,font=\scriptsize,inner sep=1pt] (t\k) at (prev) {\textbf{\textcolor{ladrillo}{\t}}\\[1pt]\d};
+  \coordinate (prev) at ([yshift=-7pt]t\k.south west);}
+\draw[line width=1.4pt,cafe] (0,0.2) -- (0,0|-t4.south);
+\foreach \k in {1,...,4}{\node[hito] at ([yshift=-4pt]0,0|-t\k.north) {};}
+\end{tikzpicture}
+\elabpropia
+\end{column}
+\begin{column}{0.43\textwidth}
+\begin{clave}\footnotesize Los textos cierran el paso a dos simplificaciones: que las diez tribus desaparecieron sin rastro y que se conservaron intactas en algún rincón del mundo.\end{clave}
+\begin{notalam}[Los que no volvieron]
+La Biblia no narra un regreso organizado desde Asiria. Josefo las sitúa «más allá del Éufrates» (\emph{Ant.} 11.5.2). Tobit y 4~Esdras 13 son memoria literaria, no crónica.
+\end{notalam}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{¿Se perdieron las diez tribus? La arqueología}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}\footnotesize
 \begin{itemize}
-\item Josefo: las diez tribus están «más allá del Éufrates» (\emph{Ant.} 11.5.2). Tobit y 4~Esdras 13: memoria literaria, no crónica.
-\item Arqueología: Galilea despoblada tras 732; más continuidad en Samaria (Becking, 1992); israelitas en el ejército de Sargón (Dalley, 1985).
-\item Jerusalén crece de 10--12 a c. 60 ha: ¿refugiados del norte (Broshi, 1974; Finkelstein, 2008) o de la Sefelá tras 701 (Na'aman, 2007)?
+\item Galilea, despoblada tras 732; más continuidad en las colinas de Samaria (Becking, 1992).
+\item Israelitas en el ejército de Sargón~II (Dalley, 1985) y nombres hebreos en Gozán, s. \textsc{vii} (Younger, 1998).
 \end{itemize}
-\precision{Neh 11:1--3 nombra solo a Judá, Benjamín, sacerdotes y levitas; los ostracones de Samaria son anteriores a 722.}
+\begin{notalam}[Precisión]
+Neh 11:1--3 nombra solo a Judá, Benjamín, sacerdotes y levitas; los ostracones de Samaria son anteriores a 722 y no prueban un remanente posterior.
+\end{notalam}
+\end{column}
+\begin{column}{0.48\textwidth}\centering
+\begin{tikzpicture}[x=1cm,y=1cm]
+\fill[ladrillo!35] (0,0) rectangle (0.9,0.55);
+\fill[ladrillo] (2.3,0) rectangle (4.4,2.6);
+\draw[cafe,line width=0.8pt] (-0.2,0) -- (4.7,0);
+\node[font=\scriptsize\bfseries,text=cafe,above] at (0.45,0.55) {10--12 ha};
+\node[font=\scriptsize\bfseries,text=cafe,above] at (3.35,2.6) {c. 60 ha};
+\node[etiq,below] at (0.45,0) {antes};
+\node[etiq,below] at (3.35,0) {siglos \textsc{viii}--\textsc{vii}};
+\draw[flecha] (1.05,0.4) to[bend left=25] (2.2,1.6);
+\node[font=\scriptsize\bfseries,text=ladrillo] at (2.35,3.2) {Jerusalén crece};
+\node[bloque,text width=2.0cm,font=\fontsize{5.5}{6.5}\selectfont] at (1.0,-1.25) {Refugiados del norte tras 722 (Broshi, 1974; Finkelstein, 2008)};
+\node[bloqueoro,text width=2.0cm,font=\fontsize{5.5}{6.5}\selectfont] at (3.55,-1.25) {Refugiados de la Sefelá tras 701 (Na'aman, 2007)};
+\node[font=\small\bfseries,text=oro!80!ladrillo] at (2.27,-1.25) {?};
+\end{tikzpicture}
+\notafig{Elaboración propia; superficie aproximada, sin escala exacta.}
 \end{column}
 \end{columns}
 \end{frame}
 
 \begin{frame}{La teoría de las Dos Casas}
-\centering\scriptsize\renewcommand{\arraystretch}{1.18}
-\begin{tabular}{>{\RaggedRight\arraybackslash}p{2.8cm}>{\RaggedRight\arraybackslash}p{3.4cm}>{\RaggedRight\arraybackslash}p{4.6cm}}
+\centering\scriptsize\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{2.8cm}>{\RaggedRight\arraybackslash}p{3.4cm}>{\RaggedRight\arraybackslash}p{4.8cm}}
 \toprule
-\textbf{Argumento} & \textbf{Lo que el texto sí dice} & \textbf{Dificultad}\\\midrule
+{\color{ladrillo}\bfseries Argumento} & {\color{ladrillo}\bfseries Lo que el texto sí dice} & {\color{ladrillo}\bfseries Dificultad}\\\midrule
 Las diez tribus se perdieron & Deportación parcial (2~R 17:6) & Muchos quedaron o se unieron a Judá (2~Cr 11; 30; 34; 1~Cr 9:3)\\
 \emph{Melo ha-goyim} = «plenitud de los gentiles» & Gn 48:19: \heb{מְלֹא־הַגּוֹיִם}, «multitud de naciones» & LXX: \grc{πλῆθος ἐθνῶν}, no \grc{πλήρωμα}; en Ro 11:13, 25 \grc{ἔθνη} = no israelitas\\
 Os 2:1 en Ro 9:25--26 & Pablo aplica Oseas a gentiles & Inclusión por llamado y fe (Ro 9:24, 30), no por genealogía\\
 Ez 37; Jer 31:31 & Reunión explícita de dos casas & Ez 37:22: «en la tierra»; Jer 31:33: una sola «casa de Israel»\\
 Efraín hoy & --- & Sin evidencia para identificar poblaciones gentiles como Efraín\\
 \bottomrule
-\end{tabular}\par\vspace{5pt}
-\begin{minipage}{0.95\linewidth}\scriptsize\textbf{Balance}: reunir a las dos casas es promesa bíblica; identificar genealógicamente a los gentiles con Efraín carece de apoyo suficiente. \emph{Todo Israel} (Ro 11:26): Estudio~8.\end{minipage}
+\end{tabular}
+\notafig{Elaboración propia.}
+\vspace{2pt}
+\begin{clave}\footnotesize\textbf{Balance}: reunir a las dos casas es promesa bíblica; identificar genealógicamente a los gentiles con Efraín carece de apoyo suficiente. \emph{Todo Israel} (Ro 11:26): Estudio~8.\end{clave}
 \end{frame}
 
 % ===================================================
 \section{Judá}
 \begin{frame}{Josafat y Ezequías}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.46\textwidth}\small
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}\footnotesize
 \textbf{\textcolor{cafe}{Josafat}} (872--848): levitas que enseñan «el libro de la ley» (2~Cr 17:7--9); su alianza con Acab trae a Atalía, que casi extingue la casa de David (2~R 11).\par\medskip
 \textbf{\textcolor{cafe}{Ezequías}} (715--686): purifica el templo, rompe la serpiente de bronce y \destacar{invita al norte a la Pascua} (2~Cr 30).
-\end{column}
-\begin{column}{0.51\textwidth}
 \begin{cita}[fontupper=\scriptsize\itshape]Sálvanos de su mano, para que sepan todos los reinos de la tierra que solo tú, YHWH, eres Dios.\fuente{(Is 37:20)}\end{cita}
-\scriptsize Súplica sacerdotal: salvar Jerusalén para que las naciones conozcan a Dios. Respuesta de Isaías: «el remanente de la casa de Judá [\ldots] echará raíz abajo y dará fruto arriba» (Is 37:31).
+\end{column}
+\begin{column}{0.48\textwidth}\centering
+\begin{tikzpicture}[node distance=0.4cm]
+\node[bloque,text width=4.6cm] (a) {\textbf{701}: Senaquerib ante Jerusalén; burla del Rabsaces (Is 36:4)};
+\node[bloqueoro,text width=4.6cm,below=of a] (b) {Ezequías lleva la carta al templo y ora (Is 37:20)};
+\node[bloqueazul,text width=4.6cm,below=of b] (c) {Fin de la súplica: que las naciones conozcan a Dios};
+\node[bloque,text width=4.6cm,below=of c] (d) {Isaías: «el remanente de la casa de Judá [\ldots] echará raíz abajo y dará fruto arriba» (37:31)};
+\foreach \p/\q in {a/b,b/c,c/d}{\draw[flecha] (\p) -- (\q);}
+\end{tikzpicture}
+\elabpropia
 \end{column}
 \end{columns}
 \end{frame}
 
 \begin{frame}{Manasés y Josías}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.48\textwidth}\small
-\textbf{\textcolor{cafe}{Manasés}} (697--642): altares a Baal, «mucha sangre inocente» (2~R 21:16): causa decisiva del destierro (24:3--4; Jer 15:4).
-\begin{itemize}\scriptsize
-\item Vasallo en las inscripciones de Esarhadón.
-\item Cautiverio y arrepentimiento (2~Cr 33:11--13): historicidad discutida.
-\item Tradición: martirio de Isaías (Yevamot 49b; cf. Heb 11:37).
-\end{itemize}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}\footnotesize
+\textbf{\textcolor{cafe}{Manasés}} (697--642): altares a Baal, «mucha sangre inocente» (2~R 21:16), causa decisiva del destierro (24:3--4; Jer 15:4). Vasallo en las inscripciones de Esarhadón.
+\begin{notalam}[Crónicas y la tradición]
+Su cautiverio y arrepentimiento (2~Cr 33:11--13) tienen historicidad discutida. La tradición judía le atribuye el martirio de Isaías (Yevamot 49b; cf. Heb 11:37).
+\end{notalam}
 \end{column}
-\begin{column}{0.48\textwidth}\small
-\textbf{\textcolor{cafe}{Josías}} (640--609): el libro de la ley (622; 2~R 22:8); renovación del pacto; derriba el altar de Betel, en el norte (23:15; cf. 1~R 13:2); Pascua sin igual.\par\medskip
-\begin{tcolorbox}[colback=piedra,colframe=cafe,boxrule=0.8pt,arc=3pt,fontupper=\scriptsize]
-Aun así, YHWH «no desistió del ardor de su gran ira» (2~R 23:26): la reforma del rey no alcanzó el corazón del pueblo (Jer 3:10).
-\end{tcolorbox}
+\begin{column}{0.48\textwidth}\footnotesize
+\textbf{\textcolor{cafe}{Josías}} (640--609): el libro de la ley (622; 2~R 22:8); renovación del pacto; derriba el altar de Betel, en el norte (23:15; cf. 1~R 13:2); Pascua sin igual.\par\smallskip
+\begin{clave}\footnotesize Aun así, YHWH «no desistió del ardor de su gran ira» (2~R 23:26): la reforma del rey no alcanzó el corazón del pueblo (Jer 3:10).\end{clave}
 \end{column}
 \end{columns}
 \end{frame}
 
 \begin{frame}{Los golpes de Babilonia}
 \centering
-\tarjetas{3.25cm}{2.65cm}{0/1/{605}/{Carquemis. Joacim queda como vasallo; nobles llevados a Babilonia, entre ellos Daniel.}/{Jer 46:2; Dn 1:1--6},
-   3.15/2/{597}/{Joaquín se rinde; c. 10.000 deportados con la corte y los artesanos; Ezequiel entre ellos.}/{2~R 24:10--16; Ez 1:2},
-   6.3/3/{586}/{Brecha en el muro; Sedequías cegado en Ribla; templo quemado; resto deportado.}/{2~R 25; Jer 39; 52},
-   9.45/4/{582}/{Tercera deportación, tras el asesinato de Gedalías y la huida a Egipto.}/{Jer 41--44; 52:30}}\par\vspace{5pt}
-\begin{minipage}{0.95\linewidth}\scriptsize \textbf{Gedalías} gobierna desde Mizpa y los dispersos vuelven (Jer 40:9--12); Ismael lo asesina (41:1--3); el resto huye a Egipto llevando a Jeremías (43:7). Jer 52:28--30 cuenta 3.023, 832 y 745 deportados.\end{minipage}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\draw[line width=1.6pt,cafe,-{Latex[length=3mm]}] (0,0) -- (12.4,0);
+\foreach \x/\a/\t/\d/\r in {1.5/605/{Carquemis}/{Joacim queda como vasallo; nobles llevados a Babilonia, entre ellos Daniel}/{Jer 46:2; Dn 1:1--6},
+   4.6/597/{Joaquín se rinde}/{c. 10.000 deportados con la corte y los artesanos; Ezequiel entre ellos}/{2~R 24:10--16; Ez 1:2},
+   7.7/586/{Jerusalén cae}/{Brecha en el muro; Sedequías cegado en Ribla; templo quemado}/{2~R 25; Jer 39; 52},
+   10.8/582/{Tercera deportación}/{Tras el asesinato de Gedalías y la huida a Egipto}/{Jer 41--44; 52:30}}{
+  \node[circle,fill=ladrillo,draw=white,line width=0.8pt,text=white,font=\scriptsize\bfseries,minimum size=0.95cm,inner sep=0pt] at (\x,0) {\a};
+  \node[anchor=north,text width=2.8cm,align=center,font=\scriptsize,inner sep=1pt] at (\x,-0.62) {\textbf{\textcolor{ladrillo}{\t}}\\[2pt]\d\\[2pt]{\tiny\color{sepia}(\r)}};}
+\end{tikzpicture}
+\notafig{Elaboración propia a partir de Thiele (1983).}
+\vspace{3pt}
+\begin{notalam}[Mizpa y la huida a Egipto]
+Gedalías gobierna desde Mizpa y los dispersos vuelven (Jer 40:9--12); Ismael lo asesina (41:1--3); el resto huye a Egipto llevando a Jeremías (43:7). Jer 52:28--30 cuenta 3.023, 832 y 745 deportados.
+\end{notalam}
 \end{frame}
 
 \begin{frame}{Una precisión necesaria}
-\begin{tcolorbox}[colback=oro!12,colframe=oro!80!ladrillo,boxrule=0.6pt,arc=2pt,fonttitle=\bfseries\small,coltitle=cafe,colbacktitle=oro!35,fontupper=\small,title={Fechas y nombres}]
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.55\textwidth}
+\begin{tcolorbox}[colback=oro!12,colframe=oro!80!ladrillo,boxrule=0.6pt,arc=2pt,fonttitle=\bfseries\small,coltitle=cafe,colbacktitle=oro!35,fontupper=\footnotesize,title={Fechas y nombres}]
 \begin{enumerate}
 \item La primera deportación es de \textbf{605 a.\,e.\,c.} (Carquemis; Jer 46:2; Crónica babilónica), no de 606.
-\item En 605 \textbf{Joacim}, hijo de Josías, no fue depuesto; reinó hasta 598. El deportado en 597 fue su hijo \textbf{Joaquín} (Jeconías). La RV antigua escribe «Joacim» y «Joachîn».
+\item En 605 \textbf{Joacim} no fue depuesto; reinó hasta 598. El deportado en 597 fue su hijo \textbf{Joaquín} (Jeconías).
 \item El norte no fue llevado solo a Media: Halah, Habor, río de Gozán «y las ciudades de los medos» (2~R 17:6).
 \end{enumerate}
 \end{tcolorbox}
-\precision{Dn 1:1 dice «año tercero» de Joacim y Jer 46:2 «año cuarto»: dos cómputos del año de subida al trono (Thiele, 1983).}
+\end{column}
+\begin{column}{0.41\textwidth}\centering
+\begin{tikzpicture}[node distance=0.32cm]
+\node[bloqueazul,text width=3.6cm] (j) {Josías (640--609)};
+\node[bloque,text width=3.6cm,below=of j] (jc) {\textbf{Joacim} (609--598)\\Eliaquim, hijo de Josías};
+\node[bloque,text width=3.6cm,below=of jc] (jq) {\textbf{Joaquín} / Jeconías (597)\\hijo de Joacim, deportado};
+\node[bloque,text width=3.6cm,below=of jq] (s) {\textbf{Sedequías} (597--586)\\Matanías, tío de Joaquín};
+\draw[flecha] (j) -- (jc); \draw[flecha] (jc) -- (jq); \draw[flecha] (jq) -- (s);
+\end{tikzpicture}
+\elabpropia
+\end{column}
+\end{columns}
+\vspace{2pt}
+\begin{notalam}[Año tercero o cuarto]
+Dn 1:1 dice «año tercero» de Joacim y Jer 46:2 «año cuarto»: dos cómputos del año de subida al trono, babilónico y judaíta (Thiele, 1983). La RV antigua escribe «Joacim» y «Joachîn», de ahí la confusión.
+\end{notalam}
 \end{frame}
 
 \begin{frame}{Los dos cautiverios}
-\centering\scriptsize\renewcommand{\arraystretch}{1.12}
-\begin{tabular}{>{\RaggedRight\arraybackslash}p{1.65cm}>{\RaggedRight\arraybackslash}p{4.6cm}>{\RaggedRight\arraybackslash}p{4.6cm}}
+\centering\scriptsize\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{1.65cm}>{\RaggedRight\arraybackslash}p{4.7cm}>{\RaggedRight\arraybackslash}p{4.7cm}}
 \toprule
-& \textbf{Israel (norte) bajo Asiria} & \textbf{Judá bajo Babilonia}\\\midrule
+& {\color{ladrillo}\bfseries Israel (norte) bajo Asiria} & {\color{ladrillo}\bfseries Judá bajo Babilonia}\\\midrule
 Fechas & 733--732; 722--720 & 605; 597; 586; 582\\
 Imperio & Tiglat-pileser~III, Salmanasar~V, Sargón~II & Nabucodonosor~II\\
 Textos & 2~R 15:29; 17; 18:9--12; 1~Cr 5:26 & 2~R 24--25; 2~Cr 36; Jer 39; 52; Dn 1\\
@@ -360,6 +564,7 @@ Destino & Halah, Habor, Gozán, Media; asimilación; parte se une a Judá & Babi
 Retorno & Ninguno organizado; promesa pendiente (Is 11; Ez 37) & Edicto de Ciro, 538 (Esd 1; Estudio 6)\\
 \bottomrule
 \end{tabular}
+\notafig{Elaboración propia a partir de Becking (1992), Younger (1998) y Pearce y Wunsch (2014).}
 \end{frame}
 
 \begin{frame}{Los profetas de la crisis}
@@ -367,26 +572,52 @@ Retorno & Ninguno organizado; promesa pendiente (Is 11; Ez 37) & Edicto de Ciro,
 \tarjetas{3.45cm}{2.65cm}{0/1/{Isaías}/{«La simiente santa será su tocón» (6:13; falta en la LXX). Emanuel (7:14: \emph{almá}; LXX \grc{παρθένος}; Mt 1:23).}/{Is 6--7; c. 740--700},
    3.15/2/{Jeremías}/{«Templo de YHWH, templo de YHWH» (7:4): contra el santuario como amuleto; Silo como advertencia (7:12).}/{Jer 7; 26},
    6.3/3/{Ezequiel}/{La gloria deja el templo: umbral, puerta oriental, monte al oriente (10:4, 18--19; 11:23).}/{Ez 10--11},
-   9.45/4/{Lamentaciones}/{Cuatro acrósticos (el 3, triple). «Nuevas son cada mañana; grande es tu fidelidad» (3:23).}/{Berlin, 2002}}\par\vspace{5pt}
-\begin{minipage}{0.95\linewidth}\scriptsize También \textbf{Miqueas} («Sion será arada como campo», Mi 3:12; citado en Jer 26:18) y \textbf{Sofonías} (el día de YHWH contra Judá, Sof 1).\end{minipage}
+   9.45/4/{Lamentaciones}/{Cuatro acrósticos (el 3, triple). «Nuevas son cada mañana; grande es tu fidelidad» (3:23).}/{Berlin, 2002}}
+\elabpropia
+\begin{clave}\footnotesize También \textbf{Miqueas}: «Sion será arada como campo» (Mi 3:12), citado un siglo después en Jer 26:18; y \textbf{Sofonías}: el día de YHWH contra Judá (Sof 1).\end{clave}
+\end{frame}
+
+\begin{frame}{La gloria sale del templo}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.50\textwidth}\centering
+\begin{tikzpicture}[x=1cm,y=1cm]
+\foreach \y/\n/\t/\r in {0/1/{Sobre el umbral del templo}/{Ez 10:4},-1.3/2/{A la puerta oriental}/{Ez 10:18--19},-2.6/3/{Al monte al oriente de la ciudad}/{Ez 11:23}}{
+  \node[circle,fill=ladrillo,text=white,font=\scriptsize\bfseries,inner sep=1.5pt,minimum size=0.5cm] (n\n) at (0,\y) {\n};
+  \node[bloque,text width=3.4cm,anchor=west,minimum height=0.6cm] (b\n) at (0.45,\y) {\t\\{\tiny\color{sepia}(\r)}};}
+\draw[flecha] (n1) -- (n2); \draw[flecha] (n2) -- (n3);
+\node[bloqueoro,text width=4.6cm,anchor=north] (ms) at (1.7,-3.3) {«Les seré por un pequeño santuario» (\heb{מִקְדָּשׁ מְעַט}) en las tierras adonde lleguen (Ez 11:16)};
+\draw[flecha] (n3.south) -- (n3.south|-ms.north);
+\end{tikzpicture}
+\elabpropia
+\end{column}
+\begin{column}{0.46\textwidth}
+\begin{clave}\footnotesize La gloria que abandona el templo se va con los desterrados, como en Gn 46:4 Dios bajó con Jacob a Egipto.\end{clave}
+\begin{notalam}[Un sacerdote desterrado]
+Ezequiel, sacerdote, fue deportado con Joaquín en 597 (Ez 1:2--3). Desde el destierro anuncia a quienes Jerusalén daba por perdidos que Dios está con ellos (11:16--20).
+\end{notalam}
+\end{column}
+\end{columns}
 \end{frame}
 
 % ===================================================
 \section{Vocación}
 \begin{frame}{Una vocación quebrada}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.49\textwidth}
-\begin{cita}[fontupper=\scriptsize\itshape]Por cuanto tú desechaste el conocimiento, yo te desecharé para que no seas mi sacerdote.\fuente{(Os 4:6)}\end{cita}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.44\textwidth}
+\begin{cita}[fontupper=\footnotesize\itshape]Por cuanto tú desechaste el conocimiento, yo te desecharé para que no seas mi sacerdote.\fuente{(Os 4:6)}\end{cita}
 \centering{\heb{כִּי־אַתָּה הַדַּעַת מָאַסְתָּ}}\par\smallskip
-\RaggedRight\small Éx 19:6 invertido: llamado a enseñar a las naciones, el pueblo ya no conoce a su Dios.
+\RaggedRight\footnotesize Éx 19:6 invertido: llamado a enseñar a las naciones, el pueblo ya no conoce a su Dios.
 \end{column}
-\begin{column}{0.48\textwidth}\small
-\begin{itemize}
-\item \textbf{Culto sin justicia}: «vuestras manos están llenas de sangre» (Is 1:15); «corra el juicio como las aguas» (Am 5:24).
-\item \textbf{Opresión}: el pobre vendido «por un par de sandalias» (Am 2:6).
-\item \textbf{Templo como amuleto} (Jer 7:4--11).
-\item \textbf{Antitestimonio}: «profanaron mi santo nombre» entre las naciones (Ez 36:20).
-\end{itemize}
+\begin{column}{0.53\textwidth}\centering
+\begin{tikzpicture}
+\node[bloqueazul,text width=1.9cm,minimum height=1.1cm] (c) at (0,0) {Reino de sacerdotes (Éx 19:6)};
+\node[bloque,text width=2.2cm] (a) at (-2.0,1.45) {\textbf{Culto sin justicia}\\«manos llenas de sangre» (Is 1:15)};
+\node[bloque,text width=2.2cm] (b) at (2.0,1.45) {\textbf{Opresión}\\el pobre «por un par de sandalias» (Am 2:6)};
+\node[bloque,text width=2.2cm] (d) at (-2.0,-1.45) {\textbf{Templo como amuleto}\\(Jer 7:4--11)};
+\node[bloque,text width=2.2cm] (e) at (2.0,-1.45) {\textbf{Antitestimonio}\\«profanaron mi santo nombre» (Ez 36:20)};
+\foreach \n in {a,b,d,e}{\draw[->,draw=ladrillo!70,line width=1pt,dashed] (\n) -- (c);}
+\end{tikzpicture}
+\elabpropia
 \end{column}
 \end{columns}
 \end{frame}
@@ -396,25 +627,37 @@ Retorno & Ninguno organizado; promesa pendiente (Is 11; Ez 37) & Edicto de Ciro,
 \tarjetas{3.5cm}{2.65cm}{0/1/{El remanente}/{Los siete mil; los fieles del norte en Judá; «si no nos hubiera dejado un pequeño remanente» (Is 1:9; Ro 9:29).}/{1~R 19:18; 2~Cr 30:11},
    3.15/2/{Los profetas}/{Llevan la palabra e interceden; por Eliseo la luz alcanza a Naamán.}/{Jer 15:1; 2~R 5},
    6.3/3/{Orar por Babilonia}/{«Procurad la paz de la ciudad [\ldots] y rogad por ella a YHWH».}/{Jer 29:7},
-   9.45/4/{Daniel y sus amigos}/{Fieles en la corte; reyes paganos confiesan al Dios de Israel. Daniel ora por «todo Israel, los de cerca y los de lejos».}/{Dn 1--6; 9:7}}\par\vspace{5pt}
-\begin{minipage}{0.95\linewidth}\scriptsize Lejos de la tierra, la bendición de Abraham para las naciones (Gn 12:3) sigue obrando por medio de «testigos» (Is 43:10).\end{minipage}
+   9.45/4/{Daniel y sus amigos}/{Fieles en la corte; reyes paganos confiesan al Dios de Israel. Daniel ora por «todo Israel, los de cerca y los de lejos».}/{Dn 1--6; 9:7}}
+\elabpropia
+\begin{clave}\footnotesize Lejos de la tierra, la bendición de Abraham para las naciones (Gn 12:3) sigue obrando por medio de «testigos» (Is 43:10).\end{clave}
 \end{frame}
 
 % ===================================================
 \section{Tradición judía}
 \begin{frame}{Tisha be-Av y Eijá}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.48\textwidth}\small
-\begin{itemize}
-\item \textbf{9 de Av}: duelo por los dos templos. 2~R 25:8 dice el día 7, Jer 52:12 el 10; el Talmud armoniza (Taanit 29a). Cinco desgracias en esa fecha (Mishná, Taanit 4:6).
-\item Se lee \textbf{Eijá} (\heb{אֵיכָה}, «¡cómo!»), y al final se repite 5:21.
-\item \textbf{Cuatro ayunos} (Zac 8:19): brecha en el muro, templo, Gedalías (\emph{Tsom Guedalyá}), asedio (10 de Tevet).
-\end{itemize}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}\footnotesize
+\textbf{\textcolor{cafe}{9 de Av}}: duelo por los dos templos. Se lee \textbf{Eijá} (\heb{אֵיכָה}, «¡cómo!») y al final se repite 5:21.
+\begin{notalam}[¿El 7, el 9 o el 10 de Av?]
+2~R 25:8 dice el día 7 y Jer 52:12 el 10; el Talmud armoniza (Taanit 29a). La Mishná reúne cinco desgracias en esa fecha (Taanit 4:6).
+\end{notalam}
+\centering{\heb{הֲשִׁיבֵנוּ יְהוָה אֵלֶיךָ וְנָשׁוּבָה}}\par
+\begin{cita}[fontupper=\scriptsize\itshape]Haznos volver, YHWH, a ti, y volveremos; renueva nuestros días como al principio.\fuente{(Lm 5:21)}\end{cita}
 \end{column}
-\begin{column}{0.49\textwidth}
-\centering{\large\heb{הֲשִׁיבֵנוּ יְהוָה אֵלֶיךָ וְנָשׁוּבָה}}\par\smallskip
-\begin{cita}Haznos volver, YHWH, a ti, y volveremos; renueva nuestros días como al principio.\fuente{(Lm 5:21)}\end{cita}
-\small \emph{Shuv} dos veces: primero Dios hace volver; después el pueblo vuelve. Zacarías anuncia que los ayunos serán «gozo y alegría».
+\begin{column}{0.48\textwidth}\centering
+{\scriptsize\bfseries\color{ladrillo} Los cuatro ayunos (Zac 8:19)}\par\vspace{3pt}
+\begin{tikzpicture}[node distance=0.22cm]
+\node[bloque,text width=1.15cm,minimum height=0.85cm] (m4) {Mes 4.º};
+\node[bloque,text width=3.4cm,minimum height=0.85cm,right=of m4] (t4) {Brecha en el muro (Jer 39:2)};
+\node[bloqueoro,text width=1.15cm,minimum height=0.85cm,below=of m4] (m5) {Mes 5.º};
+\node[bloqueoro,text width=3.4cm,minimum height=0.85cm,right=of m5] (t5) {Quema del templo (9 de Av)};
+\node[bloque,text width=1.15cm,minimum height=0.85cm,below=of m5] (m7) {Mes 7.º};
+\node[bloque,text width=3.4cm,minimum height=0.85cm,right=of m7] (t7) {Asesinato de Gedalías (\emph{Tsom Guedalyá}; Jer 41:1--2)};
+\node[bloque,text width=1.15cm,minimum height=0.85cm,below=of m7] (m10) {Mes 10.º};
+\node[bloque,text width=3.4cm,minimum height=0.85cm,right=of m10] (t10) {Comienzo del asedio (10 de Tevet; 2~R 25:1)};
+\node[bloqueazul,text width=4.85cm,below=0.3cm of $(m10.south west)!0.5!(t10.south east)$] (z) {Zacarías: serán «gozo y alegría»};
+\end{tikzpicture}
+\notafig{Elaboración propia a partir de Zac 8:19 y la tradición judía.}
 \end{column}
 \end{columns}
 \end{frame}
@@ -424,50 +667,74 @@ Retorno & Ninguno organizado; promesa pendiente (Is 11; Ez 37) & Edicto de Ciro,
 \tarjetas{3.4cm}{2.65cm}{0/1/{Yoma 9b}/{El primer templo cayó por idolatría, inmoralidad y derramamiento de sangre; el segundo, por «odio sin causa».}/{Talmud de Babilonia},
    3.15/2/{Meguilá 29a}/{«Pequeño santuario» (Ez 11:16): «las sinagogas y casas de estudio de Babilonia».}/{Talmud de Babilonia},
    6.3/3/{Sanedrín 10:3}/{R. Akiva: las diez tribus no volverán (Dt 29:28 [29:27]). R. Eliézer: «como el día oscurece y vuelve a aclarar».}/{Mishná},
-   9.45/4/{Targum de Isaías}/{Is 11:1: «el Mesías será ungido de los hijos de sus hijos»; 52:13: «mi siervo el Mesías».}/{Chilton, 1987}}\par\vspace{5pt}
-\begin{minipage}{0.95\linewidth}\scriptsize \textbf{Josefo} (\emph{Ant.} 9--10): Salmanasar y Samaria, los «cuteos», Gedalías. \textbf{Amidá}, 10.ª bendición: «Bendito tú, YHWH, que reúnes a los dispersos (\heb{נִדְחֵי}) de tu pueblo Israel» (cf. Is 11:12). \textbf{Shabat Najamú}: «Consolad, consolad» (Is 40:1).\end{minipage}
+   9.45/4/{Targum de Isaías}/{Is 11:1: «el Mesías será ungido de los hijos de sus hijos»; 52:13: «mi siervo el Mesías».}/{Chilton, 1987}}
+\elabpropia
+\begin{notalam}[Josefo y la liturgia]
+\textbf{Josefo} (\emph{Ant.} 9--10): Salmanasar y Samaria, los «cuteos», Gedalías. \textbf{Amidá}, 10.ª bendición: «Bendito tú, YHWH, que reúnes a los dispersos (\heb{נִדְחֵי}) de tu pueblo Israel» (cf. Is 11:12). \textbf{Shabat Najamú}: «Consolad, consolad» (Is 40:1).
+\end{notalam}
 \end{frame}
 
 % ===================================================
 \section{Restauración}
 \begin{frame}{Isaías: un remanente volverá}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.49\textwidth}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}
 \centering{\large\heb{שְׁאָר יָשׁוּב שְׁאָר יַעֲקֹב אֶל־אֵל גִּבּוֹר}}\par\smallskip
 \begin{cita}[fontupper=\scriptsize\itshape]Un remanente volverá, el remanente de Jacob, al Dios fuerte. Aunque tu pueblo, Israel, fuere como la arena del mar, solo un remanente volverá.\fuente{(Is 10:21--22)}\end{cita}
-\RaggedRight\scriptsize Shear-yashuv, hijo de Isaías (7:3). Pablo: \grc{τὸ ὑπόλειμμα σωθήσεται} (Ro 9:27).
+\begin{notalam}[Un nombre que se vuelve profecía]
+\emph{Shear-yashuv}, «un remanente volverá», es el hijo de Isaías (7:3). Pablo cita el pasaje: \grc{τὸ ὑπόλειμμα σωθήσεται} (Ro 9:27).
+\end{notalam}
 \end{column}
 \begin{column}{0.48\textwidth}
 \begin{cita}[fontupper=\scriptsize\itshape]Reunirá a los desterrados de Israel y juntará a los esparcidos de Judá de los cuatro confines de la tierra. Efraín no tendrá envidia de Judá, ni Judá afligirá a Efraín.\fuente{(Is 11:12--13)}\end{cita}
-\scriptsize\heb{נִדְחֵי יִשְׂרָאֵל} (norte) // \heb{נְפֻצוֹת יְהוּדָה} (sur). «Por segunda vez» (11:11), como el día en que Israel subió de Egipto (11:16).
+\centering
+\begin{tikzpicture}[node distance=0.3cm]
+\node[bloque,text width=2.0cm] (n) {\heb{נִדְחֵי יִשְׂרָאֵל}\\desterrados de Israel (norte)};
+\node[bloque,text width=2.0cm,right=0.35cm of n] (s) {\heb{נְפֻצוֹת יְהוּדָה}\\esparcidos de Judá (sur)};
+\node[bloqueazul,text width=4.6cm,anchor=north] (r) at ($(n.south)!0.5!(s.south)+(0,-0.45)$) {«Por segunda vez» (11:11), como al subir de Egipto (11:16)};
+\draw[flecha] (n.south) -- (n.south|-r.north); \draw[flecha] (s.south) -- (s.south|-r.north);
+\end{tikzpicture}
+\elabpropia
 \end{column}
 \end{columns}
 \end{frame}
 
 \begin{frame}{El Siervo y el Redentor}
-\begin{cita}[fontupper=\scriptsize\itshape]Poco es que me seas siervo para levantar las tribus de Jacob y restaurar a los preservados de Israel; también te di por luz de las naciones.\fuente{(Is 49:6; Lc 2:32; Hch 13:47)}\end{cita}
-\centering\scriptsize\renewcommand{\arraystretch}{1.15}
+\begin{cita}[fontupper=\footnotesize\itshape]Poco es que me seas siervo para levantar las tribus de Jacob y restaurar a los preservados de Israel; también te di por luz de las naciones.\fuente{(Is 49:6; Lc 2:32; Hch 13:47)}\end{cita}
+\centering\scriptsize\renewcommand{\arraystretch}{1.25}
 \begin{tabular}{>{\RaggedRight\arraybackslash}p{3.3cm}>{\RaggedRight\arraybackslash}p{3.6cm}>{\RaggedRight\arraybackslash}p{3.9cm}}
 \toprule
-\textbf{TM (Is 59:20)} & \textbf{LXX} & \textbf{Pablo (Ro 11:26--27)}\\\midrule
+{\color{ladrillo}\bfseries TM (Is 59:20)} & {\color{ladrillo}\bfseries LXX} & {\color{ladrillo}\bfseries Pablo (Ro 11:26--27)}\\\midrule
 \heb{וּבָא לְצִיּוֹן גּוֹאֵל} «vendrá \emph{a} Sion» & \grc{ἥξει ἕνεκεν Σιων} «\emph{por causa de} Sion» & \grc{ἥξει ἐκ Σιὼν ὁ ῥυόμενος} «\emph{de} Sion»\\
 «a los que se vuelven de la rebelión en Jacob» & «apartará las impiedades de Jacob» & \grc{ἀποστρέψει ἀσεβείας ἀπὸ Ἰακώβ}\\
 «este es mi pacto con ellos» (59:21) & \grc{αὕτη αὐτοῖς ἡ παρ᾽ ἐμοῦ διαθήκη} & + «cuando quite sus pecados» (Is 27:9 LXX)\\
 \bottomrule
 \end{tabular}
+\notafig{Elaboración propia a partir de BHS, Rahlfs y Hanhart (2006) y NA28.}
+\begin{notalam}[Filología: «de Sion»]
+Pablo une Is 59:20--21 con Is 27:9 y escribe «de Sion». Las razones (¿influencia de Sal 14:7?, ¿la Sion celestial?) se discuten en el Estudio~8.
+\end{notalam}
 \end{frame}
 
 \begin{frame}{Jeremías: Efraín, hijo amado}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.49\textwidth}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}
 \begin{cita}[fontupper=\scriptsize\itshape]Yo sé los pensamientos que tengo acerca de vosotros [\ldots], pensamientos de paz y no de mal, para daros un porvenir y una esperanza.\fuente{(Jer 29:11)}\end{cita}
-\scriptsize Dirigida a los desterrados, ligada a los setenta años (29:10) y a buscar a Dios «de todo corazón» (29:13).\par\smallskip
-\precision{setenta años: 605--538 (c. 67) o 586--516/515 (c. 70); quizá cifra redonda (Sal 90:10).}
+\footnotesize Dirigida a los desterrados, ligada a los setenta años (29:10) y a buscar a Dios «de todo corazón» (29:13).
+\begin{notalam}[Los setenta años]
+605--538 (c. 67) o 586--516/515 (c. 70); quizá cifra redonda de una vida (Sal 90:10). Cuestión de interpretación: no conviene forzar el dato.
+\end{notalam}
 \end{column}
 \begin{column}{0.48\textwidth}
 \centering{\large\heb{הֲבֵן יַקִּיר לִי אֶפְרַיִם}}\par\smallskip
 \begin{cita}[fontupper=\scriptsize\itshape]¿No es Efraín hijo precioso para mí? [\ldots] ciertamente tendré de él misericordia.\fuente{(Jer 31:20 [31:19])}\end{cita}
-\RaggedRight\scriptsize «Haré volver la cautividad de mi pueblo \destacar{Israel y Judá}» (30:3). Raquel llora y «los hijos volverán a su tierra» (31:15--17 [31:14--16]).
+\begin{tikzpicture}[node distance=0.3cm]
+\node[bloque,text width=1.55cm,font=\fontsize{6}{7}\selectfont] (a) {Raquel llora (31:15)};
+\node[bloque,text width=1.55cm,font=\fontsize{6}{7}\selectfont,right=0.3cm of a] (b) {«Los hijos volverán» (31:17 [31:16])};
+\node[bloqueoro,text width=1.55cm,font=\fontsize{6}{7}\selectfont,right=0.3cm of b] (c) {Efraín, hijo precioso (31:20)};
+\draw[flecha] (a) -- (b); \draw[flecha] (b) -- (c);
+\end{tikzpicture}
+\elabpropia
 \end{column}
 \end{columns}
 \end{frame}
@@ -477,34 +744,68 @@ Retorno & Ninguno organizado; promesa pendiente (Is 11; Ez 37) & Edicto de Ciro,
 \begin{columns}[c,onlytextwidth]
 \begin{column}{0.57\textwidth}
 \begin{cita}[fontupper=\scriptsize\itshape]Haré con la casa de Israel y con la casa de Judá un pacto nuevo [\ldots]. Pondré mi ley en su interior y la escribiré en su corazón.\fuente{(Jer 31:31, 33 [31:30, 32])}\end{cita}
-\scriptsize
-\begin{itemize}
-\item 31:31: \textbf{dos casas}; 31:33: una sola «casa de Israel».
-\item La misma ley («mi ley»), escrita ahora en el corazón.
-\item LXX \grc{διαθήκην καινήν}; Lc 22:20; Heb 8:8--12; Ro 11:27.
-\item Israel permanece como las leyes del sol y la luna (31:35--37 [31:34--36]).
-\item Jer 32: compra del campo en Anatot; «pacto eterno» (32:40).
-\end{itemize}
+\centering
+\begin{tikzpicture}[node distance=0.25cm]
+\node[bloque,text width=1.5cm,font=\fontsize{6}{7}\selectfont] (i) at (0,0.42) {casa de Israel};
+\node[bloque,text width=1.5cm,font=\fontsize{6}{7}\selectfont] (j) at (0,-0.42) {casa de Judá};
+\node[bloqueazul,text width=1.6cm,font=\fontsize{6}{7}\selectfont\bfseries] (p) at (2.55,0) {Pacto nuevo (31:31)};
+\node[bloqueoro,text width=1.75cm,font=\fontsize{6}{7}\selectfont] (u) at (5.05,0) {una sola «casa de Israel» (31:33)};
+\draw[flecha] (i.east) -- (p); \draw[flecha] (j.east) -- (p); \draw[flecha] (p) -- (u);
+\end{tikzpicture}
+\elabpropia
+\begin{notalam}[La misma ley, otro lugar]
+«Mi ley» es la misma Torá, escrita ahora en el corazón. LXX \grc{διαθήκην καινήν}; Lc 22:20; Heb 8:8--12; Ro 11:27.
+\end{notalam}
 \end{column}
 \begin{column}{0.41\textwidth}\end{column}
 \end{columns}
 \end{frame}
 
+\begin{frame}{Un pacto que no se rompe}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.52\textwidth}\centering
+\begin{tikzpicture}[node distance=0.42cm]
+\node[bloqueazul,text width=5.4cm] (p) {Promesa: «yo seré su Dios, y ellos serán mi pueblo» (Jer 31:33)};
+\node[bloque,text width=5.4cm,below=of p] (c) {Medio: la ley en el corazón y el perdón: «no me acordaré más de su pecado» (31:34)};
+\node[bloqueoro,text width=5.4cm,below=of c] (g) {Garantía: Israel permanece como las leyes del sol y la luna (31:35--37 [31:34--36])};
+\node[bloque,text width=5.4cm,below=of g] (s) {Señal: en pleno asedio, compra del campo en Anatot; «pacto eterno» (32:15, 40)};
+\foreach \a/\b in {p/c,c/g,g/s}{\draw[flecha] (\a) -- (\b);}
+\end{tikzpicture}
+\elabpropia
+\end{column}
+\begin{column}{0.44\textwidth}
+\begin{clave}\footnotesize En 31:31 el pacto se hace con dos casas; en 31:33, con una sola «casa de Israel». Una vez reunidas, las dos casas vuelven a ser Israel, el pueblo completo.\end{clave}
+\begin{notalam}[Jeremías compra un campo]
+Mientras Babilonia sitia Jerusalén, el profeta paga un terreno como señal de que «aún se comprarán casas, heredades y viñas en esta tierra» (Jer 32:15).
+\end{notalam}
+\end{column}
+\end{columns}
+\end{frame}
+
 \begin{frame}{Ezequiel: corazón y huesos}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.49\textwidth}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}
 \centering{\heb{וְנָתַתִּי לָכֶם לֵב חָדָשׁ וְרוּחַ חֲדָשָׁה}}\par\smallskip
 \begin{cita}[fontupper=\scriptsize\itshape]Os reuniré de todas las tierras [\ldots]. Esparciré sobre vosotros agua limpia [\ldots]. Os daré un corazón nuevo [\ldots] y pondré mi Espíritu dentro de vosotros.\fuente{(Ez 36:24--27)}\end{cita}
-\RaggedRight\scriptsize Ya en 11:16: «les seré por un pequeño santuario» (\heb{מִקְדָּשׁ מְעַט}). Todo, por «mi santo nombre» (36:22).
+\begin{tikzpicture}[node distance=0.18cm]
+\node[bloque,text width=1.05cm,font=\fontsize{5.5}{6.5}\selectfont] (a) {Reunión};
+\node[bloque,text width=1.05cm,font=\fontsize{5.5}{6.5}\selectfont,right=of a] (b) {Agua limpia};
+\node[bloque,text width=1.05cm,font=\fontsize{5.5}{6.5}\selectfont,right=of b] (c) {Corazón nuevo};
+\node[bloqueazul,text width=1.05cm,font=\fontsize{5.5}{6.5}\selectfont\bfseries,right=of c] (d) {Espíritu};
+\draw[flecha] (a) -- (b); \draw[flecha] (b) -- (c); \draw[flecha] (c) -- (d);
+\end{tikzpicture}
+\elabpropia
 \end{column}
 \begin{column}{0.48\textwidth}
 \begin{cita}[fontupper=\scriptsize\itshape]Todos estos huesos son toda la casa de Israel.\fuente{(Ez 37:11)}\end{cita}
-\scriptsize
+\footnotesize
 \begin{itemize}
 \item Primero carne sin espíritu (37:8); después el espíritu y la vida (37:9--10).
-\item Lectura de la serie: dos etapas históricas, retorno y luego Espíritu (cf. Zac 12:10).
-\item Ezequiel aplica los sepulcros abiertos al regreso a la tierra (37:12--14). Se retoma en el Estudio~8.
+\item Ezequiel aplica los sepulcros abiertos al regreso a la tierra (37:12--14).
 \end{itemize}
+\begin{notalam}[Lectura de la serie]
+Dos etapas históricas: retorno físico y luego derramamiento del Espíritu (cf. Zac 12:10). El orden del texto la admite; se retoma en el Estudio~8.
+\end{notalam}
 \end{column}
 \end{columns}
 \end{frame}
@@ -514,14 +815,32 @@ Retorno & Ninguno organizado; promesa pendiente (Is 11; Ez 37) & Edicto de Ciro,
 \begin{columns}[c,onlytextwidth]
 \begin{column}{0.57\textwidth}
 \begin{cita}[fontupper=\scriptsize\itshape]«Para Judá y para los hijos de Israel sus compañeros» [\ldots] «Para José, palo de Efraín, y toda la casa de Israel sus compañeros». Haré de ellos una sola nación en la tierra [\ldots] y un solo rey será rey de todos ellos.\fuente{(Ez 37:16, 22)}\end{cita}
-\scriptsize
-\begin{itemize}
-\item El palo de Judá ya incluye a israelitas del norte unidos a Judá.
-\item Reunión política, territorial («en los montes de Israel»), mesiánica («mi siervo David», 37:24), espiritual (37:23) y perpetua (37:26).
-\end{itemize}
+\centering
+\begin{tikzpicture}
+\node[bloque,text width=2.0cm,font=\fontsize{6}{7}\selectfont] (j) at (0,0.45) {\textbf{Palo de Judá}\\+ israelitas unidos a Judá};
+\node[bloque,text width=2.0cm,font=\fontsize{6}{7}\selectfont] (e) at (0,-0.6) {\textbf{Palo de Efraín}\\+ casa de Israel};
+\node[bloqueazul,text width=2.1cm,font=\fontsize{6}{7}\selectfont\bfseries] (u) at (3.1,-0.075) {Un reino, un rey: «mi siervo David» (37:24)};
+\draw[flecha] (j.east) -- (u.west); \draw[flecha] (e.east) -- (u.west);
+\end{tikzpicture}
+\elabpropia
 \end{column}
 \begin{column}{0.41\textwidth}\end{column}
 \end{columns}
+\end{frame}
+
+\begin{frame}{Las cinco dimensiones de la reunión}
+\centering
+\begin{tikzpicture}
+\node[bloqueazul,circle,text width=1.6cm,align=center,font=\scriptsize\bfseries] (c) at (0,0) {Ez 37:15--28\\dos palos, uno solo};
+\foreach \a/\t/\d in {90/{Política}/{«una sola nación», «un solo rey» (37:22)},
+  18/{Territorial}/{«en los montes de Israel» (37:22)},
+  -54/{Mesiánica}/{«mi siervo David será rey sobre ellos» (37:24)},
+  -126/{Espiritual}/{«los limpiaré» (37:23)},
+  162/{Perpetua}/{«pacto de paz, pacto eterno [\ldots] mi santuario entre ellos» (37:26)}}{
+  \node[bloque,text width=2.8cm,minimum height=0.95cm] (n\a) at ({3.6*cos(\a)},{1.9*sin(\a)}) {\textbf{\textcolor{ladrillo}{\t}}\\\d};
+  \draw[oro!90!ladrillo,line width=1pt] (c) -- (n\a);}
+\end{tikzpicture}
+\notafig{Elaboración propia a partir de Ez 37:15--28.}
 \end{frame}
 
 \begin{frame}{Oseas, Amós, Miqueas, Sofonías}
@@ -529,15 +848,18 @@ Retorno & Ninguno organizado; promesa pendiente (Is 11; Ez 37) & Edicto de Ciro,
 \tarjetas{3.1cm}{2.65cm}{0/1/{Oseas}/{Lo-Ammí será «hijos del Dios viviente»; «una sola cabeza»; «David su rey» al fin de los días.}/{Os 1:10--11 [2:1--2]; 3:5},
    3.15/2/{Amós}/{«Levantaré el tabernáculo caído de David»; «nunca más serán arrancados».}/{Am 9:11--15; Hch 15:16--17},
    6.3/3/{Miqueas}/{«De Sion saldrá la ley»; «irás a Babilonia; allí serás librada»; el gobernante de Belén.}/{Mi 4:2, 10; 5:2 [5:1]},
-   9.45/4/{Sofonías}/{«YHWH, Rey de Israel, en medio de ti»; «renombre entre todos los pueblos».}/{Sof 3:14--20}}\par\vspace{5pt}
-\begin{minipage}{0.95\linewidth}\scriptsize Con la alabanza entre las naciones (Sof 3:20), el llamado de Éx 19:6 recobra su sentido.\end{minipage}
+   9.45/4/{Sofonías}/{«YHWH, Rey de Israel, en medio de ti»; «renombre entre todos los pueblos».}/{Sof 3:14--20}}
+\elabpropia
+\begin{notalam}[Amós en Hechos 15]
+Santiago cita Am 9:11--12 según la Septuaginta para la inclusión de los gentiles (Hch 15:16--17). Con la alabanza entre las naciones (Sof 3:20), el llamado de Éx 19:6 recobra su sentido.
+\end{notalam}
 \end{frame}
 
 \begin{frame}{¿Cumplido o pendiente?}
-\centering\fontsize{6.5}{7.8}\selectfont\renewcommand{\arraystretch}{1.08}
+\centering\fontsize{6.5}{7.8}\selectfont\renewcommand{\arraystretch}{1.12}
 \begin{tabular}{>{\RaggedRight\arraybackslash}p{2.1cm}>{\RaggedRight\arraybackslash}p{3.9cm}>{\RaggedRight\arraybackslash}p{2.3cm}>{\RaggedRight\arraybackslash}p{2.6cm}}
 \toprule
-\textbf{Texto} & \textbf{Promesa} & \textbf{Estado} & \textbf{NT}\\\midrule
+{\color{ladrillo}\bfseries Texto} & {\color{ladrillo}\bfseries Promesa} & {\color{ladrillo}\bfseries Estado} & {\color{ladrillo}\bfseries NT}\\\midrule
 Jer 25:11--12; 29:10 & Setenta años; regreso & Cumplido (538) & Dn 9:2; 2~Cr 36:22\\
 Is 44:28; Mi 4:10 & Ciro; «allí serás librada» & Cumplido (538) & ---\\
 Is 40:1--11 & Consuelo; camino en el desierto & Cumplido; nuevo cumplimiento & Mt 3:3\\
@@ -551,22 +873,26 @@ Is 59:20--21 & El Redentor y Jacob & Pendiente (Pablo) & Ro 11:26--27\\
 Ez 37:15--28 & Un reino, un rey davídico & Pendiente & Lc 1:32--33\\
 Am 9:15; Sof 3:20 & Nunca más arrancados & Pendiente (debatido) & Hch 1:6; 3:21\\
 \bottomrule
-\end{tabular}\par\vspace{3pt}
-{\fontsize{5}{6}\selectfont\color{sepia}\textit{Nota.} Clasificación interpretativa, como herramienta de estudio.\par}
+\end{tabular}
+\notafig{Elaboración propia. Clasificación interpretativa, como herramienta de estudio.}
 \end{frame}
 
 \begin{frame}{Los destierros como serie}
-\centering\scriptsize\renewcommand{\arraystretch}{1.15}
-\begin{tabular}{>{\RaggedRight\arraybackslash}p{1.8cm}>{\RaggedRight\arraybackslash}p{2.3cm}>{\RaggedRight\arraybackslash}p{3.0cm}>{\RaggedRight\arraybackslash}p{1.9cm}>{\RaggedRight\arraybackslash}p{1.8cm}}
-\toprule
-\textbf{Cautividad} & \textbf{Anuncio} & \textbf{Salida / retorno} & \textbf{Quiénes} & \textbf{Estado}\\\midrule
-Egipto & Gn 15:13--16 & Éx 12--14; Gn 50:24--25 & Doce tribus & Cumplida\\
-Asiria (722) & Os 9:3; Am 5:27 & Sin retorno; Is 11:11--13; Ez 37:15--22 & Israel (norte) & Pendiente\\
-Babilonia (605--586) & Jer 25:8--11; Ez 21:18--27 [21:23--32] & 2~Cr 36:22--23; Esd 1; Neh 1--2 & Judá y remanentes & Cumplida (538); plena, pendiente\\
-Dispersión (70 e.\,c.) & Dt 28:64; Lc 21:24 & Dt 30:3--5; Jer 23:7--8; 30:3 & Israel (el pueblo) & Pendiente\\
-\bottomrule
-\end{tabular}\par\vspace{6pt}
-\begin{minipage}{0.95\linewidth}\scriptsize Asiria y Babilonia suelen agruparse como «cumplida en parte». Al separarlas se ve que en 538 volvió sobre todo Judá y que la reunión del norte sigue abierta.\end{minipage}
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm]
+\draw[line width=1.6pt,cafe,-{Latex[length=3mm]}] (0,0) -- (12.4,0);
+\foreach \x/\c/\f/\q/\e/\s in {1.5/{Egipto}/{Gn 15:13--16}/{Doce tribus}/{Cumplida}/oro,
+   4.6/{Asiria (722)}/{Os 9:3; Am 5:27}/{Israel (norte)}/{Pendiente: Is 11:11--13; Ez 37:15--22}/ladrillo,
+   7.7/{Babilonia (605--586)}/{Jer 25:8--11}/{Judá y remanentes}/{Cumplida en 538; plena, pendiente}/oro,
+   10.8/{Dispersión (70 e.\,c.)}/{Dt 28:64; Lc 21:24}/{Israel (el pueblo)}/{Pendiente: Dt 30:3--5; Jer 23:7--8}/ladrillo}{
+  \node[hito,minimum size=8pt] at (\x,0) {};
+  \node[font=\scriptsize\bfseries,text=cafe,above=5pt,text width=2.6cm,align=center] at (\x,0) {\c};
+  \node[anchor=north,text width=2.75cm,align=center,font=\scriptsize,inner sep=1pt] at (\x,-0.3) {{\color{sepia}Anuncio: \f}\\[2pt]\textbf{\q}};
+  \node[anchor=north,draw=\s,fill=\s!12,rounded corners=2pt,text width=2.5cm,align=center,font=\fontsize{6}{7}\selectfont,inner sep=3pt] at (\x,-1.6) {\e};}
+\end{tikzpicture}
+\notafig{Elaboración propia.}
+\vspace{4pt}
+\begin{clave}\footnotesize Asiria y Babilonia suelen agruparse como «cumplida en parte». Al separarlas se ve que en 538 volvió sobre todo Judá y que la reunión del norte sigue abierta.\end{clave}
 \end{frame}
 
 \begin{frame}{Hacia Romanos 9--11}
@@ -574,14 +900,15 @@ Dispersión (70 e.\,c.) & Dt 28:64; Lc 21:24 & Dt 30:3--5; Jer 23:7--8; 30:3 & I
 \begin{columns}[c,onlytextwidth]
 \begin{column}{0.57\textwidth}
 \begin{cita}No ha desechado Dios a su pueblo, al cual antes conoció.\fuente{(Ro 11:2; cf. 1~S 12:22)}\end{cita}
-\scriptsize
-\begin{itemize}
-\item \textbf{1 Reyes}: los siete mil (Ro 11:2--5).
-\item \textbf{Oseas}: Lo-Ammí, hijos de Dios (Ro 9:25--26).
-\item \textbf{Isaías}: el remanente (Ro 9:27--29); el Redentor de Sion (Ro 11:26).
-\item \textbf{Jeremías}: el pacto que quita el pecado (Ro 11:27).
-\end{itemize}
-\small Juicio real, nunca total. ONE FOR ISRAEL (2025): remanente presente y restauración futura (Estudio~8).
+\centering
+\begin{tikzpicture}
+\foreach \y/\t/\r in {0/{1 Reyes: los siete mil}/{Ro 11:2--5},-0.72/{Oseas: Lo-Ammí, hijos de Dios}/{Ro 9:25--26},-1.44/{Isaías: remanente; Redentor de Sion}/{Ro 9:27--29; 11:26},-2.16/{Jeremías: el pacto que quita el pecado}/{Ro 11:27}}{
+  \node[bloque,text width=3.3cm,font=\fontsize{6}{7}\selectfont,anchor=east,minimum height=0.5cm] (a) at (0,\y) {\t};
+  \node[bloqueoro,text width=1.75cm,font=\fontsize{6}{7}\selectfont\bfseries,anchor=west,minimum height=0.5cm] (b) at (0.75,\y) {\r};
+  \draw[flecha] (a) -- (b);}
+\end{tikzpicture}
+\elabpropia
+\footnotesize\RaggedRight Juicio real, nunca total. ONE FOR ISRAEL (2025): remanente presente y restauración futura (Estudio~8).
 \end{column}
 \begin{column}{0.41\textwidth}\end{column}
 \end{columns}
@@ -590,19 +917,21 @@ Dispersión (70 e.\,c.) & Dt 28:64; Lc 21:24 & Dt 30:3--5; Jer 23:7--8; 30:3 & I
 % ===================================================
 \section{Síntesis}
 \begin{frame}{Síntesis}
-\begin{tcolorbox}[colback=piedra,colframe=ladrillo,boxrule=1pt,arc=3pt,fontupper=\small]
-\textbf{\textcolor{cafe}{Los reyes y los cautiverios:}} dos reinos que traicionan su llamado y caen, el norte (Israel) ante Asiria y Judá ante Babilonia. Con todo, el juicio no es total: queda un remanente, parte del norte se integra a Judá y los profetas prometen un nuevo pacto con las dos casas y un solo reino bajo un rey davídico (Jer 31; Ez 37), textos que Pablo usará para afirmar que Dios no ha desechado a su pueblo (Ro 11:2).
+\begin{tcolorbox}[colback=piedra,colframe=ladrillo,boxrule=1pt,arc=3pt,fontupper=\footnotesize]
+\textbf{\textcolor{cafe}{Los reyes y los cautiverios:}} dos reinos que traicionan su llamado y caen, el norte (Israel) ante Asiria y Judá ante Babilonia. El juicio no es total: queda un remanente, parte del norte se integra a Judá y los profetas prometen un nuevo pacto con las dos casas y un solo reino bajo un rey davídico (Jer 31; Ez 37), textos que Pablo usará para afirmar que Dios no ha desechado a su pueblo (Ro 11:2).
 \end{tcolorbox}
-\scriptsize\renewcommand{\arraystretch}{1.15}
+\vspace{2pt}
+\scriptsize\renewcommand{\arraystretch}{1.25}
 \begin{tabular}{>{\RaggedRight\arraybackslash}p{3.0cm}>{\RaggedRight\arraybackslash}p{8.3cm}}
 \toprule
-\textbf{Eje} & \textbf{Lo que deja esta etapa}\\\midrule
+{\color{ladrillo}\bfseries Eje} & {\color{ladrillo}\bfseries Lo que deja esta etapa}\\\midrule
 Vocación quebrada & Idolatría, injusticia, templo como amuleto (Is 1; Am 2; Os 4:6; Jer 7)\\
 Vocación preservada & Remanente, profetas, Jer 29:7, Daniel ante las naciones\\
 Restauración & Remanente (Is 10), dos casas (Is 11; Ez 37), nuevo pacto (Jer 31), Espíritu (Ez 36)\\
 Proyección & Ro 9:25--29; 11:2--5, 26--27\\
 \bottomrule
 \end{tabular}
+\notafig{Elaboración propia.}
 \end{frame}
 
 \begin{frame}{Hacia el Estudio 6}
@@ -624,7 +953,7 @@ El Israel del Segundo Templo: Zorobabel, Esdras, Nehemías, Hageo, Zacarías, Ma
 \section{Reflexión}
 \begin{frame}{Para la reflexión}
 \small
-\begin{enumerate}
+\begin{enumerate}\setlength{\itemsep}{5pt}
 \item Elías creía estar solo y Dios le reveló siete mil fieles (1~R 19:18). ¿Qué enseña sobre cómo juzgar el estado espiritual de un pueblo, y por qué lo usa Pablo en Ro 11:2--5?
 \item Jer 7:4 denuncia la confianza en «el templo de YHWH». ¿Qué formas toma hoy esa falsa seguridad?
 \item ¿Qué significa ser «reino de sacerdotes» en una sociedad que no comparte la fe (Jer 29:7)?
@@ -636,8 +965,8 @@ El Israel del Segundo Templo: Zorobabel, Esdras, Nehemías, Hageo, Zacarías, Ma
 % ===================================================
 \section{Glosario}
 \begin{frame}{Glosario}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.49\textwidth}\scriptsize
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}\footnotesize
 \textbf{Berit jadashá} (\heb{בְּרִית חֲדָשָׁה}): pacto nuevo (Jer 31:31).\par\smallskip
 \textbf{Efraín} (\heb{אֶפְרַיִם}): tribu principal y nombre del norte.\par\smallskip
 \textbf{Eijá} (\heb{אֵיכָה}): «¡cómo!»; Lamentaciones.\par\smallskip
@@ -646,7 +975,7 @@ El Israel del Segundo Templo: Zorobabel, Esdras, Nehemías, Hageo, Zacarías, Ma
 \textbf{Lo-Ammí} (\heb{לֹא עַמִּי}): «no mi pueblo» (Os 1:9).\par\smallskip
 \textbf{Mikdash meat} (\heb{מִקְדָּשׁ מְעַט}): pequeño santuario (Ez 11:16).
 \end{column}
-\begin{column}{0.49\textwidth}\scriptsize
+\begin{column}{0.48\textwidth}\footnotesize
 \textbf{Nidjé Yisrael} (\heb{נִדְחֵי יִשְׂרָאֵל}): desterrados de Israel (Is 11:12).\par\smallskip
 \textbf{Shear-yashuv} (\heb{שְׁאָר יָשׁוּב}): «un remanente volverá» (Is 7:3).\par\smallskip
 \textbf{She'erit} (\heb{שְׁאֵרִית}): remanente; \grc{λεῖμμα} (Ro 11:5).\par\smallskip

@@ -9,16 +9,18 @@
 % ===================================================
 \section{Introducción}
 \begin{frame}{¿Cansados de ser distintos?}
-\begin{columns}[t,onlytextwidth]
+\begin{columns}[T,onlytextwidth]
 \begin{column}{0.50\textwidth}
 \begin{cita}Vosotros me seréis un reino de sacerdotes y una nación santa.\fuente{(Éx 19:6)}\end{cita}
 \begin{cita}Constitúyenos ahora un rey que nos juzgue, como tienen todas las naciones.\fuente{(1~S 8:5)}\end{cita}
 \begin{cita}No ha desechado Dios a su pueblo.\fuente{(Ro 11:2; cf. 1~S 12:22)}\end{cita}
 \end{column}
-\begin{column}{0.47\textwidth}\small
+\begin{column}{0.46\textwidth}\small
 \destacar{Una ruina interna.} La vocación se quiebra \emph{desde dentro}: levitas, sacerdotes y tribus hacen «lo recto ante sus ojos» (Dt 12:8; Jue 21:25).\par\medskip
 \destacar{Una promesa en pie.} Libertadores, un remanente, una moabita en el linaje de Judá y el anuncio de un rey \emph{ungido} (1~S 2:10).\par\medskip
-{\scriptsize\color{sepia}Las citas bíblicas son traducción propia desde el texto hebreo (BHS) y griego (NA28). Numeración española [hebrea] cuando difiere.}
+\begin{notalam}[Sobre las citas]
+Traducción propia desde el texto hebreo (BHS) y griego (NA28). Cuando la numeración difiere, se da la española y entre corchetes la hebrea.
+\end{notalam}
 \end{column}
 \end{columns}
 \end{frame}
@@ -32,15 +34,21 @@
   \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][3.0cm][t]{3.55cm}{\RaggedRight
     {\small\textbf{\textcolor{ladrillo}{\t}}}\\[5pt]\small \d\par\vfill{\scriptsize\color{sepia}(\r)}}};
   \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
-\end{tikzpicture}\par\vspace{6pt}
-{\scriptsize\color{sepia}En esta etapa «Israel» designa a todo el pueblo; la distinción Israel\,/\,Judá asoma al final (1~S 11:8; 18:16; 2~S 2:4, 9--10).}
+ \draw[flecha] (b1.east) -- (b2.west);
+ \draw[flecha] (b2.east) -- (b3.west);
+\end{tikzpicture}
+\elabpropia
+\vspace{6pt}
+\begin{clave}
+\textbf{Uso de «Israel».} En esta etapa «Israel» designa a todo el pueblo; la distinción Israel\,/\,Judá asoma al final (1~S 11:8; 18:16; 2~S 2:4, 9--10).
+\end{clave}
 \end{frame}
 
 % ===================================================
 \section{Cronología}
 \begin{frame}{Secuencia de la etapa}
 \centering
-\begin{tikzpicture}[x=0.78cm]
+\begin{tikzpicture}[x=0.76cm]
 \draw[line width=1.6pt,cafe,-{Latex[length=3mm]}] (0,0) -- (15.8,0);
 \foreach \x/\t/\b in {0.5/{Muerte de Josué}/{Jue 2:8},
                       2.35/{Débora y Barac}/{Jue 4--5},
@@ -52,36 +60,79 @@
                       13.45/{David ungido}/{1~S 16},
                       15.2/{Gilboa}/{1~S 31}}{
   \fill[oro] (\x,0) circle (4pt);
-  \node[above,font=\scriptsize\bfseries,text=ladrillo,text width=1.35cm,align=center] at (\x,0.2) {\t};
-  \node[below,font=\tiny,text=sepia,text width=1.35cm,align=center] at (\x,-0.2) {\b};}
+  \node[above,font=\scriptsize\bfseries,text=ladrillo,text width=1.3cm,align=center] at (\x,0.2) {\t};
+  \node[below,font=\tiny,text=sepia,text width=1.3cm,align=center] at (\x,-0.2) {\b};}
 \draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (0.3,-0.85) -- (8.2,-0.85) node[midway,below=5pt,font=\scriptsize\itshape,align=center]{Jueces (c. 1200--1050 a.\,e.\,c.)\\Rut «en los días de los jueces» (Rt 1:1)};
 \draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (9.5,-0.85) -- (15.4,-0.85) node[midway,below=5pt,font=\scriptsize\itshape,align=center]{Transición a la monarquía\\(c. 1050--1010 a.\,e.\,c.)};
-\end{tikzpicture}\par\vspace{4pt}
-{\fontsize{5}{6}\selectfont\color{sepia}\raggedleft\textit{Nota.} Elaboración propia. Secuencia narrativa; las fechas absolutas son aproximadas y están en debate.\par}
+\end{tikzpicture}
+\notafig{Elaboración propia. Secuencia narrativa; las fechas absolutas son aproximadas y están en debate.}
+\vspace{8pt}
+\begin{clave}
+\textbf{Marco.} De la muerte de Josué (Jue 2:8) a la unción de David en Hebrón (2~S 2:4): la Edad del Hierro~I, un Israel de aldeas sin capital, sin rey y sin ejército permanente.
+\end{clave}
 \end{frame}
 
-\begin{frame}{Fechas en debate}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.48\textwidth}\small
-\textbf{\textcolor{cafe}{¿Cuánto duró el período?}}
+\begin{frame}{¿Cuánto duró el período?}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.42\textwidth}\footnotesize
 \begin{itemize}
 \item \textbf{1~R 6:1}: 480 años del Éxodo al 4.º año de Salomón.
 \item \textbf{Suma de Jueces}: c. 390 años en sucesión (cálculo propio); sumando Elí, Saúl y David, la cifra se excede.
-\item Explicación habitual: \destacar{jueces regionales superpuestos} (Jue 10:7: Amón al este, filisteos al oeste).
-\item Seder Olam encaja las cifras en los 480 años.
+\item Explicación habitual: \destacar{jueces regionales superpuestos}.
+\item Seder Olam encaja las cifras en los 480 años (Guggenheimer, 1998).
 \end{itemize}
 \end{column}
-\begin{column}{0.50\textwidth}
-\textbf{\small\textcolor{cafe}{Dos problemas textuales}}\par\smallskip
-\scriptsize\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{>{\RaggedRight\arraybackslash}p{1.6cm}>{\RaggedRight\arraybackslash}p{4.1cm}}
+\begin{column}{0.54\textwidth}
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm]
+ \draw[dashed,sepia,line width=0.6pt] (5.4,0.55) -- (5.4,-3.15);
+ \node[etiq,text=sepia,anchor=north] at (5.4,-3.15) {límite de 1~R 6:1};
+ \node[anchor=west,font=\tiny\bfseries,text=ladrillo] at (0,0.42) {1~R 6:1};
+ \fill[ladrillo] (0,-0.17) rectangle (5.4,0.17);
+ \node[font=\tiny,text=white] at (2.7,0) {480 años: del Éxodo al 4.º año de Salomón};
+ \node[anchor=west,font=\tiny\bfseries,text=ladrillo] at (0,-0.62) {Suma de Jueces en sucesión};
+ \fill[oro] (0,-1.21) rectangle (4.39,-0.87);
+ \node[font=\tiny,text=cafeosc] at (2.2,-1.04) {c. 390 años};
+ \draw[oro!90!ladrillo,dashed,fill=oro!18!white] (4.39,-1.21) rectangle (6.5,-0.87);
+ \node[font=\tiny,text=cafeosc] at (5.45,-1.04) {+ Elí, Saúl, David};
+ \node[anchor=west,font=\tiny\bfseries,text=ladrillo] at (0,-1.66) {Jueces regionales y simultáneos (Jue 10:7)};
+ \fill[celeste!55!white,draw=ladrillo,line width=0.4pt] (0.6,-2.22) rectangle (3.3,-1.92);
+ \node[font=\tiny,text=cafeosc] at (1.95,-2.07) {Amón, al este};
+ \fill[celeste!55!white,draw=ladrillo,line width=0.4pt] (1.9,-2.67) rectangle (4.6,-2.37);
+ \node[font=\tiny,text=cafeosc] at (3.25,-2.52) {filisteos, al oeste};
+ \draw[decorate,decoration={brace,amplitude=3pt,mirror},oro!90!ladrillo,line width=0.7pt] (1.9,-2.8) -- (3.3,-2.8)
+   node[midway,below=3pt,etiq]{a la vez};
+\end{tikzpicture}
+\notafig{Elaboración propia a partir de 1~R 6:1 y Jue 10:7; proporciones aproximadas.}
+\end{column}
+\end{columns}
+\vspace{6pt}
+\begin{clave}
+Las cifras de Jueces no se pensaron como una sola cadena: si varias opresiones y liberaciones fueron regionales, los 480 años de 1~R 6:1 pueden contenerlas.
+\end{clave}
+\end{frame}
+
+\begin{frame}{Dos problemas textuales}
+\footnotesize\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{1.9cm}>{\RaggedRight\arraybackslash}p{10.1cm}}
 \toprule
-\textbf{Texto} & \textbf{Problema}\\\midrule
+{\color{ladrillo}\bfseries Texto} & {\color{ladrillo}\bfseries Problema}\\\midrule
 Hch 13:20 & NA28: 450 años \emph{antes} de los jueces (Egipto, desierto, conquista). Texto bizantino (RV): 450 años \emph{de} jueces.\\
-1~S 13:1 & TM: Saúl «tenía un año» y «reinó dos años»: cifras perdidas. Hch 13:21: 40 años.\\
+1~S 13:1 & TM: Saúl «tenía un año» al comenzar a reinar y «reinó dos años»: señal casi segura de cifras perdidas en la copia. Hch 13:21 le atribuye 40 años.\\
 \bottomrule
-\end{tabular}\par\smallskip
-\precision{Saúl c. 1025--1010; David desde c. 1010 a.\,e.\,c. (convencional).}
+\end{tabular}
+\elabpropia
+\vspace{8pt}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}
+\begin{notalam}[Fechas convencionales]
+Saúl c.~1025--1010; David desde c.~1010 a.\,e.\,c. (2~S 5:4--5). Son estimaciones; la duración del reinado de Saúl no puede fijarse con el texto.
+\end{notalam}
+\end{column}
+\begin{column}{0.48\textwidth}
+\begin{notalam}[Crítica textual]
+Hch 13:20 tiene dos formas en los manuscritos: el texto crítico (NA28) y el bizantino ordenan de modo distinto los 450 años. Reina-Valera sigue la forma bizantina.
+\end{notalam}
 \end{column}
 \end{columns}
 \end{frame}
@@ -90,8 +141,8 @@ Hch 13:20 & NA28: 450 años \emph{antes} de los jueces (Egipto, desierto, conqui
 \section{Arqueología}
 \begin{frame}{El escenario de la etapa}
 \begin{columns}[c,onlytextwidth]
-\begin{column}{0.47\textwidth}\centering\includegraphics[width=\linewidth,height=0.86\textheight,keepaspectratio]{mapa_jueces.pdf}\par\vspace{1pt}{\fontsize{4.5}{5.5}\selectfont\color{sepia}\textit{Nota.} Elaboración propia (GSHHS/WDB, Basemap); ubicaciones aproximadas.\par}\end{column}
-\begin{column}{0.51\textwidth}\scriptsize\RaggedRight
+\begin{column}{0.46\textwidth}\centering\includegraphics[width=\linewidth,height=0.78\textheight,keepaspectratio]{mapa_jueces.pdf}\par\vspace{1pt}{\fontsize{4.5}{5.5}\selectfont\color{sepia}\textit{Nota.} Elaboración propia (GSHHS/WDB, Basemap); ubicaciones aproximadas.\par}\end{column}
+\begin{column}{0.50\textwidth}\scriptsize\RaggedRight
 \input{crops/mapa_jueces_leyenda.tex}\medskip
 
 \textbf{\textcolor{cafe}{Sierra central}}: Silo, Mizpa, Guibeá; las aldeas israelitas del Hierro~I.\par\smallskip
@@ -111,64 +162,75 @@ Hch 13:20 & NA28: 450 años \emph{antes} de los jueces (Egipto, desierto, conqui
    3.15/2/{Medinet Habu}/{Ramsés~III combate a los Pueblos del Mar, entre ellos los \emph{Peleset} (\heb{פְּלִשְׁתִּים}).}/{c. 1177 a.\,e.\,c.; Dothan, 1982},
    6.3/3/{Ecrón}/{«Akish, hijo de Padi, rey de Ecrón»: el nombre de Aquis de Gat (1~S 27:2). Siglo \textsc{vii}.}/{Gitin et~al., 1997},
    9.45/4/{Gat}/{Ostracón con \emph{’LWT} y \emph{WLT}, nombres cercanos a «Goliat». No es Goliat.}/{Maeir et~al., 2008}}{
-  \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][3.2cm][t]{2.65cm}{\RaggedRight
+  \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][3.0cm][t]{2.65cm}{\RaggedRight
     {\small\textbf{\textcolor{ladrillo}{\t}}}\\[4pt]\scriptsize \d\par\vfill{\tiny\color{sepia}(\r)}}};
   \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
-\end{tikzpicture}\par\vspace{5pt}
-\begin{minipage}{0.95\linewidth}\scriptsize \textbf{Debate:} la ausencia de huesos de cerdo en la sierra se ha leído como marcador israelita (Faust, 2006); Hesse y Wapnish (1997) advierten que depende también del clima y la economía.\end{minipage}
+\end{tikzpicture}
+\notafig{Elaboración propia a partir de las fuentes citadas en cada recuadro.}
+\vspace{4pt}
+\begin{notalam}[Debate arqueológico: los huesos de cerdo]
+En las aldeas de la sierra casi no aparecen huesos de cerdo, frecuentes en las ciudades filisteas. Faust (2006) lo lee como marcador de identidad coherente con Lv 11:7; Hesse y Wapnish (1997) advierten que la cría de cerdos depende también del clima y la economía. La cuestión sigue abierta.
+\end{notalam}
 \end{frame}
 
 \begin{frame}{Silo, Bet-semes y Qeiyafa}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.49\textwidth}\small
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.42\textwidth}\footnotesize
 \begin{itemize}
 \item \textbf{Silo}: incendio a mediados del s. \textsc{xi} a.\,e.\,c. (Finkelstein et~al., 1993). ¿Tras Afec? Samuel calla; Jer 7:12 y Sal 78:60 lo recuerdan.
 \item \textbf{Bet-semes}: frontera con Ecrón, adonde vuelve el arca (1~S 6).
 \item \textbf{\emph{Pim}} (1~S 13:21): palabra oscura aclarada por pesas inscritas \emph{pym}.
 \end{itemize}
 \end{column}
-\begin{column}{0.49\textwidth}\small
-\textbf{\textcolor{cafe}{Khirbet Qeiyafa}}: fortaleza sobre el valle de Ela, c.~1020--980 a.\,e.\,c.
-\begin{itemize}
-\item Garfinkel: ciudad de Judá del tiempo de David (¿Saaraim, 1~S 17:52?).
-\item Finkelstein y Fantalkin (2012): entidad del norte, quizá la de Saúl.
-\item Otros: cananea o filistea.
-\end{itemize}
-\precision{la «cronología baja» de Finkelstein reduce el reino de David; Mazar (1990) y otros la rechazan.}
+\begin{column}{0.55\textwidth}
+\centering
+\begin{tikzpicture}
+ \node[bloqueazul,text width=4.2cm] (q) at (0,0) {Khirbet Qeiyafa\\[-1pt]{\tiny\mdseries fortaleza sobre el valle de Elá, c.~1020--980 a.\,e.\,c.}};
+ \node[bloque,text width=1.75cm,font=\tiny,anchor=north] (a) at (-2.35,-0.95) {\textbf{Judá de David}\\¿Saaraim, 1~S 17:52?\\[1pt]{\color{sepia}Garfinkel}};
+ \node[bloque,text width=1.75cm,font=\tiny,anchor=north] (b) at (0,-0.95) {\textbf{Entidad del norte}\\quizá la de Saúl\\[1pt]{\color{sepia}Finkelstein y Fantalkin}};
+ \node[bloqueoro,text width=1.75cm,font=\tiny,anchor=north] (c) at (2.35,-0.95) {\textbf{Cananea o filistea}\\[1pt]{\color{sepia}otros autores}};
+ \foreach \n in {a,b,c}{\draw[flecha] (q.south) -- (\n.north);}
+\end{tikzpicture}
+\notafig{Elaboración propia a partir de Garfinkel et~al. (2016) y Finkelstein y Fantalkin (2012).}
 \end{column}
 \end{columns}
+\vspace{6pt}
+\begin{notalam}[Debate: la «cronología baja»]
+La «cronología baja» de Finkelstein rebaja la datación de varios estratos y reduce el reino de David; Mazar (1990) y otros la rechazan. Qeiyafa es una de las piezas centrales de esa discusión.
+\end{notalam}
 \end{frame}
 
 % ===================================================
 \section{Jueces y Rut}
 \begin{frame}{El ciclo: una espiral}
 \begin{columns}[c,onlytextwidth]
-\begin{column}{0.52\textwidth}
+\begin{column}{0.50\textwidth}
 \centering
 \begin{tikzpicture}[every node/.style={font=\scriptsize}]
 \foreach \a/\t/\r [count=\i] in {90/{Apostasía}/{2:11--13},18/{Opresión}/{2:14--15},-54/{Clamor}/{3:9; 6:6},-126/{Libertador}/{2:16, 18},162/{Reposo y muerte}/{3:11; 2:19}}{
-  \node[draw=cafe,line width=0.8pt,fill=piedra,rounded corners=3pt,text width=1.75cm,align=center,inner sep=2.5pt] (c\i) at ({2.45*cos(\a)},{1.75*sin(\a)}) {\textbf{\textcolor{ladrillo}{\t}}\\[-1pt]{\tiny\color{sepia}Jue \r}};}
+  \node[draw=cafe,line width=0.8pt,fill=piedra,rounded corners=3pt,text width=1.75cm,align=center,inner sep=2.5pt] (c\i) at ({2.4*cos(\a)},{1.75*sin(\a)}) {\textbf{\textcolor{ladrillo}{\t}}\\[-1pt]{\tiny\color{sepia}Jue \r}};}
 \foreach \a/\b in {1/2,2/3,3/4,4/5,5/1}{\draw[-{Latex[length=2mm]},oro!90!ladrillo,line width=1.1pt] (c\a) to[bend left=18] (c\b);}
 \node[text width=1.9cm,align=center,font=\tiny\itshape,text=sepia] at (0,-0.05) {«más que sus padres» (2:19)};
 \end{tikzpicture}
+\elabpropia
 \end{column}
-\begin{column}{0.45\textwidth}
+\begin{column}{0.46\textwidth}
 \begin{cita}[fontupper=\scriptsize\itshape]YHWH levantó jueces que los libraron [\ldots]. Pero cuando moría el juez, volvían a corromperse más que sus padres.\fuente{(Jue 2:16, 19)}\end{cita}
-\scriptsize
-\begin{itemize}
-\item «Reposó la tierra» desaparece tras Gedeón (3:11; 5:31; 8:28).
-\item Las tribus terminan en guerra civil (12:1--6; Jue 20).
-\item \heb{שֹׁפֵט} (\emph{shofet}): libertador y gobernante; el Juez es YHWH (11:27).
-\end{itemize}
+\begin{notalam}[Filología: \heb{שֹׁפֵט} (\emph{shofet})]
+No es un magistrado de tribunal, sino un líder carismático que libra y gobierna. El texto insiste en que YHWH lo «levanta»: el verdadero Juez es Él (11:27).
+\end{notalam}
+\begin{notalam}[Filología: el clamor]
+\heb{וַיִּזְעֲקוּ} (\emph{va-yiz'aqú}, 3:9): Dios responde a un gemido, no a un arrepentimiento pleno; ahí está la semilla de la restauración.
+\end{notalam}
 \end{column}
 \end{columns}
 \end{frame}
 
 \begin{frame}{Los jueces mayores}
-\centering\scriptsize\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{>{\RaggedRight\arraybackslash}p{1.8cm}>{\RaggedRight\arraybackslash}p{1.8cm}>{\RaggedRight\arraybackslash}p{2.1cm}>{\RaggedRight\arraybackslash}p{1.4cm}>{\RaggedRight\arraybackslash}p{3.9cm}}
+\centering\footnotesize\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{1.75cm}>{\RaggedRight\arraybackslash}p{1.65cm}>{\RaggedRight\arraybackslash}p{2.1cm}>{\RaggedRight\arraybackslash}p{1.35cm}>{\RaggedRight\arraybackslash}p{3.75cm}}
 \toprule
-\textbf{Juez} & \textbf{Tribu} & \textbf{Opresor} & \textbf{Texto} & \textbf{Rasgo}\\\midrule
+{\color{ladrillo}\bfseries Juez} & {\color{ladrillo}\bfseries Tribu} & {\color{ladrillo}\bfseries Opresor} & {\color{ladrillo}\bfseries Texto} & {\color{ladrillo}\bfseries Rasgo}\\\midrule
 Otoniel & Judá & Cusán-risataim & 3:7--11 & Modelo inicial; reposo de 40 años\\
 Aod & Benjamín & Eglón de Moab & 3:12--30 & Libertador zurdo; reposo de 80 años\\
 Débora y Barac & Efraín\,/ Neftalí & Jabín y Sísara & 4--5 & Profetisa y jueza; Jael completa la victoria\\
@@ -176,47 +238,100 @@ Gedeón & Manasés & Madián & 6--8 & Rechaza la corona; su efod es tropiezo\\
 Jefté & Galaad & Amón & 10:6--12:7 & Voto temerario; guerra contra Efraín\\
 Sansón & Dan & Filisteos & 13--16 & Nazareo; vive «según sus ojos»\\
 \bottomrule
-\end{tabular}\par\vspace{8pt}
-{\small\itshape\color{sepia}De Otoniel a Sansón decaen la talla de los jueces y la unidad de las tribus.}
+\end{tabular}
+\elabpropia
 \end{frame}
 
-\begin{frame}{Débora y Gedeón}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.48\textwidth}
-\textbf{\textcolor{cafe}{El cántico de Débora (Jue 5)}}\par\smallskip
-\small Para muchos, junto con Éx 15, uno de los poemas más antiguos de la Biblia (Cross y Freedman, 1997); otros lo datan más tarde.
-\scriptsize
-\begin{itemize}
-\item Alaba: Efraín, Benjamín, Maquir, Zabulón, Isacar, Neftalí.
-\item Reprocha: Rubén, Galaad, Dan, Aser. Maldice a Meroz (5:23).
-\item No menciona a Judá ni a Simeón.
-\end{itemize}
+\begin{frame}{Una espiral descendente}
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm]
+ \foreach \i/\t/\d/\s in {0/Otoniel/{«reposó la tierra»\\3:11}/bloque,
+   1/Aod/{«reposó la tierra»\\3:30}/bloque,
+   2/Débora/{«reposó la tierra»\\5:31}/bloque,
+   3/Gedeón/{«reposó»; pero su efod es tropiezo\\8:27--28}/bloque,
+   4/Jefté/{Israel mata a Israel\\12:6}/bloqueoro,
+   5/Sansón/{«recta a mis ojos»\\14:3}/bloqueoro,
+   6/{Jue 17--21}/{sin rey; guerra civil\\Jue 20}/bloqueazul}{
+   \node[\s,text width=1.45cm,font=\tiny,anchor=north] (j\i) at ({\i*1.82},{-\i*0.5}) {{\scriptsize\bfseries \t}\\[1pt]\d};}
+ \foreach \i [evaluate=\i as \j using int(\i+1)] in {0,...,5}{\draw[flecha] (j\i.east) -- (j\j.west|-j\i.east) ;}
+ \draw[decorate,decoration={brace,amplitude=5pt},oro!90!ladrillo,line width=0.8pt] (-0.75,0.15) -- (6.2,0.15)
+   node[midway,above=5pt,etiq]{\textbf{«Y reposó la tierra»}: cuatro veces, y ya no vuelve};
+ \draw[sepia,dashed,-{Latex[length=2mm]}] (-0.7,-4.35) -- (11.9,-4.35) node[pos=0.5,below,etiq,text=sepia]{talla de los jueces y unidad de las tribus};
+\end{tikzpicture}
+\elabpropia
+\vspace{6pt}
+\begin{clave}
+De Otoniel a Sansón decaen la talla de los jueces y la unidad de las tribus. Los apéndices (Jue 17--21) tocan fondo: «no había rey en Israel» (21:25).
+\end{clave}
+\end{frame}
+
+\begin{frame}{El cántico de Débora (Jue 5)}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.45\textwidth}
+\footnotesize Débora, «profetisa» que «juzgaba a Israel» (4:4), canta una victoria en que las tribus se miden por haber acudido o no «en ayuda de YHWH» (5:23).
 \begin{cita}[fontupper=\scriptsize\itshape]Los que le aman sean como el sol cuando sale en su fuerza.\fuente{(Jue 5:31)}\end{cita}
+\begin{notalam}[Datación en debate]
+Para muchos, junto con Éx 15, uno de los poemas más antiguos de la Biblia (Cross y Freedman, 1997); otros lo datan más tarde.
+\end{notalam}
 \end{column}
-\begin{column}{0.49\textwidth}
+\begin{column}{0.51\textwidth}
+\centering
+\begin{tikzpicture}[chip/.style={bloque,font=\tiny,text width=1.05cm,inner sep=2.5pt}]
+ \node[bloqueazul,text width=1.15cm,font=\tiny\bfseries] (A) at (0,0) {Alaba};
+ \foreach \t [count=\k from 0] in {Efraín,Benjamín,Maquir,Zabulón,Isacar,Neftalí}{
+   \pgfmathsetmacro{\cx}{1.6+mod(\k,3)*1.38}\pgfmathsetmacro{\cy}{0.3-floor(\k/3)*0.6}
+   \node[chip] at (\cx,\cy) {\t};}
+ \node[bloqueazul,text width=1.15cm,font=\tiny\bfseries,fill=oro!80!ladrillo,draw=oro!80!ladrillo] (R) at (0,-1.55) {Reprocha};
+ \foreach \t [count=\k from 0] in {Rubén,Galaad,Dan,Aser}{
+   \pgfmathsetmacro{\cx}{1.6+mod(\k,3)*1.38}\pgfmathsetmacro{\cy}{-1.25-floor(\k/3)*0.6}
+   \node[chip,fill=oro!14!white,draw=oro!90!ladrillo] at (\cx,\cy) {\t};}
+ \node[bloqueazul,text width=1.15cm,font=\tiny\bfseries,fill=oro!55!ladrillo,draw=oro!55!ladrillo] at (0,-2.6) {Maldice};
+ \node[chip,fill=white,draw=oro!90!ladrillo,text width=2.4cm] at (2.29,-2.6) {Meroz (5:23)};
+ \node[bloqueazul,text width=1.15cm,font=\tiny\bfseries,fill=sepia,draw=sepia] (N) at (0,-3.5) {No nombra};
+ \node[chip,fill=white,dashed,draw=sepia] at (1.6,-3.5) {Judá};
+ \node[chip,fill=white,dashed,draw=sepia] at (2.98,-3.5) {Simeón};
+\end{tikzpicture}
+\notafig{Elaboración propia a partir de Jue 5:14--23.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Gedeón: «YHWH reinará»}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.50\textwidth}
 \centering{\heb{יְהוָה יִמְשֹׁל בָּכֶם}}\par\smallskip
 \begin{cita}No reinaré yo sobre vosotros, ni mi hijo reinará sobre vosotros; YHWH reinará sobre vosotros.\fuente{(Jue 8:23)}\end{cita}
-\scriptsize
-\begin{itemize}
-\item Pero su efod se vuelve «tropiezo» (8:27).
-\item Abimelec, «mi padre es rey», se hace rey (Jue 9); fábula de Jotam.
-\item «Como el día de Madián» será figura profética (Is 9:4 [9:3]).
-\end{itemize}
+\begin{clave}
+La fórmula que mejor expresa el ideal teocrático del período. La victoria sobre Madián será figura profética: «como en el día de Madián» (Is 9:4 [9:3]; 10:26).
+\end{clave}
+\end{column}
+\begin{column}{0.46\textwidth}
+\centering
+\begin{tikzpicture}[node distance=0.32cm]
+ \node[bloque,text width=4.6cm] (g1) {Trescientos hombres: «para que Israel no se alabe contra mí» (7:2)};
+ \node[bloqueazul,text width=4.6cm,below=of g1] (g2) {Rechaza la corona (8:23)};
+ \node[bloqueoro,text width=4.6cm,below=of g2] (g3) {Fabrica un efod: «todo Israel prostituyó tras él»; «tropiezo» (8:27)};
+ \node[bloque,text width=4.6cm,below=of g3] (g4) {Abimelec, «mi padre es rey», se hace rey (Jue 9); fábula de Jotam};
+ \foreach \a/\b in {g1/g2,g2/g3,g3/g4}{\draw[flecha] (\a) -- (\b);}
+\end{tikzpicture}
+\elabpropia
 \end{column}
 \end{columns}
 \end{frame}
 
 \begin{frame}{Jefté y Sansón}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.48\textwidth}\small
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}\footnotesize
 \textbf{\textcolor{cafe}{Jefté (Jue 11--12)}}
 \begin{itemize}
 \item Conoce la historia del Éxodo (11:12--28), pero su voto sigue la lógica de los dioses vecinos.
-\item Josefo: la sacrificó, y condena el acto. Kimji: consagrada a la virginidad (11:39).
 \item \heb{שִׁבֹּלֶת}\,/\,\heb{סִבֹּלֶת}: Israel ya mata a Israel (12:6).
 \end{itemize}
+\begin{notalam}[Tradición judía: el voto de Jefté]
+Josefo entiende que la sacrificó, y condena el acto. Kimji la ve consagrada a la virginidad (11:39).
+\end{notalam}
 \end{column}
-\begin{column}{0.49\textwidth}\small
+\begin{column}{0.48\textwidth}\footnotesize
 \textbf{\textcolor{cafe}{Sansón (Jue 13--16)}}
 \begin{itemize}
 \item \heb{נְזִיר אֱלֹהִים} (\emph{nezir Elohim}) desde el vientre (13:5).
@@ -225,25 +340,32 @@ Sansón & Dan & Filisteos & 13--16 & Nazareo; vive «según sus ojos»\\
 \item Aun así, figura en Heb 11:32.
 \end{itemize}
 \end{column}
-\end{columns}\par\medskip
-{\small\itshape\color{sepia}\centering En Sansón se reconoce al Israel de la época: consagrado desde su origen, vive como las naciones sin perder su llamado.\par}
+\end{columns}
+\vspace{6pt}
+\begin{clave}
+En Sansón se reconoce al Israel de la época: consagrado desde su origen, vive como las naciones sin perder su llamado.
+\end{clave}
 \end{frame}
 
 \begin{frame}{Un levita a sueldo (Jue 17--18)}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.50\textwidth}
-\begin{cita}Ahora sé que YHWH me prosperará, porque tengo un levita por sacerdote.\fuente{(Jue 17:13)}\end{cita}
-\small
-\begin{itemize}
-\item Micaía: ídolo, efod, terafines y un levita de Belén por diez siclos al año.
-\item Dan roba el ídolo y al levita, arrasa Lais y funda un santuario «hasta el cautiverio de la tierra» (18:30).
-\end{itemize}
-\end{column}
+\begin{columns}[T,onlytextwidth]
 \begin{column}{0.47\textwidth}
-\begin{tcolorbox}[colback=piedra,colframe=cafe,boxrule=0.8pt,arc=3pt,fontupper=\scriptsize,title={\scriptsize\bfseries Precisión textual (18:30)},colbacktitle=oro!35,coltitle=cafe]
+\begin{cita}Ahora sé que YHWH me prosperará, porque tengo un levita por sacerdote.\fuente{(Jue 17:13)}\end{cita}
+\begin{notalam}[Precisión textual (18:30)]
 «Jonatán, hijo de Gersón, hijo de \emph{Manasés}»: la \emph{nun} de \heb{מנשה} va suspendida; sin ella se lee \heb{משה}, «Moisés». El Talmud: se añadió para no avergonzar a Moisés (Bava Batra 109b).
-\end{tcolorbox}
-\scriptsize En ese mismo Dan pondrá Jeroboam su becerro (1~R 12:29), antesala del destierro asirio (Estudio~5).
+\end{notalam}
+\end{column}
+\begin{column}{0.49\textwidth}
+\centering
+\begin{tikzpicture}[node distance=0.26cm]
+ \node[bloque,text width=4.7cm] (l1) {Micaía: ídolo, efod y terafines (17:5)};
+ \node[bloque,text width=4.7cm,below=of l1] (l2) {Un levita de Belén, por diez siclos al año};
+ \node[bloqueoro,text width=4.7cm,below=of l2] (l3) {Dan roba el ídolo y al levita; arrasa Lais};
+ \node[bloqueoro,text width=4.7cm,below=of l3] (l4) {Santuario en Dan «hasta el cautiverio de la tierra» (18:30)};
+ \node[bloqueazul,text width=4.7cm,below=of l4] (l5) {Becerro de Jeroboam en Dan (1~R 12:29) $\to$ destierro asirio (Estudio~5)};
+ \foreach \a/\b in {l1/l2,l2/l3,l3/l4,l4/l5}{\draw[flecha] (\a) -- (\b);}
+\end{tikzpicture}
+\elabpropia
 \end{column}
 \end{columns}
 \end{frame}
@@ -282,22 +404,59 @@ Sansón & Dan & Filisteos & 13--16 & Nazareo; vive «según sus ojos»\\
 \end{columns}
 \end{frame}
 
-\begin{frame}{El redentor y la moabita}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.49\textwidth}\small
-\textbf{\textcolor{cafe}{Booz, el \emph{go'el}}} (\heb{גֹּאֵל})
+\begin{frame}{Booz, el \emph{go'el}}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.52\textwidth}\footnotesize
 \begin{itemize}
-\item Rescata la tierra y el nombre del pariente (Lv 25:25; cf. Dt 25:5--10).
+\item \heb{גֹּאֵל} (\emph{go'el}): rescata la tierra y el nombre del pariente (Lv 25:25; cf. Dt 25:5--10).
 \item «No te ha dejado hoy sin redentor» (Rt 4:14).
 \item \heb{הוּא אֲבִי־יִשַׁי אֲבִי דָוִד}: «padre de Isaí, padre de David» (4:17).
 \item Rut en la genealogía del Mesías (Mt 1:5).
 \end{itemize}
+\vspace{4pt}
+\begin{clave}
+La genealogía convierte una historia familiar en prólogo de la monarquía y, para Mateo, del Mesías.
+\end{clave}
+\end{column}
+\begin{column}{0.44\textwidth}
+\centering
+\begin{tikzpicture}[g/.style={bloque,text width=1.5cm,inner sep=2.5pt},node distance=0.32cm]
+ \node[g] (f) {Fares};
+ \node[g,below=0.75cm of f] (b) {Booz};
+ \node[g,right=0.45cm of b,fill=oro!14!white,draw=oro!90!ladrillo] (r) {Rut, la moabita};
+ \draw[oro!90!ladrillo,line width=1pt] (b) -- (r);
+ \draw[flecha,dashed] (f) -- node[right,etiq,text=sepia]{\ldots} (b);
+ \node[g,below=0.5cm of b] (o) {Obed};
+ \node[g,below=of o] (i) {Isaí};
+ \node[bloqueazul,text width=1.5cm,below=of i] (d) {David};
+ \draw[flecha] (b.south) -- (o.north); \draw[flecha] (o) -- (i); \draw[flecha] (i) -- (d);
+ \draw[decorate,decoration={brace,amplitude=4pt},sepia] ([xshift=0.2cm]r.east|-f.north) -- ([xshift=0.2cm]r.east|-d.south)
+   node[midway,right=5pt,etiq,align=left]{diez\\generaciones\\(Rt 4:18--22)};
+\end{tikzpicture}
+\notafig{Elaboración propia a partir de Rt 4:17 y Mt 1:5.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{¿Y Dt 23:3 [23:4]?}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.47\textwidth}
+\begin{cita}No entrará amonita ni moabita en la congregación de YHWH.\fuente{(Dt 23:3 [23:4])}\end{cita}
+\begin{notalam}[Tradición judía: «moabita, y no moabitesa»]
+La Mishná limita la prohibición a los varones (Yevamot 8:3) y el Talmud lo condensa en esa frase (Yevamot 76b--77a), con la que zanja la duda de Doeg el edomita sobre la legitimidad de David. Es interpretación rabínica, no distinción explícita de la Torá.
+\end{notalam}
 \end{column}
 \begin{column}{0.49\textwidth}
-\textbf{\small\textcolor{cafe}{¿Y Dt 23:3 [23:4]?}}\par\smallskip
-\begin{cita}[fontupper=\scriptsize\itshape]No entrará amonita ni moabita en la congregación de YHWH.\fuente{(Dt 23:3 [23:4])}\end{cita}
-\scriptsize
-Mishná (Yevamot 8:3) y Talmud (Yevamot 76b--77a): «\emph{moabita, y no moabitesa}». Es interpretación rabínica, no distinción explícita de la Torá; Esd 9--10 y Neh 13:1--3 aplican la ley con más rigor.
+\centering
+\begin{tikzpicture}
+ \node[bloqueazul,text width=5.1cm] (t) at (0,0) {Dt 23:3 [23:4]\\[-1pt]{\mdseries\scriptsize «no entrará amonita ni moabita»}};
+ \node[bloqueoro,text width=2.3cm,font=\scriptsize,anchor=north] (m) at (-1.4,-0.9) {\textbf{Lectura rabínica}\\solo varones\\(Yevamot 8:3; 76b--77a)};
+ \node[bloque,text width=2.3cm,font=\scriptsize,anchor=north] (e) at (1.4,-0.9) {\textbf{Lectura rigurosa}\\aplicación estricta\\(Esd 9--10; Neh 13:1--3)};
+ \draw[flecha] (t.south) -- (m.north); \draw[flecha] (t.south) -- (e.north);
+ \node[bloque,fill=white,dashed,text width=5.1cm,anchor=north] (r) at (0,-2.75) {Rut, la moabita, en el linaje de David (Rt 4:17)};
+ \draw[flecha,dashed] (m.south) -- (m.south|-r.north);
+\end{tikzpicture}
+\elabpropia
 \end{column}
 \end{columns}
 \end{frame}
@@ -329,31 +488,54 @@ Mishná (Yevamot 8:3) y Talmud (Yevamot 76b--77a): «\emph{moabita, y no moabite
 \node[caja,text width=3.3cm,align=center,right=of g] (p) {\textbf{Lucas (1:69)}\\[3pt]\grc{ἤγειρεν κέρας σωτηρίας}\\[2pt]«en la casa de David»};
 \draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (h) -- (g);
 \draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (g) -- (p);
-\end{tikzpicture}\par\vspace{8pt}
-{\small\itshape\color{sepia}María canta como Ana: «quitó de los tronos a los poderosos y exaltó a los humildes» (Lc 1:52; cf. 1~S 2:7--8).}\par\vspace{6pt}
-\begin{minipage}{0.92\linewidth}\precision{4QSam\textsuperscript{a} añade en 1~S 1:22 que Samuel será «nazareo para siempre»; la LXX de 1~S 2:10 inserta un texto cercano a Jer 9:23--24 [9:22--23]. Se traduce el TM.}\end{minipage}
+\end{tikzpicture}
+\elabpropia
+\vspace{4pt}
+{\small\itshape\color{sepia}\centering María canta como Ana: «quitó de los tronos a los poderosos y exaltó a los humildes» (Lc 1:52; cf. 1~S 2:7--8).\par}
+\vspace{4pt}
+\begin{notalam}[Crítica textual]
+4QSam\textsuperscript{a} añade en 1~S 1:22 que Samuel será «nazareo para siempre»; la LXX de 1~S 2:10 inserta un texto cercano a Jer 9:23--24 [9:22--23]. Aquí se traduce el texto masorético.
+\end{notalam}
 \end{frame}
 
 \begin{frame}{Icabod y Eben-ezer}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.49\textwidth}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}
 \centering{\heb{אִי־כָבוֹד \foreignlanguage{spanish}{[\ldots]} גָּלָה כָבוֹד מִיִּשְׂרָאֵל}}\par\smallskip
 \begin{cita}Y llamó al niño Icabod, diciendo: ¡Se ha ido la gloria de Israel!\fuente{(1~S 4:21)}\end{cita}
-\scriptsize
-\begin{itemize}
-\item Hijos de Elí: «no conocían a YHWH» (2:12).
-\item Afec: el arca usada como amuleto (4:3).
-\item \heb{גָּלָה}: la gloria «va al exilio».
-\item Dagón cae; el arca vuelve sola a Bet-semes (5--6).
-\end{itemize}
+\begin{notalam}[Filología: \heb{גָּלָה}]
+El verbo del destierro: la gloria «va al exilio». Los hijos de Elí «no conocían a YHWH» (2:12), y el sacerdocio arrastra al pueblo.
+\end{notalam}
 \end{column}
-\begin{column}{0.49\textwidth}
+\begin{column}{0.48\textwidth}
 \centering{\heb{עַד־הֵנָּה עֲזָרָנוּ יְהוָה}}\par\smallskip
 \begin{cita}Y le puso por nombre Eben-ezer, diciendo: Hasta aquí nos ayudó YHWH.\fuente{(1~S 7:12)}\end{cita}
-\scriptsize Mizpa: «quitad los dioses ajenos» (7:3); ayuno, confesión, intercesión. Con el arca como objeto, Israel perdió; al volver a Dios, fue librado.\par\smallskip
-\precision{1~S 2:35 promete «un sacerdote fiel» que andará «delante de mi ungido».}
+\begin{clave}
+\textbf{Una promesa en la ruina.} 1~S 2:35 anuncia «un sacerdote fiel» que andará «delante de mi ungido».
+\end{clave}
 \end{column}
 \end{columns}
+\end{frame}
+
+\begin{frame}{Afec y Mizpa: dos maneras de acudir a Dios}
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm]
+ \node[bloqueazul,text width=1.7cm] (A) at (0,0) {Afec\\[-1pt]{\tiny\mdseries 1~S 4--6}};
+ \node[bloque,text width=2.9cm] (a1) at (2.75,0) {El arca como amuleto: «para que nos salve» (4:3)};
+ \node[bloque,text width=2.6cm] (a2) at (6.0,0) {Derrota; los filisteos capturan el arca};
+ \node[bloque,text width=2.7cm,fill=white] (a3) at (9.2,0) {\textbf{Icabod}: «se ha ido la gloria» (4:21)};
+ \node[bloqueazul,text width=1.7cm] (M) at (0,-1.9) {Mizpa\\[-1pt]{\tiny\mdseries 1~S 7}};
+ \node[bloqueoro,text width=2.9cm] (m1) at (2.75,-1.9) {«Quitad los dioses ajenos» (7:3)};
+ \node[bloqueoro,text width=2.6cm] (m2) at (6.0,-1.9) {Ayuno, confesión e intercesión de Samuel};
+ \node[bloqueoro,text width=2.7cm,fill=white] (m3) at (9.2,-1.9) {\textbf{Eben-ezer}: «hasta aquí nos ayudó YHWH» (7:12)};
+ \foreach \a/\b in {A/a1,a1/a2,a2/a3,M/m1,m1/m2,m2/m3}{\draw[flecha] (\a) -- (\b);}
+ \draw[dashed,sepia] (-1,-0.95) -- (10.6,-0.95);
+\end{tikzpicture}
+\elabpropia
+\vspace{8pt}
+\begin{clave}
+Con el arca como objeto, Israel perdió; al volver a Dios, fue librado. Dagón cae ante el arca, y el arca vuelve sola a Bet-semes (1~S 5--6): la gloria no depende del objeto.
+\end{clave}
 \end{frame}
 
 \begin{frame}{«Como todas las naciones»}
@@ -365,55 +547,106 @@ Mishná (Yevamot 8:3) y Talmud (Yevamot 76b--77a): «\emph{moabita, y no moabite
   \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][2.75cm][t]{3.55cm}{\RaggedRight
     {\small\textbf{\textcolor{ladrillo}{\t}}}\\[5pt]\small \d\par\vfill{\scriptsize\color{sepia}(\r)}}};
   \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
-\end{tikzpicture}\par\vspace{8pt}
-\begin{minipage}{0.95\linewidth}\small La Torá prevé la monarquía; lo que está en juego es el \destacar{modelo}: un rey a la manera de las naciones, en lugar de un rey sujeto a la Torá en un pueblo llamado a ser distinto.\end{minipage}
+\end{tikzpicture}
+\elabpropia
+\vspace{8pt}
+\begin{clave}
+\small La Torá prevé la monarquía; lo que está en juego es el \destacar{modelo}: un rey a la manera de las naciones, en lugar de un rey sujeto a la Torá en un pueblo llamado a ser distinto.
+\end{clave}
 \end{frame}
 
 % ===================================================
 \section{Saúl y David}
 \begin{frame}{Saúl: obedecer es mejor}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.49\textwidth}\small
-\begin{itemize}
-\item Benjaminita, ungido \heb{נָגִיד} (\emph{naguid}) sobre la heredad de YHWH (10:1).
-\item Libra a Jabes, la ciudad arrasada en Jue 21 (1~S 11).
-\item Gilgal: ofrece él mismo el holocausto (13:8--12). «YHWH se ha buscado un hombre conforme a su corazón» (13:14).
-\item Amalec: perdona a Agag (1~S 15). El reino es «rasgado» (15:28).
-\end{itemize}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.44\textwidth}
+\centering
+\begin{tikzpicture}[node distance=0.24cm]
+ \node[bloque,text width=4.3cm] (s1) {Ungido \heb{נָגִיד} (\emph{naguid}) sobre la heredad de YHWH (10:1)};
+ \node[bloque,text width=4.3cm,below=of s1] (s2) {Libra a Jabes, la ciudad arrasada en Jue 21 (1~S 11)};
+ \node[bloqueoro,text width=4.3cm,below=of s2] (s3) {Gilgal: ofrece él mismo el holocausto (13:8--12)};
+ \node[bloqueoro,text width=4.3cm,below=of s3] (s4) {Amalec: perdona a Agag (1~S 15)};
+ \node[bloqueazul,text width=4.3cm,below=of s4] (s5) {El reino es «rasgado» (15:28)};
+ \foreach \a/\b in {s1/s2,s2/s3,s3/s4,s4/s5}{\draw[flecha] (\a) -- (\b);}
+\end{tikzpicture}
+\elabpropia
 \end{column}
-\begin{column}{0.49\textwidth}
+\begin{column}{0.52\textwidth}
 \centering{\heb{הִנֵּה שְׁמֹעַ מִזֶּבַח טוֹב}}\par\smallskip
 \begin{cita}Ciertamente obedecer es mejor que el sacrificio, y prestar atención, mejor que la grasa de los carneros.\fuente{(1~S 15:22)}\end{cita}
 \begin{cita}[fontupper=\scriptsize\itshape]YHWH no desamparará a su pueblo, por causa de su gran nombre.\fuente{(1~S 12:22)}\end{cita}
-\scriptsize LXX: \grc{οὐκ ἀπώσεται κύριος τὸν λαὸν αὐτοῦ} $\to$ Ro 11:1--2.
+\begin{notalam}[Griego: de la LXX a Romanos]
+\grc{οὐκ ἀπώσεται κύριος τὸν λαὸν αὐτοῦ}: Pablo usa el mismo verbo en Ro 11:1--2. La permanencia descansa en el nombre de Dios, no en la fidelidad del pueblo.
+\end{notalam}
 \end{column}
 \end{columns}
 \end{frame}
 
 \begin{frame}{David: el menor de Belén}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.49\textwidth}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}
 \centering{\heb{וַיהוָה יִרְאֶה לַלֵּבָב}}\par\smallskip
 \begin{cita}El hombre mira lo que está delante de sus ojos, pero YHWH mira el corazón.\fuente{(1~S 16:7)}\end{cita}
-\scriptsize
+\footnotesize
 \begin{itemize}
 \item Contrapunto al estribillo de Jueces: Dios elige mirando el corazón.
 \item El menor, con las ovejas; el Espíritu viene sobre él «desde aquel día» (16:13).
 \item El ungido de 2:10 recibe un nombre.
 \end{itemize}
 \end{column}
-\begin{column}{0.49\textwidth}
+\begin{column}{0.48\textwidth}
 \centering{\heb{כִּי יֵשׁ אֱלֹהִים לְיִשְׂרָאֵל}}\par\smallskip
 \begin{cita}Toda la tierra sabrá que hay Dios en Israel [\ldots], porque de YHWH es la batalla.\fuente{(1~S 17:46--47)}\end{cita}
-\scriptsize Una victoria con fin misionero: Éx 19:6 en boca de un pastor.\par\smallskip
-\precision{Goliat mide «seis codos y un palmo» en el TM; «cuatro codos y un palmo» en LXX, 4QSam\textsuperscript{a} y Josefo. Cf. 2~S 21:19 y 1~Cr 20:5.}
+\begin{notalam}[Crítica textual: la estatura de Goliat]
+«Seis codos y un palmo» en el TM; «cuatro codos y un palmo» en LXX, 4QSam\textsuperscript{a} y Josefo. Cf. 2~S 21:19 y 1~Cr 20:5.
+\end{notalam}
 \end{column}
 \end{columns}
 \end{frame}
 
+\begin{frame}{Los ojos del hombre y los ojos de YHWH}
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm]
+ \node[bloqueazul,text width=3.3cm] (h) at (-3.0,0) {«Lo recto ante sus ojos»\\[-1pt]{\tiny\mdseries\heb{הַיָּשָׁר בְּעֵינָיו}}};
+ \node[bloqueazul,text width=3.3cm,fill=oro!80!ladrillo,draw=oro!80!ladrillo] (y) at (3.0,0) {«YHWH mira el corazón»\\[-1pt]{\tiny\mdseries\heb{וַיהוָה יִרְאֶה לַלֵּבָב}}};
+ \node[bloque,text width=3.6cm,font=\scriptsize,below=0.45cm of h] (h1) {Sansón: «recta a mis ojos» (Jue 14:3)};
+ \node[bloque,text width=3.6cm,font=\scriptsize,below=0.2cm of h1] (h2) {«Cada uno hacía lo recto ante sus ojos» (Jue 17:6; 21:25)};
+ \node[bloque,text width=3.6cm,font=\scriptsize,below=0.2cm of h2] (h3) {Saúl se justifica ante Samuel (1~S 15:20--21)};
+ \node[bloqueoro,text width=3.6cm,font=\scriptsize,below=0.45cm of y] (y1) {Eliab, el primogénito, descartado (1~S 16:6--7)};
+ \node[bloqueoro,text width=3.6cm,font=\scriptsize,below=0.2cm of y1] (y2) {El menor, con las ovejas, ungido (16:11--13)};
+ \node[bloqueoro,text width=3.6cm,font=\scriptsize,below=0.2cm of y2] (y3) {El Espíritu «desde aquel día» (16:13)};
+ \draw[flecha,line width=1.4pt] (h.east) -- node[above,etiq]{Dt 12:8 / 12:25} (y.west);
+ \draw[sepia,dashed] (0,-0.75) -- (0,-3.5);
+\end{tikzpicture}
+\notafig{Elaboración propia a partir de Dt 12:8, 25; Jue 17:6; 21:25; 1~S 16:6--13.}
+\vspace{4pt}
+\begin{clave}
+A un pueblo que hacía «lo recto ante sus ojos», Dios le opone una elección basada en lo que ve en el corazón.
+\end{clave}
+\end{frame}
+
+\begin{frame}{Saúl y David frente a frente}
+\centering\footnotesize\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{2.4cm}>{\RaggedRight\arraybackslash}p{4.6cm}>{\RaggedRight\arraybackslash}p{4.6cm}}
+\toprule
+& {\color{ladrillo}\bfseries Saúl} & {\color{ladrillo}\bfseries David}\\\midrule
+Tribu & Benjamín (9:1--2) & Judá, Belén (16:1)\\
+Elección & El pueblo pide un rey «como las naciones» (8:5) & «Un hombre conforme a su corazón» (13:14)\\
+Ante el sacerdocio & Mata a los sacerdotes de Nob (22:18) & Respeta al «ungido de YHWH» (24:6 [24:7])\\
+Ante el pecado & Se justifica (15:20) & Confiesa (2~S 12:13)\\
+Final & Endor y Gilboa (1~S 28; 31) & Rey de la casa de Judá en Hebrón (2~S 2:4)\\
+\bottomrule
+\end{tabular}
+\notafig{Elaboración propia a partir de 1--2 Samuel.}
+\vspace{6pt}
+\begin{notalam}[Tradición judía: Yoma 22b]
+«Saúl falló en una cosa, y se le contó; David en dos, y no se le contó». El propio texto insinúa la razón: Saúl se justifica (1~S 15:20--21); David confiesa (2~S 12:13).
+\end{notalam}
+\end{frame}
+
 \begin{frame}{Jonatán, Gilboa y dos casas}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.50\textwidth}\small
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}\footnotesize
 \begin{itemize}
 \item \textbf{Jonatán}: «tú reinarás sobre Israel, y yo seré segundo» (23:17).
 \item \textbf{Nob}: Saúl mata a los sacerdotes (22:18; cf. 2:31--33).
@@ -422,45 +655,51 @@ Mishná (Yevamot 8:3) y Talmud (Yevamot 76b--77a): «\emph{moabita, y no moabite
 \item \textbf{Endor y Gilboa} (1~S 28; 31): «¡Cómo han caído los valientes!» (2~S 1:19).
 \end{itemize}
 \end{column}
-\begin{column}{0.47\textwidth}
-\begin{tcolorbox}[colback=piedra,colframe=ladrillo,boxrule=0.8pt,arc=3pt,fontupper=\small]
-\textbf{\textcolor{cafe}{Judá e Israel}}\par\smallskip
-David, rey de «la casa de Judá» en Hebrón (2~S 2:4); Is-boset, rey de «todo Israel» (2:9--10).\par\smallskip
-\scriptsize Por primera vez, dos entidades políticas (ya insinuadas en 1~S 11:8 y 18:16). La división definitiva, en el Estudio~4.
-\end{tcolorbox}
+\begin{column}{0.48\textwidth}
+\centering
+\begin{tikzpicture}
+ \node[bloque,text width=4.4cm] (g) at (0,0) {Muerte de Saúl en Gilboa (1~S 31)};
+ \node[bloqueazul,text width=1.95cm,font=\tiny\bfseries,anchor=north] (j) at (-1.22,-0.75) {Casa de Judá\\[1pt]{\mdseries David, en Hebrón}\\[1pt]{\mdseries (2~S 2:4)}};
+ \node[bloqueazul,text width=1.95cm,font=\tiny\bfseries,anchor=north,fill=sepia,draw=sepia] (i) at (1.22,-0.75) {«Todo Israel»\\[1pt]{\mdseries Is-boset}\\[1pt]{\mdseries (2~S 2:9--10)}};
+ \draw[flecha] (g.south) -- (j.north); \draw[flecha] (g.south) -- (i.north);
+ \node[bloqueoro,text width=4.4cm,anchor=north] (u) at (0,-2.35) {David reúne ambas casas (2~S 5)\\{\tiny división definitiva: Estudio~4}};
+ \draw[flecha] (j.south) -- (j.south|-u.north); \draw[flecha] (i.south) -- (i.south|-u.north);
+\end{tikzpicture}
+\elabpropia
 \end{column}
 \end{columns}
+\vspace{4pt}
+\begin{clave}
+\textbf{Judá e Israel.} Por primera vez, dos entidades políticas, ya insinuadas en 1~S 11:8 y 18:16. Aquí «Israel» es el conjunto de tribus fieles a la casa de Saúl, no todavía el reino del norte.
+\end{clave}
 \end{frame}
 
 % ===================================================
 \section{Vocación}
 \begin{frame}{La vocación quebrada y preservada}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.49\textwidth}
-\textbf{\textcolor{ladrillo}{Quebrada}}
-\scriptsize
-\begin{itemize}
-\item \textbf{Cananeización}: los baales (Jue 2:11--13); su raíz está en Balac y Balaam (Nm 22--25; Ap 2:14).
-\item \textbf{Sacerdocio vendido}: el levita de Micaía; los hijos de Elí.
-\item \textbf{Culto como magia}: el arca amuleto; Saúl en Gilgal; Endor.
-\item \textbf{Israel como Sodoma}: Guibeá.
-\item \textbf{Como las naciones}: 1~S 8 frente a Nm 23:9.
-\end{itemize}
-\end{column}
-\begin{column}{0.49\textwidth}
-\textbf{\textcolor{ladrillo}{Preservada: el remanente}}
-\scriptsize
-\begin{itemize}
-\item \textbf{Débora}: canta la victoria como obra de YHWH.
-\item \textbf{Rut}: la bendición de Abraham a las familias de la tierra (Gn 12:3).
-\item \textbf{Ana}: ora y profetiza al ungido.
-\item \textbf{Samuel}: intercede (12:23; Jer 15:1; Sal 99:6).
-\item \textbf{Jonatán}: acepta la elección de Dios.
-\item \textbf{David}: «toda la tierra sabrá» (17:46).
-\end{itemize}
-\end{column}
-\end{columns}\par\medskip
-{\small\itshape\color{sepia}\centering «Aun en este tiempo ha quedado un remanente escogido por gracia» (Ro 11:5).\par}
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm]
+ \node[bloqueazul,text width=11.2cm] (top) at (0,0) {Éx 19:6: «reino de sacerdotes y nación santa»};
+ \node[font=\scriptsize\bfseries,text=ladrillo] (Q) at (-3.05,-0.65) {Quebrada};
+ \node[font=\scriptsize\bfseries,text=oro!70!ladrillo] (P) at (3.05,-0.65) {Preservada: el remanente};
+ \node[bloque,text width=5.6cm,font=\scriptsize,inner sep=2.5pt,below=0.12cm of Q] (q1) {\textbf{Cananeización}: los baales (Jue 2:11--13; cf. Nm 22--25)};
+ \node[bloque,text width=5.6cm,font=\scriptsize,inner sep=2.5pt,below=0.18cm of q1] (q2) {\textbf{Sacerdocio vendido}: el levita de Micaía; los hijos de Elí};
+ \node[bloque,text width=5.6cm,font=\scriptsize,inner sep=2.5pt,below=0.18cm of q2] (q3) {\textbf{Culto como magia}: el arca amuleto; Gilgal; Endor};
+ \node[bloque,text width=5.6cm,font=\scriptsize,inner sep=2.5pt,below=0.18cm of q3] (q4) {\textbf{Israel como Sodoma}: Guibeá};
+ \node[bloque,text width=5.6cm,font=\scriptsize,inner sep=2.5pt,below=0.18cm of q4] (q5) {\textbf{Como las naciones}: 1~S 8 frente a Nm 23:9};
+ \node[bloqueoro,text width=5.6cm,font=\scriptsize,inner sep=2.5pt,below=0.12cm of P] (p1) {\textbf{Débora}: canta la victoria como obra de YHWH};
+ \node[bloqueoro,text width=5.6cm,font=\scriptsize,inner sep=2.5pt,below=0.18cm of p1] (p2) {\textbf{Rut}: la bendición de Abraham a las familias (Gn 12:3)};
+ \node[bloqueoro,text width=5.6cm,font=\scriptsize,inner sep=2.5pt,below=0.18cm of p2] (p3) {\textbf{Ana} profetiza al ungido; \textbf{Samuel} intercede (12:23)};
+ \node[bloqueoro,text width=5.6cm,font=\scriptsize,inner sep=2.5pt,below=0.18cm of p3] (p4) {\textbf{Jonatán}: acepta la elección de Dios};
+ \node[bloqueoro,text width=5.6cm,font=\scriptsize,inner sep=2.5pt,below=0.18cm of p4] (p5) {\textbf{David}: «toda la tierra sabrá» (17:46)};
+ \draw[flecha] (top.south-|Q) -- (Q.north);
+ \draw[flecha] (top.south-|P) -- (P.north);
+\end{tikzpicture}
+\elabpropia
+\vspace{6pt}
+\begin{clave}
+«Aun en este tiempo ha quedado un remanente escogido por gracia» (Ro 11:5).
+\end{clave}
 \end{frame}
 
 % ===================================================
@@ -477,22 +716,25 @@ David, rey de «la casa de Judá» en Hebrón (2~S 2:4); Is-boset, rey de «todo
     {\small\textbf{\textcolor{ladrillo}{\t}}}\\[4pt]\scriptsize \d\par\vfill{\tiny\color{sepia}(\r)}}};
   \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
 \end{tikzpicture}
+\notafig{Elaboración propia a partir de las fuentes rabínicas citadas.}
 \end{frame}
 
 \begin{frame}{Jueces, Saúl y David en la tradición}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.49\textwidth}\scriptsize
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}\footnotesize
 \begin{itemize}
-\item \textbf{Autoría}: «Samuel escribió su libro, Jueces y Rut»; lo completaron Gad y Natán (Bava Batra 14b--15a).
 \item \textbf{Sansón}: «fue tras sus ojos; por eso le sacaron los ojos» (Mishná, Sota 1:8).
 \item \textbf{Cada generación}: «Jefté en su generación es como Samuel en la suya» (Rosh Hashaná 25b).
 \item \textbf{Orfa}: antepasada de Goliat (Sota 42b); \textbf{Booz} = Ibzán (Bava Batra 91a).
+\item \textbf{Profetisas}: Débora, Ana y Abigail (Meguilá 14a).
 \end{itemize}
 \end{column}
-\begin{column}{0.49\textwidth}\scriptsize
+\begin{column}{0.48\textwidth}
+\begin{notalam}[Autoría según el Talmud]
+«Samuel escribió su libro, Jueces y Rut» (Bava Batra 14b); como 1~Samuel narra su muerte (1~S 25:1), lo completaron «Gad el vidente y Natán el profeta» (15a). La crítica moderna sitúa la redacción final mucho después.
+\end{notalam}
+\footnotesize
 \begin{itemize}
-\item \textbf{Saúl y David}: «Saúl falló en una cosa, y se le contó; David en dos, y no» (Yoma 22b). Saúl se justifica (1~S 15:20); David confiesa (2~S 12:13).
-\item \textbf{Profetisas}: Débora, Ana y Abigail (Meguilá 14a).
 \item \textbf{Targum de Rut}: diez hambres (1:1).
 \item \textbf{Josefo}, \emph{Antigüedades} 5--6: elogia el valor de Saúl en Gilboa.
 \end{itemize}
@@ -501,12 +743,12 @@ David, rey de «la casa de Judá» en Hebrón (2~S 2:4); Is-boset, rey de «todo
 \end{frame}
 
 \begin{frame}{En la sinagoga y en la oración}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.58\textwidth}
-\scriptsize\renewcommand{\arraystretch}{1.15}
-\begin{tabular}{>{\RaggedRight\arraybackslash}p{2.1cm}>{\RaggedRight\arraybackslash}p{1.9cm}>{\RaggedRight\arraybackslash}p{2.9cm}}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.60\textwidth}
+\scriptsize\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{1.95cm}>{\RaggedRight\arraybackslash}p{1.7cm}>{\RaggedRight\arraybackslash}p{2.55cm}}
 \toprule
-\textbf{Ocasión} & \textbf{Haftará} & \textbf{Conexión}\\\midrule
+{\color{ladrillo}\bfseries Ocasión} & {\color{ladrillo}\bfseries Haftará} & {\color{ladrillo}\bfseries Conexión}\\\midrule
 Beshalaj & Jue 4:4--5:31 & Débora y Éx 15\\
 Nasó & Jue 13:2--25 & Sansón y el nazareo (Nm 6)\\
 Jukat & Jue 11:1--33 & Jefté y Nm 21\\
@@ -516,11 +758,14 @@ Víspera de luna nueva & 1~S 20:18--42 & Jonatán y David\\
 Shavuot & Rut & Siega y Torá\\
 \bottomrule
 \end{tabular}
+\elabpropia
 \end{column}
-\begin{column}{0.39\textwidth}
+\begin{column}{0.36\textwidth}
 \centering{\heb{אֶת־צֶמַח דָּוִד עַבְדְּךָ}}\par\smallskip
 \begin{cita}[fontupper=\scriptsize\itshape]Haz brotar pronto el renuevo de David tu siervo.\fuente{(Amidá, 15.ª bendición)}\end{cita}
-\scriptsize Con el lenguaje de Jer 23:5. La bendición después de comer pide por «el reino de la casa de David, tu ungido».
+\begin{notalam}[Liturgia]
+Con el lenguaje de Jer 23:5. La bendición después de comer pide por «el reino de la casa de David, tu ungido» (Sacks, 2009).
+\end{notalam}
 \end{column}
 \end{columns}
 \end{frame}
@@ -528,10 +773,10 @@ Shavuot & Rut & Siega y Torá\\
 % ===================================================
 \section{Restauración}
 \begin{frame}{La promesa en esta etapa}
-\centering\scriptsize\renewcommand{\arraystretch}{1.18}
-\begin{tabular}{>{\RaggedRight\arraybackslash}p{1.9cm}>{\RaggedRight\arraybackslash}p{4.4cm}>{\RaggedRight\arraybackslash}p{4.6cm}}
+\centering\scriptsize\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{2.0cm}>{\RaggedRight\arraybackslash}p{4.4cm}>{\RaggedRight\arraybackslash}p{5.0cm}}
 \toprule
-\textbf{Texto} & \textbf{Promesa} & \textbf{Proyección}\\\midrule
+{\color{ladrillo}\bfseries Texto} & {\color{ladrillo}\bfseries Promesa} & {\color{ladrillo}\bfseries Proyección}\\\midrule
 Jue 2:16, 18 & Libertadores por compasión & Is 1:26\\
 Jue 7--8 & La victoria sobre Madián & Is 9:4 [9:3]; 10:26\\
 Rt 4:14--17 & Un redentor y el linaje de David & Is 59:20; Ro 11:26\\
@@ -542,54 +787,88 @@ Rt 4:14--17 & Un redentor y el linaje de David & Is 59:20; Ro 11:26\\
 1~S 16:13 & El ungido de Belén, hijo de Isaí & Is 11:1, 10; Mi 5:2 [5:1]; Ro 15:12\\
 1~S 17:46 & «Toda la tierra sabrá» & Is 55:3--5\\
 \bottomrule
-\end{tabular}\par\vspace{5pt}
-{\small\itshape\color{sepia}YHWH «se compadecía» de su gemido (Jue 2:18): una compasión que no se apoya en el mérito.}
+\end{tabular}
+\elabpropia
+\vspace{2pt}
+{\small\itshape\color{sepia}\centering YHWH «se compadecía» de su gemido (Jue 2:18): una compasión que no se apoya en el mérito.\par}
+\end{frame}
+
+\begin{frame}{Una cadena de promesas}
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm,col/.style={font=\scriptsize\bfseries,text=ladrillo}]
+ \node[col] at (0,0.55) {En la etapa};
+ \node[col] at (4.4,0.55) {Los profetas};
+ \node[col] at (8.8,0.55) {Pablo};
+ \node[bloque,text width=3.0cm] (a1) at (0,0) {Jueces levantados por compasión (Jue 2:18)};
+ \node[bloque,text width=3.0cm] (a2) at (0,-1.3) {«No desamparará a su pueblo» (1~S 12:22)};
+ \node[bloque,text width=3.0cm] (a3) at (0,-2.6) {El ungido de Belén, hijo de Isaí (1~S 16:13)};
+ \node[bloque,text width=3.0cm] (a4) at (0,-3.9) {Booz, el \emph{go'el} (Rt 4:14)};
+ \node[bloqueoro,text width=3.0cm] (b1) at (4.4,0) {«Restauraré tus jueces» (Is 1:26)};
+ \node[bloqueoro,text width=3.0cm] (b2) at (4.4,-1.3) {Eco en Sal 94:14};
+ \node[bloqueoro,text width=3.0cm] (b3) at (4.4,-2.6) {Vara de Isaí; Renuevo; «David su rey»\\{\tiny(Is 11:1; Jer 23:5; Os 3:5)}};
+ \node[bloqueoro,text width=3.0cm] (b4) at (4.4,-3.9) {«Vendrá de Sion el Libertador»: \emph{go'el} (Is 59:20)};
+ \node[bloqueazul,text width=3.0cm] (c2) at (8.8,-1.3) {«¿Ha desechado Dios a su pueblo?» (Ro 11:1--2)};
+ \node[bloqueazul,text width=3.0cm] (c3) at (8.8,-2.6) {Raíz de Isaí (Ro 15:12)};
+ \node[bloqueazul,text width=3.0cm] (c4) at (8.8,-3.9) {«Todo Israel será salvo» (Ro 11:26)};
+ \foreach \i in {1,2,3,4}{\draw[flecha] (a\i) -- (b\i);}
+ \foreach \i in {2,3,4}{\draw[flecha] (b\i) -- (c\i);}
+\end{tikzpicture}
+\elabpropia
+\vspace{2pt}
+\begin{clave}
+Las promesas de esta etapa no quedan sueltas: los profetas las releen y Pablo las reúne en Romanos 11 (Estudio~8).
+\end{clave}
 \end{frame}
 
 \begin{frame}{Isaías: del día de Madián a Isaí}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.49\textwidth}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}
 \centering{\heb{וְאָשִׁיבָה שֹׁפְטַיִךְ כְּבָרִאשֹׁנָה}}\par\smallskip
 \begin{cita}Restauraré tus jueces como al principio [\ldots]; entonces te llamarán Ciudad de justicia, Ciudad fiel.\fuente{(Is 1:26)}\end{cita}
-\scriptsize
+\footnotesize
 \begin{itemize}
-\item \heb{וְאָשִׁיבָה}: raíz \emph{shuv}, la del regreso.
 \item «Como en el día de Madián» (9:4 [9:3]); la peña de Oreb (10:26).
 \item El niño «sobre el trono de David» (9:7 [9:6]).
 \end{itemize}
 \end{column}
-\begin{column}{0.49\textwidth}
+\begin{column}{0.48\textwidth}
 \centering{\heb{וְיָצָא חֹטֶר מִגֵּזַע יִשָׁי}}\par\smallskip
 \begin{cita}Saldrá una vara del tronco de Isaí [\ldots] y reposará sobre él el Espíritu de YHWH.\fuente{(Is 11:1--2)}\end{cita}
-\scriptsize
+\footnotesize
 \begin{itemize}
 \item «De Isaí», no «de David»: regreso a Belén (1~S 16).
 \item Estandarte a los pueblos (11:10; Ro 15:12).
-\item «Lo di por testigo a los pueblos» (55:4).
 \end{itemize}
 \end{column}
 \end{columns}
+\vspace{4pt}
+\begin{notalam}[Filología: \heb{וְאָשִׁיבָה}]
+Raíz \emph{shuv}, la del regreso: la restauración de Is 1:26 es una vuelta al ideal de los jueces que Dios levantaba. La misma raíz reaparece en Os 3:5.
+\end{notalam}
 \end{frame}
 
 \begin{frame}{Jeremías, Oseas y Miqueas}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.49\textwidth}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}
 \begin{cita}[fontupper=\scriptsize\itshape]Levantaré a David un Renuevo justo [\ldots]. En sus días será salvo Judá, e Israel habitará confiado; y este será su nombre: YHWH, justicia nuestra.\fuente{(Jer 23:5--6)}\end{cita}
 \scriptsize
 \begin{itemize}
-\item «Judá» = reino del sur; «Israel» = reino del norte, ya desterrado: ambos bajo el rey davídico.
 \item Silo como advertencia (Jer 7:12); «pastores según mi corazón» (3:15); «David su rey» (30:9).
 \end{itemize}
 \end{column}
-\begin{column}{0.49\textwidth}
+\begin{column}{0.48\textwidth}
 \begin{cita}[fontupper=\scriptsize\itshape]Muchos días estarán los hijos de Israel sin rey [\ldots], sin efod y sin terafines. Después volverán y buscarán a YHWH su Dios y a David su rey.\fuente{(Os 3:4--5)}\end{cita}
 \scriptsize
 \begin{itemize}
-\item En Oseas, «Israel» = reino del norte. Efod y terafines: Jue 8:27; 17:5. «Días de Guibeá» (Os 10:9).
+\item Efod y terafines: Jue 8:27; 17:5. «Días de Guibeá» (Os 10:9).
 \item \textbf{Mi 5:2 [5:1]}: «tú, Belén Efrata [\ldots], de ti me saldrá el que será gobernante en Israel».
 \end{itemize}
 \end{column}
 \end{columns}
+\vspace{2pt}
+\begin{notalam}[Precisión: Israel y Judá en los profetas]
+En Jer 23:6, «Judá» es el reino del sur e «Israel» el reino del norte, ya desterrado: ambos bajo el rey davídico. En Oseas, «Israel» es el reino del norte, separado de la casa de David, que regresará a «David su rey».
+\end{notalam}
 \end{frame}
 
 \begin{frame}{Pablo, benjaminita}
@@ -610,6 +889,26 @@ Rt 4:14--17 & Un redentor y el linaje de David & Is 59:20; Ro 11:26\\
 \end{columns}
 \end{frame}
 
+\begin{frame}{Benjamín: de la casi extinción al apóstol}
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm]
+ \draw[line width=1.6pt,cafe,-{Latex[length=3mm]}] (0,0) -- (11.9,0);
+ \foreach \x/\t/\b in {0.7/{Guibeá: Benjamín casi desaparece}/{Jue 19--21},
+                       3.4/{Saúl, el benjaminita, libra a Jabes}/{1~S 11},
+                       6.1/{Saúl rechazado; el reino «rasgado»}/{1~S 15:28},
+                       8.8/{Saulo, «de la tribu de Benjamín»}/{Hch 13:9; Flp 3:5},
+                       11.2/{«No ha desechado Dios a su pueblo»}/{Ro 11:1--2}}{
+   \node[hito] at (\x,0) {};
+   \node[above=5pt,font=\scriptsize\bfseries,text=ladrillo,text width=2.2cm,align=center] at (\x,0.05) {\t};
+   \node[below=5pt,font=\scriptsize,text=sepia,text width=2.2cm,align=center] at (\x,-0.05) {\b};}
+\end{tikzpicture}
+\elabpropia
+\vspace{8pt}
+\begin{notalam}[Precisión]
+Que sea un benjaminita quien pregunte si Dios desechó a su pueblo, y se presente como prueba de lo contrario, tiene un peso particular. Es una coincidencia que señala este estudio, no el apóstol.
+\end{notalam}
+\end{frame}
+
 % ===================================================
 \AtBeginSection[]{}
 \section{Síntesis}
@@ -617,29 +916,36 @@ Rt 4:14--17 & Un redentor y el linaje de David & Is 59:20; Ro 11:26\\
 \begin{tcolorbox}[colback=piedra,colframe=ladrillo,boxrule=1pt,arc=3pt,fontupper=\small]
 \textbf{\textcolor{cafe}{De los Jueces a David:}} el pueblo llamado a ser reino de sacerdotes quiso ser «como todas las naciones» y se corrompió desde dentro, hasta convertirse en Sodoma en Guibeá. Dios, con todo, se compadeció, guardó un remanente (Débora, Rut, Ana, Samuel, Jonatán, David) y anunció un rey ungido salido de Belén. Sobre esa promesa descansa la esperanza de Isaías en el renuevo de Isaí, la de Jeremías en el Renuevo justo y la de Oseas en «David su rey», y de ella toma Pablo su respuesta: «No ha desechado Dios a su pueblo» (Ro 11:2).
 \end{tcolorbox}
-\scriptsize\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{>{\RaggedRight\arraybackslash}p{3.0cm}>{\RaggedRight\arraybackslash}p{8.3cm}}
+\scriptsize\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{3.0cm}>{\RaggedRight\arraybackslash}p{8.6cm}}
 \toprule
-\textbf{Eje} & \textbf{Lo que deja esta etapa}\\\midrule
+{\color{ladrillo}\bfseries Eje} & {\color{ladrillo}\bfseries Lo que deja esta etapa}\\\midrule
 Vocación quebrada & Jue 17--21; 1~S 2:12--17; 8:5, 20\\
 Remanente & Jue 5; Rt 1:16; 1~S 1--2; 7; 12:23; 17:46\\
 Restauración & Jue 2:18; Rt 4:14--17; 1~S 2:10, 35; 12:22; 16:13\\
 Proyección & Is 1:26; 11:1; Jer 23:5--6; Os 3:4--5; Mi 5:2 [5:1]; Ro 11:1--5\\
 \bottomrule
 \end{tabular}
+\elabpropia
 \end{frame}
 
 \begin{frame}{Hacia el Estudio 4}
 \begin{columns}[c,onlytextwidth]
-\begin{column}{0.55\textwidth}
+\begin{column}{0.52\textwidth}
 \begin{cita}Y vinieron los hombres de Judá y ungieron allí a David por rey sobre la casa de Judá.\fuente{(2~S 2:4)}\end{cita}
-\small Un rey ungido, pero un reino incompleto: David reina en Hebrón sobre Judá, y la casa de Saúl conserva el resto de Israel. Quedan por venir \destacar{Jerusalén}, \destacar{el arca} y \destacar{la casa eterna}.
+\small Un rey ungido, pero un reino incompleto: David reina en Hebrón sobre Judá, y la casa de Saúl conserva el resto de Israel.
 \end{column}
-\begin{column}{0.42\textwidth}
-\begin{tcolorbox}[colback=cafe,colframe=cafeosc,coltext=piedra,boxrule=0.8pt,arc=3pt,fontupper=\small]
-\textbf{Estudio 4}\par\smallskip
-De David a la división del reino: Jerusalén, pacto davídico (2~S 7), Salomón y el Primer Templo, y la división entre Israel (norte) y Judá (sur).
-\end{tcolorbox}
+\begin{column}{0.44\textwidth}
+\centering
+\begin{tikzpicture}[node distance=0.28cm]
+ \node[bloque,text width=4.0cm] (h) {David en Hebrón, rey de Judá (2~S 2:4)};
+ \node[bloqueoro,text width=4.0cm,below=of h] (j) {Jerusalén};
+ \node[bloqueoro,text width=4.0cm,below=of j] (a) {El arca};
+ \node[bloqueoro,text width=4.0cm,below=of a] (c) {La casa eterna (2~S 7)};
+ \node[bloqueazul,text width=4.0cm,below=of c] (e) {Estudio 4: Salomón, el Primer Templo y la división entre Israel (norte) y Judá (sur)};
+ \foreach \p/\q in {h/j,j/a,a/c,c/e}{\draw[flecha] (\p) -- (\q);}
+\end{tikzpicture}
+\elabpropia
 \end{column}
 \end{columns}
 \end{frame}

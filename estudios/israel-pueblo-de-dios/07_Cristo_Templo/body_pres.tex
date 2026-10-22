@@ -9,15 +9,27 @@
 % ===================================================
 \section{Introducción}
 \begin{frame}{¿Qué significó el año 70?}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.50\textwidth}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.47\textwidth}
+\vspace{4pt}
 \begin{cita}No quedará aquí piedra sobre piedra que no sea derribada.\fuente{(Mt 24:2)}\end{cita}
+\vspace{4pt}
 \begin{cita}¿Ha desechado Dios a su pueblo? ¡De ninguna manera! [\ldots] No ha desechado Dios a su pueblo, al cual conoció de antemano.\fuente{(Ro 11:1--2)}\end{cita}
 \end{column}
-\begin{column}{0.47\textwidth}\small
-Dos respuestas extremas: \emph{Dios rechazó a Israel} o \emph{Jesús nada tiene que ver con Israel}. Los textos no avalan ninguna.\par\medskip
-\destacar{El Mesías.} Jesús, Mesías \emph{de Israel}, asume el llamado de su pueblo; un remanente judío creyente forma el núcleo del pueblo restaurado.\par\medskip
-\destacar{El juicio.} La caída del templo ocurre dentro del pacto, y los textos que la anuncian llevan escrito un «hasta».
+\begin{column}{0.49\textwidth}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+\node[bloqueoro,text width=2.6cm,minimum height=1.0cm] (a) at (-1.55,0) {«Dios rechazó\\a Israel»};
+\node[bloqueoro,text width=2.6cm,minimum height=1.0cm] (b) at (1.55,0) {«Jesús nada tiene\\que ver con Israel»};
+\foreach \n in {a,b}{\node[circle,fill=sepia,text=white,font=\tiny\bfseries,inner sep=1pt] at (\n.north east) {no};}
+\node[etiq,text=sepia] at (0,-0.85) {\itshape dos extremos que los textos no avalan};
+\node[bloqueazul,text width=5.7cm] (c) at (0,-1.55) {Lo que dicen los textos};
+\node[bloque,text width=2.6cm,minimum height=1.5cm] (m) at (-1.55,-2.9) {\textbf{El Mesías}\\Jesús asume el llamado de Israel; un remanente judío es el núcleo};
+\node[bloque,text width=2.6cm,minimum height=1.5cm] (j) at (1.55,-2.9) {\textbf{El juicio}\\ocurre dentro del pacto y lleva escrito un «hasta»};
+\draw[flecha] (c.south -| m.north) -- (m.north);
+\draw[flecha] (c.south -| j.north) -- (j.north);
+\end{tikzpicture}
+\elabpropia
 \end{column}
 \end{columns}
 \end{frame}
@@ -26,13 +38,19 @@ Dos respuestas extremas: \emph{Dios rechazó a Israel} o \emph{Jesús nada tiene
 \centering
 \begin{tikzpicture}
  \foreach \x/\n/\t/\d/\r in {0/1/{Nación santa}/{¿Cómo encarna Jesús la vocación de Israel y quién la lleva adelante después de la Pascua?}/{Is 49:5--6; Mt 2:15; Ro 15:7--16; 1~P 2:9},
-   4.2/2/{Restauración}/{¿Qué promete Jesús a Israel mientras anuncia la ruina del templo?}/{Mt 19:28; 23:39; Lc 21:24; 22:20; Hch 3:21},
-   8.4/3/{Proyección}/{¿Significa el año 70 que Dios desechó a su pueblo?}/{Lv 26:44; Jer 31:35--37; Ro 11:1--2, 11, 29}}{
-  \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][3.0cm][t]{3.55cm}{\RaggedRight
+   4.3/2/{Restauración}/{¿Qué promete Jesús a Israel mientras anuncia la ruina del templo?}/{Mt 19:28; 23:39; Lc 21:24; 22:20; Hch 3:21},
+   8.6/3/{Proyección}/{¿Significa el año 70 que Dios desechó a su pueblo?}/{Lv 26:44; Jer 31:35--37; Ro 11:1--2, 11, 29}}{
+  \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][3.1cm][t]{3.55cm}{\RaggedRight
     {\small\textbf{\textcolor{ladrillo}{\t}}}\\[5pt]\small \d\par\vfill{\scriptsize\color{sepia}(\r)}}};
   \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
-\end{tikzpicture}\par\vspace{6pt}
-{\scriptsize\color{sepia}Las citas bíblicas son traducción propia desde el texto hebreo (BHS) y griego (NA28). Numeración española [hebrea] cuando difiere; en Jer 31, la de las ediciones judías tradicionales.}
+ \draw[flecha] (b1.east) -- (b2.west);
+ \draw[flecha] (b2.east) -- (b3.west);
+\end{tikzpicture}
+\elabpropia
+\vspace{6pt}
+\begin{notalam}[Sobre las citas]
+Las citas bíblicas son traducción propia desde el texto hebreo (BHS) y griego (NA28). Numeración española [hebrea] cuando difiere; en Jer 31, la de las ediciones judías tradicionales. En esta etapa el reino del norte ya no existe: «Israel» designa casi siempre al pueblo entero, y se indica cuando un texto evoca a las tribus del norte.
+\end{notalam}
 \end{frame}
 
 % ===================================================
@@ -55,30 +73,76 @@ Dos respuestas extremas: \emph{Dios rechazó a Israel} o \emph{Jesús nada tiene
 \draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (0.4,-0.9) -- (4.9,-0.9) node[midway,below=5pt,font=\scriptsize\itshape]{El Mesías en Israel};
 \draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (5.6,-0.9) -- (11.1,-0.9) node[midway,below=5pt,font=\scriptsize\itshape]{Remanente y misión};
 \draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (12.6,-0.9) -- (15.3,-0.9) node[midway,below=5pt,font=\scriptsize\itshape]{Guerra judía};
-\end{tikzpicture}\par\vspace{8pt}
-\begin{minipage}{0.95\linewidth}\precision{la crucifixión se fecha el 7 de abril del 30 o el 3 de abril del 33; Masada cayó en el 73 o en el 74 (Mason, 2016); la fecha de composición de Mateo y Lucas (antes o después del 70) se discute.}\end{minipage}\par
-{\fontsize{5}{6}\selectfont\color{sepia}\raggedleft\textit{Nota.} Elaboración propia. Fechas aproximadas e.\,c., salvo indicación.\par}
+\end{tikzpicture}
+\notafig{Elaboración propia. Fechas aproximadas e.\,c., salvo indicación.}
+\vspace{10pt}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}
+\begin{notalam}[Fechas en debate]
+La crucifixión se fecha el 7 de abril del 30 o el 3 de abril del 33. Josefo no fecha la caída de Masada; varios historiadores la sitúan en el 74 y no en el 73 (Mason, 2016).
+\end{notalam}
+\end{column}
+\begin{column}{0.48\textwidth}
+\begin{notalam}[Los evangelios y el 70]
+La fecha de composición de Mateo y Lucas, antes o después del 70, se discute. Por eso conviene leer sus anuncios sobre el templo sin dar por resuelto ese punto.
+\end{notalam}
+\end{column}
+\end{columns}
 \end{frame}
 
 % ===================================================
 \section{Historia}
 \begin{frame}{Judea bajo Roma}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.49\textwidth}\small
-\begin{itemize}
-\item Pompeyo toma Jerusalén (63 a.\,e.\,c.); Herodes reconstruye el templo (Jn 2:20).
-\item Desde el 6 e.\,c., prefectos romanos en Cesarea; el sumo sacerdote preside el sanedrín.
-\item Fariseos, saduceos, esenios y la «cuarta filosofía» de la resistencia (\emph{Ant.} 18.23).
-\item Expectativa: «la consolación de Israel» (Lc 2:25), «la redención de Jerusalén» (2:38).
-\end{itemize}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.52\textwidth}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+\node[bloqueazul,text width=5.6cm] (r) at (0,0) {Roma: Pompeyo toma Jerusalén (63 a.\,e.\,c.)};
+\node[bloque,text width=5.6cm] (p) at (0,-1.05) {Desde el 6 e.\,c., prefectos romanos en Cesarea};
+\node[bloque,text width=5.6cm] (s) at (0,-2.2) {Sumo sacerdote (nombrado por Roma o los herodianos) y sanedrín};
+\draw[flecha] (r) -- (p);
+\draw[flecha] (p) -- (s);
+\foreach \x/\t in {-2.16/Fariseos,-0.72/Saduceos,0.72/Esenios,2.16/{«Cuarta\\filosofía»}}{
+  \node[bloqueoro,text width=1.1cm,minimum height=0.85cm,inner sep=2pt,font=\tiny] (g) at (\x,-3.6) {\t};
+  \draw[oro!90!ladrillo,line width=0.6pt] (s.south) -- (g.north);}
+\node[etiq,text=sepia] at (0,-4.3) {\itshape grupos del judaísmo (\emph{Ant.} 18.23)};
+\end{tikzpicture}
+\elabpropia
 \end{column}
-\begin{column}{0.49\textwidth}\small
-\textbf{\textcolor{cafe}{Josefo, testigo y apologista}}
+\begin{column}{0.44\textwidth}\footnotesize
+\destacar{El templo de Herodes}\par
+Rey vasallo de Roma, Herodes reconstruyó el templo; la obra seguía en curso en tiempos de Jesús (Jn 2:20).\par\medskip
+\destacar{La «cuarta filosofía»}\par
+Así llama Josefo a la corriente de la resistencia armada (\emph{Ant.} 18.23).\par\medskip
+\begin{clave}
+\textbf{La esperanza del pueblo}: «la consolación de Israel» (Lc 2:25) y «la redención de Jerusalén» (Lc 2:38).
+\end{clave}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Josefo, testigo y apologista}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.46\textwidth}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+\foreach \i/\t in {0/{Sacerdote en Jerusalén},1/{Comandante judío en Galilea},2/{Se rinde en Jotapata (67)},3/{Anuncia a Vespasiano que será emperador},4/{Escribe en Roma bajo los Flavios}}{
+  \node[bloque,text width=5.0cm,minimum height=0.55cm] (j\i) at (0,-0.95*\i) {\t};}
+\foreach \i [evaluate=\i as \j using int(\i+1)] in {0,1,2,3}{\draw[flecha] (j\i) -- (j\j);}
+\end{tikzpicture}
+\notafig{Elaboración propia a partir de Josefo, \emph{Guerra} 3.400--402, y Mason (2016).}
+\end{column}
+\begin{column}{0.50\textwidth}\footnotesize
+\destacar{Lo que registra de esta etapa}
 \begin{itemize}
-\item Sacerdote, comandante en Galilea, se rinde en Jotapata (67) y escribe en Roma bajo los Flavios.
-\item Menciona a Juan el Bautista (\emph{Ant.} 18.116--119) y a «Jacobo, hermano de Jesús, llamado Cristo» (\emph{Ant.} 20.200).
-\item Cifras y discursos: leer con cautela (Mason, 2016).
+\item Juan el Bautista (\emph{Ant.} 18.116--119).
+\item «Jacobo, hermano de Jesús, llamado Cristo», lapidado en el 62 (\emph{Ant.} 20.200).
+\item La guerra desde dentro: facciones, asedio e incendio del templo.
 \end{itemize}
+\vspace{4pt}
+\begin{notalam}[Leer con cautela]
+Josefo es testigo directo de la guerra, pero también apologista de Tito y de la casa flavia. Sus cifras y los discursos que pone en boca de los protagonistas deben leerse con cautela (Mason, 2016).
+\end{notalam}
 \end{column}
 \end{columns}
 \end{frame}
@@ -86,91 +150,155 @@ Dos respuestas extremas: \emph{Dios rechazó a Israel} o \emph{Jesús nada tiene
 \begin{frame}{La guerra judía (66--73/74)}
 \centering
 \begin{tikzpicture}
- \foreach \x/\n/\t/\d/\r in {0/1/{Estallido (66)}/{Floro saquea el tesoro; cesan los sacrificios por el emperador; Cestio Galo derrotado en Bet Horón.}/{\emph{Guerra} 2.293, 409},
-   3.15/2/{Galilea (67--68)}/{Vespasiano y Tito toman Jotapata y Gamla. Josefo anuncia a Vespasiano que será emperador.}/{\emph{Guerra} 3.400--402},
-   6.3/3/{Asedio (70)}/{Facciones rivales; grano quemado; hambre. El templo arde en Av (Josefo: día 10).}/{\emph{Guerra} 5.24--26; 6.250},
-   9.45/4/{Triunfo y Masada}/{Despojos del templo en Roma (71). Masada cae en el 73 o 74.}/{\emph{Guerra} 7.148--150; 7.389--401}}{
-  \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][3.2cm][t]{2.65cm}{\RaggedRight
-    {\small\textbf{\textcolor{ladrillo}{\t}}}\\[4pt]\scriptsize \d\par\vfill{\tiny\color{sepia}(\r)}}};
-  \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
-\end{tikzpicture}\par\vspace{5pt}
-\begin{minipage}{0.95\linewidth}\scriptsize \textbf{\emph{Fiscus Iudaicus}}: las dos dracmas del templo pasan a Júpiter Capitolino (\emph{Guerra} 7.218; Dion Casio 66.7.2). \textbf{¿Quiso Tito salvar el templo?} Sí, según Josefo (6.236--243); no, según Sulpicio Severo (\emph{Crónica} 2.30).\end{minipage}
+\draw[line width=1.4pt,cafe,-{Latex[length=2.6mm]}] (-1.6,0.55) -- (11.3,0.55);
+ \foreach \x/\n/\a/\t/\d/\r in {0/1/66/{Estallido}/{Floro saquea el tesoro; cesan los sacrificios por el emperador; Cestio Galo derrotado en Bet Horón.}/{\emph{Guerra} 2.293, 409},
+   3.25/2/67--68/{Galilea}/{Vespasiano y Tito toman Jotapata y Gamla; Josefo se rinde.}/{\emph{Guerra} 3.400--402},
+   6.5/3/70/{Asedio}/{Facciones rivales; grano quemado; hambre. El templo arde en Av (Josefo: día 10).}/{\emph{Guerra} 5.24--26; 6.250},
+   9.75/4/71--74/{Triunfo y Masada}/{Despojos del templo en Roma (71). Masada cae en el 73 o 74.}/{\emph{Guerra} 7.148--150; 7.389--401}}{
+  \node[hito] at (\x,0.55) {};
+  \node[font=\scriptsize\bfseries,text=ladrillo] at (\x,0.9) {\a};
+  \node[bloque,anchor=north,text width=2.6cm,minimum height=2.45cm,align=left] (b\n) at (\x,0.2) {{\footnotesize\bfseries\color{ladrillo}\t}\\[2pt]\scriptsize \d\\[2pt]{\tiny\color{sepia}(\r)}};}
+ \foreach \i/\j in {1/2,2/3,3/4}{\draw[flecha] (b\i.east) -- (b\j.west);}
+\end{tikzpicture}
+\elabpropia
+\vspace{4pt}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}
+\begin{notalam}[\emph{Fiscus Iudaicus}]
+Tras el 70, las dos dracmas que cada judío pagaba al templo pasan a Júpiter Capitolino (\emph{Guerra} 7.218; Dion Casio 66.7.2).
+\end{notalam}
+\end{column}
+\begin{column}{0.48\textwidth}
+\begin{notalam}[¿Quiso Tito salvar el templo?]
+Sí, según Josefo (\emph{Guerra} 6.236--243); no, según Sulpicio Severo (\emph{Crónica} 2.30). Las fuentes se contradicen.
+\end{notalam}
+\end{column}
+\end{columns}
 \end{frame}
 
 \begin{frame}{El escenario de la guerra}
-\begin{columns}[c,onlytextwidth]
-\begin{column}{0.44\textwidth}\centering\includegraphics[width=\linewidth,height=0.86\textheight,keepaspectratio]{mapa_galilea.pdf}\par\vspace{1pt}{\fontsize{4.5}{5.5}\selectfont\color{sepia}\textit{Nota.} Elaboración propia (GSHHS/WDB, Basemap); ubicaciones aproximadas.\par}\end{column}
-\begin{column}{0.54\textwidth}\scriptsize\RaggedRight
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.40\textwidth}\centering\includegraphics[width=\linewidth,height=0.76\textheight,keepaspectratio]{mapa_galilea.pdf}\par\vspace{1pt}{\fontsize{4.5}{5.5}\selectfont\color{sepia}\textit{Nota.} Elaboración propia (GSHHS/WDB, Basemap); ubicaciones aproximadas.\par}\end{column}
+\begin{column}{0.56\textwidth}\scriptsize\RaggedRight
 \input{crops/mapa_galilea_leyenda.tex}\medskip
 
-\textbf{67}: Vespasiano somete Galilea; Jotapata y Gamla.\par\smallskip
-\textbf{70}: Tito sube de Cesarea y sitia Jerusalén; el templo arde el 9/10 de Av.\par\smallskip
-\textbf{73/74}: cae Masada.\par\smallskip
-\textbf{Huida a Pela} (Eusebio, HE 3.5.3): tradición discutida; cf. Lc 21:21.\par\medskip
-\begin{tcolorbox}[colback=piedra,colframe=cafe,boxrule=0.8pt,arc=3pt,fontupper=\scriptsize]
-\textbf{1.100.000 muertos}: cifra de Josefo (\emph{Guerra} 6.420), tenida por \textbf{exagerada}; citarla siempre «según Josefo».
-\end{tcolorbox}
+\textbf{\color{ladrillo}67}: Vespasiano somete Galilea; Jotapata y Gamla.\par\smallskip
+\textbf{\color{ladrillo}70}: Tito sube de Cesarea y sitia Jerusalén; el templo arde el 9/10 de Av.\par\smallskip
+\textbf{\color{ladrillo}73/74}: cae Masada.\par\smallskip
+\textbf{\color{ladrillo}Huida a Pela} (Eusebio, HE 3.5.3): tradición discutida; cf. Lc 21:21.\par
+\begin{notalam}[La cifra de Josefo]
+\textbf{1.100.000 muertos} (\emph{Guerra} 6.420): excede cualquier estimación razonable de la población. Conviene citarla siempre «según Josefo».
+\end{notalam}
 \end{column}
 \end{columns}
 \end{frame}
 
 \begin{frame}{Precisiones sobre el año 70}
-\small El 70 suele resumirse así: más de un millón de muertos, fin del sacerdocio y del sanedrín, comienzo de la Diáspora.\par\medskip
-\scriptsize\renewcommand{\arraystretch}{1.25}
-\begin{tabular}{>{\RaggedRight\arraybackslash}p{3.3cm}>{\RaggedRight\arraybackslash}p{8.2cm}}
+\footnotesize El 70 suele resumirse así: más de un millón de muertos, fin del sacerdocio y del sanedrín, comienzo de la Diáspora.\par\medskip
+\centering\scriptsize\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{3.3cm}>{\RaggedRight\arraybackslash}p{8.6cm}}
 \toprule
-\textbf{Afirmación} & \textbf{Precisión}\\\midrule
+{\color{ladrillo}\bfseries Afirmación} & {\color{ladrillo}\bfseries Precisión}\\\midrule
 Más de un millón de muertos & Cifra de Josefo (\emph{Guerra} 6.420), considerada exagerada.\\
 Comienza la Diáspora & Ya existía desde el exilio babilónico (Hch 2:9--11). La expulsión de Jerusalén llega tras Bar Kojba (132--135): \emph{Aelia Capitolina}.\\
 Fin del sacerdocio y del sanedrín & Cesan el sacrificio y el sumo sacerdocio; la tradición judía reconstituye un tribunal de sabios en Yavne.\\
 Persecuciones posteriores & Expulsiones: Inglaterra 1290; Francia 1306 y 1394; España 1492. Peste negra: 1347--1351 (s. \textsc{xiv}).\\
 \bottomrule
-\end{tabular}\par\medskip
-{\scriptsize\color{sepia}Con estos matices, la idea central sigue en pie: el juicio fue grave, pero «suspendido, mas no para siempre» (Jer 31:35--37; Ro 11:25--26).}
+\end{tabular}
+\elabpropia
+\vspace{6pt}
+\begin{clave}
+Con estos matices, la idea central sigue en pie: el juicio fue grave, pero «suspendido, mas no para siempre» (Jer 31:35--37; Ro 11:25--26).
+\end{clave}
 \end{frame}
 
 \begin{frame}{Arqueología: el mundo de Jesús}
 \centering
 \begin{tikzpicture}
  \foreach \x/\n/\t/\d/\r in {0/1/{Pilato}/{Cesarea, 1961: «[Po]ntius Pilatus [prae]fectus Iuda[eae]». Nombre y título del prefecto.}/{Inscripción latina},
-   3.15/2/{Caifás}/{Osario con «Yehosef bar Qayafa» (1990). Identificación probable, lectura en debate.}/{\emph{Ant.} 18.35; Evans, 2003},
-   6.3/3/{Siloé y Betesda}/{Gradas de Siloé (2004; Jn 9:7) y dos estanques junto a Santa Ana (Jn 5:2).}/{Reich, 2011},
-   9.45/4/{Advertencia}/{Losa griega: ningún extranjero pase la balaustrada del santuario.}/{\emph{Guerra} 5.193; Ef 2:14}}{
-  \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][3.0cm][t]{2.65cm}{\RaggedRight
+   3.25/2/{Caifás}/{Osario con «Yehosef bar Qayafa» (1990). Identificación probable, lectura en debate.}/{\emph{Ant.} 18.35; Evans, 2003},
+   6.5/3/{Siloé y Betesda}/{Gradas de Siloé (2004; Jn 9:7) y dos estanques junto a Santa Ana (Jn 5:2).}/{Reich, 2011},
+   9.75/4/{Advertencia}/{Losa griega: ningún extranjero pase la balaustrada del santuario.}/{\emph{Guerra} 5.193; Ef 2:14}}{
+  \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][2.75cm][t]{2.65cm}{\RaggedRight
     {\small\textbf{\textcolor{ladrillo}{\t}}}\\[4pt]\scriptsize \d\par\vfill{\tiny\color{sepia}(\r)}}};
   \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
-\end{tikzpicture}\par\vspace{5pt}
-\begin{minipage}{0.95\linewidth}\scriptsize \textbf{Inscripción de Teódoto} (anterior al 70): sinagoga en Jerusalén «para la lectura de la ley y la enseñanza de los mandamientos», con hospedaje para los que venían del extranjero (cf. Hch 6:9).\end{minipage}
+\end{tikzpicture}
+\elabpropia
+\vspace{4pt}
+\begin{notalam}[Inscripción de Teódoto (anterior al 70)]
+Una sinagoga en Jerusalén «para la lectura de la ley y la enseñanza de los mandamientos», con hospedaje para los que venían del extranjero (cf. Hch 6:9). La sinagoga ya convivía con el templo antes de su caída.
+\end{notalam}
 \end{frame}
 
 \begin{frame}{Arqueología: la caída}
 \centering
 \begin{tikzpicture}
  \foreach \x/\n/\t/\d/\r in {0/1/{Calle herodiana}/{Sillares derribados en el 70 sobre el pavimento junto al arco de Robinson; piedra del «toque de trompeta».}/{Mt 24:2; \emph{Guerra} 4.582},
-   3.15/2/{Casa Quemada}/{Vivienda incendiada en el 70; pesa con el nombre sacerdotal «Bar Kathros».}/{Avigad, 1983; Pesajim 57a},
-   6.3/3/{Monedas}/{Rebeldes: «Jerusalén la santa», «por la redención de Sion». Roma: \textsc{Iudaea capta}.}/{Meshorer, 2001},
-   9.45/4/{Arco de Tito}/{Roma, después del 81: candelabro, mesa y trompetas en la procesión triunfal.}/{\emph{Guerra} 7.148--150; Fine, 2016}}{
-  \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][3.0cm][t]{2.65cm}{\RaggedRight
+   3.25/2/{Casa Quemada}/{Vivienda incendiada en el 70; pesa con el nombre sacerdotal «Bar Kathros».}/{Avigad, 1983; Pesajim 57a},
+   6.5/3/{Monedas}/{Rebeldes: «Jerusalén la santa», «por la redención de Sion». Roma: \textsc{Iudaea capta}.}/{Meshorer, 2001},
+   9.75/4/{Arco de Tito}/{Roma, después del 81: candelabro, mesa y trompetas en la procesión triunfal.}/{\emph{Guerra} 7.148--150; Fine, 2016}}{
+  \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][2.75cm][t]{2.65cm}{\RaggedRight
     {\small\textbf{\textcolor{ladrillo}{\t}}}\\[4pt]\scriptsize \d\par\vfill{\tiny\color{sepia}(\r)}}};
   \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
-\end{tikzpicture}\par\vspace{5pt}
-\begin{minipage}{0.95\linewidth}\scriptsize \textbf{Masada} (Yadin, 1963--1965): rampa romana, sinagoga, baños rituales y un rollo de Ez 35--38 (los huesos secos) bajo el piso de la sinagoga. El suicidio colectivo solo lo narra Josefo; su exactitud se discute (Ben-Yehuda, 1995).\end{minipage}
+\end{tikzpicture}
+\elabpropia
+\vspace{4pt}
+\begin{notalam}[Masada: hallazgo y debate]
+Yadin (1963--1965) excavó la rampa romana, la sinagoga, baños rituales y un rollo de Ez 35--38, la visión de los huesos secos, bajo el piso de la sinagoga. El suicidio colectivo solo lo narra Josefo; su exactitud se discute (Ben-Yehuda, 1995).
+\end{notalam}
 \end{frame}
 
 % ===================================================
 \section{El Mesías}
 \begin{frame}{«La plenitud del tiempo»}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.49\textwidth}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}
 \begin{cita}Cuando vino la plenitud del tiempo, Dios envió a su Hijo, nacido de mujer, nacido bajo la ley.\fuente{(Gá 4:4)}\end{cita}
-\small \grc{τὸ πλήρωμα τοῦ χρόνου}: la misma «plenitud» que Pablo aplica a Israel y a los gentiles (Ro 11:12, 25).\par\smallskip
-\textbf{\textcolor{cafe}{Zacarías}} (Lc 1:68--79): Dios «ha visitado y redimido a su pueblo [\ldots] para que le sirvamos (\grc{λατρεύειν}) en santidad». Redimido, Israel recupera su oficio sacerdotal.
+\vspace{2pt}
+\footnotesize \destacar{Zacarías} (Lc 1:68--79): Dios «ha visitado y redimido a su pueblo [\ldots] para que le sirvamos (\grc{λατρεύειν}) en santidad».\par\smallskip
+Redimido, Israel recupera su oficio sacerdotal.
 \end{column}
-\begin{column}{0.49\textwidth}
+\begin{column}{0.48\textwidth}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+\node[bloqueazul,text width=2.6cm,font=\small] (p) at (0,0) {\grc{πλήρωμα}\\[-1pt]{\scriptsize\mdseries «plenitud»}};
+\node[bloque,text width=2.3cm] (g) at (0,1.55) {\textbf{Gá 4:4}\\la plenitud del tiempo};
+\node[bloque,text width=2.3cm] (i) at (-1.65,-1.6) {\textbf{Ro 11:12}\\la plenitud de Israel};
+\node[bloque,text width=2.3cm] (n) at (1.65,-1.6) {\textbf{Ro 11:25}\\la plenitud de los gentiles};
+\draw[flecha] (g) -- (p);
+\draw[flecha] (p) -- (i);
+\draw[flecha] (p) -- (n);
+\end{tikzpicture}
+\elabpropia
+\vspace{2pt}
+\begin{clave}La misma palabra une la venida del Hijo con lo que Pablo espera para Israel y las naciones.\end{clave}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Una voz en el desierto}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}
 \centering{\large\heb{קוֹל קוֹרֵא בַּמִּדְבָּר פַּנּוּ דֶּרֶךְ יְהוָה}}\par\smallskip
 \begin{cita}Una voz clama: En el desierto preparad el camino de YHWH.\fuente{(Is 40:3)}\end{cita}
-\small Juan el Bautista: nuevo éxodo, consuelo (Is 40:1) y llamado a la \emph{teshuvá}.\par\smallskip
-\precision{el TM une «en el desierto» con «preparad»; la LXX y Mc 1:3, con «voz». Qumrán aplicaba el texto a su retiro (1QS 8.12--16).}
+\footnotesize Juan el Bautista: nuevo éxodo, consuelo (Is 40:1) y llamado a la \emph{teshuvá}.
+\end{column}
+\begin{column}{0.48\textwidth}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+\node[bloqueazul,text width=1.0cm,minimum height=0.95cm] (tm) at (0,0) {TM};
+\node[bloque,text width=1.35cm,minimum height=0.95cm,right=0.45cm of tm] (t1) {Una voz clama:};
+\node[bloqueoro,text width=1.6cm,minimum height=0.95cm,right=0.2cm of t1] (t2) {en el desierto preparad};
+\node[bloqueazul,text width=1.0cm,minimum height=0.95cm] (lx) at (0,-1.35) {LXX;\\Mc 1:3};
+\node[bloqueoro,text width=1.6cm,minimum height=0.95cm,right=0.45cm of lx] (l1) {voz del que clama en el desierto:};
+\node[bloque,text width=1.35cm,minimum height=0.95cm,right=0.2cm of l1] (l2) {preparad};
+\draw[flecha] (tm) -- (t1); \draw[flecha] (lx) -- (l1);
+\end{tikzpicture}
+\notafig{Elaboración propia. En oro, dónde se ubica «en el desierto».}
+\vspace{4pt}
+\begin{notalam}[Precisión filológica]
+El TM une «en el desierto» con «preparad»; la LXX y Mc 1:3, con «voz». Qumrán aplicaba el texto a su propio retiro en el desierto (1QS 8.12--16).
+\end{notalam}
 \end{column}
 \end{columns}
 \end{frame}
@@ -192,60 +320,101 @@ Persecuciones posteriores & Expulsiones: Inglaterra 1290; Francia 1306 y 1394; E
 \end{columns}
 \end{frame}
 
-\begin{frame}{Nazaret y los Doce}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.49\textwidth}
+\begin{frame}{Nazaret: el año del jubileo}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}
 \centering{\heb{לִקְרֹא לִשְׁבוּיִם דְּרוֹר}}\par\smallskip
 \begin{cita}Me ha enviado a proclamar libertad a los cautivos [\ldots], a proclamar el año agradable del Señor. Hoy se ha cumplido esta Escritura.\fuente{(Lc 4:18--21; Is 61:1--2)}\end{cita}
-\small \heb{דְּרוֹר} (\emph{derór}): la libertad del jubileo (Lv 25:10). Jesús se detiene antes de «el día de venganza» (Is 61:2b).
 \end{column}
-\begin{column}{0.49\textwidth}
+\begin{column}{0.48\textwidth}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+\node[bloque,text width=1.65cm,minimum height=1.25cm] (a) at (0,0) {proclamar\\libertad\\(\emph{derór})};
+\node[bloque,text width=1.65cm,minimum height=1.25cm] (b) at (2.05,0) {el año\\agradable\\del Señor};
+\node[draw=sepia,dashed,rounded corners=3pt,text=sepia,text width=1.65cm,minimum height=1.25cm,align=center,inner sep=4pt] (c) at (4.3,0) {el día de\\venganza\\(Is 61:2b)};
+\draw[flecha] (a) -- (b);
+\draw[cafeosc,line width=1.6pt] (3.17,-0.85) -- (3.17,0.85);
+\node[etiq,text=cafeosc,font=\tiny\bfseries] at (3.17,1.05) {Jesús se detiene};
+\draw[decorate,decoration={brace,amplitude=4pt,mirror},sepia] (-0.85,-0.8) -- (2.9,-0.8) node[midway,below=5pt,etiq]{«Hoy se ha cumplido» (Lc 4:21)};
+\end{tikzpicture}
+\elabpropia
+\vspace{4pt}
+\begin{notalam}[\heb{דְּרוֹר}, \emph{derór}]
+Es la libertad del jubileo (Lv 25:10): los cautivos vuelven y la tierra se restituye. Jesús lee Is 61 como anuncio de ese año de liberación.
+\end{notalam}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Los Doce y las doce tribus}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}
 \begin{cita}Os sentaréis sobre doce tronos, para juzgar a las doce tribus de Israel.\fuente{(Mt 19:28; Lc 22:30)}\end{cita}
-\scriptsize
+\footnotesize
 \begin{itemize}
-\item Doce: signo de \emph{todo} Israel reconstituido, tribus del norte incluidas (Ez 37:15--28; Sanders, 1985).
-\item Matías completa el número (Hch 1:15--26); «nuestras doce tribus» (Hch 26:7).
-\item «Las ovejas perdidas de la casa de Israel» (Mt 10:6; 15:24; Jer 50:6; Ez 34).
+\item Matías completa el número antes de Pentecostés (Hch 1:15--26).
+\item «Nuestras doce tribus» (Hch 26:7); Santiago escribe «a las doce tribus que están en la dispersión» (Stg 1:1).
+\item «Las ovejas perdidas de la casa de Israel» (Mt 10:6; 15:24; cf. Ez 34).
 \end{itemize}
-\precision{en Mateo, «casa de Israel» es el pueblo judío de Galilea y Judea, no el antiguo reino del norte.}
+\end{column}
+\begin{column}{0.48\textwidth}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+\node[bloque,text width=2.2cm] (n) at (-1.4,0) {Tribus del norte\\dispersas (722)};
+\node[bloque,text width=2.2cm] (s) at (1.4,0) {Judá\\en la tierra};
+\node[bloqueazul,text width=5.0cm] (u) at (0,-1.35) {Una sola nación (Ez 37:15--28)};
+\draw[flecha] (n) -- (u.north -| n); \draw[flecha] (s) -- (u.north -| s);
+\foreach \k in {0,...,11}{\node[hito] at (-2.2+\k*0.4,-2.15) {};}
+\node[etiq] at (0,-2.5) {los Doce: signo de \emph{todo} Israel reconstituido (Sanders, 1985)};
+\end{tikzpicture}
+\elabpropia
+\vspace{4pt}
+\begin{notalam}[«Casa de Israel» en Mateo]
+Es el pueblo judío de Galilea y Judea, no el antiguo reino del norte: a los Doce se les prohíbe entrar en Samaria (Mt 10:5--6).
+\end{notalam}
 \end{column}
 \end{columns}
 \end{frame}
 
 \begin{frame}{Jesús en las fiestas de Israel}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.32\textwidth}\small
-\textbf{\textcolor{ladrillo}{Sucot (Jn 7--8)}}\par\smallskip
-«Si alguno tiene sed, venga a mí» (7:37), en la fiesta de la libación del agua; «Yo soy la luz del mundo» (8:12), junto a los candelabros del atrio (Mishná, Sucá 5:1--3).
-\end{column}
-\begin{column}{0.33\textwidth}\small
-\textbf{\textcolor{ladrillo}{Janucá (Jn 10:22)}}\par\smallskip
-\grc{τὰ ἐγκαίνια}, «la Dedicación» (\heb{חֲנֻכָּה}): «era invierno, y Jesús andaba en el templo, en el pórtico de Salomón». Memoria de los macabeos (Estudio~6).
-\end{column}
-\begin{column}{0.32\textwidth}\small
-\textbf{\textcolor{ladrillo}{Pésaj y el Hallel}}\par\smallskip
-Sal 118 se canta en Pésaj y Sucot; en Sucot se agita el \emph{lulav} en «\emph{hoshía na}» (Sucá 3:9). La multitud lo grita en la entrada (Mt 21:9).
-\end{column}
-\end{columns}\par\medskip
+\centering
+\begin{tikzpicture}
+ \foreach \x/\n/\t/\d in {0/1/{Sucot (Jn 7--8)}/{«Si alguno tiene sed, venga a mí» (7:37), en la libación del agua; «Yo soy la luz del mundo» (8:12), junto a los candelabros del atrio.},
+   4.3/2/{Janucá (Jn 10:22)}/{\grc{τὰ ἐγκαίνια}, «la Dedicación» (\heb{חֲנֻכָּה}): «era invierno, y Jesús andaba en el templo, en el pórtico de Salomón».},
+   8.6/3/{Pésaj y el Hallel}/{Sal 118 se canta en Pésaj y Sucot; con el \emph{lulav} se aclama «\emph{hoshía na}» (Sucá 3:9). La multitud lo grita en la entrada (Mt 21:9).}}{
+  \node[bloque,anchor=north,text width=3.55cm,minimum height=2.35cm,align=left] (f\n) at (\x,0) {{\footnotesize\bfseries\color{ladrillo}\t}\\[3pt]\scriptsize\d};}
+ \draw[flecha] (f1.east) -- (f2.west);
+ \draw[flecha] (f2.east) -- (f3.west);
+\end{tikzpicture}
+\elabpropia
+\vspace{4pt}
 \centering{\large\heb{בָּרוּךְ הַבָּא בְּשֵׁם יְהוָה}}\par
-{\small\itshape\color{sepia}«Bendito el que viene en el nombre de YHWH» (Sal 118:26): un mismo salmo para la entrada, la parábola y el lamento.}
+{\footnotesize\itshape\color{sepia}«Bendito el que viene en el nombre de YHWH» (Sal 118:26): un mismo salmo para la entrada, la parábola y el lamento.}\par
+\vspace{4pt}
+\begin{notalam}[Tradición judía]
+La Mishná describe la libación del agua y los grandes candelabros encendidos en el atrio de las mujeres durante Sucot (Sucá 5:1--3). Janucá recuerda la purificación del templo por los macabeos (Estudio~6).
+\end{notalam}
 \end{frame}
 
 \begin{frame}{Los labradores: Mt 21:43}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.44\textwidth}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.42\textwidth}
 \begin{cita}El reino de Dios será quitado de vosotros y será dado a un pueblo que produzca sus frutos.\fuente{(Mt 21:43)}\end{cita}
-\small Antes, en el templo: «casa de oración [\ldots] para todos los pueblos» (Is 56:7) y «cueva de ladrones» (Jer 7:11), eco del sermón que anunció la caída del Primer Templo.
+\footnotesize Antes, en el templo: «casa de oración [\ldots] para todos los pueblos» (Is 56:7) y «cueva de ladrones» (Jer 7:11), eco del sermón que anunció la caída del Primer Templo.
 \end{column}
-\begin{column}{0.53\textwidth}\scriptsize
-\textbf{\textcolor{cafe}{¿Reemplazo de Israel? El texto dice otra cosa}}
-\begin{enumerate}
-\item \textbf{Destinatarios}: los principales sacerdotes y los fariseos «entendieron que hablaba de ellos» (21:45).
-\item \textbf{La viña queda}: es Israel (Is 5:7); se entrega «a otros labradores» (21:41).
-\item \textbf{Singular}: \grc{ἔθνει}, «a un pueblo», no \grc{τοῖς ἔθνεσιν}, «a los gentiles». Su núcleo: los Doce (19:28).
-\item \textbf{La piedra desechada} (Sal 118:22) es el Hijo; Pedro la aplica a los «edificadores» (Hch 4:11).
-\end{enumerate}
-\destacar{Cambio de liderazgo, no de pueblo} (Snodgrass, 2008).
+\begin{column}{0.54\textwidth}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+\node[bloqueazul,text width=5.6cm] (v) at (0,0) {La viña es Israel (Is 5:7): no se destruye};
+\node[bloqueoro,text width=2.25cm,minimum height=1.45cm] (a) at (-1.75,-1.55) {\textbf{Labradores}\\sacerdotes y fariseos: «hablaba de ellos» (21:45)};
+\node[bloque,text width=2.25cm,minimum height=1.45cm] (b) at (1.75,-1.55) {\textbf{Otros labradores} (21:41)\\\grc{ἔθνει}, «a un pueblo», singular; núcleo: los Doce};
+\draw[flecha] (a) -- (b);
+\draw[ladrillo,line width=0.6pt] (v.south -| a) -- (a); \draw[ladrillo,line width=0.6pt] (v.south -| b) -- (b);
+\node[bloque,text width=5.6cm] (p) at (0,-3.5) {La piedra desechada (Sal 118:22) es el Hijo; Pedro la aplica a los «edificadores» (Hch 4:11)};
+\end{tikzpicture}
+\elabpropia
+\vspace{2pt}
+\begin{clave}\textbf{Cambio de liderazgo, no de pueblo} (Snodgrass, 2008). No dice \grc{τοῖς ἔθνεσιν}, «a los gentiles».\end{clave}
 \end{column}
 \end{columns}
 \end{frame}
@@ -308,22 +477,44 @@ Sal 118 se canta en Pésaj y Sucot; en Sucot se agita el \emph{lulav} en «\emph
 \node[caja,text width=3.3cm,align=center,right=of g] (p) {\textbf{Juan 19:37}\\[3pt]\grc{ὄψονται εἰς ὃν ἐξεκέντησαν}\\[2pt]sigue al hebreo,\\como Teodoción};
 \draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (h) -- (g);
 \draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (g) -- (p);
-\end{tikzpicture}\par\vspace{8pt}
-\begin{minipage}{0.92\linewidth}\small Hacen duelo «la casa de David y los habitantes de Jerusalén» (Judá), antesala del «manantial abierto [\ldots] para la purificación» (Zac 13:1). La serie lo lee como el momento en que es quitado el velo de la casa de Judá.\par\smallskip
-\precision{el TM dice «a mí» y luego «por él»; algunos manuscritos hebreos leen «a él».}\end{minipage}
+\end{tikzpicture}
+\elabpropia
+\vspace{6pt}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.52\textwidth}\footnotesize
+Hacen duelo «la casa de David y los habitantes de Jerusalén» (Judá), antesala del «manantial abierto [\ldots] para la purificación» (Zac 13:1). La serie lo lee como el momento en que es quitado el velo de la casa de Judá.
+\end{column}
+\begin{column}{0.44\textwidth}
+\begin{notalam}[Precisión textual]
+El TM dice «a mí» y luego «por él»; algunos manuscritos hebreos leen «a él».
+\end{notalam}
+\end{column}
+\end{columns}
 \end{frame}
 
 \begin{frame}{¿Restaurarás el reino a Israel?}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.52\textwidth}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.50\textwidth}
 \begin{cita}Señor, ¿restaurarás el reino a Israel en este tiempo? Y les dijo: No os toca a vosotros saber los tiempos [\ldots]; pero me seréis testigos en Jerusalén, en toda Judea, en Samaria y hasta el extremo de la tierra.\fuente{(Hch 1:6--8)}\end{cita}
+\begin{clave}Jesús deja en pie el \textbf{contenido} de la pregunta; corrige el \textbf{calendario}.\end{clave}
+\begin{notalam}[\grc{ἀποκαθιστάνεις}]
+Es el verbo de Elías en Mal 3:23 [4:6] LXX y Mt 17:11: «restaurar».
+\end{notalam}
 \end{column}
-\begin{column}{0.45\textwidth}\small
-\begin{itemize}
-\item Jesús deja en pie el \textbf{contenido} de la pregunta; corrige el \textbf{calendario}.
-\item \grc{ἀποκαθιστάνεις}: el verbo de Elías en Mal 3:23 [4:6] LXX y Mt 17:11.
-\item El mapa de la misión es Is 49:6: \grc{ἕως ἐσχάτου τῆς γῆς}; Samaria es la región del antiguo reino del norte (Hch 8).
-\end{itemize}
+\begin{column}{0.46\textwidth}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+\fill[piedra!60!white,draw=ladrillo!60] (0,0) circle (2.15);
+\fill[oro!14!white,draw=oro!90!ladrillo] (0,0) circle (1.55);
+\fill[piedra,draw=ladrillo] (0,0) circle (0.98);
+\fill[ladrillo] (0,0) circle (0.48);
+\node[text=white,font=\tiny\bfseries] at (0,0) {Jerusalén};
+\node[font=\tiny\bfseries,text=ladrillo] at (0,0.72) {Judea};
+\node[font=\tiny\bfseries,text=cafeosc,align=center] at (0,1.27) {Samaria};
+\node[font=\tiny\bfseries,text=ladrillo,align=center] at (0,1.86) {extremo de la tierra};
+\node[etiq,text=sepia,text width=4.5cm] at (0,-2.5) {Samaria: región del antiguo reino del norte (Hch 8). El mapa es el de Is 49:6: \grc{ἕως ἐσχάτου τῆς γῆς}.};
+\end{tikzpicture}
+\elabpropia
 \end{column}
 \end{columns}
 \end{frame}
@@ -331,89 +522,105 @@ Sal 118 se canta en Pésaj y Sucot; en Sucot se agita el \emph{lulav} en «\emph
 % ===================================================
 \section{El remanente}
 \begin{frame}{Pentecostés y los miles}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.49\textwidth}\small
-\textbf{\textcolor{cafe}{Shavuot: la diáspora reunida}}\par\smallskip
-«Partos, medos, elamitas, habitantes de Mesopotamia\ldots» (Hch 2:9--11). Medos y Mesopotamia: destino de los deportados del reino del norte (2~R 17:6); Babilonia: el de Judá.\par\smallskip
-Pedro cita Joel 2:28--32 [3:1--5]: «derramaré mi Espíritu sobre toda carne».
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.46\textwidth}\footnotesize
+\destacar{Shavuot: la diáspora reunida}\par\smallskip
+«Partos, medos, elamitas, habitantes de Mesopotamia\ldots» (Hch 2:9--11).\par\smallskip
+Pedro cita Joel 2:28--32 [3:1--5]: «derramaré mi Espíritu sobre toda carne».\par
+\begin{notalam}[El norte y el sur en Hch 2]
+Medos y Mesopotamia: destino de los deportados del reino del norte (2~R 17:6); Babilonia: el de Judá. Para Lucas, Pentecostés inaugura la reunión del Israel disperso (Jervell, 1972).
+\end{notalam}
 \end{column}
-\begin{column}{0.49\textwidth}
+\begin{column}{0.50\textwidth}
 \centering
-\begin{tikzpicture}[y=-0.68cm]
+\begin{tikzpicture}[font=\scriptsize]
 \foreach \i/\v/\h in {0/{c. 3.000 personas}/{Hch 2:41},1/{c. 5.000 hombres}/{Hch 4:4},2/{«Gran multitud de sacerdotes»}/{Hch 6:7},3/{«Decenas de miles» (\grc{μυριάδες})}/{Hch 21:20}}{
-  \node[caja,text width=4.7cm,minimum height=0.5cm,inner sep=2.5pt] at (0,\i) {\textbf{\v}\hfill{\tiny\color{sepia}\h}};}
-\end{tikzpicture}\par\smallskip
-\scriptsize «Todos son celosos por la ley» (21:20); oran en el templo (2:46; 3:1).
+  \node[bloque,text width=4.3cm,inner sep=3pt] (m\i) at (0,-0.95*\i) {\textbf{\v}\\[-1pt]{\tiny\color{sepia}\h}};}
+\draw[flecha] (-2.85,0.2) -- (-2.85,-3.05) node[midway,etiq,rotate=90,above=1pt]{crecimiento};
+\end{tikzpicture}
+\elabpropia
+\vspace{2pt}
+\begin{clave}«Todos son celosos por la ley» (Hch 21:20); oran en el templo (2:46; 3:1).\end{clave}
 \end{column}
 \end{columns}
 \end{frame}
 
 \begin{frame}{De todas las naciones}
-\begin{columns}[c,onlytextwidth]
-\begin{column}{0.66\textwidth}\centering\includegraphics[width=\linewidth,height=0.86\textheight,keepaspectratio]{mapa_pentecostes.pdf}\par\vspace{1pt}{\fontsize{4.5}{5.5}\selectfont\color{sepia}\textit{Nota.} Elaboración propia (GSHHS/WDB, Basemap); ubicaciones aproximadas.\par}\end{column}
-\begin{column}{0.32\textwidth}\scriptsize\RaggedRight
-\input{crops/mapa_pentecostes_leyenda.tex}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.62\textwidth}\centering\includegraphics[width=\linewidth,height=0.80\textheight,keepaspectratio]{mapa_pentecostes.pdf}\par\vspace{1pt}{\fontsize{4.5}{5.5}\selectfont\color{sepia}\textit{Nota.} Elaboración propia (GSHHS/WDB, Basemap); ubicaciones aproximadas.\par}\end{column}
+\begin{column}{0.35\textwidth}\scriptsize\RaggedRight
+\input{crops/mapa_pentecostes_leyenda.tex}\medskip
+\begin{cita}[fontupper=\scriptsize\itshape]Moraban en Jerusalén judíos, varones piadosos, de todas las naciones bajo el cielo.\fuente{(Hch 2:5)}\end{cita}
+Partos, medos, elamitas; Mesopotamia, Judea, Capadocia, Ponto, Asia, Frigia, Panfilia; Egipto, Libia, Roma; cretenses y árabes (Hch 2:9--11).\par\smallskip
+El primer anuncio alcanza a la diáspora congregada en Shavuot.
 \end{column}
 \end{columns}
 \end{frame}
 
-\begin{frame}{De todas las naciones: claves}
-\small\RaggedRight
-\begin{cita}[fontupper=\scriptsize\itshape]Moraban en Jerusalén judíos, varones piadosos, de todas las naciones bajo el cielo.\fuente{(Hch 2:5)}\end{cita}
-Partos, medos, elamitas; Mesopotamia, Judea, Capadocia, Ponto, Asia, Frigia, Panfilia; Egipto, Libia, Roma; cretenses y árabes (Hch 2:9--11).\par\medskip
-El primer anuncio del evangelio alcanza a la diáspora congregada en Shavuot.
-\end{frame}
-
 \begin{frame}{Jacobo y la tienda de David}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.46\textwidth}\small
-\textbf{\textcolor{cafe}{Jacobo, hermano del Señor}}
-\begin{itemize}
-\item Testigo de la resurrección (1~Co 15:7); «columna» (Gá 2:9).
-\item Preside el concilio (Hch 15).
-\item Lapidado en el 62 por orden de Anán (\emph{Ant.} 20.200); «el Justo» (Hegesipo, en Eusebio, HE 2.23).
-\end{itemize}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.42\textwidth}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+\foreach \i/\t in {0/{Testigo de la resurrección (1~Co 15:7)},1/{«Columna» de la iglesia (Gá 2:9)},2/{Preside el concilio (Hch 15)},3/{Lapidado en el 62 por orden de Anán (\emph{Ant.} 20.200)}}{
+  \node[bloque,text width=4.2cm,align=left] (k\i) at (0,-0.98*\i) {\t};}
+\foreach \i [evaluate=\i as \j using int(\i+1)] in {0,1,2}{\draw[flecha] (k\i) -- (k\j);}
+\node[etiq,text=sepia] at (0,-3.55) {«el Justo» (Hegesipo, en Eusebio, HE 2.23)};
+\end{tikzpicture}
+\elabpropia
 \end{column}
-\begin{column}{0.51\textwidth}
+\begin{column}{0.54\textwidth}
 \centering{\large\heb{אָקִים אֶת־סֻכַּת דָּוִיד הַנֹּפֶלֶת}}\par\smallskip
 \begin{cita}Reedificaré la tienda de David, que está caída [\ldots], para que el resto de los hombres busque al Señor, y todas las naciones sobre las cuales es invocado mi nombre.\fuente{(Hch 15:16--17; Am 9:11--12 LXX)}\end{cita}
-\precision{el TM dice «posean el resto de \emph{Edom}» (\heb{אֱדוֹם}); la LXX leyó \emph{adam} y «busquen». Los gentiles entran sin dejar de serlo.}
+\begin{notalam}[TM y LXX en Am 9:12]
+El TM dice «posean el resto de \emph{Edom}» (\heb{אֱדוֹם}); la LXX leyó \emph{adam}, «hombres», y «busquen». Los gentiles entran sin dejar de serlo.
+\end{notalam}
 \end{column}
 \end{columns}
 \end{frame}
 
 \begin{frame}{«Al judío primeramente»}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.49\textwidth}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.46\textwidth}
 \begin{cita}Poder de Dios para salvación a todo el que cree, al judío primeramente, y también al griego.\fuente{(Ro 1:16)}\end{cita}
-\small \grc{Ἰουδαίῳ τε πρῶτον καὶ Ἕλληνι}. En Antioquía: «nos volvemos a los gentiles», con Is 49:6 (Hch 13:46--47); en la ciudad siguiente, otra vez a la sinagoga (14:1).
-\end{column}
-\begin{column}{0.49\textwidth}
 \begin{cita}Por la esperanza de Israel estoy sujeto con esta cadena.\fuente{(Hch 28:20)}\end{cita}
-\small En Roma unos creen y otros no (28:24); Pablo cita Is 6:9--10.\par\smallskip
-\scriptsize ¿Historia trágica (Tannehill, 1985) o Israel dividido con un remanente numeroso (Jervell, 1972)? Hechos termina con la puerta abierta (28:30).
+\begin{notalam}[Dos lecturas de Hechos]
+¿Historia trágica (Tannehill, 1985) o Israel dividido con un remanente numeroso (Jervell, 1972)? Hechos termina con la puerta abierta (28:30).
+\end{notalam}
+\end{column}
+\begin{column}{0.50\textwidth}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+\node[bloque,text width=4.6cm] (a) at (0,0) {Ro 1:16: «al judío primeramente, y también al griego»};
+\node[bloqueoro,text width=4.6cm] (b) at (0,-1.15) {Antioquía: «nos volvemos a los gentiles», con Is 49:6 (Hch 13:46--47)};
+\node[bloque,text width=4.6cm] (c) at (0,-2.3) {En la ciudad siguiente, otra vez a la sinagoga (14:1)};
+\node[bloqueazul,text width=4.6cm] (d) at (0,-3.45) {Roma: unos creen y otros no (28:24); Pablo cita Is 6:9--10};
+\draw[flecha] (a) -- (b); \draw[flecha] (b) -- (c); \draw[flecha] (c) -- (d);
+\node[etiq,text=sepia] at (0,-4.25) {\grc{Ἰουδαίῳ τε πρῶτον καὶ Ἕλληνι}: el orden se repite};
+\end{tikzpicture}
+\elabpropia
 \end{column}
 \end{columns}
 \end{frame}
 
 \begin{frame}{Velo en parte}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.49\textwidth}\small
-\textbf{\textcolor{cafe}{Tres textos}}
-\begin{itemize}
-\item La piedra desechada, hecha cabeza del ángulo (Hch 4:11; Sal 118:22).
-\item «No me veréis [\ldots] hasta que digáis: Bendito el que viene» (Mt 23:39).
-\item «Hasta el día de hoy les queda el mismo velo» (2~Co 3:14).
-\end{itemize}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.46\textwidth}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+\node[bloque,text width=4.4cm,align=left] (a) at (0,0) {\textbf{Hch 4:11}: la piedra desechada, hecha cabeza del ángulo (Sal 118:22)};
+\node[bloque,text width=4.4cm,align=left] (b) at (0,-1.2) {\textbf{Mt 23:39}: «no me veréis [\ldots] hasta que digáis: Bendito el que viene»};
+\node[bloque,text width=4.4cm,align=left] (c) at (0,-2.4) {\textbf{2~Co 3:14}: «hasta el día de hoy les queda el mismo velo»};
+\node[bloqueazul,text width=4.4cm] (d) at (0,-3.6) {Un velo con límite: «cuando se vuelva al Señor»};
+\draw[flecha] (c) -- (d);
+\end{tikzpicture}
+\elabpropia
 \end{column}
-\begin{column}{0.49\textwidth}
+\begin{column}{0.50\textwidth}
 \begin{cita}Hasta hoy, cada vez que se lee a Moisés, el velo está puesto sobre su corazón. Pero cuando se vuelva al Señor, el velo es quitado.\fuente{(2~Co 3:15--16)}\end{cita}
-\scriptsize
-\begin{itemize}
-\item \grc{ἐπωρώθη} (3:14) y \grc{πώρωσις ἀπὸ μέρους} (Ro 11:25): la misma raíz.
-\item \grc{ἡνίκα ἐὰν ἐπιστρέψῃ}: de Éx 34:34 LXX; \grc{ἐπιστρέφω} traduce \heb{שׁוּב}.
-\item «Lectura del antiguo pacto» = lectura de Moisés en la sinagoga.
-\end{itemize}
+\begin{notalam}[Griego y hebreo]
+\grc{ἐπωρώθη} (2~Co 3:14) y \grc{πώρωσις ἀπὸ μέρους} (Ro 11:25) comparten raíz. \grc{ἡνίκα ἐὰν ἐπιστρέψῃ} viene de Éx 34:34 LXX; \grc{ἐπιστρέφω} traduce \heb{שׁוּב}, el verbo del regreso. La «lectura del antiguo pacto» es la lectura de Moisés en la sinagoga.
+\end{notalam}
 \end{column}
 \end{columns}
 \end{frame}
@@ -422,37 +629,77 @@ El primer anuncio del evangelio alcanza a la diáspora congregada en Shavuot.
 \centering
 \begin{tikzpicture}
  \foreach \x/\n/\t/\d/\r in {0/1/{Soberanía}/{El endurecimiento sirve al plan de salvación de los gentiles.}/{Ro 9:18; 11:11},
-   3.15/2/{Ignorancia}/{«Ignorando la justicia de Dios» (\grc{ἀγνοοῦντες}); «el fin de la ley es Cristo».}/{Ro 10:3--4},
-   6.3/3/{«Soberbia»}/{Establecer la propia justicia; pero Pablo reconoce «celo de Dios, no conforme a conocimiento».}/{Ro 10:2--3},
-   9.45/4/{Temporalidad}/{No es definitivo: «en parte» y «hasta». «Todo Israel será salvo».}/{Ro 11:25--26}}{
-  \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][3.0cm][t]{2.65cm}{\RaggedRight
+   3.25/2/{Ignorancia}/{«Ignorando la justicia de Dios» (\grc{ἀγνοοῦντες}); «el fin de la ley es Cristo».}/{Ro 10:3--4},
+   6.5/3/{«Soberbia»}/{Establecer la propia justicia; pero Pablo reconoce «celo de Dios, no conforme a conocimiento».}/{Ro 10:2--3},
+   9.75/4/{Temporalidad}/{No es definitivo: «en parte» y «hasta». «Todo Israel será salvo».}/{Ro 11:25--26}}{
+  \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][2.8cm][t]{2.65cm}{\RaggedRight
     {\small\textbf{\textcolor{ladrillo}{\t}}}\\[4pt]\scriptsize \d\par\vfill{\tiny\color{sepia}(\r)}}};
   \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
-\end{tikzpicture}\par\vspace{6pt}
-\begin{minipage}{0.95\linewidth}\scriptsize \precision{la «ignorancia» está en Ro 10:3 (10:4 da la razón); antes de hablar de soberbia, Pablo reconoce el celo de Israel (10:2). Esta etapa pone de relieve sobre todo el cuarto punto.}\end{minipage}
+ \draw[oro,line width=1.4pt,rounded corners=3pt] ($(b4.north west)+(-0.08,0.08)$) rectangle ($(b4.south east)+(0.08,-0.08)$);
+ \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b4.north west) {4};
+\end{tikzpicture}
+\notafig{Elaboración propia. En oro, el aspecto que esta etapa pone de relieve.}
+\vspace{6pt}
+\begin{notalam}[Precisión]
+La «ignorancia» está en Ro 10:3 (10:4 da la razón). Antes de hablar de soberbia, Pablo reconoce el celo de Israel (10:2).
+\end{notalam}
 \end{frame}
 
 % ===================================================
 \section{Vocación}
 \begin{frame}{Jesús, el Israel fiel}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.49\textwidth}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.40\textwidth}
 \centering{\heb{וּמִמִּצְרַיִם קָרָאתִי לִבְנִי}}\par\smallskip
 \begin{cita}De Egipto llamé a mi hijo.\fuente{(Os 11:1; Mt 2:15)}\end{cita}
-\scriptsize
-\begin{itemize}
-\item Mateo sigue el hebreo («mi hijo»); la LXX dice «sus hijos».
-\item Cuarenta días en el desierto; respuestas tomadas de Dt 8:3; 6:16; 6:13 (Mt 4:1--11): el Hijo se mantiene fiel allí donde Israel cayó.
-\end{itemize}
+\begin{notalam}[Mateo sigue el hebreo]
+Mateo lee «mi hijo», como el TM; la LXX dice «sus hijos». En Oseas el hijo es el pueblo (Éx 4:22).
+\end{notalam}
 \end{column}
-\begin{column}{0.49\textwidth}\small
-\textbf{\textcolor{cafe}{El siervo de Isaías}}
+\begin{column}{0.56\textwidth}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+\node[bloqueazul,text width=2.7cm] at (-1.6,0.1) {Israel};
+\node[bloqueazul,text width=2.7cm] at (1.6,0.1) {Jesús};
+\foreach \y/\l/\r in {-0.85/{Hijo llamado de Egipto (Éx 4:22; Os 11:1)}/{Huida y regreso de Egipto (Mt 2:15)},
+                      -1.95/{Cuarenta años en el desierto}/{Cuarenta días en el desierto (Mt 4:1--11)},
+                      -3.05/{Donde Israel murmuró y cayó}/{el Hijo confía: Dt 8:3; 6:16; 6:13}}{
+  \node[bloqueoro,text width=2.7cm,minimum height=0.85cm] (l) at (-1.6,\y) {\l};
+  \node[bloque,text width=2.7cm,minimum height=0.85cm] (r) at (1.6,\y) {\r};
+  \draw[flecha] (l) -- (r);}
+\end{tikzpicture}
+\elabpropia
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{El siervo de Isaías}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.50\textwidth}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+\node[bloque,text width=2.0cm,minimum height=1.2cm] (a) at (-1.55,0) {El siervo se llama\\«Israel»\\(Is 49:3)};
+\node[bloque,text width=2.0cm,minimum height=1.2cm] (b) at (1.55,0) {Su misión: hacer volver a Jacob\\(Is 49:5)};
+\draw[oro!90!ladrillo,line width=1pt,<->] (a) -- (b);
+\node[etiq,text=sepia] at (0,0.95) {\itshape tensión};
+\node[bloqueazul,text width=5.2cm] (c) at (0,-1.75) {El Mesías encarna a Israel para restaurarlo};
+\draw[flecha] (a.south) -- (c.north -| a.south);
+\draw[flecha] (b.south) -- (c.north -| b.south);
+\node[bloqueoro,text width=5.2cm] (d) at (0,-3.05) {Éx 19:6 se cumple primero en una persona};
+\draw[flecha] (c) -- (d);
+\end{tikzpicture}
+\elabpropia
+\end{column}
+\begin{column}{0.46\textwidth}\footnotesize
+\destacar{En los evangelios}
 \begin{itemize}
-\item Bautismo: Sal 2:7 + Is 42:1 (Mt 3:17); Is 42:1--4 en Mt 12:18--21.
-\item Is 49:3: el siervo se llama «Israel»; 49:5: su misión es reunir a Israel.
-\item Tradición: el siervo es Israel (Rashi) o el Mesías (Targum de Is 52:13; Chilton, 1987).
+\item Bautismo: Sal 2:7 + Is 42:1 (Mt 3:17).
+\item Is 42:1--4 citado en Mt 12:18--21.
 \end{itemize}
-\destacar{El Mesías encarna a Israel para restaurarlo.}
+\vspace{4pt}
+\begin{notalam}[Tradición judía]
+El siervo es Israel (Rashi) o el Mesías (Targum de Is 52:13; Chilton, 1987). El Nuevo Testamento reconoce en Jesús ambas cosas.
+\end{notalam}
 \end{column}
 \end{columns}
 \end{frame}
@@ -460,30 +707,40 @@ El primer anuncio del evangelio alcanza a la diáspora congregada en Shavuot.
 \begin{frame}{La vocación en esta etapa}
 \centering
 \begin{tikzpicture}
- \foreach \x/\n/\t/\d/\r in {0/1/{Se vivió}/{En el remanente: los Doce, los miles, los sacerdotes. Pablo, «ministro» que ofrece «la ofrenda de las naciones».}/{Ro 15:16; Is 66:20},
-   4.2/2/{Se quebró}/{En la dirigencia del templo y en las facciones de la guerra: la casa de oración convertida en fortaleza.}/{Mt 21:13; \emph{Guerra} 5.1--20},
-   8.4/3/{Se preservó}/{En el remanente y la iglesia de judíos y gentiles; y en Yavne, que custodió la Torá y la oración.}/{Ro 3:2; 11:5}}{
-  \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][2.9cm][t]{3.55cm}{\RaggedRight
-    {\small\textbf{\textcolor{ladrillo}{\t}}}\\[5pt]\small \d\par\vfill{\scriptsize\color{sepia}(\r)}}};
-  \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
+ \foreach \x/\n/\s/\t/\d/\r in {0/1/bloque/{Se vivió}/{En el remanente: los Doce, los miles, los sacerdotes. Pablo, «ministro» que ofrece «la ofrenda de las naciones».}/{Ro 15:16; Is 66:20},
+   4.3/2/bloqueoro/{Se quebró}/{En la dirigencia del templo y en las facciones de la guerra: la casa de oración convertida en fortaleza.}/{Mt 21:13; \emph{Guerra} 5.1--20},
+   8.6/3/bloque/{Se preservó}/{En el remanente y la iglesia de judíos y gentiles; y en Yavne, que custodió la Torá y la oración.}/{Ro 3:2; 11:5}}{
+  \node[\s,anchor=north,text width=3.55cm,minimum height=2.9cm,align=left] (b\n) at (\x,0) {{\small\bfseries\color{ladrillo}\t}\\[4pt]\footnotesize\d\\[4pt]{\scriptsize\color{sepia}(\r)}};}
+ \draw[flecha] (b1.east) -- (b2.west);
+ \draw[flecha] (b2.east) -- (b3.west);
 \end{tikzpicture}
+\elabpropia
+\vspace{8pt}
+\begin{clave}
+Pablo describe su misión como un oficio sacerdotal (\grc{ἱερουργοῦντα}): «para que la ofrenda de las naciones sea aceptable» (Ro 15:16). La vocación de Éx 19:6 sigue activa en el remanente.
+\end{clave}
 \end{frame}
 
 \begin{frame}{Los gentiles incorporados}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.49\textwidth}\small
-\textbf{\textcolor{cafe}{Ef 2:11--22}}
-\begin{itemize}
-\item Antes: «alejados de la ciudadanía de Israel» (\grc{τῆς πολιτείας τοῦ Ἰσραήλ}, 2:12).
-\item Cristo derribó «la pared intermedia» (2:14): cf. la balaustrada del templo.
-\item Ahora: «conciudadanos de los santos» (2:19).
-\end{itemize}
-\precision{la autoría de Efesios se discute; Romanos sirve de respaldo.}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+\node[bloqueoro,text width=4.6cm] (a) at (0,0) {\textbf{Antes}: «alejados de la ciudadanía de Israel» (\grc{τῆς πολιτείας τοῦ Ἰσραήλ}, Ef 2:12)};
+\node[bloque,text width=4.6cm] (b) at (0,-1.35) {Cristo derribó «la pared intermedia» (2:14); cf. la balaustrada del templo};
+\node[bloqueazul,text width=4.6cm] (c) at (0,-2.6) {\textbf{Ahora}: «conciudadanos de los santos» (2:19)};
+\draw[flecha] (a) -- (b); \draw[flecha] (b) -- (c);
+\end{tikzpicture}
+\elabpropia
+\vspace{2pt}
+\begin{notalam}[Autoría]
+La autoría de Efesios se discute; Romanos sirve de respaldo.
+\end{notalam}
 \end{column}
-\begin{column}{0.49\textwidth}
+\begin{column}{0.48\textwidth}
 \begin{cita}Alegraos, naciones, con su pueblo.\fuente{(Ro 15:10; Dt 32:43 LXX)}\end{cita}
-\scriptsize Cristo, «servidor de la circuncisión para confirmar las promesas hechas a los padres» (Ro 15:8).\par\smallskip
-\textbf{1~P 2:9}: «real sacerdocio, nación santa» (Éx 19:6). 2:10 cita Os 1:9--10 [2:1], promesa dirigida al reino del norte. Títulos compartidos, no arrebatados a Israel.
+\footnotesize Cristo, «servidor de la circuncisión para confirmar las promesas hechas a los padres» (Ro 15:8).\par\smallskip
+\begin{clave}\textbf{1~P 2:9}: «real sacerdocio, nación santa» (Éx 19:6). 2:10 cita Os 1:9--10 [2:1], promesa dirigida al reino del norte. Títulos compartidos, no arrebatados a Israel.\end{clave}
 \end{column}
 \end{columns}
 \end{frame}
@@ -491,27 +748,72 @@ El primer anuncio del evangelio alcanza a la diáspora congregada en Shavuot.
 % ===================================================
 \section{Tradición judía}
 \begin{frame}{Yohanán ben Zakai y Yavne}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.49\textwidth}\small
-Sacado de Jerusalén en un ataúd, pide a Vespasiano: «Dame Yavne y a sus sabios» (Talmud, Guitín 56a--b; Avot de-Rabí Natán 4).\par\smallskip
-\precision{relato que fue creciendo con el tiempo (Neusner, 1970); su núcleo: en Yavne la vida judía se reorganizó sin templo.}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}\footnotesize
+Sacado de Jerusalén en un ataúd, pide a Vespasiano: «Dame Yavne y a sus sabios» (Talmud, Guitín 56a--b; Avot de-Rabí Natán 4).\par
+\begin{notalam}[Un relato que creció]
+La historia fue creciendo con el tiempo (Neusner, 1970). Su núcleo: en Yavne la vida judía se reorganizó sin templo. La tradición rabínica, escrita entre los siglos \textsc{ii} y \textsc{vi}, no es un relato histórico verificado.
+\end{notalam}
 \end{column}
-\begin{column}{0.49\textwidth}
+\begin{column}{0.48\textwidth}
 \begin{cita}Hijo mío, no te aflijas. Tenemos otra expiación como esta: los actos de bondad, como está dicho: Porque misericordia quiero y no sacrificio.\fuente{(Avot de-Rabí Natán A 4; Os 6:6)}\end{cita}
-\scriptsize Jesús citó dos veces Os 6:6 (Mt 9:13; 12:7). El mundo se sostiene sobre «la Torá, el culto y los actos de bondad» (Mishná, Avot 1:2).
+\footnotesize Jesús citó dos veces Os 6:6 (Mt 9:13; 12:7).
+\end{column}
+\end{columns}
+\vspace{4pt}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+\node[bloqueazul,text width=11.6cm] (m) at (0,0) {El mundo se sostiene sobre tres cosas (Mishná, Avot 1:2)};
+\foreach \x/\t in {-3.95/{la Torá},0/{el culto},3.95/{los actos de bondad}}{
+  \node[bloque,text width=3.4cm] (c) at (\x,-0.85) {\t};
+  \draw[ladrillo,line width=0.6pt] (m.south -| c) -- (c);}
+\end{tikzpicture}
+\elabpropia
+\end{frame}
+
+\begin{frame}{¿Por qué cayó el Segundo Templo?}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.44\textwidth}
+\begin{cita}El Segundo Templo, en el que se ocupaban de la Torá, de los mandamientos y de los actos de bondad, ¿por qué fue destruido? Porque había en él odio gratuito.\fuente{(Talmud, Yoma 9b)}\end{cita}
+\begin{notalam}[\heb{שִׂנְאַת חִנָּם}, \emph{sinat jinam}]
+El Talmud lo ilustra con Kamtsa y Bar Kamtsa (Guitín 55b--56a). Es una autocrítica rabínica, en sintonía con las facciones que describe Josefo.
+\end{notalam}
+\end{column}
+\begin{column}{0.52\textwidth}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+\node[bloqueazul,text width=2.75cm] (p) at (-1.6,0) {Primer Templo};
+\node[bloqueazul,text width=2.75cm] (s) at (1.6,0) {Segundo Templo};
+\node[bloqueoro,text width=2.75cm,minimum height=1.45cm] (pc) at (-1.6,-1.2) {idolatría,\\inmoralidad\\y sangre};
+\node[bloqueoro,text width=2.75cm,minimum height=1.45cm] (sc) at (1.6,-1.2) {Torá y bondad,\\pero odio gratuito};
+\draw[oro!90!ladrillo,line width=1pt,<->] (pc) -- node[above,etiq,text width=0.6cm]{=} (sc);
+\node[bloque,text width=2.75cm] (pd) at (-1.6,-2.45) {destruido (586 a.\,e.\,c.)};
+\node[bloque,text width=2.75cm] (sd) at (1.6,-2.45) {destruido (70 e.\,c.)};
+\draw[flecha] (p) -- (pc); \draw[flecha] (pc) -- (pd);
+\draw[flecha] (s) -- (sc); \draw[flecha] (sc) -- (sd);
+\node[etiq,text=sepia,text width=5.8cm] at (0,-3.25) {El odio gratuito «equivale a las tres transgresiones» (Yoma 9b). Ambos caen el 9 de Av (Taanit 4:6).};
+\end{tikzpicture}
+\notafig{Elaboración propia a partir de Talmud, Yoma 9b.}
 \end{column}
 \end{columns}
 \end{frame}
 
-\begin{frame}{Odio gratuito y Tisha be-Av}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.49\textwidth}
-\begin{cita}El Segundo Templo, en el que se ocupaban de la Torá, de los mandamientos y de los actos de bondad, ¿por qué fue destruido? Porque había en él odio gratuito.\fuente{(Talmud, Yoma 9b)}\end{cita}
-\small \heb{שִׂנְאַת חִנָּם} (\emph{sinat jinam}). Kamtsa y Bar Kamtsa (Guitín 55b--56a). Autocrítica rabínica, en sintonía con Josefo.
-\end{column}
-\begin{column}{0.49\textwidth}
+\begin{frame}{Tisha be-Av: del duelo al consuelo}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.44\textwidth}
 \begin{cita}El 9 de Av [\ldots] fue destruida la casa la primera y la segunda vez [\ldots]. Cuando entra Av se disminuye la alegría.\fuente{(Mishná, Taanit 4:6)}\end{cita}
-\small Ayuno, Lamentaciones, \emph{kinot}. El fuego: del 9 al 10 (Taanit 29a). Después, \emph{Shabat Najamú}: «Consolad, consolad a mi pueblo» (Is 40:1).
+\begin{clave}El consuelo de \emph{Shabat Najamú} es el mismo que esperaba Simeón: «la consolación de Israel» (Lc 2:25; Is 40:1).\end{clave}
+\end{column}
+\begin{column}{0.52\textwidth}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+\node[bloqueoro,text width=4.6cm] (a) at (0,0) {\textbf{Entra Av}: «se disminuye la alegría»};
+\node[bloqueoro,text width=4.6cm] (b) at (0,-1.15) {\textbf{9 de Av}: ayuno, Lamentaciones, \emph{kinot}};
+\node[bloque,text width=4.6cm] (c) at (0,-2.3) {El fuego, del 9 al 10 (Taanit 29a)};
+\node[bloqueazul,text width=4.6cm] (d) at (0,-3.45) {\emph{Shabat Najamú}: «Consolad, consolad a mi pueblo» (Is 40:1)};
+\draw[flecha] (a) -- (b); \draw[flecha] (b) -- (c); \draw[flecha] (c) -- (d);
+\end{tikzpicture}
+\elabpropia
 \end{column}
 \end{columns}
 \end{frame}
@@ -519,14 +821,21 @@ Sacado de Jerusalén en un ataúd, pide a Vespasiano: «Dame Yavne y a sus sabio
 \begin{frame}{La oración en lugar del sacrificio}
 \centering{\large\heb{וּנְשַׁלְּמָה פָרִים שְׂפָתֵינוּ}}\par\smallskip
 \begin{cita}Tomad con vosotros palabras y volved a YHWH [\ldots], y te ofreceremos los becerros de nuestros labios.\fuente{(Os 14:2 [14:3])}\end{cita}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.49\textwidth}\small
-\textbf{\textcolor{cafe}{Dos respuestas al mismo verso}}\par
-Rabinos: las oraciones corresponden a las ofrendas diarias (Berajot 26b). Heb 13:15, con la LXX: «fruto de labios» (\grc{καρπὸν χειλέων}).
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+\node[bloqueazul,text width=3.2cm] (o) at (0,0) {Os 14:2: «becerros de labios»};
+\node[bloque,text width=2.3cm,minimum height=1.25cm] (r) at (-1.5,-1.45) {\textbf{Rabinos}: las oraciones por las ofrendas diarias (Berajot 26b)};
+\node[bloque,text width=2.3cm,minimum height=1.25cm] (h) at (1.5,-1.45) {\textbf{Heb 13:15}, con la LXX: «fruto de labios» (\grc{καρπὸν χειλέων})};
+\draw[flecha] (o.south -| r) -- (r); \draw[flecha] (o.south -| h) -- (h);
+\end{tikzpicture}
+\notafig{Elaboración propia. Dos respuestas al mismo verso.}
 \end{column}
-\begin{column}{0.49\textwidth}\small
-\textbf{\textcolor{cafe}{Birkat ha-minim}}\par
-Bendición «contra los herejes» compuesta en Yavne (Berajot 28b--29a). ¿Contra los cristianos y con expulsión (Martyn, 1968)? Faltan pruebas para el siglo \textsc{i} (Kimelman, 1981). En debate.
+\begin{column}{0.48\textwidth}
+\begin{notalam}[\emph{Birkat ha-minim}: en debate]
+Bendición «contra los herejes» compuesta en Yavne (Berajot 28b--29a). ¿Contra los cristianos y con expulsión (Martyn, 1968)? Faltan pruebas para el siglo \textsc{i} (Kimelman, 1981).
+\end{notalam}
 \end{column}
 \end{columns}
 \end{frame}
@@ -535,9 +844,9 @@ Bendición «contra los herejes» compuesta en Yavne (Berajot 28b--29a). ¿Contr
 \section{Restauración}
 \begin{frame}{Isaías y Jeremías en esta etapa}
 \centering\scriptsize\renewcommand{\arraystretch}{1.18}
-\begin{tabular}{>{\RaggedRight\arraybackslash}p{2.3cm}>{\RaggedRight\arraybackslash}p{4.6cm}>{\RaggedRight\arraybackslash}p{4.3cm}}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{2.4cm}>{\RaggedRight\arraybackslash}p{4.8cm}>{\RaggedRight\arraybackslash}p{4.4cm}}
 \toprule
-\textbf{Texto} & \textbf{Promesa} & \textbf{Uso en esta etapa}\\\midrule
+{\color{ladrillo}\bfseries Texto} & {\color{ladrillo}\bfseries Promesa} & {\color{ladrillo}\bfseries Uso en esta etapa}\\\midrule
 Is 40:1--3 & Consuelo; camino en el desierto & Juan; Simeón; \emph{Shabat Najamú}\\
 Is 49:5--6 & Levantar las tribus; luz de las naciones & Lc 2:32; Hch 1:8; 13:47\\
 Is 53:5 & Herido por nuestras rebeliones & Hch 8:32--35; 1~P 2:22--25\\
@@ -549,28 +858,55 @@ Jer 31:31--34 [31:30--33] & Nuevo pacto con Israel y Judá & Lc 22:20; Heb 8:8--
 Jer 31:35--37 [31:34--36] & Israel no dejará de ser nación & Ro 11:1--2, 29\\
 Zac 12:10 & Mirarán al que traspasaron & Jn 19:37; Ap 1:7\\
 \bottomrule
-\end{tabular}\par\vspace{4pt}
-{\scriptsize\itshape\color{sepia}Jeremías prometió el nuevo pacto y la permanencia de Israel mientras caía el Primer Templo: el 70 se entiende a la luz del 586.}
+\end{tabular}
+\elabpropia
+\vspace{3pt}
+{\footnotesize\itshape\color{sepia}Jeremías prometió el nuevo pacto y la permanencia de Israel mientras caía el Primer Templo: el 70 se entiende a la luz del 586.}
+\end{frame}
+
+\begin{frame}{El Redentor vendrá a Sion}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}
+\centering{\large\heb{וּבָא לְצִיּוֹן גּוֹאֵל}}\par\smallskip
+\begin{cita}Y vendrá el Redentor a Sion, y a los que se vuelvan de la rebelión en Jacob, dice YHWH.\fuente{(Is 59:20)}\end{cita}
+\begin{notalam}[Liturgia judía]
+Con este versículo se abre la oración diaria \emph{U-va le-Tsiyón}; la Amidá incorporó la petición diaria por la reconstrucción de Jerusalén (Sacks, 2009).
+\end{notalam}
+\end{column}
+\begin{column}{0.48\textwidth}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+\node[bloque,text width=4.6cm] (a) at (0,0) {\textbf{Lv 26:44}: «no los desecharé [\ldots] invalidando mi pacto»};
+\node[bloque,text width=4.6cm] (b) at (0,-1.3) {\textbf{Jer 31:36 [31:35]}: la permanencia de Israel, atada al orden del sol y la luna};
+\node[bloqueoro,text width=4.6cm] (c) at (0,-2.6) {\textbf{Is 59:20}: el Redentor viene a la ciudad que el 70 deja en ruinas};
+\node[bloqueazul,text width=4.6cm] (d) at (0,-3.7) {\textbf{Ro 11:26}: Pablo lo citará (Estudio 8)};
+\draw[flecha] (a) -- (b); \draw[flecha] (b) -- (c); \draw[flecha] (c) -- (d);
+\end{tikzpicture}
+\elabpropia
+\end{column}
+\end{columns}
 \end{frame}
 
 \begin{frame}{Daniel 9:26: tres lecturas}
 \centering{\large\heb{יִכָּרֵת מָשִׁיחַ וְאֵין לוֹ}}\par\smallskip
 \begin{cita}Después de las sesenta y dos semanas se quitará la vida al Mesías, y no tendrá nada; y el pueblo de un príncipe que ha de venir destruirá la ciudad y el santuario.\fuente{(Dn 9:26)}\end{cita}
+\vspace{4pt}
 \begin{tikzpicture}
  \foreach \x/\n/\t/\d in {0/1/{Cristiana tradicional}/{El ungido es Jesús; Roma destruye ciudad y santuario en el 70.},
-   4.2/2/{Histórico-crítica}/{El ungido es Onías~III (c. 171 a.\,e.\,c.); el príncipe, Antíoco~IV.},
-   8.4/3/{Judía}/{Otras identificaciones (Rashi). Josefo: Daniel escribió sobre Roma (\emph{Ant.} 10.276).}}{
-  \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][1.45cm][t]{3.55cm}{\RaggedRight
-    {\small\textbf{\textcolor{ladrillo}{\t}}}\\[3pt]\scriptsize \d}};
+   4.3/2/{Histórico-crítica}/{El ungido es Onías~III (c. 171 a.\,e.\,c.); el príncipe, Antíoco~IV.},
+   8.6/3/{Judía}/{Otras identificaciones (Rashi). Josefo: Daniel escribió sobre Roma (\emph{Ant.} 10.276).}}{
+  \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][2.0cm][t]{3.55cm}{\RaggedRight
+    {\small\textbf{\textcolor{ladrillo}{\t}}}\\[3pt]\footnotesize \d}};
   \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
 \end{tikzpicture}
+\elabpropia
 \end{frame}
 
 \begin{frame}{Los «hasta» de la caída}
-\centering\scriptsize\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{>{\RaggedRight\arraybackslash}p{1.8cm}>{\RaggedRight\arraybackslash}p{4.0cm}>{\RaggedRight\arraybackslash}p{5.4cm}}
+\centering\footnotesize\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{1.9cm}>{\RaggedRight\arraybackslash}p{4.0cm}>{\RaggedRight\arraybackslash}p{5.6cm}}
 \toprule
-\textbf{Texto} & \textbf{Griego} & \textbf{Lo que termina}\\\midrule
+{\color{ladrillo}\bfseries Texto} & {\color{ladrillo}\bfseries Griego} & {\color{ladrillo}\bfseries Lo que termina}\\\midrule
 Mt 23:39 & \grc{ἕως ἂν εἴπητε} & La ausencia del Mesías para Jerusalén\\
 Lc 21:24 & \grc{ἄχρι οὗ πληρωθῶσιν} & La Jerusalén hollada por los gentiles\\
 Hch 1:6--7 & \grc{ἐν τῷ χρόνῳ τούτῳ} & La pregunta por el reino: remitida al Padre\\
@@ -578,17 +914,36 @@ Hch 3:21 & \grc{ἄχρι χρόνων ἀποκαταστάσεως} & El Mesí
 2~Co 3:14--16 & \grc{ἡνίκα ἐὰν ἐπιστρέψῃ} & El velo, cuando Israel se vuelva al Señor\\
 Ro 11:25 & \grc{ἄχρι οὗ ... εἰσέλθῃ} & El endurecimiento parcial (Estudio 8)\\
 \bottomrule
-\end{tabular}\par\vspace{5pt}
-\begin{cita}[fontupper=\scriptsize\itshape]Arrepentíos y volveos [\ldots] para que vengan tiempos de refrigerio, y él envíe al Mesías [\ldots], a quien es necesario que el cielo reciba hasta los tiempos de la restauración de todas las cosas.\fuente{(Hch 3:19--21)}\end{cita}
+\end{tabular}
+\elabpropia
+\vspace{8pt}
+\begin{clave}Los mismos textos que anuncian el juicio le fijan un límite: el juicio queda abierto hacia la restauración.\end{clave}
+\end{frame}
+
+\begin{frame}{«Tiempos de la restauración»}
+\begin{cita}Arrepentíos y volveos [\ldots] para que vengan tiempos de refrigerio, y él envíe al Mesías [\ldots], a quien es necesario que el cielo reciba hasta los tiempos de la restauración de todas las cosas.\fuente{(Hch 3:19--21)}\end{cita}
+\vspace{4pt}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+\foreach \x/\n/\s/\t in {0/1/bloqueoro/{«Arrepentíos y volveos»},3.25/2/bloque/{tiempos de refrigerio},6.5/3/bloque/{envío del Mesías},9.75/4/bloqueazul/{restauración de todas las cosas}}{
+  \node[\s,text width=2.5cm,minimum height=1.0cm] (r\n) at (\x,0) {\t};}
+\foreach \i/\j in {1/2,2/3,3/4}{\draw[flecha] (r\i) -- (r\j);}
+\draw[decorate,decoration={brace,amplitude=4pt,mirror},sepia] (5.2,-0.65) -- (8.0,-0.65) node[midway,below=5pt,etiq]{«el cielo lo recibe \emph{hasta}\ldots»};
+\end{tikzpicture}
+\elabpropia
+\vspace{4pt}
+\begin{notalam}[\grc{ἀποκατάστασις}]
+Retoma el verbo de la pregunta de Hch 1:6 y apunta a lo que anunciaron los profetas. Pedro llama a sus oyentes «hijos [\ldots] del pacto que Dios hizo con nuestros padres» (Hch 3:25).
+\end{notalam}
 \end{frame}
 
 \begin{frame}{¿Rechazó Dios a Israel en el 70?}
-\begin{columns}[t,onlytextwidth]
-\begin{column}{0.46\textwidth}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.44\textwidth}
 \begin{cita}Aun estando ellos en tierra de sus enemigos, yo no los desecharé ni los abominaré para consumirlos, invalidando mi pacto con ellos.\fuente{(Lv 26:44)}\end{cita}
 \begin{cita}Irrevocables son los dones y el llamamiento de Dios.\fuente{(Ro 11:29)}\end{cita}
 \end{column}
-\begin{column}{0.51\textwidth}\scriptsize
+\begin{column}{0.52\textwidth}\footnotesize
 \begin{enumerate}
 \item \textbf{Juicio profético}, como el de Jeremías en el 586, dentro del pacto.
 \item \textbf{Los textos tienen un «hasta»}: Mt 23:39; Lc 21:24; Hch 3:21.
@@ -596,7 +951,7 @@ Ro 11:25 & \grc{ἄχρι οὗ ... εἰσέλθῃ} & El endurecimiento parcia
 \item \textbf{El tropiezo tiene propósito}: salvación a los gentiles, celos a Israel (11:11).
 \item \textbf{El llamamiento es irrevocable} (11:29), escrito antes del 70 y fundado en Dios.
 \end{enumerate}
-Pablo: «tristeza y continuo dolor» (9:2); «mi oración por Israel es para salvación» (10:1). ONE FOR ISRAEL (2025): Israel «ampliado, no reemplazado».
+\begin{clave}Pablo: «tristeza y continuo dolor» (9:2); «mi oración por Israel es para salvación» (10:1). ONE FOR ISRAEL (2025): Israel «ampliado, no reemplazado».\end{clave}
 \end{column}
 \end{columns}
 \end{frame}
@@ -607,29 +962,34 @@ Pablo: «tristeza y continuo dolor» (9:2); «mi oración por Israel es para sal
 \begin{tcolorbox}[colback=piedra,colframe=ladrillo,boxrule=1pt,arc=3pt,fontupper=\small]
 \textbf{\textcolor{cafe}{Israel de Cristo al año 70:}} el Mesías asume el llamado de su pueblo y establece el nuevo pacto prometido a Israel y Judá; un remanente judío creyente lleva su mensaje «al judío primeramente» y a las naciones, que se suman sin ocupar su lugar. El templo cae en un juicio anunciado, aunque los mismos textos que lo anuncian le fijan un «hasta»; y Pablo, antes del 70, ya lo había dicho: «no ha desechado Dios a su pueblo» (Ro 11:2).
 \end{tcolorbox}
-\scriptsize\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{>{\RaggedRight\arraybackslash}p{3.0cm}>{\RaggedRight\arraybackslash}p{8.3cm}}
+\centering\scriptsize\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{3.0cm}>{\RaggedRight\arraybackslash}p{8.6cm}}
 \toprule
-\textbf{Eje} & \textbf{Lo que deja esta etapa}\\\midrule
+{\color{ladrillo}\bfseries Eje} & {\color{ladrillo}\bfseries Lo que deja esta etapa}\\\midrule
 Mesías de Israel & Gá 4:4; Lc 2:32; Mt 19:28; Lc 22:20; Jn 7; 10:22\\
 Vocación & Jesús, el Israel fiel (Mt 2:15; Is 49:3--6); remanente sacerdotal (Ro 15:16)\\
 Juicio & Jer 7:11; Mt 23:38; Lc 21:20--24; Josefo; Yoma 9b\\
 Restauración & Mt 23:39; Lc 21:24; Hch 1:6; 3:21; Ro 11:1--2, 11, 29\\
 \bottomrule
 \end{tabular}
+\elabpropia
 \end{frame}
 
 \begin{frame}{Hacia el Estudio 8}
-\begin{columns}[c,onlytextwidth]
-\begin{column}{0.55\textwidth}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.46\textwidth}
 \begin{cita}El endurecimiento en parte ha acontecido a Israel hasta que haya entrado la plenitud de los gentiles; y así todo Israel será salvo.\fuente{(Ro 11:25--26)}\end{cita}
-\small Remanente, olivo, injerto, plenitud y misterio: en Romanos 11 confluyen los hilos de toda la serie.
+\footnotesize Si Israel en su mayoría no reconoció al Mesías, ¿qué será de él? Pablo responde en Romanos 9--11.
 \end{column}
-\begin{column}{0.42\textwidth}
-\begin{tcolorbox}[colback=cafe,colframe=cafeosc,coltext=piedra,boxrule=0.8pt,arc=3pt,fontupper=\small]
-\textbf{Estudio 8}\par\smallskip
-Romanos 11: la restauración de Israel. Análisis histórico, filológico, teológico y literario.
-\end{tcolorbox}
+\begin{column}{0.50\textwidth}
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+\node[bloqueazul,text width=3.6cm,minimum height=1.0cm] (r) at (0,0) {Estudio 8\\Romanos 11: la restauración de Israel};
+\foreach \x/\y/\t in {-2.05/1.45/Remanente,0/1.45/Olivo,2.05/1.45/Injerto,-2.05/-1.45/Plenitud,0/-1.45/Misterio,2.05/-1.45/{«Hasta»}}{
+  \node[bloqueoro,minimum width=1.7cm] (t) at (\x,\y) {\t};
+  \draw[flecha] (t) -- (r);}
+\end{tikzpicture}
+\elabpropia
 \end{column}
 \end{columns}
 \end{frame}

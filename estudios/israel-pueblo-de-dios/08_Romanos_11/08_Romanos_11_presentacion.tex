@@ -116,10 +116,18 @@
 \begin{cita}Digo, pues: ¿Ha desechado Dios a su pueblo? ¡De ningún modo! Porque también yo soy israelita, de la descendencia de Abraham, de la tribu de Benjamín. No ha desechado Dios a su pueblo, al cual conoció de antemano.\fuente{(Ro 11:1--2)}\end{cita}
 \begin{cita}Porque irrevocables son los dones y el llamamiento de Dios.\fuente{(Ro 11:29)}\end{cita}
 \end{column}
-\begin{column}{0.45\textwidth}\small
-Roma, c. 57 e.\,c.: la mayoría de Israel no cree en Jesús, mientras crecen las iglesias de gentiles. La tentación: concluir que \emph{Dios cambió de pueblo}. Pablo lo niega.\par\medskip
-\destacar{Identidad y vocación.} Preservada en un remanente, la vocación de Israel espera su plenitud (11:5, 12, 29).\par\medskip
-\destacar{Restauración.} Endurecimiento parcial y temporal; después, «y así todo Israel será salvo» (11:25--27).
+\begin{column}{0.45\textwidth}
+\centering
+\begin{tikzpicture}[node distance=0.32cm]
+\node[bloque,text width=5.2cm] (a) {Roma, c. 57 e.\,c.: la mayoría de Israel no cree en Jesús; crecen las iglesias de gentiles};
+\node[bloqueoro,text width=5.2cm,below=of a] (b) {Tentación: concluir que \textbf{Dios cambió de pueblo}};
+\node[bloqueazul,text width=5.2cm,below=of b] (c) {\grc{μὴ γένοιτο}: «¡de ningún modo!» (11:1)};
+\node[bloque,text width=2.35cm,below=0.45cm of c.south west,anchor=north west] (d) {\textbf{Identidad}\\{\tiny un remanente preserva la vocación (11:5, 29)}};
+\node[bloque,text width=2.35cm,below=0.45cm of c.south east,anchor=north east] (e) {\textbf{Restauración}\\{\tiny «y así todo Israel será salvo» (11:26)}};
+\draw[flecha] (a) -- (b); \draw[flecha] (b) -- (c);
+\draw[flecha] (c.south) -- ++(0,-0.2) -| (d.north);
+\draw[flecha] (c.south) -- ++(0,-0.2) -| (e.north);
+\end{tikzpicture}\elabpropia
 \end{column}
 \end{columns}
 \end{frame}
@@ -139,6 +147,7 @@ Roma, c. 57 e.\,c.: la mayoría de Israel no cree en Jesús, mientras crecen las
   \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
 \end{tikzpicture}\par\vspace{4pt}
 {\small\itshape\color{sepia}En Romanos 11 desembocan los siete estudios anteriores: el capítulo recoge una historia ya escrita.}
+\elabpropia
 \end{frame}
 
 \begin{frame}{Cuatro dimensiones}
@@ -148,17 +157,19 @@ Roma, c. 57 e.\,c.: la mayoría de Israel no cree en Jesús, mientras crecen las
    3.15/2/{Literaria}/{¿Cómo está construido el argumento de Ro 9--11?}/{Diatriba; citas del AT; olivo; doxología},
    6.3/3/{Filológica}/{¿Qué dicen exactamente las palabras griegas?}/{NA28; BHS; LXX (Rahlfs)},
    9.45/4/{Teológica}/{¿Qué afirma sobre elección, remanente y salvación de Israel?}/{Ro 11:1--2, 5, 11--15, 25--32}}{
-  \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][2.9cm][t]{2.65cm}{\RaggedRight
+  \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][3.2cm][t]{2.65cm}{\RaggedRight
     {\small\textbf{\textcolor{ladrillo}{\t}}}\\[4pt]\small \d\par\vfill{\tiny\color{sepia}(\r)}}};
   \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
-\end{tikzpicture}\par\vspace{6pt}
-{\scriptsize\color{sepia}Las citas bíblicas son traducción propia desde el texto hebreo (BHS) y griego (NA28); LXX según Rahlfs-Hanhart. Numeración española [hebrea o griega] cuando difiere. En Ro 9--11, «Israel» es siempre el pueblo completo, no el antiguo reino del norte.}
+\end{tikzpicture}\elabpropia
+\begin{notalam}[Traducción, numeración y el nombre «Israel»]
+Citas bíblicas: traducción propia desde el hebreo (BHS) y el griego (NA28); LXX según Rahlfs-Hanhart. Numeración española [hebrea o griega] cuando difiere. En Ro 9--11, «Israel» es siempre el \textbf{pueblo completo}, nunca el antiguo reino del norte; cuando se hable del reino del norte (Efraín, Samaria) o de Judá (Jerusalén) se dirá expresamente.
+\end{notalam}
 \end{frame}
 
 % ===================================================
 \section{Historia}
 \begin{frame}{Roma y la carta: cronología}
-\centering
+\centering\vspace*{-4pt}
 \begin{tikzpicture}[x=0.82cm]
 \draw[line width=1.6pt,cafe,-{Latex[length=3mm]}] (0,0) -- (15.6,0);
 \foreach \x/\t/\b in {0.5/{Pompeyo toma Jerusalén}/{63 a.\,e.\,c.; cautivos a Roma},
@@ -168,16 +179,18 @@ Roma, c. 57 e.\,c.: la mayoría de Israel no cree en Jesús, mientras crecen las
                       7.3/{Muere Claudio}/{54; regreso (Ro 16:3)},
                       9.0/{Carta a los Romanos}/{c. 56--57, desde Corinto},
                       10.7/{Colecta y arresto}/{c. 57; Hch 21},
-                      12.4/{Persecución de Nerón}/{64; Tácito, \emph{Ann.} 15.44},
+                      12.4/{Perse\-cución de Nerón}/{64; Tácito, \emph{Ann.} 15.44},
                       14.1/{Caída del templo}/{70 (Estudio 7)}}{
   \fill[oro] (\x,0) circle (4pt);
   \node[above,font=\scriptsize\bfseries,text=ladrillo,text width=1.25cm,align=center] at (\x,0.2) {\t};
   \node[below,font=\tiny,text=sepia,text width=1.25cm,align=center] at (\x,-0.2) {\b};}
-\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (3.6,-1.2) -- (7.6,-1.2) node[midway,below=5pt,font=\scriptsize\itshape]{expulsión y regreso};
-\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (8.7,-1.2) -- (11.0,-1.2) node[midway,below=5pt,font=\scriptsize\itshape]{Ro 15:25--32};
-\end{tikzpicture}\par\vspace{6pt}
-\begin{minipage}{0.95\linewidth}\precision{Galión, procónsul de Acaya c. 51--52, está atestiguado por una inscripción de Delfos. La identificación del Erasto de Ro 16:23 con el edil de la inscripción de Corinto está en debate.}\end{minipage}\par
+\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (3.6,-1.1) -- (7.6,-1.1) node[midway,below=5pt,font=\scriptsize\itshape]{expulsión y regreso};
+\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (8.7,-1.1) -- (11.0,-1.1) node[midway,below=5pt,font=\scriptsize\itshape]{Ro 15:25--32};
+\end{tikzpicture}\par
 {\fontsize{5}{6}\selectfont\color{sepia}\raggedleft\textit{Nota.} Elaboración propia. Fechas aproximadas.\par}
+\begin{notalam}[Precisión arqueológica: Galión y Erasto]
+\textbf{Galión} (inscripción de Delfos): procónsul de Acaya c. 51--52; fecha la estancia de Pablo en Corinto (Hch 18:12). \textbf{Erasto} (pavimento de Corinto): edil; su identificación con el de Ro 16:23 \textbf{está en debate} (\grc{οἰκονόμος} no equivale a \emph{aedilis}).
+\end{notalam}
 \end{frame}
 
 \begin{frame}{Corinto, Roma y Jerusalén}
@@ -190,10 +203,28 @@ Roma, c. 57 e.\,c.: la mayoría de Israel no cree en Jesús, mientras crecen las
 \end{frame}
 
 \begin{frame}{Corinto, Roma y Jerusalén: claves}
-\small\RaggedRight
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.40\textwidth}\small\RaggedRight
 Desde \textbf{Corinto} (Hch 20:2--3; Ro 16:1, 23), Pablo escribe a una iglesia que \textbf{no fundó}.\par\medskip
-Febe lleva la carta; Pablo, la colecta a Jerusalén. Después: Roma y España (Ro 15:24--28).\par\medskip
+Febe, de Cencrea, el puerto oriental de Corinto, lleva la carta (Ro 16:1); Pablo, la colecta a Jerusalén.\par\medskip
 Aquila y Priscila habían llegado a Corinto expulsados por el edicto de Claudio (Hch 18:2).
+\end{column}
+\begin{column}{0.56\textwidth}
+\centering
+\begin{tikzpicture}[node distance=0.55cm and 0.5cm]
+\node[bloqueazul,text width=2.0cm] (cor) {Corinto\\{\tiny\mdseries c. 56--57}};
+\node[bloque,text width=2.0cm,right=1.3cm of cor] (rom) {Roma\\{\tiny la carta, por Febe}};
+\node[bloqueoro,text width=2.0cm,below=1.0cm of cor] (jer) {Jerusalén\\{\tiny la colecta (15:25--27)}};
+\node[bloque,text width=2.0cm,below=1.0cm of rom] (rom2) {Roma\\{\tiny visita (15:24, 28)}};
+\node[bloque,text width=2.0cm,below=0.55cm of rom2] (esp) {España\\{\tiny misión (15:24, 28)}};
+\draw[flecha,dashed] (cor) -- node[above,etiq]{carta} (rom);
+\draw[flecha] (cor) -- node[left,etiq]{1} (jer);
+\draw[flecha] (jer) -- node[below,etiq]{2} (rom2);
+\draw[flecha] (rom2) -- node[right,etiq]{3} (esp);
+\end{tikzpicture}\elabpropia
+\begin{clave}La ruta explica el tono: Pablo va a Jerusalén con la ofrenda de los gentiles y escribe a Roma antes de llegar.\end{clave}
+\end{column}
+\end{columns}
 \end{frame}
 
 \begin{frame}{El edicto de Claudio}
@@ -202,15 +233,21 @@ Aquila y Priscila habían llegado a Corinto expulsados por el edicto de Claudio 
 \begin{cita}A los judíos, que provocaban continuos tumultos por instigación de Cresto, los expulsó de Roma.\fuente{(Suetonio, \emph{Claudio} 25.4)}\end{cita}
 \begin{cita}Encontró a un judío llamado Aquila [\ldots] recién venido de Italia con Priscila su mujer, porque Claudio había mandado que todos los judíos salieran de Roma.\fuente{(Hch 18:2)}\end{cita}
 \end{column}
-\begin{column}{0.47\textwidth}\small\RaggedRight
-\begin{itemize}
-\item \emph{Chrestus} y \emph{Christus} sonaban casi igual: lo probable son disputas sinagogales sobre Jesús como Mesías.
-\item Fecha: c. 49 (Orosio 7.6.15); Dión Casio 60.6.6 habla de una prohibición de reunirse (41).
-\item 49--54: iglesias casi solo de gentiles. 54: muere Claudio; los judíos vuelven (Ro 16:3--5).
-\end{itemize}
-\precision{con esta secuencia explica Wiefel (1991) la arrogancia gentil que Pablo corrige; sus detalles se discuten.}
+\begin{column}{0.47\textwidth}
+\centering
+\begin{tikzpicture}[node distance=0.28cm]
+\node[bloqueazul,text width=4.9cm] (a) {c. 49: edicto; salen los judíos, también los creyentes (Hch 18:2)};
+\node[bloque,text width=4.9cm,below=of a] (b) {49--54: asambleas casi solo de gentiles};
+\node[bloque,text width=4.9cm,below=of b] (c) {54: muere Claudio; los judíos vuelven (Ro 16:3--5)};
+\node[bloqueoro,text width=4.9cm,below=of c] (d) {Gentiles que ven a Israel como «descartado» $\to$ Ro 11:13--25};
+\draw[flecha] (a)--(b); \draw[flecha] (b)--(c); \draw[flecha] (c)--(d);
+\end{tikzpicture}\par
+{\fontsize{5}{6}\selectfont\color{sepia}\hfill\textit{Nota.} Elaboración propia a partir de Wiefel (1991).\par}
 \end{column}
 \end{columns}
+\begin{notalam}[Cresto y la fecha]
+\emph{Chrestus} y \emph{Christus} sonaban casi igual: lo probable son disputas sinagogales sobre Jesús como Mesías, aunque Cresto pudo ser un judío real. Fecha c. 49 según Orosio (7.6.15); Dión Casio (60.6.6) habla de una prohibición de reunirse en el 41. La hipótesis de Wiefel se discute en sus detalles.
+\end{notalam}
 \end{frame}
 
 \begin{frame}{Remanente, colecta y arrogancia}
@@ -220,15 +257,20 @@ Aquila y Priscila habían llegado a Corinto expulsados por el edicto de Claudio 
 \begin{cita}[fontupper=\scriptsize\itshape]Si los gentiles han sido hechos \textbf{participantes} de sus bienes espirituales, deben también servirles con los materiales.\fuente{(Ro 15:27)}\end{cita}
 \small \grc{ἐκοινώνησαν} (15:27) anticipa \grc{συγκοινωνός} del olivo (11:17).
 \end{column}
-\begin{column}{0.49\textwidth}\small
-\textbf{\textcolor{cafe}{«A vosotros hablo, gentiles»}} (11:13)
-\begin{itemize}
-\item «No te jactes contra las ramas» (11:18).
-\item «No te ensoberbezcas, sino teme» (11:20).
-\item «Para que no seáis sabios en vuestra propia opinión» (11:25).
-\end{itemize}
-\textbf{\textcolor{cafe}{Romanos en contexto judío}}: Stendahl (1976), Ro 9--11 es el clímax; Sanders (1977); Nanos (1996); Das (2007).\par\smallskip
-\destacar{Ro 11: una corrección pastoral antes que un mapa del fin.}
+\begin{column}{0.49\textwidth}
+\centering
+\begin{tikzpicture}[node distance=0.22cm]
+\node[bloque,text width=2.3cm] (a) {\textbf{11:1--12}\\{\tiny Israel, en 3.ª persona}};
+\node[bloqueazul,text width=2.3cm,below=of a] (b) {11:13\\{\tiny\mdseries «a vosotros hablo, gentiles»}};
+\node[bloque,text width=2.3cm,below=of b] (c) {\textbf{11:17}\\{\tiny «tú, siendo olivo silvestre»}};
+\node[bloque,text width=2.3cm,below=of c] (d) {\textbf{11:25}\\{\tiny «hermanos»}};
+\foreach \u/\v in {a/b,b/c,c/d}{\draw[flecha] (\u)--(\v);}
+\node[bloqueoro,text width=2.2cm,right=0.35cm of b,font=\tiny] (w1) {«No te jactes contra las ramas» (11:18)};
+\node[bloqueoro,text width=2.2cm,right=0.35cm of c,font=\tiny] (w2) {«No te ensoberbezcas, sino teme» (11:20)};
+\node[bloqueoro,text width=2.2cm,right=0.35cm of d,font=\tiny] (w3) {«No seáis sabios en vuestra opinión» (11:25)};
+\draw[oro!80!ladrillo,densely dotted] (b)--(w1); \draw[oro!80!ladrillo,densely dotted] (c)--(w2); \draw[oro!80!ladrillo,densely dotted] (d)--(w3);
+\end{tikzpicture}\elabpropia
+\begin{clave}Ro 11 habla \emph{sobre} Israel, pero se dirige \emph{a} los gentiles: una corrección pastoral antes que un mapa del fin.\end{clave}
 \end{column}
 \end{columns}
 \end{frame}
@@ -249,8 +291,8 @@ Aquila y Priscila habían llegado a Corinto expulsados por el edicto de Claudio 
 \node[below=0.25cm of c,font=\scriptsize,text=cafe,text width=2.3cm,align=center] {¿Son culpables? \emph{Responsabilidad}};
 \node[below=0.25cm of d,font=\scriptsize,text=cafe,text width=2.3cm,align=center] {¿Qué hará Dios? \emph{Restauración}};
 \end{tikzpicture}\par\vspace{6pt}
-{\small\itshape\color{sepia}Ro 9:6 («no todos los de Israel son Israel») pide ser leído junto a Ro 11:26 («todo Israel será salvo»): por separado, cada uno es medio argumento.}\par
-{\fontsize{5}{6}\selectfont\color{sepia}\raggedleft\textit{Nota.} Elaboración propia: estructura de Ro 9--11.\par}
+\notafig{Elaboración propia: estructura de Ro 9--11.}\vspace{4pt}
+\begin{clave}Ro 9:6 («no todos los de Israel son Israel») pide ser leído junto a Ro 11:26 («todo Israel será salvo»): por separado, cada uno es medio argumento.\end{clave}
 \end{frame}
 
 \begin{frame}{Diatriba y argumento}
@@ -274,25 +316,28 @@ Cambio de interlocutor: Israel en 3.ª persona (11:1--12) → «a vosotros, gent
                         3/{4. Doxología}/{11:33--36}/{el argumento se vuelve alabanza}}{
   \node[caja,text width=5.6cm,minimum height=0.8cm] (s\i) at (0,\i) {\textbf{\textcolor{ladrillo}{\t}} {\tiny\color{sepia}(\r)}\\{\scriptsize \d}};}
 \foreach \a/\b in {0/1,1/2,2/3}{\draw[-{Latex[length=2mm]},oro!90!ladrillo,line width=1.2pt] (s\a) -- (s\b);}
-\end{tikzpicture}
+\end{tikzpicture}\elabpropia
 \end{column}
 \end{columns}
 \end{frame}
 
 \begin{frame}{Las citas del AT en Ro 11}
-\centering\tiny\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{>{\RaggedRight\arraybackslash}p{1.9cm}>{\RaggedRight\arraybackslash}p{2.9cm}>{\RaggedRight\arraybackslash}p{2.7cm}>{\RaggedRight\arraybackslash}p{3.6cm}}
+\centering\scriptsize\renewcommand{\arraystretch}{1.05}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{2.7cm}>{\RaggedRight\arraybackslash}p{2.8cm}>{\RaggedRight\arraybackslash}p{2.4cm}>{\RaggedRight\arraybackslash}p{3.6cm}}
 \toprule
-\textbf{Ro 11 / fuente} & \textbf{TM} & \textbf{LXX} & \textbf{Pablo}\\\midrule
+\color{ladrillo}\bfseries Ro 11 / fuente & \color{ladrillo}\bfseries TM & \color{ladrillo}\bfseries LXX & \color{ladrillo}\bfseries Pablo\\\midrule
 11:4; 1~R 19:18 & «Dejaré (\heb{וְהִשְׁאַרְתִּי}) siete mil» & «Dejarás siete mil» & \grc{κατέλιπον ἐμαυτῷ}: más cerca del TM; «para mí»\\
 11:8; Dt 29:4 [29:3] + Is 29:10 & «no os dio corazón»; \heb{רוּחַ תַּרְדֵּמָה} & \grc{πνεῦμα κατανύξεως} & Funde dos textos: «les dio ojos para no ver»\\
-11:9--10; Sal 69:22--23 [69:23--24; LXX 68:23--24] & «Sea su mesa un lazo» & \grc{εἰς παγίδα\ldots} & Sigue la LXX; añade \grc{εἰς θήραν}\\
-11:26--27; Is 59:20--21 + 27:9 & «vendrá \emph{a} Sion» & «\emph{por causa de} Sion» & «\emph{de} Sion»; Is 27:9 LXX; eco de Jer 31:33--34\\
+11:9--10; Sal 69:22--23 [LXX 68:23--24] & «Sea su mesa un lazo» & \grc{εἰς παγίδα\ldots} & Sigue la LXX; añade \grc{εἰς θήραν}\\
+11:26--27; Is 59:20--21; 27:9 & «vendrá \emph{a} Sion» & «\emph{por causa de} Sion» & «\emph{de} Sion»; Is 27:9 LXX; eco de Jer 31:33--34\\
 11:34; Is 40:13 & «¿quién midió el espíritu de YHWH?» & \grc{τίς ἔγνω νοῦν κυρίου;} & LXX casi literal\\
 11:35; Job 41:11 [41:3] & «¿quién se me adelantó?» & otra lectura & Sigue el sentido del TM\\
 \bottomrule
-\end{tabular}\par\vspace{6pt}
-\begin{minipage}{0.95\linewidth}\precision{\grc{τῇ Βάαλ} (11:4), con artículo femenino: los lectores sustituían «Baal» por \heb{בֹּשֶׁת} (\emph{bóshet}), «vergüenza», en griego \grc{αἰσχύνη} (femenino). Pablo conocía la LXX y el hebreo (Stanley, 1992; Wagner, 2002).}\end{minipage}
+\end{tabular}\par
+{\fontsize{5}{6}\selectfont\color{sepia}\hfill\textit{Nota.} Elaboración propia a partir de BHS, LXX (Rahlfs-Hanhart) y NA28.\par}
+\begin{notalam}[Precisión textual: \grc{τῇ Βάαλ} (11:4)]
+Artículo femenino para un nombre masculino: se leía \heb{בֹּשֶׁת} (\emph{bóshet}), «vergüenza», en griego \grc{αἰσχύνη}, femenino. Pablo conocía la LXX y el hebreo (Stanley, 1992; Wagner, 2002).
+\end{notalam}
 \end{frame}
 
 \begin{frame}{Las metáforas}
@@ -309,10 +354,19 @@ Nm 15:20: \heb{רֵאשִׁית עֲרִסֹתֵכֶם}; LXX \grc{ἀπαρχὴ
 \textbf{\textcolor{ladrillo}{El olivo}} (11:17--24)\par\smallskip
 \heb{זַיִת רַעֲנָן}, «olivo verde», nombre de Judá (Jer 11:16); «su esplendor como el olivo» (Os 14:6 [14:7]); Sal 52:8 [52:10].
 \end{column}
-\end{columns}\vspace{8pt}
-\begin{tcolorbox}[colback=piedra,colframe=cafe,boxrule=0.8pt,arc=3pt,fontupper=\small]
-Un único árbol con una única raíz. Desgajadas, las ramas siguen siendo «naturales» (\grc{κατὰ φύσιν}); injertados, los gentiles siguen siendo «silvestres por naturaleza» (11:24). A unos y otros los sostiene la fe (11:20, 23).
-\end{tcolorbox}
+\end{columns}\vspace{6pt}
+\centering
+\begin{tikzpicture}[node distance=0.3cm and 0.35cm]
+\node[bloqueoro,text width=2.0cm] (p1) {Primicia\\{\tiny\grc{ἀπαρχή}}};
+\node[bloque,text width=1.8cm,right=1.0cm of p1] (t1) {Toda la masa};
+\node[bloqueoro,text width=2.0cm,right=0.9cm of t1] (p2) {Raíz: los padres\\{\tiny 11:16, 28}};
+\node[bloque,text width=1.8cm,right=1.0cm of p2] (t2) {Las ramas};
+\draw[flecha] (p1)--node[above,etiq]{santifica}(t1);
+\draw[flecha] (p2)--node[above,etiq]{santifica}(t2);
+\node[bloqueazul,text width=8.6cm,below=0.4cm of $(t1.south)!0.5!(p2.south)$] (o) {Un único olivo: ramas naturales (\grc{κατὰ φύσιν}) y silvestres injertadas; a unos y otros los sostiene la fe (11:20, 23--24)};
+\draw[flecha] (t1.south) -- (o.north -| t1.south);
+\draw[flecha] (t2.south) -- (o.north -| t2.south);
+\end{tikzpicture}\elabpropia
 \end{frame}
 
 \begin{frame}{La doxología en quiasmo}
@@ -329,7 +383,8 @@ Un único árbol con una única raíz. Desgajadas, las ramas siguen siendo «nat
 \node[font=\tiny,text=sepia,anchor=west] at (4.6,1) {v.\,33};
 \node[font=\tiny,text=sepia,anchor=west] at (4.6,4) {vv.\,34--35};
 \node[caja,fill=oro!25,anchor=west] at (0,6.4) {\grc{ἐξ αὐτοῦ καὶ δι᾿ αὐτοῦ καὶ εἰς αὐτόν} (v.\,36)};
-\end{tikzpicture}
+\end{tikzpicture}\par
+{\fontsize{5}{6}\selectfont\color{sepia}\hfill\textit{Nota.} Elaboración propia a partir de Cranfield (1979) y Moo (1996).\par}
 \end{column}
 \end{columns}
 \end{frame}
@@ -339,7 +394,9 @@ Un único árbol con una única raíz. Desgajadas, las ramas siguen siendo «nat
 \begin{frame}{Ro 11:25--27 en griego}
 \begin{cita}[fontupper=\upshape\small]\grc{Οὐ γὰρ θέλω ὑμᾶς ἀγνοεῖν, ἀδελφοί, τὸ μυστήριον τοῦτο, ἵνα μὴ ἦτε [παρ᾿] ἑαυτοῖς φρόνιμοι, ὅτι πώρωσις ἀπὸ μέρους τῷ Ἰσραὴλ γέγονεν ἄχρι οὗ τὸ πλήρωμα τῶν ἐθνῶν εἰσέλθῃ καὶ οὕτως πᾶς Ἰσραὴλ σωθήσεται, καθὼς γέγραπται· ἥξει ἐκ Σιὼν ὁ ῥυόμενος, ἀποστρέψει ἀσεβείας ἀπὸ Ἰακώβ. καὶ αὕτη αὐτοῖς ἡ παρ᾿ ἐμοῦ διαθήκη, ὅταν ἀφέλωμαι τὰς ἁμαρτίας αὐτῶν.}\end{cita}
 \begin{cita}[fontupper=\scriptsize\itshape]No quiero, hermanos, que ignoréis este misterio, para que no seáis sabios en vuestra propia opinión: que un endurecimiento en parte le ha sobrevenido a Israel hasta que haya entrado la plenitud de las naciones; y así todo Israel será salvo, como está escrito: «Vendrá de Sion el Libertador, apartará de Jacob las impiedades. Y este será mi pacto con ellos, cuando yo quite sus pecados».\fuente{(Ro 11:25--27, NA28; trad. propia)}\end{cita}
-\precision{variantes menores: 11:6 (adición bizantina), 11:17 («de la raíz \emph{y} de la grosura»), 11:25 (\grc{παρ᾿}/\grc{ἐν}), 11:31 (segundo \grc{νῦν} entre corchetes; véase «Pasaje por pasaje»).}
+\begin{notalam}[Precisión textual en Ro 11]
+Variantes que no alteran el sentido: 11:6 (adición bizantina, ausente en NA28); 11:17 («de la raíz \emph{y} de la grosura»; NA28 sigue la lectura más difícil); 11:25 (\grc{παρ᾿}/\grc{ἐν} \grc{ἑαυτοῖς}, igual sentido); 11:31 (segundo \grc{νῦν} entre corchetes; véase «Pasaje por pasaje»).
+\end{notalam}
 \end{frame}
 
 \begin{frame}{Elección y remanente}
@@ -359,7 +416,7 @@ Un único árbol con una única raíz. Desgajadas, las ramas siguen siendo «nat
 \node[caja,text width=4.6cm,align=center] (c) at (0,2) {\textbf{Is 10:21}: \heb{שְׁאָר יָשׁוּב}, «un resto volverá»};
 \node[caja,text width=4.6cm,align=center,fill=oro!25] (d) at (0,3) {\textbf{Ro 11:5}: \grc{λεῖμμα κατ᾿ ἐκλογὴν χάριτος}};
 \foreach \u/\v in {a/b,b/c,c/d}{\draw[-{Latex[length=2mm]},oro!90!ladrillo,line width=1.2pt] (\u) -- (\v);}
-\end{tikzpicture}\par\smallskip
+\end{tikzpicture}\elabpropia\smallskip
 {\scriptsize\itshape\color{sepia}\grc{γέγονεν}, perfecto: un remanente que existe hoy y mantiene abierta la historia.}
 \end{column}
 \end{columns}
@@ -385,22 +442,42 @@ Un único árbol con una única raíz. Desgajadas, las ramas siguen siendo «nat
 \begin{columns}[T,onlytextwidth]
 \begin{column}{0.49\textwidth}
 \begin{cita}[fontupper=\scriptsize\itshape]Si su transgresión es la riqueza del mundo, y su disminución la riqueza de las naciones, ¡cuánto más su plenitud!\fuente{(Ro 11:12)}\end{cita}
-\scriptsize
-\begin{itemize}
-\item \grc{ἥττημα}: «disminución», «derrota».
-\item \grc{πλήρωμα αὐτῶν} (11:12) // \grc{πλήρωμα τῶν ἐθνῶν} (11:25): plenitud de Israel y de las naciones, en paralelo.
-\end{itemize}
-\precision{Gn 48:19 \heb{מְלֹא־הַגּוֹיִם} (Efraín) en la LXX es \grc{πλῆθος ἐθνῶν}, no \grc{πλήρωμα}; Pablo no lo cita.}
 \end{column}
 \begin{column}{0.49\textwidth}
 \begin{cita}[fontupper=\scriptsize\itshape]Si su exclusión es la reconciliación del mundo, ¿qué será su aceptación sino vida de entre los muertos?\fuente{(Ro 11:15)}\end{cita}
-\scriptsize
+\end{column}
+\end{columns}\vspace{4pt}
+\centering
+\begin{tikzpicture}[x=3.0cm,y=1.05cm]
+\node[etiq,font=\scriptsize\bfseries,text=ladrillo] at (0,1.0) {Lo menor (ya ocurrió)};
+\node[etiq,font=\scriptsize\bfseries,text=ladrillo] at (2.35,1.0) {Lo mayor (\grc{πόσῳ μᾶλλον})};
+\node[bloque,text width=2.3cm] (a1) at (0,0) {\grc{παράπτωμα}, \grc{ἥττημα}\\{\tiny transgresión, disminución}};
+\node[bloque,text width=1.9cm] (b1) at (1.1,0) {riqueza del mundo};
+\node[bloqueoro,text width=2.3cm] (c1) at (2.35,0) {\grc{πλήρωμα αὐτῶν}\\{\tiny ¡cuánto más! (11:12)}};
+\node[bloque,text width=2.3cm] (a2) at (0,-1.15) {\grc{ἀποβολή}\\{\tiny exclusión}};
+\node[bloque,text width=1.9cm] (b2) at (1.1,-1.15) {reconciliación del mundo};
+\node[bloqueazul,text width=2.3cm] (c2) at (2.35,-1.15) {\grc{πρόσλημψις}\\{\tiny\mdseries «vida de entre los muertos» (11:15)}};
+\draw[flecha] (a1)--(b1); \draw[flecha] (b1)--(c1); \draw[flecha] (a2)--(b2); \draw[flecha] (b2)--(c2);
+\end{tikzpicture}\elabpropia
+\end{frame}
+
+\begin{frame}{Plenitud y aceptación: el vocabulario}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}\small\RaggedRight
 \begin{itemize}
+\item \grc{ἥττημα}: «disminución», «derrota».
+\item \grc{πλήρωμα αὐτῶν} (11:12) // \grc{πλήρωμα τῶν ἐθνῶν} (11:25): plenitud de Israel y de las naciones, en paralelo.
 \item \grc{ἀποβολή}: exclusión (temporal) por parte de Dios.
 \item \grc{πρόσλημψις}: «acogida»; hápax del NT.
 \item \grc{ζωὴ ἐκ νεκρῶν}: resurrección o bendición inmensa; trasfondo de Ez 37:11--14 (Estudio 5).
 \item \grc{ἀπαρχή}/\grc{φύραμα} (11:16): \heb{רֵאשִׁית} y la masa.
 \end{itemize}
+\end{column}
+\begin{column}{0.48\textwidth}
+\begin{notalam}[Precisión: «plenitud de las naciones» y Gn 48:19]
+Gn 48:19 llama a la descendencia de Efraín \heb{מְלֹא־הַגּוֹיִם}, «plenitud de naciones». La LXX lo traduce \grc{πλῆθος ἐθνῶν}, no \grc{πλήρωμα}, y Pablo no cita ese texto. El paralelo que el propio Pablo establece está dentro de Ro 11: la plenitud de Israel (11:12) y la de las naciones (11:25).
+\end{notalam}
+\begin{clave}\grc{πλήρωμα} se opone a \grc{λεῖμμα}: la plenitud es más que el remanente.\end{clave}
 \end{column}
 \end{columns}
 \end{frame}
@@ -418,9 +495,20 @@ Un único árbol con una única raíz. Desgajadas, las ramas siguen siendo «nat
 \end{itemize}
 \end{column}
 \begin{column}{0.49\textwidth}
-\begin{tcolorbox}[colback=piedra,colframe=cafe,boxrule=0.8pt,arc=3pt,fontupper=\scriptsize,title={\scriptsize ¿Sabía Pablo injertar?},colbacktitle=cafe,coltitle=piedra]
-Lo habitual: púa cultivada sobre patrón silvestre. Pablo describe lo inverso y lo admite: \grc{παρὰ φύσιν}, «contra la naturaleza» (11:24). Columela (\emph{De re rustica} 5.9.16) menciona una rama de acebuche insertada en olivos viejos para revitalizarlos (Baxter y Ziesler, 1985). Sigue abierto si Pablo alude a esa práctica o invierte la habitual para subrayar la gracia.
-\end{tcolorbox}
+\centering
+\begin{tikzpicture}[node distance=0.25cm and 0.3cm]
+\node[bloque,text width=2.1cm] (h1) {Púa cultivada};
+\node[bloque,text width=2.1cm,below=of h1] (h2) {Patrón silvestre};
+\draw[flecha] (h1)--(h2);
+\node[etiq,above=0.12cm of h1,font=\tiny\bfseries,text=ladrillo] {Lo habitual};
+\node[bloqueoro,text width=2.1cm,right=0.6cm of h1] (p1) {Rama silvestre\\{\tiny\grc{ἀγριέλαιος}}};
+\node[bloqueoro,text width=2.1cm,below=of p1] (p2) {Olivo cultivado\\{\tiny\grc{καλλιέλαιος}}};
+\draw[flecha] (p1)--(p2);
+\node[etiq,above=0.12cm of p1,font=\tiny\bfseries,text=ladrillo] {Ro 11:24: \grc{παρὰ φύσιν}};
+\end{tikzpicture}\elabpropia
+\begin{notalam}[¿Sabía Pablo injertar?]
+Pablo describe lo inverso de lo habitual y lo admite: «contra la naturaleza» (11:24). Columela (\emph{De re rustica} 5.9.16) menciona una rama de acebuche insertada en olivos viejos para revitalizarlos (Baxter y Ziesler, 1985). Sigue abierto si Pablo alude a esa práctica o invierte la habitual para subrayar la gracia.
+\end{notalam}
 \end{column}
 \end{columns}
 \end{frame}
@@ -464,22 +552,35 @@ Designio antes oculto, ahora revelado (Ro 16:25--26). Trasfondo: arameo \heb{ר�
 \end{itemize}
 \grc{εἰσέλθῃ}: verbo de «entrar en el reino».
 \end{column}
-\end{columns}
+\end{columns}\vspace{4pt}
+\centering
+\begin{tikzpicture}[x=1cm,etiq/.append style={font=\scriptsize}]
+\fill[oro!70] (0,0.04) rectangle (6.4,0.44);
+\fill[ladrillo!70] (0,-0.44) rectangle (6.4,-0.04);
+\node[etiq,anchor=east] at (-0.15,0.24) {remanente creyente (11:5)};
+\node[etiq,anchor=east] at (-0.15,-0.24) {mayoría: \grc{πώρωσις ἀπὸ μέρους}};
+\draw[oro!90!ladrillo,line width=1.4pt] (6.4,-0.5) -- (6.4,0.5);
+\node[etiq,above] at (6.4,0.5) {\grc{ἄχρι οὗ}: entra la plenitud};
+\node[bloqueazul,anchor=west,text width=2.6cm] (f) at (7.0,0) {y así todo Israel será salvo (11:26)};
+\draw[flecha] (6.45,0) -- (f.west);
+\end{tikzpicture}\elabpropia
 \end{frame}
 
 \begin{frame}{«Y así»: tres lecturas}
-\centering\scriptsize\renewcommand{\arraystretch}{1.25}
+\centering\footnotesize\renewcommand{\arraystretch}{1.3}
 \begin{tabular}{>{\RaggedRight\arraybackslash}p{2.3cm}>{\RaggedRight\arraybackslash}p{4.3cm}>{\RaggedRight\arraybackslash}p{4.4cm}}
 \toprule
-\textbf{\grc{καὶ οὕτως}} & \textbf{Sentido} & \textbf{Defensores}\\\midrule
+\color{ladrillo}\bfseries \grc{καὶ οὕτως} & \color{ladrillo}\bfseries Sentido & \color{ladrillo}\bfseries Defensores\\\midrule
 Modal: «y de esta manera» & Mediante el proceso descrito: endurecimiento, entrada de las naciones, celos & Cranfield (1979); Moo (1996); Schreiner (1998); Fitzmyer (1993)\\
 Temporal: «y entonces» & Después de la entrada de las naciones & Van der Horst (2000); RVR: «y luego»\\
 Correlativa: «así, como está escrito» & \grc{οὕτως} anticipa \grc{καθὼς γέγραπται} & Matiz señalado por Dunn (1988)\\
 \bottomrule
-\end{tabular}\par\vspace{8pt}
-\begin{tcolorbox}[colback=piedra,colframe=ladrillo,boxrule=1pt,arc=3pt,fontupper=\small,width=0.92\linewidth]
+\end{tabular}\par
+\elabpropia
+\vspace{4pt}
+\begin{clave}
 Punto común: la salvación de «todo Israel» \textbf{viene después} del endurecimiento parcial y de la entrada de la plenitud de las naciones. Un versículo antes (11:25), «Israel» y «las naciones» aparecen como grupos distintos.
-\end{tcolorbox}
+\end{clave}
 \end{frame}
 
 \begin{frame}{\grc{πᾶς Ἰσραήλ}: «todo Israel»}
@@ -509,12 +610,13 @@ Punto común: la salvación de «todo Israel» \textbf{viene después} del endur
 \centering\scriptsize\renewcommand{\arraystretch}{1.35}
 \begin{tabular}{>{\RaggedRight\arraybackslash}p{1.6cm}>{\RaggedRight\arraybackslash}p{4.3cm}>{\RaggedRight\arraybackslash}p{5.2cm}}
 \toprule
-\textbf{Versión} & \textbf{Texto} & \textbf{Traducción}\\\midrule
+\color{ladrillo}\bfseries Versión & \color{ladrillo}\bfseries Texto & \color{ladrillo}\bfseries Traducción\\\midrule
 TM & \heb{וּבָא לְצִיּוֹן גּוֹאֵל וּלְשָׁבֵי פֶשַׁע בְּיַעֲקֹב} & «Vendrá \textbf{a} Sion un Redentor, y a los que se vuelven de la rebelión en Jacob»\\
 LXX & \grc{ἥξει ἕνεκεν Σιων ὁ ῥυόμενος καὶ ἀποστρέψει ἀσεβείας ἀπὸ Ιακωβ} & «Vendrá \textbf{por causa de} Sion el que libra, y apartará las impiedades de Jacob»\\
 Pablo & \grc{ἥξει ἐκ Σιὼν ὁ ῥυόμενος, ἀποστρέψει ἀσεβείας ἀπὸ Ἰακώβ} & «Vendrá \textbf{de} Sion el Libertador, apartará de Jacob las impiedades»\\
 \bottomrule
-\end{tabular}\par\vspace{6pt}
+\end{tabular}\par
+\elabpropia\vspace{3pt}
 \begin{minipage}{0.95\linewidth}\scriptsize
 \textbf{\grc{ἐκ Σιών}}: ecos de Sal 14:7 e Is 2:3; la Sion celestial y la segunda venida (Cranfield, 1979; Moo, 1996; cf. 1~Ts 1:10, \grc{τὸν ῥυόμενον}), o la misión desde Jerusalén (Wright, 2013).\par\smallskip
 \textbf{Pacto}: Is 59:21 + 27:9 LXX («cuando yo quite sus pecados») evocan Jer 31:33--34 [31:32--33]: el nuevo pacto con Israel y Judá (Estudio 5).
@@ -564,14 +666,17 @@ Si Dios abandonó a Israel, ¿qué valor tiene Ro 8:39, «nada nos podrá separa
 \destacar{Ro 9:6}: «no es que la palabra de Dios haya fallado».\par\medskip
 Ro 11 cierra la demostración: elección anterior a la historia (\grc{προέγνω}) e irrevocable (\grc{ἀμεταμέλητα}).
 \end{column}
-\begin{column}{0.49\textwidth}\small\RaggedRight
-\textbf{\textcolor{cafe}{Los límites del endurecimiento}}
-\begin{enumerate}
-\item \textbf{Parcial} (\grc{ἀπὸ μέρους}): existe el remanente.
-\item \textbf{Temporal} (\grc{ἄχρι οὗ}): tiene término.
-\item \textbf{Con propósito}: salvación de las naciones y celos de Israel (11:11).
-\end{enumerate}
-\scriptsize Razones del endurecimiento: soberanía (9:18), ignorancia (10:4), justicia propia (10:3), temporalidad (11:26).
+\begin{column}{0.49\textwidth}
+\centering
+{\small\textbf{\textcolor{ladrillo}{Los límites del endurecimiento}}}\par\smallskip
+\begin{tikzpicture}
+\node[bloqueazul,text width=1.9cm] (c) at (0,0) {\grc{πώρωσις}\\{\tiny\mdseries 11:7, 25}};
+\node[bloque,text width=1.9cm] (p) at (-1.55,-1.65) {\textbf{Parcial}\\{\tiny\grc{ἀπὸ μέρους}: existe el remanente}};
+\node[bloque,text width=1.9cm] (t) at (1.55,-1.65) {\textbf{Temporal}\\{\tiny\grc{ἄχρι οὗ}: tiene término}};
+\node[bloqueoro,text width=2.4cm] (q) at (0,1.45) {\textbf{Con propósito}\\{\tiny salvación de las naciones y celos de Israel (11:11)}};
+\draw[flecha] (c)--(p); \draw[flecha] (c)--(t); \draw[flecha] (c)--(q);
+\end{tikzpicture}\elabpropia
+\begin{clave}Razones: soberanía (9:18), ignorancia (10:4), justicia propia (10:3); temporalidad (11:26). Juicio de Dios y responsabilidad humana a la vez.\end{clave}
 \end{column}
 \end{columns}
 \end{frame}
@@ -652,25 +757,32 @@ La \emph{pṓrōsis} de Israel no es peor que la de las naciones: «Dios encerr�
 
 \begin{frame}{«Por amor de Jonatán tu padre»}
 \begin{columns}[T,onlytextwidth]
-\begin{column}{0.52\textwidth}\scriptsize\RaggedRight
+\begin{column}{0.44\textwidth}\footnotesize\RaggedRight
 \textbf{\textcolor{cafe}{La base: Dt 7:7--8}}\par
 «No por ser vosotros más que todos los pueblos [\ldots] sino por cuanto YHWH os amó, y quiso guardar el juramento que juró a \textbf{vuestros padres}».\par\medskip
-\textbf{\textcolor{cafe}{La imagen: Mefiboset}} (Estudio 4)
-\begin{itemize}
-\item Pacto de David con Jonatán (1~S 20:14--17, 42).
-\item «Haré contigo misericordia (\heb{חֶסֶד}) \textbf{por amor de Jonatán tu padre}» (2~S 9:7).
-\item Lisiado, sin méritos, come siempre a la mesa del rey.
-\end{itemize}
+\textbf{\textcolor{cafe}{La imagen: Mefiboset}} (Estudio 4)\par
+«Haré contigo misericordia (\heb{חֶסֶד}) \textbf{por amor de Jonatán tu padre}» (2~S 9:7). Lisiado, sin méritos, come siempre a la mesa del rey.
 \end{column}
-\begin{column}{0.46\textwidth}\scriptsize\RaggedRight
-\textbf{\textcolor{cafe}{Enemigos y amados a la vez}}\par
-El hijo pródigo (Lc 15:11--32): se comporta como enemigo de la casa, y el padre, entretanto, lo ama y lo espera.\par\smallskip
-\precision{la parábola habla de un individuo; Ro 11:28, de un pueblo y una elección colectiva.}\par\medskip
-\begin{tcolorbox}[colback=piedra,colframe=ladrillo,boxrule=0.8pt,arc=2pt,fontupper=\scriptsize]
-Amado \textbf{por causa de los padres}: el fundamento es el pacto, no la conducta de cada generación (Ro 11:28--29; Nm 23:19).
-\end{tcolorbox}
+\begin{column}{0.53\textwidth}
+\centering
+\begin{tikzpicture}[node distance=0.32cm and 0.3cm]
+\node[etiq,font=\tiny\bfseries,text=ladrillo] (h1) {Estudio 4};
+\node[etiq,font=\tiny\bfseries,text=ladrillo,right=2.05cm of h1] (h2) {Ro 11:28--29};
+\node[bloqueoro,text width=2.3cm,below=0.15cm of h1] (a1) {Pacto David--Jonatán\\{\tiny 1~S 20:14--17, 42}};
+\node[bloqueoro,text width=2.3cm,below=0.15cm of h2] (a2) {Pacto con los padres\\{\tiny Gn 15; 17:7; Dt 7:8}};
+\node[bloque,text width=2.3cm,below=of a1] (b1) {\heb{חֶסֶד} «por amor de Jonatán»};
+\node[bloque,text width=2.3cm,below=of a2] (b2) {«Amados por causa de los padres»};
+\node[bloqueazul,text width=2.3cm,below=of b1] (c1) {Mefiboset a la mesa del rey};
+\node[bloqueazul,text width=2.3cm,below=of b2] (c2) {Israel: llamamiento irrevocable};
+\draw[flecha] (a1)--(b1); \draw[flecha] (b1)--(c1);
+\draw[flecha] (a2)--(b2); \draw[flecha] (b2)--(c2);
+\draw[sepia,densely dashed] (b1)--node[above,etiq]{como}(b2);
+\end{tikzpicture}\elabpropia
 \end{column}
 \end{columns}
+\begin{notalam}[Enemigos y amados a la vez]
+El hijo pródigo (Lc 15:11--32) actúa como enemigo de la casa mientras el padre lo ama y lo espera. Límite de la imagen: la parábola habla de un individuo; Ro 11:28, de un pueblo y una elección colectiva. El fundamento es el pacto, no la conducta de cada generación (Nm 23:19).
+\end{notalam}
 \end{frame}
 
 \begin{frame}{Misericordia para todos}
@@ -687,7 +799,7 @@ Nadie puede alegar mérito: unos y otros dependen de la misma misericordia.
 \node[caja,text width=3.6cm,align=center,below=of g] (i) {\textbf{Israel}: desobediente $\to$ misericordia por la misericordia a los gentiles (11:31)};
 \draw[-{Latex[length=2mm]},oro!90!ladrillo,line width=1.2pt] (g.east) to[bend left=50] (i.east);
 \draw[-{Latex[length=2mm]},oro!90!ladrillo,line width=1.2pt] (i.west) to[bend left=50] (g.west);
-\end{tikzpicture}
+\end{tikzpicture}\elabpropia
 \end{column}
 \end{columns}
 \end{frame}
@@ -703,6 +815,7 @@ Nadie puede alegar mérito: unos y otros dependen de la misma misericordia.
   \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
 \end{tikzpicture}\par\vspace{6pt}
 {\small\itshape\color{sepia}El sacerdocio de Israel no ha sido cancelado; aguarda su forma completa.}
+\elabpropia
 \end{frame}
 
 % ===================================================
@@ -711,7 +824,7 @@ Nadie puede alegar mérito: unos y otros dependen de la misma misericordia.
 \centering\scriptsize\renewcommand{\arraystretch}{1.18}
 \begin{tabular}{>{\RaggedRight\arraybackslash}p{2.3cm}>{\RaggedRight\arraybackslash}p{8.9cm}}
 \toprule
-\textbf{Postura} & \textbf{Cómo lee el pasaje}\\\midrule
+\color{ladrillo}\bfseries Postura & \color{ladrillo}\bfseries Cómo lee el pasaje\\\midrule
 1. Iglesia & #1\\
 2. Remanente & #2\\
 3. Todos & #3\\
@@ -719,7 +832,8 @@ Nadie puede alegar mérito: unos y otros dependen de la misma misericordia.
 5. Dos Casas & #5\\
 6. Israel futuro & #6\\
 \bottomrule
-\end{tabular}}
+\end{tabular}\par
+{\fontsize{5}{6}\selectfont\color{sepia}\hfill\textit{Nota.} Elaboración propia.\par}}
 
 \begin{frame}{Seis posturas, ocho pasajes}
 \begin{columns}[T,onlytextwidth]
@@ -734,15 +848,18 @@ Nadie puede alegar mérito: unos y otros dependen de la misma misericordia.
 \item \textbf{6.} Israel étnico futuro que reconoce al Mesías (Murray; Cranfield; Moo; Schreiner).
 \end{itemize}
 \end{column}
-\begin{column}{0.46\textwidth}\scriptsize
-\textbf{\textcolor{cafe}{Núñez, según el resumen compartido}}
-\begin{itemize}
-\item «Todo Israel» = suma de los elegidos en la historia.
-\item Apoyo clave: el «\textbf{ahora}» de 11:30--31.
-\item La misericordia funciona como un \textbf{vaivén} entre judíos y gentiles.
-\item Un solo olivo: una sola familia de Dios.
-\end{itemize}
-\precision{postura 2, con un matiz de la 1. A examen, sus dos apoyos: «ahora» y «así».}
+\begin{column}{0.46\textwidth}
+\centering
+\begin{tikzpicture}[node distance=0.22cm]
+\node[bloqueazul,text width=4.6cm] (n) {Núñez, según el resumen compartido};
+\node[bloque,text width=4.6cm,below=of n] (a) {«Todo Israel» = suma de los elegidos en la historia};
+\node[bloque,text width=2.1cm,below=0.35cm of a.south west,anchor=north west] (b) {Apoyo 1: el «\textbf{ahora}» (11:30--31)};
+\node[bloque,text width=2.1cm,below=0.35cm of a.south east,anchor=north east] (c) {Apoyo 2: el «\textbf{así}» (11:26)};
+\node[bloqueoro,text width=4.6cm,below=0.35cm of $(b.south)!0.5!(c.south)$] (d) {Vaivén de la misericordia; un solo olivo, una sola familia};
+\draw[flecha] (n)--(a); \draw[flecha] (a.south) -- ++(0,-0.12) -| (b.north); \draw[flecha] (a.south) -- ++(0,-0.12) -| (c.north);
+\draw[flecha] (b.south) -- (b.south |- d.north); \draw[flecha] (c.south) -- (c.south |- d.north);
+\end{tikzpicture}\elabpropia
+\begin{clave}Postura 2, con un matiz de la 1. A examen, sus dos apoyos: «ahora» y «así».\end{clave}
 \end{column}
 \end{columns}
 \end{frame}
@@ -788,7 +905,7 @@ Nadie puede alegar mérito: unos y otros dependen de la misma misericordia.
 \draw[-{Stealth},oro,line width=1.2pt] (n0)--(n1); \draw[-{Stealth},oro,line width=1.2pt] (n1)--(n2); \draw[-{Stealth},oro,line width=1.2pt] (n2)--(n3);
 \draw[decorate,decoration={brace,mirror,amplitude=4pt},cafe] ([yshift=-3pt]n0.south west)--([yshift=-3pt]n1.south east) node[midway,below=5pt]{«ya»: el presente de Pablo};
 \draw[decorate,decoration={brace,mirror,amplitude=4pt},ladrillo] ([yshift=-3pt]n2.south west)--([yshift=-3pt]n3.south east) node[midway,below=5pt]{«todavía no»};
-\end{tikzpicture}\par\vspace{4pt}
+\end{tikzpicture}\elabpropia\vspace{4pt}
 \raggedright\scriptsize
 \textbf{2 (Núñez)}: el ministerio de Pablo prueba que el proceso es presente. \textbf{6}: es presente, pero salva a «algunos»; la «aceptación» será de otro orden (Ez 37:11--14). \textbf{3}: «algunos» la contradice.
 \end{frame}
@@ -816,12 +933,17 @@ Nadie puede alegar mérito: unos y otros dependen de la misma misericordia.
 \end{itemize}
 Expresa el modo \emph{y} el remate de una secuencia. Van der Horst (2000): «solo entonces»; RVR: «y luego».
 \end{column}
-\begin{column}{0.45\textwidth}\scriptsize
-\textbf{\textcolor{cafe}{Hacia atrás}}: resume el vaivén de 11:11--25 \ldots{} \textbf{incluido el «hasta que»}.\par\smallskip
-\textbf{\textcolor{cafe}{Hacia adelante}}: \grc{οὕτως … καθὼς γέγραπται}, «así \ldots{} como está escrito» (cf. Lc 24:24). La cita fija el modo: el Libertador quita la impiedad de \textbf{Jacob}.\par\smallskip
-\begin{tcolorbox}[colback=piedra,colframe=ladrillo,boxrule=0.8pt,arc=2pt,fontupper=\scriptsize]
+\begin{column}{0.45\textwidth}
+\centering
+\begin{tikzpicture}[node distance=0.3cm]
+\node[bloque,text width=4.3cm] (a) {\textbf{Hacia atrás}: el vaivén de 11:11--25, \textbf{incluido el «hasta que»}};
+\node[bloqueazul,text width=2.4cm,below=of a] (b) {\grc{καὶ οὕτως}};
+\node[bloque,text width=4.3cm,below=of b] (c) {\textbf{Hacia adelante}: \grc{καθὼς γέγραπται} (cf. Lc 24:24): el Libertador quita la impiedad de \textbf{Jacob}};
+\draw[flecha] (a)--(b); \draw[flecha] (b)--(c);
+\end{tikzpicture}\elabpropia
+\begin{clave}
 Un solo sujeto: «endurecimiento a \textbf{Israel} \ldots{} y así todo \textbf{Israel}». El «así» no altera la identidad de Israel.
-\end{tcolorbox}
+\end{clave}
 \end{column}
 \end{columns}
 \end{frame}
@@ -830,7 +952,7 @@ Un solo sujeto: «endurecimiento a \textbf{Israel} \ldots{} y así todo \textbf{
 \centering\scriptsize\renewcommand{\arraystretch}{1.2}
 \begin{tabular}{>{\RaggedRight\arraybackslash}p{2.2cm}>{\RaggedRight\arraybackslash}p{4.3cm}>{\RaggedRight\arraybackslash}p{4.6cm}}
 \toprule
-\textbf{Postura} & \textbf{«Y así» significa\ldots} & \textbf{Observación}\\\midrule
+\color{ladrillo}\bfseries Postura & \color{ladrillo}\bfseries «Y así» significa\ldots & \color{ladrillo}\bfseries Observación\\\midrule
 1. Iglesia & Por la entrada de gentiles y judíos creyentes & Cambia el sentido de «Israel» entre 11:25 y 26\\
 2. Remanente & Por el vaivén continuo, generación tras generación & Buen antecedente; omite el término («hasta que»)\\
 3. Todos & «Y así, sin más» & Ignora endurecimiento y fe\\
@@ -838,14 +960,18 @@ Un solo sujeto: «endurecimiento a \textbf{Israel} \ldots{} y así todo \textbf{
 5. Dos Casas & Al entrar los gentiles-Efraín & 11:24 lo excluye\\
 6. Israel futuro & Por el vaivén que culmina al entrar la plenitud, como dice la Escritura & Mismo «Israel», «hasta que» y cita\\
 \bottomrule
-\end{tabular}
+\end{tabular}\par
+\elabpropia\vspace{6pt}
+\begin{notalam}[Precisión: Van der Horst (2000)]
+\grc{καὶ οὕτως} puede tener matiz temporal además de modal: «solo entonces». La Reina-Valera lo vierte «y luego». Ninguna de las dos lecturas permite separar el «así» del «hasta que» que lo precede.
+\end{notalam}
 \end{frame}
 
 \begin{frame}{¿«A Sion», «por Sion» o «de Sion»?}
 \centering\scriptsize\renewcommand{\arraystretch}{1.2}
 \begin{tabular}{>{\RaggedRight\arraybackslash}p{2.4cm}>{\RaggedRight\arraybackslash}p{2.4cm}>{\RaggedRight\arraybackslash}p{6.2cm}}
 \toprule
-\textbf{Testigo} & \textbf{Texto} & \textbf{Sentido}\\\midrule
+\color{ladrillo}\bfseries Testigo & \color{ladrillo}\bfseries Texto & \color{ladrillo}\bfseries Sentido\\\midrule
 Texto Masorético & \heb{וּבָא לְצִיּוֹן גּוֹאֵל} & «Vendrá \textbf{a} Sion un Redentor»: \heb{לְ} = «a, hacia, para»\\
 1QIsa\textsuperscript{a} (Qumrán) & \heb{אל ציון} & «Hacia Sion»\\
 Targum & \heb{לציון} & «A Sion» + volver a la Torá\\
@@ -853,7 +979,8 @@ Septuaginta & \grc{ἕνεκεν Σιων} & «\textbf{Por causa de} Sion»\\
 Áquila, Símaco & \grc{τῇ Σιών} & «Para Sion»\\
 Pablo (Ro 11:26) & \grc{ἐκ Σιών} & «\textbf{Desde} Sion»\\
 \bottomrule
-\end{tabular}\par\vspace{5pt}
+\end{tabular}\par
+\elabpropia\vspace{3pt}
 \raggedright\scriptsize
 \textbf{En español}: RVR traduce Is 59:20 «vendrá el Redentor \textbf{a} Sion» y Ro 11:26 «vendrá \textbf{de} Sion el Libertador»; no hay error, cada versículo vierte su propio texto.\par\smallskip
 \heb{גּוֹאֵל} (\emph{go'el}): el pariente que rescata (Lv 25:25; Rut 4) $\to$ \grc{ὁ ῥυόμενος}: Jesús, «que nos libra» y viene de los cielos (1~Ts 1:10).
@@ -869,12 +996,17 @@ Pablo (Ro 11:26) & \grc{ἐκ Σιών} & «\textbf{Desde} Sion»\\
 \item \textbf{Sion terrenal}: primera venida y misión (Wright, 2013; Bruno, 2008).
 \end{enumerate}
 \end{column}
-\begin{column}{0.48\textwidth}\scriptsize
-\begin{tcolorbox}[colback=piedra,colframe=ladrillo,boxrule=0.8pt,arc=2pt,fontupper=\scriptsize,title={Evaluación},coltitle=piedra,colbacktitle=ladrillo]
-\textbf{A} Sion (TM), \textbf{por causa de} Sion (LXX), \textbf{desde} Sion (Pablo): tres ángulos de un mismo acontecimiento.\par\smallskip
-Indicios de futuro: \grc{ἥξει} en futuro, como \grc{σωθήσεται}; el objeto es \textbf{Jacob}; Is 27:9 + Jer 31:34: perdón colectivo.
-\end{tcolorbox}
-\precision{el TM pone el arrepentimiento en Jacob; LXX y Pablo, la acción en el Libertador. Zac 12:10 une ambos.}
+\begin{column}{0.48\textwidth}
+\centering
+\begin{tikzpicture}
+\node[bloqueazul,text width=1.7cm,minimum height=1.0cm] (s) at (0,0) {Sion};
+\node[bloque,text width=1.75cm] (tm) at (-1.9,1.3) {TM: \heb{לְצִיּוֹן}\\{\tiny «\textbf{a} Sion»}};
+\node[bloque,text width=1.75cm] (lxx) at (1.9,1.3) {LXX: \grc{ἕνεκεν}\\{\tiny «\textbf{por causa de}»}};
+\node[bloqueoro,text width=1.75cm] (pa) at (0,-1.45) {Pablo: \grc{ἐκ Σιών}\\{\tiny «\textbf{desde} Sion»}};
+\draw[flecha] (tm) -- (s); \draw[flecha] (lxx) -- (s); \draw[flecha] (s) -- (pa);
+\end{tikzpicture}\elabpropia
+\begin{clave}Tres ángulos de un mismo acontecimiento. Indicios de futuro: \grc{ἥξει} como \grc{σωθήσεται}; el objeto es \textbf{Jacob}; Is 27:9 + Jer 31:34: perdón colectivo.\end{clave}
+{\scriptsize\precision{el TM pone el arrepentimiento en Jacob; LXX y Pablo, la acción en el Libertador. Zac 12:10 une ambos.}}
 \end{column}
 \end{columns}
 \end{frame}
@@ -883,22 +1015,30 @@ Indicios de futuro: \grc{ἥξει} en futuro, como \grc{σωθήσεται}; el
 \centering\scriptsize\renewcommand{\arraystretch}{1.25}
 \begin{tabular}{>{\RaggedRight\arraybackslash}p{1.8cm}>{\RaggedRight\arraybackslash}p{4.5cm}>{\RaggedRight\arraybackslash}p{4.7cm}}
 \toprule
- & \textbf{Gentiles (11:30)} & \textbf{Israel (11:31)}\\\midrule
+ & \color{ladrillo}\bfseries Gentiles (11:30) & \color{ladrillo}\bfseries Israel (11:31)\\\midrule
 Desobediencia & \grc{ὑμεῖς} \textcolor{ladrillo}{\grc{ποτε}} \grc{ἠπειθήσατε}: «\emph{en otro tiempo} desobedecisteis» & \grc{οὗτοι} \textcolor{ladrillo}{\grc{νῦν}} \grc{ἠπείθησαν}: «\emph{ahora} han desobedecido»\\
 Misericordia & \textcolor{ladrillo}{\grc{νῦν}} \grc{δὲ ἠλεήθητε}: «\emph{ahora} recibisteis misericordia» & \grc{ἵνα καὶ αὐτοὶ} \textcolor{ladrillo}{\grc{[νῦν]}} \grc{ἐλεηθῶσιν}: «para que [\emph{ahora}] la reciban»\\
 Ocasión & «por la desobediencia de ellos» & «por la misericordia mostrada a vosotros»\\
 \bottomrule
-\end{tabular}\par\vspace{6pt}
-\begin{tcolorbox}[colback=piedra,colframe=ladrillo,boxrule=1pt,arc=3pt,fontupper=\small,width=0.95\linewidth]
+\end{tabular}\par
+\elabpropia\vspace{2pt}
+\begin{tikzpicture}[x=1cm]
+\node[bloque,text width=2.2cm] (g1) at (0,0) {Gentiles: \grc{ποτε} desobedientes};
+\node[bloqueoro,text width=2.2cm] (i1) at (3.4,0) {Israel: \grc{νῦν} desobediente};
+\node[bloque,text width=2.2cm] (g2) at (6.8,0) {Gentiles: \grc{νῦν} misericordia};
+\node[bloqueazul,text width=2.2cm] (i2) at (10.2,0) {Israel: misericordia \grc{[νῦν]}};
+\draw[flecha] (g1)--(i1); \draw[flecha] (i1)--node[above,etiq]{ocasión}(g2); \draw[flecha] (g2)--node[above,etiq]{ocasión}(i2);
+\end{tikzpicture}\elabpropia
+\begin{clave}
 \textbf{El vaivén se sostiene} aun sin el tercer «ahora»: 11:11, 12, 14, 15, 28, 30--32. Por medio de la misericordia a las naciones llega la misericordia a Israel. \textbf{Aquí Núñez acierta.}
-\end{tcolorbox}
+\end{clave}
 \end{frame}
 
 \begin{frame}{Los tres «ahora»: dos seguros, uno incierto}
 \centering\scriptsize\renewcommand{\arraystretch}{1.2}
 \begin{tabular}{>{\RaggedRight\arraybackslash}p{2.0cm}>{\RaggedRight\arraybackslash}p{6.3cm}>{\RaggedRight\arraybackslash}p{2.8cm}}
 \toprule
-\textbf{11:31b} & \textbf{Testigos} & \textbf{Familia}\\\midrule
+\color{ladrillo}\bfseries 11:31b & \color{ladrillo}\bfseries Testigos & \color{ladrillo}\bfseries Familia\\\midrule
 \grc{νῦν}, «ahora» & Sinaítico (\heb{א}, s.~\textsc{iv}); Vaticano (B, s.~\textsc{iv}); Claromontano original (D*, s.~\textsc{vi}); 1506; copto bohaírico & Alejandrina y occidental\\
 \grc{ὕστερον}, «después» & Minúsculos 33, 365; copto sahídico & Corrección: se leía como futuro\\
 Sin adverbio & \textbf{P46 (c.~200)}; Alejandrino (A, s.~\textsc{v}); D\textsuperscript{2}; F, G (s.~\textsc{ix}); \grc{Ψ}; 1739; 1881; texto bizantino; latín & El más antiguo y la mayoría\\
@@ -906,15 +1046,15 @@ Sin adverbio & \textbf{P46 (c.~200)}; Alejandrino (A, s.~\textsc{v}); D\textsupe
 \end{tabular}\par\vspace{4pt}
 \raggedright\scriptsize
 \textbf{Ediciones}: NA28/UBS5 \grc{[νῦν]} entre corchetes; Westcott-Hort y Tischendorf lo incluyen; texto bizantino y TR de Scrivener lo omiten.\par
-\textbf{Español}: Reina-Valera (1569, 1909, 1960): «ellos también alcancen misericordia», \textbf{sin «ahora»}; LBLA: «también a ellos \textbf{ahora}».\par\smallskip
-{\tiny\color{sepia}Testigos según la nota textual de la NET Bible a Ro 11:31. En Pablo, D es el Códice Claromontano.}
+\textbf{Español}: Reina-Valera (1569, 1909, 1960): «ellos también alcancen misericordia», \textbf{sin «ahora»}; LBLA: «también a ellos \textbf{ahora}».
+\notafig{Elaboración propia a partir de la nota textual de la NET Bible a Ro 11:31. En Pablo, D es el Códice Claromontano.}
 \end{frame}
 
 \begin{frame}{Los tres «ahora»: tabla comparativa}
 \centering\scriptsize\renewcommand{\arraystretch}{1.2}
 \begin{tabular}{>{\RaggedRight\arraybackslash}p{2.6cm}>{\RaggedRight\arraybackslash}p{2.3cm}>{\RaggedRight\arraybackslash}p{2.3cm}>{\RaggedRight\arraybackslash}p{3.6cm}}
 \toprule
-\textbf{Edición / versión} & \textbf{1.º (11:30)}\newline gentiles: misericordia & \textbf{2.º (11:31a)}\newline Israel: desobediencia & \textbf{3.º (11:31b)}\newline Israel: misericordia\\\midrule
+\color{ladrillo}\bfseries Edición / versión & \textbf{1.º (11:30)}\newline gentiles: misericordia & \textbf{2.º (11:31a)}\newline Israel: desobediencia & \textbf{3.º (11:31b)}\newline Israel: misericordia\\\midrule
 NA28 / UBS5 & \grc{νῦν} & \grc{νῦν} & \grc{[νῦν]}: dudoso\\
 Westcott-Hort; Tischendorf & \grc{νῦν} & \grc{νῦν} & \grc{νῦν}\\
 Bizantino; TR Scrivener & \grc{νῦν} & \grc{νῦν} & \textcolor{ladrillo}{\textbf{omitido}}\\
@@ -922,32 +1062,26 @@ Vulgata & \emph{nunc} & \emph{nunc} & \textcolor{ladrillo}{\textbf{omitido}}\\
 RV 1909 / RVR 1960 & ahora & ahora & \textcolor{ladrillo}{\textbf{omitido}}: «ellos también alcancen misericordia»\\
 LBLA / NBLA & ahora & ahora & «también a ellos \textbf{ahora} les sea mostrada misericordia»\\
 \bottomrule
-\end{tabular}\par\vspace{6pt}
-\begin{tcolorbox}[colback=piedra,colframe=ladrillo,boxrule=0.8pt,arc=2pt,fontupper=\scriptsize,width=0.92\linewidth]
+\end{tabular}\par
+\elabpropia\vspace{4pt}
+\begin{clave}
 Toda la tradición trae los dos primeros «ahora». La divide solo el tercero, referido a la \textbf{misericordia de Israel}, que la Reina-Valera no incluye.
-\end{tcolorbox}
+\end{clave}
 \end{frame}
 
 \begin{frame}{¿Cómo se decide el tercer «ahora»?}
 \begin{columns}[T,onlytextwidth]
-\begin{column}{0.49\textwidth}\scriptsize
-\textbf{\textcolor{cafe}{A favor de que sea original}}
-\begin{itemize}
-\item Lectura más difícil: un «ahora» para la misericordia de Israel extraña después de 11:26.
-\item Explica la omisión y el cambio a \grc{ὕστερον}.
-\item NET Bible: lo prefiere ligeramente.
-\end{itemize}
-\textbf{\textcolor{cafe}{A favor de que sea añadido}}
-\begin{itemize}
-\item P46 y la mayoría no lo tienen.
-\item Pudo agregarse para igualar los dos \grc{νῦν} previos.
-\item El paralelo pide contraste: «en otro tiempo» / «ahora».
-\end{itemize}
+\begin{column}{0.49\textwidth}
+\centering
+\begin{tikzpicture}
+\draw[ladrillo,line width=1.2pt] (-3.0,0) -- (3.0,0);
+\fill[oro] (0,0) -- (-0.3,-0.55) -- (0.3,-0.55) -- cycle;
+\node[bloque,text width=2.6cm,anchor=south,font=\scriptsize] at (-1.5,0.12) {\textbf{\small Original}\\[1pt] lectura más difícil tras 11:26; explica la omisión y \grc{ὕστερον}; NET lo prefiere ligeramente};
+\node[bloque,text width=2.6cm,anchor=south,font=\scriptsize] at (1.5,0.12) {\textbf{\small Añadido}\\[1pt] P46 y la mayoría no lo tienen; pudo igualar los dos \grc{νῦν}; el paralelo pide «en otro tiempo» / «ahora»};
+\node[bloqueazul,text width=4.4cm,below=0.75cm] at (0,0) {Demasiado incierto para fundar una doctrina};
+\end{tikzpicture}\elabpropia
 \end{column}
 \begin{column}{0.49\textwidth}\scriptsize
-\begin{tcolorbox}[colback=piedra,colframe=ladrillo,boxrule=0.8pt,arc=2pt,fontupper=\scriptsize]
-\textbf{Demasiado incierto para fundar una doctrina.}
-\end{tcolorbox}
 \textbf{\textcolor{cafe}{Si es original}}
 \begin{itemize}
 \item «Ahora» escatológico: Ro 3:21; 8:1; 13:11; 2~Co 6:2.
@@ -972,9 +1106,14 @@ El endurecimiento «no es total ni es final»; al entrar la plenitud de los gent
 \textbf{Postura 6.}
 \end{column}
 \end{columns}\par\medskip
-\begin{tcolorbox}[colback=piedra,colframe=ladrillo,boxrule=1pt,arc=3pt,fontupper=\small,width=0.95\linewidth]
-Ambas reconocen el \textbf{vaivén} de la misericordia; las separa si el «ahora» clausura el futuro o lo anticipa. El texto (\grc{ἄχρι οὗ}, \grc{σωθήσεται}, \grc{ἥξει}) se inclina por lo segundo.
-\end{tcolorbox}
+\centering
+\begin{tikzpicture}
+\node[bloqueoro,text width=3.4cm] (v) at (0,0) {Coinciden: el \textbf{vaivén} de la misericordia (11:30--32)};
+\node[bloque,text width=3.2cm] (a) at (-4.2,-0.9) {«Ahora» que \textbf{clausura}: suma de elegidos};
+\node[bloque,text width=3.2cm] (b) at (4.2,-0.9) {«Ahora» que \textbf{anticipa}: conversión final de Israel};
+\draw[flecha] (v.west) -| (a.north); \draw[flecha] (v.east) -| (b.north);
+\node[etiq,below=2pt of b] {\grc{ἄχρι οὗ}, \grc{σωθήσεται}, \grc{ἥξει}: el texto se inclina aquí};
+\end{tikzpicture}\elabpropia
 \end{frame}
 
 \begin{frame}{Conclusión: ya y todavía no}
@@ -983,7 +1122,7 @@ Ambas reconocen el \textbf{vaivén} de la misericordia; las separa si el «ahora
 \centering\renewcommand{\arraystretch}{1.12}
 \begin{tabular}{>{\RaggedRight\arraybackslash}p{1.35cm}>{\RaggedRight\arraybackslash}p{2.05cm}>{\RaggedRight\arraybackslash}p{2.05cm}}
 \toprule
-\textbf{Pasaje} & \textbf{«Ya»} & \textbf{«Todavía no»}\\\midrule
+\color{ladrillo}\bfseries Pasaje & \color{ladrillo}\bfseries «Ya» & \color{ladrillo}\bfseries «Todavía no»\\\midrule
 11:1--6 & Remanente & ---\\
 11:7--10 & Endurecidos & Su límite\\
 11:11--12 & Celos & Plenitud\\
@@ -992,7 +1131,8 @@ Ambas reconocen el \textbf{vaivén} de la misericordia; las separa si el «ahora
 11:25--27 & Endurecimiento parcial & Todo Israel; el Libertador\\
 11:28--32 & Misericordia a naciones & Misericordia a Israel\\
 \bottomrule
-\end{tabular}
+\end{tabular}\par
+\elabpropia
 \end{column}
 \begin{column}{0.48\textwidth}\small
 \begin{enumerate}
@@ -1023,8 +1163,9 @@ Núñez capta la columna del «ya»; la postura 6 integra las dos.
     child {node {3. Todos los judíos}}
     child {node {4. Dos caminos (sin Cristo)}}
     child {node[fill=oro!25] {6. Conjunto futuro que reconoce al Mesías}}};
-\end{tikzpicture}\par\vspace{6pt}
-{\scriptsize Tres grandes posturas con sus variantes, más la de los «dos caminos».}
+\end{tikzpicture}\par
+\elabpropia\vspace{4pt}
+{\small Tres grandes posturas con sus variantes, más la de los «dos caminos».}
 \end{frame}
 
 \begin{frame}{1. La iglesia como Israel}
@@ -1071,10 +1212,19 @@ Stendahl (1976); Gaston (1987); Gager (2000): Israel salvado por su pacto, sin f
 
 \begin{frame}{5. Las Dos Casas}
 \begin{columns}[T,onlytextwidth]
-\begin{column}{0.47\textwidth}\small\RaggedRight
-\textbf{\textcolor{cafe}{Exposición}} (Koniuchowsky, 2003)\par
-Efraín, dispersado por Asiria (722 a.\,e.\,c.), estaría entre las naciones; la «plenitud de los gentiles» sería la \heb{מְלֹא־הַגּוֹיִם} de Gn 48:19; «todo Israel» = Judá + Efraín (Ez 37:15--28; Os 1:10--11 [2:1--2]).\par\smallskip
-\textbf{\textcolor{cafe}{Fortalezas}}: rechaza el reemplazo; toma en serio Ez 37 y Zac 12:10.
+\begin{column}{0.47\textwidth}\centering
+{\scriptsize\textbf{\textcolor{cafe}{La propuesta}} (Koniuchowsky, 2003)}\par\smallskip
+\begin{tikzpicture}[node distance=0.25cm and 0.3cm]
+\node[bloque,text width=2.0cm] (n) {Israel, reino del norte (Efraín, Samaria)};
+\node[bloque,text width=2.0cm,right=of n] (s) {Judá, reino del sur (Jerusalén)};
+\node[bloqueoro,text width=2.0cm,below=of n] (d) {Dispersión asiria (722 a.\,e.\,c.) $\to$ «entre las naciones»};
+\node[bloqueoro,text width=2.0cm,below=of s] (p) {«Plenitud de los gentiles» = \heb{מְלֹא־הַגּוֹיִם} (Gn 48:19)};
+\node[bloqueazul,text width=4.6cm,below=0.35cm of $(d.south)!0.5!(p.south)$] (t) {«Todo Israel» = Judá + Efraín (Ez 37:15--28)};
+\draw[flecha] (n)--(d); \draw[flecha] (d)--(p);
+\draw[flecha] (d.south) -- (d.south |- t.north);
+\draw[flecha] (p.south) -- (p.south |- t.north);
+\end{tikzpicture}\elabpropia
+\begin{clave}\textbf{Fortalezas}: rechaza el reemplazo; toma en serio Ez 37 y Zac 12:10.\end{clave}
 \end{column}
 \begin{column}{0.51\textwidth}\scriptsize\RaggedRight
 \textbf{\textcolor{ladrillo}{Debilidades}}
@@ -1113,10 +1263,10 @@ El pueblo judío como conjunto, no cada individuo, reconocerá a Jesús como Mes
 \end{frame}
 
 \begin{frame}{Tabla comparativa}
-\centering\tiny\renewcommand{\arraystretch}{1.25}
-\begin{tabular}{>{\RaggedRight\arraybackslash}p{3.4cm}>{\centering\arraybackslash}p{0.95cm}>{\centering\arraybackslash}p{0.95cm}>{\centering\arraybackslash}p{0.95cm}>{\centering\arraybackslash}p{0.95cm}>{\centering\arraybackslash}p{0.95cm}>{\centering\arraybackslash}p{0.95cm}}
+\centering\scriptsize\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{3.8cm}>{\centering\arraybackslash}p{0.95cm}>{\centering\arraybackslash}p{0.95cm}>{\centering\arraybackslash}p{0.95cm}>{\centering\arraybackslash}p{0.95cm}>{\centering\arraybackslash}p{0.95cm}>{\centering\arraybackslash}p{0.95cm}}
 \toprule
-\textbf{Criterio (Ro 11)} & \textbf{1. Iglesia} & \textbf{2. Rema\-nente} & \textbf{3. Todos} & \textbf{4. Dos caminos} & \textbf{5. Dos Casas} & \textbf{6. Israel futuro}\\\midrule
+\color{ladrillo}\bfseries Criterio (Ro 11) & \textbf{1. Iglesia} & \textbf{2. Rema\-nente} & \textbf{3. Todos} & \textbf{4. Dos caminos} & \textbf{5. Dos Casas} & \textbf{6. Israel futuro}\\\midrule
 Mismo «Israel» en 11:25 y 26 & no & sí & sí & sí & no & \textbf{sí}\\
 Explica «hasta que» & no & no & parcial & sí & sí & \textbf{sí}\\
 Plenitud mayor que remanente (11:12, 15) & no & no & sí & sí & parcial & \textbf{sí}\\
@@ -1124,17 +1274,25 @@ Exige fe (10:9--13; 11:23) & sí & sí & no & no & sí & \textbf{sí}\\
 Gentiles, olivo silvestre (11:24) & parcial & sí & sí & sí & no & \textbf{sí}\\
 Irrevocable para el Israel no creyente (11:28--29) & no & parcial & sí & sí & parcial & \textbf{sí}\\
 \bottomrule
-\end{tabular}\par\vspace{6pt}
-\scriptsize\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{>{\RaggedRight\arraybackslash}p{2.4cm}>{\RaggedRight\arraybackslash}p{4.0cm}>{\RaggedRight\arraybackslash}p{4.4cm}}
+\end{tabular}\par
+\elabpropia\vspace{6pt}
+\begin{clave}Solo la postura 6 cumple los seis criterios del capítulo; la 4 falla en el que Pablo repite con más fuerza: la fe (10:9--13; 11:23).\end{clave}
+\end{frame}
+
+\begin{frame}{Tres familias: fortalezas y debilidades}
+\centering\small\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{2.8cm}>{\RaggedRight\arraybackslash}p{4.0cm}>{\RaggedRight\arraybackslash}p{4.4cm}}
 \toprule
-\textbf{Postura} & \textbf{Fortaleza} & \textbf{Debilidad}\\\midrule
+\color{ladrillo}\bfseries Postura & \color{ladrillo}\bfseries Fortaleza & \color{ladrillo}\bfseries Debilidad\\\midrule
 Israel espiritual & Unidad en Cristo & Ignora la dimensión literal y nacional\\
 Dos Casas & Cumplimiento literal; Judá e Israel & Gentiles como Efraín: especulativo\\
 Israel étnico con Mesías & Literal y espiritual; integra a los gentiles & Depende de un cumplimiento futuro\\
 \bottomrule
 \end{tabular}\par
-{\fontsize{5}{6}\selectfont\color{sepia}\raggedleft\textit{Nota.} Elaboración propia.\par}
+\elabpropia\vspace{6pt}
+\begin{notalam}[Precisión: «Israel» en las Dos Casas]
+En esta postura «Israel» se usa en dos sentidos que conviene no confundir: el \textbf{pueblo completo} (Ro 9--11) y el \textbf{reino del norte} (Efraín, capital Samaria), dispersado por Asiria. Pablo usa siempre el primero; muchos del norte ya se habían integrado en Judá (2~Cr 11:13--17; 30:1--11), y Ana era de Aser (Lc 2:36).
+\end{notalam}
 \end{frame}
 
 \begin{frame}{Conclusión sobre «todo Israel»}
@@ -1177,15 +1335,16 @@ Ro 11 no la menciona; los profetas sí (Ez 36--37; Jer 31:38--40). Leer 1948 com
   \node[caja,text width=2.3cm,align=center] (e\i) at (\i*2.85,0) {\textbf{\textcolor{ladrillo}{\i. \t}}\\{\tiny\color{sepia}\r}};}
 \foreach \a/\b in {1/2,2/3,3/4}{\draw[-{Latex[length=2mm]},oro!90!ladrillo,line width=1.2pt] (e\a) -- (e\b);}
 \end{tikzpicture}\par
+\elabpropia
 \end{frame}
 
 % ===================================================
 \section{Hilos}
 \begin{frame}{Siete estudios, un capítulo}
-\centering\tiny\renewcommand{\arraystretch}{1.2}
+\centering\scriptsize\renewcommand{\arraystretch}{1.12}
 \begin{tabular}{>{\RaggedRight\arraybackslash}p{2.0cm}>{\RaggedRight\arraybackslash}p{3.4cm}>{\RaggedRight\arraybackslash}p{2.4cm}>{\RaggedRight\arraybackslash}p{3.4cm}}
 \toprule
-\textbf{Estudio} & \textbf{Hilo} & \textbf{Textos} & \textbf{En Romanos 11}\\\midrule
+\color{ladrillo}\bfseries Estudio & \color{ladrillo}\bfseries Hilo & \color{ladrillo}\bfseries Textos & \color{ladrillo}\bfseries En Romanos 11\\\midrule
 1. Abraham--Éxodo & Pacto perpetuo; remanente de José & Gn 15; 17:7; 45:7 & Raíz santa (11:16); amados por los padres (11:28)\\
 2. Éxodo--Josué & Reino de sacerdotes; celos & Éx 19:6; Dt 29:4; 32:21 & Celos (11:11, 14); ojos que no ven (11:8)\\
 3. Jueces--David & YHWH no desampara; Benjamín & 1~S 12:22 & «¿Ha desechado Dios?» (11:1)\\
@@ -1194,7 +1353,8 @@ Ro 11 no la menciona; los profetas sí (Ez 36--37; Jer 31:38--40). Leer 1948 com
 6. Segundo Templo & Redentor de Sion; «todo Israel» confiesa & Is 59:20; Dn 9:11 & «Vendrá de Sion» (11:26)\\
 7. Cristo--año 70 & Remanente; «hasta que» & Hch 21:20; Lc 21:24; Mt 23:39 & Remanente (11:5); «hasta que» (11:25)\\
 \bottomrule
-\end{tabular}
+\end{tabular}\par
+\elabpropia
 \end{frame}
 
 \begin{frame}{Tres hilos mayores}
@@ -1206,7 +1366,7 @@ Ro 11 no la menciona; los profetas sí (Ez 36--37; Jer 31:38--40). Leer 1948 com
 \foreach \ang/\n/\t in {90/1/{1: padres y pacto},38.6/2/{2: sacerdocio y celos},-12.9/3/{3: no desamparará},-64.3/4/{4: David y la raíz},-115.7/5/{5: remanente, nuevo pacto},-167.1/6/{6: Redentor de Sion},141.4/7/{7: «hasta que»}}{
   \node[caja,text width=1.9cm,align=center,font=\tiny] (n\n) at (\ang:2.9) {Est. \t};
   \draw[-{Latex[length=2mm]},oro!90!ladrillo,line width=1pt] (n\n) -- (r);}
-\end{tikzpicture}
+\end{tikzpicture}\elabpropia
 \end{column}
 \begin{column}{0.47\textwidth}\small
 \begin{enumerate}
@@ -1231,7 +1391,9 @@ Ro 11 no la menciona; los profetas sí (Ez 36--37; Jer 31:38--40). Leer 1948 com
 \textbf{\textcolor{cafe}{Las diez tribus (Sanedrín 10:3)}}\par\smallskip
 R. Aquiba: «las diez tribus no volverán» (Dt 29:28 [29:27]).\par\smallskip
 R. Eliézer: como el día que se oscurece y vuelve a aclarar, así vendrá la luz para ellas.\par\medskip
-\precision{Mishná c. 200 e.\,c.: posterior a Pablo. Algunos manuscritos no traen la frase inicial; verificar en edición crítica. Is 60:21 sigue a Is 59:20--21.}
+\begin{notalam}[Precisión: fecha y texto]
+Mishná c. 200 e.\,c.: posterior a Pablo. Algunos manuscritos no traen la frase inicial; verificar en edición crítica. Is 60:21 sigue a Is 59:20--21.
+\end{notalam}
 \end{column}
 \end{columns}
 \end{frame}
@@ -1258,7 +1420,8 @@ R. Eliézer: como el día que se oscurece y vuelve a aclarar, así vendrá la lu
 14.ª & «Edificas Jerusalén» (Lc 21:24)\\
 15.ª & «Haz brotar el renuevo de David» (Jer 23:5; Ro 15:12)\\
 \bottomrule
-\end{tabular}
+\end{tabular}\par
+\notafig{Elaboración propia a partir de Sacks (2009).}
 \end{column}
 \end{columns}
 \end{frame}
@@ -1272,7 +1435,16 @@ R. Eliézer: como el día que se oscurece y vuelve a aclarar, así vendrá la lu
 \begin{column}{0.45\textwidth}
 \begin{cita}[fontupper=\scriptsize\itshape]¿Por qué Israel es comparado con el olivo? Así como las hojas del olivo no caen ni en verano ni en invierno, así Israel no será desechado nunca, ni en este mundo ni en el venidero.\fuente{(Talmud, Menajot 53b, R. Josué ben Leví)}\end{cita}
 \end{column}
-\end{columns}\vspace{6pt}
+\end{columns}\vspace{4pt}
+\centering
+\begin{tikzpicture}[node distance=0.32cm]
+\node[bloque,text width=1.8cm] (a) {Jer 11:16\\{\tiny «olivo verde»: Judá}};
+\node[bloque,text width=1.8cm,right=of a] (b) {Os 14:6 [14:7]\\{\tiny «su esplendor como el olivo»}};
+\node[bloque,text width=1.8cm,right=of b] (c) {Sal 52:8 [52:10]\\{\tiny «como olivo verde en la casa de Dios»}};
+\node[bloqueazul,text width=1.8cm,right=of c] (d) {Ro 11:17--24\\{\tiny\mdseries el olivo y el injerto}};
+\node[bloqueoro,text width=1.8cm,right=of d] (e) {Menajot 53b\\{\tiny hojas que no caen}};
+\foreach \u/\v in {a/b,b/c,c/d,d/e}{\draw[flecha] (\u)--(\v);}
+\end{tikzpicture}\elabpropia
 {\small\itshape\color{sepia}\centering Un olivo que pierde ramas, pero que nadie arranca: Pablo habla aquí el idioma de Israel.\par}
 \end{frame}
 
@@ -1288,7 +1460,9 @@ R. Eliézer: como el día que se oscurece y vuelve a aclarar, así vendrá la lu
   \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][2.9cm][t]{2.65cm}{\RaggedRight
     {\small\textbf{\textcolor{ladrillo}{\t}}}\\[4pt]\scriptsize \d\par\vfill{\tiny\color{sepia}(\r)}}};
   \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
-\end{tikzpicture}
+\end{tikzpicture}\par
+\elabpropia\vspace{6pt}
+\begin{clave}«No sustentas tú a la raíz, sino la raíz a ti» (11:18): la fe de las naciones depende de la historia de Israel, no al revés.\end{clave}
 \end{frame}
 
 \begin{frame}{Contra el desprecio a Israel}
@@ -1331,13 +1505,14 @@ Ro 11 trata del pueblo de Israel ante Dios y el Mesías, no de un programa polí
 \scriptsize\renewcommand{\arraystretch}{1.2}
 \begin{tabular}{>{\RaggedRight\arraybackslash}p{2.4cm}>{\RaggedRight\arraybackslash}p{8.9cm}}
 \toprule
-\textbf{Dimensión} & \textbf{Aporte}\\\midrule
+\color{ladrillo}\bfseries Dimensión & \color{ladrillo}\bfseries Aporte\\\midrule
 Histórica & Roma tras el edicto de Claudio: Pablo corrige la arrogancia gentil (11:13--25)\\
 Literaria & Ro 9--11 es una unidad; cuatro pasos: remanente, tropiezo, misterio, doxología\\
 Filológica & \grc{πώρωσις ἀπὸ μέρους}, \grc{ἄχρι οὗ}, \grc{πλήρωμα}, \grc{καὶ οὕτως}, \grc{πᾶς Ἰσραήλ}, \grc{ἐκ Σιών}\\
 Teológica & Fidelidad de Dios; inclusión sin reemplazo; salvación futura del Israel étnico por la fe\\
 \bottomrule
-\end{tabular}
+\end{tabular}\par
+\elabpropia
 \end{frame}
 
 \begin{frame}{La doxología de la serie}
@@ -1367,7 +1542,7 @@ Teológica & Fidelidad de Dios; inclusión sin reemplazo; salvación futura del 
 \section{Glosario y fuentes}
 \begin{frame}{Glosario}
 \begin{columns}[T,onlytextwidth]
-\begin{column}{0.49\textwidth}\tiny
+\begin{column}{0.49\textwidth}\scriptsize
 \textbf{Agriélaios} (\grc{ἀγριέλαιος}): olivo silvestre (11:17, 24).\par\smallskip
 \textbf{Ametamélēta} (\grc{ἀμεταμέλητα}): irrevocables (11:29).\par\smallskip
 \textbf{Aparchḗ} (\grc{ἀπαρχή}): primicia; \heb{רֵאשִׁית} (11:16).\par\smallskip
@@ -1379,7 +1554,7 @@ Teológica & Fidelidad de Dios; inclusión sin reemplazo; salvación futura del 
 \textbf{Leîmma} (\grc{λεῖμμα}): remanente (11:5).\par\smallskip
 \textbf{Mḕ génoito} (\grc{μὴ γένοιτο}): «¡de ningún modo!».
 \end{column}
-\begin{column}{0.49\textwidth}\tiny
+\begin{column}{0.49\textwidth}\scriptsize
 \textbf{Mystḗrion} (\grc{μυστήριον}): designio revelado (11:25).\par\smallskip
 \textbf{Parazēlóō} (\grc{παραζηλόω}): provocar a celos (11:11).\par\smallskip
 \textbf{Pâs Israḗl} (\grc{πᾶς Ἰσραήλ}): todo Israel (11:26).\par\smallskip
