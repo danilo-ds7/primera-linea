@@ -51,7 +51,9 @@
   // ---------- Estilos (usan las variables del sitio y de la app) ----------
   var css=".pd{display:grid;gap:10px;margin-top:10px;font-size:.92rem;line-height:1.55;text-align:left}"+
   ".pd-t{font:700 .72rem/1.2 var(--sans,system-ui,sans-serif);letter-spacing:.12em;text-transform:uppercase;color:var(--muted,#5b6376);margin:4px 0 0}"+
-  ".pd-chips{display:flex;flex-wrap:wrap;gap:6px}"+
+  ".pd-chips{display:flex;flex-wrap:nowrap;gap:6px;overflow-x:auto;scrollbar-width:thin;padding-bottom:4px;border-bottom:1px solid var(--line,#e2e6ee);-webkit-overflow-scrolling:touch}"+
+  ".pd-chips .pd-chip{flex:0 0 auto;white-space:nowrap}"+
+  ".pd-chip .pd-lock{font-weight:500;opacity:.7;margin-left:4px}"+
   ".pd-chip{all:unset;box-sizing:border-box;cursor:pointer;border:1px solid var(--line,#e2e6ee);background:var(--surface,#fff);color:var(--ink,#131a2c);border-radius:999px;padding:5px 12px;font:600 .82rem/1.2 var(--sans,system-ui,sans-serif)}"+
   ".pd-chip:hover,.pd-chip:focus-visible{border-color:var(--accent,#2350b8)}"+
   ".pd-chip[aria-pressed=true]{background:var(--accent,#2350b8);border-color:var(--accent,#2350b8);color:var(--accent-ink,#fff)}"+
@@ -120,21 +122,31 @@
   function render(cont, cod, opts){
     opts=opts||{}; estilos(); cont.textContent="";
     var raiz=el("div","pd"); cont.append(raiz);
-    raiz.append(el("p","pd-t","Diccionarios · "+cod));
+    raiz.append(el("p","pd-t","Diccionarios · "+cod+" · elige uno"));
     var chips=el("div","pd-chips"), box=el("div","pd-box"), fuente=el("p","pd-fuente"), pie=el("div");
     raiz.append(chips, box, fuente, pie);
     box.textContent="Cargando…";
     var tk=token(), pubs=PUBLICOS.filter(function(d){ return d.pref===cod[0]; });
+    var pB=Promise.resolve(opts.base||[]).catch(function(){ return []; });
     var pP=Promise.all(pubs.map(function(d){ return publico(d,cod).catch(function(){ return null; }); }));
     var pV=tk ? entrada(cod).then(function(E){ return {E:E}; }, function(e){ return {err:e}; }) : Promise.resolve({E:null});
-    Promise.all([pP, pV]).then(function(res){
-      var P=res[0], V=res[1], E=V.E||{}, items=[], botones=[];
+    chips.setAttribute("role","tablist"); chips.setAttribute("aria-label","Diccionarios disponibles");
+    Promise.all([pP, pV, pB]).then(function(res){
+      var P=res[0], V=res[1], B=res[2]||[], E=V.E||{}, items=[], botones=[];
+      B.forEach(function(x){ if(x && x.v) items.push({d:{id:x.id||"base", n:x.n, lang:x.lang, fuente:x.fuente, carpeta:"base"}, v:x.v}); });
       if(tk && V.E) DICS.forEach(function(d){ if(d.conc || E[d.id]) items.push({d:d, v:E[d.id]}); });
       pubs.forEach(function(d,k){ if(P[k]) items.push({d:d, v:P[k]}); });
+      // Sin clave: los diccionarios privados aparecen como pestañas con candado; al tocarlas se pide la clave.
+      if(!tk || (V.err && V.err.clave)) DICS.forEach(function(d){ items.push({d:d, bloqueado:true}); });
       function elegir(it, b){
         var d=it.d, v=it.v;
-        botones.forEach(function(x){ x.setAttribute("aria-pressed", x===b?"true":"false"); });
+        botones.forEach(function(x){ x.setAttribute("aria-pressed", x===b?"true":"false"); x.setAttribute("aria-selected", x===b?"true":"false"); });
         box.textContent=""; box.scrollTop=0; fuente.textContent=d.fuente+(d.carpeta?"":" Uso privado.");
+        if(it.bloqueado){
+          box.append(el("p",null,d.n+" tiene derechos de autor: se consulta en modo privado, con tu clave personal de GitHub guardada en este dispositivo."));
+          box.append(cajaClave(function(){ render(cont, cod, opts); }));
+          return;
+        }
         if(d.conc){
           box.textContent="Cargando…";
           concordancia(cod).then(function(c){ box.textContent=""; if(!Object.keys(c).length){ box.append(el("p",null,"La concordancia no registra este número.")); return; } concordar(box,c); })
@@ -144,15 +156,13 @@
         if(Array.isArray(v)){ v.forEach(function(a){ var art=el("div","pd-art"); art.append(el("h4",null,a[0])); texto(art,a[1],opts.onStrong,d.lang,v.length>1||a[1].length>1400); box.append(art); }); }
         else texto(box, v, opts.onStrong, d.lang, false);
       }
-      items.forEach(function(it){ var n=Array.isArray(it.v)&&it.v.length>1&&!it.d.carpeta?" ("+it.v.length+")":""; var b=el("button","pd-chip",it.d.n+n); b.type="button"; b.setAttribute("aria-pressed","false"); b.onclick=function(){ elegir(it,b); }; botones.push(b); chips.append(b); });
-      if(items.length) elegir(items[0], botones[0]); else { box.remove(); fuente.remove(); }
+      items.forEach(function(it){ var n=Array.isArray(it.v)&&it.v.length>1&&!it.d.carpeta?" ("+it.v.length+")":""; var b=el("button","pd-chip",it.d.n+n); if(it.bloqueado) b.append(el("span","pd-lock","· privado")); b.type="button"; b.setAttribute("role","tab"); b.setAttribute("aria-pressed","false"); b.onclick=function(){ elegir(it,b); }; botones.push(b); chips.append(b); });
+      var primero=items.findIndex(function(it){ return !it.bloqueado; });
+      if(primero>=0) elegir(items[primero], botones[primero]); else if(items.length) elegir(items[0], botones[0]); else { box.remove(); fuente.remove(); }
       if(!tk){
-        var aviso=el("p","pd-fuente","Strong en español, Vine, Chávez, Ortiz, Barclay, Strong-PT y la concordancia NCSE tienen derechos de autor: disponibles en modo privado.");
-        var ab=el("button","pd-btn sec","Activar modo privado"); ab.type="button";
-        ab.onclick=function(){ aviso.remove(); ab.replaceWith(cajaClave(function(){ render(cont, cod, opts); })); };
-        pie.append(aviso, ab);
+        pie.append(el("p","pd-fuente","Toca una pestaña para ver ese diccionario. Las marcadas «privado» tienen derechos de autor y se abren en modo privado."));
       } else if(V.err && V.err.clave){
-        pie.append(el("p","pd-fuente","La clave guardada no tiene acceso al repositorio privado. Guarda una nueva."), cajaClave(function(){ render(cont, cod, opts); }));
+        pie.append(el("p","pd-fuente","La clave guardada no tiene acceso al repositorio privado. Toca una pestaña «privado» para guardar una nueva."));
       } else if(V.err){
         pie.append(el("p","pd-fuente","No se pudieron leer los diccionarios privados. Revisa la conexión."));
       } else {

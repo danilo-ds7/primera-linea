@@ -175,15 +175,16 @@
       pop.style.left=x+"px"; pop.style.top=(window.scrollY+r.bottom+8)+"px"; }
     requestAnimationFrame(function(){ pop && pop.classList.add("open"); });
     var este=pop;
+    var pF=cargar(tipo,"fichas");
+    var base=pF.then(function(fx){ var f=fx[cod]; return (f&&f[3]) ? [{id:"strong", n:"Strong (inglés)", lang:"en", v:f[3], fuente:"Strong, J. (1890). A concise dictionary of the words in the Hebrew Bible / Greek Testament. Dominio público."}] : []; });
     diccionarios().then(function(D){ if(pop!==este || !D) return;
-      D.render(pop.querySelector(".cp-dic"), cod, {onStrong:function(c){ abrirStrong(a, c, [este.style.left, este.style.top]); }});
-    }).catch(function(){});
-    cargar(tipo,"fichas").then(function(fx){ if(pop!==este) return;
+      D.render(pop.querySelector(".cp-dic"), cod, {base:base, onStrong:function(c){ abrirStrong(a, c, [este.style.left, este.style.top]); }});
+    }).catch(function(){ base.then(function(b){ if(pop===este && b.length) pop.querySelector(".cp-def").textContent="Definición de Strong (inglés): "+b[0].v; }); });
+    pF.then(function(fx){ if(pop!==este) return;
       var f=fx[cod]; if(!f){ pop.querySelector(".cp-txt").textContent="No se encontró la ficha."; return; }
       var lema=pop.querySelector(".cp-lema"), sp=document.createElement("span"); sp.className=tipo==="h"?"heb":"grk"; sp.lang=tipo==="h"?"he":"grc"; sp.textContent=f[0]; lema.appendChild(sp);
       pop.querySelector(".cp-sub").textContent=f[1];
       pop.querySelector(".cp-txt").textContent=f[2]?("En la Reina-Valera 1909 se traduce: "+f[2]+"."):"";
-      pop.querySelector(".cp-def").textContent=f[3]?("Definición de Strong (inglés): "+f[3]):"";
     }).catch(function(){ if(pop===este) pop.querySelector(".cp-txt").textContent="No se pudo cargar la ficha."; });
   }
   document.addEventListener("click",function(e){
