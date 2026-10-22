@@ -1,0 +1,25 @@
+# Rama auxiliar: descarga el modelo digital de elevación Copernicus GLO-90 (ESA, 3")
+# de Mesopotamia, el Levante y Egipto, y lo deja recortado en datos-relieve/ para dibujar
+# el relieve de los mapas de las líneas de tiempo. Solo corre en la rama datos-relieve.
+name: Datos de relieve
+on:
+  push:
+    branches: [datos-relieve]
+    paths: [".github/workflows/relieve.yml", "datos-relieve/preparar.py"]
+permissions:
+  contents: write
+jobs:
+  relieve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install rasterio numpy
+      - run: python3 datos-relieve/preparar.py
+      - name: Guardar en la rama
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add datos-relieve/*.tif datos-relieve/*.txt
+          git commit -m "Relieve Copernicus GLO-90 recortado" || true
+          git push
