@@ -25,6 +25,7 @@ jobs:
           fetch-depth: 0   # para las fechas de cada estudio
 
       - name: Instalar XeLaTeX
+        timeout-minutes: 25
         run: |
           sudo apt-get update
           sudo apt-get install -y \
@@ -40,6 +41,9 @@ jobs:
 
       - name: Publicar las predicaciones (PDF y audio)
         run: python3 scripts/predicaciones.py
+
+      - name: Integrar las líneas de tiempo en sus páginas
+        run: python3 scripts/lineas.py
 
       - name: Renderizar el sitio
         run: quarto render
