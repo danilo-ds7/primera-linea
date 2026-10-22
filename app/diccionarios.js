@@ -4,8 +4,6 @@
      Strong (1890)        datos/strong-{h,g}-fichas.json  (inglés)  y  datos/strong-{h,g}-es.json  (español)
      BDB (1906)           app/lexicos/bdb/     (inglés)  y  app/lexicos/bdb-es/     (español)   números H
      Abbott-Smith (1922)  app/lexicos/abbott/  (inglés)  y  app/lexicos/abbott-es/  (español)   números G
-     Vine                 la página de Blue Letter Bible para ese número, incrustada en la pestaña (sin copiar su texto:
-                          BLB no permite descargar su contenido).
    De cada diccionario se muestran solo las definiciones. Las traducciones al español son de Primera Línea.
    Se elige un diccionario por pestaña y, en cada uno, el idioma (Español / Inglés). */
 (function(){
@@ -18,9 +16,7 @@
     {id:"bdb", n:"BDB", pref:"H", carpeta:"bdb",
       fuente:"Brown, F., Driver, S. R. y Briggs, C. A. (1906). A Hebrew and English lexicon of the Old Testament. Clarendon Press. Dominio público; edición digital: Open Scriptures Hebrew Bible Project (CC BY 4.0)."},
     {id:"abbott", n:"Abbott-Smith", pref:"G", carpeta:"abbott",
-      fuente:"Abbott-Smith, G. (1922). A manual Greek lexicon of the New Testament. Charles Scribner's Sons. Dominio público; edición digital: translatable-exegetical-tools/Abbott-Smith."},
-    {id:"vine", n:"Vine", pref:"HG", embebido:true,
-      fuente:"Vine, W. E. Vine's expository dictionary of Old and New Testament words. Se muestra tal como lo publica Blue Letter Bible (blueletterbible.org), sin copiar su texto."}
+      fuente:"Abbott-Smith, G. (1922). A manual Greek lexicon of the New Testament. Charles Scribner's Sons. Dominio público; edición digital: translatable-exegetical-tools/Abbott-Smith."}
   ];
   var mem={};
   function json(url){
@@ -31,7 +27,6 @@
   // Devuelve {en, es} para un diccionario y un número; en/es son texto o lista de artículos [lema, texto].
   function cargar(d, cod){
     var nada=function(){ return {}; };
-    if(d.embebido) return Promise.resolve({web:true});
     if(d.id==="strong"){
       var t=cod[0].toLowerCase(), raiz=BASE+"../datos/strong-"+t+"-";
       return Promise.all([json(raiz+"fichas.json").catch(nada), json(raiz+"es.json").catch(nada)])
@@ -55,8 +50,6 @@
   ".pd-box h4{font:700 .95rem/1.3 var(--sans,system-ui,sans-serif);color:var(--accent,#2350b8);margin:0 0 6px}"+
   ".pd-art+.pd-art{border-top:1px solid var(--line,#e2e6ee);margin-top:10px;padding-top:10px}"+
   ".pd-s{all:unset;cursor:pointer;color:var(--accent,#2350b8);font-weight:700;border-bottom:1px dotted currentColor}"+
-  ".pd-box.pd-web{padding:0;overflow:hidden;max-height:none}"+
-  ".pd-frame{display:block;width:100%;height:min(70vh,640px);border:0;border-radius:14px;background:#fff}"+
   ".pd-fuente{font-size:.76rem;color:var(--muted,#5b6376);margin:0}"+
   "[lang=he].pd-he,.pd-box [lang=he]{font-family:var(--heb,'Noto Serif Hebrew','SBL Hebrew',serif)}";
   function estilos(){ if(document.getElementById("pd-css")) return; var s=document.createElement("style"); s.id="pd-css"; s.textContent=css; document.head.appendChild(s); }
@@ -89,19 +82,10 @@
     var lista=DICS.filter(function(d){ return d.pref.indexOf(cod[0])>=0 && !(opts.sinStrong && d.id==="strong"); });
     Promise.all(lista.map(function(d){ return cargar(d,cod).catch(function(){ return {}; }); })).then(function(res){
       var items=[], botones=[];
-      lista.forEach(function(d,k){ var r=res[k]; if(r.web||(r.en&&r.en.length)||(r.es&&r.es.length)) items.push({d:d, en:r.en, es:r.es}); });
+      lista.forEach(function(d,k){ var r=res[k]; if((r.en&&r.en.length)||(r.es&&r.es.length)) items.push({d:d, en:r.en, es:r.es}); });
       if(!items.length){ raiz.remove(); return; }
       function elegir(it, b){
         botones.forEach(function(x){ var si=x===b?"true":"false"; x.setAttribute("aria-pressed",si); x.setAttribute("aria-selected",si); });
-        if(it.d.embebido){
-          // Vine: la página de Blue Letter Bible para este número, incrustada en la pestaña (se lee aquí mismo).
-          idioma.textContent=""; box.textContent=""; box.classList.add("pd-web");
-          var n=parseInt(cod.slice(1),10), heb=cod[0]==="H";
-          var f=el("iframe","pd-frame"); f.title="Vine · "+cod; f.loading="lazy"; f.referrerPolicy="no-referrer";
-          f.src="https://www.blueletterbible.org/lexicon/"+cod[0].toLowerCase()+n+"/kjv/"+(heb?"wlc":"tr")+"/0-1/";
-          box.append(f); fuente.textContent=it.d.fuente; return;
-        }
-        box.classList.remove("pd-web");
         var L=PLDic.idioma(); if(L==="es" && !(it.es&&it.es.length)) L="en"; if(L==="en" && !(it.en&&it.en.length)) L="es";
         idioma.textContent="";
         [["es","Español"],["en","Inglés"]].forEach(function(x){
