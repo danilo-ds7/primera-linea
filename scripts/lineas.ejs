@@ -1,0 +1,10 @@
+```{=html}
+<% if (items.length === 0) { %>
+<div class="callout callout-style-simple callout-note no-icon"><div class="callout-body d-flex"><div class="callout-body-container">Las líneas de tiempo están en preparación y se irán publicando aquí.</div></div></div>
+<% } %>
+<div class="attr-grid">
+<% for (const item of items) { %>
+<a class="attr-card" href="<%- item.path %>" <%= metadataAttrs(item) %>><span class="attr-num"><%= item.numero %></span><h3><%= item.title %></h3><% if (item.subtitle) { %><span class="attr-sub"><%= item.subtitle %></span><% } %><% if (item.description) { %><p><%= item.description %></p><% } %><span class="attr-leer">Ver la línea de tiempo →</span></a>
+<% } %>
+</div>
+```

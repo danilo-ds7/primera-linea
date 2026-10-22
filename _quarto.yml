@@ -16,6 +16,7 @@ project:
     - "israel/img/**"
     - "predicaciones/pdf/**"
     - "predicaciones/audio/**"
+    - "lineas/*/**"
   render:
     - "*.qmd"
     - "estudios/*.qmd"
@@ -23,6 +24,7 @@ project:
     - "festividades/*.qmd"
     - "israel/*.qmd"
     - "predicaciones/*.qmd"
+    - "lineas/*.qmd"
 
 website:
   title: "Primera Línea"
@@ -43,6 +45,8 @@ website:
             text: Festividades santas
           - href: pablo.qmd
             text: "Bonus: Palabras difíciles de Pablo"
+          - href: lineas.qmd
+            text: Líneas de tiempo
           - href: estudios.qmd
             text: Todos los estudios
           - href: diccionarios.qmd

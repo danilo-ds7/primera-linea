@@ -1,0 +1,22 @@
+---
+title: "Abraham, el peregrino"
+subtitle: "Peregrino y constructor de altares · 47 hitos · c. 2166–1991 a. e. c."
+description: "De Ur a Macpela: el llamado, los cuatro altares, el pacto, Moriah y la muerte de Abraham, con mapas, texto hebreo y griego, tradición judía y arqueología."
+date: 2026-10-22
+categories: [Líneas de tiempo]
+order: 1
+numero: "Línea 1"
+body-classes: serie-atributos linea-tiempo
+---
+
+«…confesando que eran extranjeros y peregrinos sobre la tierra» (Hebreos 11:13). Cuarenta y siete hitos recorren la vida de Abraham desde Ur hasta Macpela: el llamado (*lej leja*), los cuatro altares (Siquem, Betel, Mamré y Moriah), el pacto entre los pedazos, Isaac y la prueba del monte. Cada hito contrasta el texto de Génesis con la tradición judía, los comentaristas y la arqueología.
+
+```{=html}
+<p class="cta cta-bf"><a class="btn primary" href="abraham/index.html">Abrir a pantalla completa</a><a class="btn ghost" href="abraham/index.html#hito-1">Comenzar por el primer hito</a></p>
+<div class="linea-marco">
+  <iframe src="abraham/index.html" title="Línea de tiempo interactiva: Abraham, el peregrino" loading="lazy" allowfullscreen></iframe>
+</div>
+<p class="linea-nota">Avanza con las flechas o el teclado (← →), acerca las fechas con las lupas o con <kbd>+</kbd>/<kbd>−</kbd>, y toca los altares de los mapas para ver su nombre, el atributo de Dios que revela y su aplicación. Las fechas siguen la cronología bíblica «temprana» y son aproximadas.</p>
+```
+
+[← Volver a las líneas de tiempo](../lineas.qmd)

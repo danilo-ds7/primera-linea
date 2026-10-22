@@ -1,0 +1,24 @@
+---
+title: "Líneas de tiempo"
+subtitle: "Historia bíblica para recorrer con zoom, mapas y texto original"
+body-classes: serie-atributos
+listing:
+  id: lista-lineas
+  contents: lineas
+  sort: "order"
+  type: grid
+  template: scripts/lineas.ejs
+  fields: [title, subtitle, description, numero]
+  categories: false
+  sort-ui: false
+  filter-ui: false
+---
+
+Cada línea de tiempo ordena un tema bíblico hito por hito: se avanza con las flechas o el teclado, se acercan y alejan las fechas con las lupas, y cada hito abre el texto hebreo o griego con traducción propia, los lugares en un mapa y las fuentes en formato APA.
+
+Se pueden ver aquí, dentro del sitio, o abrir a pantalla completa en el celular o en la sala de clases.
+
+::: {#lista-lineas}
+:::
+
+[← Volver a las líneas de estudio](index.qmd#estudios)
