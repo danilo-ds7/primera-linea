@@ -45,6 +45,8 @@ website:
             text: "Bonus: Palabras difíciles de Pablo"
           - href: estudios.qmd
             text: Todos los estudios
+          - href: diccionarios.qmd
+            text: Diccionarios bíblicos
       - href: metodologia.qmd
         text: Metodología
       - href: videos.qmd

@@ -1,0 +1,82 @@
+---
+title: "Diccionarios bíblicos"
+subtitle: "Busca un tema y lee el artículo de cada diccionario, en español o en el inglés original."
+---
+
+```{=html}
+<div class="dt">
+  <label class="dt-buscar">
+    <span class="visually-hidden">Buscar un tema</span>
+    <input id="dt-q" type="search" placeholder="Busca un tema: Pascua, templo, Jericó, misericordia…" autocomplete="off">
+  </label>
+  <p class="dt-nota" id="dt-estado">Cargando el índice…</p>
+  <div class="dt-res" id="dt-res" role="list"></div>
+  <article class="dt-art" id="dt-art" hidden>
+    <div class="dt-cab">
+      <button type="button" class="dt-volver" id="dt-volver">← Resultados</button>
+      <div class="dt-lang" id="dt-lang"></div>
+    </div>
+    <div class="dt-tabs" id="dt-tabs" role="tablist" aria-label="Diccionarios"></div>
+    <h2 id="dt-tit"></h2>
+    <div id="dt-txt"></div>
+    <p class="dt-fuente" id="dt-fuente"></p>
+  </article>
+  <p class="dt-nota">Diccionarios de dominio público (Easton, Smith, Fausset, Hastings, Hawker, Nave, Torrey y el significado de los nombres de Hitchcock), traducidos al español por Primera Línea. Solo aparecen los artículos ya traducidos; se irán sumando más.</p>
+</div>
+<style>
+.dt{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;margin-top:8px}.dt>*,.dt-art>*{min-width:0}
+.dt-buscar input{width:100%;box-sizing:border-box;border:1px solid var(--line,#e2e6ee);border-radius:14px;padding:13px 16px;font:500 1rem var(--sans,inherit);background:var(--surface,#fff)}
+.dt-buscar input:focus{outline:2px solid var(--accent,#2350b8);outline-offset:1px}
+.dt-nota,.dt-fuente{font-size:.85rem;color:var(--muted,#5b6376);margin:0}
+.dt-res{display:grid;gap:8px}
+.dt-item{all:unset;box-sizing:border-box;cursor:pointer;display:flex;justify-content:space-between;gap:10px;align-items:baseline;border:1px solid var(--line,#e2e6ee);border-radius:12px;padding:10px 14px;background:var(--surface,#fff)}
+.dt-item:hover,.dt-item:focus-visible{border-color:var(--accent,#2350b8)}
+.dt-item b{font-weight:700;min-width:0}.dt-item small{min-width:0;color:var(--muted,#5b6376);font-size:.8rem;text-align:right}
+.dt-art{border:1px solid var(--line,#e2e6ee);border-radius:16px;padding:16px;background:var(--surface,#fff)}
+.dt-cab{min-width:0;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.dt-volver{all:unset;cursor:pointer;color:var(--accent,#2350b8);font-weight:700;font-size:.9rem}
+.dt-tabs,.dt-lang{min-width:0;max-width:100%;display:flex;gap:6px;overflow-x:auto;padding:8px 0}
+.dt-tabs button,.dt-lang button{all:unset;cursor:pointer;flex:0 0 auto;white-space:nowrap;border:1px solid var(--line,#e2e6ee);border-radius:999px;padding:5px 12px;font:600 .82rem var(--sans,inherit)}
+.dt-tabs button[aria-pressed=true],.dt-lang button[aria-pressed=true]{background:var(--accent,#2350b8);border-color:var(--accent,#2350b8);color:#fff}
+.dt-art h2{margin:.4rem 0 .6rem;font-size:1.4rem}
+#dt-txt p{text-align:left;overflow-wrap:anywhere}
+</style>
+<script>
+(function(){
+  var BASE="app/temas/", LS="pl-dic-lang", I=null, mem={};
+  function json(u){ if(!mem[u]) mem[u]=fetch(u).then(function(r){ if(!r.ok) throw 0; return r.json(); }); return mem[u]; }
+  function lang(v){ try{ if(v) localStorage.setItem(LS,v); return localStorage.getItem(LS)||"es"; }catch(e){ return v||"es"; } }
+  function norm(s){ return String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,""); }
+  var q=document.getElementById("dt-q"), res=document.getElementById("dt-res"), est=document.getElementById("dt-estado"), art=document.getElementById("dt-art");
+  function buscar(){
+    var t=norm(q.value.trim()); res.textContent=""; art.hidden=true; res.hidden=false;
+    if(!I) return; if(t.length<2){ est.textContent=I.indice.length+" artículos traducidos. Escribe al menos dos letras."; return; }
+    var grupos={};
+    I.indice.forEach(function(x){ var es=norm(x[2]), en=norm(x[1]); if(es.indexOf(t)>=0||en.indexOf(t)>=0){ var k=x[2].toUpperCase(); (grupos[k]=grupos[k]||[]).push(x); } });
+    var ks=Object.keys(grupos).sort(function(a,b){ var A=norm(a).indexOf(t)===0, B=norm(b).indexOf(t)===0; return (B-A)||a.localeCompare(b,"es"); }).slice(0,60);
+    est.textContent=ks.length?(ks.length+" temas encontrados."):"No hay artículos traducidos con ese tema todavía.";
+    ks.forEach(function(k){ var g=grupos[k], b=document.createElement("button"); b.type="button"; b.className="dt-item"; b.setAttribute("role","listitem");
+      var n=document.createElement("b"); n.textContent=g[0][2]; var s=document.createElement("small"); s.textContent=g.map(function(x){ return I.nombres[x[0]]; }).join(" · ");
+      b.append(n,s); b.onclick=function(){ abrir(g,0); }; res.append(b); });
+  }
+  function abrir(g,i){
+    res.hidden=true; art.hidden=false; est.textContent="";
+    var tabs=document.getElementById("dt-tabs"); tabs.textContent="";
+    g.forEach(function(x,j){ var b=document.createElement("button"); b.type="button"; b.textContent=I.nombres[x[0]]; b.setAttribute("aria-pressed", j===i?"true":"false"); b.onclick=function(){ abrir(g,j); }; tabs.append(b); });
+    var x=g[i], d=x[0], tp=x[1];
+    Promise.all([json(BASE+d+".json"), json(BASE+d+"-es.json")]).then(function(r){
+      var L=lang(), en=r[0][tp], es=r[1][tp], ld=document.getElementById("dt-lang"); ld.textContent="";
+      [["es","Español"],["en","Inglés"]].forEach(function(o){ var b=document.createElement("button"); b.type="button"; b.textContent=o[1]; b.setAttribute("aria-pressed", o[0]===L?"true":"false"); b.onclick=function(){ lang(o[0]); abrir(g,i); }; ld.append(b); });
+      document.getElementById("dt-tit").textContent=L==="es"?es.t:tp;
+      var box=document.getElementById("dt-txt"); box.textContent="";
+      (L==="es"?es.p:en).forEach(function(p){ var e=document.createElement("p"); e.lang=L; e.textContent=p; box.append(e); });
+      document.getElementById("dt-fuente").textContent=I.fuentes[d]+(L==="es"?" Traducción al español: Primera Línea.":"");
+      art.scrollIntoView({block:"start"});
+    });
+  }
+  document.getElementById("dt-volver").onclick=function(){ art.hidden=true; res.hidden=false; buscar(); };
+  q.addEventListener("input", buscar);
+  json(BASE+"indice.json").then(function(j){ I=j; var h=decodeURIComponent((location.hash||"").slice(1)); if(h){ q.value=h; } buscar(); }).catch(function(){ est.textContent="No se pudo cargar el índice."; });
+})();
+</script>
+```

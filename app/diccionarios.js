@@ -77,6 +77,17 @@
   /* Pinta la sección «Diccionarios» para un número Strong (H2617, G26) dentro de «cont».
      opts.onStrong(cod): qué hacer al tocar otro número dentro de un diccionario.
      opts.sinStrong: no repetir la pestaña Strong (cuando la página ya muestra esa definición). */
+  // Diccionarios temáticos (Easton, Smith, Fausset, Hastings, Hawker, Nave, Torrey): artículos traducidos enlazados a un número Strong.
+  function temaArt(d, tp){
+    return Promise.all([json(BASE+"temas/"+d+".json"), json(BASE+"temas/"+d+"-es.json"), json(BASE+"temas/indice.json")]).then(function(r){
+      var en=r[0][tp], es=r[1][tp], I=r[2]; if(!en||!es) return null;
+      return {d:{id:"tema-"+d+"-"+tp, n:I.nombres[d]+": "+es.t, fuente:I.fuentes[d], tema:true}, en:[[tp, en.join("\n")]], es:[[es.t, es.p.join("\n")]]};
+    });
+  }
+  function temas(cod){
+    return json(BASE+"temas/strong.json").then(function(m){ var l=m[cod]||[]; return Promise.all(l.map(function(x){ return temaArt(x[0],x[1]).catch(function(){ return null; }); })); })
+      .then(function(l){ return l.filter(Boolean); });
+  }
   function render(cont, cod, opts){
     opts=opts||{}; estilos(); cont.textContent="";
     var raiz=el("div","pd"); cont.append(raiz);
@@ -86,9 +97,10 @@
     raiz.append(chips, idioma, box, fuente);
     box.textContent="Cargando…";
     var lista=DICS.filter(function(d){ return d.pref.indexOf(cod[0])>=0 && !(opts.sinStrong && d.id==="strong"); });
-    Promise.all(lista.map(function(d){ return cargar(d,cod).catch(function(){ return {}; }); })).then(function(res){
-      var items=[], botones=[];
+    Promise.all([Promise.all(lista.map(function(d){ return cargar(d,cod).catch(function(){ return {}; }); })), temas(cod).catch(function(){ return []; })]).then(function(rr){
+      var res=rr[0], items=[], botones=[];
       lista.forEach(function(d,k){ var r=res[k]; if((r.en&&r.en.length)||(r.es&&r.es.length)) items.push({d:d, en:r.en, es:r.es}); });
+      rr[1].forEach(function(t){ items.push(t); });
       if(!items.length){ raiz.remove(); return; }
       function elegir(it, b){
         botones.forEach(function(x){ var si=x===b?"true":"false"; x.setAttribute("aria-pressed",si); x.setAttribute("aria-selected",si); });
@@ -114,5 +126,5 @@
   }
   function idioma(v){ try{ if(v) localStorage.setItem("pl-dic-lang",v); return localStorage.getItem("pl-dic-lang")||"es"; }catch(e){ return v||"es"; } }
 
-  window.PLDic={render:render, idioma:idioma, lista:DICS};
+  window.PLDic={render:render, idioma:idioma, lista:DICS, temaArt:temaArt, texto:texto};
 })();
