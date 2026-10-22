@@ -5,24 +5,29 @@
 \usetikzlibrary{arrows.meta,positioning,calc,shapes.geometric,decorations.pathreplacing,matrix}
 \graphicspath{{crops/}}
 \usetheme{Goettingen}
-% --- Paleta "Israel": café ladrillo (ladrillos de Egipto, Éx 1:14), oro del santuario, piedra de Jerusalén ---
-\definecolor{cafe}{RGB}{96,52,30}
-\definecolor{cafeosc}{RGB}{50,25,13}
-\definecolor{tinta}{RGB}{44,28,18}
-\definecolor{oro}{RGB}{196,148,40}
-\definecolor{ladrillo}{RGB}{158,70,40}
-\definecolor{piedra}{RGB}{240,228,203}
-\definecolor{sepia}{RGB}{104,86,62}
+% --- Paleta "Israel": celeste y azul del tejelet (Nm 15:38), oro del santuario, fondo crema ---
+% (los nombres de color se conservan por compatibilidad con los cuerpos de las láminas: «ladrillo» = azul tejelet,
+%  «cafe» = azul real, «cafeosc» = azul noche, «piedra» = celeste claro, «sepia» = azul pizarra)
+\definecolor{cafe}{RGB}{26,82,150}
+\definecolor{cafeosc}{RGB}{11,33,74}
+\definecolor{tinta}{RGB}{20,32,56}
+\definecolor{oro}{RGB}{206,162,52}
+\definecolor{ladrillo}{RGB}{20,68,140}
+\definecolor{piedra}{RGB}{234,243,251}
+\definecolor{sepia}{RGB}{72,102,140}
+\definecolor{celeste}{RGB}{96,166,222}
 \setbeamercolor{structure}{fg=ladrillo}
-\setbeamertemplate{sidebar canvas right}[vertical shading][top=ladrillo!92!black,bottom=cafeosc]
-\setbeamercolor{title in sidebar}{fg=oro}
+\setbeamertemplate{sidebar canvas right}[vertical shading][top=celeste!75!ladrillo,middle=ladrillo,bottom=cafeosc]
+\setbeamercolor{title in sidebar}{fg=oro!80!white}
 \setbeamercolor{author in sidebar}{fg=piedra}
-\setbeamercolor{section in sidebar}{fg=piedra}
-\setbeamercolor{section in sidebar shaded}{fg=oro!60!piedra!70!cafe}
-\setbeamercolor{subsection in sidebar}{fg=piedra}
-\setbeamercolor{subsection in sidebar shaded}{fg=oro!60!piedra!70!cafe}
+\setbeamercolor{section in sidebar}{fg=white}
+\setbeamercolor{section in sidebar shaded}{fg=celeste!45!white}
+\setbeamercolor{subsection in sidebar}{fg=white}
+\setbeamercolor{subsection in sidebar shaded}{fg=celeste!45!white}
 \let\raggedright\justifying
-\setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth,height=\paperheight]{piedra.jpg}}
+\definecolor{crema}{RGB}{250,245,230}
+\setbeamertemplate{background canvas}[default]
+\setbeamercolor{background canvas}{bg=crema}
 \setbeamercolor{normal text}{fg=tinta}
 \setbeamercolor{frametitle}{fg=ladrillo}
 \setbeamerfont{frametitle}{series=\bfseries}
@@ -45,7 +50,7 @@
 \newcommand{\grc}[1]{\foreignlanguage{ancientgreek}{#1}}
 % --- Citas, imágenes, referencias ---
 \usepackage[most]{tcolorbox}
-\newtcolorbox{cita}[1][]{enhanced, colback=piedra!92!white, colframe=ladrillo!85!oro,
+\newtcolorbox{cita}[1][]{enhanced, colback=piedra!92!white, colframe=oro!90!ladrillo,
   boxrule=0pt, leftrule=2.5pt, arc=0pt, left=6pt, right=6pt, top=4pt, bottom=4pt,
   before skip=4pt, after skip=6pt, fontupper=\small\itshape, #1}
 \newcommand{\fuente}[1]{\par\hfill{\upshape\bfseries\footnotesize\textcolor{ladrillo}{#1}}}
