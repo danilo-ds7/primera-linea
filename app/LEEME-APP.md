@@ -75,13 +75,14 @@ En «Comparación filológica», para los versículos del Antiguo Testamento, la
 
 El botón «Strong» de la comparación muestra u oculta el número Strong bajo cada palabra del original. Al tocar una palabra, la ficha muestra además su origen (raíz primitiva, deriva de…, compuesta de…), la cadena hasta la raíz, la familia de palabras de esa raíz y la definición de Strong. Cada raíz y cada palabra de la familia se puede tocar para ver su propia ficha. La definición de Strong está en inglés (las ediciones de dominio público son en inglés); dentro de Claude se puede traducir con la guía.
 
-## Diccionarios por número Strong (modo privado)
+## Diccionarios por número Strong (públicos, sin modo privado)
 
-En la ficha de cada palabra (Comparación filológica) y en las palabras clave de la Lectura filológica aparece la sección «Diccionarios», con los diccionarios de la biblioteca enlazados por número Strong: Strong en español, Vine (AT y NT, cada artículo con su número), Chávez (hebreo), Ortiz CGE (griego, enlazado por el lema), Barclay (griego), BDB y Thayer en portugués (Strong-PT) y la concordancia NCSE (cómo traduce la RV1960 cada número, con sus pasajes). Los números Strong dentro de un diccionario se pueden tocar para abrir su ficha.
+En la ficha de cada palabra (Comparación filológica), en las palabras clave de la Lectura filológica y en la ventana Strong del sitio aparece la sección «Diccionarios»: una pestaña por diccionario y, en cada una, el idioma (Español / Inglés). Solo se muestran las definiciones. Los números Strong dentro de un diccionario se pueden tocar.
 
-Todos tienen derechos de autor: se leen en modo privado con la misma clave de GitHub de los comentarios privados (se guarda solo en el dispositivo) desde la rama `app-privado` del repositorio privado (`app-privado/lexicos/` y `app-privado/concordancia/`). Lo leído queda guardado en el celular para usarlo sin conexión. Los datos se generan con `herramientas/lexicos_privados.py` del repositorio privado. El código compartido está en `diccionarios.js`, que también usan las páginas del sitio: en los estudios, cada número Strong (escrito en el texto o junto a una palabra hebrea o griega) abre la misma ficha con los diccionarios.
+Todos son de dominio público y se ven sin clave:
+- Strong (1890): `../datos/strong-{h,g}-fichas.json` (inglés) y `../datos/strong-{h,g}-es.json` (traducción propia al español).
+- BDB (Brown, Driver y Briggs, 1906), hebreo y arameo: `lexicos/bdb/` (inglés, solo los elementos `<def>`, por tronco y acepción) y `lexicos/bdb-es/` (traducción propia).
+- Abbott-Smith (1922), griego del NT: `lexicos/abbott/` (inglés, solo los elementos `<gloss>`, por acepción) y `lexicos/abbott-es/` (traducción propia).
 
-### Léxicos de dominio público (para todos, sin clave)
-
-Junto a los diccionarios privados, la sección «Diccionarios» muestra a cualquier usuario dos léxicos de dominio público, en inglés, por número Strong: BDB (Brown, Driver y Briggs, 1906) para el hebreo y arameo, y Abbott-Smith (1922) para el griego del NT. Están en `lexicos/bdb/` y `lexicos/abbott/` (bloques de 250 números) y funcionan sin conexión. Se generan con `scripts/lexicos_publicos.py` a partir de openscriptures/HebrewLexicon (BDB; marcado CC BY 4.0, Open Scriptures Hebrew Bible Project) y translatable-exegetical-tools/Abbott-Smith. El BDB digital de Open Scriptures trae, en muchas entradas, solo el esquema de acepciones, no el artículo completo.
+El inglés se genera con `scripts/lexicos_publicos.py` desde openscriptures/HebrewLexicon (CC BY 4.0) y translatable-exegetical-tools/Abbott-Smith; el script avisa si falta la traducción de algún número. Los diccionarios con derechos de autor (Strong en español de Caribe, Vine en español, Chávez, Ortiz, Barclay, Strong-PT, NCSE) ya no se muestran. El Vine en inglés (NT, 1940, dominio público) se agregará cuando haya una fuente digital.
 
