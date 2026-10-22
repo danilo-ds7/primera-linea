@@ -53,5 +53,6 @@ mapas o los datos de la línea, y subir los SVG resultantes.
 ## Publicación
 
 Cada cambio que llega a GitHub se publica solo (`.github/workflows/publicar.yml`) en
-https://danilo-ds7.github.io/primera-linea/. Para usar un dominio propio (.cl o .com), se configura en
-Settings → Pages → Custom domain y en los DNS del proveedor del dominio.
+https://primera-linea.cl (dominio propio, inscrito en NIC Chile; DNS en Cloudflare con registros A a
+GitHub Pages y `www` → danilo-ds7.github.io, sin proxy; Settings → Pages → Custom domain = primera-linea.cl).
+La dirección antigua https://danilo-ds7.github.io/primera-linea/ redirige al dominio.

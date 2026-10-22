@@ -4,7 +4,7 @@
 - Nada queda solo en la vista previa o en un ZIP: lo que no está en `main` no existe para el público ni para el celular. La entrega es el push.
 - Antes del push: `git fetch` + `rebase` sobre `origin/main`, conservando los cambios de otras conversaciones.
 - En cada cambio de la app, subir la versión de caché en `app/sw.js` (`lector-vN` → `lector-vN+1`). No quitar `cache: "no-cache"` ni `updateViaCache: "none"`.
-- La entrega termina cuando la Action "Publicar sitio" está en verde y el cambio se ve en https://danilo-ds7.github.io/primera-linea/ y en la app (`/app/`), también a 390 px.
+- La entrega termina cuando la Action "Publicar sitio" está en verde y el cambio se ve en https://primera-linea.cl/ y en la app (`/app/`), también a 390 px.
 - Si los léxicos de la app cambian, volver a correr `python3 scripts/raices.py` (raíces BDB).
 
 Detalle completo: documento "REGLA - Publicacion automatica" del proyecto de Claude.

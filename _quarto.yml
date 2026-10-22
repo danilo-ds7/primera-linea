@@ -30,7 +30,7 @@ project:
 
 website:
   title: "Primera Línea"
-  site-url: "https://danilo-ds7.github.io/primera-linea"
+  site-url: "https://primera-linea.cl"
   navbar:
     left:
       - href: predicaciones.qmd
