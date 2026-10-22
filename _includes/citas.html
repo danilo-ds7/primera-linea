@@ -21,6 +21,7 @@
 .cita-pop .cp-def { margin: 6px 0 0; font-size: .86rem; color: var(--muted, #5b6478); text-align: justify; hyphens: auto; }
 .cita-pop.cp-strong { width: min(460px, calc(100vw - 24px)); }
 .cita-pop .cp-dic:empty { display: none; }
+.cita-pop .cp-txt:empty { display: none; }
 .strong-txt { white-space: nowrap; }
 </style>
 <script>
@@ -166,7 +167,7 @@
     var tipo=codOtro ? (codOtro[0]==="H"?"h":"g") : a.dataset.t, cod=codOtro || a.dataset.s;
     cerrar(); actual=a;
     pop=document.createElement("div"); pop.className="cita-pop cp-strong"; pop.setAttribute("role","dialog");
-    pop.innerHTML='<button type="button" class="cp-x" aria-label="Cerrar">&times;</button><span class="cp-ref"></span><p class="cp-lema"></p><span class="cp-sub"></span><p class="cp-txt">Cargando…</p><p class="cp-def"></p><div class="cp-dic"></div><div class="cp-pie"><span>Concordancia de Strong</span><span></span></div>';
+    pop.innerHTML='<button type="button" class="cp-x" aria-label="Cerrar">&times;</button><span class="cp-ref"></span><p class="cp-lema"></p><span class="cp-sub"></span><p class="cp-txt">Cargando…</p><div class="cp-dic"></div>';
     pop.querySelector(".cp-ref").textContent="Strong "+cod+(tipo==="h"?" · hebreo":" · griego");
     pop.querySelector(".cp-x").addEventListener("click",cerrar);
     pop.addEventListener("click",function(e){ e.stopPropagation(); });
@@ -177,16 +178,15 @@
     requestAnimationFrame(function(){ pop && pop.classList.add("open"); });
     var este=pop;
     var pF=cargar(tipo,"fichas");
-    var pE=cargar(tipo,"es").catch(function(){ return {}; });
-    var base=Promise.all([pF,pE]).then(function(r){ var f=r[0][cod], es=r[1][cod]; return (f&&f[3]) ? [{id:"strong", n:"Strong", lang:"en", v:f[3], v_es:es||"", fuente:"Strong, J. (1890). A concise dictionary of the words in the Hebrew Bible / Greek Testament. Dominio público.", fuente_es:"Strong, J. (1890). A concise dictionary of the words in the Hebrew Bible / Greek Testament. Dominio público. Traducción al español: Primera Línea."}] : []; });
+    /* Pestañas de diccionarios (Strong, BDB / Abbott-Smith), en español o inglés: solo definiciones. */
     diccionarios().then(function(D){ if(pop!==este || !D) return;
-      D.render(pop.querySelector(".cp-dic"), cod, {base:base, onStrong:function(c){ abrirStrong(a, c, [este.style.left, este.style.top]); }});
-    }).catch(function(){ base.then(function(b){ if(pop===este && b.length) pop.querySelector(".cp-def").textContent="Definición de Strong (inglés): "+b[0].v; }); });
+      D.render(pop.querySelector(".cp-dic"), cod, {onStrong:function(c){ abrirStrong(a, c, [este.style.left, este.style.top]); }});
+    }).catch(function(){ cargar(tipo,"es").then(function(es){ if(pop===este && es[cod]) pop.querySelector(".cp-txt").textContent="Significado: "+es[cod]; }).catch(function(){}); });
     pF.then(function(fx){ if(pop!==este) return;
       var f=fx[cod]; if(!f){ pop.querySelector(".cp-txt").textContent="No se encontró la ficha."; return; }
       var lema=pop.querySelector(".cp-lema"), sp=document.createElement("span"); sp.className=tipo==="h"?"heb":"grk"; sp.lang=tipo==="h"?"he":"grc"; sp.textContent=f[0]; lema.appendChild(sp);
       pop.querySelector(".cp-sub").textContent=f[1];
-      pop.querySelector(".cp-txt").textContent=f[2]?("En la Reina-Valera 1909 se traduce: "+f[2]+"."):"";
+      var t=pop.querySelector(".cp-txt"); if(t.textContent==="Cargando…") t.textContent="";
     }).catch(function(){ if(pop===este) pop.querySelector(".cp-txt").textContent="No se pudo cargar la ficha."; });
   }
   document.addEventListener("click",function(e){
