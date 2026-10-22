@@ -1,0 +1,1 @@
+Copernicus DEM GLO-90 (ESA, 2021), © DLR e.V. 2010-2014 y © Airbus Defence and Space GmbH 2014-2018, provisto bajo licencia COPERNICUS por la Unión Europea y la ESA. Descargado de AWS Open Data.
