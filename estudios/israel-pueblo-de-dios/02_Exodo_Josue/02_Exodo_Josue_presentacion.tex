@@ -96,6 +96,7 @@
   rounded corners=4pt,inner sep=5pt,font=\scriptsize,
   drop shadow={shadow xshift=0.7pt,shadow yshift=-0.8pt,opacity=0.25,fill=cafeosc}},
   >={Stealth[length=2.4mm,width=1.8mm]}, every picture/.style={line cap=round,line join=round}}
+\tikzset{invisible/.style={opacity=0,text opacity=0},visible on/.style={alt={#1{}{invisible}}},alt/.code args={<#1>#2#3}{\alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}}}}
 \newcommand{\precision}[1]{{\footnotesize\color{sepia}\textbf{Precisión:} #1}}
 \newcommand{\pt}[2]{({#1-30},{#2-29})}
 \title[Israel 2: Éxodo--Josué]{\bfseries{Israel, el pueblo de Dios}}
@@ -119,11 +120,11 @@
 \centering
 \begin{tikzpicture}[node distance=0.32cm]
 \node[bloqueazul,text width=4.6cm] (a) {Redención antes de la ley\\{\tiny\mdseries Éx 20:2}};
-\node[bloque,text width=4.6cm,below=of a] (b) {\textbf{Pacto} en el Sinaí: vocación sacerdotal\\{\tiny Éx 19:4--6}};
-\node[bloque,text width=4.6cm,below=of b] (c) {\textbf{Presencia}: Dios en medio del pueblo\\{\tiny Éx 25:8}};
-\node[bloque,text width=4.6cm,below=of c] (d) {\textbf{Testimonio}: la Torá como sabiduría ante los pueblos\\{\tiny Dt 4:6}};
-\node[bloqueoro,text width=4.6cm,below=0.45cm of d] (e) {\textbf{Ruptura y promesa}: la etapa que rompe el pacto guarda los textos de restauración más claros de la Torá\\{\tiny Éx 34:6--7; Dt 4:25--31; 30:1--10}};
-\foreach \u/\v in {a/b,b/c,c/d,d/e}{\draw[flecha] (\u) -- (\v);}
+\begin{scope}[visible on=<2->]\node[bloque,text width=4.6cm,below=of a] (b) {\textbf{Pacto} en el Sinaí: vocación sacerdotal\\{\tiny Éx 19:4--6}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloque,text width=4.6cm,below=of b] (c) {\textbf{Presencia}: Dios en medio del pueblo\\{\tiny Éx 25:8}};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloque,text width=4.6cm,below=of c] (d) {\textbf{Testimonio}: la Torá como sabiduría ante los pueblos\\{\tiny Dt 4:6}};\end{scope}
+\begin{scope}[visible on=<5->]\node[bloqueoro,text width=4.6cm,below=0.45cm of d] (e) {\textbf{Ruptura y promesa}: la etapa que rompe el pacto guarda los textos de restauración más claros de la Torá\\{\tiny Éx 34:6--7; Dt 4:25--31; 30:1--10}};\end{scope}
+\begin{scope}[visible on=<5->]\foreach \u/\v in {a/b,b/c,c/d,d/e}{\draw[flecha] (\u) -- (\v);}\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -133,14 +134,14 @@
 \begin{frame}{Los ejes de la serie en esta etapa}
 \centering
 \begin{tikzpicture}
- \foreach \x/\n/\t/\d/\r in {0/1/{Nación santa}/{¿Qué significa la fórmula del Sinaí y cómo se vivió, se quebró y se preservó?}/{Éx 19:4--6; 25:8; Nm 3:12; Dt 4:5--8; Jos 24},
+ \foreach \x/\n/\t/\d/\r [count=\ovc,evaluate=\ovc as \ovk using int(\ovc+0)] in {0/1/{Nación santa}/{¿Qué significa la fórmula del Sinaí y cómo se vivió, se quebró y se preservó?}/{Éx 19:4--6; 25:8; Nm 3:12; Dt 4:5--8; Jos 24},
    4.25/2/{Restauración}/{¿Qué hace Dios cuando Israel rompe el pacto recién hecho, y qué anuncia?}/{Éx 32--34; Nm 14; Dt 4:25--31; 30:1--10; 32},
-   8.5/3/{Proyección}/{¿Cómo releen los profetas y Pablo el Éxodo, el desierto y Deuteronomio?}/{Is 63; Jer 31:31--34; Os 2:15; Ro 10--11}}{
+   8.5/3/{Proyección}/{¿Cómo releen los profetas y Pablo el Éxodo, el desierto y Deuteronomio?}/{Is 63; Jer 31:31--34; Os 2:15; Ro 10--11}}{\begin{scope}[visible on=<\ovk->]
   \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][3.3cm][t]{3.5cm}{\RaggedRight
     {\small\textbf{\textcolor{ladrillo}{\t}}}\\[5pt]\small \d\par\vfill{\scriptsize\color{sepia}(\r)}}};
-  \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
- \draw[flecha] (b1.east) -- (b2.west);
- \draw[flecha] (b2.east) -- (b3.west);
+  \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};\end{scope}}
+ \begin{scope}[visible on=<3->]\draw[flecha] (b1.east) -- (b2.west);\end{scope}
+ \begin{scope}[visible on=<3->]\draw[flecha] (b2.east) -- (b3.west);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{6pt}
@@ -155,19 +156,19 @@ Traducción propia desde el texto hebreo (BHS) y griego (NA28); la LXX según Ra
 \centering
 \begin{tikzpicture}[x=0.78cm]
 \draw[line width=1.6pt,cafe,-{Latex[length=3mm]}] (0,0) -- (15.7,0);
-\foreach \x/\t/\b in {0.6/{Pascua y paso del mar}/{Éx 12--15},
+\foreach \x/\t/\b [count=\ovc,evaluate=\ovc as \ovk using int(\ovc+0)] in {0.6/{Pascua y paso del mar}/{Éx 12--15},
                       2.7/{Sinaí: pacto y ley}/{Éx 19--24},
                       4.8/{Becerro y tabernáculo}/{Éx 32--40},
                       6.9/{Cades: los espías}/{Nm 13--14},
                       9.0/{Moab: Balaam, Baal-peor}/{Nm 22--25},
                       11.1/{Deuteronomio; muerte de Moisés}/{Dt 1:3; 34},
                       13.2/{Jordán, Jericó, Hai}/{Jos 3--8},
-                      15.1/{Siquem; muerte de Josué}/{Jos 24}}{
+                      15.1/{Siquem; muerte de Josué}/{Jos 24}}{\begin{scope}[visible on=<\ovk->]
   \fill[oro] (\x,0) circle (4pt);
   \node[above,font=\scriptsize\bfseries,text=ladrillo,text width=1.6cm,align=center] at (\x,0.2) {\t};
-  \node[below,font=\tiny,text=sepia,text width=1.6cm,align=center] at (\x,-0.2) {\b};}
-\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (0.4,-0.9) -- (11.3,-0.9) node[midway,below=5pt,font=\scriptsize\itshape]{Cuarenta años: del mar al Jordán (Nm 14:33--34)};
-\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (12.9,-0.9) -- (15.3,-0.9) node[midway,below=5pt,font=\scriptsize\itshape]{La tierra};
+  \node[below,font=\tiny,text=sepia,text width=1.6cm,align=center] at (\x,-0.2) {\b};\end{scope}}
+\begin{scope}[visible on=<8->]\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (0.4,-0.9) -- (11.3,-0.9) node[midway,below=5pt,font=\scriptsize\itshape]{Cuarenta años: del mar al Jordán (Nm 14:33--34)};\end{scope}
+\begin{scope}[visible on=<8->]\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (12.9,-0.9) -- (15.3,-0.9) node[midway,below=5pt,font=\scriptsize\itshape]{La tierra};\end{scope}
 \end{tikzpicture}
 \notafig{Elaboración propia. Secuencia narrativa; las fechas absolutas están en debate.}
 \vspace{8pt}
@@ -191,12 +192,12 @@ Traducción propia desde el texto hebreo (BHS) y griego (NA28); la LXX según Ra
 \draw[line width=1.4pt,cafe,-{Latex[length=2.5mm]}] (8.6,0) -- (12.0,0);
 \node[font=\scriptsize\itshape,text=sepia] at (7.5,0.3) {38 años};
 \node[font=\tiny,text=sepia] at (7.5,-0.3) {Dt 2:14};
-\foreach \x/\t/\b/\up in {0.5/{Salida de Egipto}/{día 15, mes 1\\Nm 33:3}/1,
+\foreach \x/\t/\b/\up [count=\ovc,evaluate=\ovc as \ovk using int(\ovc+0)] in {0.5/{Salida de Egipto}/{día 15, mes 1\\Nm 33:3}/1,
   2.3/{Llegada al Sinaí}/{«al tercer mes»\\Éx 19:1}/0,
   4.1/{Tabernáculo}/{día 1, mes 1, año 2\\Éx 40:17}/1,
   5.8/{Cades}/{«un año por cada día»\\Nm 14:34}/0,
   9.3/{Deuteronomio}/{mes 11, año 40\\Dt 1:3}/1,
-  11.1/{Cruce del Jordán}/{día 10, mes 1\\Jos 4:19}/0}{
+  11.1/{Cruce del Jordán}/{día 10, mes 1\\Jos 4:19}/0}{\begin{scope}[visible on=<\ovk->]
   \node[hito] at (\x,0) {};
   \ifnum\up=1
     \node[above=4pt,font=\footnotesize\bfseries,text=ladrillo,align=center] at (\x,0) {\t};
@@ -204,7 +205,7 @@ Traducción propia desde el texto hebreo (BHS) y griego (NA28); la LXX según Ra
   \else
     \node[below=4pt,font=\footnotesize\bfseries,text=ladrillo,align=center] at (\x,0) {\t};
     \node[below=24pt,font=\scriptsize,text=sepia,align=center] at (\x,0) {\b};
-  \fi}
+  \fi\end{scope}}
 \end{tikzpicture}
 \elabpropia
 \vspace{12pt}
@@ -226,18 +227,18 @@ Traducción propia desde el texto hebreo (BHS) y griego (NA28); la LXX según Ra
 % temprana
 \node[bloqueazul,anchor=west,font=\tiny\bfseries] at (0,1.25) {Datación temprana};
 \draw[line width=3pt,ladrillo!70] (154,0.75) -- (194,0.75);
-\node[hito] at (154,0.75) {}; \node[hito] at (194,0.75) {};
-\node[etiq,above] at (154,0.85) {Éxodo\\c. 1446};
-\node[etiq,above] at (200,0.85) {Entrada\\c. 1406};
+\begin{scope}[visible on=<2->]\node[hito] at (154,0.75) {};\end{scope} \begin{scope}[visible on=<2->]\node[hito] at (194,0.75) {};\end{scope}
+\begin{scope}[visible on=<3->]\node[etiq,above] at (154,0.85) {Éxodo\\c. 1446};\end{scope}
+\begin{scope}[visible on=<3->]\node[etiq,above] at (200,0.85) {Entrada\\c. 1406};\end{scope}
 % tardía
-\node[bloqueazul,anchor=west,font=\tiny\bfseries] at (0,-1.35) {Datación tardía};
-\fill[celeste!45] (300,-0.95) rectangle (392,-0.6);
-\node[etiq] at (346,-0.78) {Entrada: s. \textsc{xiii}};
-\node[hito] at (392,-0.78) {};
-\node[etiq,right] at (396,-0.78) {Merneptah\\c. 1208};
+\begin{scope}[visible on=<4->]\node[bloqueazul,anchor=west,font=\tiny\bfseries] at (0,-1.35) {Datación tardía};\end{scope}
+\begin{scope}[visible on=<4->]\fill[celeste!45] (300,-0.95) rectangle (392,-0.6);\end{scope}
+\begin{scope}[visible on=<4->]\node[etiq] at (346,-0.78) {Entrada: s. \textsc{xiii}};\end{scope}
+\begin{scope}[visible on=<5->]\node[hito] at (392,-0.78) {};\end{scope}
+\begin{scope}[visible on=<5->]\node[etiq,right] at (396,-0.78) {Merneptah\\c. 1208};\end{scope}
 % Amarna
-\fill[oro!25] (200,0.12) rectangle (300,0.32);
-\node[font=\tiny,text=tinta] at (250,0.22) {Amarna (s. \textsc{xiv})};
+\begin{scope}[visible on=<6->]\fill[oro!25] (200,0.12) rectangle (300,0.32);\end{scope}
+\begin{scope}[visible on=<6->]\node[font=\tiny,text=tinta] at (250,0.22) {Amarna (s. \textsc{xiv})};\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{4pt}
@@ -367,11 +368,11 @@ El \emph{jérem} (\heb{חֵרֶם}) aparece también en la Estela de Mesa; los r
 \centering
 \begin{tikzpicture}[node distance=0.3cm]
 \node[bloque,text width=4.3cm] (a) {\textbf{La sangre del cordero}\\{\tiny Éx 12:13; una ley para nativo y extranjero, 12:49}};
-\node[bloque,text width=4.3cm,below=of a] (b) {\textbf{El mar}: «YHWH peleará por vosotros»\\{\tiny Éx 14:14; el pueblo «creyó», 14:31}};
-\node[bloque,text width=4.3cm,below=of b] (c) {\textbf{El cántico}: Dios reina\\{\tiny Éx 15:11, 18}};
-\node[bloqueoro,text width=4.3cm,below=of c] (d) {\textbf{Mirada adelante}: la tierra y el santuario\\{\tiny Éx 15:13, 17}};
-\node[bloqueazul,text width=4.3cm,below=of d] (e) {«Nuestra Pascua, Cristo»\\{\tiny\mdseries 1~Co 5:7; Ap 15:3}};
-\foreach \u/\v in {a/b,b/c,c/d,d/e}{\draw[flecha] (\u) -- (\v);}
+\begin{scope}[visible on=<2->]\node[bloque,text width=4.3cm,below=of a] (b) {\textbf{El mar}: «YHWH peleará por vosotros»\\{\tiny Éx 14:14; el pueblo «creyó», 14:31}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloque,text width=4.3cm,below=of b] (c) {\textbf{El cántico}: Dios reina\\{\tiny Éx 15:11, 18}};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloqueoro,text width=4.3cm,below=of c] (d) {\textbf{Mirada adelante}: la tierra y el santuario\\{\tiny Éx 15:13, 17}};\end{scope}
+\begin{scope}[visible on=<5->]\node[bloqueazul,text width=4.3cm,below=of d] (e) {«Nuestra Pascua, Cristo»\\{\tiny\mdseries 1~Co 5:7; Ap 15:3}};\end{scope}
+\begin{scope}[visible on=<5->]\foreach \u/\v in {a/b,b/c,c/d,d/e}{\draw[flecha] (\u) -- (\v);}\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -386,9 +387,9 @@ El \emph{jérem} (\heb{חֵרֶם}) aparece también en la Estela de Mesa; los r
 \centering
 \begin{tikzpicture}[node distance=0.32cm]
 \node[bloqueazul,text width=1.95cm,minimum height=1.15cm] (a) {Lo que Dios hizo\\{\tiny\mdseries «os he traído \emph{a mí}»}};
-\node[bloque,text width=1.95cm,minimum height=1.15cm,right=of a] (b) {\textbf{La condición}\\{\tiny\heb{אִם־שָׁמוֹעַ תִּשְׁמְעוּ}}\\{\tiny «si de veras escucháis»}};
-\node[bloqueoro,text width=1.95cm,minimum height=1.15cm,right=of b] (c) {\textbf{La identidad}\\{\tiny tesoro, reino de sacerdotes, nación santa}};
-\draw[flecha] (a) -- (b); \draw[flecha] (b) -- (c);
+\begin{scope}[visible on=<2->]\node[bloque,text width=1.95cm,minimum height=1.15cm,right=of a] (b) {\textbf{La condición}\\{\tiny\heb{אִם־שָׁמוֹעַ תִּשְׁמְעוּ}}\\{\tiny «si de veras escucháis»}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueoro,text width=1.95cm,minimum height=1.15cm,right=of b] (c) {\textbf{La identidad}\\{\tiny tesoro, reino de sacerdotes, nación santa}};\end{scope}
+\begin{scope}[visible on=<3->]\draw[flecha] (a) -- (b);\end{scope} \begin{scope}[visible on=<3->]\draw[flecha] (b) -- (c);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -417,10 +418,10 @@ Sarna (1991) relaciona \emph{segulá} con el acadio \emph{sikiltu} y con un text
 \centering
 \begin{tikzpicture}[node distance=0.9cm]
 \node[caja,text width=3.3cm,align=center] (h) {\textbf{Hebreo (Éx 19:6)}\\[3pt]\heb{מַמְלֶכֶת כֹּהֲנִים}\\\heb{וְגוֹי קָדוֹשׁ}};
-\node[caja,text width=3.3cm,align=center,right=of h] (g) {\textbf{LXX}\\[3pt]\grc{βασίλειον ἱεράτευμα}\\\grc{καὶ ἔθνος ἅγιον}};
-\node[caja,text width=3.3cm,align=center,right=of g] (p) {\textbf{1~P 2:9}\\[3pt]\grc{βασίλειον ἱεράτευμα,}\\\grc{ἔθνος ἅγιον}\\+ Is 43:20--21};
-\draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (h) -- (g);
-\draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (g) -- (p);
+\begin{scope}[visible on=<2->]\node[caja,text width=3.3cm,align=center,right=of h] (g) {\textbf{LXX}\\[3pt]\grc{βασίλειον ἱεράτευμα}\\\grc{καὶ ἔθνος ἅγιον}};\end{scope}
+\begin{scope}[visible on=<3->]\node[caja,text width=3.3cm,align=center,right=of g] (p) {\textbf{1~P 2:9}\\[3pt]\grc{βασίλειον ἱεράτευμα,}\\\grc{ἔθνος ἅγιον}\\+ Is 43:20--21};\end{scope}
+\begin{scope}[visible on=<3->]\draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (h) -- (g);\end{scope}
+\begin{scope}[visible on=<3->]\draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (g) -- (p);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{6pt}
@@ -449,12 +450,12 @@ Primero la gracia, después la obediencia, en el mismo orden que el prólogo his
 \centering
 \begin{tikzpicture}[node distance=0.28cm]
 \node[bloqueazul,text width=4.3cm] (a) {Gracia: «te saqué de Egipto»\\{\tiny\mdseries Éx 20:2}};
-\node[bloque,text width=4.3cm,below=of a] (b) {\textbf{Respuesta}: \heb{נַעֲשֶׂה וְנִשְׁמָע}, «haremos y obedeceremos»\\{\tiny Éx 24:7}};
-\node[bloque,text width=4.3cm,below=of b] (c) {\textbf{Ratificación}: \heb{הִנֵּה דַם־הַבְּרִית}, «he aquí la sangre del pacto»\\{\tiny Éx 24:8; Mt 26:28}};
-\node[bloque,text width=4.3cm,below=of c] (d) {\textbf{Testimonio}: la ley como sabiduría «ante los ojos de los pueblos»\\{\tiny Dt 4:6--8}};
-\node[bloqueoro,text width=4.3cm,below=of d] (e) {\textbf{Fundamento}: «porque YHWH os amó» y por el juramento a los padres\\{\tiny Dt 7:7--8; Ro 11:28}};
-\foreach \u/\v in {a/b,b/c,c/d}{\draw[flecha] (\u) -- (\v);}
-\draw[flecha,dashed] (e.east) -- ++(0.25,0) |- (a.east);
+\begin{scope}[visible on=<2->]\node[bloque,text width=4.3cm,below=of a] (b) {\textbf{Respuesta}: \heb{נַעֲשֶׂה וְנִשְׁמָע}, «haremos y obedeceremos»\\{\tiny Éx 24:7}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloque,text width=4.3cm,below=of b] (c) {\textbf{Ratificación}: \heb{הִנֵּה דַם־הַבְּרִית}, «he aquí la sangre del pacto»\\{\tiny Éx 24:8; Mt 26:28}};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloque,text width=4.3cm,below=of c] (d) {\textbf{Testimonio}: la ley como sabiduría «ante los ojos de los pueblos»\\{\tiny Dt 4:6--8}};\end{scope}
+\begin{scope}[visible on=<5->]\node[bloqueoro,text width=4.3cm,below=of d] (e) {\textbf{Fundamento}: «porque YHWH os amó» y por el juramento a los padres\\{\tiny Dt 7:7--8; Ro 11:28}};\end{scope}
+\begin{scope}[visible on=<5->]\foreach \u/\v in {a/b,b/c,c/d}{\draw[flecha] (\u) -- (\v);}\end{scope}
+\begin{scope}[visible on=<5->]\draw[flecha,dashed] (e.east) -- ++(0.25,0) |- (a.east);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -472,12 +473,12 @@ Primero la gracia, después la obediencia, en el mismo orden que el prólogo his
 \centering
 \begin{tikzpicture}[node distance=0.35cm]
 \node[caja,text width=1.6cm,align=center] (a1) {\heb{מִשְׁכָּן}\\{\tiny morada}};
-\node[caja,text width=1.6cm,align=center,right=of a1] (a2) {\grc{σκηνή}\\{\tiny LXX}};
-\node[caja,text width=1.6cm,align=center,right=of a2] (a3) {\grc{ἐσκήνωσεν}\\{\tiny Jn 1:14}};
-\node[caja,text width=1.6cm,align=center,below=0.7cm of a1] (b1) {\heb{כַּפֹּרֶת}\\{\tiny tapa del arca}};
-\node[caja,text width=1.6cm,align=center,right=of b1] (b2) {\grc{ἱλαστήριον}\\{\tiny LXX Éx 25:17}};
-\node[caja,text width=1.6cm,align=center,right=of b2] (b3) {\grc{ἱλαστήριον}\\{\tiny Ro 3:25}};
-\foreach \u/\v in {a1/a2,a2/a3,b1/b2,b2/b3}{\draw[-{Latex[length=2mm]},oro!90!ladrillo,line width=1.2pt] (\u) -- (\v);}
+\begin{scope}[visible on=<2->]\node[caja,text width=1.6cm,align=center,right=of a1] (a2) {\grc{σκηνή}\\{\tiny LXX}};\end{scope}
+\begin{scope}[visible on=<3->]\node[caja,text width=1.6cm,align=center,right=of a2] (a3) {\grc{ἐσκήνωσεν}\\{\tiny Jn 1:14}};\end{scope}
+\begin{scope}[visible on=<4->]\node[caja,text width=1.6cm,align=center,below=0.7cm of a1] (b1) {\heb{כַּפֹּרֶת}\\{\tiny tapa del arca}};\end{scope}
+\begin{scope}[visible on=<5->]\node[caja,text width=1.6cm,align=center,right=of b1] (b2) {\grc{ἱλαστήριον}\\{\tiny LXX Éx 25:17}};\end{scope}
+\begin{scope}[visible on=<6->]\node[caja,text width=1.6cm,align=center,right=of b2] (b3) {\grc{ἱλαστήριον}\\{\tiny Ro 3:25}};\end{scope}
+\begin{scope}[visible on=<6->]\foreach \u/\v in {a1/a2,a2/a3,b1/b2,b2/b3}{\draw[-{Latex[length=2mm]},oro!90!ladrillo,line width=1.2pt] (\u) -- (\v);}\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{4pt}
@@ -497,8 +498,8 @@ Primero la gracia, después la obediencia, en el mismo orden que el prólogo his
 \fill[oro!25,draw=cafe,line width=0.8pt] (0,0) circle (1.55);
 \fill[oro!55,draw=cafe,line width=0.8pt] (0,0) circle (0.8);
 \node[font=\scriptsize\bfseries,text=tinta,align=center] at (0,0) {Aarón\\{\tiny santuario}};
-\node[font=\scriptsize\bfseries,text=tinta,align=center] at (0,1.18) {Leví\\[-2pt]{\tiny campamento}};
-\node[font=\scriptsize\bfseries,text=tinta,align=center] at (0,2.0) {Israel\\[-2pt]{\tiny entre las naciones}};
+\begin{scope}[visible on=<2->]\node[font=\scriptsize\bfseries,text=tinta,align=center] at (0,1.18) {Leví\\[-2pt]{\tiny campamento}};\end{scope}
+\begin{scope}[visible on=<3->]\node[font=\scriptsize\bfseries,text=tinta,align=center] at (0,2.0) {Israel\\[-2pt]{\tiny entre las naciones}};\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -523,13 +524,13 @@ Fines s. \textsc{vii}--inicios s. \textsc{vi} a.\,e.\,c.: dos rollitos de plata 
 \begin{tikzpicture}[node distance=0.26cm]
 \node[bloqueazul,text width=5.2cm] (a) {Cuarenta días después de «haremos y obedeceremos», el becerro\\{\tiny\mdseries Éx 32:1--6}};
 \node[bloque,text width=5.2cm,below=of a] (b) {Dios propone empezar de nuevo con Moisés {\tiny(32:10)}};
-\node[etiq,font=\scriptsize\itshape,text=sepia,below=0.25cm of b] (i) {Intercesión de Moisés (32:11--13)};
-\node[bloqueoro,text width=1.5cm,minimum height=1.0cm,below=0.3cm of i] (c2) {Tu nombre ante Egipto};
-\node[bloqueoro,text width=1.5cm,minimum height=1.0cm,left=0.18cm of c2] (c1) {Es tu pueblo};
-\node[bloqueoro,text width=1.5cm,minimum height=1.0cm,right=0.18cm of c2] (c3) {Juramento a los padres};
-\node[bloque,text width=5.2cm,below=0.3cm of c2] (d) {«Perdona [\ldots]; y si no, ráeme de tu libro» {\tiny(32:32)}};
-\draw[flecha] (a) -- (b); \draw[flecha] (b) -- (i);
-\foreach \c in {c1,c2,c3}{\draw[flecha] (i.south) -- (\c.north); \draw[flecha] (\c.south) -- (d.north);}
+\begin{scope}[visible on=<2->]\node[etiq,font=\scriptsize\itshape,text=sepia,below=0.25cm of b] (i) {Intercesión de Moisés (32:11--13)};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueoro,text width=1.5cm,minimum height=1.0cm,below=0.3cm of i] (c2) {Tu nombre ante Egipto};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloqueoro,text width=1.5cm,minimum height=1.0cm,left=0.18cm of c2] (c1) {Es tu pueblo};\end{scope}
+\begin{scope}[visible on=<5->]\node[bloqueoro,text width=1.5cm,minimum height=1.0cm,right=0.18cm of c2] (c3) {Juramento a los padres};\end{scope}
+\begin{scope}[visible on=<6->]\node[bloque,text width=5.2cm,below=0.3cm of c2] (d) {«Perdona [\ldots]; y si no, ráeme de tu libro» {\tiny(32:32)}};\end{scope}
+\begin{scope}[visible on=<6->]\draw[flecha] (a) -- (b);\end{scope} \begin{scope}[visible on=<6->]\draw[flecha] (b) -- (i);\end{scope}
+\begin{scope}[visible on=<6->]\foreach \c in {c1,c2,c3}{\draw[flecha] (i.south) -- (\c.north); \draw[flecha] (\c.south) -- (d.north);}\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -569,10 +570,10 @@ Fines s. \textsc{vii}--inicios s. \textsc{vi} a.\,e.\,c.: dos rollitos de plata 
 \centering
 \begin{tikzpicture}[node distance=0.4cm]
 \node[bloque,text width=4.2cm] (a) {\textbf{\textcolor{ladrillo}{Perdón del pueblo}}\\{\tiny Nm 14:20}};
-\node[bloque,text width=4.2cm,below=of a] (b) {\textbf{\textcolor{ladrillo}{Juicio de una generación}}\\{\tiny Nm 14:29--34}};
-\node[bloqueoro,text width=4.2cm,below=of b] (c) {\textbf{\textcolor{ladrillo}{Remanente: Josué y Caleb}}\\{\tiny Nm 14:24, 30}};
-\node[bloqueazul,text width=4.2cm,below=of c] (d) {«Un remanente escogido por gracia»\\{\tiny\mdseries Ro 11:5}};
-\draw[flecha] (a) -- (b); \draw[flecha] (b) -- (c); \draw[flecha,dashed] (c) -- (d);
+\begin{scope}[visible on=<2->]\node[bloque,text width=4.2cm,below=of a] (b) {\textbf{\textcolor{ladrillo}{Juicio de una generación}}\\{\tiny Nm 14:29--34}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueoro,text width=4.2cm,below=of b] (c) {\textbf{\textcolor{ladrillo}{Remanente: Josué y Caleb}}\\{\tiny Nm 14:24, 30}};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloqueazul,text width=4.2cm,below=of c] (d) {«Un remanente escogido por gracia»\\{\tiny\mdseries Ro 11:5}};\end{scope}
+\begin{scope}[visible on=<4->]\draw[flecha] (a) -- (b);\end{scope} \begin{scope}[visible on=<4->]\draw[flecha] (b) -- (c);\end{scope} \begin{scope}[visible on=<4->]\draw[flecha,dashed] (c) -- (d);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -612,12 +613,12 @@ El Shemá es la confesión que Israel recita dos veces al día.
 \centering
 \begin{tikzpicture}[node distance=0.28cm]
 \node[bloqueazul,text width=4.3cm] (a) {La Torá predicada a la generación nacida en el desierto};
-\node[bloque,text width=4.3cm,below=of a] (b) {\textbf{Renovación del pacto}: bendiciones y maldiciones\\{\tiny Dt 27--30}};
-\node[bloque,text width=4.3cm,below=of b] (c) {\textbf{Testigo}: el Cántico de Moisés\\{\tiny Dt 31:19; 32}};
-\node[bloqueoro,text width=4.3cm,below=of c] (d) {«Profeta como yo te levantará YHWH»\\{\tiny Dt 18:15; Hch 3:22}};
-\node[bloque,text width=4.3cm,below=of d] (e) {«Nunca más se levantó profeta como Moisés»\\{\tiny Dt 34:10}};
-\foreach \u/\v in {a/b,b/c}{\draw[flecha] (\u) -- (\v);}
-\draw[flecha,dashed] (d) -- (e);
+\begin{scope}[visible on=<2->]\node[bloque,text width=4.3cm,below=of a] (b) {\textbf{Renovación del pacto}: bendiciones y maldiciones\\{\tiny Dt 27--30}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloque,text width=4.3cm,below=of b] (c) {\textbf{Testigo}: el Cántico de Moisés\\{\tiny Dt 31:19; 32}};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloqueoro,text width=4.3cm,below=of c] (d) {«Profeta como yo te levantará YHWH»\\{\tiny Dt 18:15; Hch 3:22}};\end{scope}
+\begin{scope}[visible on=<5->]\node[bloque,text width=4.3cm,below=of d] (e) {«Nunca más se levantó profeta como Moisés»\\{\tiny Dt 34:10}};\end{scope}
+\begin{scope}[visible on=<5->]\foreach \u/\v in {a/b,b/c}{\draw[flecha] (\u) -- (\v);}\end{scope}
+\begin{scope}[visible on=<5->]\draw[flecha,dashed] (d) -- (e);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -654,10 +655,10 @@ El Códice de Leningrado omite Jos 21:36--37; algunas ediciones hebreas numeran 
 \centering
 \begin{tikzpicture}[node distance=0.3cm]
 \node[bloqueazul,text width=4.3cm] (a) {\heb{נַחֲלָה} (\emph{najalá}): heredad};
-\node[bloque,text width=4.3cm,below=of a] (b) {No se vende a perpetuidad: «porque la tierra mía es»\\{\tiny Lv 25:23}};
-\node[bloque,text width=4.3cm,below=of b] (c) {Repartida por tribus; Leví: «YHWH es su heredad»\\{\tiny Jos 13--21; 13:33}};
-\node[bloqueoro,text width=4.3cm,below=of c] (d) {Aun así, «queda mucha tierra por poseer»\\{\tiny Jos 13:1}};
-\foreach \u/\v in {a/b,b/c,c/d}{\draw[flecha] (\u) -- (\v);}
+\begin{scope}[visible on=<2->]\node[bloque,text width=4.3cm,below=of a] (b) {No se vende a perpetuidad: «porque la tierra mía es»\\{\tiny Lv 25:23}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloque,text width=4.3cm,below=of b] (c) {Repartida por tribus; Leví: «YHWH es su heredad»\\{\tiny Jos 13--21; 13:33}};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloqueoro,text width=4.3cm,below=of c] (d) {Aun así, «queda mucha tierra por poseer»\\{\tiny Jos 13:1}};\end{scope}
+\begin{scope}[visible on=<4->]\foreach \u/\v in {a/b,b/c,c/d}{\draw[flecha] (\u) -- (\v);}\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -675,13 +676,13 @@ El Códice de Leningrado omite Jos 21:36--37; algunas ediciones hebreas numeran 
 \centering
 \begin{tikzpicture}[x=1cm,y=1cm]
 \node[bloque,text width=2.5cm] (g1) at (0,1.5) {\textbf{Siquem}: la promesa a Abraham\\{\tiny Gn 12:6--7}};
-\node[bloque,text width=2.5cm] (g2) at (0,0) {\textbf{José} pide que lleven sus huesos a la tierra\\{\tiny Gn 50:25}};
-\node[bloqueoro,text width=2.5cm] (j1) at (3.6,1.5) {\textbf{Siquem}: renovación del pacto\\{\tiny Jos 24}};
-\node[bloqueoro,text width=2.5cm] (j2) at (3.6,0) {Huesos de José sepultados en Siquem\\{\tiny Jos 24:32}};
-\draw[flecha] (g1) -- (j1); \draw[flecha] (g2) -- (j2);
-\node[font=\tiny\bfseries,text=ladrillo] at (0,2.35) {Génesis};
-\node[font=\tiny\bfseries,text=ladrillo] at (3.6,2.35) {Josué};
-\draw[sepia,dashed] (1.8,2.4) -- (1.8,-0.75);
+\begin{scope}[visible on=<2->]\node[bloque,text width=2.5cm] (g2) at (0,0) {\textbf{José} pide que lleven sus huesos a la tierra\\{\tiny Gn 50:25}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueoro,text width=2.5cm] (j1) at (3.6,1.5) {\textbf{Siquem}: renovación del pacto\\{\tiny Jos 24}};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloqueoro,text width=2.5cm] (j2) at (3.6,0) {Huesos de José sepultados en Siquem\\{\tiny Jos 24:32}};\end{scope}
+\begin{scope}[visible on=<4->]\draw[flecha] (g1) -- (j1);\end{scope} \begin{scope}[visible on=<4->]\draw[flecha] (g2) -- (j2);\end{scope}
+\begin{scope}[visible on=<5->]\node[font=\tiny\bfseries,text=ladrillo] at (0,2.35) {Génesis};\end{scope}
+\begin{scope}[visible on=<6->]\node[font=\tiny\bfseries,text=ladrillo] at (3.6,2.35) {Josué};\end{scope}
+\begin{scope}[visible on=<6->]\draw[sepia,dashed] (1.8,2.4) -- (1.8,-0.75);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -705,8 +706,8 @@ Levitas fieles (Éx 32:26--29) & Acán (Jos 7) & Pacto renovado en Ebal y Siquem
 \vspace{6pt}
 \begin{tikzpicture}[node distance=0.35cm]
 \node[bloque,text width=3.4cm,minimum height=1.1cm] (a) {\textbf{Hacia las naciones} desde el comienzo\\{\tiny Éx 12:49; Dt 4:6}};
-\node[bloque,text width=3.4cm,minimum height=1.1cm,right=of a] (b) {\textbf{Santidad por presencia}: «¿en qué se conocerá\ldots sino en que tú andes con nosotros?»\\{\tiny Éx 33:16}};
-\node[bloqueoro,text width=3.4cm,minimum height=1.1cm,right=of b] (c) {\textbf{Mediador y remanente} cuando el pueblo falla};
+\begin{scope}[visible on=<2->]\node[bloque,text width=3.4cm,minimum height=1.1cm,right=of a] (b) {\textbf{Santidad por presencia}: «¿en qué se conocerá\ldots sino en que tú andes con nosotros?»\\{\tiny Éx 33:16}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueoro,text width=3.4cm,minimum height=1.1cm,right=of b] (c) {\textbf{Mediador y remanente} cuando el pueblo falla};\end{scope}
 \end{tikzpicture}
 \end{frame}
 
@@ -726,15 +727,15 @@ Los Diez Mandamientos, el 6 de Siván según los sabios, el 7 según rabí Yosé
 \begin{tikzpicture}
 \node[bloqueazul,text width=1.8cm] (t) at (0,0) {La Torá\\{\tiny\mdseries Dt 33:2}};
 \node[bloque,text width=1.5cm] (e) at (-2.1,1.25) {Esaú};
-\node[bloque,text width=1.5cm] (m) at (2.1,1.25) {Amón y Moab};
-\node[bloque,text width=1.5cm] (i) at (-2.1,-1.25) {Ismael};
-\node[bloqueoro,text width=1.5cm] (s) at (2.1,-1.25) {Israel};
-\foreach \n in {e,m,i}{\draw[flecha,dashed] (t) -- (\n);}
-\draw[flecha] (t) -- (s);
-\node[etiq,above=1pt of e] {la rehúsa};
-\node[etiq,above=1pt of m] {la rehúsan};
-\node[etiq,below=1pt of i] {la rehúsa};
-\node[etiq,below=1pt of s] {«haremos y obedeceremos»};
+\begin{scope}[visible on=<2->]\node[bloque,text width=1.5cm] (m) at (2.1,1.25) {Amón y Moab};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloque,text width=1.5cm] (i) at (-2.1,-1.25) {Ismael};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueoro,text width=1.5cm] (s) at (2.1,-1.25) {Israel};\end{scope}
+\begin{scope}[visible on=<3->]\foreach \n in {e,m,i}{\draw[flecha,dashed] (t) -- (\n);}\end{scope}
+\begin{scope}[visible on=<3->]\draw[flecha] (t) -- (s);\end{scope}
+\begin{scope}[visible on=<4->]\node[etiq,above=1pt of e] {la rehúsa};\end{scope}
+\begin{scope}[visible on=<5->]\node[etiq,above=1pt of m] {la rehúsan};\end{scope}
+\begin{scope}[visible on=<5->]\node[etiq,below=1pt of i] {la rehúsa};\end{scope}
+\begin{scope}[visible on=<6->]\node[etiq,below=1pt of s] {«haremos y obedeceremos»};\end{scope}
 \end{tikzpicture}
 \notafig{Elaboración propia a partir de Sifré Deuteronomio 343.}
 \vspace{2pt}
@@ -747,14 +748,14 @@ Los Diez Mandamientos, el 6 de Siván según los sabios, el 7 según rabí Yosé
 \centering
 \begin{tikzpicture}[x=1cm,y=1cm]
 \draw[line width=1.4pt,cafe,-{Latex[length=2.5mm]}] (0,0) -- (12.4,0);
-\foreach \x/\m in {0.9/Nisán,3.0/Siván,5.2/Tamuz,7.3/Av,10.4/Tishré}{
-  \node[font=\tiny\bfseries,text=sepia] at (\x,-0.28) {\m};}
-\foreach \x/\d/\t/\c/\up in {0.9/{15 Nisán}/{Pésaj: salida de Egipto}/bloque/1,
+\foreach \x/\m [count=\ovc,evaluate=\ovc as \ovk using int(\ovc+0)] in {0.9/Nisán,3.0/Siván,5.2/Tamuz,7.3/Av,10.4/Tishré}{\begin{scope}[visible on=<\ovk->]
+  \node[font=\tiny\bfseries,text=sepia] at (\x,-0.28) {\m};\end{scope}}
+\foreach \x/\d/\t/\c/\up [count=\ovc,evaluate=\ovc as \ovk using int(\ovc+5)] in {0.9/{15 Nisán}/{Pésaj: salida de Egipto}/bloque/1,
   3.0/{6 Siván}/{Shavuot: entrega de la Torá}/bloque/0,
   5.2/{17 Tamuz}/{Se rompen las tablas}/bloqueoro/1,
   7.3/{9 Av}/{Decreto contra la generación de Cades; caen ambos templos}/bloqueoro/0,
   9.6/{10 Tishré}/{Segundas tablas; Yom Kipur}/bloque/1,
-  11.4/{Sukkot}/{Cabañas del desierto (Lv 23:43)}/bloque/0}{
+  11.4/{Sukkot}/{Cabañas del desierto (Lv 23:43)}/bloque/0}{\begin{scope}[visible on=<\ovk->]
   \node[hito] at (\x,0) {};
   \ifnum\up=1
     \node[\c,text width=1.85cm,font=\tiny,anchor=south] at (\x,0.45) {\textbf{\d}\\\t};
@@ -762,7 +763,7 @@ Los Diez Mandamientos, el 6 de Siván según los sabios, el 7 según rabí Yosé
   \else
     \node[\c,text width=1.85cm,font=\tiny,anchor=north] at (\x,-0.5) {\textbf{\d}\\\t};
     \draw[sepia,line width=0.4pt] (\x,-0.08) -- (\x,-0.5);
-  \fi}
+  \fi\end{scope}}
 \end{tikzpicture}
 \notafig{Elaboración propia a partir de Mishná, Taanit 4:6; Shabat 86b; Seder Olam 6.}
 \vspace{4pt}
@@ -785,11 +786,11 @@ Los Diez Mandamientos, el 6 de Siván según los sabios, el 7 según rabí Yosé
 \begin{cita}Moisés recibió la Torá desde el Sinaí y la transmitió a Josué; Josué, a los ancianos; los ancianos, a los profetas.\fuente{(Mishná, Avot 1:1)}\end{cita}
 \begin{tikzpicture}[node distance=0.55cm]
 \node[bloqueazul,minimum width=2cm] (a) {Sinaí};
-\node[bloque,minimum width=2cm,right=of a] (b) {Moisés};
-\node[bloque,minimum width=2cm,right=of b] (c) {Josué};
-\node[bloque,minimum width=2cm,right=of c] (d) {Ancianos};
-\node[bloqueoro,minimum width=2cm,right=of d] (e) {Profetas};
-\foreach \u/\v in {a/b,b/c,c/d,d/e}{\draw[flecha] (\u) -- (\v);}
+\begin{scope}[visible on=<2->]\node[bloque,minimum width=2cm,right=of a] (b) {Moisés};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloque,minimum width=2cm,right=of b] (c) {Josué};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloque,minimum width=2cm,right=of c] (d) {Ancianos};\end{scope}
+\begin{scope}[visible on=<5->]\node[bloqueoro,minimum width=2cm,right=of d] (e) {Profetas};\end{scope}
+\begin{scope}[visible on=<5->]\foreach \u/\v in {a/b,b/c,c/d,d/e}{\draw[flecha] (\u) -- (\v);}\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{2pt}
@@ -842,11 +843,11 @@ De aquí tomarán los profetas \heb{בְּאַחֲרִית הַיָּמִים} (
 \centering
 \begin{tikzpicture}[node distance=0.28cm]
 \node[bloqueazul,text width=4.6cm] (a) {\textbf{Promesa}: juramento a los padres\\{\tiny\mdseries Dt 4:31; 7:8}};
-\node[bloque,text width=4.6cm,below=of a] (b) {\textbf{Condición}: «amarás a YHWH tu Dios con todo tu corazón»\\{\tiny Dt 6:5; bendiciones y maldiciones, Dt 27--30}};
-\node[bloqueoro,text width=4.6cm,below=of b] (c) {\textbf{Ruptura anunciada}: «YHWH os esparcirá entre los pueblos»\\{\tiny Dt 4:27}};
-\node[bloque,text width=4.6cm,below=of c] (d) {\textbf{Restauración}: «volverás» y Dios «hará volver tu cautividad»\\{\tiny Dt 4:30; 30:2--3}};
-\node[bloqueazul,text width=4.6cm,below=of d] (e) {Corazón circuncidado\\{\tiny\mdseries Dt 30:6}};
-\foreach \u/\v in {a/b,b/c,c/d,d/e}{\draw[flecha] (\u) -- (\v);}
+\begin{scope}[visible on=<2->]\node[bloque,text width=4.6cm,below=of a] (b) {\textbf{Condición}: «amarás a YHWH tu Dios con todo tu corazón»\\{\tiny Dt 6:5; bendiciones y maldiciones, Dt 27--30}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueoro,text width=4.6cm,below=of b] (c) {\textbf{Ruptura anunciada}: «YHWH os esparcirá entre los pueblos»\\{\tiny Dt 4:27}};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloque,text width=4.6cm,below=of c] (d) {\textbf{Restauración}: «volverás» y Dios «hará volver tu cautividad»\\{\tiny Dt 4:30; 30:2--3}};\end{scope}
+\begin{scope}[visible on=<5->]\node[bloqueazul,text width=4.6cm,below=of d] (e) {Corazón circuncidado\\{\tiny\mdseries Dt 30:6}};\end{scope}
+\begin{scope}[visible on=<5->]\foreach \u/\v in {a/b,b/c,c/d,d/e}{\draw[flecha] (\u) -- (\v);}\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -861,9 +862,9 @@ De aquí tomarán los profetas \heb{בְּאַחֲרִית הַיָּמִים} (
 \centering
 \begin{tikzpicture}[node distance=0.3cm]
 \node[bloque,text width=1.95cm,minimum height=1.0cm] (a) {\textbf{Mandato}\\{\tiny Dt 10:16}};
-\node[bloqueoro,text width=1.95cm,minimum height=1.0cm,right=of a] (b) {\textbf{Promesa}\\{\tiny Dt 30:6}};
-\node[bloqueazul,text width=1.95cm,minimum height=1.0cm,right=of b] (c) {Nuevo pacto; corazón nuevo\\{\tiny\mdseries Jer 31; Ez 36:26--27}};
-\draw[flecha] (a) -- (b); \draw[flecha] (b) -- (c);
+\begin{scope}[visible on=<2->]\node[bloqueoro,text width=1.95cm,minimum height=1.0cm,right=of a] (b) {\textbf{Promesa}\\{\tiny Dt 30:6}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueazul,text width=1.95cm,minimum height=1.0cm,right=of b] (c) {Nuevo pacto; corazón nuevo\\{\tiny\mdseries Jer 31; Ez 36:26--27}};\end{scope}
+\begin{scope}[visible on=<3->]\draw[flecha] (a) -- (b);\end{scope} \begin{scope}[visible on=<3->]\draw[flecha] (b) -- (c);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{2pt}
@@ -883,11 +884,11 @@ De aquí tomarán los profetas \heb{בְּאַחֲרִית הַיָּמִים} (
 \centering
 \begin{tikzpicture}[node distance=0.22cm]
 \node[bloque,text width=4.2cm] (a) {\textbf{Elección}\\{\tiny Dt 32:8--9}};
-\node[bloque,text width=4.2cm,below=of a] (b) {\textbf{Cuidado} «como el águila»\\{\tiny 32:11}};
-\node[bloqueoro,text width=4.2cm,below=of b] (c) {\textbf{Infidelidad y juicio}; los celos\\{\tiny 32:21}};
-\node[bloqueazul,text width=4.2cm,below=of c] (d) {\textbf{Compasión}: «por amor de sus siervos se arrepentirá»\\{\tiny\mdseries 32:36}};
-\node[bloque,text width=4.2cm,below=of d] (e) {\textbf{Las naciones} se alegran con su pueblo\\{\tiny 32:43}};
-\foreach \u/\v in {a/b,b/c,c/d,d/e}{\draw[flecha] (\u) -- (\v);}
+\begin{scope}[visible on=<2->]\node[bloque,text width=4.2cm,below=of a] (b) {\textbf{Cuidado} «como el águila»\\{\tiny 32:11}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueoro,text width=4.2cm,below=of b] (c) {\textbf{Infidelidad y juicio}; los celos\\{\tiny 32:21}};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloqueazul,text width=4.2cm,below=of c] (d) {\textbf{Compasión}: «por amor de sus siervos se arrepentirá»\\{\tiny\mdseries 32:36}};\end{scope}
+\begin{scope}[visible on=<5->]\node[bloque,text width=4.2cm,below=of d] (e) {\textbf{Las naciones} se alegran con su pueblo\\{\tiny 32:43}};\end{scope}
+\begin{scope}[visible on=<5->]\foreach \u/\v in {a/b,b/c,c/d,d/e}{\draw[flecha] (\u) -- (\v);}\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -926,11 +927,11 @@ Junto con Is 63:10 y Sal 51:11 [51:13], uno de los tres pasajes de la Biblia heb
 \centering
 \begin{tikzpicture}
 \node[bloqueazul,text width=1.6cm] (c) at (0,0) {Nuevo éxodo};
-\node[bloque,text width=2.0cm] (a) at (-1.55,1.75) {\textbf{Is 63:7--14}\\{\tiny el Éxodo como obra del Espíritu}};
-\node[bloque,text width=2.0cm] (b) at (1.55,1.75) {\textbf{Is 43:16--21}\\{\tiny «este pueblo he formado para mí»}};
-\node[bloque,text width=2.0cm] (d) at (-1.55,-1.75) {\textbf{Is 11:16}\\{\tiny camino «como el día que subió de Egipto»}};
-\node[bloqueoro,text width=2.0cm] (e) at (1.55,-1.75) {\textbf{Is 61:6}\\{\tiny «sacerdotes de YHWH»: Éx 19:6}};
-\foreach \n in {a,b,d,e}{\draw[flecha] (c) -- (\n);}
+\begin{scope}[visible on=<2->]\node[bloque,text width=2.0cm] (a) at (-1.55,1.75) {\textbf{Is 63:7--14}\\{\tiny el Éxodo como obra del Espíritu}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloque,text width=2.0cm] (b) at (1.55,1.75) {\textbf{Is 43:16--21}\\{\tiny «este pueblo he formado para mí»}};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloque,text width=2.0cm] (d) at (-1.55,-1.75) {\textbf{Is 11:16}\\{\tiny camino «como el día que subió de Egipto»}};\end{scope}
+\begin{scope}[visible on=<5->]\node[bloqueoro,text width=2.0cm] (e) at (1.55,-1.75) {\textbf{Is 61:6}\\{\tiny «sacerdotes de YHWH»: Éx 19:6}};\end{scope}
+\begin{scope}[visible on=<5->]\foreach \n in {a,b,d,e}{\draw[flecha] (c) -- (\n);}\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{2pt}
@@ -951,12 +952,12 @@ Casa de Israel (reino del norte, ya deportado por Asiria cuando escribe Jeremía
 \centering
 \begin{tikzpicture}
 \node[bloqueazul,text width=1.9cm] (s) at (-1.2,0) {Sinaí};
-\node[bloqueazul,text width=1.9cm] (n) at (1.2,0) {Nuevo pacto};
-\node[bloque,text width=1.9cm,minimum height=0.8cm] at (-1.2,-0.95) {Tablas de piedra\\{\tiny Éx 34:1}};
-\node[bloqueoro,text width=1.9cm,minimum height=0.8cm] at (1.2,-0.95) {El corazón\\{\tiny Jer 31:33; Dt 30:6}};
-\node[bloque,text width=4.3cm] at (0,-1.95) {\textbf{Igual}: «mi ley» y los mismos destinatarios};
-\node[bloque,text width=4.3cm] at (0,-2.75) {\textbf{Perdón}: el de Éx 34:6--7; Ro 11:27};
-\draw[flecha] (s) -- (n);
+\begin{scope}[visible on=<2->]\node[bloqueazul,text width=1.9cm] (n) at (1.2,0) {Nuevo pacto};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloque,text width=1.9cm,minimum height=0.8cm] at (-1.2,-0.95) {Tablas de piedra\\{\tiny Éx 34:1}};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloqueoro,text width=1.9cm,minimum height=0.8cm] at (1.2,-0.95) {El corazón\\{\tiny Jer 31:33; Dt 30:6}};\end{scope}
+\begin{scope}[visible on=<5->]\node[bloque,text width=4.3cm] at (0,-1.95) {\textbf{Igual}: «mi ley» y los mismos destinatarios};\end{scope}
+\begin{scope}[visible on=<6->]\node[bloque,text width=4.3cm] at (0,-2.75) {\textbf{Perdón}: el de Éx 34:6--7; Ro 11:27};\end{scope}
+\begin{scope}[visible on=<6->]\draw[flecha] (s) -- (n);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{2pt}
@@ -975,10 +976,10 @@ Casa de Israel (reino del norte, ya deportado por Asiria cuando escribe Jeremía
 \vspace{4pt}
 \begin{tikzpicture}[node distance=0.9cm]
 \node[bloqueoro,text width=3.2cm,minimum height=1.1cm] (a) {\textbf{Jos 7:26}\\[2pt]\mdseries Acán: «valle de la desgracia»};
-\node[bloque,text width=3.2cm,minimum height=1.1cm,right=of a] (b) {\textbf{Os 2:15 [2:17]}\\[2pt]«puerta de esperanza»};
-\node[bloqueazul,text width=3.2cm,minimum height=1.1cm,right=of b] (c) {Os 1:10 [2:1]; Ro 9:26\\[2pt]\mdseries «hijos del Dios viviente»};
-\draw[flecha] (a) -- (b);
-\draw[flecha] (b) -- (c);
+\begin{scope}[visible on=<2->]\node[bloque,text width=3.2cm,minimum height=1.1cm,right=of a] (b) {\textbf{Os 2:15 [2:17]}\\[2pt]«puerta de esperanza»};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueazul,text width=3.2cm,minimum height=1.1cm,right=of b] (c) {Os 1:10 [2:1]; Ro 9:26\\[2pt]\mdseries «hijos del Dios viviente»};\end{scope}
+\begin{scope}[visible on=<3->]\draw[flecha] (a) -- (b);\end{scope}
+\begin{scope}[visible on=<3->]\draw[flecha] (b) -- (c);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{4pt}
@@ -1008,6 +1009,21 @@ Ceguera presente, corazón circuncidado prometido. Dt 30:12--14: cf. Baruc 3:29-
 \end{column}
 \begin{column}{0.41\textwidth}\end{column}
 \end{columns}
+\end{frame}
+
+\begin{frame}{Perla filológica · celos y alegría de las naciones}
+{\footnotesize Pablo lee el Cántico de Moisés (Dt 32) como guion de su propio tiempo.}\par\vspace{4pt}
+\centering\scriptsize\renewcommand{\arraystretch}{1.22}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{1.3cm}>{\RaggedRight\arraybackslash}p{3.4cm}>{\RaggedRight\arraybackslash}p{3.1cm}>{\RaggedRight\arraybackslash}p{3.6cm}}
+\toprule
+{\color{ladrillo}\bfseries Texto} & {\color{ladrillo}\bfseries TM} & {\color{ladrillo}\bfseries LXX} & {\color{ladrillo}\bfseries Pablo}\\\midrule
+Dt 32:21 & \heb{וַאֲנִי אַקְנִיאֵם בְּלֹא־עָם} «los provocaré a celos con un no-pueblo» & \grc{κἀγὼ παραζηλώσω αὐτοὺς ἐπ᾽ οὐκ ἔθνει} & Ro 10:19 (a segunda persona); Ro 11:11: \grc{εἰς τὸ παραζηλῶσαι αὐτούς}\\
+Dt 32:43 & \heb{הַרְנִינוּ גוֹיִם עַמּוֹ} «alabad, naciones, a su pueblo» & \grc{εὐφράνθητε, ἔθνη, μετὰ τοῦ λαοῦ αὐτοῦ} & Ro 15:10: «alegraos, naciones, \emph{con} su pueblo»\\
+\bottomrule
+\end{tabular}
+\elabpropia
+\vspace{4pt}
+\begin{clave}\footnotesize Los celos son el medio por el que Dios atraerá de nuevo a Israel; la alegría de las naciones ocurre junto a Israel, no en su lugar.\end{clave}
 \end{frame}
 
 % ===================================================
@@ -1043,14 +1059,14 @@ De los Jueces a David: ciclos de apostasía y liberación, Rut la moabita, Samue
 \centering
 \begin{tikzpicture}
 \node[bloqueoro,minimum width=2.1cm] (a) at (90:1.55) {Apostasía};
-\node[bloque,minimum width=2.1cm] (b) at (0:1.95) {Opresión};
-\node[bloque,minimum width=2.1cm] (c) at (270:1.55) {Clamor};
-\node[bloqueazul,minimum width=2.1cm] (d) at (180:1.95) {Liberación};
-\draw[flecha] (a) to[bend left=25] (b);
-\draw[flecha] (b) to[bend left=25] (c);
-\draw[flecha] (c) to[bend left=25] (d);
-\draw[flecha] (d) to[bend left=25] (a);
-\node[font=\tiny\itshape,text=sepia,align=center] at (0,0) {el ciclo\\de Jueces};
+\begin{scope}[visible on=<2->]\node[bloque,minimum width=2.1cm] (b) at (0:1.95) {Opresión};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloque,minimum width=2.1cm] (c) at (270:1.55) {Clamor};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloqueazul,minimum width=2.1cm] (d) at (180:1.95) {Liberación};\end{scope}
+\begin{scope}[visible on=<4->]\draw[flecha] (a) to[bend left=25] (b);\end{scope}
+\begin{scope}[visible on=<4->]\draw[flecha] (b) to[bend left=25] (c);\end{scope}
+\begin{scope}[visible on=<4->]\draw[flecha] (c) to[bend left=25] (d);\end{scope}
+\begin{scope}[visible on=<4->]\draw[flecha] (d) to[bend left=25] (a);\end{scope}
+\begin{scope}[visible on=<5->]\node[font=\tiny\itshape,text=sepia,align=center] at (0,0) {el ciclo\\de Jueces};\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}

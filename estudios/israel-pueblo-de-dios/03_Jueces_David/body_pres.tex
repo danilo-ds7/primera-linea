@@ -28,14 +28,14 @@ Traducción propia desde el texto hebreo (BHS) y griego (NA28). Cuando la numera
 \begin{frame}{Los ejes de la serie en esta etapa}
 \centering
 \begin{tikzpicture}
- \foreach \x/\n/\t/\d/\r in {0/1/{Nación santa}/{¿Cómo se quiebra la vocación sacerdotal y quiénes la preservan?}/{Jue 2:11--19; 17--21; Rt 1:16; 1~S 2; 8:5--7; 12:23},
+ \foreach \x/\n/\t/\d/\r [count=\ovc,evaluate=\ovc as \ovk using int(\ovc+0)] in {0/1/{Nación santa}/{¿Cómo se quiebra la vocación sacerdotal y quiénes la preservan?}/{Jue 2:11--19; 17--21; Rt 1:16; 1~S 2; 8:5--7; 12:23},
    4.2/2/{Restauración}/{¿Qué esperanza nace en medio de la ruina?}/{Jue 2:16--18; Rt 4:14--17; 1~S 2:10, 35; 12:22; 16:13},
-   8.4/3/{Proyección}/{¿Cómo releen Isaías, Jeremías, Oseas y Pablo esta etapa?}/{Is 1:26; 11:1; Jer 23:5--6; Os 3:4--5; Ro 11:1--5}}{
+   8.4/3/{Proyección}/{¿Cómo releen Isaías, Jeremías, Oseas y Pablo esta etapa?}/{Is 1:26; 11:1; Jer 23:5--6; Os 3:4--5; Ro 11:1--5}}{\begin{scope}[visible on=<\ovk->]
   \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][3.0cm][t]{3.55cm}{\RaggedRight
     {\small\textbf{\textcolor{ladrillo}{\t}}}\\[5pt]\small \d\par\vfill{\scriptsize\color{sepia}(\r)}}};
-  \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
- \draw[flecha] (b1.east) -- (b2.west);
- \draw[flecha] (b2.east) -- (b3.west);
+  \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};\end{scope}}
+ \begin{scope}[visible on=<3->]\draw[flecha] (b1.east) -- (b2.west);\end{scope}
+ \begin{scope}[visible on=<3->]\draw[flecha] (b2.east) -- (b3.west);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{6pt}
@@ -50,7 +50,7 @@ Traducción propia desde el texto hebreo (BHS) y griego (NA28). Cuando la numera
 \centering
 \begin{tikzpicture}[x=0.76cm]
 \draw[line width=1.6pt,cafe,-{Latex[length=3mm]}] (0,0) -- (15.8,0);
-\foreach \x/\t/\b in {0.5/{Muerte de Josué}/{Jue 2:8},
+\foreach \x/\t/\b [count=\ovc,evaluate=\ovc as \ovk using int(\ovc+0)] in {0.5/{Muerte de Josué}/{Jue 2:8},
                       2.35/{Débora y Barac}/{Jue 4--5},
                       4.2/{Gedeón}/{Jue 6--8},
                       6.05/{Jefté}/{Jue 11--12},
@@ -58,12 +58,12 @@ Traducción propia desde el texto hebreo (BHS) y griego (NA28). Cuando la numera
                       9.75/{Elí, Samuel, Afec}/{1~S 1--7},
                       11.6/{Saúl rey}/{1~S 9--11},
                       13.45/{David ungido}/{1~S 16},
-                      15.2/{Gilboa}/{1~S 31}}{
+                      15.2/{Gilboa}/{1~S 31}}{\begin{scope}[visible on=<\ovk->]
   \fill[oro] (\x,0) circle (4pt);
   \node[above,font=\scriptsize\bfseries,text=ladrillo,text width=1.3cm,align=center] at (\x,0.2) {\t};
-  \node[below,font=\tiny,text=sepia,text width=1.3cm,align=center] at (\x,-0.2) {\b};}
-\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (0.3,-0.85) -- (8.2,-0.85) node[midway,below=5pt,font=\scriptsize\itshape,align=center]{Jueces (c. 1200--1050 a.\,e.\,c.)\\Rut «en los días de los jueces» (Rt 1:1)};
-\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (9.5,-0.85) -- (15.4,-0.85) node[midway,below=5pt,font=\scriptsize\itshape,align=center]{Transición a la monarquía\\(c. 1050--1010 a.\,e.\,c.)};
+  \node[below,font=\tiny,text=sepia,text width=1.3cm,align=center] at (\x,-0.2) {\b};\end{scope}}
+\begin{scope}[visible on=<9->]\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (0.3,-0.85) -- (8.2,-0.85) node[midway,below=5pt,font=\scriptsize\itshape,align=center]{Jueces (c. 1200--1050 a.\,e.\,c.)\\Rut «en los días de los jueces» (Rt 1:1)};\end{scope}
+\begin{scope}[visible on=<9->]\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (9.5,-0.85) -- (15.4,-0.85) node[midway,below=5pt,font=\scriptsize\itshape,align=center]{Transición a la monarquía\\(c. 1050--1010 a.\,e.\,c.)};\end{scope}
 \end{tikzpicture}
 \notafig{Elaboración propia. Secuencia narrativa; las fechas absolutas son aproximadas y están en debate.}
 \vspace{8pt}
@@ -89,19 +89,19 @@ Traducción propia desde el texto hebreo (BHS) y griego (NA28). Cuando la numera
  \node[etiq,text=sepia,anchor=north] at (5.4,-3.15) {límite de 1~R 6:1};
  \node[anchor=west,font=\tiny\bfseries,text=ladrillo] at (0,0.42) {1~R 6:1};
  \fill[ladrillo] (0,-0.17) rectangle (5.4,0.17);
- \node[font=\tiny,text=white] at (2.7,0) {480 años: del Éxodo al 4.º año de Salomón};
- \node[anchor=west,font=\tiny\bfseries,text=ladrillo] at (0,-0.62) {Suma de Jueces en sucesión};
- \fill[oro] (0,-1.21) rectangle (4.39,-0.87);
- \node[font=\tiny,text=cafeosc] at (2.2,-1.04) {c. 390 años};
- \draw[oro!90!ladrillo,dashed,fill=oro!18!white] (4.39,-1.21) rectangle (6.5,-0.87);
- \node[font=\tiny,text=cafeosc] at (5.45,-1.04) {+ Elí, Saúl, David};
- \node[anchor=west,font=\tiny\bfseries,text=ladrillo] at (0,-1.66) {Jueces regionales y simultáneos (Jue 10:7)};
- \fill[celeste!55!white,draw=ladrillo,line width=0.4pt] (0.6,-2.22) rectangle (3.3,-1.92);
- \node[font=\tiny,text=cafeosc] at (1.95,-2.07) {Amón, al este};
- \fill[celeste!55!white,draw=ladrillo,line width=0.4pt] (1.9,-2.67) rectangle (4.6,-2.37);
- \node[font=\tiny,text=cafeosc] at (3.25,-2.52) {filisteos, al oeste};
- \draw[decorate,decoration={brace,amplitude=3pt,mirror},oro!90!ladrillo,line width=0.7pt] (1.9,-2.8) -- (3.3,-2.8)
-   node[midway,below=3pt,etiq]{a la vez};
+ \begin{scope}[visible on=<2->]\node[font=\tiny,text=white] at (2.7,0) {480 años: del Éxodo al 4.º año de Salomón};\end{scope}
+ \begin{scope}[visible on=<2->]\node[anchor=west,font=\tiny\bfseries,text=ladrillo] at (0,-0.62) {Suma de Jueces en sucesión};\end{scope}
+ \begin{scope}[visible on=<3->]\fill[oro] (0,-1.21) rectangle (4.39,-0.87);\end{scope}
+ \begin{scope}[visible on=<3->]\node[font=\tiny,text=cafeosc] at (2.2,-1.04) {c. 390 años};\end{scope}
+ \begin{scope}[visible on=<4->]\draw[oro!90!ladrillo,dashed,fill=oro!18!white] (4.39,-1.21) rectangle (6.5,-0.87);\end{scope}
+ \begin{scope}[visible on=<4->]\node[font=\tiny,text=cafeosc] at (5.45,-1.04) {+ Elí, Saúl, David};\end{scope}
+ \begin{scope}[visible on=<4->]\node[anchor=west,font=\tiny\bfseries,text=ladrillo] at (0,-1.66) {Jueces regionales y simultáneos (Jue 10:7)};\end{scope}
+ \begin{scope}[visible on=<5->]\fill[celeste!55!white,draw=ladrillo,line width=0.4pt] (0.6,-2.22) rectangle (3.3,-1.92);\end{scope}
+ \begin{scope}[visible on=<5->]\node[font=\tiny,text=cafeosc] at (1.95,-2.07) {Amón, al este};\end{scope}
+ \begin{scope}[visible on=<6->]\fill[celeste!55!white,draw=ladrillo,line width=0.4pt] (1.9,-2.67) rectangle (4.6,-2.37);\end{scope}
+ \begin{scope}[visible on=<6->]\node[font=\tiny,text=cafeosc] at (3.25,-2.52) {filisteos, al oeste};\end{scope}
+ \begin{scope}[visible on=<6->]\draw[decorate,decoration={brace,amplitude=3pt,mirror},oro!90!ladrillo,line width=0.7pt] (1.9,-2.8) -- (3.3,-2.8)
+   node[midway,below=3pt,etiq]{a la vez};\end{scope}
 \end{tikzpicture}
 \notafig{Elaboración propia a partir de 1~R 6:1 y Jue 10:7; proporciones aproximadas.}
 \end{column}
@@ -186,10 +186,10 @@ En las aldeas de la sierra casi no aparecen huesos de cerdo, frecuentes en las c
 \centering
 \begin{tikzpicture}
  \node[bloqueazul,text width=4.2cm] (q) at (0,0) {Khirbet Qeiyafa\\[-1pt]{\tiny\mdseries fortaleza sobre el valle de Elá, c.~1020--980 a.\,e.\,c.}};
- \node[bloque,text width=1.75cm,font=\tiny,anchor=north] (a) at (-2.35,-0.95) {\textbf{Judá de David}\\¿Saaraim, 1~S 17:52?\\[1pt]{\color{sepia}Garfinkel}};
- \node[bloque,text width=1.75cm,font=\tiny,anchor=north] (b) at (0,-0.95) {\textbf{Entidad del norte}\\quizá la de Saúl\\[1pt]{\color{sepia}Finkelstein y Fantalkin}};
- \node[bloqueoro,text width=1.75cm,font=\tiny,anchor=north] (c) at (2.35,-0.95) {\textbf{Cananea o filistea}\\[1pt]{\color{sepia}otros autores}};
- \foreach \n in {a,b,c}{\draw[flecha] (q.south) -- (\n.north);}
+ \begin{scope}[visible on=<2->]\node[bloque,text width=1.75cm,font=\tiny,anchor=north] (a) at (-2.35,-0.95) {\textbf{Judá de David}\\¿Saaraim, 1~S 17:52?\\[1pt]{\color{sepia}Garfinkel}};\end{scope}
+ \begin{scope}[visible on=<3->]\node[bloque,text width=1.75cm,font=\tiny,anchor=north] (b) at (0,-0.95) {\textbf{Entidad del norte}\\quizá la de Saúl\\[1pt]{\color{sepia}Finkelstein y Fantalkin}};\end{scope}
+ \begin{scope}[visible on=<4->]\node[bloqueoro,text width=1.75cm,font=\tiny,anchor=north] (c) at (2.35,-0.95) {\textbf{Cananea o filistea}\\[1pt]{\color{sepia}otros autores}};\end{scope}
+ \begin{scope}[visible on=<4->]\foreach \n in {a,b,c}{\draw[flecha] (q.south) -- (\n.north);}\end{scope}
 \end{tikzpicture}
 \notafig{Elaboración propia a partir de Garfinkel et~al. (2016) y Finkelstein y Fantalkin (2012).}
 \end{column}
@@ -207,10 +207,10 @@ La «cronología baja» de Finkelstein rebaja la datación de varios estratos y 
 \begin{column}{0.50\textwidth}
 \centering
 \begin{tikzpicture}[every node/.style={font=\scriptsize}]
-\foreach \a/\t/\r [count=\i] in {90/{Apostasía}/{2:11--13},18/{Opresión}/{2:14--15},-54/{Clamor}/{3:9; 6:6},-126/{Libertador}/{2:16, 18},162/{Reposo y muerte}/{3:11; 2:19}}{
-  \node[draw=cafe,line width=0.8pt,fill=piedra,rounded corners=3pt,text width=1.75cm,align=center,inner sep=2.5pt] (c\i) at ({2.4*cos(\a)},{1.75*sin(\a)}) {\textbf{\textcolor{ladrillo}{\t}}\\[-1pt]{\tiny\color{sepia}Jue \r}};}
-\foreach \a/\b in {1/2,2/3,3/4,4/5,5/1}{\draw[-{Latex[length=2mm]},oro!90!ladrillo,line width=1.1pt] (c\a) to[bend left=18] (c\b);}
-\node[text width=1.9cm,align=center,font=\tiny\itshape,text=sepia] at (0,-0.05) {«más que sus padres» (2:19)};
+\foreach \a/\t/\r [count=\i,evaluate=\i as \ovk using int(\i+0)] in {90/{Apostasía}/{2:11--13},18/{Opresión}/{2:14--15},-54/{Clamor}/{3:9; 6:6},-126/{Libertador}/{2:16, 18},162/{Reposo y muerte}/{3:11; 2:19}}{\begin{scope}[visible on=<\ovk->]
+  \node[draw=cafe,line width=0.8pt,fill=piedra,rounded corners=3pt,text width=1.75cm,align=center,inner sep=2.5pt] (c\i) at ({2.4*cos(\a)},{1.75*sin(\a)}) {\textbf{\textcolor{ladrillo}{\t}}\\[-1pt]{\tiny\color{sepia}Jue \r}};\end{scope}}
+\begin{scope}[visible on=<5->]\foreach \a/\b in {1/2,2/3,3/4,4/5,5/1}{\draw[-{Latex[length=2mm]},oro!90!ladrillo,line width=1.1pt] (c\a) to[bend left=18] (c\b);}\end{scope}
+\begin{scope}[visible on=<5->]\node[text width=1.9cm,align=center,font=\tiny\itshape,text=sepia] at (0,-0.05) {«más que sus padres» (2:19)};\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -245,18 +245,18 @@ Sansón & Dan & Filisteos & 13--16 & Nazareo; vive «según sus ojos»\\
 \begin{frame}{Una espiral descendente}
 \centering
 \begin{tikzpicture}[x=1cm,y=1cm]
- \foreach \i/\t/\d/\s in {0/Otoniel/{«reposó la tierra»\\3:11}/bloque,
+ \foreach \i/\t/\d/\s [count=\ovc,evaluate=\ovc as \ovk using int(\ovc+0)] in {0/Otoniel/{«reposó la tierra»\\3:11}/bloque,
    1/Aod/{«reposó la tierra»\\3:30}/bloque,
    2/Débora/{«reposó la tierra»\\5:31}/bloque,
    3/Gedeón/{«reposó»; pero su efod es tropiezo\\8:27--28}/bloque,
    4/Jefté/{Israel mata a Israel\\12:6}/bloqueoro,
    5/Sansón/{«recta a mis ojos»\\14:3}/bloqueoro,
-   6/{Jue 17--21}/{sin rey; guerra civil\\Jue 20}/bloqueazul}{
-   \node[\s,text width=1.45cm,font=\tiny,anchor=north] (j\i) at ({\i*1.82},{-\i*0.5}) {{\scriptsize\bfseries \t}\\[1pt]\d};}
- \foreach \i [evaluate=\i as \j using int(\i+1)] in {0,...,5}{\draw[flecha] (j\i.east) -- (j\j.west|-j\i.east) ;}
+   6/{Jue 17--21}/{sin rey; guerra civil\\Jue 20}/bloqueazul}{\begin{scope}[visible on=<\ovk->]
+   \node[\s,text width=1.45cm,font=\tiny,anchor=north] (j\i) at ({\i*1.82},{-\i*0.5}) {{\scriptsize\bfseries \t}\\[1pt]\d};\end{scope}}
+ \begin{scope}[visible on=<7->]\foreach \i [evaluate=\i as \j using int(\i+1)] in {0,...,5}{\draw[flecha] (j\i.east) -- (j\j.west|-j\i.east) ;}
  \draw[decorate,decoration={brace,amplitude=5pt},oro!90!ladrillo,line width=0.8pt] (-0.75,0.15) -- (6.2,0.15)
-   node[midway,above=5pt,etiq]{\textbf{«Y reposó la tierra»}: cuatro veces, y ya no vuelve};
- \draw[sepia,dashed,-{Latex[length=2mm]}] (-0.7,-4.35) -- (11.9,-4.35) node[pos=0.5,below,etiq,text=sepia]{talla de los jueces y unidad de las tribus};
+   node[midway,above=5pt,etiq]{\textbf{«Y reposó la tierra»}: cuatro veces, y ya no vuelve};\end{scope}
+ \begin{scope}[visible on=<7->]\draw[sepia,dashed,-{Latex[length=2mm]}] (-0.7,-4.35) -- (11.9,-4.35) node[pos=0.5,below,etiq,text=sepia]{talla de los jueces y unidad de las tribus};\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{6pt}
@@ -281,15 +281,15 @@ Para muchos, junto con Éx 15, uno de los poemas más antiguos de la Biblia (Cro
  \foreach \t [count=\k from 0] in {Efraín,Benjamín,Maquir,Zabulón,Isacar,Neftalí}{
    \pgfmathsetmacro{\cx}{1.6+mod(\k,3)*1.38}\pgfmathsetmacro{\cy}{0.3-floor(\k/3)*0.6}
    \node[chip] at (\cx,\cy) {\t};}
- \node[bloqueazul,text width=1.15cm,font=\tiny\bfseries,fill=oro!80!ladrillo,draw=oro!80!ladrillo] (R) at (0,-1.55) {Reprocha};
- \foreach \t [count=\k from 0] in {Rubén,Galaad,Dan,Aser}{
+ \begin{scope}[visible on=<2->]\node[bloqueazul,text width=1.15cm,font=\tiny\bfseries,fill=oro!80!ladrillo,draw=oro!80!ladrillo] (R) at (0,-1.55) {Reprocha};\end{scope}
+ \begin{scope}[visible on=<3->]\foreach \t [count=\k from 0] in {Rubén,Galaad,Dan,Aser}{
    \pgfmathsetmacro{\cx}{1.6+mod(\k,3)*1.38}\pgfmathsetmacro{\cy}{-1.25-floor(\k/3)*0.6}
-   \node[chip,fill=oro!14!white,draw=oro!90!ladrillo] at (\cx,\cy) {\t};}
- \node[bloqueazul,text width=1.15cm,font=\tiny\bfseries,fill=oro!55!ladrillo,draw=oro!55!ladrillo] at (0,-2.6) {Maldice};
- \node[chip,fill=white,draw=oro!90!ladrillo,text width=2.4cm] at (2.29,-2.6) {Meroz (5:23)};
- \node[bloqueazul,text width=1.15cm,font=\tiny\bfseries,fill=sepia,draw=sepia] (N) at (0,-3.5) {No nombra};
- \node[chip,fill=white,dashed,draw=sepia] at (1.6,-3.5) {Judá};
- \node[chip,fill=white,dashed,draw=sepia] at (2.98,-3.5) {Simeón};
+   \node[chip,fill=oro!14!white,draw=oro!90!ladrillo] at (\cx,\cy) {\t};}\end{scope}
+ \begin{scope}[visible on=<3->]\node[bloqueazul,text width=1.15cm,font=\tiny\bfseries,fill=oro!55!ladrillo,draw=oro!55!ladrillo] at (0,-2.6) {Maldice};\end{scope}
+ \begin{scope}[visible on=<4->]\node[chip,fill=white,draw=oro!90!ladrillo,text width=2.4cm] at (2.29,-2.6) {Meroz (5:23)};\end{scope}
+ \begin{scope}[visible on=<5->]\node[bloqueazul,text width=1.15cm,font=\tiny\bfseries,fill=sepia,draw=sepia] (N) at (0,-3.5) {No nombra};\end{scope}
+ \begin{scope}[visible on=<5->]\node[chip,fill=white,dashed,draw=sepia] at (1.6,-3.5) {Judá};\end{scope}
+ \begin{scope}[visible on=<6->]\node[chip,fill=white,dashed,draw=sepia] at (2.98,-3.5) {Simeón};\end{scope}
 \end{tikzpicture}
 \notafig{Elaboración propia a partir de Jue 5:14--23.}
 \end{column}
@@ -309,10 +309,10 @@ La fórmula que mejor expresa el ideal teocrático del período. La victoria sob
 \centering
 \begin{tikzpicture}[node distance=0.32cm]
  \node[bloque,text width=4.6cm] (g1) {Trescientos hombres: «para que Israel no se alabe contra mí» (7:2)};
- \node[bloqueazul,text width=4.6cm,below=of g1] (g2) {Rechaza la corona (8:23)};
- \node[bloqueoro,text width=4.6cm,below=of g2] (g3) {Fabrica un efod: «todo Israel prostituyó tras él»; «tropiezo» (8:27)};
- \node[bloque,text width=4.6cm,below=of g3] (g4) {Abimelec, «mi padre es rey», se hace rey (Jue 9); fábula de Jotam};
- \foreach \a/\b in {g1/g2,g2/g3,g3/g4}{\draw[flecha] (\a) -- (\b);}
+ \begin{scope}[visible on=<2->]\node[bloqueazul,text width=4.6cm,below=of g1] (g2) {Rechaza la corona (8:23)};\end{scope}
+ \begin{scope}[visible on=<3->]\node[bloqueoro,text width=4.6cm,below=of g2] (g3) {Fabrica un efod: «todo Israel prostituyó tras él»; «tropiezo» (8:27)};\end{scope}
+ \begin{scope}[visible on=<4->]\node[bloque,text width=4.6cm,below=of g3] (g4) {Abimelec, «mi padre es rey», se hace rey (Jue 9); fábula de Jotam};\end{scope}
+ \begin{scope}[visible on=<4->]\foreach \a/\b in {g1/g2,g2/g3,g3/g4}{\draw[flecha] (\a) -- (\b);}\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -359,11 +359,11 @@ En Sansón se reconoce al Israel de la época: consagrado desde su origen, vive 
 \centering
 \begin{tikzpicture}[node distance=0.26cm]
  \node[bloque,text width=4.7cm] (l1) {Micaía: ídolo, efod y terafines (17:5)};
- \node[bloque,text width=4.7cm,below=of l1] (l2) {Un levita de Belén, por diez siclos al año};
- \node[bloqueoro,text width=4.7cm,below=of l2] (l3) {Dan roba el ídolo y al levita; arrasa Lais};
- \node[bloqueoro,text width=4.7cm,below=of l3] (l4) {Santuario en Dan «hasta el cautiverio de la tierra» (18:30)};
- \node[bloqueazul,text width=4.7cm,below=of l4] (l5) {Becerro de Jeroboam en Dan (1~R 12:29) $\to$ destierro asirio (Estudio~5)};
- \foreach \a/\b in {l1/l2,l2/l3,l3/l4,l4/l5}{\draw[flecha] (\a) -- (\b);}
+ \begin{scope}[visible on=<2->]\node[bloque,text width=4.7cm,below=of l1] (l2) {Un levita de Belén, por diez siclos al año};\end{scope}
+ \begin{scope}[visible on=<3->]\node[bloqueoro,text width=4.7cm,below=of l2] (l3) {Dan roba el ídolo y al levita; arrasa Lais};\end{scope}
+ \begin{scope}[visible on=<4->]\node[bloqueoro,text width=4.7cm,below=of l3] (l4) {Santuario en Dan «hasta el cautiverio de la tierra» (18:30)};\end{scope}
+ \begin{scope}[visible on=<5->]\node[bloqueazul,text width=4.7cm,below=of l4] (l5) {Becerro de Jeroboam en Dan (1~R 12:29) $\to$ destierro asirio (Estudio~5)};\end{scope}
+ \begin{scope}[visible on=<5->]\foreach \a/\b in {l1/l2,l2/l3,l3/l4,l4/l5}{\draw[flecha] (\a) -- (\b);}\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -422,16 +422,16 @@ La genealogía convierte una historia familiar en prólogo de la monarquía y, p
 \centering
 \begin{tikzpicture}[g/.style={bloque,text width=1.5cm,inner sep=2.5pt},node distance=0.32cm]
  \node[g] (f) {Fares};
- \node[g,below=0.75cm of f] (b) {Booz};
- \node[g,right=0.45cm of b,fill=oro!14!white,draw=oro!90!ladrillo] (r) {Rut, la moabita};
- \draw[oro!90!ladrillo,line width=1pt] (b) -- (r);
- \draw[flecha,dashed] (f) -- node[right,etiq,text=sepia]{\ldots} (b);
- \node[g,below=0.5cm of b] (o) {Obed};
- \node[g,below=of o] (i) {Isaí};
- \node[bloqueazul,text width=1.5cm,below=of i] (d) {David};
- \draw[flecha] (b.south) -- (o.north); \draw[flecha] (o) -- (i); \draw[flecha] (i) -- (d);
- \draw[decorate,decoration={brace,amplitude=4pt},sepia] ([xshift=0.2cm]r.east|-f.north) -- ([xshift=0.2cm]r.east|-d.south)
-   node[midway,right=5pt,etiq,align=left]{diez\\generaciones\\(Rt 4:18--22)};
+ \begin{scope}[visible on=<2->]\node[g,below=0.75cm of f] (b) {Booz};\end{scope}
+ \begin{scope}[visible on=<3->]\node[g,right=0.45cm of b,fill=oro!14!white,draw=oro!90!ladrillo] (r) {Rut, la moabita};\end{scope}
+ \begin{scope}[visible on=<3->]\draw[oro!90!ladrillo,line width=1pt] (b) -- (r);\end{scope}
+ \begin{scope}[visible on=<3->]\draw[flecha,dashed] (f) -- node[right,etiq,text=sepia]{\ldots} (b);\end{scope}
+ \begin{scope}[visible on=<4->]\node[g,below=0.5cm of b] (o) {Obed};\end{scope}
+ \begin{scope}[visible on=<5->]\node[g,below=of o] (i) {Isaí};\end{scope}
+ \begin{scope}[visible on=<6->]\node[bloqueazul,text width=1.5cm,below=of i] (d) {David};\end{scope}
+ \begin{scope}[visible on=<6->]\draw[flecha] (b.south) -- (o.north);\end{scope} \begin{scope}[visible on=<6->]\draw[flecha] (o) -- (i);\end{scope} \begin{scope}[visible on=<6->]\draw[flecha] (i) -- (d);\end{scope}
+ \begin{scope}[visible on=<6->]\draw[decorate,decoration={brace,amplitude=4pt},sepia] ([xshift=0.2cm]r.east|-f.north) -- ([xshift=0.2cm]r.east|-d.south)
+   node[midway,right=5pt,etiq,align=left]{diez\\generaciones\\(Rt 4:18--22)};\end{scope}
 \end{tikzpicture}
 \notafig{Elaboración propia a partir de Rt 4:17 y Mt 1:5.}
 \end{column}
@@ -450,11 +450,11 @@ La Mishná limita la prohibición a los varones (Yevamot 8:3) y el Talmud lo con
 \centering
 \begin{tikzpicture}
  \node[bloqueazul,text width=5.1cm] (t) at (0,0) {Dt 23:3 [23:4]\\[-1pt]{\mdseries\scriptsize «no entrará amonita ni moabita»}};
- \node[bloqueoro,text width=2.3cm,font=\scriptsize,anchor=north] (m) at (-1.4,-0.9) {\textbf{Lectura rabínica}\\solo varones\\(Yevamot 8:3; 76b--77a)};
- \node[bloque,text width=2.3cm,font=\scriptsize,anchor=north] (e) at (1.4,-0.9) {\textbf{Lectura rigurosa}\\aplicación estricta\\(Esd 9--10; Neh 13:1--3)};
- \draw[flecha] (t.south) -- (m.north); \draw[flecha] (t.south) -- (e.north);
- \node[bloque,fill=white,dashed,text width=5.1cm,anchor=north] (r) at (0,-2.75) {Rut, la moabita, en el linaje de David (Rt 4:17)};
- \draw[flecha,dashed] (m.south) -- (m.south|-r.north);
+ \begin{scope}[visible on=<2->]\node[bloqueoro,text width=2.3cm,font=\scriptsize,anchor=north] (m) at (-1.4,-0.9) {\textbf{Lectura rabínica}\\solo varones\\(Yevamot 8:3; 76b--77a)};\end{scope}
+ \begin{scope}[visible on=<3->]\node[bloque,text width=2.3cm,font=\scriptsize,anchor=north] (e) at (1.4,-0.9) {\textbf{Lectura rigurosa}\\aplicación estricta\\(Esd 9--10; Neh 13:1--3)};\end{scope}
+ \begin{scope}[visible on=<3->]\draw[flecha] (t.south) -- (m.north);\end{scope} \begin{scope}[visible on=<3->]\draw[flecha] (t.south) -- (e.north);\end{scope}
+ \begin{scope}[visible on=<4->]\node[bloque,fill=white,dashed,text width=5.1cm,anchor=north] (r) at (0,-2.75) {Rut, la moabita, en el linaje de David (Rt 4:17)};\end{scope}
+ \begin{scope}[visible on=<4->]\draw[flecha,dashed] (m.south) -- (m.south|-r.north);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -484,10 +484,10 @@ La Mishná limita la prohibición a los varones (Yevamot 8:3) y el Talmud lo con
 \centering
 \begin{tikzpicture}[node distance=0.9cm]
 \node[caja,text width=3.3cm,align=center] (h) {\textbf{Hebreo (1~S 2:10)}\\[3pt]\heb{וְיָרֵם קֶרֶן מְשִׁיחוֹ}\\[2pt]«exaltará el cuerno\\de su ungido»};
-\node[caja,text width=3.3cm,align=center,right=of h] (g) {\textbf{LXX}\\[3pt]\grc{ὑψώσει κέρας χριστοῦ αὐτοῦ}\\[2pt]\emph{mashíaj} $\to$ \grc{χριστός}};
-\node[caja,text width=3.3cm,align=center,right=of g] (p) {\textbf{Lucas (1:69)}\\[3pt]\grc{ἤγειρεν κέρας σωτηρίας}\\[2pt]«en la casa de David»};
-\draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (h) -- (g);
-\draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (g) -- (p);
+\begin{scope}[visible on=<2->]\node[caja,text width=3.3cm,align=center,right=of h] (g) {\textbf{LXX}\\[3pt]\grc{ὑψώσει κέρας χριστοῦ αὐτοῦ}\\[2pt]\emph{mashíaj} $\to$ \grc{χριστός}};\end{scope}
+\begin{scope}[visible on=<3->]\node[caja,text width=3.3cm,align=center,right=of g] (p) {\textbf{Lucas (1:69)}\\[3pt]\grc{ἤγειρεν κέρας σωτηρίας}\\[2pt]«en la casa de David»};\end{scope}
+\begin{scope}[visible on=<3->]\draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (h) -- (g);\end{scope}
+\begin{scope}[visible on=<3->]\draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (g) -- (p);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{4pt}
@@ -522,14 +522,14 @@ El verbo del destierro: la gloria «va al exilio». Los hijos de Elí «no conoc
 \begin{tikzpicture}[x=1cm,y=1cm]
  \node[bloqueazul,text width=1.7cm] (A) at (0,0) {Afec\\[-1pt]{\tiny\mdseries 1~S 4--6}};
  \node[bloque,text width=2.9cm] (a1) at (2.75,0) {El arca como amuleto: «para que nos salve» (4:3)};
- \node[bloque,text width=2.6cm] (a2) at (6.0,0) {Derrota; los filisteos capturan el arca};
- \node[bloque,text width=2.7cm,fill=white] (a3) at (9.2,0) {\textbf{Icabod}: «se ha ido la gloria» (4:21)};
- \node[bloqueazul,text width=1.7cm] (M) at (0,-1.9) {Mizpa\\[-1pt]{\tiny\mdseries 1~S 7}};
- \node[bloqueoro,text width=2.9cm] (m1) at (2.75,-1.9) {«Quitad los dioses ajenos» (7:3)};
- \node[bloqueoro,text width=2.6cm] (m2) at (6.0,-1.9) {Ayuno, confesión e intercesión de Samuel};
- \node[bloqueoro,text width=2.7cm,fill=white] (m3) at (9.2,-1.9) {\textbf{Eben-ezer}: «hasta aquí nos ayudó YHWH» (7:12)};
- \foreach \a/\b in {A/a1,a1/a2,a2/a3,M/m1,m1/m2,m2/m3}{\draw[flecha] (\a) -- (\b);}
- \draw[dashed,sepia] (-1,-0.95) -- (10.6,-0.95);
+ \begin{scope}[visible on=<2->]\node[bloque,text width=2.6cm] (a2) at (6.0,0) {Derrota; los filisteos capturan el arca};\end{scope}
+ \begin{scope}[visible on=<3->]\node[bloque,text width=2.7cm,fill=white] (a3) at (9.2,0) {\textbf{Icabod}: «se ha ido la gloria» (4:21)};\end{scope}
+ \begin{scope}[visible on=<4->]\node[bloqueazul,text width=1.7cm] (M) at (0,-1.9) {Mizpa\\[-1pt]{\tiny\mdseries 1~S 7}};\end{scope}
+ \begin{scope}[visible on=<4->]\node[bloqueoro,text width=2.9cm] (m1) at (2.75,-1.9) {«Quitad los dioses ajenos» (7:3)};\end{scope}
+ \begin{scope}[visible on=<5->]\node[bloqueoro,text width=2.6cm] (m2) at (6.0,-1.9) {Ayuno, confesión e intercesión de Samuel};\end{scope}
+ \begin{scope}[visible on=<6->]\node[bloqueoro,text width=2.7cm,fill=white] (m3) at (9.2,-1.9) {\textbf{Eben-ezer}: «hasta aquí nos ayudó YHWH» (7:12)};\end{scope}
+ \begin{scope}[visible on=<6->]\foreach \a/\b in {A/a1,a1/a2,a2/a3,M/m1,m1/m2,m2/m3}{\draw[flecha] (\a) -- (\b);}\end{scope}
+ \begin{scope}[visible on=<6->]\draw[dashed,sepia] (-1,-0.95) -- (10.6,-0.95);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{8pt}
@@ -563,11 +563,11 @@ Con el arca como objeto, Israel perdió; al volver a Dios, fue librado. Dagón c
 \centering
 \begin{tikzpicture}[node distance=0.24cm]
  \node[bloque,text width=4.3cm] (s1) {Ungido \heb{נָגִיד} (\emph{naguid}) sobre la heredad de YHWH (10:1)};
- \node[bloque,text width=4.3cm,below=of s1] (s2) {Libra a Jabes, la ciudad arrasada en Jue 21 (1~S 11)};
- \node[bloqueoro,text width=4.3cm,below=of s2] (s3) {Gilgal: ofrece él mismo el holocausto (13:8--12)};
- \node[bloqueoro,text width=4.3cm,below=of s3] (s4) {Amalec: perdona a Agag (1~S 15)};
- \node[bloqueazul,text width=4.3cm,below=of s4] (s5) {El reino es «rasgado» (15:28)};
- \foreach \a/\b in {s1/s2,s2/s3,s3/s4,s4/s5}{\draw[flecha] (\a) -- (\b);}
+ \begin{scope}[visible on=<2->]\node[bloque,text width=4.3cm,below=of s1] (s2) {Libra a Jabes, la ciudad arrasada en Jue 21 (1~S 11)};\end{scope}
+ \begin{scope}[visible on=<3->]\node[bloqueoro,text width=4.3cm,below=of s2] (s3) {Gilgal: ofrece él mismo el holocausto (13:8--12)};\end{scope}
+ \begin{scope}[visible on=<4->]\node[bloqueoro,text width=4.3cm,below=of s3] (s4) {Amalec: perdona a Agag (1~S 15)};\end{scope}
+ \begin{scope}[visible on=<5->]\node[bloqueazul,text width=4.3cm,below=of s4] (s5) {El reino es «rasgado» (15:28)};\end{scope}
+ \begin{scope}[visible on=<5->]\foreach \a/\b in {s1/s2,s2/s3,s3/s4,s4/s5}{\draw[flecha] (\a) -- (\b);}\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -580,6 +580,23 @@ Con el arca como objeto, Israel perdió; al volver a Dios, fue librado. Dagón c
 \end{notalam}
 \end{column}
 \end{columns}
+\end{frame}
+
+\begin{frame}{Perla filológica · «no desechará a su pueblo»}
+{\footnotesize La promesa de Samuel, el día en que el pueblo pide rey, llega por la Septuaginta al centro de Romanos 11.}\par\vspace{4pt}
+\centering\scriptsize\renewcommand{\arraystretch}{1.22}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{2.1cm}>{\RaggedRight\arraybackslash}p{5.0cm}>{\RaggedRight\arraybackslash}p{4.3cm}}
+\toprule
+{\color{ladrillo}\bfseries Texto} & {\color{ladrillo}\bfseries Forma} & {\color{ladrillo}\bfseries Observación}\\\midrule
+1~S 12:22 TM & \heb{כִּי לֹא־יִטֹּשׁ יְהוָה אֶת־עַמּוֹ בַּעֲבוּר שְׁמוֹ הַגָּדוֹל} & La razón: el nombre de Dios\\
+1~S 12:22 LXX & \grc{ὅτι οὐκ ἀπώσεται κύριος τὸν λαὸν αὐτοῦ} & «Abandonar» se vuelve «rechazar» (\grc{ἀπωθέω})\\
+Sal 94:14 [93:14] & \grc{ὅτι οὐκ ἀπώσεται κύριος τὸν λαὸν αὐτοῦ} & La fórmula, ya confesión del salterio\\
+Ro 11:1--2 & \grc{μὴ ἀπώσατο ὁ θεὸς τὸν λαὸν αὐτοῦ;} \ldots{} \grc{οὐκ ἀπώσατο} & Pablo pregunta y responde con la promesa\\
+\bottomrule
+\end{tabular}
+\elabpropia
+\vspace{4pt}
+\begin{clave}\footnotesize La respuesta de Pablo, «de ninguna manera», repite lo que Samuel dijo a un pueblo que acababa de rechazar a Dios como rey.\end{clave}
 \end{frame}
 
 \begin{frame}{David: el menor de Belén}
@@ -609,14 +626,14 @@ Con el arca como objeto, Israel perdió; al volver a Dios, fue librado. Dagón c
 \begin{tikzpicture}[x=1cm,y=1cm]
  \node[bloqueazul,text width=3.3cm] (h) at (-3.0,0) {«Lo recto ante sus ojos»\\[-1pt]{\tiny\mdseries\heb{הַיָּשָׁר בְּעֵינָיו}}};
  \node[bloqueazul,text width=3.3cm,fill=oro!80!ladrillo,draw=oro!80!ladrillo] (y) at (3.0,0) {«YHWH mira el corazón»\\[-1pt]{\tiny\mdseries\heb{וַיהוָה יִרְאֶה לַלֵּבָב}}};
- \node[bloque,text width=3.6cm,font=\scriptsize,below=0.45cm of h] (h1) {Sansón: «recta a mis ojos» (Jue 14:3)};
- \node[bloque,text width=3.6cm,font=\scriptsize,below=0.2cm of h1] (h2) {«Cada uno hacía lo recto ante sus ojos» (Jue 17:6; 21:25)};
- \node[bloque,text width=3.6cm,font=\scriptsize,below=0.2cm of h2] (h3) {Saúl se justifica ante Samuel (1~S 15:20--21)};
- \node[bloqueoro,text width=3.6cm,font=\scriptsize,below=0.45cm of y] (y1) {Eliab, el primogénito, descartado (1~S 16:6--7)};
- \node[bloqueoro,text width=3.6cm,font=\scriptsize,below=0.2cm of y1] (y2) {El menor, con las ovejas, ungido (16:11--13)};
- \node[bloqueoro,text width=3.6cm,font=\scriptsize,below=0.2cm of y2] (y3) {El Espíritu «desde aquel día» (16:13)};
- \draw[flecha,line width=1.4pt] (h.east) -- node[above,etiq]{Dt 12:8 / 12:25} (y.west);
- \draw[sepia,dashed] (0,-0.75) -- (0,-3.5);
+ \begin{scope}[visible on=<2->]\node[bloque,text width=3.6cm,font=\scriptsize,below=0.45cm of h] (h1) {Sansón: «recta a mis ojos» (Jue 14:3)};\end{scope}
+ \begin{scope}[visible on=<3->]\node[bloque,text width=3.6cm,font=\scriptsize,below=0.2cm of h1] (h2) {«Cada uno hacía lo recto ante sus ojos» (Jue 17:6; 21:25)};\end{scope}
+ \begin{scope}[visible on=<4->]\node[bloque,text width=3.6cm,font=\scriptsize,below=0.2cm of h2] (h3) {Saúl se justifica ante Samuel (1~S 15:20--21)};\end{scope}
+ \begin{scope}[visible on=<4->]\node[bloqueoro,text width=3.6cm,font=\scriptsize,below=0.45cm of y] (y1) {Eliab, el primogénito, descartado (1~S 16:6--7)};\end{scope}
+ \begin{scope}[visible on=<5->]\node[bloqueoro,text width=3.6cm,font=\scriptsize,below=0.2cm of y1] (y2) {El menor, con las ovejas, ungido (16:11--13)};\end{scope}
+ \begin{scope}[visible on=<6->]\node[bloqueoro,text width=3.6cm,font=\scriptsize,below=0.2cm of y2] (y3) {El Espíritu «desde aquel día» (16:13)};\end{scope}
+ \begin{scope}[visible on=<6->]\draw[flecha,line width=1.4pt] (h.east) -- node[above,etiq]{Dt 12:8 / 12:25} (y.west);\end{scope}
+ \begin{scope}[visible on=<6->]\draw[sepia,dashed] (0,-0.75) -- (0,-3.5);\end{scope}
 \end{tikzpicture}
 \notafig{Elaboración propia a partir de Dt 12:8, 25; Jue 17:6; 21:25; 1~S 16:6--13.}
 \vspace{4pt}
@@ -659,11 +676,11 @@ Final & Endor y Gilboa (1~S 28; 31) & Rey de la casa de Judá en Hebrón (2~S 2:
 \centering
 \begin{tikzpicture}
  \node[bloque,text width=4.4cm] (g) at (0,0) {Muerte de Saúl en Gilboa (1~S 31)};
- \node[bloqueazul,text width=1.95cm,font=\tiny\bfseries,anchor=north] (j) at (-1.22,-0.75) {Casa de Judá\\[1pt]{\mdseries David, en Hebrón}\\[1pt]{\mdseries (2~S 2:4)}};
- \node[bloqueazul,text width=1.95cm,font=\tiny\bfseries,anchor=north,fill=sepia,draw=sepia] (i) at (1.22,-0.75) {«Todo Israel»\\[1pt]{\mdseries Is-boset}\\[1pt]{\mdseries (2~S 2:9--10)}};
- \draw[flecha] (g.south) -- (j.north); \draw[flecha] (g.south) -- (i.north);
- \node[bloqueoro,text width=4.4cm,anchor=north] (u) at (0,-2.35) {David reúne ambas casas (2~S 5)\\{\tiny división definitiva: Estudio~4}};
- \draw[flecha] (j.south) -- (j.south|-u.north); \draw[flecha] (i.south) -- (i.south|-u.north);
+ \begin{scope}[visible on=<2->]\node[bloqueazul,text width=1.95cm,font=\tiny\bfseries,anchor=north] (j) at (-1.22,-0.75) {Casa de Judá\\[1pt]{\mdseries David, en Hebrón}\\[1pt]{\mdseries (2~S 2:4)}};\end{scope}
+ \begin{scope}[visible on=<3->]\node[bloqueazul,text width=1.95cm,font=\tiny\bfseries,anchor=north,fill=sepia,draw=sepia] (i) at (1.22,-0.75) {«Todo Israel»\\[1pt]{\mdseries Is-boset}\\[1pt]{\mdseries (2~S 2:9--10)}};\end{scope}
+ \begin{scope}[visible on=<3->]\draw[flecha] (g.south) -- (j.north);\end{scope} \begin{scope}[visible on=<3->]\draw[flecha] (g.south) -- (i.north);\end{scope}
+ \begin{scope}[visible on=<4->]\node[bloqueoro,text width=4.4cm,anchor=north] (u) at (0,-2.35) {David reúne ambas casas (2~S 5)\\{\tiny división definitiva: Estudio~4}};\end{scope}
+ \begin{scope}[visible on=<4->]\draw[flecha] (j.south) -- (j.south|-u.north);\end{scope} \begin{scope}[visible on=<4->]\draw[flecha] (i.south) -- (i.south|-u.north);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -682,18 +699,18 @@ Final & Endor y Gilboa (1~S 28; 31) & Rey de la casa de Judá en Hebrón (2~S 2:
  \node[bloqueazul,text width=11.2cm] (top) at (0,0) {Éx 19:6: «reino de sacerdotes y nación santa»};
  \node[font=\scriptsize\bfseries,text=ladrillo] (Q) at (-3.05,-0.65) {Quebrada};
  \node[font=\scriptsize\bfseries,text=oro!70!ladrillo] (P) at (3.05,-0.65) {Preservada: el remanente};
- \node[bloque,text width=5.6cm,font=\scriptsize,inner sep=2.5pt,below=0.12cm of Q] (q1) {\textbf{Cananeización}: los baales (Jue 2:11--13; cf. Nm 22--25)};
- \node[bloque,text width=5.6cm,font=\scriptsize,inner sep=2.5pt,below=0.18cm of q1] (q2) {\textbf{Sacerdocio vendido}: el levita de Micaía; los hijos de Elí};
- \node[bloque,text width=5.6cm,font=\scriptsize,inner sep=2.5pt,below=0.18cm of q2] (q3) {\textbf{Culto como magia}: el arca amuleto; Gilgal; Endor};
- \node[bloque,text width=5.6cm,font=\scriptsize,inner sep=2.5pt,below=0.18cm of q3] (q4) {\textbf{Israel como Sodoma}: Guibeá};
- \node[bloque,text width=5.6cm,font=\scriptsize,inner sep=2.5pt,below=0.18cm of q4] (q5) {\textbf{Como las naciones}: 1~S 8 frente a Nm 23:9};
- \node[bloqueoro,text width=5.6cm,font=\scriptsize,inner sep=2.5pt,below=0.12cm of P] (p1) {\textbf{Débora}: canta la victoria como obra de YHWH};
- \node[bloqueoro,text width=5.6cm,font=\scriptsize,inner sep=2.5pt,below=0.18cm of p1] (p2) {\textbf{Rut}: la bendición de Abraham a las familias (Gn 12:3)};
- \node[bloqueoro,text width=5.6cm,font=\scriptsize,inner sep=2.5pt,below=0.18cm of p2] (p3) {\textbf{Ana} profetiza al ungido; \textbf{Samuel} intercede (12:23)};
- \node[bloqueoro,text width=5.6cm,font=\scriptsize,inner sep=2.5pt,below=0.18cm of p3] (p4) {\textbf{Jonatán}: acepta la elección de Dios};
- \node[bloqueoro,text width=5.6cm,font=\scriptsize,inner sep=2.5pt,below=0.18cm of p4] (p5) {\textbf{David}: «toda la tierra sabrá» (17:46)};
- \draw[flecha] (top.south-|Q) -- (Q.north);
- \draw[flecha] (top.south-|P) -- (P.north);
+ \begin{scope}[visible on=<2->]\node[bloque,text width=5.6cm,font=\scriptsize,inner sep=2.5pt,below=0.12cm of Q] (q1) {\textbf{Cananeización}: los baales (Jue 2:11--13; cf. Nm 22--25)};\end{scope}
+ \begin{scope}[visible on=<2->]\node[bloque,text width=5.6cm,font=\scriptsize,inner sep=2.5pt,below=0.18cm of q1] (q2) {\textbf{Sacerdocio vendido}: el levita de Micaía; los hijos de Elí};\end{scope}
+ \begin{scope}[visible on=<3->]\node[bloque,text width=5.6cm,font=\scriptsize,inner sep=2.5pt,below=0.18cm of q2] (q3) {\textbf{Culto como magia}: el arca amuleto; Gilgal; Endor};\end{scope}
+ \begin{scope}[visible on=<3->]\node[bloque,text width=5.6cm,font=\scriptsize,inner sep=2.5pt,below=0.18cm of q3] (q4) {\textbf{Israel como Sodoma}: Guibeá};\end{scope}
+ \begin{scope}[visible on=<4->]\node[bloque,text width=5.6cm,font=\scriptsize,inner sep=2.5pt,below=0.18cm of q4] (q5) {\textbf{Como las naciones}: 1~S 8 frente a Nm 23:9};\end{scope}
+ \begin{scope}[visible on=<4->]\node[bloqueoro,text width=5.6cm,font=\scriptsize,inner sep=2.5pt,below=0.12cm of P] (p1) {\textbf{Débora}: canta la victoria como obra de YHWH};\end{scope}
+ \begin{scope}[visible on=<5->]\node[bloqueoro,text width=5.6cm,font=\scriptsize,inner sep=2.5pt,below=0.18cm of p1] (p2) {\textbf{Rut}: la bendición de Abraham a las familias (Gn 12:3)};\end{scope}
+ \begin{scope}[visible on=<5->]\node[bloqueoro,text width=5.6cm,font=\scriptsize,inner sep=2.5pt,below=0.18cm of p2] (p3) {\textbf{Ana} profetiza al ungido; \textbf{Samuel} intercede (12:23)};\end{scope}
+ \begin{scope}[visible on=<6->]\node[bloqueoro,text width=5.6cm,font=\scriptsize,inner sep=2.5pt,below=0.18cm of p3] (p4) {\textbf{Jonatán}: acepta la elección de Dios};\end{scope}
+ \begin{scope}[visible on=<6->]\node[bloqueoro,text width=5.6cm,font=\scriptsize,inner sep=2.5pt,below=0.18cm of p4] (p5) {\textbf{David}: «toda la tierra sabrá» (17:46)};\end{scope}
+ \begin{scope}[visible on=<6->]\draw[flecha] (top.south-|Q) -- (Q.north);\end{scope}
+ \begin{scope}[visible on=<6->]\draw[flecha] (top.south-|P) -- (P.north);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{6pt}
@@ -799,19 +816,19 @@ Rt 4:14--17 & Un redentor y el linaje de David & Is 59:20; Ro 11:26\\
  \node[col] at (0,0.55) {En la etapa};
  \node[col] at (4.4,0.55) {Los profetas};
  \node[col] at (8.8,0.55) {Pablo};
- \node[bloque,text width=3.0cm] (a1) at (0,0) {Jueces levantados por compasión (Jue 2:18)};
- \node[bloque,text width=3.0cm] (a2) at (0,-1.3) {«No desamparará a su pueblo» (1~S 12:22)};
- \node[bloque,text width=3.0cm] (a3) at (0,-2.6) {El ungido de Belén, hijo de Isaí (1~S 16:13)};
- \node[bloque,text width=3.0cm] (a4) at (0,-3.9) {Booz, el \emph{go'el} (Rt 4:14)};
- \node[bloqueoro,text width=3.0cm] (b1) at (4.4,0) {«Restauraré tus jueces» (Is 1:26)};
- \node[bloqueoro,text width=3.0cm] (b2) at (4.4,-1.3) {Eco en Sal 94:14};
- \node[bloqueoro,text width=3.0cm] (b3) at (4.4,-2.6) {Vara de Isaí; Renuevo; «David su rey»\\{\tiny(Is 11:1; Jer 23:5; Os 3:5)}};
- \node[bloqueoro,text width=3.0cm] (b4) at (4.4,-3.9) {«Vendrá de Sion el Libertador»: \emph{go'el} (Is 59:20)};
- \node[bloqueazul,text width=3.0cm] (c2) at (8.8,-1.3) {«¿Ha desechado Dios a su pueblo?» (Ro 11:1--2)};
- \node[bloqueazul,text width=3.0cm] (c3) at (8.8,-2.6) {Raíz de Isaí (Ro 15:12)};
- \node[bloqueazul,text width=3.0cm] (c4) at (8.8,-3.9) {«Todo Israel será salvo» (Ro 11:26)};
- \foreach \i in {1,2,3,4}{\draw[flecha] (a\i) -- (b\i);}
- \foreach \i in {2,3,4}{\draw[flecha] (b\i) -- (c\i);}
+ \begin{scope}[visible on=<2->]\node[bloque,text width=3.0cm] (a1) at (0,0) {Jueces levantados por compasión (Jue 2:18)};\end{scope}
+ \begin{scope}[visible on=<2->]\node[bloque,text width=3.0cm] (a2) at (0,-1.3) {«No desamparará a su pueblo» (1~S 12:22)};\end{scope}
+ \begin{scope}[visible on=<3->]\node[bloque,text width=3.0cm] (a3) at (0,-2.6) {El ungido de Belén, hijo de Isaí (1~S 16:13)};\end{scope}
+ \begin{scope}[visible on=<3->]\node[bloque,text width=3.0cm] (a4) at (0,-3.9) {Booz, el \emph{go'el} (Rt 4:14)};\end{scope}
+ \begin{scope}[visible on=<4->]\node[bloqueoro,text width=3.0cm] (b1) at (4.4,0) {«Restauraré tus jueces» (Is 1:26)};\end{scope}
+ \begin{scope}[visible on=<4->]\node[bloqueoro,text width=3.0cm] (b2) at (4.4,-1.3) {Eco en Sal 94:14};\end{scope}
+ \begin{scope}[visible on=<4->]\node[bloqueoro,text width=3.0cm] (b3) at (4.4,-2.6) {Vara de Isaí; Renuevo; «David su rey»\\{\tiny(Is 11:1; Jer 23:5; Os 3:5)}};\end{scope}
+ \begin{scope}[visible on=<5->]\node[bloqueoro,text width=3.0cm] (b4) at (4.4,-3.9) {«Vendrá de Sion el Libertador»: \emph{go'el} (Is 59:20)};\end{scope}
+ \begin{scope}[visible on=<5->]\node[bloqueazul,text width=3.0cm] (c2) at (8.8,-1.3) {«¿Ha desechado Dios a su pueblo?» (Ro 11:1--2)};\end{scope}
+ \begin{scope}[visible on=<6->]\node[bloqueazul,text width=3.0cm] (c3) at (8.8,-2.6) {Raíz de Isaí (Ro 15:12)};\end{scope}
+ \begin{scope}[visible on=<6->]\node[bloqueazul,text width=3.0cm] (c4) at (8.8,-3.9) {«Todo Israel será salvo» (Ro 11:26)};\end{scope}
+ \begin{scope}[visible on=<6->]\foreach \i in {1,2,3,4}{\draw[flecha] (a\i) -- (b\i);}\end{scope}
+ \begin{scope}[visible on=<6->]\foreach \i in {2,3,4}{\draw[flecha] (b\i) -- (c\i);}\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{2pt}
@@ -939,11 +956,11 @@ Proyección & Is 1:26; 11:1; Jer 23:5--6; Os 3:4--5; Mi 5:2 [5:1]; Ro 11:1--5\\
 \centering
 \begin{tikzpicture}[node distance=0.28cm]
  \node[bloque,text width=4.0cm] (h) {David en Hebrón, rey de Judá (2~S 2:4)};
- \node[bloqueoro,text width=4.0cm,below=of h] (j) {Jerusalén};
- \node[bloqueoro,text width=4.0cm,below=of j] (a) {El arca};
- \node[bloqueoro,text width=4.0cm,below=of a] (c) {La casa eterna (2~S 7)};
- \node[bloqueazul,text width=4.0cm,below=of c] (e) {Estudio 4: Salomón, el Primer Templo y la división entre Israel (norte) y Judá (sur)};
- \foreach \p/\q in {h/j,j/a,a/c,c/e}{\draw[flecha] (\p) -- (\q);}
+ \begin{scope}[visible on=<2->]\node[bloqueoro,text width=4.0cm,below=of h] (j) {Jerusalén};\end{scope}
+ \begin{scope}[visible on=<3->]\node[bloqueoro,text width=4.0cm,below=of j] (a) {El arca};\end{scope}
+ \begin{scope}[visible on=<4->]\node[bloqueoro,text width=4.0cm,below=of a] (c) {La casa eterna (2~S 7)};\end{scope}
+ \begin{scope}[visible on=<5->]\node[bloqueazul,text width=4.0cm,below=of c] (e) {Estudio 4: Salomón, el Primer Templo y la división entre Israel (norte) y Judá (sur)};\end{scope}
+ \begin{scope}[visible on=<5->]\foreach \p/\q in {h/j,j/a,a/c,c/e}{\draw[flecha] (\p) -- (\q);}\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}

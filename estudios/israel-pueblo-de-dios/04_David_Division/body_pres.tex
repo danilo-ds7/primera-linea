@@ -19,10 +19,10 @@
 \begin{column}{0.44\textwidth}\centering
 \begin{tikzpicture}[node distance=7mm]
 \node[bloqueazul,text width=4.6cm] (a) {Promesa\\[1pt]{\normalfont casa y trono «para siempre»}\\[1pt]{\normalfont\tiny 2~S 7:16}};
-\node[bloque,text width=4.6cm,below=of a] (b) {\textbf{Cisma}\\[1pt]«¡Israel, a tus tiendas!»\\[1pt]{\tiny 1~R 12:16}};
-\node[bloqueoro,text width=4.6cm,below=of b] (c) {\textbf{Juicio con límite}\\[1pt]afligida, «pero no para siempre»\\[1pt]{\tiny 1~R 11:39}};
-\draw[flecha] (a) -- node[right=2pt,etiq]{menos de\\un siglo} (b);
-\draw[flecha] (b) -- (c);
+\begin{scope}[visible on=<2->]\node[bloque,text width=4.6cm,below=of a] (b) {\textbf{Cisma}\\[1pt]«¡Israel, a tus tiendas!»\\[1pt]{\tiny 1~R 12:16}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueoro,text width=4.6cm,below=of b] (c) {\textbf{Juicio con límite}\\[1pt]afligida, «pero no para siempre»\\[1pt]{\tiny 1~R 11:39}};\end{scope}
+\begin{scope}[visible on=<3->]\draw[flecha] (a) -- node[right=2pt,etiq]{menos de\\un siglo} (b);\end{scope}
+\begin{scope}[visible on=<3->]\draw[flecha] (b) -- (c);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -32,14 +32,14 @@
 \begin{frame}{Los ejes de la serie en esta etapa}
 \centering
 \begin{tikzpicture}
- \foreach \x/\n/\t/\d/\r in {0/1/{Nación santa}/{¿Qué lugar tienen el rey, Sion y el templo en la vocación de Israel hacia las naciones?}/{2~S 6:14--18; 1~R 8:41--43; Sal 72:17},
+ \foreach \x/\n/\t/\d/\r [count=\ovc,evaluate=\ovc as \ovk using int(\ovc+0)] in {0/1/{Nación santa}/{¿Qué lugar tienen el rey, Sion y el templo en la vocación de Israel hacia las naciones?}/{2~S 6:14--18; 1~R 8:41--43; Sal 72:17},
    4.2/2/{Restauración}/{¿Qué límite pone Dios al juicio sobre la casa de David y el reino dividido?}/{2~S 7:14--16; 1~R 8:46--53; 11:39},
-   8.4/3/{Proyección}/{¿Cómo esperan los profetas y Pablo al hijo de David y la reunificación?}/{Is 11; Jer 23:5--6; Ez 37; Ro 1:3--4; 15:12}}{
+   8.4/3/{Proyección}/{¿Cómo esperan los profetas y Pablo al hijo de David y la reunificación?}/{Is 11; Jer 23:5--6; Ez 37; Ro 1:3--4; 15:12}}{\begin{scope}[visible on=<\ovk->]
   \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][3.4cm][t]{3.55cm}{\RaggedRight
     {\small\textbf{\textcolor{ladrillo}{\t}}}\\[5pt]\small \d\par\vfill{\scriptsize\color{sepia}(\r)}}};
-  \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
- \draw[flecha] (b1.east) -- (b2.west);
- \draw[flecha] (b2.east) -- (b3.west);
+  \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};\end{scope}}
+ \begin{scope}[visible on=<3->]\draw[flecha] (b1.east) -- (b2.west);\end{scope}
+ \begin{scope}[visible on=<3->]\draw[flecha] (b2.east) -- (b3.west);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{6pt}
@@ -52,10 +52,10 @@ Las citas bíblicas son traducción propia desde el texto hebreo (BHS) y griego 
 \centering
 \begin{tikzpicture}
 \node[bloque,text width=4.4cm,minimum height=2.0cm,anchor=north west] (n) at (0.35,-0.95) {\textbf{\textcolor{ladrillo}{Israel (norte)}}\\[2pt]Diez tribus, centro en Efraín; capitales Siquem, Penuel, Tirsa y, desde Omri, Samaria\\[2pt]{\tiny\color{sepia}2~S 2:9; 1~R 12:16--20; Os 5:3}};
-\node[bloqueoro,text width=4.4cm,minimum height=2.0cm,anchor=north east] (s) at (12.05,-0.95) {\textbf{\textcolor{ladrillo}{Judá (sur)}}\\[2pt]Judá y Benjamín; Jerusalén; casa de David\\[2pt]{\tiny\color{sepia}2~S 2:4; 1~R 12:21}};
-\draw[draw=ladrillo,line width=0.9pt,rounded corners=5pt] (0,0) rectangle (12.4,-3.35);
-\node[anchor=north,font=\small] at (6.2,-0.12) {\textbf{\textcolor{ladrillo}{Israel (pueblo)}}: las doce tribus, descendencia de Jacob {\scriptsize\color{sepia}(2~S 7:10; 1~R 8:62; Ro 11:1)}};
-\draw[<->,draw=oro!90!ladrillo,line width=1pt,dashed] (n.east) -- node[above,etiq]{un pueblo,}node[below,etiq]{dos reinos} (s.west);
+\begin{scope}[visible on=<2->]\node[bloqueoro,text width=4.4cm,minimum height=2.0cm,anchor=north east] (s) at (12.05,-0.95) {\textbf{\textcolor{ladrillo}{Judá (sur)}}\\[2pt]Judá y Benjamín; Jerusalén; casa de David\\[2pt]{\tiny\color{sepia}2~S 2:4; 1~R 12:21}};\end{scope}
+\begin{scope}[visible on=<3->]\draw[draw=ladrillo,line width=0.9pt,rounded corners=5pt] (0,0) rectangle (12.4,-3.35);\end{scope}
+\begin{scope}[visible on=<4->]\node[anchor=north,font=\small] at (6.2,-0.12) {\textbf{\textcolor{ladrillo}{Israel (pueblo)}}: las doce tribus, descendencia de Jacob {\scriptsize\color{sepia}(2~S 7:10; 1~R 8:62; Ro 11:1)}};\end{scope}
+\begin{scope}[visible on=<4->]\draw[<->,draw=oro!90!ladrillo,line width=1pt,dashed] (n.east) -- node[above,etiq]{un pueblo,}node[below,etiq]{dos reinos} (s.west);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{4pt}
@@ -68,19 +68,19 @@ Todas las tribus en 1~R 8:62; solo las del norte en 1~R 12:16--20. Incluso bajo 
 \centering\vspace{8pt}
 \begin{tikzpicture}[x=0.755cm]
 \draw[line width=1.6pt,cafe,-{Latex[length=3mm]}] (0,0) -- (15.7,0);
-\foreach \x/\t/\b in {0.6/{David rey en Hebrón}/{2~S 2:4; c. 1010},
+\foreach \x/\t/\b [count=\ovc,evaluate=\ovc as \ovk using int(\ovc+0)] in {0.6/{David rey en Hebrón}/{2~S 2:4; c. 1010},
                       2.7/{Rey de todo Israel; Jerusalén}/{2~S 5; c. 1003},
                       4.8/{Arca a Sion; pacto}/{2~S 6--7},
                       6.9/{Betsabé, Absalón}/{2~S 11--20},
                       9.0/{Salomón rey}/{1~R 1--2; c. 970},
                       11.1/{El templo}/{1~R 6--8; c. 966--959},
                       13.2/{División}/{1~R 12; c. 931/930},
-                      15.1/{Sisac}/{1~R 14:25; c. 926/925}}{
+                      15.1/{Sisac}/{1~R 14:25; c. 926/925}}{\begin{scope}[visible on=<\ovk->]
   \fill[oro] (\x,0) circle (4pt);
   \node[above,font=\scriptsize\bfseries,text=ladrillo,text width=1.6cm,align=center] at (\x,0.2) {\t};
-  \node[below,font=\tiny,text=sepia,text width=1.6cm,align=center] at (\x,-0.2) {\b};}
-\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (0.4,-0.9) -- (7.1,-0.9) node[midway,below=5pt,font=\scriptsize\itshape]{David: un reino unido por pacto};
-\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (8.8,-0.9) -- (13.4,-0.9) node[midway,below=5pt,font=\scriptsize\itshape]{Salomón: esplendor y quiebre};
+  \node[below,font=\tiny,text=sepia,text width=1.6cm,align=center] at (\x,-0.2) {\b};\end{scope}}
+\begin{scope}[visible on=<8->]\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (0.4,-0.9) -- (7.1,-0.9) node[midway,below=5pt,font=\scriptsize\itshape]{David: un reino unido por pacto};\end{scope}
+\begin{scope}[visible on=<8->]\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (8.8,-0.9) -- (13.4,-0.9) node[midway,below=5pt,font=\scriptsize\itshape]{Salomón: esplendor y quiebre};\end{scope}
 \end{tikzpicture}
 \notafig{Elaboración propia. Fechas aproximadas a.\,e.\,c. según Thiele (1983); otras cronologías bajan la división a c. 922.}
 \vspace{10pt}
@@ -94,13 +94,13 @@ Todas las tribus en 1~R 8:62; solo las del norte en 1~R 12:16--20. Incluso bajo 
 \foreach \a in {935,930,925,920}{\draw[sepia] ({935-\a},0.1) -- ({935-\a},-0.1) node[below,font=\tiny,text=sepia]{\a};}
 \node[hito] at (4.5,0) {};
 \draw[oro!90!ladrillo,line width=0.8pt] (4.5,0.15) -- (4.5,0.75);
-\node[bloqueazul,anchor=south,text width=2.9cm] at (4.0,0.75) {División, 931/930\\{\normalfont\tiny Thiele (1983); la que sigue esta serie}};
-\node[hito] at (9.5,0) {};
-\draw[oro!90!ladrillo,line width=0.8pt] (9.5,0.15) -- (9.5,0.75);
-\node[bloqueoro,anchor=south,text width=2.9cm] at (10.0,0.75) {\textbf{Sisac en Judá e Israel}\\{\tiny 5.º año de Roboam (1~R 14:25), c. 926/925}};
-\node[hito] at (13,0) {};
-\draw[oro!90!ladrillo,line width=0.8pt] (13,-0.45) -- (13,-0.95);
-\node[bloque,anchor=north,text width=3.3cm] at (13,-0.95) {\textbf{División, c. 922}\\{\tiny escuela de Albright}};
+\begin{scope}[visible on=<2->]\node[bloqueazul,anchor=south,text width=2.9cm] at (4.0,0.75) {División, 931/930\\{\normalfont\tiny Thiele (1983); la que sigue esta serie}};\end{scope}
+\begin{scope}[visible on=<3->]\node[hito] at (9.5,0) {};\end{scope}
+\begin{scope}[visible on=<3->]\draw[oro!90!ladrillo,line width=0.8pt] (9.5,0.15) -- (9.5,0.75);\end{scope}
+\begin{scope}[visible on=<4->]\node[bloqueoro,anchor=south,text width=2.9cm] at (10.0,0.75) {\textbf{Sisac en Judá e Israel}\\{\tiny 5.º año de Roboam (1~R 14:25), c. 926/925}};\end{scope}
+\begin{scope}[visible on=<5->]\node[hito] at (13,0) {};\end{scope}
+\begin{scope}[visible on=<5->]\draw[oro!90!ladrillo,line width=0.8pt] (13,-0.45) -- (13,-0.95);\end{scope}
+\begin{scope}[visible on=<6->]\node[bloque,anchor=north,text width=3.3cm] at (13,-0.95) {\textbf{División, c. 922}\\{\tiny escuela de Albright}};\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{4pt}
@@ -162,10 +162,10 @@ Aramea; Biran, 1993--1994; probablemente Hazael. Primera mención segura de Davi
 \centering
 \begin{tikzpicture}
 \node[bloqueazul,text width=3.6cm] (h) at (0,0) {Rey arameo (¿Hazael?)};
-\node[bloque,text width=2.4cm,minimum height=1.35cm,anchor=north] (i) at (-1.6,-0.95) {[Jo]ram, «rey de Israel»\\\heb{מלך ישראל}\\{\tiny = reino del norte}};
-\node[bloqueoro,text width=2.4cm,minimum height=1.35cm,anchor=north] (d) at (1.6,-0.95) {rey de la «casa de David»\\\heb{ביתדוד}\\{\tiny = Judá}};
-\draw[flecha] (h.south) -- ++(0,-0.2) -| (i.north);
-\draw[flecha] (h.south) -- ++(0,-0.2) -| (d.north);
+\begin{scope}[visible on=<2->]\node[bloque,text width=2.4cm,minimum height=1.35cm,anchor=north] (i) at (-1.6,-0.95) {[Jo]ram, «rey de Israel»\\\heb{מלך ישראל}\\{\tiny = reino del norte}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueoro,text width=2.4cm,minimum height=1.35cm,anchor=north] (d) at (1.6,-0.95) {rey de la «casa de David»\\\heb{ביתדוד}\\{\tiny = Judá}};\end{scope}
+\begin{scope}[visible on=<3->]\draw[flecha] (h.south) -- ++(0,-0.2) -| (i.north);\end{scope}
+\begin{scope}[visible on=<3->]\draw[flecha] (h.south) -- ++(0,-0.2) -| (d.north);\end{scope}
 \end{tikzpicture}
 \notafig{Elaboración propia a partir de Biran y Naveh (1993, 1995).}
 \end{column}
@@ -202,9 +202,9 @@ En Mesa la «casa de David» no es prueba firme. En Tel Dan, en cambio, un rey e
 \begin{tikzpicture}
 \draw[{Latex[length=3mm]}-{Latex[length=3mm]},line width=1.4pt,cafe] (0,0) -- (12.2,0);
 \node[bloque,anchor=north west,text width=4.3cm] at (0,-0.3) {\textbf{Cronología baja}\\[1pt]Finkelstein: David y Salomón, jefes de un reino pequeño};
-\node[bloqueazul,anchor=north east,text width=4.3cm] at (12.2,-0.3) {Convencional modificada\\[1pt]{\normalfont A. Mazar y Garfinkel: un Judá organizado ya hacia el 1000}};
-\node[bloqueoro,anchor=south,text width=4.4cm] at (6.1,0.3) {\textbf{Qeiyafa}: alguien fortificaba a gran escala en tiempos de David; lo que se discute es quién};
-\node[hito] at (6.1,0) {};
+\begin{scope}[visible on=<2->]\node[bloqueazul,anchor=north east,text width=4.3cm] at (12.2,-0.3) {Convencional modificada\\[1pt]{\normalfont A. Mazar y Garfinkel: un Judá organizado ya hacia el 1000}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueoro,anchor=south,text width=4.4cm] at (6.1,0.3) {\textbf{Qeiyafa}: alguien fortificaba a gran escala en tiempos de David; lo que se discute es quién};\end{scope}
+\begin{scope}[visible on=<4->]\node[hito] at (6.1,0) {};\end{scope}
 \end{tikzpicture}
 \notafig{Elaboración propia a partir de Finkelstein y Fantalkin (2012), A. Mazar (2010) y Garfinkel et~al. (2016).}
 \vspace{6pt}
@@ -225,10 +225,10 @@ Del templo de Salomón no hay restos excavados. Los paralelos más cercanos de s
 \begin{column}{0.46\textwidth}\centering
 \begin{tikzpicture}[node distance=8mm and 3mm]
 \node[bloqueoro,text width=2.35cm,minimum height=1.35cm] (j) {\textbf{David}\\rey de «la casa de Judá»\\{\tiny 2~S 2:4}};
-\node[bloque,text width=2.35cm,minimum height=1.35cm,right=of j] (n) {\textbf{Is-boset}\\rey de «todo Israel» (= norte)\\{\tiny 2~S 2:9}};
-\node[bloqueazul,text width=5.2cm,below=10mm of $(j.south)!0.5!(n.south)$] (p) {Pacto en Hebrón\\{\normalfont un rey, dos entidades que se saben un pueblo}\\{\normalfont\tiny tras siete años y medio; 2~S 5:1--5}};
-\draw[flecha] (j.south) -- (j.south |- p.north);
-\draw[flecha] (n.south) -- (n.south |- p.north);
+\begin{scope}[visible on=<2->]\node[bloque,text width=2.35cm,minimum height=1.35cm,right=of j] (n) {\textbf{Is-boset}\\rey de «todo Israel» (= norte)\\{\tiny 2~S 2:9}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueazul,text width=5.2cm,below=10mm of $(j.south)!0.5!(n.south)$] (p) {Pacto en Hebrón\\{\normalfont un rey, dos entidades que se saben un pueblo}\\{\normalfont\tiny tras siete años y medio; 2~S 5:1--5}};\end{scope}
+\begin{scope}[visible on=<3->]\draw[flecha] (j.south) -- (j.south |- p.north);\end{scope}
+\begin{scope}[visible on=<3->]\draw[flecha] (n.south) -- (n.south |- p.north);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -240,12 +240,12 @@ Del templo de Salomón no hay restos excavados. Los paralelos más cercanos de s
 \centering\vspace{4pt}
 \begin{tikzpicture}[node distance=4mm]
 \node[bloqueazul,text width=1.95cm,minimum height=1.45cm] (a) {Pacto\\{\normalfont\tiny Hebrón, 2~S 5:3}};
-\node[bloque,text width=1.95cm,minimum height=1.45cm,right=of a] (b) {Absalón rey en Hebrón\\{\tiny 2~S 15:10}};
-\node[bloque,text width=1.95cm,minimum height=1.45cm,right=of b] (c) {«Diez partes tenemos en el rey»\\{\tiny 2~S 19:43 [19:44]}};
-\node[bloqueoro,text width=1.95cm,minimum height=1.45cm,right=of c] (d) {Seba toca el shofar\\{\tiny 2~S 20:1}};
-\node[bloqueazul,text width=1.95cm,minimum height=1.45cm,right=of d] (e) {Siquem\\{\normalfont\tiny 1~R 12:16}};
-\foreach \u/\v in {a/b,b/c,c/d,d/e}{\draw[flecha] (\u) -- (\v);}
-\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (b.south west) ++(0,-0.15) -- ($(d.south east)+(0,-0.15)$) node[midway,below=6pt,font=\scriptsize\itshape]{tensión norte--sur bajo David};
+\begin{scope}[visible on=<2->]\node[bloque,text width=1.95cm,minimum height=1.45cm,right=of a] (b) {Absalón rey en Hebrón\\{\tiny 2~S 15:10}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloque,text width=1.95cm,minimum height=1.45cm,right=of b] (c) {«Diez partes tenemos en el rey»\\{\tiny 2~S 19:43 [19:44]}};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloqueoro,text width=1.95cm,minimum height=1.45cm,right=of c] (d) {Seba toca el shofar\\{\tiny 2~S 20:1}};\end{scope}
+\begin{scope}[visible on=<5->]\node[bloqueazul,text width=1.95cm,minimum height=1.45cm,right=of d] (e) {Siquem\\{\normalfont\tiny 1~R 12:16}};\end{scope}
+\begin{scope}[visible on=<5->]\foreach \u/\v in {a/b,b/c,c/d,d/e}{\draw[flecha] (\u) -- (\v);}\end{scope}
+\begin{scope}[visible on=<5->]\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (b.south west) ++(0,-0.15) -- ($(d.south east)+(0,-0.15)$) node[midway,below=6pt,font=\scriptsize\itshape]{tensión norte--sur bajo David};\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{6pt}
@@ -257,12 +257,12 @@ Del templo de Salomón no hay restos excavados. Los paralelos más cercanos de s
 \begin{column}{0.48\textwidth}\centering
 \begin{tikzpicture}
 \node[bloqueoro,text width=1.4cm,minimum height=1.25cm] (j) at (-2.1,0) {\textbf{Judá}\\{\tiny Jos 15:8}};
-\node[bloqueazul,text width=1.7cm,minimum height=1.25cm] (s) at (0,0) {Jebús / Sion\\{\normalfont\tiny plaza neutral}};
-\node[bloque,text width=1.4cm,minimum height=1.25cm] (b) at (2.1,0) {\textbf{Benjamín}\\{\tiny Jos 18:16}};
-\node[bloque,text width=1.7cm,fill=white,dashed] (si) at (-2.0,-2.1) {Silo, santuario de Efraín\\{\tiny Sal 78:60}};
-\node[bloqueazul,text width=1.7cm] (ar) at (1.9,-2.1) {El arca sube a Sion\\{\normalfont\tiny 2~S 6; Sal 132:13--14}};
-\draw[flecha] (si.east) -- node[above,etiq]{queda atrás} (ar.west);
-\draw[flecha] (ar.north) to[out=90,in=-60] (s.south east);
+\begin{scope}[visible on=<2->]\node[bloqueazul,text width=1.7cm,minimum height=1.25cm] (s) at (0,0) {Jebús / Sion\\{\normalfont\tiny plaza neutral}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloque,text width=1.4cm,minimum height=1.25cm] (b) at (2.1,0) {\textbf{Benjamín}\\{\tiny Jos 18:16}};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloque,text width=1.7cm,fill=white,dashed] (si) at (-2.0,-2.1) {Silo, santuario de Efraín\\{\tiny Sal 78:60}};\end{scope}
+\begin{scope}[visible on=<5->]\node[bloqueazul,text width=1.7cm] (ar) at (1.9,-2.1) {El arca sube a Sion\\{\normalfont\tiny 2~S 6; Sal 132:13--14}};\end{scope}
+\begin{scope}[visible on=<5->]\draw[flecha] (si.east) -- node[above,etiq]{queda atrás} (ar.west);\end{scope}
+\begin{scope}[visible on=<5->]\draw[flecha] (ar.north) to[out=90,in=-60] (s.south east);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{2pt}
@@ -282,12 +282,12 @@ Sion no pertenecía a ninguno de los dos bloques y nació como principio de unid
 \begin{column}{0.46\textwidth}\centering
 \begin{tikzpicture}[node distance=2.6mm,every node/.append style={text width=5.2cm,font=\scriptsize}]
 \node[bloque] (a) {\textbf{Pecado}: Betsabé y Urías {\tiny(2~S 11)}};
-\node[bloque,below=of a] (b) {\textbf{Natán}: \heb{אַתָּה הָאִישׁ} {\tiny(12:7)}};
-\node[bloqueoro,below=of b] (c) {\textbf{Confesión}: \heb{חָטָאתִי לַיהוָה} {\tiny(12:13)}};
-\node[bloque,below=of c] (d) {\textbf{Perdón y consecuencia}: «no se apartará jamás la espada de tu casa» {\tiny(12:10)}};
-\node[bloqueazul,below=of d] (e) {Salomón, \heb{יְדִידְיָהּ}, «amado de YH» {\normalfont\tiny(12:25)}};
-\node[bloque,below=of e] (f) {Absalón se proclama rey en Hebrón {\tiny(15:10)}};
-\foreach \u/\v in {a/b,b/c,c/d,d/e,e/f}{\draw[flecha] (\u) -- (\v);}
+\begin{scope}[visible on=<2->]\node[bloque,below=of a] (b) {\textbf{Natán}: \heb{אַתָּה הָאִישׁ} {\tiny(12:7)}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueoro,below=of b] (c) {\textbf{Confesión}: \heb{חָטָאתִי לַיהוָה} {\tiny(12:13)}};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloque,below=of c] (d) {\textbf{Perdón y consecuencia}: «no se apartará jamás la espada de tu casa» {\tiny(12:10)}};\end{scope}
+\begin{scope}[visible on=<5->]\node[bloqueazul,below=of d] (e) {Salomón, \heb{יְדִידְיָהּ}, «amado de YH» {\normalfont\tiny(12:25)}};\end{scope}
+\begin{scope}[visible on=<6->]\node[bloque,below=of e] (f) {Absalón se proclama rey en Hebrón {\tiny(15:10)}};\end{scope}
+\begin{scope}[visible on=<6->]\foreach \u/\v in {a/b,b/c,c/d,d/e,e/f}{\draw[flecha] (\u) -- (\v);}\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -312,10 +312,10 @@ Sion no pertenecía a ninguno de los dos bloques y nació como principio de unid
 \centering
 \begin{tikzpicture}[node distance=4mm]
 \node[bloque,text width=1.55cm] (a) {\textbf{palacio}\\{\tiny 7:2, «casa de cedro»}};
-\node[bloque,text width=1.55cm,right=of a] (b) {\textbf{templo}\\{\tiny 7:5, «¿tú me edificarás casa?»}};
-\node[bloqueazul,text width=1.55cm,right=of b] (c) {dinastía\\{\normalfont\tiny 7:11, «YHWH te hará casa»}};
-\draw[flecha] (a) -- (b); \draw[flecha] (b) -- (c);
-\node[etiq,above=2pt of b.north] {\heb{בַּיִת} (\emph{báyit}): tres sentidos de «casa»};
+\begin{scope}[visible on=<2->]\node[bloque,text width=1.55cm,right=of a] (b) {\textbf{templo}\\{\tiny 7:5, «¿tú me edificarás casa?»}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueazul,text width=1.55cm,right=of b] (c) {dinastía\\{\normalfont\tiny 7:11, «YHWH te hará casa»}};\end{scope}
+\begin{scope}[visible on=<3->]\draw[flecha] (a) -- (b);\end{scope} \begin{scope}[visible on=<3->]\draw[flecha] (b) -- (c);\end{scope}
+\begin{scope}[visible on=<4->]\node[etiq,above=2pt of b.north] {\heb{בַּיִת} (\emph{báyit}): tres sentidos de «casa»};\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{2pt}
@@ -323,6 +323,25 @@ Sion no pertenecía a ninguno de los dos bloques y nació como principio de unid
 \end{column}
 \begin{column}{0.41\textwidth}\end{column}
 \end{columns}
+\end{frame}
+
+\begin{frame}{Perla filológica · las casas de 2 S 7}
+{\footnotesize El juego de sentidos de \heb{בַּיִת} (\emph{báyit}) liga la restauración de Israel a la casa de David.}\par\vspace{4pt}
+\centering\scriptsize\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{1.4cm}>{\RaggedRight\arraybackslash}p{6.0cm}>{\RaggedRight\arraybackslash}p{4.0cm}}
+\toprule
+{\color{ladrillo}\bfseries Texto} & {\color{ladrillo}\bfseries Formulación} & {\color{ladrillo}\bfseries «Casa»}\\\midrule
+7:2 & «Yo habito en casa de cedro» & Palacio de David\\
+7:5 & «¿Tú me edificarás casa en que yo habite?» & Templo para YHWH\\
+7:11 & \heb{כִּי־בַיִת יַעֲשֶׂה־לְּךָ יְהוָה} «YHWH te hará casa» & Dinastía de David\\
+7:13 & «Él edificará casa a mi nombre» & Templo, obra del hijo\\
+7:16 & «Será firme tu casa y tu reino para siempre» & Dinastía «para siempre»\\
+Am 9:11 & \heb{אָקִים אֶת־סֻכַּת דָּוִיד הַנֹּפֶלֶת} & La casa caída, «tienda», levantada (Hch 15:16)\\
+\bottomrule
+\end{tabular}
+\elabpropia
+\vspace{3pt}
+\begin{clave}\footnotesize Cuando la casa davídica caiga, los profetas no anunciarán otra dinastía: Dios levantará la misma.\end{clave}
 \end{frame}
 
 \begin{frame}{Cuatro claves de 2 S 7}
@@ -347,10 +366,10 @@ Sion no pertenecía a ninguno de los dos bloques y nació como principio de unid
 \centering
 \begin{tikzpicture}[node distance=0.9cm]
 \node[caja,text width=3.3cm,align=center] (h) {\textbf{Hebreo (2~S 7:14)}\\[3pt]\heb{וְהוּא יִהְיֶה־לִּי לְבֵן}\\[2pt]el hijo de David,\\hijo de Dios};
-\node[caja,text width=3.3cm,align=center,right=of h] (g) {\textbf{LXX}\\[3pt]\grc{αὐτὸς ἔσται μοι εἰς υἱόν}\\[2pt]citado en Heb 1:5};
-\node[caja,text width=3.3cm,align=center,right=of g] (p) {\textbf{Pablo}\\[3pt]\grc{εἰς υἱοὺς καὶ θυγατέρας}\\[2pt]2~Co 6:18; Ro 1:3--4};
-\draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (h) -- (g);
-\draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (g) -- (p);
+\begin{scope}[visible on=<2->]\node[caja,text width=3.3cm,align=center,right=of h] (g) {\textbf{LXX}\\[3pt]\grc{αὐτὸς ἔσται μοι εἰς υἱόν}\\[2pt]citado en Heb 1:5};\end{scope}
+\begin{scope}[visible on=<3->]\node[caja,text width=3.3cm,align=center,right=of g] (p) {\textbf{Pablo}\\[3pt]\grc{εἰς υἱοὺς καὶ θυγατέρας}\\[2pt]2~Co 6:18; Ro 1:3--4};\end{scope}
+\begin{scope}[visible on=<3->]\draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (h) -- (g);\end{scope}
+\begin{scope}[visible on=<3->]\draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (g) -- (p);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{6pt}
@@ -384,10 +403,10 @@ Reino & «\emph{tu} casa y \emph{tu} reino» (7:16) & «\emph{mi} casa y \emph{m
 \begin{column}{0.48\textwidth}\centering
 \begin{tikzpicture}[node distance=9mm]
 \node[bloque,text width=4.6cm] (e) {\textbf{Éxodo de Egipto}\\{\tiny «la casa de YHWH» como meta del Éxodo (Éx 15:17)}};
-\node[bloqueazul,text width=4.6cm,below=of e] (t) {Templo de Salomón\\{\normalfont\tiny cuarto año de Salomón, c. 966}};
-\draw[flecha] (e) -- node[right=3pt,etiq]{480 años\\(1~R 6:1)} (t);
-\node[bloqueoro,text width=4.6cm,below=7mm of t] (j) {\textbf{Josefo}: 592 años\\{\tiny \emph{Ant.} 8.3.1}};
-\draw[dashed,draw=sepia,line width=0.7pt] (t) -- node[right=3pt,etiq]{otro cómputo} (j);
+\begin{scope}[visible on=<2->]\node[bloqueazul,text width=4.6cm,below=of e] (t) {Templo de Salomón\\{\normalfont\tiny cuarto año de Salomón, c. 966}};\end{scope}
+\begin{scope}[visible on=<2->]\draw[flecha] (e) -- node[right=3pt,etiq]{480 años\\(1~R 6:1)} (t);\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueoro,text width=4.6cm,below=7mm of t] (j) {\textbf{Josefo}: 592 años\\{\tiny \emph{Ant.} 8.3.1}};\end{scope}
+\begin{scope}[visible on=<3->]\draw[dashed,draw=sepia,line width=0.7pt] (t) -- node[right=3pt,etiq]{otro cómputo} (j);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -403,10 +422,10 @@ Reino & «\emph{tu} casa y \emph{tu} reino» (7:16) & «\emph{mi} casa y \emph{m
 \begin{column}{0.46\textwidth}\centering
 \begin{tikzpicture}[node distance=8mm]
 \node[bloque,text width=4.3cm] (a) {\textbf{Tabernáculo}\\la nube cubre la tienda\\{\tiny Éx 40:34--35}};
-\node[bloqueazul,text width=4.3cm,below=of a] (b) {Templo\\{\normalfont la nube llena la casa}\\{\normalfont\tiny 1~R 8:10--11}};
-\node[bloqueoro,text width=4.3cm,below=of b] (c) {\textbf{Nombre y oración}\\Dios pone allí su nombre; hacia allí se ora\\{\tiny 1~R 8:29--30}};
-\draw[flecha] (a) -- node[right=3pt,etiq]{lo mismo sucede} (b);
-\draw[flecha] (b) -- node[right=3pt,etiq]{no lo encierra} (c);
+\begin{scope}[visible on=<2->]\node[bloqueazul,text width=4.3cm,below=of a] (b) {Templo\\{\normalfont la nube llena la casa}\\{\normalfont\tiny 1~R 8:10--11}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueoro,text width=4.3cm,below=of b] (c) {\textbf{Nombre y oración}\\Dios pone allí su nombre; hacia allí se ora\\{\tiny 1~R 8:29--30}};\end{scope}
+\begin{scope}[visible on=<3->]\draw[flecha] (a) -- node[right=3pt,etiq]{lo mismo sucede} (b);\end{scope}
+\begin{scope}[visible on=<3->]\draw[flecha] (b) -- node[right=3pt,etiq]{no lo encierra} (c);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -425,12 +444,12 @@ Reino & «\emph{tu} casa y \emph{tu} reino» (7:16) & «\emph{mi} casa y \emph{m
 \begin{column}{0.52\textwidth}\centering
 \begin{tikzpicture}[every node/.append style={text width=2.45cm,minimum height=1.05cm}]
 \node[bloque] (p) at (0,1.75) {\textbf{Pecado}\\{\tiny «no hay hombre que no peque»}};
-\node[bloque] (c) at (3.2,1.75) {\textbf{Cautiverio}\\\heb{שָׁבָה} \emph{shavá}};
-\node[bloqueoro] (v) at (3.2,-0.1) {\textbf{Vuelven en sí}\\\heb{שׁוּב} \emph{shuv}};
-\node[bloque] (o) at (3.2,-1.95) {\textbf{Oran hacia}\\{\tiny la tierra, la ciudad, la casa}};
-\node[bloqueazul] (m) at (0,-1.95) {Misericordia y regreso\\{\normalfont\tiny Dt 30:1--5}};
-\draw[flecha] (p) -- (c); \draw[flecha] (c) -- (v); \draw[flecha] (v) -- (o); \draw[flecha] (o) -- (m);
-\draw[flecha,dashed] (m) -- node[left,etiq,text width=1.3cm,minimum height=0pt]{1~R 8:34,\\46--50} (p);
+\begin{scope}[visible on=<2->]\node[bloque] (c) at (3.2,1.75) {\textbf{Cautiverio}\\\heb{שָׁבָה} \emph{shavá}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueoro] (v) at (3.2,-0.1) {\textbf{Vuelven en sí}\\\heb{שׁוּב} \emph{shuv}};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloque] (o) at (3.2,-1.95) {\textbf{Oran hacia}\\{\tiny la tierra, la ciudad, la casa}};\end{scope}
+\begin{scope}[visible on=<5->]\node[bloqueazul] (m) at (0,-1.95) {Misericordia y regreso\\{\normalfont\tiny Dt 30:1--5}};\end{scope}
+\begin{scope}[visible on=<5->]\draw[flecha] (p) -- (c);\end{scope} \begin{scope}[visible on=<5->]\draw[flecha] (c) -- (v);\end{scope} \begin{scope}[visible on=<5->]\draw[flecha] (v) -- (o);\end{scope} \begin{scope}[visible on=<5->]\draw[flecha] (o) -- (m);\end{scope}
+\begin{scope}[visible on=<5->]\draw[flecha,dashed] (m) -- node[left,etiq,text width=1.3cm,minimum height=0pt]{1~R 8:34,\\46--50} (p);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -448,11 +467,11 @@ Reino & «\emph{tu} casa y \emph{tu} reino» (7:16) & «\emph{mi} casa y \emph{m
 \begin{tikzpicture}[node distance=5mm]
 \node[bloque,text width=3.45cm,minimum height=3.9cm,align=left,anchor=north] (a) at (0,0) {\textbf{\textcolor{ladrillo}{Vivida}}\par\smallskip
 David con efod, ofrece y bendice (2~S 6:14--18). «Sacerdote [\ldots] según Melquisedec» (Sal 110:4). Salomón ora por el extranjero (1~R 8:41--43). La reina de Sabá bendice a YHWH (1~R 10:9). «Benditas serán en él todas las naciones» (Sal 72:17; Gn 12:3).};
-\node[bloqueoro,text width=3.45cm,minimum height=3.9cm,align=left,anchor=north] (b) at (4.25,0) {\textbf{\textcolor{ladrillo}{Quebrada}}\par\smallskip
-La leva (\emph{mas}) convierte al pueblo en un nuevo Egipto. Quien oró por las naciones erige altares a sus dioses (1~R 11:7). Jeroboam desliga el sacerdocio de la elección (1~R 12:31).};
-\node[bloque,text width=3.45cm,minimum height=3.9cm,align=left,anchor=north] (c) at (8.5,0) {\textbf{\textcolor{ladrillo}{Preservada}}\par\smallskip
-Profetas sobre el rey: Natán, Gad, Ahías, Semaías. Arrepentimiento (Sal 51; 1~R 8:47). Remanente en ambos reinos: levitas en Judá (2~Cr 11) y los siete mil del norte (1~R 19:18; Ro 11:4).};
-\draw[flecha] (a) -- (b); \draw[flecha] (b) -- (c);
+\begin{scope}[visible on=<2->]\node[bloqueoro,text width=3.45cm,minimum height=3.9cm,align=left,anchor=north] (b) at (4.25,0) {\textbf{\textcolor{ladrillo}{Quebrada}}\par\smallskip
+La leva (\emph{mas}) convierte al pueblo en un nuevo Egipto. Quien oró por las naciones erige altares a sus dioses (1~R 11:7). Jeroboam desliga el sacerdocio de la elección (1~R 12:31).};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloque,text width=3.45cm,minimum height=3.9cm,align=left,anchor=north] (c) at (8.5,0) {\textbf{\textcolor{ladrillo}{Preservada}}\par\smallskip
+Profetas sobre el rey: Natán, Gad, Ahías, Semaías. Arrepentimiento (Sal 51; 1~R 8:47). Remanente en ambos reinos: levitas en Judá (2~Cr 11) y los siete mil del norte (1~R 19:18; Ro 11:4).};\end{scope}
+\begin{scope}[visible on=<3->]\draw[flecha] (a) -- (b);\end{scope} \begin{scope}[visible on=<3->]\draw[flecha] (b) -- (c);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{4pt}
@@ -464,15 +483,15 @@ Profetas sobre el rey: Natán, Gad, Ahías, Semaías. Arrepentimiento (Sal 51; 1
 \begin{frame}{Cuatro causas de la división}
 \centering
 \begin{tikzpicture}
- \foreach \x/\n/\t/\d/\r in {0/1/{Idolatría}/{Altares a Quemos y Moloc frente a Jerusalén; «sus mujeres desviaron su corazón».}/{1~R 11:1--13},
+ \foreach \x/\n/\t/\d/\r [count=\ovc,evaluate=\ovc as \ovk using int(\ovc+0)] in {0/1/{Idolatría}/{Altares a Quemos y Moloc frente a Jerusalén; «sus mujeres desviaron su corazón».}/{1~R 11:1--13},
    3.15/2/{Trabajo forzado}/{\heb{מַס} (\emph{mas}) sobre «todo Israel»; Jeroboam, sobre «la casa de José».}/{1~R 5:13 [5:27]; 11:28},
    6.3/3/{Profecía}/{Ahías de Silo rasga el manto en doce pedazos.}/{1~R 11:29--39},
-   9.45/4/{Necedad}/{Roboam en Siquem: «yo os castigaré con escorpiones».}/{1~R 12:1--15}}{
+   9.45/4/{Necedad}/{Roboam en Siquem: «yo os castigaré con escorpiones».}/{1~R 12:1--15}}{\begin{scope}[visible on=<\ovk->]
   \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][2.6cm][t]{2.65cm}{\RaggedRight
     {\small\textbf{\textcolor{ladrillo}{\t}}}\\[4pt]\footnotesize \d\par\vfill{\tiny\color{sepia}(\r)}}};
-  \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
- \node[bloqueazul,text width=5.2cm] (d) at ($(b2.south)!0.5!(b3.south)+(0,-1.0)$) {División del reino {\normalfont\tiny (1~R 12, c. 931/930)}};
- \foreach \n in {1,2,3,4}{\draw[flecha] (b\n.south) -- (d);}
+  \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};\end{scope}}
+ \begin{scope}[visible on=<4->]\node[bloqueazul,text width=5.2cm] (d) at ($(b2.south)!0.5!(b3.south)+(0,-1.0)$) {División del reino {\normalfont\tiny (1~R 12, c. 931/930)}};\end{scope}
+ \begin{scope}[visible on=<4->]\foreach \n in {1,2,3,4}{\draw[flecha] (b\n.south) -- (d);}\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{2pt}
@@ -483,10 +502,10 @@ Profetas sobre el rey: Natán, Gad, Ahías, Semaías. Arrepentimiento (Sal 51; 1
 \centering\vspace{2pt}
 \begin{tikzpicture}[node distance=6mm]
 \node[bloque,text width=4.6cm,minimum height=1.6cm] (e) {\textbf{Egipto}\\\heb{שָׂרֵי מִסִּים}, «capataces de la leva»\\{\tiny Éx 1:11}};
-\node[bloqueoro,text width=4.6cm,minimum height=1.6cm,right=22mm of e] (s) {\textbf{Salomón}\\\heb{מַס} sobre «todo Israel»; Jeroboam, sobre «la casa de José»\\{\tiny 1~R 5:13 [5:27]; 11:28}};
-\draw[<->,draw=oro!90!ladrillo,line width=1pt] (e) -- node[above,etiq]{la misma}node[below,etiq]{palabra} (s);
-\node[bloqueazul,text width=6cm,below=9mm of $(e.south)!0.5!(s.south)$] (y) {«Tu padre agravó nuestro yugo»\\{\normalfont\tiny 1~R 12:4}};
-\draw[flecha] (s.south) |- (y.east);
+\begin{scope}[visible on=<2->]\node[bloqueoro,text width=4.6cm,minimum height=1.6cm,right=22mm of e] (s) {\textbf{Salomón}\\\heb{מַס} sobre «todo Israel»; Jeroboam, sobre «la casa de José»\\{\tiny 1~R 5:13 [5:27]; 11:28}};\end{scope}
+\begin{scope}[visible on=<2->]\draw[<->,draw=oro!90!ladrillo,line width=1pt] (e) -- node[above,etiq]{la misma}node[below,etiq]{palabra} (s);\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueazul,text width=6cm,below=9mm of $(e.south)!0.5!(s.south)$] (y) {«Tu padre agravó nuestro yugo»\\{\normalfont\tiny 1~R 12:4}};\end{scope}
+\begin{scope}[visible on=<3->]\draw[flecha] (s.south) |- (y.east);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{4pt}
@@ -515,11 +534,11 @@ Profetas sobre el rey: Natán, Gad, Ahías, Semaías. Arrepentimiento (Sal 51; 1
 \vspace{2pt}
 \begin{tikzpicture}[node distance=5mm]
 \node[bloque,text width=2.5cm,minimum height=1.35cm] (a) {\textbf{Siquem}\\lugar del pacto; el norte pone condiciones\\{\tiny Jos 24; 1~R 12:4}};
-\node[bloqueoro,text width=2.5cm,minimum height=1.35cm,right=of a] (r) {\textbf{Roboam}\\«con escorpiones»; «la causa venía de YHWH»\\{\tiny 12:14--15}};
-\node[bloqueazul,text width=3.2cm,anchor=south west] (n) at ($(r.east)+(0.7,0.08)$) {Israel (norte): Jeroboam rey de «todo Israel» {\normalfont\tiny(12:20)}};
-\node[bloqueoro,text width=3.2cm,anchor=north west,font=\scriptsize\bfseries] (s) at ($(r.east)+(0.7,-0.08)$) {Judá y Benjamín siguen a David {\normalfont\tiny(12:21)}};
-\draw[flecha] (a) -- (r);
-\draw[flecha] (r.east) -- (n.west); \draw[flecha] (r.east) -- (s.west);
+\begin{scope}[visible on=<2->]\node[bloqueoro,text width=2.5cm,minimum height=1.35cm,right=of a] (r) {\textbf{Roboam}\\«con escorpiones»; «la causa venía de YHWH»\\{\tiny 12:14--15}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueazul,text width=3.2cm,anchor=south west] (n) at ($(r.east)+(0.7,0.08)$) {Israel (norte): Jeroboam rey de «todo Israel» {\normalfont\tiny(12:20)}};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloqueoro,text width=3.2cm,anchor=north west,font=\scriptsize\bfseries] (s) at ($(r.east)+(0.7,-0.08)$) {Judá y Benjamín siguen a David {\normalfont\tiny(12:21)}};\end{scope}
+\begin{scope}[visible on=<4->]\draw[flecha] (a) -- (r);\end{scope}
+\begin{scope}[visible on=<4->]\draw[flecha] (r.east) -- (n.west);\end{scope} \begin{scope}[visible on=<4->]\draw[flecha] (r.east) -- (s.west);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{4pt}
@@ -540,8 +559,8 @@ Profetas sobre el rey: Natán, Gad, Ahías, Semaías. Arrepentimiento (Sal 51; 1
 \begin{column}{0.48\textwidth}\centering
 \begin{tikzpicture}[node distance=9mm]
 \node[bloque,text width=4.6cm] (n) {\textbf{Israel (norte)}\\santuarios de Betel y Dan};
-\node[bloqueoro,text width=4.6cm,below=of n] (s) {\textbf{Judá (sur)}\\culto de Jerusalén};
-\draw[flecha] (n) -- node[right=3pt,etiq,text width=2.6cm,align=left]{sacerdotes, levitas y fieles «de todas las tribus»} (s);
+\begin{scope}[visible on=<2->]\node[bloqueoro,text width=4.6cm,below=of n] (s) {\textbf{Judá (sur)}\\culto de Jerusalén};\end{scope}
+\begin{scope}[visible on=<2->]\draw[flecha] (n) -- node[right=3pt,etiq,text width=2.6cm,align=left]{sacerdotes, levitas y fieles «de todas las tribus»} (s);\end{scope}
 \end{tikzpicture}
 \notafig{Elaboración propia a partir de 2~Cr 11:13--17; 15:9; 30.}
 \begin{notalam}[¿Ídolos o pedestales?]
@@ -576,11 +595,11 @@ En el rito de la tierra de Israel conservado en la Genizá de El Cairo, la bendi
 \textbf{El arpa}: el viento del norte lo despertaba a medianoche (Berajot 3b).\par\smallskip
 \textbf{El pecado}: «para enseñar el arrepentimiento al individuo» (Avodá Zará 4b--5a); otra opinión niega que pecara (Shabat 56a).\par\smallskip
 \textbf{La esperanza}: «David, rey de Israel, vive y permanece» (Rosh Hashaná 25a); «otro David» (Sanedrín 98b).};
-\node[bloqueoro,text width=5.3cm,minimum height=4.6cm,align=left,anchor=north] (j) at (6.4,0) {\textbf{\textcolor{ladrillo}{Jeroboam}}\par\smallskip
+\begin{scope}[visible on=<2->]\node[bloqueoro,text width=5.3cm,minimum height=4.6cm,align=left,anchor=north] (j) at (6.4,0) {\textbf{\textcolor{ladrillo}{Jeroboam}}\par\smallskip
 \textbf{El juicio}: sin parte en el mundo venidero (Mishná, Sanedrín 10:2).\par\smallskip
 \textbf{El diálogo}: Dios le ofrece pasear en el Edén si se arrepiente. «¿Quién irá delante?» «El hijo de Isaí». «Entonces no quiero» (Sanedrín 102a).\par\smallskip
-\textbf{La lectura}: un orgullo incapaz de aceptar el lugar de la casa de David.};
-\draw[<->,draw=oro!90!ladrillo,line width=1pt] (d.east) -- (j.west);
+\textbf{La lectura}: un orgullo incapaz de aceptar el lugar de la casa de David.};\end{scope}
+\begin{scope}[visible on=<2->]\draw[<->,draw=oro!90!ladrillo,line width=1pt] (d.east) -- (j.west);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{frame}
@@ -594,9 +613,9 @@ En el rito de la tierra de Israel conservado en la Genizá de El Cairo, la bendi
 \fill[celeste!35!white,draw=ladrillo,line width=0.6pt] (0,-1.15) circle (1.12);
 \fill[ladrillo] (0,-1.65) circle (0.55);
 \node[etiq] at (0,1.78) {fuera de la tierra:\\\textbf{hacia la tierra}};
-\node[etiq] at (0,0.52) {en la tierra:\\\textbf{hacia Jerusalén}};
-\node[etiq] at (0,-0.55) {en Jerusalén:\\\textbf{hacia el templo}};
-\node[font=\tiny\bfseries,text=white,align=center] at (0,-1.65) {santí-\\simo};
+\begin{scope}[visible on=<2->]\node[etiq] at (0,0.52) {en la tierra:\\\textbf{hacia Jerusalén}};\end{scope}
+\begin{scope}[visible on=<3->]\node[etiq] at (0,-0.55) {en Jerusalén:\\\textbf{hacia el templo}};\end{scope}
+\begin{scope}[visible on=<4->]\node[font=\tiny\bfseries,text=white,align=center] at (0,-1.65) {santí-\\simo};\end{scope}
 \end{tikzpicture}
 \notafig{Elaboración propia a partir de Berajot 30a; cf. 1~R 8:44, 48.}
 \end{column}
@@ -661,9 +680,9 @@ Jer 33:14--26 falta en la LXX, más breve en Jeremías; se sigue el TM. Su conte
 \begin{column}{0.46\textwidth}\centering
 \begin{tikzpicture}[node distance=5mm]
 \node[bloqueazul,text width=4.2cm] (r) {Renuevo justo de David\\{\normalfont\tiny Jer 23:5}};
-\node[bloqueoro,text width=1.85cm,below left=7mm and -1.9cm of r] (j) {\textbf{Judá}\\«será salvo»};
-\node[bloque,text width=1.85cm,below right=7mm and -1.9cm of r] (i) {\textbf{Israel}\\«habitará confiado»};
-\draw[flecha] (r) -- (j); \draw[flecha] (r) -- (i);
+\begin{scope}[visible on=<2->]\node[bloqueoro,text width=1.85cm,below left=7mm and -1.9cm of r] (j) {\textbf{Judá}\\«será salvo»};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloque,text width=1.85cm,below right=7mm and -1.9cm of r] (i) {\textbf{Israel}\\«habitará confiado»};\end{scope}
+\begin{scope}[visible on=<3->]\draw[flecha] (r) -- (j);\end{scope} \begin{scope}[visible on=<3->]\draw[flecha] (r) -- (i);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{2pt}
@@ -685,9 +704,9 @@ Jer 33:14--26 falta en la LXX, más breve en Jeremías; se sigue el TM. Su conte
 \centering
 \begin{tikzpicture}[node distance=3mm]
 \node[bloqueoro,text width=2.2cm] (j) {palo «para Judá»};
-\node[bloque,text width=2.2cm,below=of j] (e) {palo «para José, palo de Efraín»};
-\node[bloqueazul,text width=2.5cm,anchor=west] (u) at ($(j.east)!0.5!(e.east)+(1.0,0)$) {una nación, un rey: «David»\\{\normalfont\tiny pacto perpetuo, 37:26--28}};
-\draw[flecha] (j.east) -- (u.west); \draw[flecha] (e.east) -- (u.west);
+\begin{scope}[visible on=<2->]\node[bloque,text width=2.2cm,below=of j] (e) {palo «para José, palo de Efraín»};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueazul,text width=2.5cm,anchor=west] (u) at ($(j.east)!0.5!(e.east)+(1.0,0)$) {una nación, un rey: «David»\\{\normalfont\tiny pacto perpetuo, 37:26--28}};\end{scope}
+\begin{scope}[visible on=<3->]\draw[flecha] (j.east) -- (u.west);\end{scope} \begin{scope}[visible on=<3->]\draw[flecha] (e.east) -- (u.west);\end{scope}
 \end{tikzpicture}
 \notafig{Elaboración propia a partir de Ez 37:16--28. El oráculo deshace 1~R 12.}
 \end{column}
@@ -757,14 +776,14 @@ Proyección & Is 11; Jer 23; Ez 37; Am 9; Os 3:5; Ro 1:3--4; 11:1, 26\\
 \centering
 \begin{tikzpicture}
 \node[bloqueazul,text width=1.9cm,minimum height=1.2cm] (d) at (0,0) {División\\{\normalfont\tiny 1~R 12, c. 931/930}};
-\node[bloque,text width=2.5cm] (n1) at (3.4,0.85) {\textbf{Israel (norte)}\\{\tiny capital Samaria}};
-\node[bloque,text width=2.5cm] (n2) at (6.9,0.85) {Cae ante \textbf{Asiria}\\{\tiny 722 a.\,e.\,c.}};
-\node[bloqueoro,text width=2.5cm] (s1) at (3.4,-0.85) {\textbf{Judá (sur)}\\{\tiny casa de David}};
-\node[bloqueoro,text width=2.5cm] (s2) at (6.9,-0.85) {Cae ante \textbf{Babilonia}\\{\tiny 586 a.\,e.\,c.} y vuelve};
-\node[bloqueazul,text width=1.9cm,minimum height=1.2cm] (u) at (10.4,0) {«Uno solo en tu mano»\\{\normalfont\tiny Ez 37:17}};
-\draw[flecha] (d) -- (n1); \draw[flecha] (d) -- (s1);
-\draw[flecha] (n1) -- (n2); \draw[flecha] (s1) -- (s2);
-\draw[flecha,dashed] (n2) -- (u); \draw[flecha,dashed] (s2) -- (u);
+\begin{scope}[visible on=<2->]\node[bloque,text width=2.5cm] (n1) at (3.4,0.85) {\textbf{Israel (norte)}\\{\tiny capital Samaria}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloque,text width=2.5cm] (n2) at (6.9,0.85) {Cae ante \textbf{Asiria}\\{\tiny 722 a.\,e.\,c.}};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloqueoro,text width=2.5cm] (s1) at (3.4,-0.85) {\textbf{Judá (sur)}\\{\tiny casa de David}};\end{scope}
+\begin{scope}[visible on=<5->]\node[bloqueoro,text width=2.5cm] (s2) at (6.9,-0.85) {Cae ante \textbf{Babilonia}\\{\tiny 586 a.\,e.\,c.} y vuelve};\end{scope}
+\begin{scope}[visible on=<6->]\node[bloqueazul,text width=1.9cm,minimum height=1.2cm] (u) at (10.4,0) {«Uno solo en tu mano»\\{\normalfont\tiny Ez 37:17}};\end{scope}
+\begin{scope}[visible on=<6->]\draw[flecha] (d) -- (n1);\end{scope} \begin{scope}[visible on=<6->]\draw[flecha] (d) -- (s1);\end{scope}
+\begin{scope}[visible on=<6->]\draw[flecha] (n1) -- (n2);\end{scope} \begin{scope}[visible on=<6->]\draw[flecha] (s1) -- (s2);\end{scope}
+\begin{scope}[visible on=<6->]\draw[flecha,dashed] (n2) -- (u);\end{scope} \begin{scope}[visible on=<6->]\draw[flecha,dashed] (s2) -- (u);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{4pt}

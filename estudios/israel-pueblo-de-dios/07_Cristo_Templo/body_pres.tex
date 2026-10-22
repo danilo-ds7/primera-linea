@@ -21,13 +21,13 @@
 \begin{tikzpicture}[font=\scriptsize]
 \node[bloqueoro,text width=2.6cm,minimum height=1.0cm] (a) at (-1.55,0) {«Dios rechazó\\a Israel»};
 \node[bloqueoro,text width=2.6cm,minimum height=1.0cm] (b) at (1.55,0) {«Jesús nada tiene\\que ver con Israel»};
-\foreach \n in {a,b}{\node[circle,fill=sepia,text=white,font=\tiny\bfseries,inner sep=1pt] at (\n.north east) {no};}
-\node[etiq,text=sepia] at (0,-0.85) {\itshape dos extremos que los textos no avalan};
-\node[bloqueazul,text width=5.7cm] (c) at (0,-1.55) {Lo que dicen los textos};
-\node[bloque,text width=2.6cm,minimum height=1.5cm] (m) at (-1.55,-2.9) {\textbf{El Mesías}\\Jesús asume el llamado de Israel; un remanente judío es el núcleo};
-\node[bloque,text width=2.6cm,minimum height=1.5cm] (j) at (1.55,-2.9) {\textbf{El juicio}\\ocurre dentro del pacto y lleva escrito un «hasta»};
-\draw[flecha] (c.south -| m.north) -- (m.north);
-\draw[flecha] (c.south -| j.north) -- (j.north);
+\begin{scope}[visible on=<2->]\foreach \n in {a,b}{\node[circle,fill=sepia,text=white,font=\tiny\bfseries,inner sep=1pt] at (\n.north east) {no};}\end{scope}
+\begin{scope}[visible on=<3->]\node[etiq,text=sepia] at (0,-0.85) {\itshape dos extremos que los textos no avalan};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloqueazul,text width=5.7cm] (c) at (0,-1.55) {Lo que dicen los textos};\end{scope}
+\begin{scope}[visible on=<5->]\node[bloque,text width=2.6cm,minimum height=1.5cm] (m) at (-1.55,-2.9) {\textbf{El Mesías}\\Jesús asume el llamado de Israel; un remanente judío es el núcleo};\end{scope}
+\begin{scope}[visible on=<6->]\node[bloque,text width=2.6cm,minimum height=1.5cm] (j) at (1.55,-2.9) {\textbf{El juicio}\\ocurre dentro del pacto y lleva escrito un «hasta»};\end{scope}
+\begin{scope}[visible on=<6->]\draw[flecha] (c.south -| m.north) -- (m.north);\end{scope}
+\begin{scope}[visible on=<6->]\draw[flecha] (c.south -| j.north) -- (j.north);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -37,14 +37,14 @@
 \begin{frame}{Los ejes de la serie en esta etapa}
 \centering
 \begin{tikzpicture}
- \foreach \x/\n/\t/\d/\r in {0/1/{Nación santa}/{¿Cómo encarna Jesús la vocación de Israel y quién la lleva adelante después de la Pascua?}/{Is 49:5--6; Mt 2:15; Ro 15:7--16; 1~P 2:9},
+ \foreach \x/\n/\t/\d/\r [count=\ovc,evaluate=\ovc as \ovk using int(\ovc+0)] in {0/1/{Nación santa}/{¿Cómo encarna Jesús la vocación de Israel y quién la lleva adelante después de la Pascua?}/{Is 49:5--6; Mt 2:15; Ro 15:7--16; 1~P 2:9},
    4.3/2/{Restauración}/{¿Qué promete Jesús a Israel mientras anuncia la ruina del templo?}/{Mt 19:28; 23:39; Lc 21:24; 22:20; Hch 3:21},
-   8.6/3/{Proyección}/{¿Significa el año 70 que Dios desechó a su pueblo?}/{Lv 26:44; Jer 31:35--37; Ro 11:1--2, 11, 29}}{
+   8.6/3/{Proyección}/{¿Significa el año 70 que Dios desechó a su pueblo?}/{Lv 26:44; Jer 31:35--37; Ro 11:1--2, 11, 29}}{\begin{scope}[visible on=<\ovk->]
   \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][3.1cm][t]{3.55cm}{\RaggedRight
     {\small\textbf{\textcolor{ladrillo}{\t}}}\\[5pt]\small \d\par\vfill{\scriptsize\color{sepia}(\r)}}};
-  \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
- \draw[flecha] (b1.east) -- (b2.west);
- \draw[flecha] (b2.east) -- (b3.west);
+  \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};\end{scope}}
+ \begin{scope}[visible on=<3->]\draw[flecha] (b1.east) -- (b2.west);\end{scope}
+ \begin{scope}[visible on=<3->]\draw[flecha] (b2.east) -- (b3.west);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{6pt}
@@ -59,20 +59,20 @@ Las citas bíblicas son traducción propia desde el texto hebreo (BHS) y griego 
 \centering
 \begin{tikzpicture}[x=0.78cm]
 \draw[line width=1.6pt,cafe,-{Latex[length=3mm]}] (0,0) -- (15.7,0);
-\foreach \x/\t/\b in {0.6/{Nacimiento de Jesús}/{c. 6--4 a.\,e.\,c.},
+\foreach \x/\t/\b [count=\ovc,evaluate=\ovc as \ovk using int(\ovc+0)] in {0.6/{Nacimiento de Jesús}/{c. 6--4 a.\,e.\,c.},
                       2.65/{Juan y Jesús}/{c. 28--30},
                       4.7/{Cruz y Pentecostés}/{30 o 33},
                       6.75/{Concilio de Jerusalén}/{c. 48--49},
                       8.8/{Romanos}/{c. 57},
                       10.85/{Muerte de Jacobo}/{62},
                       12.9/{Revuelta}/{66},
-                      14.95/{Templo; Masada}/{70; 73/74}}{
+                      14.95/{Templo; Masada}/{70; 73/74}}{\begin{scope}[visible on=<\ovk->]
   \fill[oro] (\x,0) circle (4pt);
   \node[above,font=\scriptsize\bfseries,text=ladrillo,text width=1.5cm,align=center] at (\x,0.2) {\t};
-  \node[below,font=\tiny,text=sepia,text width=1.5cm,align=center] at (\x,-0.2) {\b};}
-\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (0.4,-0.9) -- (4.9,-0.9) node[midway,below=5pt,font=\scriptsize\itshape]{El Mesías en Israel};
-\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (5.6,-0.9) -- (11.1,-0.9) node[midway,below=5pt,font=\scriptsize\itshape]{Remanente y misión};
-\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (12.6,-0.9) -- (15.3,-0.9) node[midway,below=5pt,font=\scriptsize\itshape]{Guerra judía};
+  \node[below,font=\tiny,text=sepia,text width=1.5cm,align=center] at (\x,-0.2) {\b};\end{scope}}
+\begin{scope}[visible on=<8->]\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (0.4,-0.9) -- (4.9,-0.9) node[midway,below=5pt,font=\scriptsize\itshape]{El Mesías en Israel};\end{scope}
+\begin{scope}[visible on=<8->]\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (5.6,-0.9) -- (11.1,-0.9) node[midway,below=5pt,font=\scriptsize\itshape]{Remanente y misión};\end{scope}
+\begin{scope}[visible on=<8->]\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (12.6,-0.9) -- (15.3,-0.9) node[midway,below=5pt,font=\scriptsize\itshape]{Guerra judía};\end{scope}
 \end{tikzpicture}
 \notafig{Elaboración propia. Fechas aproximadas e.\,c., salvo indicación.}
 \vspace{10pt}
@@ -102,10 +102,10 @@ La fecha de composición de Mateo y Lucas, antes o después del 70, se discute. 
 \node[bloque,text width=5.6cm] (s) at (0,-2.2) {Sumo sacerdote (nombrado por Roma o los herodianos) y sanedrín};
 \draw[flecha] (r) -- (p);
 \draw[flecha] (p) -- (s);
-\foreach \x/\t in {-2.16/Fariseos,-0.72/Saduceos,0.72/Esenios,2.16/{«Cuarta\\filosofía»}}{
+\foreach \x/\t [count=\ovc,evaluate=\ovc as \ovk using int(\ovc+0)] in {-2.16/Fariseos,-0.72/Saduceos,0.72/Esenios,2.16/{«Cuarta\\filosofía»}}{\begin{scope}[visible on=<\ovk->]
   \node[bloqueoro,text width=1.1cm,minimum height=0.85cm,inner sep=2pt,font=\tiny] (g) at (\x,-3.6) {\t};
-  \draw[oro!90!ladrillo,line width=0.6pt] (s.south) -- (g.north);}
-\node[etiq,text=sepia] at (0,-4.3) {\itshape grupos del judaísmo (\emph{Ant.} 18.23)};
+  \draw[oro!90!ladrillo,line width=0.6pt] (s.south) -- (g.north);\end{scope}}
+\begin{scope}[visible on=<4->]\node[etiq,text=sepia] at (0,-4.3) {\itshape grupos del judaísmo (\emph{Ant.} 18.23)};\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -151,14 +151,14 @@ Josefo es testigo directo de la guerra, pero también apologista de Tito y de la
 \centering
 \begin{tikzpicture}
 \draw[line width=1.4pt,cafe,-{Latex[length=2.6mm]}] (-1.6,0.55) -- (11.3,0.55);
- \foreach \x/\n/\a/\t/\d/\r in {0/1/66/{Estallido}/{Floro saquea el tesoro; cesan los sacrificios por el emperador; Cestio Galo derrotado en Bet Horón.}/{\emph{Guerra} 2.293, 409},
+ \foreach \x/\n/\a/\t/\d/\r [count=\ovc,evaluate=\ovc as \ovk using int(\ovc+0)] in {0/1/66/{Estallido}/{Floro saquea el tesoro; cesan los sacrificios por el emperador; Cestio Galo derrotado en Bet Horón.}/{\emph{Guerra} 2.293, 409},
    3.25/2/67--68/{Galilea}/{Vespasiano y Tito toman Jotapata y Gamla; Josefo se rinde.}/{\emph{Guerra} 3.400--402},
    6.5/3/70/{Asedio}/{Facciones rivales; grano quemado; hambre. El templo arde en Av (Josefo: día 10).}/{\emph{Guerra} 5.24--26; 6.250},
-   9.75/4/71--74/{Triunfo y Masada}/{Despojos del templo en Roma (71). Masada cae en el 73 o 74.}/{\emph{Guerra} 7.148--150; 7.389--401}}{
+   9.75/4/71--74/{Triunfo y Masada}/{Despojos del templo en Roma (71). Masada cae en el 73 o 74.}/{\emph{Guerra} 7.148--150; 7.389--401}}{\begin{scope}[visible on=<\ovk->]
   \node[hito] at (\x,0.55) {};
   \node[font=\scriptsize\bfseries,text=ladrillo] at (\x,0.9) {\a};
-  \node[bloque,anchor=north,text width=2.6cm,minimum height=2.45cm,align=left] (b\n) at (\x,0.2) {{\footnotesize\bfseries\color{ladrillo}\t}\\[2pt]\scriptsize \d\\[2pt]{\tiny\color{sepia}(\r)}};}
- \foreach \i/\j in {1/2,2/3,3/4}{\draw[flecha] (b\i.east) -- (b\j.west);}
+  \node[bloque,anchor=north,text width=2.6cm,minimum height=2.45cm,align=left] (b\n) at (\x,0.2) {{\footnotesize\bfseries\color{ladrillo}\t}\\[2pt]\scriptsize \d\\[2pt]{\tiny\color{sepia}(\r)}};\end{scope}}
+ \begin{scope}[visible on=<4->]\foreach \i/\j in {1/2,2/3,3/4}{\draw[flecha] (b\i.east) -- (b\j.west);}\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{4pt}
@@ -262,12 +262,12 @@ Redimido, Israel recupera su oficio sacerdotal.
 \centering
 \begin{tikzpicture}[font=\scriptsize]
 \node[bloqueazul,text width=2.6cm,font=\small] (p) at (0,0) {\grc{πλήρωμα}\\[-1pt]{\scriptsize\mdseries «plenitud»}};
-\node[bloque,text width=2.3cm] (g) at (0,1.55) {\textbf{Gá 4:4}\\la plenitud del tiempo};
-\node[bloque,text width=2.3cm] (i) at (-1.65,-1.6) {\textbf{Ro 11:12}\\la plenitud de Israel};
-\node[bloque,text width=2.3cm] (n) at (1.65,-1.6) {\textbf{Ro 11:25}\\la plenitud de los gentiles};
-\draw[flecha] (g) -- (p);
-\draw[flecha] (p) -- (i);
-\draw[flecha] (p) -- (n);
+\begin{scope}[visible on=<2->]\node[bloque,text width=2.3cm] (g) at (0,1.55) {\textbf{Gá 4:4}\\la plenitud del tiempo};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloque,text width=2.3cm] (i) at (-1.65,-1.6) {\textbf{Ro 11:12}\\la plenitud de Israel};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloque,text width=2.3cm] (n) at (1.65,-1.6) {\textbf{Ro 11:25}\\la plenitud de los gentiles};\end{scope}
+\begin{scope}[visible on=<4->]\draw[flecha] (g) -- (p);\end{scope}
+\begin{scope}[visible on=<4->]\draw[flecha] (p) -- (i);\end{scope}
+\begin{scope}[visible on=<4->]\draw[flecha] (p) -- (n);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{2pt}
@@ -287,12 +287,12 @@ Redimido, Israel recupera su oficio sacerdotal.
 \centering
 \begin{tikzpicture}[font=\scriptsize]
 \node[bloqueazul,text width=1.0cm,minimum height=0.95cm] (tm) at (0,0) {TM};
-\node[bloque,text width=1.35cm,minimum height=0.95cm,right=0.45cm of tm] (t1) {Una voz clama:};
-\node[bloqueoro,text width=1.6cm,minimum height=0.95cm,right=0.2cm of t1] (t2) {en el desierto preparad};
-\node[bloqueazul,text width=1.0cm,minimum height=0.95cm] (lx) at (0,-1.35) {LXX;\\Mc 1:3};
-\node[bloqueoro,text width=1.6cm,minimum height=0.95cm,right=0.45cm of lx] (l1) {voz del que clama en el desierto:};
-\node[bloque,text width=1.35cm,minimum height=0.95cm,right=0.2cm of l1] (l2) {preparad};
-\draw[flecha] (tm) -- (t1); \draw[flecha] (lx) -- (l1);
+\begin{scope}[visible on=<2->]\node[bloque,text width=1.35cm,minimum height=0.95cm,right=0.45cm of tm] (t1) {Una voz clama:};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueoro,text width=1.6cm,minimum height=0.95cm,right=0.2cm of t1] (t2) {en el desierto preparad};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloqueazul,text width=1.0cm,minimum height=0.95cm] (lx) at (0,-1.35) {LXX;\\Mc 1:3};\end{scope}
+\begin{scope}[visible on=<5->]\node[bloqueoro,text width=1.6cm,minimum height=0.95cm,right=0.45cm of lx] (l1) {voz del que clama en el desierto:};\end{scope}
+\begin{scope}[visible on=<6->]\node[bloque,text width=1.35cm,minimum height=0.95cm,right=0.2cm of l1] (l2) {preparad};\end{scope}
+\begin{scope}[visible on=<6->]\draw[flecha] (tm) -- (t1);\end{scope} \begin{scope}[visible on=<6->]\draw[flecha] (lx) -- (l1);\end{scope}
 \end{tikzpicture}
 \notafig{Elaboración propia. En oro, dónde se ubica «en el desierto».}
 \vspace{4pt}
@@ -330,12 +330,12 @@ El TM une «en el desierto» con «preparad»; la LXX y Mc 1:3, con «voz». Qum
 \centering
 \begin{tikzpicture}[font=\scriptsize]
 \node[bloque,text width=1.65cm,minimum height=1.25cm] (a) at (0,0) {proclamar\\libertad\\(\emph{derór})};
-\node[bloque,text width=1.65cm,minimum height=1.25cm] (b) at (2.05,0) {el año\\agradable\\del Señor};
-\node[draw=sepia,dashed,rounded corners=3pt,text=sepia,text width=1.65cm,minimum height=1.25cm,align=center,inner sep=4pt] (c) at (4.3,0) {el día de\\venganza\\(Is 61:2b)};
-\draw[flecha] (a) -- (b);
-\draw[cafeosc,line width=1.6pt] (3.17,-0.85) -- (3.17,0.85);
-\node[etiq,text=cafeosc,font=\tiny\bfseries] at (3.17,1.05) {Jesús se detiene};
-\draw[decorate,decoration={brace,amplitude=4pt,mirror},sepia] (-0.85,-0.8) -- (2.9,-0.8) node[midway,below=5pt,etiq]{«Hoy se ha cumplido» (Lc 4:21)};
+\begin{scope}[visible on=<2->]\node[bloque,text width=1.65cm,minimum height=1.25cm] (b) at (2.05,0) {el año\\agradable\\del Señor};\end{scope}
+\begin{scope}[visible on=<3->]\node[draw=sepia,dashed,rounded corners=3pt,text=sepia,text width=1.65cm,minimum height=1.25cm,align=center,inner sep=4pt] (c) at (4.3,0) {el día de\\venganza\\(Is 61:2b)};\end{scope}
+\begin{scope}[visible on=<3->]\draw[flecha] (a) -- (b);\end{scope}
+\begin{scope}[visible on=<3->]\draw[cafeosc,line width=1.6pt] (3.17,-0.85) -- (3.17,0.85);\end{scope}
+\begin{scope}[visible on=<4->]\node[etiq,text=cafeosc,font=\tiny\bfseries] at (3.17,1.05) {Jesús se detiene};\end{scope}
+\begin{scope}[visible on=<4->]\draw[decorate,decoration={brace,amplitude=4pt,mirror},sepia] (-0.85,-0.8) -- (2.9,-0.8) node[midway,below=5pt,etiq]{«Hoy se ha cumplido» (Lc 4:21)};\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{4pt}
@@ -361,11 +361,11 @@ Es la libertad del jubileo (Lv 25:10): los cautivos vuelven y la tierra se resti
 \centering
 \begin{tikzpicture}[font=\scriptsize]
 \node[bloque,text width=2.2cm] (n) at (-1.4,0) {Tribus del norte\\dispersas (722)};
-\node[bloque,text width=2.2cm] (s) at (1.4,0) {Judá\\en la tierra};
-\node[bloqueazul,text width=5.0cm] (u) at (0,-1.35) {Una sola nación (Ez 37:15--28)};
-\draw[flecha] (n) -- (u.north -| n); \draw[flecha] (s) -- (u.north -| s);
-\foreach \k in {0,...,11}{\node[hito] at (-2.2+\k*0.4,-2.15) {};}
-\node[etiq] at (0,-2.5) {los Doce: signo de \emph{todo} Israel reconstituido (Sanders, 1985)};
+\begin{scope}[visible on=<2->]\node[bloque,text width=2.2cm] (s) at (1.4,0) {Judá\\en la tierra};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueazul,text width=5.0cm] (u) at (0,-1.35) {Una sola nación (Ez 37:15--28)};\end{scope}
+\begin{scope}[visible on=<3->]\draw[flecha] (n) -- (u.north -| n);\end{scope} \begin{scope}[visible on=<3->]\draw[flecha] (s) -- (u.north -| s);\end{scope}
+\begin{scope}[visible on=<4->]\foreach \k in {0,...,11}{\node[hito] at (-2.2+\k*0.4,-2.15) {};}\end{scope}
+\begin{scope}[visible on=<5->]\node[etiq] at (0,-2.5) {los Doce: signo de \emph{todo} Israel reconstituido (Sanders, 1985)};\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{4pt}
@@ -379,12 +379,12 @@ Es el pueblo judío de Galilea y Judea, no el antiguo reino del norte: a los Doc
 \begin{frame}{Jesús en las fiestas de Israel}
 \centering
 \begin{tikzpicture}
- \foreach \x/\n/\t/\d in {0/1/{Sucot (Jn 7--8)}/{«Si alguno tiene sed, venga a mí» (7:37), en la libación del agua; «Yo soy la luz del mundo» (8:12), junto a los candelabros del atrio.},
+ \foreach \x/\n/\t/\d [count=\ovc,evaluate=\ovc as \ovk using int(\ovc+0)] in {0/1/{Sucot (Jn 7--8)}/{«Si alguno tiene sed, venga a mí» (7:37), en la libación del agua; «Yo soy la luz del mundo» (8:12), junto a los candelabros del atrio.},
    4.3/2/{Janucá (Jn 10:22)}/{\grc{τὰ ἐγκαίνια}, «la Dedicación» (\heb{חֲנֻכָּה}): «era invierno, y Jesús andaba en el templo, en el pórtico de Salomón».},
-   8.6/3/{Pésaj y el Hallel}/{Sal 118 se canta en Pésaj y Sucot; con el \emph{lulav} se aclama «\emph{hoshía na}» (Sucá 3:9). La multitud lo grita en la entrada (Mt 21:9).}}{
-  \node[bloque,anchor=north,text width=3.55cm,minimum height=2.35cm,align=left] (f\n) at (\x,0) {{\footnotesize\bfseries\color{ladrillo}\t}\\[3pt]\scriptsize\d};}
- \draw[flecha] (f1.east) -- (f2.west);
- \draw[flecha] (f2.east) -- (f3.west);
+   8.6/3/{Pésaj y el Hallel}/{Sal 118 se canta en Pésaj y Sucot; con el \emph{lulav} se aclama «\emph{hoshía na}» (Sucá 3:9). La multitud lo grita en la entrada (Mt 21:9).}}{\begin{scope}[visible on=<\ovk->]
+  \node[bloque,anchor=north,text width=3.55cm,minimum height=2.35cm,align=left] (f\n) at (\x,0) {{\footnotesize\bfseries\color{ladrillo}\t}\\[3pt]\scriptsize\d};\end{scope}}
+ \begin{scope}[visible on=<3->]\draw[flecha] (f1.east) -- (f2.west);\end{scope}
+ \begin{scope}[visible on=<3->]\draw[flecha] (f2.east) -- (f3.west);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{4pt}
@@ -406,11 +406,11 @@ La Mishná describe la libación del agua y los grandes candelabros encendidos e
 \centering
 \begin{tikzpicture}[font=\scriptsize]
 \node[bloqueazul,text width=5.6cm] (v) at (0,0) {La viña es Israel (Is 5:7): no se destruye};
-\node[bloqueoro,text width=2.25cm,minimum height=1.45cm] (a) at (-1.75,-1.55) {\textbf{Labradores}\\sacerdotes y fariseos: «hablaba de ellos» (21:45)};
-\node[bloque,text width=2.25cm,minimum height=1.45cm] (b) at (1.75,-1.55) {\textbf{Otros labradores} (21:41)\\\grc{ἔθνει}, «a un pueblo», singular; núcleo: los Doce};
-\draw[flecha] (a) -- (b);
-\draw[ladrillo,line width=0.6pt] (v.south -| a) -- (a); \draw[ladrillo,line width=0.6pt] (v.south -| b) -- (b);
-\node[bloque,text width=5.6cm] (p) at (0,-3.5) {La piedra desechada (Sal 118:22) es el Hijo; Pedro la aplica a los «edificadores» (Hch 4:11)};
+\begin{scope}[visible on=<2->]\node[bloqueoro,text width=2.25cm,minimum height=1.45cm] (a) at (-1.75,-1.55) {\textbf{Labradores}\\sacerdotes y fariseos: «hablaba de ellos» (21:45)};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloque,text width=2.25cm,minimum height=1.45cm] (b) at (1.75,-1.55) {\textbf{Otros labradores} (21:41)\\\grc{ἔθνει}, «a un pueblo», singular; núcleo: los Doce};\end{scope}
+\begin{scope}[visible on=<3->]\draw[flecha] (a) -- (b);\end{scope}
+\begin{scope}[visible on=<3->]\draw[ladrillo,line width=0.6pt] (v.south -| a) -- (a);\end{scope} \begin{scope}[visible on=<3->]\draw[ladrillo,line width=0.6pt] (v.south -| b) -- (b);\end{scope}
+\begin{scope}[visible on=<4->]\node[bloque,text width=5.6cm] (p) at (0,-3.5) {La piedra desechada (Sal 118:22) es el Hijo; Pedro la aplica a los «edificadores» (Hch 4:11)};\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{2pt}
@@ -473,10 +473,10 @@ La Mishná describe la libación del agua y los grandes candelabros encendidos e
 \centering
 \begin{tikzpicture}[node distance=0.9cm]
 \node[caja,text width=3.3cm,align=center] (h) {\textbf{TM (Zac 12:10)}\\[3pt]\heb{אֵת אֲשֶׁר־דָּקָרוּ}\\[2pt]\emph{daqáru}\\[2pt]«traspasaron»};
-\node[caja,text width=3.3cm,align=center,right=of h] (g) {\textbf{LXX}\\[3pt]\grc{ἀνθ᾽ ὧν κατωρχήσαντο}\\[2pt]«se burlaron danzando»\\(leyó \heb{רקדו})};
-\node[caja,text width=3.3cm,align=center,right=of g] (p) {\textbf{Juan 19:37}\\[3pt]\grc{ὄψονται εἰς ὃν ἐξεκέντησαν}\\[2pt]sigue al hebreo,\\como Teodoción};
-\draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (h) -- (g);
-\draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (g) -- (p);
+\begin{scope}[visible on=<2->]\node[caja,text width=3.3cm,align=center,right=of h] (g) {\textbf{LXX}\\[3pt]\grc{ἀνθ᾽ ὧν κατωρχήσαντο}\\[2pt]«se burlaron danzando»\\(leyó \heb{רקדו})};\end{scope}
+\begin{scope}[visible on=<3->]\node[caja,text width=3.3cm,align=center,right=of g] (p) {\textbf{Juan 19:37}\\[3pt]\grc{ὄψονται εἰς ὃν ἐξεκέντησαν}\\[2pt]sigue al hebreo,\\como Teodoción};\end{scope}
+\begin{scope}[visible on=<3->]\draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (h) -- (g);\end{scope}
+\begin{scope}[visible on=<3->]\draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (g) -- (p);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{6pt}
@@ -509,10 +509,10 @@ Es el verbo de Elías en Mal 3:23 [4:6] LXX y Mt 17:11: «restaurar».
 \fill[piedra,draw=ladrillo] (0,0) circle (0.98);
 \fill[ladrillo] (0,0) circle (0.48);
 \node[text=white,font=\tiny\bfseries] at (0,0) {Jerusalén};
-\node[font=\tiny\bfseries,text=ladrillo] at (0,0.72) {Judea};
-\node[font=\tiny\bfseries,text=cafeosc,align=center] at (0,1.27) {Samaria};
-\node[font=\tiny\bfseries,text=ladrillo,align=center] at (0,1.86) {extremo de la tierra};
-\node[etiq,text=sepia,text width=4.5cm] at (0,-2.5) {Samaria: región del antiguo reino del norte (Hch 8). El mapa es el de Is 49:6: \grc{ἕως ἐσχάτου τῆς γῆς}.};
+\begin{scope}[visible on=<2->]\node[font=\tiny\bfseries,text=ladrillo] at (0,0.72) {Judea};\end{scope}
+\begin{scope}[visible on=<3->]\node[font=\tiny\bfseries,text=cafeosc,align=center] at (0,1.27) {Samaria};\end{scope}
+\begin{scope}[visible on=<4->]\node[font=\tiny\bfseries,text=ladrillo,align=center] at (0,1.86) {extremo de la tierra};\end{scope}
+\begin{scope}[visible on=<5->]\node[etiq,text=sepia,text width=4.5cm] at (0,-2.5) {Samaria: región del antiguo reino del norte (Hch 8). El mapa es el de Is 49:6: \grc{ἕως ἐσχάτου τῆς γῆς}.};\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -592,11 +592,11 @@ El TM dice «posean el resto de \emph{Edom}» (\heb{אֱדוֹם}); la LXX leyó
 \centering
 \begin{tikzpicture}[font=\scriptsize]
 \node[bloque,text width=4.6cm] (a) at (0,0) {Ro 1:16: «al judío primeramente, y también al griego»};
-\node[bloqueoro,text width=4.6cm] (b) at (0,-1.15) {Antioquía: «nos volvemos a los gentiles», con Is 49:6 (Hch 13:46--47)};
-\node[bloque,text width=4.6cm] (c) at (0,-2.3) {En la ciudad siguiente, otra vez a la sinagoga (14:1)};
-\node[bloqueazul,text width=4.6cm] (d) at (0,-3.45) {Roma: unos creen y otros no (28:24); Pablo cita Is 6:9--10};
-\draw[flecha] (a) -- (b); \draw[flecha] (b) -- (c); \draw[flecha] (c) -- (d);
-\node[etiq,text=sepia] at (0,-4.25) {\grc{Ἰουδαίῳ τε πρῶτον καὶ Ἕλληνι}: el orden se repite};
+\begin{scope}[visible on=<2->]\node[bloqueoro,text width=4.6cm] (b) at (0,-1.15) {Antioquía: «nos volvemos a los gentiles», con Is 49:6 (Hch 13:46--47)};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloque,text width=4.6cm] (c) at (0,-2.3) {En la ciudad siguiente, otra vez a la sinagoga (14:1)};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloqueazul,text width=4.6cm] (d) at (0,-3.45) {Roma: unos creen y otros no (28:24); Pablo cita Is 6:9--10};\end{scope}
+\begin{scope}[visible on=<4->]\draw[flecha] (a) -- (b);\end{scope} \begin{scope}[visible on=<4->]\draw[flecha] (b) -- (c);\end{scope} \begin{scope}[visible on=<4->]\draw[flecha] (c) -- (d);\end{scope}
+\begin{scope}[visible on=<5->]\node[etiq,text=sepia] at (0,-4.25) {\grc{Ἰουδαίῳ τε πρῶτον καὶ Ἕλληνι}: el orden se repite};\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -609,10 +609,10 @@ El TM dice «posean el resto de \emph{Edom}» (\heb{אֱדוֹם}); la LXX leyó
 \centering
 \begin{tikzpicture}[font=\scriptsize]
 \node[bloque,text width=4.4cm,align=left] (a) at (0,0) {\textbf{Hch 4:11}: la piedra desechada, hecha cabeza del ángulo (Sal 118:22)};
-\node[bloque,text width=4.4cm,align=left] (b) at (0,-1.2) {\textbf{Mt 23:39}: «no me veréis [\ldots] hasta que digáis: Bendito el que viene»};
-\node[bloque,text width=4.4cm,align=left] (c) at (0,-2.4) {\textbf{2~Co 3:14}: «hasta el día de hoy les queda el mismo velo»};
-\node[bloqueazul,text width=4.4cm] (d) at (0,-3.6) {Un velo con límite: «cuando se vuelva al Señor»};
-\draw[flecha] (c) -- (d);
+\begin{scope}[visible on=<2->]\node[bloque,text width=4.4cm,align=left] (b) at (0,-1.2) {\textbf{Mt 23:39}: «no me veréis [\ldots] hasta que digáis: Bendito el que viene»};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloque,text width=4.4cm,align=left] (c) at (0,-2.4) {\textbf{2~Co 3:14}: «hasta el día de hoy les queda el mismo velo»};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloqueazul,text width=4.4cm] (d) at (0,-3.6) {Un velo con límite: «cuando se vuelva al Señor»};\end{scope}
+\begin{scope}[visible on=<4->]\draw[flecha] (c) -- (d);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -628,15 +628,15 @@ El TM dice «posean el resto de \emph{Edom}» (\heb{אֱדוֹם}); la LXX leyó
 \begin{frame}{Razones del endurecimiento}
 \centering
 \begin{tikzpicture}
- \foreach \x/\n/\t/\d/\r in {0/1/{Soberanía}/{El endurecimiento sirve al plan de salvación de los gentiles.}/{Ro 9:18; 11:11},
+ \foreach \x/\n/\t/\d/\r [count=\ovc,evaluate=\ovc as \ovk using int(\ovc+0)] in {0/1/{Soberanía}/{El endurecimiento sirve al plan de salvación de los gentiles.}/{Ro 9:18; 11:11},
    3.25/2/{Ignorancia}/{«Ignorando la justicia de Dios» (\grc{ἀγνοοῦντες}); «el fin de la ley es Cristo».}/{Ro 10:3--4},
    6.5/3/{«Soberbia»}/{Establecer la propia justicia; pero Pablo reconoce «celo de Dios, no conforme a conocimiento».}/{Ro 10:2--3},
-   9.75/4/{Temporalidad}/{No es definitivo: «en parte» y «hasta». «Todo Israel será salvo».}/{Ro 11:25--26}}{
+   9.75/4/{Temporalidad}/{No es definitivo: «en parte» y «hasta». «Todo Israel será salvo».}/{Ro 11:25--26}}{\begin{scope}[visible on=<\ovk->]
   \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][2.8cm][t]{2.65cm}{\RaggedRight
     {\small\textbf{\textcolor{ladrillo}{\t}}}\\[4pt]\scriptsize \d\par\vfill{\tiny\color{sepia}(\r)}}};
-  \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
- \draw[oro,line width=1.4pt,rounded corners=3pt] ($(b4.north west)+(-0.08,0.08)$) rectangle ($(b4.south east)+(0.08,-0.08)$);
- \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b4.north west) {4};
+  \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};\end{scope}}
+ \begin{scope}[visible on=<4->]\draw[oro,line width=1.4pt,rounded corners=3pt] ($(b4.north west)+(-0.08,0.08)$) rectangle ($(b4.south east)+(0.08,-0.08)$);\end{scope}
+ \begin{scope}[visible on=<4->]\node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b4.north west) {4};\end{scope}
 \end{tikzpicture}
 \notafig{Elaboración propia. En oro, el aspecto que esta etapa pone de relieve.}
 \vspace{6pt}
@@ -661,12 +661,12 @@ Mateo lee «mi hijo», como el TM; la LXX dice «sus hijos». En Oseas el hijo e
 \begin{tikzpicture}[font=\scriptsize]
 \node[bloqueazul,text width=2.7cm] at (-1.6,0.1) {Israel};
 \node[bloqueazul,text width=2.7cm] at (1.6,0.1) {Jesús};
-\foreach \y/\l/\r in {-0.85/{Hijo llamado de Egipto (Éx 4:22; Os 11:1)}/{Huida y regreso de Egipto (Mt 2:15)},
+\foreach \y/\l/\r [count=\ovc,evaluate=\ovc as \ovk using int(\ovc+0)] in {-0.85/{Hijo llamado de Egipto (Éx 4:22; Os 11:1)}/{Huida y regreso de Egipto (Mt 2:15)},
                       -1.95/{Cuarenta años en el desierto}/{Cuarenta días en el desierto (Mt 4:1--11)},
-                      -3.05/{Donde Israel murmuró y cayó}/{el Hijo confía: Dt 8:3; 6:16; 6:13}}{
+                      -3.05/{Donde Israel murmuró y cayó}/{el Hijo confía: Dt 8:3; 6:16; 6:13}}{\begin{scope}[visible on=<\ovk->]
   \node[bloqueoro,text width=2.7cm,minimum height=0.85cm] (l) at (-1.6,\y) {\l};
   \node[bloque,text width=2.7cm,minimum height=0.85cm] (r) at (1.6,\y) {\r};
-  \draw[flecha] (l) -- (r);}
+  \draw[flecha] (l) -- (r);\end{scope}}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -679,14 +679,14 @@ Mateo lee «mi hijo», como el TM; la LXX dice «sus hijos». En Oseas el hijo e
 \centering
 \begin{tikzpicture}[font=\scriptsize]
 \node[bloque,text width=2.0cm,minimum height=1.2cm] (a) at (-1.55,0) {El siervo se llama\\«Israel»\\(Is 49:3)};
-\node[bloque,text width=2.0cm,minimum height=1.2cm] (b) at (1.55,0) {Su misión: hacer volver a Jacob\\(Is 49:5)};
-\draw[oro!90!ladrillo,line width=1pt,<->] (a) -- (b);
-\node[etiq,text=sepia] at (0,0.95) {\itshape tensión};
-\node[bloqueazul,text width=5.2cm] (c) at (0,-1.75) {El Mesías encarna a Israel para restaurarlo};
-\draw[flecha] (a.south) -- (c.north -| a.south);
-\draw[flecha] (b.south) -- (c.north -| b.south);
-\node[bloqueoro,text width=5.2cm] (d) at (0,-3.05) {Éx 19:6 se cumple primero en una persona};
-\draw[flecha] (c) -- (d);
+\begin{scope}[visible on=<2->]\node[bloque,text width=2.0cm,minimum height=1.2cm] (b) at (1.55,0) {Su misión: hacer volver a Jacob\\(Is 49:5)};\end{scope}
+\begin{scope}[visible on=<2->]\draw[oro!90!ladrillo,line width=1pt,<->] (a) -- (b);\end{scope}
+\begin{scope}[visible on=<3->]\node[etiq,text=sepia] at (0,0.95) {\itshape tensión};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloqueazul,text width=5.2cm] (c) at (0,-1.75) {El Mesías encarna a Israel para restaurarlo};\end{scope}
+\begin{scope}[visible on=<4->]\draw[flecha] (a.south) -- (c.north -| a.south);\end{scope}
+\begin{scope}[visible on=<4->]\draw[flecha] (b.south) -- (c.north -| b.south);\end{scope}
+\begin{scope}[visible on=<5->]\node[bloqueoro,text width=5.2cm] (d) at (0,-3.05) {Éx 19:6 se cumple primero en una persona};\end{scope}
+\begin{scope}[visible on=<5->]\draw[flecha] (c) -- (d);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -707,12 +707,12 @@ El siervo es Israel (Rashi) o el Mesías (Targum de Is 52:13; Chilton, 1987). El
 \begin{frame}{La vocación en esta etapa}
 \centering
 \begin{tikzpicture}
- \foreach \x/\n/\s/\t/\d/\r in {0/1/bloque/{Se vivió}/{En el remanente: los Doce, los miles, los sacerdotes. Pablo, «ministro» que ofrece «la ofrenda de las naciones».}/{Ro 15:16; Is 66:20},
+ \foreach \x/\n/\s/\t/\d/\r [count=\ovc,evaluate=\ovc as \ovk using int(\ovc+0)] in {0/1/bloque/{Se vivió}/{En el remanente: los Doce, los miles, los sacerdotes. Pablo, «ministro» que ofrece «la ofrenda de las naciones».}/{Ro 15:16; Is 66:20},
    4.3/2/bloqueoro/{Se quebró}/{En la dirigencia del templo y en las facciones de la guerra: la casa de oración convertida en fortaleza.}/{Mt 21:13; \emph{Guerra} 5.1--20},
-   8.6/3/bloque/{Se preservó}/{En el remanente y la iglesia de judíos y gentiles; y en Yavne, que custodió la Torá y la oración.}/{Ro 3:2; 11:5}}{
-  \node[\s,anchor=north,text width=3.55cm,minimum height=2.9cm,align=left] (b\n) at (\x,0) {{\small\bfseries\color{ladrillo}\t}\\[4pt]\footnotesize\d\\[4pt]{\scriptsize\color{sepia}(\r)}};}
- \draw[flecha] (b1.east) -- (b2.west);
- \draw[flecha] (b2.east) -- (b3.west);
+   8.6/3/bloque/{Se preservó}/{En el remanente y la iglesia de judíos y gentiles; y en Yavne, que custodió la Torá y la oración.}/{Ro 3:2; 11:5}}{\begin{scope}[visible on=<\ovk->]
+  \node[\s,anchor=north,text width=3.55cm,minimum height=2.9cm,align=left] (b\n) at (\x,0) {{\small\bfseries\color{ladrillo}\t}\\[4pt]\footnotesize\d\\[4pt]{\scriptsize\color{sepia}(\r)}};\end{scope}}
+ \begin{scope}[visible on=<3->]\draw[flecha] (b1.east) -- (b2.west);\end{scope}
+ \begin{scope}[visible on=<3->]\draw[flecha] (b2.east) -- (b3.west);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{8pt}
@@ -727,9 +727,9 @@ Pablo describe su misión como un oficio sacerdotal (\grc{ἱερουργοῦν
 \centering
 \begin{tikzpicture}[font=\scriptsize]
 \node[bloqueoro,text width=4.6cm] (a) at (0,0) {\textbf{Antes}: «alejados de la ciudadanía de Israel» (\grc{τῆς πολιτείας τοῦ Ἰσραήλ}, Ef 2:12)};
-\node[bloque,text width=4.6cm] (b) at (0,-1.35) {Cristo derribó «la pared intermedia» (2:14); cf. la balaustrada del templo};
-\node[bloqueazul,text width=4.6cm] (c) at (0,-2.6) {\textbf{Ahora}: «conciudadanos de los santos» (2:19)};
-\draw[flecha] (a) -- (b); \draw[flecha] (b) -- (c);
+\begin{scope}[visible on=<2->]\node[bloque,text width=4.6cm] (b) at (0,-1.35) {Cristo derribó «la pared intermedia» (2:14); cf. la balaustrada del templo};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueazul,text width=4.6cm] (c) at (0,-2.6) {\textbf{Ahora}: «conciudadanos de los santos» (2:19)};\end{scope}
+\begin{scope}[visible on=<3->]\draw[flecha] (a) -- (b);\end{scope} \begin{scope}[visible on=<3->]\draw[flecha] (b) -- (c);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{2pt}
@@ -784,14 +784,14 @@ El Talmud lo ilustra con Kamtsa y Bar Kamtsa (Guitín 55b--56a). Es una autocrí
 \begin{tikzpicture}[font=\scriptsize]
 \node[bloqueazul,text width=2.75cm] (p) at (-1.6,0) {Primer Templo};
 \node[bloqueazul,text width=2.75cm] (s) at (1.6,0) {Segundo Templo};
-\node[bloqueoro,text width=2.75cm,minimum height=1.45cm] (pc) at (-1.6,-1.2) {idolatría,\\inmoralidad\\y sangre};
-\node[bloqueoro,text width=2.75cm,minimum height=1.45cm] (sc) at (1.6,-1.2) {Torá y bondad,\\pero odio gratuito};
-\draw[oro!90!ladrillo,line width=1pt,<->] (pc) -- node[above,etiq,text width=0.6cm]{=} (sc);
-\node[bloque,text width=2.75cm] (pd) at (-1.6,-2.45) {destruido (586 a.\,e.\,c.)};
-\node[bloque,text width=2.75cm] (sd) at (1.6,-2.45) {destruido (70 e.\,c.)};
-\draw[flecha] (p) -- (pc); \draw[flecha] (pc) -- (pd);
-\draw[flecha] (s) -- (sc); \draw[flecha] (sc) -- (sd);
-\node[etiq,text=sepia,text width=5.8cm] at (0,-3.25) {El odio gratuito «equivale a las tres transgresiones» (Yoma 9b). Ambos caen el 9 de Av (Taanit 4:6).};
+\begin{scope}[visible on=<2->]\node[bloqueoro,text width=2.75cm,minimum height=1.45cm] (pc) at (-1.6,-1.2) {idolatría,\\inmoralidad\\y sangre};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueoro,text width=2.75cm,minimum height=1.45cm] (sc) at (1.6,-1.2) {Torá y bondad,\\pero odio gratuito};\end{scope}
+\begin{scope}[visible on=<3->]\draw[oro!90!ladrillo,line width=1pt,<->] (pc) -- node[above,etiq,text width=0.6cm]{=} (sc);\end{scope}
+\begin{scope}[visible on=<4->]\node[bloque,text width=2.75cm] (pd) at (-1.6,-2.45) {destruido (586 a.\,e.\,c.)};\end{scope}
+\begin{scope}[visible on=<5->]\node[bloque,text width=2.75cm] (sd) at (1.6,-2.45) {destruido (70 e.\,c.)};\end{scope}
+\begin{scope}[visible on=<5->]\draw[flecha] (p) -- (pc);\end{scope} \begin{scope}[visible on=<5->]\draw[flecha] (pc) -- (pd);\end{scope}
+\begin{scope}[visible on=<5->]\draw[flecha] (s) -- (sc);\end{scope} \begin{scope}[visible on=<5->]\draw[flecha] (sc) -- (sd);\end{scope}
+\begin{scope}[visible on=<6->]\node[etiq,text=sepia,text width=5.8cm] at (0,-3.25) {El odio gratuito «equivale a las tres transgresiones» (Yoma 9b). Ambos caen el 9 de Av (Taanit 4:6).};\end{scope}
 \end{tikzpicture}
 \notafig{Elaboración propia a partir de Talmud, Yoma 9b.}
 \end{column}
@@ -808,10 +808,10 @@ El Talmud lo ilustra con Kamtsa y Bar Kamtsa (Guitín 55b--56a). Es una autocrí
 \centering
 \begin{tikzpicture}[font=\scriptsize]
 \node[bloqueoro,text width=4.6cm] (a) at (0,0) {\textbf{Entra Av}: «se disminuye la alegría»};
-\node[bloqueoro,text width=4.6cm] (b) at (0,-1.15) {\textbf{9 de Av}: ayuno, Lamentaciones, \emph{kinot}};
-\node[bloque,text width=4.6cm] (c) at (0,-2.3) {El fuego, del 9 al 10 (Taanit 29a)};
-\node[bloqueazul,text width=4.6cm] (d) at (0,-3.45) {\emph{Shabat Najamú}: «Consolad, consolad a mi pueblo» (Is 40:1)};
-\draw[flecha] (a) -- (b); \draw[flecha] (b) -- (c); \draw[flecha] (c) -- (d);
+\begin{scope}[visible on=<2->]\node[bloqueoro,text width=4.6cm] (b) at (0,-1.15) {\textbf{9 de Av}: ayuno, Lamentaciones, \emph{kinot}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloque,text width=4.6cm] (c) at (0,-2.3) {El fuego, del 9 al 10 (Taanit 29a)};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloqueazul,text width=4.6cm] (d) at (0,-3.45) {\emph{Shabat Najamú}: «Consolad, consolad a mi pueblo» (Is 40:1)};\end{scope}
+\begin{scope}[visible on=<4->]\draw[flecha] (a) -- (b);\end{scope} \begin{scope}[visible on=<4->]\draw[flecha] (b) -- (c);\end{scope} \begin{scope}[visible on=<4->]\draw[flecha] (c) -- (d);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -826,9 +826,9 @@ El Talmud lo ilustra con Kamtsa y Bar Kamtsa (Guitín 55b--56a). Es una autocrí
 \centering
 \begin{tikzpicture}[font=\scriptsize]
 \node[bloqueazul,text width=3.2cm] (o) at (0,0) {Os 14:2: «becerros de labios»};
-\node[bloque,text width=2.3cm,minimum height=1.25cm] (r) at (-1.5,-1.45) {\textbf{Rabinos}: las oraciones por las ofrendas diarias (Berajot 26b)};
-\node[bloque,text width=2.3cm,minimum height=1.25cm] (h) at (1.5,-1.45) {\textbf{Heb 13:15}, con la LXX: «fruto de labios» (\grc{καρπὸν χειλέων})};
-\draw[flecha] (o.south -| r) -- (r); \draw[flecha] (o.south -| h) -- (h);
+\begin{scope}[visible on=<2->]\node[bloque,text width=2.3cm,minimum height=1.25cm] (r) at (-1.5,-1.45) {\textbf{Rabinos}: las oraciones por las ofrendas diarias (Berajot 26b)};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloque,text width=2.3cm,minimum height=1.25cm] (h) at (1.5,-1.45) {\textbf{Heb 13:15}, con la LXX: «fruto de labios» (\grc{καρπὸν χειλέων})};\end{scope}
+\begin{scope}[visible on=<3->]\draw[flecha] (o.south -| r) -- (r);\end{scope} \begin{scope}[visible on=<3->]\draw[flecha] (o.south -| h) -- (h);\end{scope}
 \end{tikzpicture}
 \notafig{Elaboración propia. Dos respuestas al mismo verso.}
 \end{column}
@@ -877,10 +877,10 @@ Con este versículo se abre la oración diaria \emph{U-va le-Tsiyón}; la Amidá
 \centering
 \begin{tikzpicture}[font=\scriptsize]
 \node[bloque,text width=4.6cm] (a) at (0,0) {\textbf{Lv 26:44}: «no los desecharé [\ldots] invalidando mi pacto»};
-\node[bloque,text width=4.6cm] (b) at (0,-1.3) {\textbf{Jer 31:36 [31:35]}: la permanencia de Israel, atada al orden del sol y la luna};
-\node[bloqueoro,text width=4.6cm] (c) at (0,-2.6) {\textbf{Is 59:20}: el Redentor viene a la ciudad que el 70 deja en ruinas};
-\node[bloqueazul,text width=4.6cm] (d) at (0,-3.7) {\textbf{Ro 11:26}: Pablo lo citará (Estudio 8)};
-\draw[flecha] (a) -- (b); \draw[flecha] (b) -- (c); \draw[flecha] (c) -- (d);
+\begin{scope}[visible on=<2->]\node[bloque,text width=4.6cm] (b) at (0,-1.3) {\textbf{Jer 31:36 [31:35]}: la permanencia de Israel, atada al orden del sol y la luna};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueoro,text width=4.6cm] (c) at (0,-2.6) {\textbf{Is 59:20}: el Redentor viene a la ciudad que el 70 deja en ruinas};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloqueazul,text width=4.6cm] (d) at (0,-3.7) {\textbf{Ro 11:26}: Pablo lo citará (Estudio 8)};\end{scope}
+\begin{scope}[visible on=<4->]\draw[flecha] (a) -- (b);\end{scope} \begin{scope}[visible on=<4->]\draw[flecha] (b) -- (c);\end{scope} \begin{scope}[visible on=<4->]\draw[flecha] (c) -- (d);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -902,7 +902,7 @@ Con este versículo se abre la oración diaria \emph{U-va le-Tsiyón}; la Amidá
 \elabpropia
 \end{frame}
 
-\begin{frame}{Los «hasta» de la caída}
+\begin{frame}{Perla filológica · los «hasta» de la caída}
 \centering\footnotesize\renewcommand{\arraystretch}{1.3}
 \begin{tabular}{>{\RaggedRight\arraybackslash}p{1.9cm}>{\RaggedRight\arraybackslash}p{4.0cm}>{\RaggedRight\arraybackslash}p{5.6cm}}
 \toprule
@@ -925,10 +925,10 @@ Ro 11:25 & \grc{ἄχρι οὗ ... εἰσέλθῃ} & El endurecimiento parcia
 \vspace{4pt}
 \centering
 \begin{tikzpicture}[font=\scriptsize]
-\foreach \x/\n/\s/\t in {0/1/bloqueoro/{«Arrepentíos y volveos»},3.25/2/bloque/{tiempos de refrigerio},6.5/3/bloque/{envío del Mesías},9.75/4/bloqueazul/{restauración de todas las cosas}}{
-  \node[\s,text width=2.5cm,minimum height=1.0cm] (r\n) at (\x,0) {\t};}
-\foreach \i/\j in {1/2,2/3,3/4}{\draw[flecha] (r\i) -- (r\j);}
-\draw[decorate,decoration={brace,amplitude=4pt,mirror},sepia] (5.2,-0.65) -- (8.0,-0.65) node[midway,below=5pt,etiq]{«el cielo lo recibe \emph{hasta}\ldots»};
+\foreach \x/\n/\s/\t [count=\ovc,evaluate=\ovc as \ovk using int(\ovc+0)] in {0/1/bloqueoro/{«Arrepentíos y volveos»},3.25/2/bloque/{tiempos de refrigerio},6.5/3/bloque/{envío del Mesías},9.75/4/bloqueazul/{restauración de todas las cosas}}{\begin{scope}[visible on=<\ovk->]
+  \node[\s,text width=2.5cm,minimum height=1.0cm] (r\n) at (\x,0) {\t};\end{scope}}
+\begin{scope}[visible on=<4->]\foreach \i/\j in {1/2,2/3,3/4}{\draw[flecha] (r\i) -- (r\j);}\end{scope}
+\begin{scope}[visible on=<4->]\draw[decorate,decoration={brace,amplitude=4pt,mirror},sepia] (5.2,-0.65) -- (8.0,-0.65) node[midway,below=5pt,etiq]{«el cielo lo recibe \emph{hasta}\ldots»};\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{4pt}

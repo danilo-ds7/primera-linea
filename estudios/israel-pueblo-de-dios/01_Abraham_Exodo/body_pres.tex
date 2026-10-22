@@ -19,9 +19,9 @@ Para entender a Pablo hay que volver al principio.\par\medskip
 \centering
 \begin{tikzpicture}[node distance=0.42cm]
 \node[bloque,text width=4.6cm] (a) {\textbf{Un pueblo creado}\\[1pt]{\tiny Nace de una pareja estéril y de una promesa (Gn 11:30; Hch 7:5)}};
-\node[bloqueoro,text width=4.6cm,below=of a] (b) {\textbf{Un regreso anunciado}\\[1pt]{\tiny Antes de que el pueblo exista, Dios anuncia destierro y regreso (Gn 15:13--16)}};
-\node[bloqueazul,text width=4.6cm,below=of b] (c) {Un llamamiento irrevocable\\[1pt]{\tiny\mdseries (Ro 11:28--29)}};
-\draw[flecha] (a) -- (b); \draw[flecha] (b) -- (c);
+\begin{scope}[visible on=<2->]\node[bloqueoro,text width=4.6cm,below=of a] (b) {\textbf{Un regreso anunciado}\\[1pt]{\tiny Antes de que el pueblo exista, Dios anuncia destierro y regreso (Gn 15:13--16)}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueazul,text width=4.6cm,below=of b] (c) {Un llamamiento irrevocable\\[1pt]{\tiny\mdseries (Ro 11:28--29)}};\end{scope}
+\begin{scope}[visible on=<3->]\draw[flecha] (a) -- (b);\end{scope} \begin{scope}[visible on=<3->]\draw[flecha] (b) -- (c);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -31,13 +31,13 @@ Para entender a Pablo hay que volver al principio.\par\medskip
 \begin{frame}{Los ejes de la serie en esta etapa}
 \centering
 \begin{tikzpicture}
- \foreach \x/\n/\t/\d/\r in {0/1/{Nación santa}/{¿Para qué fue llamado Abraham y qué función tiene su descendencia ante las naciones?}/{Gn 12:1--3; 18:18--19; Éx 4:22; 19:4--6},
+ \foreach \x/\n/\t/\d/\r [count=\ovc,evaluate=\ovc as \ovk using int(\ovc+0)] in {0/1/{Nación santa}/{¿Para qué fue llamado Abraham y qué función tiene su descendencia ante las naciones?}/{Gn 12:1--3; 18:18--19; Éx 4:22; 19:4--6},
    4.3/2/{Restauración}/{¿Dónde aparece por primera vez el patrón de exilio y regreso, y en qué se funda?}/{Gn 15:13--16; 46:4; 50:24; Éx 2:24},
-   8.6/3/{Proyección}/{¿Cómo releen Isaías, Jeremías y Pablo a Abraham y al Éxodo?}/{Is 51:1--3; Jer 31:35--37; Ro 11:28--29}}{
+   8.6/3/{Proyección}/{¿Cómo releen Isaías, Jeremías y Pablo a Abraham y al Éxodo?}/{Is 51:1--3; Jer 31:35--37; Ro 11:28--29}}{\begin{scope}[visible on=<\ovk->]
   \node[caja,anchor=north] (b\n) at (\x,0) {\parbox[t][3.5cm][t]{3.6cm}{\RaggedRight
     {\normalsize\textbf{\textcolor{ladrillo}{\t}}}\\[6pt]\small \d\par\vfill{\scriptsize\color{sepia}(\r)}}};
-  \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
-\draw[flecha] (b1.east) -- (b2.west); \draw[flecha] (b2.east) -- (b3.west);
+  \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};\end{scope}}
+\begin{scope}[visible on=<3->]\draw[flecha] (b1.east) -- (b2.west);\end{scope} \begin{scope}[visible on=<3->]\draw[flecha] (b2.east) -- (b3.west);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{4pt}
@@ -52,19 +52,19 @@ Las citas bíblicas son traducción propia desde el texto hebreo (BHS) y griego 
 \centering\vspace*{6pt}
 \begin{tikzpicture}[x=0.765cm]
 \draw[line width=1.6pt,cafe,-{Latex[length=3mm]}] (0,0) -- (15.9,0);
-\foreach \x/\t/\b in {0.6/{Llamado de Abram}/{Gn 12:1--3},
+\foreach \x/\t/\b [count=\ovc,evaluate=\ovc as \ovk using int(\ovc+0)] in {0.6/{Llamado de Abram}/{Gn 12:1--3},
                       2.7/{Pacto entre las piezas}/{Gn 15},
                       4.8/{Isaac, hijo de la promesa}/{Gn 21:1--7},
                       6.9/{Jacob es llamado Israel}/{Gn 32:28 [32:29]},
                       9.0/{Descenso a Egipto}/{Gn 46:1--7},
                       11.1/{Opresión y clamor}/{Éx 1--2},
                       13.2/{Pascua y salida}/{Éx 12--15},
-                      15.2/{Sinaí}/{Éx 19 (Est. 2)}}{
+                      15.2/{Sinaí}/{Éx 19 (Est. 2)}}{\begin{scope}[visible on=<\ovk->]
   \fill[oro] (\x,0) circle (4pt);
   \node[above,font=\scriptsize\bfseries,text=ladrillo,text width=1.55cm,align=center] at (\x,0.2) {\t};
-  \node[below,font=\tiny,text=sepia,text width=1.55cm,align=center] at (\x,-0.2) {\b};}
-\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (0.4,-0.95) -- (7.1,-0.95) node[midway,below=6pt,font=\scriptsize\itshape]{Patriarcas en Canaán: la promesa};
-\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (8.8,-0.95) -- (13.4,-0.95) node[midway,below=6pt,font=\scriptsize\itshape]{Egipto: el primer exilio y su fin};
+  \node[below,font=\tiny,text=sepia,text width=1.55cm,align=center] at (\x,-0.2) {\b};\end{scope}}
+\begin{scope}[visible on=<8->]\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (0.4,-0.95) -- (7.1,-0.95) node[midway,below=6pt,font=\scriptsize\itshape]{Patriarcas en Canaán: la promesa};\end{scope}
+\begin{scope}[visible on=<8->]\draw[decorate,decoration={brace,amplitude=5pt,mirror},sepia] (8.8,-0.95) -- (13.4,-0.95) node[midway,below=6pt,font=\scriptsize\itshape]{Egipto: el primer exilio y su fin};\end{scope}
 \end{tikzpicture}
 \notafig{Elaboración propia. Secuencia narrativa; las fechas absolutas están en debate.}
 \vspace{8pt}
@@ -84,17 +84,17 @@ La promesa precede al pueblo: el destierro en Egipto y el regreso ya están anun
   \node[font=\tiny,text=sepia,below] at ({1500-\a},-0.1) {\a};}
 \node[font=\tiny,text=sepia,anchor=south east] at (365,0.08) {a.\,e.\,c.};
 % temprana
-\node[hito] (t) at (54,0) {};
-\node[bloque,text width=2.5cm,anchor=south] (tt) at (54,0.75) {\textbf{Temprana}\\{\tiny c. 1446: 480 años antes del 4.º año de Salomón (1~R 6:1)}};
-\draw[oro!90!ladrillo,line width=0.8pt] (tt.south) -- (t);
+\begin{scope}[visible on=<2->]\node[hito] (t) at (54,0) {};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloque,text width=2.5cm,anchor=south] (tt) at (54,0.75) {\textbf{Temprana}\\{\tiny c. 1446: 480 años antes del 4.º año de Salomón (1~R 6:1)}};\end{scope}
+\begin{scope}[visible on=<3->]\draw[oro!90!ladrillo,line width=0.8pt] (tt.south) -- (t);\end{scope}
 % tardía
-\fill[celeste!45] (200,-0.07) rectangle (300,0.07);
-\node[bloqueoro,text width=2.5cm,anchor=south] (dd) at (240,0.75) {\textbf{Tardía}\\{\tiny s. \textsc{xiii}: Ramsés (Éx 1:11) = Pi-Ramsés, de Ramsés~II}};
-\draw[oro!90!ladrillo,line width=0.8pt] (dd.south) -- (240,0.07);
+\begin{scope}[visible on=<4->]\fill[celeste!45] (200,-0.07) rectangle (300,0.07);\end{scope}
+\begin{scope}[visible on=<4->]\node[bloqueoro,text width=2.5cm,anchor=south] (dd) at (240,0.75) {\textbf{Tardía}\\{\tiny s. \textsc{xiii}: Ramsés (Éx 1:11) = Pi-Ramsés, de Ramsés~II}};\end{scope}
+\begin{scope}[visible on=<4->]\draw[oro!90!ladrillo,line width=0.8pt] (dd.south) -- (240,0.07);\end{scope}
 % Merneptah
-\node[hito,fill=ladrillo] (m) at (292,0) {};
-\node[bloqueazul,text width=2.4cm,anchor=north,font=\tiny\bfseries] (mm) at (250,-0.75) {Estela de Merneptah (c. 1208): Israel ya es un pueblo en Canaán};
-\draw[ladrillo,line width=0.8pt] (m) -- (m|-mm.north);
+\begin{scope}[visible on=<5->]\node[hito,fill=ladrillo] (m) at (292,0) {};\end{scope}
+\begin{scope}[visible on=<6->]\node[bloqueazul,text width=2.4cm,anchor=north,font=\tiny\bfseries] (mm) at (250,-0.75) {Estela de Merneptah (c. 1208): Israel ya es un pueblo en Canaán};\end{scope}
+\begin{scope}[visible on=<6->]\draw[ladrillo,line width=0.8pt] (m) -- (m|-mm.north);\end{scope}
 \end{tikzpicture}
 \notafig{Elaboración propia a partir de Hoffmeier (1997) y Kitchen (2003).}
 \end{column}
@@ -149,12 +149,12 @@ El TM cuenta 430 años de permanencia en Egipto. La cronología rabínica cuenta
 \centering
 \begin{tikzpicture}[node distance=1.0cm]
 \node[bloque,text width=3.0cm] (u) {\textbf{Ur}\\{\tiny sur de Mesopotamia; excavada por Woolley (1922--1934)}};
-\node[bloque,text width=3.0cm,right=of u] (h) {\textbf{Harán}\\{\tiny Taré y Abram se establecen allí (Gn 11:31)}};
-\node[bloqueazul,text width=3.0cm,right=of h] (s) {Siquem\\{\tiny\mdseries Canaán (Gn 12:6)}};
-\draw[flecha] (u) -- (h); \draw[flecha] (h) -- (s);
-\node[bloqueoro,text width=7.0cm,below=0.55cm of $(u)!0.5!(h)$] (c) {Centros del culto a la luna: «vuestros padres [\ldots] servían a otros dioses» (Jos 24:2)};
-\draw[oro!90!ladrillo,dashed] (u.south) -- (u.south|-c.north); \draw[oro!90!ladrillo,dashed] (h.south) -- (h.south|-c.north);
-\node[etiq,above=2pt of $(u)!0.5!(s)$,yshift=0.55cm] {unos 1.500 km por el Éufrates y la ruta de Damasco (Gn 11:31--12:6)};
+\begin{scope}[visible on=<2->]\node[bloque,text width=3.0cm,right=of u] (h) {\textbf{Harán}\\{\tiny Taré y Abram se establecen allí (Gn 11:31)}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueazul,text width=3.0cm,right=of h] (s) {Siquem\\{\tiny\mdseries Canaán (Gn 12:6)}};\end{scope}
+\begin{scope}[visible on=<3->]\draw[flecha] (u) -- (h);\end{scope} \begin{scope}[visible on=<3->]\draw[flecha] (h) -- (s);\end{scope}
+\begin{scope}[visible on=<4->]\node[bloqueoro,text width=7.0cm,below=0.55cm of $(u)!0.5!(h)$] (c) {Centros del culto a la luna: «vuestros padres [\ldots] servían a otros dioses» (Jos 24:2)};\end{scope}
+\begin{scope}[visible on=<4->]\draw[oro!90!ladrillo,dashed] (u.south) -- (u.south|-c.north);\end{scope} \begin{scope}[visible on=<4->]\draw[oro!90!ladrillo,dashed] (h.south) -- (h.south|-c.north);\end{scope}
+\begin{scope}[visible on=<5->]\node[etiq,above=2pt of $(u)!0.5!(s)$,yshift=0.55cm] {unos 1.500 km por el Éufrates y la ruta de Damasco (Gn 11:31--12:6)};\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{6pt}
@@ -180,15 +180,15 @@ Canaán es el puente entre los dos imperios fluviales, Egipto y Mesopotamia: cam
 \foreach \a in {1900,1700,1500,1300}{\draw[sepia] ({1950-\a},-0.08) -- ({1950-\a},0.08);
   \node[font=\tiny,text=sepia,below] at ({1950-\a},-0.1) {\a};}
 \node[font=\tiny,text=sepia,anchor=west] at (770,-0.30) {a.\,e.\,c.};
-\foreach \a/\n/\px/\t/\d/\r in {1890/1/95/{Beni Hasan}/{Tumba de Jnumhotep~II: 37 «asiáticos» (\emph{aamu}) guiados por Abisha llegan a Egipto.}/{Newberry, 1893},
+\foreach \a/\n/\px/\t/\d/\r [count=\ovc,evaluate=\ovc as \ovk using int(\ovc+0)] in {1890/1/95/{Beni Hasan}/{Tumba de Jnumhotep~II: 37 «asiáticos» (\emph{aamu}) guiados por Abisha llegan a Egipto.}/{Newberry, 1893},
    1800/2/297/{Avaris}/{Tell el-Dab\textquoteright a, delta oriental (zona de Gosén): población cananea que da origen a los hicsos.}/{Bietak, 1996},
    1750/3/500/{Papiro Brooklyn}/{Siervos de una casa egipcia: casi la mitad con nombres semíticos; una mujer llamada \emph{Shifra} (cf. Éx 1:15).}/{Hayes, 1955; Albright, 1954},
-   1208/4/703/{Merneptah}/{«Israel está devastado; su descendencia no existe». Primera mención de Israel fuera de la Biblia.}/{c. 1208 a.\,e.\,c.}}{
+   1208/4/703/{Merneptah}/{«Israel está devastado; su descendencia no existe». Primera mención de Israel fuera de la Biblia.}/{c. 1208 a.\,e.\,c.}}{\begin{scope}[visible on=<\ovk->]
   \node[hito] (p\n) at ({1950-\a},0) {};
   \node[caja,anchor=north] (b\n) at (\px,-0.75) {\parbox[t][3.0cm][t]{2.65cm}{\RaggedRight
     {\small\textbf{\textcolor{ladrillo}{\t}}}\\[3pt]\scriptsize \d\par\vfill{\tiny\color{sepia}(\r)}}};
   \draw[oro!90!ladrillo,line width=0.7pt] (p\n) -- (b\n.north);
-  \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};}
+  \node[circle,fill=cafe,text=piedra,font=\scriptsize\bfseries,inner sep=1.6pt] at (b\n.north west) {\n};\end{scope}}
 \end{tikzpicture}
 \notafig{Elaboración propia. Fechas aproximadas; el Papiro Brooklyn data de fines del Reino Medio.}
 \vspace{4pt}
@@ -203,13 +203,13 @@ Ninguno nombra a José ni a Jacob; juntos, hacen verosímil el mundo que describ
 \node[bloqueazul,text width=2.2cm,minimum height=0.55cm] at (0,0.85) {Tema};
 \node[bloqueazul,text width=4.3cm,minimum height=0.55cm] at (3.65,0.85) {Una lectura};
 \node[bloqueazul,text width=4.3cm,minimum height=0.55cm] at (8.35,0.85) {Otra lectura};
-\foreach \y/\t/\a/\b in {0/{Nuzi y Mari}/{Paralelos débiles o también tardíos (Thompson, 1974; Van Seters, 1975)}/{Nombres, precios y formas de pacto del segundo milenio (Kitchen, 2003)},
+\foreach \y/\t/\a/\b [count=\ovc,evaluate=\ovc as \ovk using int(\ovc+0)] in {0/{Nuzi y Mari}/{Paralelos débiles o también tardíos (Thompson, 1974; Van Seters, 1975)}/{Nombres, precios y formas de pacto del segundo milenio (Kitchen, 2003)},
   -1.15/{Camellos (Gn 12:16)}/{Anacronismo: camello doméstico en el sur del Levante hacia el s. \textsc{x} (Sapir-Hen y Ben-Yosef, 2013)}/{Uso anterior y limitado por grupos móviles, que difícilmente deja huella},
-  -2.30/{Silencio egipcio}/{Ninguna fuente egipcia narra el Éxodo}/{Las inscripciones reales no registran derrotas; el delta conserva mal los papiros (Hoffmeier, 1997)}}{
+  -2.30/{Silencio egipcio}/{Ninguna fuente egipcia narra el Éxodo}/{Las inscripciones reales no registran derrotas; el delta conserva mal los papiros (Hoffmeier, 1997)}}{\begin{scope}[visible on=<\ovk->]
   \node[bloqueoro,text width=2.2cm,minimum height=0.95cm,font=\scriptsize\bfseries] at (0,\y) {\t};
   \node[bloque,text width=4.3cm,minimum height=0.95cm,font=\tiny] (l) at (3.65,\y) {\a};
   \node[bloque,text width=4.3cm,minimum height=0.95cm,font=\tiny] (r) at (8.35,\y) {\b};
-  \draw[{Latex[length=1.6mm]}-{Latex[length=1.6mm]},sepia] (l.east) -- (r.west);}
+  \draw[{Latex[length=1.6mm]}-{Latex[length=1.6mm]},sepia] (l.east) -- (r.west);\end{scope}}
 \end{tikzpicture}
 \elabpropia
 \vspace{4pt}
@@ -225,13 +225,13 @@ Hoffmeier (1997) observa que los nombres egipcios de Moisés, Putifar o Zafnat-p
 \begin{tikzpicture}
 \node[bloqueazul,text width=4.6cm] (bh) at (0,0) {Babel (Gn 11)};
 \node[bloqueazul,text width=4.6cm] (ah) at (6.6,0) {Abram (Gn 12)};
-\foreach \y/\l/\r in {-0.85/{«Hagámonos un nombre» \heb{וְנַעֲשֶׂה־לָּנוּ שֵׁם} (Gn 11:4)}/{«Engrandeceré tu nombre» (Gn 12:2)},
+\foreach \y/\l/\r [count=\ovc,evaluate=\ovc as \ovk using int(\ovc+0)] in {-0.85/{«Hagámonos un nombre» \heb{וְנַעֲשֶׂה־לָּנוּ שֵׁם} (Gn 11:4)}/{«Engrandeceré tu nombre» (Gn 12:2)},
   -1.75/{Iniciativa humana: «hagamos»}/{Iniciativa divina: «haré», «bendeciré», «engrandeceré»},
   -2.65/{Una ciudad que se cierra sobre sí}/{Una nación (\heb{גּוֹי}, \emph{goy}) con una tarea: «sé una bendición»},
-  -3.55/{Las familias quedan dispersas (Gn 11:8--9)}/{«En ti serán benditas todas las familias de la tierra» (Gn 12:3)}}{
+  -3.55/{Las familias quedan dispersas (Gn 11:8--9)}/{«En ti serán benditas todas las familias de la tierra» (Gn 12:3)}}{\begin{scope}[visible on=<\ovk->]
   \node[bloque,text width=4.6cm,minimum height=0.7cm] (l) at (0,\y) {\l};
   \node[bloqueoro,text width=4.6cm,minimum height=0.7cm] (r) at (6.6,\y) {\r};
-  \draw[flecha] (l.east) -- (r.west);}
+  \draw[flecha] (l.east) -- (r.west);\end{scope}}
 \end{tikzpicture}
 \elabpropia
 \vspace{6pt}
@@ -257,10 +257,10 @@ El narrador responde a la ambición de Babel con un contraste deliberado: ahora 
 \centering\vspace*{4pt}
 \begin{tikzpicture}[node distance=0.95cm]
 \node[caja,text width=3.3cm,align=center] (h) {\textbf{Hebreo (Gn 12:3)}\\[3pt]\heb{וְנִבְרְכוּ בְךָ}\\[2pt]\emph{ve-nivrejú vejá}\\[2pt]nifal: pasivo o reflexivo};
-\node[caja,text width=3.3cm,align=center,right=of h] (g) {\textbf{LXX}\\[3pt]\grc{ἐνευλογηθήσονται ἐν σοί}\\[2pt]futuro pasivo:\\«serán benditas»};
-\node[caja,text width=3.3cm,align=center,right=of g] (p) {\textbf{Pablo (Gá 3:8)}\\[3pt]\grc{πάντα τὰ ἔθνη}\\[2pt]«todas las naciones»\\(de Gn 18:18; 22:18)};
-\draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (h) -- (g);
-\draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (g) -- (p);
+\begin{scope}[visible on=<2->]\node[caja,text width=3.3cm,align=center,right=of h] (g) {\textbf{LXX}\\[3pt]\grc{ἐνευλογηθήσονται ἐν σοί}\\[2pt]futuro pasivo:\\«serán benditas»};\end{scope}
+\begin{scope}[visible on=<3->]\node[caja,text width=3.3cm,align=center,right=of g] (p) {\textbf{Pablo (Gá 3:8)}\\[3pt]\grc{πάντα τὰ ἔθνη}\\[2pt]«todas las naciones»\\(de Gn 18:18; 22:18)};\end{scope}
+\begin{scope}[visible on=<3->]\draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (h) -- (g);\end{scope}
+\begin{scope}[visible on=<3->]\draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (g) -- (p);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{6pt}
@@ -283,14 +283,14 @@ Gn 22:18 y 26:4 usan el hitpael \heb{וְהִתְבָּרְכוּ}, que favorece
 \centering
 \begin{tikzpicture}[node distance=0.45cm]
 \node[bloqueazul,text width=3.4cm] (r) {Raíz \emph{'mn}\\{\tiny\mdseries firmeza}};
-\node[bloque,text width=1.35cm,below left=0.55cm and -0.5cm of r] (a) {\emph{amén}};
-\node[bloque,text width=1.35cm,below right=0.55cm and -0.5cm of r] (e) {\emph{emuná}};
-\node[bloqueoro,text width=3.4cm,below=1.55cm of r] (g) {Gn 15:6\\{\tiny Abram «creyó»}};
-\draw[flecha] (r) -- (a); \draw[flecha] (r) -- (e);
-\draw[flecha] (a) -- (g); \draw[flecha] (e) -- (g);
-\node[bloque,text width=1.35cm,below left=0.55cm and -0.5cm of g] (ro) {Ro 4};
-\node[bloque,text width=1.35cm,below right=0.55cm and -0.5cm of g] (ga) {Gá 3};
-\draw[flecha] (g) -- (ro); \draw[flecha] (g) -- (ga);
+\begin{scope}[visible on=<2->]\node[bloque,text width=1.35cm,below left=0.55cm and -0.5cm of r] (a) {\emph{amén}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloque,text width=1.35cm,below right=0.55cm and -0.5cm of r] (e) {\emph{emuná}};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloqueoro,text width=3.4cm,below=1.55cm of r] (g) {Gn 15:6\\{\tiny Abram «creyó»}};\end{scope}
+\begin{scope}[visible on=<4->]\draw[flecha] (r) -- (a);\end{scope} \begin{scope}[visible on=<4->]\draw[flecha] (r) -- (e);\end{scope}
+\begin{scope}[visible on=<4->]\draw[flecha] (a) -- (g);\end{scope} \begin{scope}[visible on=<4->]\draw[flecha] (e) -- (g);\end{scope}
+\begin{scope}[visible on=<5->]\node[bloque,text width=1.35cm,below left=0.55cm and -0.5cm of g] (ro) {Ro 4};\end{scope}
+\begin{scope}[visible on=<6->]\node[bloque,text width=1.35cm,below right=0.55cm and -0.5cm of g] (ga) {Gá 3};\end{scope}
+\begin{scope}[visible on=<6->]\draw[flecha] (g) -- (ro);\end{scope} \begin{scope}[visible on=<6->]\draw[flecha] (g) -- (ga);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -306,8 +306,8 @@ Gn 22:18 y 26:4 usan el hitpael \heb{וְהִתְבָּרְכוּ}, que favorece
   \node[bloque,minimum width=1.1cm,minimum height=0.45cm,font=\tiny] at (0,-\i*0.75) {mitad};
   \node[bloque,minimum width=1.1cm,minimum height=0.45cm,font=\tiny] at (3.0,-\i*0.75) {mitad};}
 \draw[oro,line width=2.2pt,-{Latex[length=3mm]},dash pattern=on 6pt off 3pt] (1.5,0.75) -- (1.5,-2.15);
-\node[bloqueazul,text width=2.8cm,font=\tiny\bfseries] at (1.5,1.25) {Solo Dios pasa: «horno humeante y antorcha de fuego»};
-\node[bloqueoro,text width=3.6cm,font=\tiny] at (1.5,-2.75) {Abram parte los animales y queda a un lado};
+\begin{scope}[visible on=<2->]\node[bloqueazul,text width=2.8cm,font=\tiny\bfseries] at (1.5,1.25) {Solo Dios pasa: «horno humeante y antorcha de fuego»};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueoro,text width=3.6cm,font=\tiny] at (1.5,-2.75) {Abram parte los animales y queda a un lado};\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -338,6 +338,24 @@ El pasaje se conoce como \emph{berit bein ha-betarim} (\heb{בְּרִית בֵ�
 \end{notalam}
 \end{frame}
 
+\begin{frame}{Perla filológica · el verbo del regreso, \heb{שׁוּב}}
+{\footnotesize La raíz de \emph{yashuvu} une volver a la tierra y volverse a Dios; en los textos decisivos la iniciativa pasa a Dios.}\par\vspace{4pt}
+\centering\scriptsize\renewcommand{\arraystretch}{1.22}
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{1.9cm}>{\RaggedRight\arraybackslash}p{4.3cm}>{\RaggedRight\arraybackslash}p{5.2cm}}
+\toprule
+{\color{ladrillo}\bfseries Texto} & {\color{ladrillo}\bfseries Hebreo} & {\color{ladrillo}\bfseries Sentido}\\\midrule
+Gn 15:16 & \heb{וְדוֹר רְבִיעִי יָשׁוּבוּ הֵנָּה} & «Volverán acá»: primer anuncio de regreso\\
+Dt 30:2--3 & \heb{וְשַׁבְתָּ} (v.~2); \heb{וְשָׁב יְהוָה אֱלֹהֶיךָ אֶת־שְׁבוּתְךָ} (v.~3) & Israel vuelve y Dios «hace volver su cautividad»\\
+Jer 31:18 [31:17] & \heb{הֲשִׁבֵנִי וְאָשׁוּבָה} & Efraín: «hazme volver, y volveré»\\
+Lm 5:21 & \heb{הֲשִׁיבֵנוּ יְהוָה אֵלֶיךָ וְנָשׁוּבָה} & Primero Dios hace volver; después el pueblo vuelve\\
+Is 59:20 & \heb{וּלְשָׁבֵי פֶשַׁע בְּיַעֲקֹב} & Citado por Pablo en Ro 11:26\\
+\bottomrule
+\end{tabular}
+\elabpropia
+\vspace{4pt}
+\begin{clave}\footnotesize El regreso geográfico de Gn 15 se vuelve en los profetas regreso del corazón (\emph{teshuvá}), y en Ro 11:26 es el Libertador quien «apartará de Jacob la impiedad».\end{clave}
+\end{frame}
+
 \begin{frame}{Gn 17: un pacto perpetuo}
 \begin{columns}[T,onlytextwidth]
 \begin{column}{0.46\textwidth}
@@ -348,10 +366,10 @@ El pasaje se conoce como \emph{berit bein ha-betarim} (\heb{בְּרִית בֵ�
 \centering
 \begin{tikzpicture}[node distance=0.38cm]
 \node[bloqueazul,text width=5.0cm] (p) {Promesa: pacto perpetuo «por sus generaciones» (Gn 17:7)};
-\node[bloque,text width=5.0cm,below=of p] (s) {Señal: la circuncisión en la carne de la descendencia};
-\node[bloqueoro,text width=5.0cm,below=of s] (c) {Meta: circuncisión del corazón, después del regreso del destierro (Dt 10:16; 30:6; Jer 4:4)};
-\node[bloque,text width=5.0cm,below=of c] (i) {Proyección: vigencia atada al cosmos (Jer 31:35--37); llamamiento irrevocable (Ro 11:29)};
-\draw[flecha] (p) -- (s); \draw[flecha] (s) -- (c); \draw[flecha] (c) -- (i);
+\begin{scope}[visible on=<2->]\node[bloque,text width=5.0cm,below=of p] (s) {Señal: la circuncisión en la carne de la descendencia};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueoro,text width=5.0cm,below=of s] (c) {Meta: circuncisión del corazón, después del regreso del destierro (Dt 10:16; 30:6; Jer 4:4)};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloque,text width=5.0cm,below=of c] (i) {Proyección: vigencia atada al cosmos (Jer 31:35--37); llamamiento irrevocable (Ro 11:29)};\end{scope}
+\begin{scope}[visible on=<4->]\draw[flecha] (p) -- (s);\end{scope} \begin{scope}[visible on=<4->]\draw[flecha] (s) -- (c);\end{scope} \begin{scope}[visible on=<4->]\draw[flecha] (c) -- (i);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -375,10 +393,10 @@ La promesa fue entregada y devuelta; desde entonces descansa sobre un juramento.
 \centering
 \begin{tikzpicture}
 \node[bloqueazul,text width=4.4cm] (m) at (0,0) {Monte Moriah};
-\node[bloque,text width=1.95cm,minimum height=0.95cm] (t) at (-1.2,-1.35) {Monte del templo\\{\tiny 2~Cr 3:1}};
-\node[bloque,text width=1.95cm,minimum height=0.95cm] (r) at (1.2,-1.35) {Figura de resurrección\\{\tiny Heb 11:17--19}};
-\node[bloqueoro,text width=4.4cm] (i) at (0,-2.85) {Israel restaurado: «vida de entre los muertos» (Ro 11:15)};
-\draw[flecha] (m.south-|t) -- (t); \draw[flecha] (m.south-|r) -- (r); \draw[flecha] (r) -- (r|-i.north);
+\begin{scope}[visible on=<2->]\node[bloque,text width=1.95cm,minimum height=0.95cm] (t) at (-1.2,-1.35) {Monte del templo\\{\tiny 2~Cr 3:1}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloque,text width=1.95cm,minimum height=0.95cm] (r) at (1.2,-1.35) {Figura de resurrección\\{\tiny Heb 11:17--19}};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloqueoro,text width=4.4cm] (i) at (0,-2.85) {Israel restaurado: «vida de entre los muertos» (Ro 11:15)};\end{scope}
+\begin{scope}[visible on=<4->]\draw[flecha] (m.south-|t) -- (t);\end{scope} \begin{scope}[visible on=<4->]\draw[flecha] (m.south-|r) -- (r);\end{scope} \begin{scope}[visible on=<4->]\draw[flecha] (r) -- (r|-i.north);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -397,9 +415,9 @@ La explicación juega con \emph{sará}, «luchar»; el sentido gramatical probab
 \textbf{\textcolor{cafe}{Dos expresiones para guardar}}\par\smallskip
 \begin{tikzpicture}[node distance=0.35cm]
 \node[bloque,text width=5.0cm] (a) {\heb{גּוֹי וּקְהַל גּוֹיִם} (\emph{goy u-qehal goyim})\\«una nación y un conjunto de naciones» (Gn 35:11)};
-\node[bloque,text width=5.0cm,below=of a] (b) {\heb{מְלֹא־הַגּוֹיִם} (\emph{melo ha-goyim})\\Efraín, «plenitud de las naciones» (Gn 48:19)};
-\node[bloqueoro,text width=5.0cm,below=of b] (c) {Volverán en la división del reino y en Ro 11:25, «plenitud de los gentiles»};
-\draw[flecha] (b) -- (c);
+\begin{scope}[visible on=<2->]\node[bloque,text width=5.0cm,below=of a] (b) {\heb{מְלֹא־הַגּוֹיִם} (\emph{melo ha-goyim})\\Efraín, «plenitud de las naciones» (Gn 48:19)};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueoro,text width=5.0cm,below=of b] (c) {Volverán en la división del reino y en Ro 11:25, «plenitud de los gentiles»};\end{scope}
+\begin{scope}[visible on=<3->]\draw[flecha] (b) -- (c);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -411,14 +429,14 @@ La explicación juega con \emph{sará}, «luchar»; el sentido gramatical probab
 \begin{tikzpicture}[node distance=0.55cm]
 \node[bloqueazul,text width=3.4cm] (ab) {Abraham y Sara\\{\tiny\mdseries Sara estéril (Gn 11:30)}};
 \node[bloque,text width=2.2cm,below=of ab] (is) {Isaac\\{\tiny Gn 21:1--7}};
-\node[bloque,text width=2.6cm,below=of is] (ja) {Jacob = Israel\\{\tiny Gn 32:28 [32:29]}};
-\node[bloqueoro,text width=2.6cm,below=of ja] (do) {Doce hijos\\{\tiny las tribus}};
-\node[bloque,text width=2.2cm,right=1.3cm of do] (jo) {José\\{\tiny Gn 45:7}};
-\node[bloque,text width=1.9cm,right=0.9cm of jo] (ef) {Efraín\\{\tiny Gn 48:19}};
-\draw[flecha] (ab) -- (is); \draw[flecha] (is) -- (ja); \draw[flecha] (ja) -- (do);
-\draw[flecha] (do) -- (jo); \draw[flecha] (jo) -- (ef);
-\node[etiq,text width=3.2cm,anchor=west] at ([xshift=0.6cm]is.east) {La promesa pasa por elección, no por mérito (Ro 9:10--13)};
-\node[etiq,text width=3.2cm,below=3pt of do] {La familia desciende a Egipto (Gn 46)};
+\begin{scope}[visible on=<2->]\node[bloque,text width=2.6cm,below=of is] (ja) {Jacob = Israel\\{\tiny Gn 32:28 [32:29]}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueoro,text width=2.6cm,below=of ja] (do) {Doce hijos\\{\tiny las tribus}};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloque,text width=2.2cm,right=1.3cm of do] (jo) {José\\{\tiny Gn 45:7}};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloque,text width=1.9cm,right=0.9cm of jo] (ef) {Efraín\\{\tiny Gn 48:19}};\end{scope}
+\begin{scope}[visible on=<4->]\draw[flecha] (ab) -- (is);\end{scope} \begin{scope}[visible on=<4->]\draw[flecha] (is) -- (ja);\end{scope} \begin{scope}[visible on=<4->]\draw[flecha] (ja) -- (do);\end{scope}
+\begin{scope}[visible on=<4->]\draw[flecha] (do) -- (jo);\end{scope} \begin{scope}[visible on=<4->]\draw[flecha] (jo) -- (ef);\end{scope}
+\begin{scope}[visible on=<5->]\node[etiq,text width=3.2cm,anchor=west] at ([xshift=0.6cm]is.east) {La promesa pasa por elección, no por mérito (Ro 9:10--13)};\end{scope}
+\begin{scope}[visible on=<6->]\node[etiq,text width=3.2cm,below=3pt of do] {La familia desciende a Egipto (Gn 46)};\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{frame}
@@ -428,10 +446,10 @@ La explicación juega con \emph{sará}, «luchar»; el sentido gramatical probab
 \centering
 \begin{tikzpicture}[node distance=0.8cm]
 \node[caja,text width=3.3cm,align=center] (a) {\textbf{Génesis}\\[2pt]\heb{שְׁאֵרִית} (\emph{she'erit})\\{\tiny Gn 45:7: la familia sobrevive}};
-\node[caja,text width=3.3cm,align=center,right=of a] (b) {\textbf{Isaías}\\[2pt]\heb{שְׁאָר יָשׁוּב}\\{\tiny Is 10:20--22: «un remanente volverá»}};
-\node[caja,text width=3.3cm,align=center,right=of b] (c) {\textbf{Pablo}\\[2pt]\grc{λεῖμμα κατ᾽ ἐκλογὴν χάριτος}\\{\tiny Ro 11:5: «remanente escogido por gracia»}};
-\draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (a) -- (b);
-\draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (b) -- (c);
+\begin{scope}[visible on=<2->]\node[caja,text width=3.3cm,align=center,right=of a] (b) {\textbf{Isaías}\\[2pt]\heb{שְׁאָר יָשׁוּב}\\{\tiny Is 10:20--22: «un remanente volverá»}};\end{scope}
+\begin{scope}[visible on=<3->]\node[caja,text width=3.3cm,align=center,right=of b] (c) {\textbf{Pablo}\\[2pt]\grc{λεῖμμα κατ᾽ ἐκλογὴν χάριτος}\\{\tiny Ro 11:5: «remanente escogido por gracia»}};\end{scope}
+\begin{scope}[visible on=<3->]\draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (a) -- (b);\end{scope}
+\begin{scope}[visible on=<3->]\draw[-{Latex[length=2.5mm]},oro!90!ladrillo,line width=1.4pt] (b) -- (c);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{6pt}
@@ -445,11 +463,11 @@ Es la primera vez que \emph{she'erit} se aplica a la familia de Israel. Un reman
 \begin{cita}Yo descenderé contigo a Egipto, y yo también te haré subir de nuevo.\fuente{(Gn 46:4)}\end{cita}
 \begin{tikzpicture}[node distance=0.32cm]
 \node[bloqueazul,text width=2.05cm,font=\tiny\bfseries] (a) {Gn 50:24--25\\José: \heb{פָּקֹד יִפְקֹד}};
-\node[bloque,text width=2.05cm,font=\tiny,right=of a] (b) {Éx 3:16\\Moisés: \heb{פָּקֹד פָּקַדְתִּי}};
-\node[bloque,text width=2.05cm,font=\tiny,right=of b] (c) {Éx 13:19\\los huesos de José suben};
-\node[bloque,text width=2.05cm,font=\tiny,right=of c] (d) {Heb 11:22\\un acto de fe};
-\node[bloqueoro,text width=2.05cm,font=\tiny,right=of d] (e) {Lc 1:68\\«ha visitado y redimido»};
-\draw[flecha] (a) -- (b); \draw[flecha] (b) -- (c); \draw[flecha] (c) -- (d); \draw[flecha] (d) -- (e);
+\begin{scope}[visible on=<2->]\node[bloque,text width=2.05cm,font=\tiny,right=of a] (b) {Éx 3:16\\Moisés: \heb{פָּקֹד פָּקַדְתִּי}};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloque,text width=2.05cm,font=\tiny,right=of b] (c) {Éx 13:19\\los huesos de José suben};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloque,text width=2.05cm,font=\tiny,right=of c] (d) {Heb 11:22\\un acto de fe};\end{scope}
+\begin{scope}[visible on=<5->]\node[bloqueoro,text width=2.05cm,font=\tiny,right=of d] (e) {Lc 1:68\\«ha visitado y redimido»};\end{scope}
+\begin{scope}[visible on=<5->]\draw[flecha] (a) -- (b);\end{scope} \begin{scope}[visible on=<5->]\draw[flecha] (b) -- (c);\end{scope} \begin{scope}[visible on=<5->]\draw[flecha] (c) -- (d);\end{scope} \begin{scope}[visible on=<5->]\draw[flecha] (d) -- (e);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \begin{notalam}[La fórmula de la visitación]
@@ -469,10 +487,10 @@ Es la primera vez que \emph{she'erit} se aplica a la familia de Israel. Un reman
 \begin{column}{0.50\textwidth}
 \centering\textbf{\small\textcolor{cafe}{Los verbos de la redención (Éx 6:6--8)}}\par\smallskip
 \begin{tikzpicture}[y=-0.66cm]
-\foreach \i/\v/\h in {0/Os sacaré/{וְהוֹצֵאתִי},1/Os libraré/{וְהִצַּלְתִּי},2/Os redimiré/{וְגָאַלְתִּי},3/Os tomaré por pueblo/{וְלָקַחְתִּי},4/Os introduciré en la tierra/{וְהֵבֵאתִי}}{
-  \node[caja,text width=4.6cm,minimum height=0.48cm,inner sep=2.5pt] at (0,\i) {\textbf{\v}\hfill\heb{\h}};}
-\draw[decorate,decoration={brace,amplitude=4pt},sepia] (2.65,-0.25) -- (2.65,3.25) node[midway,right=4pt,font=\tiny,text width=0.9cm]{Pascua, mar, Sinaí};
-\draw[decorate,decoration={brace,amplitude=4pt},sepia] (2.65,3.75) -- (2.65,4.25) node[midway,right=4pt,font=\tiny,text width=0.9cm]{Estudio 2};
+\foreach \i/\v/\h [count=\ovc,evaluate=\ovc as \ovk using int(\ovc+0)] in {0/Os sacaré/{וְהוֹצֵאתִי},1/Os libraré/{וְהִצַּלְתִּי},2/Os redimiré/{וְגָאַלְתִּי},3/Os tomaré por pueblo/{וְלָקַחְתִּי},4/Os introduciré en la tierra/{וְהֵבֵאתִי}}{\begin{scope}[visible on=<\ovk->]
+  \node[caja,text width=4.6cm,minimum height=0.48cm,inner sep=2.5pt] at (0,\i) {\textbf{\v}\hfill\heb{\h}};\end{scope}}
+\begin{scope}[visible on=<5->]\draw[decorate,decoration={brace,amplitude=4pt},sepia] (2.65,-0.25) -- (2.65,3.25) node[midway,right=4pt,font=\tiny,text width=0.9cm]{Pascua, mar, Sinaí};\end{scope}
+\begin{scope}[visible on=<5->]\draw[decorate,decoration={brace,amplitude=4pt},sepia] (2.65,3.75) -- (2.65,4.25) node[midway,right=4pt,font=\tiny,text width=0.9cm]{Estudio 2};\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{column}
@@ -544,9 +562,9 @@ El relato de los ídolos es haggádico: pone en escena lo que Jos 24:2 deja impl
 \begin{cita}Dios de Abraham, Dios de Isaac y Dios de Jacob [\ldots] que se acuerda de las bondades de los padres y trae un redentor a los hijos de sus hijos.\fuente{(Amidá, bendición \emph{Avot})}\end{cita}
 \begin{tikzpicture}
 \node[bloque,text width=3.9cm,minimum height=1.25cm] (z) at (0,0) {\textbf{Tradición judía}\\\emph{zejut avot}, «el mérito de los padres»; la Amidá se ora tres veces al día};
-\node[bloque,text width=3.9cm,minimum height=1.25cm] (p) at (8.4,0) {\textbf{Pablo}\\Fundamento: la fidelidad de Dios a lo prometido, más que el mérito de los patriarcas};
-\node[bloqueazul,text width=2.6cm] (c) at (4.2,0) {«Amados por causa de los padres»\\{\tiny\mdseries (Ro 11:28)}};
-\draw[flecha] (z) -- (c); \draw[flecha] (p) -- (c);
+\begin{scope}[visible on=<2->]\node[bloque,text width=3.9cm,minimum height=1.25cm] (p) at (8.4,0) {\textbf{Pablo}\\Fundamento: la fidelidad de Dios a lo prometido, más que el mérito de los patriarcas};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueazul,text width=2.6cm] (c) at (4.2,0) {«Amados por causa de los padres»\\{\tiny\mdseries (Ro 11:28)}};\end{scope}
+\begin{scope}[visible on=<3->]\draw[flecha] (z) -- (c);\end{scope} \begin{scope}[visible on=<3->]\draw[flecha] (p) -- (c);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \end{frame}
@@ -556,15 +574,15 @@ El relato de los ídolos es haggádico: pone en escena lo que Jos 24:2 deja impl
 \begin{column}{0.56\textwidth}
 \centering
 \begin{tikzpicture}[y=-0.72cm]
-\foreach \i/\v in {0/Os sacaré,1/Os libraré,2/Os redimiré,3/Os tomaré por pueblo}{
+\foreach \i/\v [count=\ovc,evaluate=\ovc as \ovk using int(\ovc+0)] in {0/Os sacaré,1/Os libraré,2/Os redimiré,3/Os tomaré por pueblo}{\begin{scope}[visible on=<\ovk->]
   \node[bloque,text width=2.6cm,minimum height=0.5cm] (v\i) at (0,\i) {\v};
   \node[bloqueoro,text width=1.3cm,minimum height=0.5cm] (c\i) at (3.3,\i) {Copa \the\numexpr\i+1\relax};
-  \draw[flecha] (v\i) -- (c\i);}
-\node[bloque,text width=2.6cm,minimum height=0.5cm] (v4) at (0,4.2) {Os introduciré};
-\node[bloqueazul,text width=1.3cm,minimum height=0.5cm] (c4) at (3.3,4.2) {Elías};
-\draw[flecha,dashed] (v4) -- (c4);
-\node[etiq,above=1pt of v0] {Éx 6:6--7};
-\node[etiq,below=1pt of v4] {Éx 6:8};
+  \draw[flecha] (v\i) -- (c\i);\end{scope}}
+\begin{scope}[visible on=<4->]\node[bloque,text width=2.6cm,minimum height=0.5cm] (v4) at (0,4.2) {Os introduciré};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloqueazul,text width=1.3cm,minimum height=0.5cm] (c4) at (3.3,4.2) {Elías};\end{scope}
+\begin{scope}[visible on=<4->]\draw[flecha,dashed] (v4) -- (c4);\end{scope}
+\begin{scope}[visible on=<4->]\node[etiq,above=1pt of v0] {Éx 6:6--7};\end{scope}
+\begin{scope}[visible on=<4->]\node[etiq,below=1pt of v4] {Éx 6:8};\end{scope}
 \end{tikzpicture}
 \notafig{Elaboración propia a partir de Talmud de Jerusalén, Pesajim 10:1 (Neusner, 1982--1994).}
 \end{column}
@@ -620,11 +638,11 @@ Gn 50:24 & «Dios ciertamente os visitará» & Éx 3:16; Lc 1:68\\
 \centering
 \begin{tikzpicture}[node distance=0.75cm]
 \node[bloque,text width=1.9cm] (j) {Jacob};
-\node[bloque,text width=1.9cm,right=of j] (i) {Isaac};
-\node[bloqueazul,text width=1.9cm,right=of i] (a) {Abraham};
-\node[bloqueoro,text width=1.9cm,right=of a] (t) {La tierra};
-\draw[flecha] (j) -- (i); \draw[flecha] (i) -- (a); \draw[flecha] (a) -- (t);
-\draw[sepia,-{Latex[length=2mm]}] ([yshift=-0.35cm]j.south west) -- node[below,etiq,text=sepia]{la memoria remonta la historia hasta su origen} ([yshift=-0.35cm]a.south east);
+\begin{scope}[visible on=<2->]\node[bloque,text width=1.9cm,right=of j] (i) {Isaac};\end{scope}
+\begin{scope}[visible on=<3->]\node[bloqueazul,text width=1.9cm,right=of i] (a) {Abraham};\end{scope}
+\begin{scope}[visible on=<4->]\node[bloqueoro,text width=1.9cm,right=of a] (t) {La tierra};\end{scope}
+\begin{scope}[visible on=<4->]\draw[flecha] (j) -- (i);\end{scope} \begin{scope}[visible on=<4->]\draw[flecha] (i) -- (a);\end{scope} \begin{scope}[visible on=<4->]\draw[flecha] (a) -- (t);\end{scope}
+\begin{scope}[visible on=<4->]\draw[sepia,-{Latex[length=2mm]}] ([yshift=-0.35cm]j.south west) -- node[below,etiq,text=sepia]{la memoria remonta la historia hasta su origen} ([yshift=-0.35cm]a.south east);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{8pt}
@@ -656,8 +674,8 @@ El regreso descansa en el pacto con los padres, no en el mérito de la generaci�
 \centering\textbf{\small\textcolor{cafe}{La fórmula de juramento cambia (Jer 16:14--15)}}\par\medskip
 \begin{tikzpicture}[node distance=0.5cm]
 \node[bloque,text width=4.6cm] (a) {«Vive YHWH, que hizo subir a los hijos de Israel \textbf{de la tierra de Egipto}»};
-\node[bloqueazul,text width=4.6cm,below=of a] (b) {«Vive YHWH, que hizo subir [\ldots] \textbf{de la tierra del norte} y de todas las tierras adonde los había arrojado»};
-\draw[flecha] (a) -- (b);
+\begin{scope}[visible on=<2->]\node[bloqueazul,text width=4.6cm,below=of a] (b) {«Vive YHWH, que hizo subir [\ldots] \textbf{de la tierra del norte} y de todas las tierras adonde los había arrojado»};\end{scope}
+\begin{scope}[visible on=<2->]\draw[flecha] (a) -- (b);\end{scope}
 \end{tikzpicture}
 \elabpropia
 \vspace{2pt}
