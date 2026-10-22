@@ -1,7 +1,7 @@
 ---
 title: "Abraham, el peregrino"
-subtitle: "Peregrino y constructor de altares · 47 hitos · c. 2166–1991 a. e. c."
-description: "De Ur a Macpela: el llamado, los cuatro altares, el pacto, Moriah y la muerte de Abraham, con mapas, texto hebreo y griego, tradición judía y arqueología."
+subtitle: "Peregrino y constructor de altares · 48 hitos · c. 2166–1991 a. e. c."
+description: "De Ur a Macpela con un atlas interactivo: relieve real, pasajes bíblicos, hallazgos arqueológicos y los lugares hoy; texto hebreo y griego y tradición judía."
 date: 2026-10-22
 categories: [Líneas de tiempo]
 order: 1
@@ -13,6 +13,6 @@ body-classes: serie-atributos linea-tiempo
 
 {{< include _abraham.html >}}
 
-<p class="linea-nota">Avanza con las flechas o el teclado (← →), acerca las fechas con las lupas o con <kbd>+</kbd>/<kbd>−</kbd>, y toca los altares de los mapas para ver su nombre, el atributo de Dios que revela y su aplicación. El botón <b>⛶ Pantalla completa</b> (o la tecla <kbd>F</kbd>) agranda la línea en esta misma página. Las fechas siguen la cronología bíblica «temprana» y son aproximadas.</p>
+<p class="linea-nota">Avanza con las flechas o el teclado (← →), acerca las fechas con las lupas o con <kbd>+</kbd>/<kbd>−</kbd>, toca un lugar o un tramo del camino en los mapas para leer el pasaje, la arqueología y qué hay allí hoy, y abre el <b>Atlas</b> para ver el recorrido completo de Ur a Macpela. El botón <b>⛶ Pantalla completa</b> (o la tecla <kbd>F</kbd>) agranda la línea en esta misma página. Las fechas siguen la cronología bíblica «temprana» y son aproximadas.</p>
 
 [← Volver a las líneas de tiempo](../lineas.qmd)

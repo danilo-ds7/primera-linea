@@ -20,6 +20,9 @@ project:
     - "predicaciones/audio/**"
     - "lineas/*/img/**"
     - "lineas/*/fonts/**"
+    - "lineas/*/mapa/**"
+    - "lineas/*/relieve/**"
+    - "lineas/*/vendor/**"
   render:
     - "*.qmd"
     - "estudios/*.qmd"

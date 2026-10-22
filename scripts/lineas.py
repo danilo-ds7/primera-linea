@@ -106,8 +106,9 @@ def embed(src: Path, dst: Path, ID: str):
     js = js.replace("function fsLabel(){ const on=!!(document.fullscreenElement||document.webkitFullscreenElement);",
                     "function fsLabel(){ const on=fsOn(); setTimeout(()=>{ layout(); centerOn(cur,false); },60);")
     js = js.replace("if(!(document.documentElement.requestFullscreen||document.documentElement.webkitRequestFullscreen)) $('#fsBtn').hidden=true;", "")
-    js = js.replace("document.addEventListener('keydown',e=>{\n  if(e.key==='Escape'){ hidePop(); return closeDrawer(); }",
-                    "document.addEventListener('keydown',e=>{\n  if(e.key==='Escape'){ hidePop(); if($('#drawer').classList.contains('on')) return closeDrawer(); if(TL.classList.contains('tl-full')){ TL.classList.remove('tl-full'); fsLabel(); } return; }\n  if(!(fsOn()||TL.matches(':hover')||TL.contains(document.activeElement))) return;")
+    teclas = "  if(e.key==='Escape'){ hidePop(); return closeDrawer(); }"
+    assert teclas in js, "lineas.py: no se encontró el manejador de Escape"
+    js = js.replace(teclas, "  if(e.key==='Escape'){ hidePop(); if($('#drawer').classList.contains('on')) return closeDrawer(); if(TL.classList.contains('tl-full')){ TL.classList.remove('tl-full'); fsLabel(); } return; }\n  if(!(fsOn()||TL.matches(':hover')||TL.contains(document.activeElement))) return;")
     js = js.replace("const $ = s => document.querySelector(s);", f"const TL=document.getElementById('{ID}');\nconst $ = s => TL.querySelector(s);")
     js = js.replace("$('#drawer').classList", "$('#drawer').classList")
     # enlace «← Primera Línea» del topbar: aquí no hace falta
@@ -139,7 +140,7 @@ if __name__ == "__main__":
     destino.mkdir(exist_ok=True)
     for src in sorted(origen.glob("*.html")):
         embed(src, destino / f"_{src.stem}.html", f"tl-{src.stem}")
-        for sub in ("img", "fonts"):             # mapas TikZ (scripts/lineas_tikz.py), figuras y fuentes
+        for sub in ("img", "fonts", "mapa", "relieve", "vendor"):   # figuras TikZ, fuentes, atlas (MapLibre, relieve, capas)
             d = origen / src.stem / sub
             if d.is_dir():
                 dst = destino / src.stem / sub

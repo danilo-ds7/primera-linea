@@ -244,7 +244,7 @@ Un análisis de los escritos de Pablo, en especial de aquellos pasajes «difíci
 
 ## Abraham, el peregrino
 
-[De Ur a Macpela en 47 hitos: el llamado, los cuatro altares, el pacto, Moriah. Con mapas, texto hebreo y griego, tradición judía y arqueología, para recorrer con zoom en el computador o en el celular.]{.d}
+[De Ur a Macpela en 48 hitos, con un atlas interactivo de relieve real: cada lugar y cada tramo del camino abre el pasaje bíblico, los hallazgos arqueológicos y lo que hay allí hoy.]{.d}
 
 [[Ver la línea de tiempo](lineas/abraham.qmd){.btn .primary} [Todas las líneas de tiempo](lineas.qmd){.btn .ghost}]{.cta .cta-bf}
 </div>
