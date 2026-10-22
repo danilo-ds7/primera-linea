@@ -115,7 +115,8 @@
   function heEsq(w){ return w.normalize("NFC").replace(MARK,"").replace(/\u05BE/g,"").replace(/^[\s׃׀,.;:()«»"]+|[\s׃׀,.;:()«»"]+$/g,""); }
   function grNorm(w){ return w.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f\u0345]/g,"").replace(/ς/g,"σ").replace(/^[\s,.;:·'’()«»"]+|[\s,.;:·'’()«»"]+$/g,""); }
   var IDX={}, FIC={};
-  function cargar(tipo,cual){ var k=tipo+cual, store=cual==="indice"?IDX:FIC; if(!store[tipo]) store[tipo]=fetch(raiz+"datos/strong-"+tipo+"-"+cual+".json").then(function(r){ if(!r.ok) throw 0; return r.json(); }); return store[tipo]; }
+  var ESP={};
+  function cargar(tipo,cual){ var store=cual==="indice"?IDX:(cual==="es"?ESP:FIC); if(!store[tipo]) store[tipo]=fetch(raiz+"datos/strong-"+tipo+"-"+cual+".json").then(function(r){ if(!r.ok) throw 0; return r.json(); }).catch(function(e){ delete store[tipo]; throw e; }); return store[tipo]; }
   function codigo(tipo,ix,w){
     if(tipo==="h"){ var p=hePunt(w), s=heEsq(w); if(!s) return null; return ix.f[p] || (ix.l[p]||[])[0] || (ix.l[s]||[])[0] || ix.s[s] || null; }
     var g=grNorm(w); if(!g) return null; return ix.f[g] || (ix.l[g]||[])[0] || ix.s[g] || null;
@@ -176,7 +177,8 @@
     requestAnimationFrame(function(){ pop && pop.classList.add("open"); });
     var este=pop;
     var pF=cargar(tipo,"fichas");
-    var base=pF.then(function(fx){ var f=fx[cod]; return (f&&f[3]) ? [{id:"strong", n:"Strong (inglés)", lang:"en", v:f[3], fuente:"Strong, J. (1890). A concise dictionary of the words in the Hebrew Bible / Greek Testament. Dominio público."}] : []; });
+    var pE=cargar(tipo,"es").catch(function(){ return {}; });
+    var base=Promise.all([pF,pE]).then(function(r){ var f=r[0][cod], es=r[1][cod]; return (f&&f[3]) ? [{id:"strong", n:"Strong", lang:"en", v:f[3], v_es:es||"", fuente:"Strong, J. (1890). A concise dictionary of the words in the Hebrew Bible / Greek Testament. Dominio público.", fuente_es:"Strong, J. (1890). A concise dictionary of the words in the Hebrew Bible / Greek Testament. Dominio público. Traducción al español: Primera Línea."}] : []; });
     diccionarios().then(function(D){ if(pop!==este || !D) return;
       D.render(pop.querySelector(".cp-dic"), cod, {base:base, onStrong:function(c){ abrirStrong(a, c, [este.style.left, este.style.top]); }});
     }).catch(function(){ base.then(function(b){ if(pop===este && b.length) pop.querySelector(".cp-def").textContent="Definición de Strong (inglés): "+b[0].v; }); });

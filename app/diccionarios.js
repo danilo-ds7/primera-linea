@@ -28,6 +28,7 @@
   ];
   var mem={};
 
+  function idiomaPref(v){ try{ if(v) localStorage.setItem("pl-dic-lang",v); return localStorage.getItem("pl-dic-lang")||"es"; }catch(e){ return v||"es"; } }
   function token(){ try{ return localStorage.getItem(CLAVE)||""; }catch(e){ return ""; } }
   function guardarToken(t){ try{ if(t) localStorage.setItem(CLAVE,t); else localStorage.removeItem(CLAVE); }catch(e){} mem={}; }
   function ruta(cod, carpeta){ var p=cod[0], n=parseInt(cod.slice(1),10); return "app-privado/"+carpeta+"/"+p+"/"+("00"+Math.floor(n/BLOQUE)).slice(-3)+".json"; }
@@ -54,6 +55,7 @@
   ".pd-chips{display:flex;flex-wrap:nowrap;gap:6px;overflow-x:auto;scrollbar-width:thin;padding-bottom:4px;border-bottom:1px solid var(--line,#e2e6ee);-webkit-overflow-scrolling:touch}"+
   ".pd-chips .pd-chip{flex:0 0 auto;white-space:nowrap}"+
   ".pd-chip .pd-lock{font-weight:500;opacity:.7;margin-left:4px}"+
+  ".pd-lang{display:flex;gap:4px;justify-content:flex-end}.pd-lang .pd-chip{padding:3px 10px;font-size:.76rem}"+
   ".pd-chip{all:unset;box-sizing:border-box;cursor:pointer;border:1px solid var(--line,#e2e6ee);background:var(--surface,#fff);color:var(--ink,#131a2c);border-radius:999px;padding:5px 12px;font:600 .82rem/1.2 var(--sans,system-ui,sans-serif)}"+
   ".pd-chip:hover,.pd-chip:focus-visible{border-color:var(--accent,#2350b8)}"+
   ".pd-chip[aria-pressed=true]{background:var(--accent,#2350b8);border-color:var(--accent,#2350b8);color:var(--accent-ink,#fff)}"+
@@ -123,8 +125,8 @@
     opts=opts||{}; estilos(); cont.textContent="";
     var raiz=el("div","pd"); cont.append(raiz);
     raiz.append(el("p","pd-t","Diccionarios · "+cod+" · elige uno"));
-    var chips=el("div","pd-chips"), box=el("div","pd-box"), fuente=el("p","pd-fuente"), pie=el("div");
-    raiz.append(chips, box, fuente, pie);
+    var chips=el("div","pd-chips"), idioma=el("div","pd-lang"), box=el("div","pd-box"), fuente=el("p","pd-fuente"), pie=el("div");
+    raiz.append(chips, idioma, box, fuente, pie);
     box.textContent="Cargando…";
     var tk=token(), pubs=PUBLICOS.filter(function(d){ return d.pref===cod[0]; });
     var pB=Promise.resolve(opts.base||[]).catch(function(){ return []; });
@@ -133,7 +135,7 @@
     chips.setAttribute("role","tablist"); chips.setAttribute("aria-label","Diccionarios disponibles");
     Promise.all([pP, pV, pB]).then(function(res){
       var P=res[0], V=res[1], B=res[2]||[], E=V.E||{}, items=[], botones=[];
-      B.forEach(function(x){ if(x && x.v) items.push({d:{id:x.id||"base", n:x.n, lang:x.lang, fuente:x.fuente, carpeta:"base"}, v:x.v}); });
+      B.forEach(function(x){ if(x && x.v) items.push({d:{id:x.id||"base", n:x.n, lang:x.lang, fuente:x.fuente, fuente_es:x.fuente_es, carpeta:"base"}, v:x.v, v_es:x.v_es}); });
       if(tk && V.E) DICS.forEach(function(d){ if(d.conc || E[d.id]) items.push({d:d, v:E[d.id]}); });
       pubs.forEach(function(d,k){ if(P[k]) items.push({d:d, v:P[k]}); });
       // Sin clave: los diccionarios privados aparecen como pestañas con candado; al tocarlas se pide la clave.
@@ -141,7 +143,12 @@
       function elegir(it, b){
         var d=it.d, v=it.v;
         botones.forEach(function(x){ x.setAttribute("aria-pressed", x===b?"true":"false"); x.setAttribute("aria-selected", x===b?"true":"false"); });
-        box.textContent=""; box.scrollTop=0; fuente.textContent=d.fuente+(d.carpeta?"":" Uso privado.");
+        box.textContent=""; box.scrollTop=0; fuente.textContent=d.fuente+(d.carpeta?"":" Uso privado."); idioma.textContent="";
+        if(it.v_es){
+          var es=idiomaPref()!=="en";
+          [["es","Español"],["en","Inglés"]].forEach(function(L){ var lb=el("button","pd-chip",L[1]); lb.type="button"; lb.setAttribute("aria-pressed", (L[0]==="es")===es?"true":"false"); lb.onclick=function(){ idiomaPref(L[0]); elegir(it,b); }; idioma.append(lb); });
+          if(es){ texto(box, it.v_es, opts.onStrong, "es", false); if(d.fuente_es) fuente.textContent=d.fuente_es; return; }
+        }
         if(it.bloqueado){
           box.append(el("p",null,d.n+" tiene derechos de autor: se consulta en modo privado, con tu clave personal de GitHub guardada en este dispositivo."));
           box.append(cajaClave(function(){ render(cont, cod, opts); }));
