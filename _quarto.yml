@@ -4,6 +4,7 @@ project:
   pre-render:
     - scripts/atributos.py       # convierte los estudios LaTeX en páginas y PDF (todas las series)
     - scripts/predicaciones.py   # publica las predicaciones (PDF + audio) de estudios/predicaciones/
+    - scripts/lineas.py          # integra las líneas de tiempo de estudios/lineas/ en sus páginas
   resources:
     - "app/**"
     - "datos/**"
@@ -16,7 +17,6 @@ project:
     - "israel/img/**"
     - "predicaciones/pdf/**"
     - "predicaciones/audio/**"
-    - "lineas/*/**"
   render:
     - "*.qmd"
     - "estudios/*.qmd"

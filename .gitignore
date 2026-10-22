@@ -32,3 +32,6 @@
 /estudios/fiestas-santas/**/*.pdf
 /estudios/israel-pueblo-de-dios/**/*.pdf
 !/estudios/israel-pueblo-de-dios/**/crops/mapa_*.pdf
+
+# líneas de tiempo integradas (las genera scripts/lineas.py)
+lineas/_*.html

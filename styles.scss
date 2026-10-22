@@ -1589,11 +1589,9 @@ details.plegable-refs[open] .refs-n { background: var(--surface, #fff); }
 
 /* LÍNEAS DE TIEMPO (lineas.qmd y lineas/*.qmd) */
 .linea-tiempo .cta-bf { margin-top: 18px; margin-bottom: 18px; }
-.linea-marco { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--tile); box-shadow: 0 30px 50px -30px rgba(19, 26, 44, 0.35); }
-.linea-marco iframe { display: block; width: 100%; height: min(82vh, 860px); min-height: 560px; border: 0; }
+.linea-tiempo-marco { margin-top: 22px; }
 .linea-nota { color: var(--muted); font-size: 0.92rem; margin-top: 14px; }
 .linea-nota kbd { font-family: inherit; border: 1px solid var(--line); border-radius: 4px; padding: 0 5px; }
-@media (max-width: 600px) { .linea-marco iframe { height: 78vh; min-height: 520px; } }
 /* portada: banda de líneas de tiempo */
 .lt-preview { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
 .lt-preview text { font-family: inherit; }
