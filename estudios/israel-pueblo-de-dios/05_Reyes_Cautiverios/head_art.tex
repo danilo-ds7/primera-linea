@@ -9,7 +9,8 @@
 \babelfont[ancientgreek]{rm}[Path=fonts/]{GFSPorson.otf}
 \newcommand{\heb}[1]{\mbox{\foreignlanguage{hebrew}{#1}}}
 \newcommand{\grc}[1]{\foreignlanguage{ancientgreek}{#1}}
-\newcommand{\hebverso}[1]{\par\smallskip{\centering\begin{otherlanguage}{hebrew}\large #1\end{otherlanguage}\par}\smallskip}
+\usepackage{needspace,wrapfig}
+\newcommand{\hebverso}[1]{\par\needspace{7\baselineskip}\smallskip{\centering\begin{otherlanguage}{hebrew}\large #1\end{otherlanguage}\par}\smallskip}
 \usepackage[margin=2.5cm,headheight=14pt]{geometry}
 \usepackage{microtype,ragged2e,booktabs,graphicx,xcolor,csquotes,array}
 \usepackage[hidelinks]{hyperref}\usepackage{xurl}\urlstyle{same}
