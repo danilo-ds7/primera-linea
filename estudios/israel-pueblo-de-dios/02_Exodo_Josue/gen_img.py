@@ -2,7 +2,7 @@ import numpy as np, sys, os
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 W = sys.argv[1]  # work dir
 rng = np.random.default_rng(7)
-light = np.array([236,214,165.]); dark = np.array([176,122,64.]); burn = np.array([105,48,20.])
+light = np.array([250,246,234.]); dark = np.array([226,212,176.]); burn = np.array([176,150,98.])
 
 def lowfreq(h, w, scale, seed):
     r = np.random.default_rng(seed)
@@ -62,13 +62,13 @@ bg = piedra(1920,1080); bg.save(f'{W}/piedra.jpg', quality=88)
 
 HEBB = f'{W}/fonts/NotoHebrewSerif-700.ttf'
 GRK = '/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf'
-INK = (52,28,14)
+INK = (16,44,98)
 
 def erode(im):
     a = np.array(im).astype(float)
     n = lowfreq(a.shape[0], a.shape[1], 6, 11)
     mask = (n < 0.07)
-    a[mask] = a[mask]*0.5 + np.array([200,170,120])*0.5
+    a[mask] = a[mask]*0.5 + np.array([236,226,196])*0.5
     return Image.fromarray(a.astype(np.uint8))
 
 def panel_heb(lines, name, size=60, seed=5):
@@ -101,7 +101,7 @@ def fade(panel, name):
     w = panel.size[0]
     a = np.clip(np.arange(w)/(0.45*w),0,1); a = a*a*(3-2*a)
     A = np.tile(a,(panel.size[1],1))[...,None]
-    out = np.array(behind)*(1-A) + np.array(panel)*A
+    out = np.array(panel).astype(float)
     Image.fromarray(out.astype(np.uint8)).save(f'{W}/crops/{name}', quality=86)
 
 # Ex 19:5-6 consonantal (BHS)
@@ -121,8 +121,8 @@ fade(panel_grc(lines,'1p29'), 'panel_1p29.jpg')
 # Portada: Ex 19:4 y 19:6 consonantal, con silueta de montaña
 im = papiro(1600,600,12,vig=0.45); d = ImageDraw.Draw(im)
 mont = [(0,270),(260,230),(430,160),(560,190),(700,70),(800,40),(880,95),(1010,120),(1140,190),(1300,170),(1600,250),(1600,280),(0,280)]
-d.polygon(mont, fill=(176,128,78))
-d.line(mont[:-2], fill=(120,70,30), width=3)
+d.polygon(mont, fill=(150,192,228))
+d.line(mont[:-2], fill=(26,82,150), width=3)
 f = ImageFont.truetype(HEBB, 66)
 d.text((800,325), 'ואשא אתכם על כנפי נשרים ואבא אתכם אלי', font=f, fill=INK, direction='rtl', language='he', anchor='ma')
 d.text((800,440), 'ואתם תהיו לי ממלכת כהנים וגוי קדוש', font=f, fill=INK, direction='rtl', language='he', anchor='ma')

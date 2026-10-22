@@ -2,7 +2,7 @@ import numpy as np, sys, os
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 W = sys.argv[1]  # work dir
 rng = np.random.default_rng(7)
-light = np.array([236,214,165.]); dark = np.array([176,122,64.]); burn = np.array([105,48,20.])
+light = np.array([250,246,234.]); dark = np.array([226,212,176.]); burn = np.array([176,150,98.])
 
 def lowfreq(h, w, scale, seed):
     r = np.random.default_rng(seed)
@@ -62,13 +62,13 @@ bg = piedra(1920,1080); bg.save(f'{W}/piedra.jpg', quality=88)
 
 HEBB = f'{W}/fonts/NotoHebrewSerif-700.ttf'
 GRK = '/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf'
-INK = (52,28,14)
+INK = (16,44,98)
 
 def erode(im):
     a = np.array(im).astype(float)
     n = lowfreq(a.shape[0], a.shape[1], 6, 11)
     mask = (n < 0.07)
-    a[mask] = a[mask]*0.5 + np.array([200,170,120])*0.5
+    a[mask] = a[mask]*0.5 + np.array([236,226,196])*0.5
     return Image.fromarray(a.astype(np.uint8))
 
 def panel_heb(lines, name, size=60, seed=5):
@@ -101,7 +101,7 @@ def fade(panel, name):
     w = panel.size[0]
     a = np.clip(np.arange(w)/(0.45*w),0,1); a = a*a*(3-2*a)
     A = np.tile(a,(panel.size[1],1))[...,None]
-    out = np.array(behind)*(1-A) + np.array(panel)*A
+    out = np.array(panel).astype(float)
     Image.fromarray(out.astype(np.uint8)).save(f'{W}/crops/{name}', quality=86)
 
 # Jue 21:25 (= 17:6) consonantal (BHS)
@@ -125,7 +125,7 @@ fade(panel_grc(lines,'ro11'), 'panel_ro11.jpg')
 # Portada: 1 S 16:7b consonantal
 im = papiro(1600,600,12,vig=0.45); d = ImageDraw.Draw(im)
 for k in range(3):
-    d.line((300,220+k*6,1300,220+k*6), fill=(120,70,30), width=2 if k!=1 else 3)
+    d.line((300,220+k*6,1300,220+k*6), fill=(26,82,150), width=2 if k!=1 else 3)
 f = ImageFont.truetype(HEBB, 74)
 d.text((800,280), 'כי האדם יראה לעינים', font=f, fill=INK, direction='rtl', language='he', anchor='ma')
 d.text((800,400), 'ויהוה יראה ללבב', font=f, fill=INK, direction='rtl', language='he', anchor='ma')
