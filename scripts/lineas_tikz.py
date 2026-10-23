@@ -201,7 +201,7 @@ def mapa_tikz(n, m):
         A(f"\\node[{st},font=\\fontsize{{{fs*F*.78:.1f}}}{{{fs*F*.9:.1f}}}\\selectfont,anchor={anchor},rotate={rot}{extra}] at ({fmt(lon*ASPECT)},{fmt(lat)}) {{{t}}};")
     if wide:
         for t, la_, lo_, c, fs, mn, mx in DATA.get("labw", []) + LAB_W:
-            if mn <= SC < mx: lab(t, la_, lo_, c, fs)
+            if mn <= SC < mx and t not in m.get("sin_rotulos", []): lab(t, la_, lo_, c, fs)
     else:
         if B[2] < 34.6:
             la_ = min(max(32.45, B[0] + .3), B[1] - .3); lo_ = max(B[2] + .12, 34.2 + (la_ - 31.25) * .55 - .12)
@@ -221,7 +221,8 @@ def mapa_tikz(n, m):
         arrow = "" if p.get("arrow") is False else "-{Stealth[length=6pt,width=5pt]}"
         lw = (p.get("w") or 3) / 1.33 * 1.1
         A(f"\\draw[white,opacity=.55,line width={lw+2.2:.2f}pt,line cap=round,line join=round] {path(pts)};")
-        A(f"\\draw[{col},line width={lw:.2f}pt,line cap=round,line join=round,{arrow}] {path(pts)};")
+        dash = ",dash pattern=on 3.2pt off 2.6pt" if p.get("dash") else ""
+        A(f"\\draw[{col},line width={lw:.2f}pt,line cap=round,line join=round{dash},{arrow}] {path(pts)};")
         if p.get("lab"):
             # punto a la fracción lf del trayecto
             P = [(lon * ASPECT, lat) for lat, lon in pts]
@@ -320,6 +321,9 @@ def mapa_tikz(n, m):
 def portada_tikz():
     """Portada: el nombre en hebreo y el arco de lugares (con altar los que lo tienen). Los datos de la
     línea pueden traer su propia portada en DATA["portada_spec"]; si no, la de Abraham."""
+    if (DATA.get("portada_spec") or {}).get("mapa"):     # portada en forma de mapa (p. ej., Moisés: del Nilo al Nebo)
+        t, _, r = mapa_tikz(0, DATA["portada_spec"]["mapa"])
+        return t, r
     P = DATA.get("portada_spec") or {"he": "אַבְרָהָם", "color": "olive",
          "lugares": [["אוּר", "Ur", 0], ["שְׁכֶם", "Siquem", 1], ["בֵּית־אֵל", "Betel", 2], ["חֶבְרוֹן", "Hebrón", 3], ["מוֹרִיָּה", "Moriah", 4]]}
     W, H = 18.0, 6.3

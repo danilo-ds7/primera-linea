@@ -130,6 +130,73 @@ rep("<h1>Abraham<span>Peregrino y constructor de altares</span></h1>", f"<h1>{ME
 rep_re(r'<p class="epi">.*?</p>', f'<p class="epi">{META["epi_html"]}</p>')
 rep('<p class="sub">Texto bíblico, tradición judía y arqueología</p>', f'<p class="sub">{META["sub"]}</p>')
 rep_re(r'<p class="how">.*?</p>`\);', f'<p class="how">{META["how"]}</p>`);')
+# tema de día al abrir (el sitio ya lo fuerza; aquí también en la página suelta)
+rep("\ntemaRotulo();\n", "\ntemaRaiz().dataset.theme='light'; temaRotulo();\n")
+
+# ---------- portada propia: mapa del camino + nombre hebreo + «tres vidas» ----------
+if DATA.get("portada_tres"):
+    he = META["portada_he"]
+    portada_js = """(function buildTitle(){
+  const s=el('section',{class:'slide title c2','aria-label':'Portada'}); s.classList.add('pm');
+  const fig=el('figure',{class:'pm-mapa'});
+  if(DATA.portada){ const im=el('img',{src:DATA.portada.src,alt:%(alt)s,decoding:'async'}); im.style.aspectRatio=String(DATA.portada.ratio); fig.append(im); }
+  fig.append(el('figcaption',{},esc(DATA.portada_cap||'')));
+  const tx=el('div',{class:'pm-texto'});
+  tx.innerHTML=`<div class="eyebrow">Línea de tiempo interactiva · ${N} hitos · %(anios)s</div>
+    <div class="pm-cab"><h1>%(h1)s<span>%(h1_sub)s</span></h1><div class="pm-he" lang="he" dir="rtl" aria-hidden="true">%(he)s</div></div>
+    <p class="epi">%(epi)s</p>
+    <div class="pm-lab">%(tres_lab)s</div><div class="pm-tres"></div>`;
+  const tres=tx.querySelector('.pm-tres');
+  DATA.portada_tres.forEach(([c,a,l,t,n],k)=>{ const b=el('button',{type:'button',class:c+' pop','aria-label':`${l}, años ${a}: ir al hito ${n}`});
+    b.style.animationDelay=(.15+k*.12)+'s'; b.innerHTML=`<span class="pm-a">${a}</span><b>${esc(l)}</b><small>${esc(t)}</small>`; b.onclick=()=>go(n); tres.append(b); });
+  const bx=el('div',{class:'btns'}), b=el('button',{class:'start',type:'button'}); b.textContent='Comenzar →'; b.onclick=()=>go(1); bx.append(b);
+  const last=store.get(); if(last>1&&last<=N){ const c=el('button',{class:'ghost',type:'button'}); c.textContent=`Continuar en el hito ${last}`; c.onclick=()=>go(last); bx.append(c); }
+  tx.append(bx);
+  const how=el('details',{class:'pm-how'}); how.innerHTML=`<summary>Cómo se usa</summary><p class="how">%(how)s</p>`; tx.append(how);
+  s.append(fig,tx); track.append(s);
+})();
+""" % {"alt": json.dumps(META["portada_alt"], ensure_ascii=False), "anios": META["anios"], "he": he, "h1": META["h1"], "h1_sub": META["h1_sub"],
+       "epi": META["epi_html"], "tres_lab": META["tres_lab"], "how": META["how"]}
+    rep_re(r"\(function buildTitle\(\)\{.*?\n\}\)\(\);\n", portada_js.replace("\\", "\\\\"))
+    css_pm = """
+/* portada propia: mapa del camino a un lado, nombre y «tres vidas» al otro */
+.slide.title.pm{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);justify-items:stretch;text-align:left;align-items:center;align-content:safe center;gap:clamp(22px,4vw,60px);padding-top:62px;padding-bottom:18px}
+.slide.title.pm p{text-align:left}
+.pm .pm-mapa{margin:0;display:grid;gap:8px;justify-items:center;min-width:0}
+.pm .pm-mapa img{display:block;width:min(100%,560px);max-height:min(64vh,620px);object-fit:contain;height:auto;border-radius:8px;box-shadow:var(--shadow);border:1px solid var(--rule)}
+.pm .pm-mapa figcaption{font-family:var(--f-ui);font-size:12.5px;color:var(--muted);max-width:52ch;text-align:center;line-height:1.4}
+.pm .pm-texto{display:grid;gap:10px;justify-items:start;min-width:0}
+.pm .pm-cab{display:flex;align-items:flex-end;justify-content:space-between;gap:10px 22px;flex-wrap:wrap;width:100%;max-width:640px}
+.pm .pm-he{font-family:var(--f-he);font-weight:600;font-size:clamp(54px,6.6vw,96px);line-height:.9;color:var(--accent);letter-spacing:0}
+.pm h1{text-align:left;color:var(--ink);font-size:clamp(32px,4.2vw,54px)}
+.pm h1 span{color:var(--gold-ink)}
+.pm .epi{margin:0;font-style:italic;font-size:clamp(16px,1.6vw,20px);color:var(--ink)}
+.pm .pm-lab{font-family:var(--f-mono);font-variant:small-caps;letter-spacing:.14em;font-size:13px;color:var(--muted);margin-top:6px}
+.pm .pm-tres{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;width:100%;max-width:640px}
+.pm .pm-tres button{all:unset;box-sizing:border-box;cursor:pointer;display:grid;align-content:start;gap:2px;padding:9px 12px 10px;border-radius:10px;background:var(--surface);
+  border:1px solid var(--rule);border-top:4px solid var(--c);box-shadow:0 10px 22px -18px rgba(0,0,0,.6);transition:transform .2s,box-shadow .2s}
+.pm .pm-tres button:hover,.pm .pm-tres button:focus-visible{transform:translateY(-3px);box-shadow:0 16px 26px -18px rgba(0,0,0,.7)}
+.pm .pm-tres button:focus-visible{outline:2px solid var(--c);outline-offset:2px}
+.pm .pm-tres .pm-a{font-family:var(--f-ui);font-weight:700;font-size:12px;letter-spacing:.06em;color:var(--c-ink)}
+.pm .pm-tres b{font-family:var(--f-display);font-size:19px;color:var(--ink)}
+.pm .pm-tres small{font-family:var(--f-ui);font-size:12.5px;line-height:1.35;color:var(--muted)}
+.pm .btns{justify-content:flex-start;margin-top:4px}
+.pm .pm-how{font-family:var(--f-ui);font-size:13.5px;color:var(--muted);max-width:66ch}
+.pm .pm-how summary{cursor:pointer;font-weight:700;color:var(--accent-ink)}
+.pm .pm-how .how{margin:.5em 0 0;text-align:left}
+@media (max-height:860px) and (min-width:761px){
+  .pm .pm-he{font-size:clamp(48px,5.4vw,72px)} .pm h1{font-size:clamp(30px,3.6vw,46px)} .pm .pm-texto{gap:7px}
+  .pm .pm-tres small{font-size:11.5px} .pm .pm-mapa img{max-height:58vh} .pm .pm-mapa figcaption{display:none}
+}
+@media (max-width:760px){
+  .slide.title.pm{grid-template-columns:minmax(0,1fr);gap:14px;align-content:start;padding-top:52px}
+  .pm .pm-mapa img{max-height:30vh;width:auto}
+  .pm .pm-he{font-size:56px}
+  .pm .pm-tres{gap:6px} .pm .pm-tres button{padding:8px 8px 9px} .pm .pm-tres b{font-size:16px} .pm .pm-tres small{display:none}
+}
+"""
+    rep_re(r"\n</style>\n", "\n" + css_pm.replace("\\", "\\\\") + "</style>\n")
+
 # textos originales: edición indicada en cada pasaje (por defecto BHS / SBLGNT)
 assert "/*DATA*/" in motor
 motor = motor.replace("/*DATA*/", json.dumps(DATA, ensure_ascii=False, separators=(", ", ": ")))

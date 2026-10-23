@@ -345,4 +345,5 @@ for nombre, d in (("voces.json", VOCES), ("bib_atlas.json", BIB)):   # copia de 
     if d: (AQUI / nombre).write_text(json.dumps(d, ensure_ascii=False, indent=0), encoding="utf-8")
 
 DATA = {"events": EVENTS, "refs": REFS, "bands": BANDS, "glos": GLOS, "eranames": ERAS, "sites": SITES, "altars": ALTARS,
-        "labw": LABW, "portada_spec": META["portada_spec"], "tikz_colores": META["tikz_colores"]}
+        "labw": LABW, "portada_spec": META["portada_spec"], "tikz_colores": META["tikz_colores"],
+        "portada_tres": [[c, a, l, t, ids[k]] for c, a, l, t, k in META["portada_tres"]], "portada_cap": META["portada_cap"]}
