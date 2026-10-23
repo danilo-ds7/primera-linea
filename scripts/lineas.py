@@ -117,7 +117,7 @@ def embed(src: Path, dst: Path, ID: str):
     #{ID} .scrim{{z-index:2000}} #{ID} .drawer{{z-index:2001}} #{ID} #pop{{z-index:2002}}
     #{ID} .tl-topbar{{z-index:6}}
 #{ID} .tn{{height:254px}} #{ID}:fullscreen .tn,#{ID}.tl-full .tn{{height:258px}}
-    @media (max-width:600px){{#{ID} .tl-topbar span.ico{{display:inline-grid}} #{ID} .tl-topbar button{{min-width:34px;min-height:30px;display:inline-grid;place-items:center}} #{ID} .tn{{height:206px}} #{ID}{{height:88vh;height:88dvh;min-height:600px;width:100vw;margin-left:calc(50% - 50vw);border-radius:0;border-inline:0}}}}
+    @media (max-width:600px){{#{ID} .tl-topbar span.ico{{display:inline-grid}} #{ID} .tl-topbar{{left:10px;justify-content:flex-end;gap:4px}} #{ID} .tl-topbar button,#{ID} .tl-topbar .volver{{min-width:0;min-height:30px;padding:6px 8px;display:inline-grid;place-items:center}} #{ID} .tn{{height:206px}} #{ID}{{height:88vh;height:88dvh;min-height:600px;width:100vw;margin-left:calc(50% - 50vw);border-radius:0;border-inline:0}}}}
     """
 
     # --- JS: tema, pantalla completa y teclado sobre el contenedor -------------
