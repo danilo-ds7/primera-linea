@@ -2,6 +2,8 @@
 - amplio.tif : 27–40 N, 28–51 E a 15" (para los mapas de Mesopotamia, Siria y Egipto)
 - levante.tif: 29.5–34.5 N, 33–37.5 E a 3" (resolución nativa, para Canaán)
 - sur.tif    : 27–32 N, 31–37 E a 3" (delta oriental, Sinaí, golfo de Aqaba y Madián, para la línea de Moisés)
+- mediterraneo.tif: 30–46 N, 9–41 E a 15" (todo el Mediterráneo oriental y central, para la línea de Pablo)
+- egeo.tif   : 35–42 N, 19–31 E a 5" (Grecia, Macedonia y el Egeo, para la línea de Pablo)
 Solo se generan los mosaicos que aún no están en la rama."""
 import concurrent.futures as cf, subprocess, numpy as np, rasterio
 from rasterio.merge import merge
@@ -32,5 +34,7 @@ def mosaico(lat0, lat1, lon0, lon1, res, salida):
 mosaico(27, 40, 28, 51, 15 / 3600, "amplio.tif")
 mosaico(29, 35, 33, 38, 3 / 3600, "levante.tif")   # se recorta a 29.5–34.5 / 33–37.5 al dibujar
 mosaico(27, 32, 31, 37, 3 / 3600, "sur.tif")       # Moisés: Gosén, Sinaí, Madián
+mosaico(30, 46, 9, 41, 15 / 3600, "mediterraneo.tif")   # Pablo: de Jerusalén a Roma
+mosaico(35, 42, 19, 31, 5 / 3600, "egeo.tif")           # Pablo: Grecia y Asia Menor occidental
 (D / "FUENTE.txt").write_text("Copernicus DEM GLO-90 (ESA, 2021), © DLR e.V. 2010-2014 y © Airbus Defence and Space GmbH 2014-2018, "
                               "provisto bajo licencia COPERNICUS por la Unión Europea y la ESA. Descargado de AWS Open Data.\n")
