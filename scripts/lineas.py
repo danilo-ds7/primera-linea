@@ -91,13 +91,13 @@ document.getElementById('tlCerrar').addEventListener('click', function(e){{
 
     # --- celular y tablet: menos memoria para el mapa ---------------------------------------------
     # Safari en iPhone cerraba la pestaña («Ocurrió un problema varias veces») al girar: el relieve son
-    # imágenes de ~2000 px (~17 MB de memoria gráfica cada una) y el mapa se dibujaba a 3×. En pantallas
-    # táctiles se usa el relieve a la mitad (relieve/movil/, lo genera este script) y el mapa a 2× como máximo.
+    # imágenes de ~2000 px (~17 MB de memoria gráfica cada una) y el mapa se dibujaba a 3×. En celulares
+    # (lado corto ≤ 600 px; el iPad queda con el relieve completo) se usa el relieve a la mitad (relieve/movil/, lo genera este script) y el mapa a 2× como máximo.
     cambiar(r"url:ATL_BASE\+r\.src\.replace\(/\^([\w-]+)\\//,''\)",
             r"url:ATL_BASE+(window.PL_MOVIL?r.src.replace(/^\1\/relieve\//,'relieve/movil/'):r.src.replace(/^\1\//,''))", regex=True)
     cambiar("const map=new maplibregl.Map({container:cont,",
             "const map=new maplibregl.Map({container:cont,pixelRatio:window.PL_MOVIL?Math.min(devicePixelRatio,2):devicePixelRatio,")
-    cambiar("<script>\nconst DATA", "<script>\nwindow.PL_MOVIL=matchMedia('(pointer:coarse)').matches&&Math.min(screen.width,screen.height)<=1100;\nconst DATA")
+    cambiar("<script>\nconst DATA", "<script>\nwindow.PL_MOVIL=matchMedia('(pointer:coarse)').matches&&Math.min(screen.width,screen.height)<=600;\nconst DATA")
 
     # --- optimización del espacio: cada hito cabe entero entre el menú y la banda ------------------
     # En pantallas anchas (> 760 px), cada vez que se muestra un hito se prueban varias distribuciones
