@@ -1,0 +1,2641 @@
+{
+"nota": "Pasajes bíblicos: traducción propia desde el griego (SBLGNT) y el hebreo (Códice de Leningrado, base de la BHS). Los hallazgos se presentan como datos con su interpretación separada; las identificaciones discutidas se señalan como tales. Rutas aproximadas; los tramos por mar llevan el pictograma de la nave y los de tierra, el del caminante.",
+"lugares": [
+{
+"id": "tarso",
+"site": "tarso",
+"n": "Tarso",
+"he": "Ταρσός",
+"ll": [
+36.917,
+34.895
+],
+"k": "biblico",
+"actual": "Tarsus · Mersin, Turquía",
+"biblia": [
+[
+"Hch 22:3",
+"Yo soy un hombre judío, nacido en Tarso de Cilicia, pero criado en esta ciudad, instruido a los pies de Gamaliel en la exactitud de la ley de los padres, celoso de Dios como todos ustedes lo son hoy."
+],
+[
+"Hch 9:30–31",
+"³⁰ Cuando supieron esto los hermanos, lo llevaron a Cesarea y lo enviaron a Tarso. ³¹ Entonces la iglesia tenía paz por toda Judea, Galilea y Samaria; se edificaba y andaba en el temor del Señor, y se acrecentaba con el consuelo del Espíritu Santo."
+]
+],
+"arq": [
+"Tarso fue capital de Cilicia y ciudad universitaria; Estrabón dice que superaba a Atenas en afán por la filosofía. Antonio y Cleopatra se encontraron aquí en 41 a. e. c.",
+"De la ciudad romana queda una calle porticada con losas de basalto (s. I), el «pozo de San Pablo» de la tradición y una puerta tardía llamada «de Cleopatra». El tell de Gözlükule fue excavado por Hetty Goldman (1934–1949)."
+],
+"hoy": "Tarsus es una ciudad de 300 000 habitantes; la calle romana se visita en el centro, junto a la mezquita."
+},
+{
+"id": "antioquia",
+"site": "antioquia",
+"n": "Antioquía de Siria",
+"he": "Ἀντιόχεια",
+"ll": [
+36.202,
+36.161
+],
+"k": "biblico",
+"actual": "Antakya · Hatay, Turquía",
+"biblia": [
+[
+"Hch 11:25–26",
+"²⁵ Después fue Bernabé a Tarso para buscar a Saulo, ²⁶ y hallándolo lo trajo a Antioquía. Y sucedió que todo un año se congregaron con la iglesia y enseñaron a mucha gente; y a los discípulos se les llamó cristianos por primera vez en Antioquía."
+],
+[
+"Hch 13:2–3",
+"² Mientras servían al Señor y ayunaban, dijo el Espíritu Santo: «Apártenme a Bernabé y a Saulo para la obra a la que los he llamado». ³ Entonces, habiendo ayunado y orado, les impusieron las manos y los despidieron."
+]
+],
+"arq": [
+"Antioquía del Orontes, fundada por Seleuco I (300 a. e. c.), era la tercera ciudad del Imperio, con una gran colonia judía. Las excavaciones de Princeton (1932–1939) sacaron mosaicos, el hipódromo y el barrio de Dafne.",
+"La «gruta de San Pedro», iglesia rupestre en el monte Staurin, es de tradición medieval. El terremoto de 2023 dañó gravemente la ciudad y sus iglesias."
+],
+"hoy": "Antakya, capital de la provincia de Hatay; el Museo de Mosaicos conserva la colección de la Antioquía romana."
+},
+{
+"id": "seleucia",
+"site": "seleucia",
+"n": "Seleucia de Pieria",
+"he": "",
+"ll": [
+36.12,
+35.92
+],
+"k": "biblico",
+"actual": "Samandağ · Hatay, Turquía",
+"biblia": [
+[
+"Hch 13:4",
+"Ellos, enviados por el Espíritu Santo, descendieron a Seleucia, y de allí navegaron a Chipre."
+]
+],
+"arq": [
+"El puerto de Antioquía, hoy colmatado. Queda el túnel de Tito y Vespasiano, un canal de desvío de aguas de 1400 m tallado en la roca (ss. I–II), y necrópolis rupestres."
+],
+"hoy": "Samandağ es una ciudad costera; el túnel de Vespasiano se visita en Çevlik."
+},
+{
+"id": "jerusalen",
+"site": "jerusalen",
+"n": "Jerusalén",
+"he": "Ἱερουσαλήμ",
+"ll": [
+31.778,
+35.235
+],
+"k": "biblico",
+"actual": "Ciudad Vieja, Jerusalén",
+"biblia": [
+[
+"Hch 7:58–8:1",
+"⁵⁸ Y echándolo fuera de la ciudad, lo apedreaban; y los testigos dejaron sus mantos a los pies de un joven llamado Saulo. ⁵⁹ Y apedreaban a Esteban, que invocaba y decía: «Señor Jesús, recibe mi espíritu». ⁶⁰ Puesto de rodillas, clamó a gran voz: «Señor, no les tomes en cuenta este pecado». Y dicho esto, durmió. ¹ Y Saulo consentía en su muerte."
+],
+[
+"Gá 1:18–19",
+"¹⁸ Después, pasados tres años, subí a Jerusalén para conocer a Cefas, y permanecí con él quince días; ¹⁹ pero no vi a ningún otro de los apóstoles, sino a Jacobo, el hermano del Señor."
+],
+[
+"Hch 21:27–28",
+"²⁷ Cuando estaban para cumplirse los siete días, los judíos de Asia, al verlo en el templo, alborotaron a toda la multitud y le echaron mano, ²⁸ gritando: «¡Varones israelitas, ayuden! Éste es el hombre que por todas partes enseña a todos contra el pueblo, la ley y este lugar; y además ha metido a griegos en el templo y ha profanado este santo lugar»."
+]
+],
+"arq": [
+"El templo de Herodes ocupaba una explanada de 14 ha; la fortaleza Antonia estaba en su ángulo noroeste. La inscripción que prohibía el paso de los gentiles (hallada en 1871) se conserva en Estambul; un fragmento, en el Museo de Israel.",
+"La escalinata sur, las puertas de Hulda y el muro occidental son los restos visibles del templo que Pablo conoció. La «casa de Jacobo» y el cenáculo del monte Sion son tradiciones posteriores."
+],
+"hoy": "La explanada es hoy el Haram al-Sharif, con la Cúpula de la Roca; el Muro Occidental es el lugar de oración judío."
+},
+{
+"id": "damasco",
+"site": "damasco",
+"n": "Damasco",
+"he": "Δαμασκός",
+"ll": [
+33.513,
+36.292
+],
+"k": "biblico",
+"actual": "Ciudad vieja · Damasco, Siria",
+"biblia": [
+[
+"Hch 9:3–6",
+"³ Y yendo por el camino, sucedió que al acercarse a Damasco, de repente lo rodeó una luz del cielo; ⁴ y cayendo en tierra oyó una voz que le decía: «Saulo, Saulo, ¿por qué me persigues?». ⁵ Dijo: «¿Quién eres, Señor?». Y él: «Yo soy Jesús, a quien tú persigues; ⁶ pero levántate y entra en la ciudad, y se te dirá lo que debes hacer»."
+],
+[
+"Hch 9:17–18",
+"¹⁷ Fue Ananías y entró en la casa, y poniendo sobre él las manos dijo: «Hermano Saulo, el Señor Jesús, que se te apareció en el camino por donde venías, me ha enviado para que recobres la vista y seas lleno del Espíritu Santo». ¹⁸ Y al momento cayeron de sus ojos como escamas, y recobró la vista; se levantó y fue bautizado."
+],
+[
+"Hch 9:23–25",
+"²³ Pasados muchos días, los judíos resolvieron en consejo matarlo; ²⁴ pero sus asechanzas llegaron a conocimiento de Saulo. Y ellos vigilaban también las puertas de día y de noche para matarlo. ²⁵ Entonces sus discípulos, tomándolo de noche, lo bajaron por el muro, descolgándolo en una canasta."
+]
+],
+"arq": [
+"La calle Derecha (Via Recta) es el decumano romano, de 1500 m, que sigue cruzando la ciudad vieja; conserva un arco romano y la puerta oriental (Bab Sharqi). La capilla de Ananías, bajo el nivel actual, se venera desde la época bizantina.",
+"La capilla de San Pablo en Bab Kisan, junto a una puerta del muro, recuerda la canasta. El «lugar de la conversión» en Kaukab, al suroeste, es tradición tardía."
+],
+"hoy": "Damasco, la capital de Siria, tiene la ciudad vieja declarada Patrimonio de la Humanidad; la gran Mezquita de los Omeyas está a pocos pasos de la calle Derecha."
+},
+{
+"id": "petra",
+"site": "petra",
+"n": "Petra (Arabia nabatea)",
+"he": "",
+"ll": [
+30.329,
+35.444
+],
+"k": "biblico",
+"actual": "Wadi Musa · Jordania",
+"biblia": [
+[
+"Gá 1:17",
+"Ni subí a Jerusalén a los que eran apóstoles antes que yo, sino que fui a Arabia, y volví de nuevo a Damasco."
+]
+],
+"arq": [
+"Capital del reino nabateo de Aretas IV (9 a. e. c.–40 e. c.), que acuñó moneda y construyó el Jazné y el teatro. «Arabia» en Gá 1:17 es este reino, que llegaba hasta el Haurán y, en algún momento, Damasco."
+],
+"hoy": "Patrimonio de la Humanidad y una de las «siete maravillas» modernas; recibe cerca de un millón de visitantes al año."
+},
+{
+"id": "bosra",
+"site": "bosra",
+"n": "Bosra",
+"he": "",
+"ll": [
+32.52,
+36.48
+],
+"k": "biblico",
+"actual": "Busra ash-Sham · Deraa, Siria",
+"biblia": [],
+"arq": [
+"Ciudad nabatea del Haurán, a dos jornadas de Damasco; Hengel y Schwemer la proponen como escenario de la misión de Pablo en «Arabia». Capital de la provincia romana de Arabia desde 106; conserva un teatro de basalto para 15 000 personas."
+],
+"hoy": "Patrimonio de la Humanidad (en peligro desde 2013)."
+},
+{
+"id": "cesarea",
+"site": "cesarea",
+"n": "Cesarea Marítima",
+"he": "Καισάρεια",
+"ll": [
+32.5,
+34.892
+],
+"k": "biblico",
+"actual": "Qesarya · Israel",
+"biblia": [
+[
+"Hch 23:11",
+"A la noche siguiente se le presentó el Señor y le dijo: «Ten ánimo, porque como has testificado de mí en Jerusalén, así es necesario que testifiques también en Roma»."
+],
+[
+"Hch 24:24–26",
+"²⁴ Algunos días después, viniendo Félix con Drusila su mujer, que era judía, llamó a Pablo y lo oyó acerca de la fe en Cristo Jesús. ²⁵ Pero al disertar Pablo acerca de la justicia, del dominio propio y del juicio venidero, Félix se espantó y dijo: «Ahora vete; cuando tenga oportunidad te llamaré». ²⁶ Esperaba también que Pablo le diera dinero; por eso lo hacía venir con frecuencia y conversaba con él."
+],
+[
+"Hch 25:10–12",
+"¹⁰ Pablo dijo: «Ante el tribunal del César estoy, donde debo ser juzgado. A los judíos no les he hecho ningún agravio, como tú sabes muy bien. ¹¹ Si algún agravio o cosa digna de muerte he hecho, no rehúso morir; pero si nada hay de las cosas de que éstos me acusan, nadie puede entregarme a ellos. Al César apelo». ¹² Entonces Festo, habiendo hablado con el consejo, respondió: «Al César has apelado; al César irás»."
+]
+],
+"arq": [
+"Herodes construyó la ciudad y el puerto Sebastos (22–10 a. e. c.); el palacio sobre el promontorio fue el pretorio de los gobernadores (Hch 23:35). Allí apareció en 1961 la inscripción de Pilato, única mención epigráfica del prefecto.",
+"Se visitan el teatro, el hipódromo, el pretorio, el acueducto y los muelles sumergidos del puerto. En Cesarea comenzó la guerra judía en 66."
+],
+"hoy": "Parque nacional de Cesarea, entre Tel Aviv y Haifa, con el puerto convertido en paseo."
+},
+{
+"id": "salamina",
+"site": "salamina",
+"n": "Salamina",
+"he": "",
+"ll": [
+35.183,
+33.9
+],
+"k": "biblico",
+"actual": "Junto a Famagusta · Chipre",
+"biblia": [
+[
+"Hch 13:5",
+"Llegados a Salamina, anunciaban la palabra de Dios en las sinagogas de los judíos; tenían también a Juan de ayudante."
+]
+],
+"arq": [
+"La mayor ciudad de Chipre, con gimnasio, teatro y termas de época romana; la comunidad judía era numerosa hasta la revuelta de 116. La tradición sitúa aquí el martirio de Bernabé y su tumba (monasterio de San Bernabé)."
+],
+"hoy": "En el norte de la isla, zona bajo administración turcochipriota; el yacimiento se visita."
+},
+{
+"id": "pafos",
+"site": "pafos",
+"n": "Pafos",
+"he": "",
+"ll": [
+34.757,
+32.407
+],
+"k": "biblico",
+"actual": "Kato Pafos · Chipre",
+"biblia": [
+[
+"Hch 13:6–8",
+"⁶ Y habiendo atravesado toda la isla hasta Pafos, hallaron a un hombre mago, falso profeta, judío, llamado Barjesús, ⁷ que estaba con el procónsul Sergio Paulo, varón prudente. Éste, llamando a Bernabé y a Saulo, deseaba oír la palabra de Dios. ⁸ Pero les resistía Elimas, el mago (pues así se traduce su nombre), procurando apartar de la fe al procónsul."
+],
+[
+"Hch 13:9–12",
+"⁹ Entonces Saulo, que también es Pablo, lleno del Espíritu Santo, fijando en él los ojos ¹⁰ dijo: «¡Oh, lleno de todo engaño y de toda maldad, hijo del diablo, enemigo de toda justicia! ¿No cesarás de trastornar los caminos rectos del Señor? ¹¹ Ahora, pues, he aquí la mano del Señor está contra ti, y serás ciego, y no verás el sol por un tiempo». Al instante cayeron sobre él oscuridad y tinieblas, y andando alrededor buscaba quien lo condujera de la mano. ¹² Entonces el procónsul, viendo lo que había sucedido, creyó, maravillado de la doctrina del Señor."
+]
+],
+"arq": [
+"Sede del procónsul de Chipre. Las villas de Dioniso, Teseo y Aión conservan mosaicos de los ss. II–V. Una inscripción de Soloi menciona al procónsul Paulus, quizá el Sergio Paulo de Hch 13:7; otra de Roma nombra a un L. Sergius Paullus curador del Tíber bajo Claudio.",
+"La «columna de San Pablo» en la basílica de Chrysopolitissa es tradición tardía (se dice que allí fue azotado)."
+],
+"hoy": "Parque arqueológico de Pafos, Patrimonio de la Humanidad; la ciudad es un centro turístico."
+},
+{
+"id": "perge",
+"site": "perge",
+"n": "Perge",
+"he": "",
+"ll": [
+36.961,
+30.854
+],
+"k": "biblico",
+"actual": "Aksu · Antalya, Turquía",
+"biblia": [
+[
+"Hch 13:13–14",
+"¹³ Habiendo zarpado de Pafos, Pablo y sus compañeros llegaron a Perge de Panfilia; pero Juan, apartándose de ellos, volvió a Jerusalén. ¹⁴ Ellos, pasando de Perge, llegaron a Antioquía de Pisidia; y entraron en la sinagoga el día del sábado y se sentaron."
+]
+],
+"arq": [
+"Gran ciudad de Panfilia a 12 km del mar: puerta helenística con torres, calle porticada con canal central, estadio para 12 000 personas y teatro. Las excavaciones turcas (desde 1946) la han descubierto casi entera.",
+"En 2023 se halló aquí una estatua de Alejandro Magno. Una inscripción recuerda a la benefactora Plancia Magna (s. II)."
+],
+"hoy": "A 15 km de Antalya, uno de los yacimientos mejor conservados de Turquía."
+},
+{
+"id": "pisidia",
+"site": "pisidia",
+"n": "Antioquía de Pisidia",
+"he": "",
+"ll": [
+38.306,
+31.189
+],
+"k": "biblico",
+"actual": "Yalvaç · Isparta, Turquía",
+"biblia": [
+[
+"Hch 13:38–39",
+"³⁸ Sépanlo, pues, varones hermanos: que por medio de éste se les anuncia el perdón de pecados, ³⁹ y de todo aquello de que por la ley de Moisés no pudieron ser justificados, en él es justificado todo el que cree."
+],
+[
+"Hch 13:46–47",
+"⁴⁶ Entonces Pablo y Bernabé, hablando con valentía, dijeron: «A ustedes era necesario que se les hablara primero la palabra de Dios; pero puesto que la rechazan y no se juzgan dignos de la vida eterna, he aquí nos volvemos a las naciones. ⁴⁷ Porque así nos ha mandado el Señor: Te he puesto por luz de las naciones, para que seas salvación hasta el extremo de la tierra»."
+]
+],
+"arq": [
+"Colonia romana (Colonia Caesarea, 25 a. e. c.) sobre la Vía Sebaste. Ramsay excavó en 1912–1924 el templo de Augusto y el propileo con la Res Gestae; la Universidad de Michigan identificó la basílica de San Pablo (s. IV) sobre un edificio del s. I, quizá la sinagoga.",
+"Una inscripción de la ciudad nombra a L. Sergius Paullus, probablemente hijo del procónsul de Chipre (Mitchell)."
+],
+"hoy": "Yalvaç tiene un museo con los hallazgos; el yacimiento está a 1 km del pueblo, a 1200 m de altitud."
+},
+{
+"id": "iconio",
+"site": "iconio",
+"n": "Iconio",
+"he": "",
+"ll": [
+37.872,
+32.493
+],
+"k": "biblico",
+"actual": "Konya · Turquía",
+"biblia": [
+[
+"Hch 14:1",
+"Aconteció en Iconio que entraron juntos en la sinagoga de los judíos y hablaron de tal manera que creyó una gran multitud de judíos y de griegos."
+]
+],
+"arq": [
+"Ciudad frigia de Licaonia, elevada a colonia por Adriano. Los Hechos de Pablo y Tecla (s. II) sitúan aquí a Tecla, la joven que oyó predicar a Pablo desde su ventana. Casi nada romano es visible bajo la ciudad moderna."
+],
+"hoy": "Konya, ciudad de dos millones de habitantes y del mausoleo de Rumi; el Alaeddin Tepesi es la acrópolis antigua."
+},
+{
+"id": "listra",
+"site": "listra",
+"n": "Listra",
+"he": "",
+"ll": [
+37.579,
+32.286
+],
+"k": "biblico",
+"actual": "Hatunsaray · Konya, Turquía",
+"biblia": [
+[
+"Hch 14:11–13",
+"¹¹ Las multitudes, viendo lo que Pablo había hecho, alzaron la voz diciendo en lengua licaónica: «¡Dioses semejantes a hombres han descendido a nosotros!». ¹² Y a Bernabé lo llamaban Zeus, y a Pablo, Hermes, porque éste era el que llevaba la palabra. ¹³ Y el sacerdote de Zeus, cuyo templo estaba frente a la ciudad, trajo toros y guirnaldas a las puertas, y con la multitud quería ofrecer sacrificio."
+],
+[
+"Hch 14:19–20",
+"¹⁹ Pero vinieron unos judíos de Antioquía y de Iconio que persuadieron a la multitud, y habiendo apedreado a Pablo, lo arrastraron fuera de la ciudad pensando que estaba muerto. ²⁰ Pero rodeándolo los discípulos, se levantó y entró en la ciudad; y al día siguiente salió con Bernabé para Derbe."
+],
+[
+"Hch 16:1–3",
+"¹ Llegó también a Derbe y a Listra. Y he aquí había allí un discípulo llamado Timoteo, hijo de una mujer judía creyente, pero de padre griego, ² del que daban buen testimonio los hermanos de Listra y de Iconio. ³ Quiso Pablo que éste fuera con él, y tomándolo lo circuncidó por causa de los judíos que había en aquellos lugares, porque todos sabían que su padre era griego."
+]
+],
+"arq": [
+"Colonia romana desde Augusto (una inscripción con «Colonia Iulia Felix Gemina Lustra», hallada en 1885, fijó la identificación). Calder publicó en 1910 una dedicatoria a Zeus y Hermes de sacerdotes licaonios hallada cerca, y una estatua de Hermes.",
+"El tell de Zoldera, de 150 × 400 m, nunca se ha excavado en profundidad."
+],
+"hoy": "Un montículo con un cartel junto al pueblo de Hatunsaray, 30 km al sur de Konya."
+},
+{
+"id": "derbe",
+"site": "derbe",
+"n": "Derbe",
+"he": "",
+"ll": [
+37.35,
+33.37
+],
+"k": "biblico",
+"actual": "Kerti Höyük · Karaman, Turquía",
+"biblia": [
+[
+"Hch 14:21",
+"Después de anunciar el evangelio a aquella ciudad y de hacer muchos discípulos, volvieron a Listra, a Iconio y a Antioquía."
+]
+],
+"arq": [
+"Michael Ballance identificó Derbe en 1957 con Kerti Höyük por una inscripción con el nombre de la ciudad hallada allí; otra (1964) menciona a un obispo de Derbe. Antes se la buscaba en Gudelisin."
+],
+"hoy": "Un tell en la llanura de Karaman, sin excavar."
+},
+{
+"id": "troas",
+"site": "troas",
+"n": "Troas",
+"he": "",
+"ll": [
+39.754,
+26.158
+],
+"k": "biblico",
+"actual": "Dalyan · Çanakkale, Turquía",
+"biblia": [
+[
+"Hch 16:9–10",
+"⁹ Y se le mostró a Pablo una visión de noche: un varón macedonio estaba de pie, rogándole y diciendo: «Pasa a Macedonia y ayúdanos». ¹⁰ Cuando vio la visión, en seguida procuramos partir para Macedonia, dando por cierto que Dios nos llamaba para anunciarles el evangelio."
+],
+[
+"Hch 20:7–10",
+"⁷ El primer día de la semana, reunidos nosotros para partir el pan, Pablo les enseñaba, habiendo de salir al día siguiente; y alargó el discurso hasta la medianoche. ⁸ Había muchas lámparas en el aposento alto donde estábamos reunidos. ⁹ Un joven llamado Eutico, sentado en la ventana, rendido de un sueño profundo mientras Pablo hablaba largamente, vencido del sueño cayó del tercer piso abajo, y lo levantaron muerto. ¹⁰ Pablo bajó, se echó sobre él y, abrazándolo, dijo: «No se alarmen, porque su vida está en él»."
+],
+[
+"2 Ti 4:9–13",
+"⁹ Procura venir pronto a mí, ¹⁰ porque Demas me ha desamparado, amando este mundo, y se ha ido a Tesalónica; Crescente a Galacia, y Tito a Dalmacia. ¹¹ Solo Lucas está conmigo. Toma a Marcos y tráelo contigo, porque me es útil para el ministerio. ¹² A Tíquico lo envié a Éfeso. ¹³ Trae, cuando vengas, la capa que dejé en Troas en casa de Carpo, y los libros, sobre todo los pergaminos."
+]
+],
+"arq": [
+"Alejandría de Troas, colonia romana con puerto artificial, termas de Herodes Ático, teatro y odeón; excavaciones alemanas y turcas desde 1993. Aquí empiezan los «pasajes nosotros» de Hechos y aquí dejó Pablo la capa en casa de Carpo."
+],
+"hoy": "A 20 km de Troya (Hisarlik), con las ruinas entre encinas junto al mar."
+},
+{
+"id": "samotracia",
+"site": "samotracia",
+"n": "Samotracia",
+"he": "",
+"ll": [
+40.45,
+25.55
+],
+"k": "biblico",
+"actual": "Samothraki · Grecia",
+"biblia": [
+[
+"Hch 16:11",
+"Zarpando de Troas, fuimos con rumbo directo a Samotracia, y al día siguiente a Neápolis."
+]
+],
+"arq": [
+"Isla montañosa (1600 m), visible desde Troas, con el santuario de los Grandes Dioses, donde se halló en 1863 la Victoria de Samotracia (Louvre). La nave fondeó una noche al abrigo de la isla."
+],
+"hoy": "Se llega en ferri desde Alexandrúpoli; el santuario y su museo se visitan."
+},
+{
+"id": "neapolis",
+"site": "neapolis",
+"n": "Neápolis",
+"he": "",
+"ll": [
+40.937,
+24.412
+],
+"k": "biblico",
+"actual": "Kavala · Grecia",
+"biblia": [
+[
+"Hch 16:11–12",
+"…y al día siguiente a Neápolis; y de allí a Filipos, que es la primera ciudad de la provincia de Macedonia, y una colonia."
+]
+],
+"arq": [
+"El puerto de Filipos, en el extremo oriental de la Vía Egnatia. Una capilla moderna recuerda el desembarco de Pablo; el acueducto de la ciudad es otomano."
+],
+"hoy": "Kavala, ciudad portuaria de 60 000 habitantes, con la Vía Egnatia moderna (autopista A2) que lleva su nombre."
+},
+{
+"id": "filipos",
+"site": "filipos",
+"n": "Filipos",
+"he": "Φίλιπποι",
+"ll": [
+41.013,
+24.286
+],
+"k": "biblico",
+"actual": "Krinides · Kavala, Grecia",
+"biblia": [
+[
+"Hch 16:14–15",
+"¹⁴ Entonces una mujer llamada Lidia, vendedora de púrpura, de la ciudad de Tiatira, que adoraba a Dios, estaba oyendo; y el Señor abrió su corazón para que estuviera atenta a lo que Pablo decía. ¹⁵ Cuando fue bautizada, con su familia, nos rogó diciendo: «Si han juzgado que soy fiel al Señor, entren en mi casa y quédense». Y nos obligó a quedarnos."
+],
+[
+"Hch 16:29–31",
+"²⁹ Él entonces, pidiendo luz, se precipitó adentro y, temblando, se postró ante Pablo y Silas; ³⁰ y sacándolos fuera dijo: «Señores, ¿qué debo hacer para ser salvo?». ³¹ Ellos dijeron: «Cree en el Señor Jesús, y serás salvo tú y tu casa»."
+],
+[
+"Fil 4:15–16",
+"¹⁵ Y saben también ustedes, filipenses, que al principio del evangelio, cuando partí de Macedonia, ninguna iglesia participó conmigo en razón de dar y recibir, sino ustedes solos; ¹⁶ pues aun a Tesalónica me enviaron una y otra vez para mis necesidades."
+]
+],
+"arq": [
+"Colonia romana de veteranos tras la batalla de Filipos (42 a. e. c.). La Escuela Francesa (desde 1914) y el Servicio Arqueológico griego excavaron el foro, cruzado por la Vía Egnatia, el teatro, las basílicas A y B y el octógono.",
+"La «cárcel de San Pablo» es una cisterna romana convertida en capilla en el s. V. El «río» de Lidia es el Gangites (Angitis), a 2 km, donde hay un baptisterio moderno."
+],
+"hoy": "Patrimonio de la Humanidad desde 2016; a 15 km de Kavala."
+},
+{
+"id": "anfipolis",
+"site": "anfipolis",
+"n": "Anfípolis",
+"he": "",
+"ll": [
+40.83,
+23.85
+],
+"k": "biblico",
+"actual": "Amfípoli · Serres, Grecia",
+"biblia": [
+[
+"Hch 17:1",
+"Pasando por Anfípolis y Apolonia, llegaron a Tesalónica, donde había una sinagoga de los judíos."
+]
+],
+"arq": [
+"Ciudad ateniense y luego capital de un distrito macedonio, junto al Estrimón. El León de Anfípolis (s. IV a. e. c.) se alza junto al puente moderno; la tumba de Kasta (2012–2014), el mayor túmulo de Grecia, está a 2 km."
+],
+"hoy": "El museo y las murallas se visitan; la Vía Egnatia pasaba por aquí."
+},
+{
+"id": "apolonia",
+"site": "apolonia",
+"n": "Apolonia",
+"he": "",
+"ll": [
+40.62,
+23.46
+],
+"k": "biblico",
+"actual": "Nea Apollonia · Tesalónica, Grecia",
+"biblia": [],
+"arq": [
+"Etapa de la Vía Egnatia entre Anfípolis y Tesalónica, junto al lago Volvi; apenas excavada."
+],
+"hoy": "Un pueblo junto al lago, con una capilla que recuerda el paso de Pablo."
+},
+{
+"id": "tesalonica",
+"site": "tesalonica",
+"n": "Tesalónica",
+"he": "Θεσσαλονίκη",
+"ll": [
+40.64,
+22.944
+],
+"k": "biblico",
+"actual": "Salónica · Grecia",
+"biblia": [
+[
+"Hch 17:2–3",
+"² Y Pablo, como acostumbraba, fue a ellos, y por tres sábados discutió con ellos desde las Escrituras, ³ explicando y demostrando que era necesario que el Mesías padeciera y resucitara de los muertos, y que «éste es el Mesías, Jesús, a quien yo les anuncio»."
+],
+[
+"Hch 17:6–7",
+"⁶ Al no hallarlos, arrastraron a Jasón y a algunos hermanos ante los politarcas, gritando: «Éstos que han trastornado el mundo entero han venido también acá; ⁷ Jasón los ha recibido, y todos ellos actúan contra los decretos del César, diciendo que hay otro rey, Jesús»."
+],
+[
+"1 Ts 1:9–10",
+"⁹ Porque ellos mismos cuentan de nosotros la manera en que nos recibieron, y cómo se convirtieron de los ídolos a Dios para servir al Dios vivo y verdadero, ¹⁰ y esperar de los cielos a su Hijo, al cual resucitó de los muertos, a Jesús, quien nos libra de la ira venidera."
+]
+],
+"arq": [
+"Capital de Macedonia y ciudad libre, gobernada por politarcas, título que la inscripción del arco del Vardar (hoy en el Museo Británico, desde 1876) confirma. El foro romano (s. II) se excavó en 1962 bajo la plaza Dikastirion.",
+"La Vía Egnatia atravesaba la ciudad; la calle Egnatia moderna sigue su trazado. No queda rastro de la sinagoga ni de la casa de Jasón."
+],
+"hoy": "Segunda ciudad de Grecia, con el foro romano y las iglesias bizantinas como patrimonio."
+},
+{
+"id": "berea",
+"site": "berea",
+"n": "Berea",
+"he": "",
+"ll": [
+40.524,
+22.202
+],
+"k": "biblico",
+"actual": "Veria · Grecia",
+"biblia": [
+[
+"Hch 17:11",
+"Éstos eran más nobles que los de Tesalónica: recibieron la palabra con toda disposición, examinando cada día las Escrituras para ver si estas cosas eran así."
+]
+],
+"arq": [
+"Ciudad macedonia al pie del Vermio; de la antigua quedan tramos de muralla e inscripciones. Un monumento de mosaicos (1961) marca el lugar tradicional del «bema de Pablo»."
+],
+"hoy": "Veria, ciudad de 45 000 habitantes, cerca de Vergina (tumbas reales de Macedonia)."
+},
+{
+"id": "atenas",
+"site": "atenas",
+"n": "Atenas: el Areópago",
+"he": "Ἀθῆναι",
+"ll": [
+37.972,
+23.726
+],
+"k": "biblico",
+"actual": "Atenas · Grecia",
+"biblia": [
+[
+"Hch 17:22–23",
+"²² Pablo, de pie en medio del Areópago, dijo: «Varones atenienses, en todo observo que son muy religiosos; ²³ porque pasando y mirando sus santuarios, hallé también un altar en el que estaba escrito: AL DIOS DESCONOCIDO. Al que ustedes adoran sin conocer, a ése les anuncio yo»."
+],
+[
+"Hch 17:28–31",
+"²⁸ Porque en él vivimos, nos movemos y somos; como algunos de sus propios poetas han dicho: «Porque linaje suyo somos». ²⁹ Siendo, pues, linaje de Dios, no debemos pensar que la divinidad sea semejante a oro, plata o piedra, escultura de arte y de imaginación de hombre. ³⁰ Dios, pues, pasando por alto los tiempos de la ignorancia, ahora manda a todos los hombres en todo lugar que se arrepientan, ³¹ por cuanto ha fijado un día en que juzgará al mundo con justicia por medio de un varón que designó, dando fe a todos con haberlo resucitado de los muertos."
+]
+],
+"arq": [
+"La colina del Areópago, al oeste de la Acrópolis, es una roca de mármol donde una placa de bronce reproduce el discurso de Hch 17. El ágora, donde Pablo discutía, fue excavada por la Escuela Americana (desde 1931).",
+"No se ha hallado el altar «al dios desconocido»; Pausanias y Filóstrato confirman que existían altares a dioses desconocidos en Atenas."
+],
+"hoy": "La roca se sube a pie desde la entrada de la Acrópolis; el ágora con su museo (Stoa de Átalo) está debajo."
+},
+{
+"id": "corinto",
+"site": "corinto",
+"n": "Corinto",
+"he": "Κόρινθος",
+"ll": [
+37.906,
+22.88
+],
+"k": "biblico",
+"actual": "Arjea Kórinthos · Grecia",
+"biblia": [
+[
+"Hch 18:2–3",
+"² Halló a un judío llamado Aquila, natural del Ponto, recién llegado de Italia con Priscila su mujer, porque Claudio había mandado que todos los judíos salieran de Roma. Fue a ellos ³ y, como era del mismo oficio, se quedó con ellos y trabajaban juntos, pues el oficio de ellos era hacer tiendas."
+],
+[
+"Hch 18:9–11",
+"⁹ Y el Señor dijo a Pablo de noche, en visión: «No temas, sino habla y no calles, ¹⁰ porque yo estoy contigo, y nadie pondrá la mano sobre ti para hacerte mal, porque tengo mucho pueblo en esta ciudad». ¹¹ Y se detuvo allí un año y seis meses, enseñando entre ellos la palabra de Dios."
+],
+[
+"Hch 18:12–16",
+"¹² Pero siendo Galión procónsul de Acaya, los judíos se levantaron de común acuerdo contra Pablo y lo llevaron al tribunal, ¹³ diciendo: «Éste persuade a los hombres a honrar a Dios contra la ley». ¹⁴ Y al comenzar Pablo a hablar, Galión dijo a los judíos: «Si fuera algún agravio o crimen enorme, oh judíos, conforme a derecho los toleraría; ¹⁵ pero si son cuestiones de palabras, de nombres y de la ley de ustedes, véanlo ustedes; yo no quiero ser juez de estas cosas». ¹⁶ Y los echó del tribunal."
+],
+[
+"Ro 1:16–17",
+"¹⁶ Porque no me avergüenzo del evangelio, pues es poder de Dios para salvación a todo el que cree: al judío primero, y también al griego. ¹⁷ Porque en él la justicia de Dios se revela por fe y para fe, como está escrito: «Mas el justo por la fe vivirá»."
+]
+],
+"arq": [
+"Refundada por César en 44 a. e. c. como colonia romana, capital de Acaya. La Escuela Americana excava desde 1896: el foro con el bema (tribunal, 44 e. c.) ante el que compareció Pablo, el templo de Apolo, la fuente Pirene, las tiendas y el teatro.",
+"La losa de Erasto (1929), junto al teatro: «Erasto, por su edilidad, la pavimentó a su costa». Una inscripción fragmentaria «[syna]gōgē Hebr[aiōn]» es de época posterior."
+],
+"hoy": "El yacimiento y su museo están a 80 km de Atenas; el canal de Corinto (1893) cruza el istmo."
+},
+{
+"id": "cencrea",
+"site": "cencrea",
+"n": "Cencrea",
+"he": "",
+"ll": [
+37.883,
+22.994
+],
+"k": "biblico",
+"actual": "Kejriés · Grecia",
+"biblia": [
+[
+"Hch 18:18",
+"Pablo, habiéndose detenido aún muchos días, se despidió de los hermanos y navegó a Siria, y con él Priscila y Aquila, habiéndose rapado la cabeza en Cencrea, porque tenía un voto."
+],
+[
+"Ro 16:1–2",
+"¹ Les recomiendo a nuestra hermana Febe, que es diaconisa de la iglesia en Cencrea, ² para que la reciban en el Señor como es digno de los santos y la ayuden en cualquier cosa en que necesite de ustedes; porque ella ha sido protectora de muchos y de mí mismo."
+]
+],
+"arq": [
+"El puerto oriental de Corinto, con muelles romanos parcialmente sumergidos y un santuario de Isis; excavado por la Universidad de Chicago en 1963–1968. La iglesia de Febe (Ro 16:1) es la única diaconisa nombrada en el NT."
+],
+"hoy": "Una playa con ruinas romanas bajo el agua, a 8 km de Corinto."
+},
+{
+"id": "efeso",
+"site": "efeso",
+"n": "Éfeso",
+"he": "Ἔφεσος",
+"ll": [
+37.941,
+27.342
+],
+"k": "biblico",
+"actual": "Selçuk · Esmirna, Turquía",
+"biblia": [
+[
+"Hch 19:8–10",
+"⁸ Entrando en la sinagoga, habló con valentía por tres meses, discutiendo y persuadiendo acerca del reino de Dios. ⁹ Pero como algunos se endurecían y no creían, hablando mal del Camino delante de la multitud, se apartó de ellos y separó a los discípulos, discutiendo cada día en la escuela de Tirano. ¹⁰ Esto continuó por dos años, de manera que todos los que habitaban en Asia, judíos y griegos, oyeron la palabra del Señor."
+],
+[
+"Hch 19:25–27",
+"²⁵ A los cuales, reunidos con los obreros del mismo oficio, dijo: «Varones, saben que de este oficio obtenemos nuestra riqueza; ²⁶ y ven y oyen que este Pablo, no solo en Éfeso sino en casi toda Asia, ha apartado a muchas gentes con persuasión, diciendo que no son dioses los que se hacen con las manos. ²⁷ Y no solamente hay peligro de que este negocio nuestro venga a desacreditarse, sino también que el templo de la gran diosa Artemisa sea estimado en nada, y comience a ser destruida la majestad de aquella a quien venera toda Asia y el mundo»."
+],
+[
+"Hch 19:34",
+"Pero cuando supieron que era judío, todos a una voz gritaron casi por dos horas: «¡Grande es Artemisa de los efesios!»."
+],
+[
+"Hch 20:28–29",
+"²⁸ Mirad por ustedes y por todo el rebaño en que el Espíritu Santo los ha puesto por obispos, para pastorear la iglesia de Dios, que él adquirió con su propia sangre. ²⁹ Yo sé que después de mi partida entrarán entre ustedes lobos rapaces que no perdonarán al rebaño."
+]
+],
+"arq": [
+"Capital de Asia, con unos 200 000 habitantes. El Instituto Austriaco excava desde 1895: el teatro (24 000 asientos), la calle de los Curetes, la biblioteca de Celso (s. II), las casas en terrazas. Del Artemisión, una de las siete maravillas, queda una columna en un pantano.",
+"La inscripción de Salutaris (104 e. c.), en el teatro, regula las procesiones de Artemisa y confirma el gremio de plateros. La «escuela de Tirano» y la cárcel de Pablo son tradiciones sin apoyo arqueológico."
+],
+"hoy": "Patrimonio de la Humanidad (2015); el sitio más visitado de Turquía, cerca de Kuşadası."
+},
+{
+"id": "mileto",
+"site": "mileto",
+"n": "Mileto",
+"he": "",
+"ll": [
+37.53,
+27.278
+],
+"k": "biblico",
+"actual": "Balat · Aydın, Turquía",
+"biblia": [
+[
+"Hch 20:22–24",
+"²² Y ahora, he aquí, atado yo en espíritu, voy a Jerusalén, sin saber lo que allá me ha de acontecer; ²³ salvo que el Espíritu Santo por todas las ciudades me da testimonio de que me esperan cadenas y tribulaciones. ²⁴ Pero de ninguna cosa hago caso, ni tengo mi vida por preciosa para mí mismo, con tal de que acabe mi carrera y el ministerio que recibí del Señor Jesús: dar testimonio del evangelio de la gracia de Dios."
+],
+[
+"Hch 20:35–38",
+"³⁵ En todo les he enseñado que, trabajando así, se debe ayudar a los débiles, y recordar las palabras del Señor Jesús, que dijo: «Más bienaventurado es dar que recibir». ³⁶ Dicho esto, se puso de rodillas y oró con todos ellos. ³⁷ Hubo gran llanto de todos, y echándose al cuello de Pablo lo besaban, ³⁸ doliéndose sobre todo por la palabra que dijo: que no verían más su rostro. Y lo acompañaron al barco."
+]
+],
+"arq": [
+"Gran ciudad jonia; el teatro romano (15 000 asientos) conserva en una grada la inscripción «lugar de los judíos, llamados también temerosos de Dios». El puerto de los Leones y el mercado del sur se excavaron por misiones alemanas desde 1899.",
+"El limo del Meandro ha alejado el mar 10 km: las ruinas quedan entre campos de algodón."
+],
+"hoy": "A 60 km de Éfeso, se visita junto a Priene y Dídima."
+},
+{
+"id": "colosas",
+"site": "colosas",
+"n": "Colosas",
+"he": "",
+"ll": [
+37.79,
+29.27
+],
+"k": "biblico",
+"actual": "Honaz · Denizli, Turquía",
+"biblia": [
+[
+"Col 4:12–13",
+"¹² Los saluda Epafras, que es uno de ustedes, siervo de Cristo Jesús, siempre luchando por ustedes en sus oraciones, para que estén firmes, perfectos y plenamente seguros en toda la voluntad de Dios. ¹³ Porque de él doy testimonio de que tiene gran solicitud por ustedes, por los de Laodicea y por los de Hierápolis."
+]
+],
+"arq": [
+"Un tell sin excavar al pie del monte Cadmo, con restos del teatro visibles en superficie. Fue destruida por un terremoto hacia 60–64. La iglesia de Epafras, Filemón y Onésimo."
+],
+"hoy": "Una loma con un cartel, a 20 km de Denizli; se ha anunciado una excavación."
+},
+{
+"id": "laodicea",
+"site": "laodicea",
+"n": "Laodicea",
+"he": "",
+"ll": [
+37.84,
+29.11
+],
+"k": "biblico",
+"actual": "Denizli · Turquía",
+"biblia": [
+[
+"Col 4:16",
+"Cuando esta carta haya sido leída entre ustedes, hagan que también se lea en la iglesia de los laodicenses, y que ustedes lean la de Laodicea."
+]
+],
+"arq": [
+"Excavada desde 2003 por la Universidad de Pamukkale: calles porticadas, dos teatros, el estadio y la iglesia del s. IV, una de las más antiguas de Anatolia. Rica en lana negra, banca y colirio (Ap 3:17–18)."
+],
+"hoy": "A 6 km de Denizli, en la carretera a Pamukkale."
+},
+{
+"id": "patara",
+"site": "patara",
+"n": "Pátara",
+"he": "",
+"ll": [
+36.26,
+29.31
+],
+"k": "biblico",
+"actual": "Gelemiş · Antalya, Turquía",
+"biblia": [
+[
+"Hch 21:1–2",
+"Navegamos a Cos, al día siguiente a Rodas, y de allí a Pátara. Hallando un barco que pasaba a Fenicia, nos embarcamos y zarpamos."
+]
+],
+"arq": [
+"Puerto principal de Licia, sede de la asamblea licia (bouleuterion de 1400 asientos, restaurado) y del faro de Nerón (64–65 e. c.), el faro antiguo mejor conservado. El puerto es hoy una marisma."
+],
+"hoy": "Playa de 18 km y yacimiento restaurado; patria de san Nicolás."
+},
+{
+"id": "tiro",
+"site": "tiro",
+"n": "Tiro",
+"he": "",
+"ll": [
+33.272,
+35.197
+],
+"k": "biblico",
+"actual": "Sur · Líbano",
+"biblia": [
+[
+"Hch 21:3–4",
+"³ Avistamos Chipre, la dejamos a la izquierda, navegamos a Siria y arribamos a Tiro, porque el barco había de descargar allí. ⁴ Hallados los discípulos, nos quedamos allí siete días; y ellos decían a Pablo por el Espíritu que no subiera a Jerusalén."
+]
+],
+"arq": [
+"La ciudad fenicia, isla unida a tierra por Alejandro; el barco de Pablo descargó aquí siete días. Se visitan el hipódromo, la calle porticada y el puerto egipcio (Patrimonio de la Humanidad)."
+],
+"hoy": "Ciudad del sur del Líbano, a 80 km de Beirut."
+},
+{
+"id": "tolemaida",
+"site": "tolemaida",
+"n": "Tolemaida",
+"he": "",
+"ll": [
+32.924,
+35.075
+],
+"k": "biblico",
+"actual": "Acre (Akko) · Israel",
+"biblia": [
+[
+"Hch 21:7",
+"Nosotros, terminada la navegación, llegamos de Tiro a Tolemaida; saludamos a los hermanos y nos quedamos con ellos un día."
+]
+],
+"arq": [
+"La antigua Aco, llamada Tolemaida por los Ptolomeos; en el s. I era una colonia romana. La ciudad vieja es cruzada y otomana."
+],
+"hoy": "Acre, Patrimonio de la Humanidad por su ciudad cruzada."
+},
+{
+"id": "sidon",
+"site": "sidon",
+"n": "Sidón",
+"he": "",
+"ll": [
+33.56,
+35.37
+],
+"k": "biblico",
+"actual": "Saida · Líbano",
+"biblia": [
+[
+"Hch 27:3",
+"Al otro día llegamos a Sidón; y Julio, tratando humanamente a Pablo, le permitió ir a los amigos para ser atendido por ellos."
+]
+],
+"arq": [
+"Puerto fenicio; el castillo del mar es cruzado. Primera escala del viaje a Roma, donde el centurión Julio dejó a Pablo visitar a los hermanos."
+],
+"hoy": "Saida, tercera ciudad del Líbano."
+},
+{
+"id": "mira",
+"site": "mira",
+"n": "Mira",
+"he": "",
+"ll": [
+36.26,
+29.98
+],
+"k": "biblico",
+"actual": "Demre · Antalya, Turquía",
+"biblia": [
+[
+"Hch 27:5–6",
+"⁵ Habiendo atravesado el mar frente a Cilicia y Panfilia, arribamos a Mira de Licia. ⁶ Y hallando allí el centurión una nave alejandrina que zarpaba para Italia, nos embarcó en ella."
+]
+],
+"arq": [
+"Capital de Licia bajo los romanos, con tumbas rupestres licias y un teatro de 11 000 asientos. Su puerto, Andriace, recibía las naves de trigo alejandrinas que esperaban vientos; conserva un granero de Adriano (129 e. c.) con la inscripción de su función.",
+"La iglesia de San Nicolás (s. VI) recuerda al obispo de Mira del s. IV."
+],
+"hoy": "Demre vive del tomate y del turismo de San Nicolás; el puerto antiguo es el museo de Andriace."
+},
+{
+"id": "buenospuertos",
+"site": "buenospuertos",
+"n": "Buenos Puertos",
+"he": "",
+"ll": [
+34.93,
+24.78
+],
+"k": "biblico",
+"actual": "Kaloí Liménes · Heraclión, Creta",
+"biblia": [
+[
+"Hch 27:9–10",
+"⁹ Pasado mucho tiempo, y siendo ya peligrosa la navegación por haber pasado ya el Ayuno, Pablo los amonestaba ¹⁰ diciéndoles: «Varones, veo que la navegación va a ser con perjuicio y mucha pérdida, no solo del cargamento y de la nave, sino también de nuestras vidas»."
+],
+[
+"Hch 27:12",
+"Y como el puerto no era cómodo para invernar, la mayoría acordó zarpar también de allí, por si pudieran arribar a Fenice, puerto de Creta que mira al suroeste y al noroeste, e invernar allí."
+]
+],
+"arq": [
+"Una bahía abierta al sur, protegida solo por dos islotes, cerca de las ruinas de Lasea; «no cómoda para invernar» como dice Lucas. Una capilla de San Pablo recuerda la escala."
+],
+"hoy": "Un pequeño puerto petrolero y una playa, a 75 km de Heraclión."
+},
+{
+"id": "fenice",
+"site": "fenice",
+"n": "Fenice",
+"he": "",
+"ll": [
+35.19,
+24.08
+],
+"k": "biblico",
+"actual": "Loutró · Chania, Creta",
+"biblia": [
+[
+"Hch 27:12",
+"Y como el puerto no era cómodo para invernar, la mayoría acordó zarpar también de allí, por si pudieran arribar a Fenice, puerto de Creta que mira al suroeste y al noroeste, e invernar allí."
+]
+],
+"arq": [
+"El puerto que querían alcanzar, «que mira al suroeste y al noroeste». Loutró, solo accesible por mar o a pie, es la identificación más común; otros proponen la bahía vecina de Fínix. Hay restos de un mercado romano."
+],
+"hoy": "Una aldea sin carretera en la costa sur de Creta, junto a la garganta de Samaria."
+},
+{
+"id": "cauda",
+"site": "cauda",
+"n": "Cauda",
+"he": "",
+"ll": [
+34.84,
+24.08
+],
+"k": "biblico",
+"actual": "Gavdos · Creta, Grecia",
+"biblia": [
+[
+"Hch 27:14–17",
+"¹⁴ Pero no mucho después dio contra la nave un viento huracanado llamado Euroaquilón. ¹⁵ Y siendo arrebatada la nave y no pudiendo poner proa al viento, nos abandonamos a él y nos dejamos llevar. ¹⁶ Y habiendo corrido a sotavento de una pequeña isla llamada Cauda, con dificultad pudimos sujetar el esquife; ¹⁷ y una vez subido a bordo, usaron de refuerzos para ceñir la nave; y teniendo temor de dar en la Sirte, arriaron las velas y quedaron a la deriva."
+]
+],
+"arq": [
+"A su abrigo, la tripulación subió el esquife, ciñó el casco con cables y arrió el aparejo. Gavdos, de 30 km², es el punto más meridional de Europa."
+],
+"hoy": "Isla de 150 habitantes, con ferri desde Sfakiá."
+},
+{
+"id": "malta",
+"site": "malta",
+"n": "Malta: la bahía de San Pablo",
+"he": "Μελίτη",
+"ll": [
+35.955,
+14.395
+],
+"k": "biblico",
+"actual": "San Pawl il-Baħar · Malta",
+"biblia": [
+[
+"Hch 28:1–3",
+"¹ Estando ya a salvo, supimos que la isla se llamaba Malta. ² Y los bárbaros nos mostraron no poca humanidad; porque encendiendo un fuego, nos recibieron a todos a causa de la lluvia que caía y del frío. ³ Entonces, habiendo recogido Pablo algunas ramas secas, las echó al fuego; y una víbora, huyendo del calor, se le prendió en la mano."
+],
+[
+"Hch 28:7–9",
+"⁷ En aquellos lugares había propiedades del primero de la isla, llamado Publio, quien nos recibió y hospedó amistosamente tres días. ⁸ Y aconteció que el padre de Publio estaba en cama, enfermo de fiebre y de disentería; Pablo entró a verlo, oró, le impuso las manos y lo sanó. ⁹ Hecho esto, también los otros que en la isla tenían enfermedades venían y eran sanados."
+]
+],
+"arq": [
+"La tradición sitúa el naufragio en esta bahía del norte, con una playa y un canal entre la isla de Selmunett y la costa («lugar de dos aguas», Hch 27:41). Smith (1848) confirmó que la deriva desde Cauda llega aquí. Se han propuesto también Mellieħa y, en el sur, St. Thomas Bay.",
+"Inscripciones maltesas de época romana dan a su magistrado el título de «primero» (prōtos) que usa Lucas para Publio. En Rabat, la gruta de San Pablo y las catacumbas; la villa romana de San Pawl Milqi, junto a la bahía, se asocia a Publio."
+],
+"hoy": "Una estatua de Pablo (1845) corona el islote; la bahía es zona de baño y hoteles."
+},
+{
+"id": "siracusa",
+"site": "siracusa",
+"n": "Siracusa",
+"he": "",
+"ll": [
+37.075,
+15.287
+],
+"k": "biblico",
+"actual": "Siracusa · Sicilia, Italia",
+"biblia": [
+[
+"Hch 28:11–14",
+"¹¹ Pasados tres meses, nos hicimos a la vela en una nave alejandrina que había invernado en la isla, la cual tenía por enseña a los Dióscuros. ¹² Y llegados a Siracusa, estuvimos allí tres días. ¹³ De allí, costeando, vinimos a Regio; y al otro día, soplando el viento sur, llegamos al segundo día a Puteoli, ¹⁴ donde habiendo hallado hermanos, nos rogaron que nos quedáramos con ellos siete días; y así llegamos a Roma."
+]
+],
+"arq": [
+"La gran ciudad griega de Sicilia; la nave esperó tres días viento favorable. Las catacumbas de San Giovanni y la cripta de San Marciano, «primer obispo», guardan la tradición de la predicación de Pablo."
+],
+"hoy": "Ortigia y el parque arqueológico de Neápolis son Patrimonio de la Humanidad."
+},
+{
+"id": "puteoli",
+"site": "puteoli",
+"n": "Puteoli",
+"he": "",
+"ll": [
+40.822,
+14.122
+],
+"k": "biblico",
+"actual": "Pozzuoli · Nápoles, Italia",
+"biblia": [
+[
+"Hch 28:11–14",
+"¹¹ Pasados tres meses, nos hicimos a la vela en una nave alejandrina que había invernado en la isla, la cual tenía por enseña a los Dióscuros. ¹² Y llegados a Siracusa, estuvimos allí tres días. ¹³ De allí, costeando, vinimos a Regio; y al otro día, soplando el viento sur, llegamos al segundo día a Puteoli, ¹⁴ donde habiendo hallado hermanos, nos rogaron que nos quedáramos con ellos siete días; y así llegamos a Roma."
+]
+],
+"arq": [
+"El gran puerto del trigo de Alejandría hasta que Trajano abrió Ostia; Séneca describe la llegada de la flota. Conserva el macellum (el «templo de Serapis»), el anfiteatro Flavio y el muelle romano (Rione Terra). Ya había cristianos aquí en el 60."
+],
+"hoy": "Ciudad del golfo de Nápoles, en el área volcánica de los Campos Flégreos."
+},
+{
+"id": "foroapio",
+"site": "foroapio",
+"n": "Foro de Apio",
+"he": "",
+"ll": [
+41.43,
+13.08
+],
+"k": "biblico",
+"actual": "Borgo Faiti · Latina, Italia",
+"biblia": [
+[
+"Hch 28:15",
+"De allí, oyendo de nosotros los hermanos, salieron a recibirnos hasta el Foro de Apio y las Tres Tabernas; y al verlos, Pablo dio gracias a Dios y cobró aliento."
+]
+],
+"arq": [
+"Estación de la Vía Apia a 43 millas de Roma, donde empezaba el canal de las lagunas Pontinas que Horacio describe lleno de barqueros y posaderos. Un miliario con la distancia a Roma marca el lugar."
+],
+"hoy": "Junto a la carretera estatal 7 (la Vía Apia moderna), con un museo pequeño."
+},
+{
+"id": "roma",
+"site": "roma",
+"n": "Roma",
+"he": "Ῥώμη",
+"ll": [
+41.893,
+12.483
+],
+"k": "biblico",
+"actual": "Roma · Italia",
+"biblia": [
+[
+"Hch 28:16",
+"Cuando llegamos a Roma, se le permitió a Pablo vivir aparte, con un soldado que lo custodiara."
+],
+[
+"Hch 28:30–31",
+"³⁰ Y Pablo permaneció dos años enteros en una casa alquilada, y recibía a todos los que venían a él, ³¹ predicando el reino de Dios y enseñando acerca del Señor Jesucristo con toda libertad, sin impedimento."
+],
+[
+"2 Ti 4:16–18",
+"¹⁶ En mi primera defensa nadie estuvo a mi lado, sino que todos me desampararon; no les sea tomado en cuenta. ¹⁷ Pero el Señor estuvo a mi lado y me dio fuerzas, para que por mí fuera cumplida la predicación y la oyeran todas las naciones; y fui librado de la boca del león. ¹⁸ El Señor me librará de toda obra mala y me preservará para su reino celestial. A él sea la gloria por los siglos de los siglos. Amén."
+]
+],
+"arq": [
+"La casa alquilada de Hch 28:30 no se ha identificado; la tradición la sitúa cerca de la actual iglesia de Santa Maria in Via Lata. La cárcel Mamertina (Tullianum), al pie del Capitolio, es la cárcel tradicional de Pedro y Pablo desde el s. V, sin prueba.",
+"El «trofeo» de Pablo en la Vía Ostiense que Gayo mencionaba hacia 200 está bajo el altar de San Pablo Extramuros: un sarcófago bajo la losa «PAULO APOSTOLO MART» con huesos del s. I–II (Filippi, 2009)."
+],
+"hoy": "San Pablo Extramuros, la segunda basílica de Roma, reconstruida tras el incendio de 1823; Tre Fontane, a 3 km, guarda el lugar tradicional de la ejecución."
+},
+{
+"id": "nicopolis",
+"site": "nicopolis",
+"n": "Nicópolis",
+"he": "",
+"ll": [
+39.02,
+20.73
+],
+"k": "biblico",
+"actual": "Preveza · Epiro, Grecia",
+"biblia": [
+[
+"Tit 3:12",
+"Cuando envíe a ti a Artemas o a Tíquico, apresúrate a venir a mí en Nicópolis, porque allí he determinado pasar el invierno."
+]
+],
+"arq": [
+"La «ciudad de la victoria» que Augusto fundó tras Accio (31 a. e. c.), con el monumento de la victoria, teatro, odeón y murallas. Epicteto enseñó aquí. Pablo quiso invernar en ella (Tit 3:12), sin que sepamos si llegó."
+],
+"hoy": "Yacimiento extenso junto a Preveza, con museo nuevo."
+},
+{
+"id": "creta_gortina",
+"site": "creta_gortina",
+"n": "Gortina (Creta)",
+"he": "",
+"ll": [
+35.06,
+24.95
+],
+"k": "biblico",
+"actual": "Agii Deka · Heraclión, Creta",
+"biblia": [
+[
+"Tit 1:5",
+"Por esta causa te dejé en Creta: para que corrigieras lo deficiente y establecieras ancianos en cada ciudad, como yo te mandé."
+]
+],
+"arq": [
+"Capital romana de Creta y Cirenaica; conserva el gran código de leyes grabado (s. V a. e. c.), el odeón y la basílica de San Tito (s. VI), que recuerda al discípulo que Pablo dejó en la isla."
+],
+"hoy": "A 45 km de Heraclión, entre olivares."
+}
+],
+"tramos": [
+{
+"n": 1,
+"de": "Jerusalén",
+"a": "Damasco",
+"ref": "Hch 9:3",
+"txt": "Yendo por el camino, sucedió que al acercarse a Damasco, de repente lo rodeó una luz del cielo.",
+"arq": "Unos 220 km por la ruta de Galilea y el Golán, siete u ocho jornadas a pie. Kaukab, al suroeste de Damasco, es el lugar tradicional de la visión.",
+"pts": [
+[
+31.778,
+35.235
+],
+[
+32.1,
+35.4
+],
+[
+32.55,
+35.75
+],
+[
+32.95,
+35.95
+],
+[
+33.3,
+36.15
+],
+[
+33.513,
+36.292
+]
+],
+"site": "damasco",
+"medio": "pie",
+"viaje": 0
+},
+{
+"n": 2,
+"de": "Damasco",
+"a": "Arabia",
+"ref": "Gá 1:17",
+"txt": "Fui a Arabia, y volví de nuevo a Damasco.",
+"arq": "Hacia el Haurán nabateo (Bosra) y quizá Petra; ruta y alcance son conjetura.",
+"pts": [
+[
+33.513,
+36.292
+],
+[
+33.0,
+36.4
+],
+[
+32.52,
+36.48
+],
+[
+31.7,
+36.1
+],
+[
+30.329,
+35.444
+]
+],
+"site": "petra",
+"medio": "pie",
+"viaje": 0,
+"vuelta": 1
+},
+{
+"n": 3,
+"de": "Cesarea",
+"a": "Tarso",
+"ref": "Hch 9:30",
+"txt": "Lo llevaron a Cesarea y lo enviaron a Tarso.",
+"arq": "Por mar, costeando Fenicia y Cilicia: la primera navegación de Pablo que Hechos registra.",
+"pts": [
+[
+31.778,
+35.235
+],
+[
+31.95,
+35.05
+],
+[
+32.2,
+34.95
+],
+[
+32.5,
+34.892
+],
+[
+33.5,
+35.1
+],
+[
+34.6,
+35.3
+],
+[
+35.6,
+35.6
+],
+[
+36.4,
+35.4
+],
+[
+36.917,
+34.895
+]
+],
+"site": "tarso",
+"medio": "mar",
+"viaje": 0
+},
+{
+"n": 4,
+"de": "Antioquía",
+"a": "Seleucia",
+"ref": "Hch 13:4",
+"txt": "Descendieron a Seleucia, y de allí navegaron a Chipre.",
+"arq": "25 km por el valle del Orontes hasta el puerto.",
+"pts": [
+[
+36.202,
+36.161
+],
+[
+36.12,
+35.92
+]
+],
+"site": "seleucia",
+"medio": "pie",
+"viaje": 1
+},
+{
+"n": 5,
+"de": "Seleucia",
+"a": "Salamina",
+"ref": "Hch 13:4–5",
+"txt": "De allí navegaron a Chipre. Llegados a Salamina, anunciaban la palabra en las sinagogas.",
+"arq": "Unas 130 millas de mar abierto; con buen viento, un día y una noche.",
+"pts": [
+[
+36.12,
+35.92
+],
+[
+35.6,
+34.9
+],
+[
+35.183,
+33.9
+]
+],
+"site": "salamina",
+"medio": "mar",
+"viaje": 1
+},
+{
+"n": 6,
+"de": "Salamina",
+"a": "Pafos",
+"ref": "Hch 13:6",
+"txt": "Habiendo atravesado toda la isla hasta Pafos.",
+"arq": "Unos 150 km por el sur de la isla, de ciudad en ciudad.",
+"pts": [
+[
+35.183,
+33.9
+],
+[
+35.0,
+33.3
+],
+[
+34.9,
+32.8
+],
+[
+34.757,
+32.407
+]
+],
+"site": "pafos",
+"medio": "pie",
+"viaje": 1
+},
+{
+"n": 7,
+"de": "Pafos",
+"a": "Perge",
+"ref": "Hch 13:13",
+"txt": "Habiendo zarpado de Pafos, Pablo y sus compañeros llegaron a Perge de Panfilia.",
+"arq": "Unas 170 millas hasta la costa de Panfilia, remontando luego el Cestro hasta Perge.",
+"pts": [
+[
+34.757,
+32.407
+],
+[
+35.6,
+31.6
+],
+[
+36.5,
+31.0
+],
+[
+36.88,
+30.7
+],
+[
+36.961,
+30.854
+]
+],
+"site": "perge",
+"medio": "mar",
+"viaje": 1
+},
+{
+"n": 8,
+"de": "Perge",
+"a": "Antioquía de Pisidia",
+"ref": "Hch 13:14",
+"txt": "Pasando de Perge, llegaron a Antioquía de Pisidia.",
+"arq": "Subida de 1100 m por el Tauro, por la Vía Sebaste o por los pasos de Pisidia; región de salteadores (2 Co 11:26).",
+"pts": [
+[
+36.961,
+30.854
+],
+[
+37.35,
+30.95
+],
+[
+37.8,
+31.05
+],
+[
+38.306,
+31.189
+]
+],
+"site": "pisidia",
+"medio": "pie",
+"viaje": 1
+},
+{
+"n": 9,
+"de": "Antioquía de Pisidia",
+"a": "Iconio",
+"ref": "Hch 13:51",
+"txt": "Ellos, sacudiendo contra ellos el polvo de sus pies, llegaron a Iconio.",
+"arq": "150 km por la Vía Sebaste, la calzada de Augusto que unía las colonias de Galacia.",
+"pts": [
+[
+38.306,
+31.189
+],
+[
+38.1,
+31.7
+],
+[
+37.872,
+32.493
+]
+],
+"site": "iconio",
+"medio": "pie",
+"viaje": 1
+},
+{
+"n": 10,
+"de": "Iconio",
+"a": "Listra",
+"ref": "Hch 14:6",
+"txt": "Habiéndolo sabido, huyeron a Listra y Derbe, ciudades de Licaonia.",
+"arq": "Una jornada larga, 30 km hacia el sur.",
+"pts": [
+[
+37.872,
+32.493
+],
+[
+37.579,
+32.286
+]
+],
+"site": "listra",
+"medio": "pie",
+"viaje": 1
+},
+{
+"n": 11,
+"de": "Listra",
+"a": "Derbe",
+"ref": "Hch 14:20",
+"txt": "Al día siguiente salió con Bernabé para Derbe.",
+"arq": "Unos 100 km al sureste, bordeando el Tauro.",
+"pts": [
+[
+37.579,
+32.286
+],
+[
+37.45,
+32.8
+],
+[
+37.35,
+33.37
+]
+],
+"site": "derbe",
+"medio": "pie",
+"viaje": 1
+},
+{
+"n": 12,
+"de": "Derbe",
+"a": "Atalia",
+"ref": "Hch 14:21–25",
+"txt": "Volvieron a Listra, a Iconio y a Antioquía… y descendieron a Atalia.",
+"arq": "El regreso por las mismas ciudades, nombrando ancianos; de Perge bajan al puerto de Atalia.",
+"pts": [
+[
+37.35,
+33.37
+],
+[
+37.579,
+32.286
+],
+[
+37.872,
+32.493
+],
+[
+38.306,
+31.189
+],
+[
+36.961,
+30.854
+],
+[
+36.885,
+30.705
+]
+],
+"site": "atalia",
+"medio": "pie",
+"viaje": 1,
+"vuelta": 1
+},
+{
+"n": 13,
+"de": "Atalia",
+"a": "Antioquía",
+"ref": "Hch 14:26",
+"txt": "De allí navegaron a Antioquía, desde donde habían sido encomendados a la gracia de Dios.",
+"arq": "Unas 300 millas de mar hasta Seleucia; fin del primer viaje.",
+"pts": [
+[
+36.885,
+30.705
+],
+[
+36.6,
+32.0
+],
+[
+36.4,
+34.0
+],
+[
+36.3,
+35.5
+],
+[
+36.12,
+35.92
+],
+[
+36.202,
+36.161
+]
+],
+"site": "antioquia",
+"medio": "mar",
+"viaje": 1,
+"vuelta": 1
+},
+{
+"n": 14,
+"de": "Antioquía",
+"a": "Derbe y Listra",
+"ref": "Hch 15:41–16:1",
+"txt": "Pasó por Siria y Cilicia, confirmando a las iglesias. Llegó también a Derbe y a Listra.",
+"arq": "Por tierra: Tarso, las Puertas Cilicias y la meseta. Unos 500 km.",
+"pts": [
+[
+36.202,
+36.161
+],
+[
+36.6,
+35.6
+],
+[
+36.917,
+34.895
+],
+[
+37.28,
+34.78
+],
+[
+37.2,
+34.0
+],
+[
+37.35,
+33.37
+]
+],
+"site": "listra",
+"medio": "pie",
+"viaje": 2
+},
+{
+"n": 15,
+"de": "Listra",
+"a": "Troas",
+"ref": "Hch 16:6–8",
+"txt": "Atravesaron Frigia y Galacia… y pasando junto a Misia, descendieron a Troas.",
+"arq": "Más de 700 km de calzadas hasta el Egeo, con las puertas de Asia y Bitinia cerradas; el trazado es aproximado.",
+"pts": [
+[
+37.579,
+32.286
+],
+[
+37.872,
+32.493
+],
+[
+38.306,
+31.189
+],
+[
+38.6,
+30.2
+],
+[
+38.9,
+29.2
+],
+[
+39.2,
+28.0
+],
+[
+39.5,
+27.0
+],
+[
+39.754,
+26.158
+]
+],
+"site": "troas",
+"medio": "pie",
+"viaje": 2
+},
+{
+"n": 16,
+"de": "Troas",
+"a": "Filipos",
+"ref": "Hch 16:11–12",
+"txt": "Zarpando de Troas, fuimos con rumbo directo a Samotracia, al día siguiente a Neápolis, y de allí a Filipos.",
+"arq": "Dos días de navegación con viento favorable (a la vuelta, en Hch 20:6, tardaron cinco) y 15 km por la Egnatia.",
+"pts": [
+[
+39.754,
+26.158
+],
+[
+40.45,
+25.55
+],
+[
+40.937,
+24.412
+],
+[
+41.013,
+24.286
+]
+],
+"site": "filipos",
+"medio": "mar",
+"viaje": 2
+},
+{
+"n": 17,
+"de": "Filipos",
+"a": "Tesalónica",
+"ref": "Hch 17:1",
+"txt": "Pasando por Anfípolis y Apolonia, llegaron a Tesalónica.",
+"arq": "150 km por la Vía Egnatia en tres etapas: Anfípolis, Apolonia, Tesalónica.",
+"pts": [
+[
+41.013,
+24.286
+],
+[
+40.83,
+23.85
+],
+[
+40.62,
+23.46
+],
+[
+40.64,
+22.944
+]
+],
+"site": "tesalonica",
+"medio": "pie",
+"viaje": 2
+},
+{
+"n": 18,
+"de": "Tesalónica",
+"a": "Berea",
+"ref": "Hch 17:10",
+"txt": "Los hermanos enviaron de noche a Pablo y a Silas hasta Berea.",
+"arq": "75 km hacia el suroeste, saliendo de la Egnatia.",
+"pts": [
+[
+40.64,
+22.944
+],
+[
+40.524,
+22.202
+]
+],
+"site": "berea",
+"medio": "pie",
+"viaje": 2
+},
+{
+"n": 19,
+"de": "Berea",
+"a": "Atenas",
+"ref": "Hch 17:14–15",
+"txt": "Los hermanos enviaron a Pablo hacia el mar… y los que conducían a Pablo lo llevaron a Atenas.",
+"arq": "«Hacia el mar»: probablemente embarcó en la costa de Pieria y navegó al Pireo.",
+"pts": [
+[
+40.524,
+22.202
+],
+[
+40.3,
+22.6
+],
+[
+39.5,
+23.3
+],
+[
+38.6,
+24.0
+],
+[
+37.972,
+23.726
+]
+],
+"site": "atenas",
+"medio": "mar",
+"viaje": 2
+},
+{
+"n": 20,
+"de": "Atenas",
+"a": "Corinto",
+"ref": "Hch 18:1",
+"txt": "Después de esto, Pablo salió de Atenas y fue a Corinto.",
+"arq": "80 km por la costa del Sarónico, o un día de barco.",
+"pts": [
+[
+37.972,
+23.726
+],
+[
+37.96,
+23.3
+],
+[
+37.906,
+22.88
+]
+],
+"site": "corinto",
+"medio": "pie",
+"viaje": 2
+},
+{
+"n": 21,
+"de": "Corinto",
+"a": "Éfeso",
+"ref": "Hch 18:18–19",
+"txt": "Navegó a Siria, y con él Priscila y Aquila… y llegó a Éfeso.",
+"arq": "Desde Cencrea, cruzando el Egeo: unas 250 millas.",
+"pts": [
+[
+37.906,
+22.88
+],
+[
+37.883,
+22.994
+],
+[
+37.7,
+24.5
+],
+[
+37.6,
+26.0
+],
+[
+37.941,
+27.342
+]
+],
+"site": "efeso",
+"medio": "mar",
+"viaje": 2
+},
+{
+"n": 22,
+"de": "Éfeso",
+"a": "Cesarea y Antioquía",
+"ref": "Hch 18:21–22",
+"txt": "Zarpó de Éfeso. Habiendo arribado a Cesarea, subió a saludar a la iglesia, y descendió a Antioquía.",
+"arq": "Unas 600 millas hasta Cesarea; «subió» a Jerusalén y volvió por tierra a Antioquía. Fin del segundo viaje.",
+"pts": [
+[
+37.941,
+27.342
+],
+[
+36.8,
+28.5
+],
+[
+35.6,
+31.0
+],
+[
+34.4,
+33.5
+],
+[
+33.0,
+34.6
+],
+[
+32.5,
+34.892
+],
+[
+31.778,
+35.235
+],
+[
+32.5,
+34.892
+],
+[
+34.2,
+35.3
+],
+[
+35.9,
+35.8
+],
+[
+36.202,
+36.161
+]
+],
+"site": "antioquia",
+"medio": "mar",
+"viaje": 2,
+"vuelta": 1
+},
+{
+"n": 23,
+"de": "Antioquía",
+"a": "Éfeso",
+"ref": "Hch 18:23; 19:1",
+"txt": "Recorrió por orden la región de Galacia y Frigia, confirmando a todos los discípulos… y llegó a Éfeso.",
+"arq": "Otra vez por tierra, unos 1500 km visitando las iglesias de Galacia y bajando por el valle del Lico.",
+"pts": [
+[
+36.202,
+36.161
+],
+[
+36.917,
+34.895
+],
+[
+37.35,
+33.37
+],
+[
+37.872,
+32.493
+],
+[
+38.306,
+31.189
+],
+[
+38.5,
+30.0
+],
+[
+38.2,
+29.2
+],
+[
+37.9,
+28.3
+],
+[
+37.941,
+27.342
+]
+],
+"site": "efeso",
+"medio": "pie",
+"viaje": 3
+},
+{
+"n": 24,
+"de": "Éfeso",
+"a": "Troas y Macedonia",
+"ref": "Hch 20:1; 2 Co 2:12–13",
+"txt": "Vine a Troas para predicar el evangelio… y me fui a Macedonia.",
+"arq": "Por la costa de Asia a Troas y, de nuevo, el cruce a Neápolis.",
+"pts": [
+[
+37.941,
+27.342
+],
+[
+38.4,
+27.1
+],
+[
+39.1,
+26.7
+],
+[
+39.754,
+26.158
+],
+[
+40.45,
+25.55
+],
+[
+40.937,
+24.412
+],
+[
+41.013,
+24.286
+],
+[
+40.64,
+22.944
+]
+],
+"site": "tesalonica",
+"medio": "mar",
+"viaje": 3
+},
+{
+"n": 25,
+"de": "Macedonia",
+"a": "Corinto",
+"ref": "Hch 20:2–3",
+"txt": "Después de recorrer aquellas regiones y exhortarlos con muchas palabras, llegó a Grecia, y estuvo allí tres meses.",
+"arq": "Por tierra, por Berea y Tesalia hasta Corinto; «Grecia» es Acaya.",
+"pts": [
+[
+40.64,
+22.944
+],
+[
+40.524,
+22.202
+],
+[
+39.8,
+22.6
+],
+[
+39.0,
+23.0
+],
+[
+38.3,
+23.2
+],
+[
+37.906,
+22.88
+]
+],
+"site": "corinto",
+"medio": "pie",
+"viaje": 3
+},
+{
+"n": 26,
+"de": "Corinto",
+"a": "Filipos",
+"ref": "Hch 20:3",
+"txt": "Al tramar los judíos un complot contra él cuando iba a zarpar a Siria, tomó la decisión de volver por Macedonia.",
+"arq": "Deshace el camino a pie; en Filipos celebra la Pascua (20:6).",
+"pts": [
+[
+37.906,
+22.88
+],
+[
+38.3,
+23.2
+],
+[
+39.0,
+23.0
+],
+[
+39.8,
+22.6
+],
+[
+40.64,
+22.944
+],
+[
+41.013,
+24.286
+]
+],
+"site": "filipos",
+"medio": "pie",
+"viaje": 3,
+"vuelta": 1
+},
+{
+"n": 27,
+"de": "Filipos",
+"a": "Mileto",
+"ref": "Hch 20:6–15",
+"txt": "Zarpamos de Filipos después de los días de los panes sin levadura… y al otro día llegamos a Mileto.",
+"arq": "Cinco días a Troas; de Asón en barco, de isla en isla (Mitilene, Quíos, Samos), hasta Mileto. Pablo fue a pie de Troas a Asón.",
+"pts": [
+[
+41.013,
+24.286
+],
+[
+40.937,
+24.412
+],
+[
+39.754,
+26.158
+],
+[
+39.49,
+26.33
+],
+[
+39.11,
+26.55
+],
+[
+38.4,
+26.2
+],
+[
+37.75,
+26.97
+],
+[
+37.53,
+27.278
+]
+],
+"site": "mileto",
+"medio": "mar",
+"viaje": 3
+},
+{
+"n": 28,
+"de": "Mileto",
+"a": "Tiro",
+"ref": "Hch 21:1–3",
+"txt": "Navegamos a Cos, a Rodas, a Pátara… y arribamos a Tiro.",
+"arq": "Cabotaje hasta Pátara; allí un barco mayor cruza 400 millas a Fenicia, dejando Chipre a la izquierda.",
+"pts": [
+[
+37.53,
+27.278
+],
+[
+36.89,
+27.29
+],
+[
+36.44,
+28.22
+],
+[
+36.26,
+29.31
+],
+[
+35.5,
+31.5
+],
+[
+34.6,
+33.0
+],
+[
+33.8,
+34.6
+],
+[
+33.272,
+35.197
+]
+],
+"site": "tiro",
+"medio": "mar",
+"viaje": 3
+},
+{
+"n": 29,
+"de": "Tiro",
+"a": "Jerusalén",
+"ref": "Hch 21:7–17",
+"txt": "Llegamos de Tiro a Tolemaida… descendimos a Cesarea… y subimos a Jerusalén.",
+"arq": "Por mar a Tolemaida y Cesarea; de Cesarea a pie, 100 km, con Mnasón de Chipre.",
+"pts": [
+[
+33.272,
+35.197
+],
+[
+32.924,
+35.075
+],
+[
+32.5,
+34.892
+],
+[
+31.778,
+35.235
+]
+],
+"site": "jerusalen",
+"medio": "mar",
+"viaje": 3
+},
+{
+"n": 30,
+"de": "Cesarea",
+"a": "Mira",
+"ref": "Hch 27:2–5",
+"txt": "Zarpamos en una nave adramitena… llegamos a Sidón… navegamos a sotavento de Chipre… y arribamos a Mira de Licia.",
+"arq": "Nave de cabotaje de Adramitio; al abrigo de Chipre por los vientos contrarios del oeste.",
+"pts": [
+[
+32.5,
+34.892
+],
+[
+33.56,
+35.37
+],
+[
+34.6,
+34.6
+],
+[
+35.6,
+33.5
+],
+[
+36.0,
+31.5
+],
+[
+36.26,
+29.98
+]
+],
+"site": "mira",
+"medio": "mar",
+"viaje": 4
+},
+{
+"n": 31,
+"de": "Mira",
+"a": "Buenos Puertos",
+"ref": "Hch 27:6–8",
+"txt": "Una nave alejandrina que zarpaba para Italia… navegando muchos días despacio, llegamos frente a Gnido… y a sotavento de Creta, frente a Salmón, llegamos a Buenos Puertos.",
+"arq": "Nave de trigo de Alejandría. El viento no deja doblar Gnido; buscan el abrigo del sur de Creta.",
+"pts": [
+[
+36.26,
+29.98
+],
+[
+36.4,
+28.6
+],
+[
+36.69,
+27.37
+],
+[
+35.9,
+26.7
+],
+[
+35.18,
+26.3
+],
+[
+34.95,
+25.3
+],
+[
+34.93,
+24.78
+]
+],
+"site": "buenospuertos",
+"medio": "mar",
+"viaje": 4
+},
+{
+"n": 32,
+"de": "Buenos Puertos",
+"a": "Malta",
+"ref": "Hch 27:13–28:1",
+"txt": "Dio contra la nave un viento huracanado llamado Euroaquilón… y a la decimocuarta noche… supimos que la isla se llamaba Malta.",
+"arq": "476 millas a la deriva en trece-catorce días, al oeste-noroeste, según el cálculo de Smith (1848). El cuarto naufragio de Pablo.",
+"pts": [
+[
+34.93,
+24.78
+],
+[
+34.84,
+24.08
+],
+[
+34.9,
+22.0
+],
+[
+35.3,
+19.0
+],
+[
+35.7,
+16.5
+],
+[
+35.95,
+14.4
+]
+],
+"site": "malta",
+"medio": "mar",
+"viaje": 4
+},
+{
+"n": 33,
+"de": "Malta",
+"a": "Puteoli",
+"ref": "Hch 28:11–13",
+"txt": "Pasados tres meses, nos hicimos a la vela en una nave alejandrina… Siracusa… Regio… Puteoli.",
+"arq": "Otra nave de trigo, «con los Dióscuros por enseña», que invernó en Malta. Siete días con los hermanos en Puteoli.",
+"pts": [
+[
+35.95,
+14.4
+],
+[
+37.075,
+15.287
+],
+[
+38.11,
+15.65
+],
+[
+39.5,
+15.0
+],
+[
+40.822,
+14.122
+]
+],
+"site": "puteoli",
+"medio": "mar",
+"viaje": 4
+},
+{
+"n": 34,
+"de": "Puteoli",
+"a": "Roma",
+"ref": "Hch 28:14–16",
+"txt": "Y así llegamos a Roma… los hermanos salieron a recibirnos hasta el Foro de Apio y las Tres Tabernas.",
+"arq": "Unos 230 km por la Vía Apia; los cristianos de Roma salen a 64 y a 48 km de la ciudad.",
+"pts": [
+[
+40.822,
+14.122
+],
+[
+41.43,
+13.08
+],
+[
+41.6,
+12.83
+],
+[
+41.893,
+12.483
+]
+],
+"site": "roma",
+"medio": "pie",
+"viaje": 4
+}
+],
+"rutas": [
+{
+"n": "Vía Egnatia",
+"nota": "Calzada romana (s. II a. e. c.) de Dirraquio y Apolonia, en el Adriático, a Bizancio, por Tesalónica, Anfípolis, Filipos y Neápolis. Pablo la siguió de Neápolis a Tesalónica (Hch 16–17) y de vuelta (Hch 20).",
+"pts": [
+[
+41.33,
+19.45
+],
+[
+41.0,
+20.6
+],
+[
+40.75,
+21.6
+],
+[
+40.6,
+22.4
+],
+[
+40.64,
+22.944
+],
+[
+40.83,
+23.85
+],
+[
+41.013,
+24.286
+],
+[
+40.937,
+24.412
+],
+[
+41.2,
+25.5
+],
+[
+41.0,
+26.6
+],
+[
+41.01,
+28.97
+]
+],
+"fuente": "Collart, Filipos"
+},
+{
+"n": "Vía Apia",
+"nota": "La «reina de las calzadas» (312 a. e. c.), de Roma a Capua y Brindisi. Pablo la recorrió desde Puteoli; el Foro de Apio y Tres Tabernas son sus estaciones (Hch 28:15).",
+"pts": [
+[
+41.893,
+12.483
+],
+[
+41.6,
+12.83
+],
+[
+41.43,
+13.08
+],
+[
+41.27,
+13.42
+],
+[
+41.1,
+14.2
+],
+[
+40.7,
+15.0
+],
+[
+40.4,
+16.5
+],
+[
+40.63,
+17.93
+]
+]
+},
+{
+"n": "Vía Sebaste",
+"nota": "Calzada de Augusto (6 a. e. c.) que unía las colonias del sur de Galacia: de Perge y Antioquía de Pisidia a Iconio y Listra. El primer viaje la siguió en gran parte.",
+"pts": [
+[
+36.961,
+30.854
+],
+[
+37.35,
+30.95
+],
+[
+37.8,
+31.05
+],
+[
+38.306,
+31.189
+],
+[
+38.1,
+31.7
+],
+[
+37.872,
+32.493
+],
+[
+37.579,
+32.286
+]
+]
+},
+{
+"n": "Ruta del trigo de Alejandría",
+"nota": "Las naves de trigo de Alejandría a Roma, de hasta 1200 toneladas, iban en primavera y otoño por Licia, Rodas, Creta y Malta hasta Puteoli. Pablo viajó en dos de ellas (Hch 27:6; 28:11).",
+"pts": [
+[
+31.2,
+29.9
+],
+[
+33.5,
+29.0
+],
+[
+35.5,
+29.5
+],
+[
+36.26,
+29.98
+],
+[
+36.3,
+28.3
+],
+[
+35.3,
+26.2
+],
+[
+34.9,
+24.5
+],
+[
+35.4,
+19.5
+],
+[
+35.95,
+14.4
+],
+[
+37.075,
+15.287
+],
+[
+38.11,
+15.65
+],
+[
+40.822,
+14.122
+]
+],
+"fuente": "Casson, Viajes en el mundo antiguo"
+},
+{
+"n": "Camino de Damasco",
+"he": "",
+"nota": "La ruta de Jerusalén a Damasco por Samaria, Galilea y el Golán (unos 220 km), que Pablo siguió como perseguidor (Hch 9:3).",
+"pts": [
+[
+31.778,
+35.235
+],
+[
+32.1,
+35.4
+],
+[
+32.55,
+35.75
+],
+[
+32.95,
+35.95
+],
+[
+33.3,
+36.15
+],
+[
+33.513,
+36.292
+]
+]
+}
+],
+"ciudades_extra": [
+[
+"Estambul",
+41.01,
+28.97
+],
+[
+"Esmirna",
+38.42,
+27.14
+],
+[
+"Antalya",
+36.89,
+30.7
+],
+[
+"Konya",
+37.87,
+32.49
+],
+[
+"Adana",
+37.0,
+35.32
+],
+[
+"Beirut",
+33.89,
+35.5
+],
+[
+"Tel Aviv",
+32.08,
+34.78
+],
+[
+"Amán",
+31.95,
+35.93
+],
+[
+"El Cairo",
+30.04,
+31.24
+],
+[
+"Alejandría",
+31.2,
+29.92
+],
+[
+"Nicosia",
+35.17,
+33.36
+],
+[
+"Heraclión",
+35.34,
+25.13
+],
+[
+"Salónica",
+40.64,
+22.94
+],
+[
+"Atenas",
+37.98,
+23.73
+],
+[
+"Nápoles",
+40.85,
+14.27
+],
+[
+"Roma",
+41.89,
+12.48
+],
+[
+"Palermo",
+38.12,
+13.36
+],
+[
+"Tirana",
+41.33,
+19.82
+],
+[
+"Sofía",
+42.7,
+23.32
+],
+[
+"Ankara",
+39.93,
+32.86
+],
+[
+"La Valeta",
+35.9,
+14.51
+],
+[
+"Túnez",
+36.81,
+10.17
+],
+[
+"Bengasi",
+32.12,
+20.07
+],
+[
+"Damasco",
+33.51,
+36.29
+]
+]
+}

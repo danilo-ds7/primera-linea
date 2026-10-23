@@ -1,0 +1,49 @@
+/* Tema de la línea de Pablo: Vía romana (claro: piedra, mármol y rojo pompeyano), Noche en Malta (oscuro: mar
+   nocturno y bronce) y Púrpura de Lidia (la púrpura de Tiatira sobre lino, Hch 16:14). Reemplaza los tokens del motor de Abraham. */
+:root{
+  --bg:#efe9df; --surface:#f8f4ec; --nav:#e3dbcc; --nav-2:#d3c7b2; --ink:#231c16; --muted:#67594a; --rule:#c6b79e;
+  --accent:#8c2634; --accent-ink:#8c2634; --on-accent:#f8f4ec; --warn:#8c2634;
+  --gold:#c4932c; --gold-ink:#7a5a0e; --olive:#596a2f; --earth:#392b1d; --sepia:#7b5e3c; --wine:#8c2634; --teal:#1a6f79; --blue:#22488b; --terra:#a44a2c; --grey:#7b715f;
+  --purple:#5c2f70; --azure:#2a6c9c;
+  --on-c:#f8f4ec; --sea:#c6d9e6; --land:#efe6d3; --river:#3b78a8;
+  --shadow:0 18px 40px -22px rgba(60,40,20,.5); --glow:none;
+  --f-display:"Latin Modern Roman","GFS Porson","Times New Roman",serif;
+  --f-ui:"Latin Modern Sans",system-ui,sans-serif;
+  --f-mono:"Latin Modern Roman Caps","Latin Modern Roman",serif;
+  --f-tech:"Latin Modern Roman","Times New Roman",serif;
+  --f-he:"Noto Serif Hebrew","Times New Roman",serif;
+  --f-gr:"GFS Porson","Latin Modern Roman",serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1a24; --surface:#17242f; --nav:#0b141c; --nav-2:#213240; --ink:#ede4d2; --muted:#aeb8b8; --rule:#34485a;
+  --accent:#d8a64a; --accent-ink:#e3b65c; --on-accent:#0f1a24; --warn:#ec8f8f;
+  --gold:#e3b65c; --gold-ink:#ebc572; --olive:#b4c27c; --earth:#d9caa9; --sepia:#cfa877; --wine:#e3838f; --teal:#6fc6cc; --blue:#8fb4ea; --terra:#e59a74; --grey:#a3a89b;
+  --purple:#c79fdb; --azure:#86c0e8;
+  --on-c:#0f1a24; --sea:#17293a; --land:#213040; --river:#6fa3cf;
+  --shadow:0 18px 40px -22px rgba(0,0,0,.9); --glow:none; color-scheme:dark}}
+:root[data-theme="purpura"]{
+  --bg:#f3eef0; --surface:#fbf8f9; --nav:#e8dfe4; --nav-2:#d8cad3; --ink:#2a1a2e; --muted:#6a5570; --rule:#cfbfc9;
+  --accent:#5c2f70; --accent-ink:#5c2f70; --on-accent:#fbf8f9; --warn:#a3203a;
+  --gold:#b9892a; --gold-ink:#755612; --olive:#55682f; --earth:#2e2430; --sepia:#7a6050; --wine:#962a44; --teal:#226b71; --blue:#304a8e; --terra:#9a5030; --grey:#7d7380;
+  --purple:#5c2f70; --azure:#3a66a0;
+  --on-c:#fbf8f9; --sea:#c9d3e6; --land:#f3ecee; --river:#4a62a6;
+  --shadow:0 18px 40px -22px rgba(60,30,70,.4); --glow:none; color-scheme:light}
+:root[data-theme="dark"]{
+  --bg:#0f1a24; --surface:#17242f; --nav:#0b141c; --nav-2:#213240; --ink:#ede4d2; --muted:#aeb8b8; --rule:#34485a;
+  --accent:#d8a64a; --accent-ink:#e3b65c; --on-accent:#0f1a24; --warn:#ec8f8f;
+  --gold:#e3b65c; --gold-ink:#ebc572; --olive:#b4c27c; --earth:#d9caa9; --sepia:#cfa877; --wine:#e3838f; --teal:#6fc6cc; --blue:#8fb4ea; --terra:#e59a74; --grey:#a3a89b;
+  --purple:#c79fdb; --azure:#86c0e8;
+  --on-c:#0f1a24; --sea:#17293a; --land:#213040; --river:#6fa3cf;
+  --shadow:0 18px 40px -22px rgba(0,0,0,.9); --glow:none; color-scheme:dark}
+/*TEMA:ERAS*/
+.c0{--c:var(--grey);--c-ink:var(--grey);--c-on:var(--on-c)}
+.c1{--c:var(--gold);--c-ink:var(--gold-ink);--c-on:#231c16}
+.c2{--c:var(--olive);--c-ink:var(--olive);--c-on:var(--on-c)}
+.c3{--c:var(--blue);--c-ink:var(--blue);--c-on:var(--on-c)}
+.c4{--c:var(--terra);--c-ink:var(--terra);--c-on:var(--on-c)}
+.c5{--c:var(--teal);--c-ink:var(--teal);--c-on:var(--on-c)}
+.c6{--c:var(--purple);--c-ink:var(--purple);--c-on:var(--on-c)}
+.c7{--c:var(--sepia);--c-ink:var(--sepia);--c-on:var(--on-c)}
+.c8{--c:var(--wine);--c-ink:var(--wine);--c-on:var(--on-c)}
+.c9{--c:var(--azure);--c-ink:var(--azure);--c-on:var(--on-c)}

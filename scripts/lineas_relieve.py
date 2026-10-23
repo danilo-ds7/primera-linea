@@ -122,8 +122,12 @@ def render(nombre, tif, latlon, ancho_px, exag, trozos=(1, 1)):
     return indice
 
 idx = []
-idx += render("amplio", DEM / "amplio.tif", (27.0, 40.0, 28.0, 51.0), 3600, 2.4, (2, 1))
-idx += render("levante", DEM / "levante.tif", (29.5, 34.4, 33.3, 37.2), 4200, 1.5, (2, 3))
+if SLUG == "pablo":   # el Mediterráneo, de Roma a Judea, a 15" (mediterraneo.tif) y el Egeo a 5" (egeo.tif)
+    idx += render("amplio", DEM / "mediterraneo.tif", (30.0, 46.0, 9.0, 41.0), 5400, 2.4, (3, 2))
+    idx += render("egeo", DEM / "egeo.tif", (35.0, 42.0, 19.0, 31.0), 4800, 1.6, (3, 2))
+else:
+    idx += render("amplio", DEM / "amplio.tif", (27.0, 40.0, 28.0, 51.0), 3600, 2.4, (2, 1))
+    idx += render("levante", DEM / "levante.tif", (29.5, 34.4, 33.3, 37.2), 4200, 1.5, (2, 3))
 if SLUG == "moises":   # delta oriental, Sinaí, golfo de Aqaba y Madián, a 3" (rama datos-relieve: sur.tif)
     idx += render("sur", DEM / "sur.tif", (27.2, 31.6, 31.0, 36.6), 4800, 1.5, (2, 2))
 (OUT / "indice.json").write_text(json.dumps(idx, ensure_ascii=False, indent=1))

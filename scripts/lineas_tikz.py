@@ -91,14 +91,40 @@ PREAMBULO = r"""\documentclass{article}
   \fill[terra] (0,14pt) .. controls (2.6pt,17pt) and (3.6pt,19pt) .. (2.4pt,21.5pt) .. controls (1.6pt,22.8pt) and (-1.6pt,22.8pt) .. (-2.4pt,21.5pt) .. controls (-3.6pt,19pt) and (-2.6pt,17pt) .. (0,14pt) -- cycle;
   \fill[gold] (0,15pt) .. controls (1.1pt,16.5pt) and (1.4pt,17.6pt) .. (0.9pt,18.4pt) .. controls (0.5pt,18.9pt) and (-0.5pt,18.9pt) .. (-0.9pt,18.4pt) .. controls (-1.4pt,17.6pt) and (-1.1pt,16.5pt) .. (0,15pt) -- cycle;
 }}
+% carta: un rollo de papiro, para las líneas cuyos marcadores son cartas (Pablo)
+\tikzset{carta/.pic={
+  \filldraw[fill=land,draw=earth,line width=.5pt,rounded corners=1.2pt] (-9pt,2pt) rectangle (10pt,20pt);
+  \filldraw[fill=land2,draw=earth,line width=.5pt,rounded corners=1.5pt] (-12pt,4pt) rectangle (-7pt,18pt);
+  \draw[wine,line width=1pt,line cap=round] (-5pt,15pt) -- (6pt,15pt) (-5pt,11pt) -- (6pt,11pt) (-5pt,7pt) -- (2pt,7pt);
+}}
+% pictogramas de transporte: nave (tramos por mar) y caminante (tramos a pie)
+\tikzset{nave/.pic={
+  \fill[land,opacity=.88] (0,0) circle (9.5pt);
+  \fill[#1] (-7pt,1.5pt) .. controls (-2pt,-1.5pt) and (2pt,-1.5pt) .. (7pt,1.5pt) -- (5.5pt,-3.5pt) .. controls (2pt,-5pt) and (-2pt,-5pt) .. (-5.5pt,-3.5pt) -- cycle;
+  \draw[#1,line width=1.1pt] (0,1pt) -- (0,8.5pt);
+  \fill[#1] (1pt,8pt) -- (6.5pt,1.5pt) -- (1pt,1.5pt) -- cycle; \fill[#1,opacity=.75] (-1pt,6.5pt) -- (-5.5pt,1pt) -- (-1pt,1pt) -- cycle;
+},caminante/.pic={
+  \fill[land,opacity=.88] (0,0) circle (9.5pt);
+  \fill[#1] (1pt,6.5pt) circle (1.9pt);
+  \draw[#1,line width=1.4pt,line cap=round,line join=round] (.6pt,3.8pt) -- (-1pt,-.5pt) -- (-3.2pt,-6pt) (-1pt,-.5pt) -- (2.6pt,-3.5pt) -- (3.1pt,-6.5pt) (-2.6pt,2pt) -- (1pt,1.5pt) -- (4pt,-1pt);
+}}
 \begin{document}
 """
 
 def proj(lat, lon):
     return lon * ASPECT, lat
 
+OX = OY = 0.0   # origen del mapa en curso (las coordenadas van relativas al bbox: TikZ no admite cotas > 575 cm)
+CLIP = None     # (lat0, lat1, lon0, lon1) con margen: los puntos de fuera se pegan al borde (quedan bajo el \clip)
+
 def fmt(v):
     return f"{v:.3f}"
+
+def fx(v):
+    return f"{v - OX:.3f}"
+
+def fy(v):
+    return f"{v - OY:.3f}"
 
 def thin(pts, d):
     out = [pts[0]]
@@ -111,7 +137,9 @@ def thin(pts, d):
 
 def path(pts, closed=False, smooth=True):
     """Lista lat/lon → coordenadas TikZ (lon·cos, lat)."""
-    cs = " ".join(f"({fmt(lon * ASPECT)},{fmt(lat)})" for lat, lon in pts)
+    if CLIP:
+        pts = [(min(max(lat, CLIP[0]), CLIP[1]), min(max(lon, CLIP[2]), CLIP[3])) for lat, lon in pts]
+    cs = " ".join(f"({fx(lon * ASPECT)},{fy(lat)})" for lat, lon in pts)
     if smooth and len(pts) > 2:
         return f"plot[smooth{', smooth cycle' if closed else ''},tension=.45] coordinates {{{cs}}}"
     return cs.replace(") (", ") -- (") + (" -- cycle" if closed else "")
@@ -121,7 +149,9 @@ def inb(B, lat, lon, pad_lat=.03, pad_lon=.08):
 
 def mapa_tikz(n, m):
     """Devuelve (código tikz, puntos tocables en %)."""
-    B = m["bbox"]; wide = bool(m.get("wide"))
+    global OX, OY, CLIP
+    B = m["bbox"]; wide = bool(m.get("wide")); OX, OY = B[2] * ASPECT, B[0]
+    mg = max(.25, .12 * (B[1] - B[0])); CLIP = (B[0] - mg, B[1] + mg, B[2] - mg * 1.3, B[3] + mg * 1.3)
     G = GEO["wide"] if wide else GEO["lev"]
     H = 412.0; SC = H / (B[1] - B[0])              # misma escala lógica que el motor interactivo
     F = m.get("fs") or (1.3 if SC < 60 else 1.15 if SC < 120 else 1.0)
@@ -135,11 +165,12 @@ def mapa_tikz(n, m):
     L = []
     A = L.append
     A(f"\\begin{{tikzpicture}}[x={{({S:.5f}cm,0)}},y={{(0,{S:.5f}cm)}}]")
-    A(f"\\useasboundingbox ({fmt(B[2]*ASPECT)},{fmt(B[0])}) rectangle ({fmt(B[3]*ASPECT)},{fmt(B[1])});")
-    A(f"\\clip ({fmt(B[2]*ASPECT)},{fmt(B[0])}) rectangle ({fmt(B[3]*ASPECT)},{fmt(B[1])});")
+    A(f"\\useasboundingbox ({fx(B[2]*ASPECT)},{fy(B[0])}) rectangle ({fx(B[3]*ASPECT)},{fy(B[1])});")
+    A(f"\\clip ({fx(B[2]*ASPECT)},{fy(B[0])}) rectangle ({fx(B[3]*ASPECT)},{fy(B[1])});")
     # mar con degradado suave y orlas de costa
-    A(f"\\shade[top color=sea,bottom color=seadeep] ({fmt(B[2]*ASPECT-1)},{fmt(B[0]-1)}) rectangle ({fmt(B[3]*ASPECT+1)},{fmt(B[1]+1)});")
-    rings = G["lands"] if wide else [(G.get("land2") or G["land"])[0]]
+    A(f"\\shade[top color=sea,bottom color=seadeep] ({fx(B[2]*ASPECT-1)},{fy(B[0]-1)}) rectangle ({fx(B[3]*ASPECT+1)},{fy(B[1]+1)});")
+    PROPIO = bool(DATA.get("geo_propio"))
+    rings = G["lands"] if wide else (G["land"] if PROPIO else [(G.get("land2") or G["land"])[0]])
     landP = []
     for r in rings:
         pts = thin(r[:-1], thin_d)
@@ -155,16 +186,16 @@ def mapa_tikz(n, m):
         A(f"\\clip {p};")
     la = math.ceil(B[0] / GS) * GS
     while la <= B[1]:
-        A(f"\\draw[sepia,line width=.25pt,opacity=.28,dash pattern=on .6pt off 2pt] ({fmt(B[2]*ASPECT-1)},{fmt(la)}) -- ({fmt(B[3]*ASPECT+1)},{fmt(la)});"); la += GS
+        A(f"\\draw[sepia,line width=.25pt,opacity=.28,dash pattern=on .6pt off 2pt] ({fx(B[2]*ASPECT-1)},{fy(la)}) -- ({fx(B[3]*ASPECT+1)},{fy(la)});"); la += GS
     lo = math.ceil(B[2] / GS) * GS
     while lo <= B[3]:
-        A(f"\\draw[sepia,line width=.25pt,opacity=.28,dash pattern=on .6pt off 2pt] ({fmt(lo*ASPECT)},{fmt(B[0]-1)}) -- ({fmt(lo*ASPECT)},{fmt(B[1]+1)});"); lo += GS
+        A(f"\\draw[sepia,line width=.25pt,opacity=.28,dash pattern=on .6pt off 2pt] ({fx(lo*ASPECT)},{fy(B[0]-1)}) -- ({fx(lo*ASPECT)},{fy(B[1]+1)});"); lo += GS
     # relieve: cordilleras como trazos suaves superpuestos
-    for w, op, pts in (RIDGES + RIDGES_W if wide else RIDGES):
+    for w, op, pts in ([] if PROPIO else (RIDGES + RIDGES_W if wide else RIDGES)):
         lw = min(w * SC, 30) * .55           # px → pt, algo más estrecho que en pantalla
         for f, o in ((1.0, .07), (.85, .07), (.7, .08), (.55, .09), (.4, .1), (.25, .11)):
             A(f"\\draw[sepia,opacity={o:.2f},line width={lw*f:.2f}pt,line cap=round,line join=round] {path(pts)};")
-    if not wide:
+    if not wide and not PROPIO:
         valle = max(G["rivers"], key=len)
         A(f"\\draw[olive,opacity=.16,line width={min(.07*SC,14)/1.33:.2f}pt,line cap=round] {path(thin(valle, thin_d))};")
     A("\\end{scope}")
@@ -172,7 +203,7 @@ def mapa_tikz(n, m):
         col = (z.get("col") or "gold").replace("var(--", "").replace(")", "")
         A(f"\\filldraw[fill={col},fill opacity=.16,draw={col},opacity=.8,line width=1pt,dash pattern=on 4pt off 2.5pt] {path(z['pts'], closed=True)};")
     # ríos y lagos
-    rv = [r[1] for r in G["rivers"]] if wide else G["rivers"] + [r[1] for r in RIOS]
+    rv = [r[1] for r in G["rivers"]] if wide else G["rivers"] + ([] if PROPIO else [r[1] for r in RIOS])
     for r in rv:
         A(f"\\draw[river,line width=.55pt,line cap=round,line join=round] {path(thin(r, thin_d*1.4))};")
     for lk in G["lakes"]:
@@ -198,14 +229,17 @@ def mapa_tikz(n, m):
         h = fs * F * .78 / 28.45 / S
         if any(x0 < o[1] and x0 + w > o[0] and lat - h / 2 < o[3] and lat + h / 2 > o[2] for o in ocupado): return
         st = {"seal": "mar", "reg": "region", "rel": "relieve"}[cls]
-        A(f"\\node[{st},font=\\fontsize{{{fs*F*.78:.1f}}}{{{fs*F*.9:.1f}}}\\selectfont,anchor={anchor},rotate={rot}{extra}] at ({fmt(lon*ASPECT)},{fmt(lat)}) {{{t}}};")
+        A(f"\\node[{st},font=\\fontsize{{{fs*F*.78:.1f}}}{{{fs*F*.9:.1f}}}\\selectfont,anchor={anchor},rotate={rot}{extra}] at ({fx(lon*ASPECT)},{fy(lat)}) {{{t}}};")
     if wide:
-        for t, la_, lo_, c, fs, mn, mx in DATA.get("labw", []) + LAB_W:
+        for t, la_, lo_, c, fs, mn, mx in DATA.get("labw", []) + ([] if PROPIO else LAB_W):
             if mn <= SC < mx and t not in m.get("sin_rotulos", []): lab(t, la_, lo_, c, fs)
+    elif PROPIO:
+        for t, la_, lo_, c, fs, mn, mx in DATA.get("labw", []):
+            if mn <= SC < mx and t not in m.get("sin_rotulos", []): lab(t, la_, lo_, c, fs, anchor="west")
     else:
         if B[2] < 34.6:
             la_ = min(max(32.45, B[0] + .3), B[1] - .3); lo_ = max(B[2] + .12, 34.2 + (la_ - 31.25) * .55 - .12)
-            A(f"\\node[mar,font=\\fontsize{{8.5}}{{9}}\\selectfont,rotate=68] at ({fmt(lo_*ASPECT)},{fmt(la_)}) {{Mar Grande (Mediterráneo)}};")
+            A(f"\\node[mar,font=\\fontsize{{8.5}}{{9}}\\selectfont,rotate=68] at ({fx(lo_*ASPECT)},{fy(la_)}) {{Mar Grande (Mediterráneo)}};")
         lab("Mar Salado", 31.36, 35.37, "seal", 12, anchor="east"); lab("Kinéret", 32.80, 35.70, "seal", 12, anchor="west"); lab("Jordán", 32.14, 35.60, "seal", 12, anchor="west")
         for nme, pts, k in RIOS:
             if k:
@@ -223,6 +257,15 @@ def mapa_tikz(n, m):
         A(f"\\draw[white,opacity=.55,line width={lw+2.2:.2f}pt,line cap=round,line join=round] {path(pts)};")
         dash = ",dash pattern=on 3.2pt off 2.6pt" if p.get("dash") else ""
         A(f"\\draw[{col},line width={lw:.2f}pt,line cap=round,line join=round{dash},{arrow}] {path(pts)};")
+        if p.get("medio") in ("mar", "pie"):
+            P = [(lon * ASPECT, lat) for lat, lon in pts]
+            segs = [math.hypot(P[i][0]-P[i-1][0], P[i][1]-P[i-1][1]) for i in range(1, len(P))]
+            d = sum(segs) * (p.get("gf") or .5); gx, gy = P[-1]
+            for i, l in enumerate(segs):
+                if d <= l or i == len(segs) - 1:
+                    t = d / l if l else 0; gx = P[i][0] + (P[i+1][0]-P[i][0]) * t; gy = P[i][1] + (P[i+1][1]-P[i][1]) * t; break
+                d -= l
+            A(f"\\pic[scale={.85*F*(p.get('gs') or 1):.2f}] at ({fx(gx)},{fy(gy)}) {{{'nave' if p['medio']=='mar' else 'caminante'}={col}}};")
         if p.get("lab"):
             # punto a la fracción lf del trayecto
             P = [(lon * ASPECT, lat) for lat, lon in pts]
@@ -237,27 +280,27 @@ def mapa_tikz(n, m):
             side = p.get("side") or 1
             nx, ny = -math.sin(an) * side, math.cos(an) * side
             off = 10 / 28.45 / S
-            A(f"\\node[etqtrayecto] at ({fmt(x + nx*off*ASPECT)},{fmt(y + ny*off)}) {{{p['lab']}}};")
+            A(f"\\node[etqtrayecto] at ({fx(x + nx*off*ASPECT)},{fy(y + ny*off)}) {{{p['lab']}}};")
     for a, b in m.get("route", []):
-        A(f"\\draw[trayecto] ({fmt(SITES[a][1]*ASPECT)},{fmt(SITES[a][0])}) to[bend left=12] ({fmt(SITES[b][1]*ASPECT)},{fmt(SITES[b][0])});")
+        A(f"\\draw[trayecto] ({fx(SITES[a][1]*ASPECT)},{fy(SITES[a][0])}) to[bend left=12] ({fx(SITES[b][1]*ASPECT)},{fy(SITES[b][0])});")
     # lugares de contexto
     if m.get("ctx") is not False and not wide:
         for key, (la_, lo_, nme, _) in SITES.items():
             if key in hl or key in altars or not inb(B, la_, lo_): continue
-            A(f"\\node[ctx] at ({fmt(lo_*ASPECT)},{fmt(la_)}) {{}};")
+            A(f"\\node[ctx] at ({fx(lo_*ASPECT)},{fy(la_)}) {{}};")
     # lugares destacados
     boxes = []
     for key in hl:
         if key in altars: continue
         la_, lo_, nme, _ = SITES[key]
-        A(f"\\node[sitio] at ({fmt(lo_*ASPECT)},{fmt(la_)}) {{}};")
+        A(f"\\node[sitio] at ({fx(lo_*ASPECT)},{fy(la_)}) {{}};")
         spots.append([key, *pct(la_, lo_), "sitio", None])
     # altares numerados
     for i, key in enumerate(altars):
         la_, lo_, nme, _ = SITES[key]
         an = (ALT.get(key) or {}).get("n", i + 1); old = bool(focus) and key not in focus
-        A(f"\\pic[scale={.6*F:.2f}{',opacity=.5' if old else ''}] at ({fmt(lo_*ASPECT)},{fmt(la_)}) {{altar}};")
-        A(f"\\node[insignia{',opacity=.5' if old else ''}] at ($({fmt(lo_*ASPECT)},{fmt(la_)})+({9*F:.1f}pt,{16*F:.1f}pt)$) {{{an}}};")
+        A(f"\\pic[scale={.6*F:.2f}{',opacity=.5' if old else ''}] at ({fx(lo_*ASPECT)},{fy(la_)}) {{{DATA.get('pic_marcador') or 'altar'}}};")
+        A(f"\\node[insignia{',opacity=.5' if old else ''}] at ($({fx(lo_*ASPECT)},{fy(la_)})+({9*F:.1f}pt,{16*F:.1f}pt)$) {{{an}}};")
         spots.append([key, *pct(la_, lo_), "altar", an])
     # estaciones numeradas (agrupadas si coinciden)
     grupos = {}
@@ -269,7 +312,7 @@ def mapa_tikz(n, m):
     for g in grupos.values():
         for k, (nn, ring) in enumerate(g["list"]):
             dx = -(9 + k * 12) * F; dy = -7 * F
-            A(f"\\node[insignia{',draw=gold,line width=1.1pt' if ring else ''}] at ($({fmt(g['lo']*ASPECT)},{fmt(g['la'])})+({dx:.1f}pt,{dy:.1f}pt)$) {{{nn}}};")
+            A(f"\\node[insignia{',draw=gold,line width=1.1pt' if ring else ''}] at ($({fx(g['lo']*ASPECT)},{fy(g['la'])})+({dx:.1f}pt,{dy:.1f}pt)$) {{{nn}}};")
             spots.append([g["key"], pct(g["la"], g["lo"])[0] + dx / (W_cm * 28.45) * 100, pct(g["la"], g["lo"])[1] - dy / (H_CM * 28.45) * 100, "estacion", nn])
     for t, la_, lo_, c in m.get("notes", []):
         lab(t.replace("↙", "$\\swarrow$").replace("↗", "$\\nearrow$").replace("→", "$\\rightarrow$"), la_, lo_, c or "reg", 11)
@@ -291,29 +334,29 @@ def mapa_tikz(n, m):
         dx, dy, anc = pick
         x0 = lo_ + dx * deg_pt / ASPECT; y0 = la_ + dy * deg_pt
         taken.append((pct(y0, x0 if anc == "west" else x0 - w_pt * deg_pt / ASPECT)[0], pct(y0, x0)[1] - 1.2, w_pt / (W_cm * 28.45) * 100, 2.6))
-        A(f"\\node[etq,anchor={anc}{',font=\\scshape\\bfseries\\fontsize{8.5}{9}\\selectfont' if isA else ''}] at ({fmt(x0*ASPECT)},{fmt(y0)}) {{{nme}}};")
+        A(f"\\node[etq,anchor={anc}{',font=\\scshape\\bfseries\\fontsize{8.5}{9}\\selectfont' if isA else ''}] at ({fx(x0*ASPECT)},{fy(y0)}) {{{nme}}};")
     # retícula: cifras en los bordes
     la = math.ceil((B[0] + .05) / GS) * GS
     while la < B[1] - .05:
-        A(f"\\node[grat,anchor=south west] at ({fmt(B[2]*ASPECT)},{fmt(la)}) {{{la:g}° N}};"); la += GS
+        A(f"\\node[grat,anchor=south west] at ({fx(B[2]*ASPECT)},{fy(la)}) {{{la:g}° N}};"); la += GS
     lo = math.ceil((B[2] + .1) / GS) * GS
     while lo < B[3] - .1:
-        A(f"\\node[grat,anchor=north west] at ({fmt(lo*ASPECT)},{fmt(B[1])}) {{{lo:g}° E}};"); lo += GS
+        A(f"\\node[grat,anchor=north west] at ({fx(lo*ASPECT)},{fy(B[1])}) {{{lo:g}° E}};"); lo += GS
     # escala y rosa de los vientos
-    A(f"\\begin{{scope}}[shift={{({fmt(B[2]*ASPECT)},{fmt(B[0])})}},x=1cm,y=1cm]")
+    A(f"\\begin{{scope}}[shift={{({fx(B[2]*ASPECT)},{fy(B[0])})}},x=1cm,y=1cm]")
     A(f"\\fill[land,opacity=.85,rounded corners=1pt] (.25,.2) rectangle ({.45+km_cm:.3f},.72);")
     A(f"\\draw[ink,line width=1pt] (.35,.4) -- ({.35+km_cm:.3f},.4); \\draw[ink,line width=.6pt] (.35,.33) -- (.35,.47) ({.35+km_cm:.3f},.33) -- ({.35+km_cm:.3f},.47);")
     A(f"\\node[grat,font=\\sffamily\\fontsize{{6}}{{6}}\\selectfont,anchor=south west,text=ink] at (.33,.44) {{{kmb} km}};")
     A("\\end{scope}")
-    A(f"\\begin{{scope}}[shift={{({fmt(B[3]*ASPECT)},{fmt(B[1])})}},x=1cm,y=1cm]")
+    A(f"\\begin{{scope}}[shift={{({fx(B[3]*ASPECT)},{fy(B[1])})}},x=1cm,y=1cm]")
     A("\\fill[land,opacity=.85] (-.55,-.55) circle (.36);")
     A("\\draw[sepia,line width=.3pt] (-.55,-.55) circle (.3); \\fill[ink] (-.55,-.33) -- (-.6,-.55) -- (-.5,-.55) -- cycle; \\fill[land2,draw=ink,line width=.3pt] (-.55,-.77) -- (-.6,-.55) -- (-.5,-.55) -- cycle;")
     A("\\draw[ink,line width=.3pt] (-.77,-.55) -- (-.33,-.55);")
     A("\\node[grat,text=ink,font=\\sffamily\\bfseries\\fontsize{6}{6}\\selectfont] at (-.55,-.2) {N};")
     A("\\end{scope}")
     # marco doble
-    A(f"\\draw[rule,line width=.4pt] ({fmt(B[2]*ASPECT)},{fmt(B[0])}) rectangle ({fmt(B[3]*ASPECT)},{fmt(B[1])});")
-    A(f"\\draw[sepia,line width=1pt] ([shift={{(1.5pt,1.5pt)}}]{fmt(B[2]*ASPECT)},{fmt(B[0])}) rectangle ([shift={{(-1.5pt,-1.5pt)}}]{fmt(B[3]*ASPECT)},{fmt(B[1])});")
+    A(f"\\draw[rule,line width=.4pt] ({fx(B[2]*ASPECT)},{fy(B[0])}) rectangle ({fx(B[3]*ASPECT)},{fy(B[1])});")
+    A(f"\\draw[sepia,line width=1pt] ([shift={{(1.5pt,1.5pt)}}]{fx(B[2]*ASPECT)},{fy(B[0])}) rectangle ([shift={{(-1.5pt,-1.5pt)}}]{fx(B[3]*ASPECT)},{fy(B[1])});")
     A("\\end{tikzpicture}")
     return "\n".join(L), spots, round(W_cm / H_CM, 4)
 
@@ -361,8 +404,8 @@ def cronos_tikz(m):
     v = lo
     while v <= hi:
         A(f"\\draw[rule,line width=.3pt,dash pattern=on 1pt off 1.5pt] ({X(v):.3f},.95) -- ({X(v):.3f},{H-.9});")
-        A(f"\\node[grat,font=\\sffamily\\fontsize{{7}}{{8}}\\selectfont,anchor=north] at ({X(v):.3f},.9) {{{-v}}};"); v += m.get("step", 100)
-    A(f"\\node[grat,font=\\sffamily\\fontsize{{7}}{{8}}\\selectfont,anchor=north east] at ({W-.3},.45) {{a.\\,e.\\,c.}};")
+        A(f"\\node[grat,font=\\sffamily\\fontsize{{7}}{{8}}\\selectfont,anchor=north] at ({X(v):.3f},.9) {{{abs(v)}}};"); v += m.get("step", 100)
+    A(f"\\node[grat,font=\\sffamily\\fontsize{{7}}{{8}}\\selectfont,anchor=north east] at ({W-.3},.45) {{{'e.\\,c.' if lo >= 0 else 'a.\\,e.\\,c.'}}};")
     A(f"\\draw[ink,line width=.5pt] (.9,.95) -- ({W-.6},.95);")
     for i, (t, a, b, col, ev) in enumerate(m["rows"]):
         col = col.replace("var(--", "").replace(")", "")

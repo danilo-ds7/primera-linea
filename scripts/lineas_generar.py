@@ -197,6 +197,80 @@ if DATA.get("portada_tres"):
 """
     rep_re(r"\n</style>\n", "\n" + css_pm.replace("\\", "\\\\") + "</style>\n")
 
+
+# ---------- líneas de la era común, en griego, con cartas en vez de altares y pictogramas de transporte ----------
+# (META: era_comun, altar_nombre/altar_lang, labw_solo, medios). Pablo es la primera que los usa.
+if META.get("era_comun"):
+    rep("l.textContent=isMaj?`${-y} a. e. c.`:String(-y);", "l.textContent=isMaj?(y<0?`${-y} a. e. c.`:`${y} e. c.`):String(Math.abs(y));")
+    rep("const yr = y => `${Math.round(-y)}`;", "const yr = y => `${Math.abs(Math.round(y))}`;")
+    rep("s.append(sv('text',{x:X(v),y:278,class:'axl'},String(-v)));", "s.append(sv('text',{x:X(v),y:278,class:'axl'},String(Math.abs(v))));")
+    rep("s.append(sv('text',{x:X1,y:294,class:'axl','text-anchor':'end'},'a. e. c.'));", "s.append(sv('text',{x:X1,y:294,class:'axl','text-anchor':'end'},m.lo>=0?'e. c.':'a. e. c.'));")
+if META.get("altar_nombre"):   # «Carta escrita aquí»: la ficha del lugar y el pictograma del marcador
+    nom = META["altar_nombre"]; gr = META.get("altar_lang") == "el"
+    cita = '<div class="gr" lang="grc">' if gr else '<div class="he" lang="he" dir="rtl">'
+    rep('const alt=A?`<div class="lab">Altar ${A.n} · ${esc(A.ref)}</div><div class="alt"><div class="he" lang="he" dir="rtl">${esc(A.he)}</div>',
+        'const alt=A?`<div class="lab">' + nom + 's · ${esc(A.ref)}</div><div class="alt">' + cita + '${esc(A.he)}</div>')
+    rep('<div class="lab">Atributo de Dios que se revela</div><p>${esc(A.attr)}</p><div class="lab">Significado</div><p>${esc(A.theo)}</p><div class="lab">Aplicación</div>',
+        f'<div class="lab">{META.get("altar_lab1", "Tema central")}</div><p>${{esc(A.attr)}}</p><div class="lab">{META.get("altar_lab2", "Lo que enseña")}</div><p>${{esc(A.theo)}}</p><div class="lab">{META.get("altar_lab3", "Para hoy")}</div>')
+    rep("${KIND[L.k]||'Lugar'}${A?` · altar ${A.n}`:''}", "${KIND[L.k]||'Lugar'}${A?` · " + nom.lower() + "s`:''}")
+    # pictograma del marcador: un rollo (carta) en vez del altar con llama
+    rep_re(r'<span class="atl-alt"><svg viewBox="-14 -26 28 30" aria-hidden="true">.*?</svg>',
+           '<span class="atl-alt"><svg viewBox="-14 -26 28 30" aria-hidden="true"><path d="M-9,-22 H7 a4,4 0 0 1 4,4 V-6 a3,3 0 0 1 -3,3 H-6 a3,3 0 0 1 -3,-3 Z" fill="#f1e6cf" stroke="#3a2f14" stroke-width="1.2"/><path d="M-9,-22 a3,3 0 0 0 -3,3 v13 a3,3 0 0 0 3,3 h3" fill="#d8c7a3" stroke="#3a2f14" stroke-width="1.2"/><path d="M-5,-16 H6 M-5,-12 H6 M-5,-8 H2" stroke="#8c2634" stroke-width="1.4" stroke-linecap="round"/></svg>')
+    rep("rotate(45deg)} .atl-ley .lg-h", "rotate(45deg)} .atl-ley .lg-c{background:#f1e6cf;border-color:#8c2634;border-radius:2px} .atl-ley .lg-h")
+    rep('<span><i class="lg-b"></i>Lugar bíblico</span>', f'<span><i class="lg-b"></i>Lugar bíblico</span><span><i class="lg-c"></i>{nom}</span>')
+if META.get("portada_lang") == "el":   # nombre de la portada en griego, de izquierda a derecha
+    rep('<div class="pm-he" lang="he" dir="rtl" aria-hidden="true">', '<div class="pm-he" lang="grc" aria-hidden="true">')
+    rep(".pm-he{font-family:var(--f-he);", ".pm-he{font-family:var(--f-gr);font-style:italic;")
+    rep("if(e.cine) t.append(el('div',{class:'stat',lang:'he'},", "if(e.cine) t.append(el('div',{class:'stat'+(e.cine.he===false?' gr':''),lang:e.cine.he===false?'grc':'he'},")
+    rep(".stat{font-family:var(--f-he);direction:rtl;", ".stat.gr{font-family:var(--f-gr);direction:ltr;font-style:italic}\n.stat{font-family:var(--f-he);direction:rtl;")
+if META.get("labw_solo"):   # rótulos de mar y región solo los de la línea; sin el relieve esquemático del Levante
+    rep("const LAB_W=[...(DATA.labw||[]),", "const LAB_W=[...(DATA.labw||[])]; const LAB_W_LEVANTE=[")
+    rep("const RIDGES=[", "const RIDGES=[]; const RIDGES_LEVANTE=[")
+    rep("const RIDGES_W=[", "const RIDGES_W=[]; const RIDGES_W_LEVANTE=[")
+if META.get("medios"):   # pictogramas de transporte: tramos por mar (nave) y a pie (caminante) en mapas, atlas y fichas
+    medio_js = """const MEDIO_INNER={
+  mar:'<circle r="11" fill="var(--surface)" opacity=".85"/><path d="M-8.5,2 Q0,6 8.5,2 L6.5,7 Q0,9 -6.5,7 Z" fill="COL"/><path d="M0,2 V-8.5" stroke="COL" stroke-width="1.5"/><path d="M1.2,-8 L7.5,-1 L1.2,-1 Z" fill="COL"/><path d="M-1.2,-6.5 L-6.5,-.5 L-1.2,-.5 Z" fill="COL" opacity=".75"/>',
+  pie:'<circle r="11" fill="var(--surface)" opacity=".85"/><circle cx="1" cy="-7.5" r="2.1" fill="COL"/><path d="M.6,-4.5 L-1,1 L-3.5,7 M-1,1 L3,4.5 L3.5,7.5 M-3,-2 L1,-1.5 L4.5,1.5" stroke="COL" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>',
+  carro:'<circle r="11" fill="var(--surface)" opacity=".85"/><path d="M-8,0 H5 L7,-5 H-3 Z" fill="COL"/><circle cx="-4" cy="3.5" r="2.6" fill="none" stroke="COL" stroke-width="1.6"/><circle cx="3.5" cy="3.5" r="2.6" fill="none" stroke="COL" stroke-width="1.6"/>',
+  asno:'<circle r="11" fill="var(--surface)" opacity=".85"/><path d="M-7,1 H4 L6,-4 L8,-2 L7,2 L5,2 L5,6 M-5,1 V6 M2,1 V6 M-7,1 L-8,-3" stroke="COL" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>',
+  caballo:'<circle r="11" fill="var(--surface)" opacity=".85"/><path d="M-7,2 H3 L5,-5 L8,-3 L8,0 L6,0 L6,7 M-5,2 V7 M1,2 V7 M-7,2 L-9,-2 M3,-5 L0,-8" stroke="COL" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'};
+const MEDIO_NOM={mar:'Por mar, en nave',pie:'A pie, por calzada',carro:'En carro',asno:'En asno o mula',caballo:'A caballo'};
+const medioSVG=(k,col)=>`<svg viewBox="-12 -12 24 24" aria-hidden="true">${(MEDIO_INNER[k]||'').replace(/COL/g,col||'currentColor')}</svg>`;
+"""
+    rep("const LAB_W=[", medio_js + "const LAB_W=[")
+    # mapas SVG de cada hito: glifo a mitad del trayecto
+    rep("for(let k=1;k<10;k++){ const [qx,qy]=at(P,k/10); boxes.push([qx-4,qy-4,8,8]); } });",
+        "for(let k=1;k<10;k++){ const [qx,qy]=at(P,k/10); boxes.push([qx-4,qy-4,8,8]); }\n"
+        "    if(p.medio&&MEDIO_INNER[p.medio]){ const [gx,gy]=at(P,p.gf||.5); const g=sv('g',{class:'medio onmap',transform:`translate(${gx},${gy}) scale(${(p.gs||1)*F*.95})`}); g.innerHTML=MEDIO_INNER[p.medio].replace(/COL/g,col); g.style.animationDelay=(.6+i*.35)+'s'; A(g); boxes.push([gx-11*F,gy-11*F,22*F,22*F]); } });")
+    # atlas: trazo discontinuo para el mar y marcadores con el pictograma a mitad de cada tramo
+    rep("properties:{n:t.n,v:t.vuelta?1:0},geometry:{type:'LineString',coordinates:curva(t.pts)}", "properties:{n:t.n,v:t.vuelta?1:0,m:t.medio||''},geometry:{type:'LineString',coordinates:curva(t.pts)}")
+    rep_re(r"(\{id:'ruta',type:'line',source:'ruta',layout:\{'line-cap':'round','line-join':'round'\},\s*paint:\{.*?\},)filter:\['==',\['get','v'\],0\]\},",
+           lambda q: q.group(1) + "filter:['all',['==',['get','v'],0],['!=',['get','m'],'mar']]},\n    " + q.group(1).replace("id:'ruta',", "id:'ruta-mar',").replace("'line-cap':'round',", "") + "filter:['all',['==',['get','v'],0],['==',['get','m'],'mar']]},")
+    rep_re(r"(\{id:'ruta-mar',type:'line',source:'ruta',layout:\{'line-join':'round'\},\s*paint:\{)", r"\1'line-dasharray':[1.8,1.4],")
+    rep("['ruta-casco','ruta','ruta-v','ruta-toque'].forEach(id=>m.setLayoutProperty(id,'visibility',vis(C.relato&&verRuta)));",
+        "['ruta-casco','ruta','ruta-mar','ruta-v','ruta-toque'].forEach(id=>m.setLayoutProperty(id,'visibility',vis(C.relato&&verRuta)));")
+    rep("const verTodo=ev.viaje||ATL.full, hl=new Set(ev.hl||[]), alt=new Set(ev.altars||[]), foco=new Set(ev.focus||[]);\n  if(C.relato){",
+        "const verTodo=ev.viaje||ATL.full, hl=new Set(ev.hl||[]), alt=new Set(ev.altars||[]), foco=new Set(ev.focus||[]);\n"
+        "  if(C.relato&&verTodo) ATL.data.tramos.forEach(t=>{ if(!t.medio||!MEDIO_INNER[t.medio]) return; const mid=t.pts[Math.floor(t.pts.length/2)];\n"
+        "    const n=el('button',{type:'button',class:'atl-medio m-'+t.medio,'aria-label':`Tramo ${t.n}: ${MEDIO_NOM[t.medio]}`}); n.innerHTML=medioSVG(t.medio,'currentColor'); n.onclick=e=>{ e.stopPropagation(); atlasTramo(t.n); };\n"
+        "    n.dataset.minz=4.2; const k=new maplibregl.Marker({element:n,anchor:'center'}).setLngLat(lonlat(mid)).addTo(m); ATL.mk.push(k); });\n  if(C.relato){")
+    rep('<span class="pp-k">Tramo ${t.n} de ${T.length} · ≈ ${fmtKm(d)} km</span><b>${esc(t.de)} → ${esc(t.a)}</b></div>',
+        '<span class="pp-k">Tramo ${t.n} de ${T.length} · ≈ ${fmtKm(d)} km</span><b>${esc(t.de)} → ${esc(t.a)}</b>${t.medio&&MEDIO_INNER[t.medio]?`<span class="pp-medio m-${t.medio}">${medioSVG(t.medio)} ${MEDIO_NOM[t.medio]}</span>`:``}</div>')
+    rep("en ${T.length} tramos, a pie, ", "en ${T.length} tramos: ≈ ${fmtKm(T.filter(t=>t.medio!=='mar').reduce((a,t)=>a+kmTramo(t),0))} km a pie y ≈ ${fmtKm(T.filter(t=>t.medio==='mar').reduce((a,t)=>a+kmTramo(t),0))} km por mar, ")
+    rep("'Recorrer hoy en Google Maps (a pie)'", "t.medio==='mar'?'Ver el trayecto hoy en Google Maps':'Recorrer hoy en Google Maps (a pie)'")
+    rep('<span><i class="lg-r"></i>Camino</span>', '<span class="lg-ico m-pie">${medioSVG("pie")}A pie</span><span class="lg-ico m-mar">${medioSVG("mar")}Por mar</span>')
+    rep_re(r"leyenda\.innerHTML='(.*?)';", lambda q: "leyenda.innerHTML=`" + q.group(1) + "`;")
+    css_medios = """
+/* pictogramas de transporte (tramos por mar y a pie) */
+.atl-medio{width:26px;height:26px;padding:0;border:0;border-radius:50%;background:transparent;color:#1a4f7a;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.35);transition:transform .15s}
+.atl-medio.m-pie{color:#9a4a2a} .atl-medio:hover{transform:scale(1.15)} .atl-medio svg{width:100%;height:100%;display:block}
+.pp-medio{display:inline-flex;align-items:center;gap:4px;margin-top:4px;font:600 11px var(--f-ui);color:#1a4f7a;text-transform:uppercase;letter-spacing:.04em}
+.pp-medio.m-pie{color:#9a4a2a} .pp-medio svg{width:18px;height:18px}
+.atl-ley .lg-ico{display:inline-flex;align-items:center;gap:3px;color:#1a4f7a} .atl-ley .lg-ico.m-pie{color:#9a4a2a} .atl-ley .lg-ico svg{width:16px;height:16px}
+g.medio.onmap{animation:pop .5s both}
+"""
+    rep_re(r"\n</style>\n", "\n" + css_medios.replace("\\", "\\\\") + "</style>\n")
+
 # textos originales: edición indicada en cada pasaje (por defecto BHS / SBLGNT)
 assert "/*DATA*/" in motor
 motor = motor.replace("/*DATA*/", json.dumps(DATA, ensure_ascii=False, separators=(", ", ": ")))

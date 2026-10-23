@@ -54,7 +54,10 @@ Las líneas nuevas comparten el motor de la de Abraham: sus datos van en `estudi
 (hitos en `hitos.py`, atlas en `atlas_datos.py`, tema visual en `tema.css`) y el HTML se genera con
 `python3 scripts/lineas_generar.py <slug>`, seguido de `python3 scripts/lineas_tikz.py <slug>`.
 El relieve del atlas sale de `scripts/lineas_relieve.py` (rama `datos-relieve`) y las capas de
-Natural Earth de `scripts/lineas_vectores.py`. Línea 2: Moisés (`moises`).
+Natural Earth de `scripts/lineas_vectores.py`. Línea 2: Moisés (`moises`). Línea 4: Pablo (`pablo`), la primera
+fuera del Levante: su geografía de respaldo sale de `scripts/lineas_geo.py`, el relieve de los mosaicos
+`mediterraneo.tif` y `egeo.tif`, y sus mapas marcan el medio de cada tramo (nave por mar, caminante a pie;
+`META["medios"]`). Las líneas siguientes usan esos pictogramas según la época (asno, carro, caballo, nave).
 
 ## Publicación
 

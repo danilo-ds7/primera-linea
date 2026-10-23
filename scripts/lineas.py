@@ -30,7 +30,8 @@ def mini(js: str, ID: str, nodos_json: Path) -> str:
     pts = []
     for i, nd in enumerate(nodos):
         x = 5 + i * (90 / (k - 1)) if k > 1 else 50
-        he = f'<span class="lm-he" lang="he" dir="rtl">{nd["he"]}</span>' if nd.get("he") else ""
+        he = (f'<span class="lm-he" lang="he" dir="rtl">{nd["he"]}</span>' if nd.get("he") else
+              f'<span class="lm-he lm-gr" lang="grc">{nd["gr"]}</span>' if nd.get("gr") else "")   # griego: líneas del NT (Pablo)
         pts.append(f'<span class="lm-nodo" style="left:{x:.2f}%;--d:{i * 0.12:.2f}s">{he}'
                    f'<span class="lm-pt"></span><span class="lm-es">{nd["es"]}</span>'
                    f'<span class="lm-y">{anio(nd["y"]) if i == k - 1 else "c. " + str(abs(round(nd["y"])))}</span></span>')

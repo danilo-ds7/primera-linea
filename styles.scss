@@ -1619,6 +1619,7 @@ details.plegable-refs[open] .refs-n { background: var(--surface, #fff); }
 .linea-mini .lm-nodo { position: absolute; top: 0; width: 0; height: 100%; }
 .linea-mini .lm-he, .linea-mini .lm-es, .linea-mini .lm-y { left: 0; transform: translateX(-50%); }
 .linea-mini .lm-he { position: absolute; top: 18px; font-family: "Noto Serif Hebrew", "SBL Hebrew", serif; font-size: 1.05rem; line-height: 1; color: var(--ink); white-space: nowrap; }
+.linea-mini .lm-he.lm-gr { font-family: "GFS Porson", "Gentium Plus", "Noto Serif", serif; font-style: italic; font-size: .98rem; }
 .linea-mini .lm-pt { position: absolute; top: 46px; width: 15px; height: 15px; margin-left: -7.5px; left: 0; border-radius: 50%; background: #fff; border: 3px solid var(--accent); box-shadow: 0 0 0 4px rgba(35, 80, 184, .1); transition: transform .3s ease; transition-delay: var(--d); }
 .linea-mini .lm-nodo:nth-child(2) .lm-pt { background: var(--accent); }
 .linea-mini .lm-nodo:last-child .lm-pt { background: #b8862b; border-color: #b8862b; box-shadow: 0 0 0 4px rgba(184, 134, 43, .14); }
