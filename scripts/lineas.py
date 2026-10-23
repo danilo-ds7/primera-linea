@@ -114,13 +114,13 @@ document.getElementById('tlCerrar').addEventListener('click', function(e){{
   function limpiar(s){
     s.style.gridTemplateColumns = ''; s.classList.remove('pl-lado');
     [...s.children].forEach(c => c.style.zoom = '');
-    s.querySelectorAll('.vivo').forEach(v => v.style.height = '');
+    s.querySelectorAll('.vivo').forEach(v => { v.style.height = ''; v.style.minHeight = ''; });
     s.querySelectorAll('.escr').forEach(e => e.style.removeProperty('--pl-f'));
   }
   // columna de imagen, mapa o pasaje: devuelve qué tan grande queda (1 = tamaño normal)
   function medirMedia(c){
     const slot = c.querySelector(':scope>.mslot') || c, v = c.querySelector('.vivo'), e = c.querySelector('.escr');
-    if (v){ v.style.height = ''; if (!cabe(slot, c)) v.style.height = Math.max(240, v.getBoundingClientRect().height - Math.max(sobra(slot), sobra(c))) + 'px';
+    if (v){ v.style.height = ''; v.style.minHeight = ''; if (!cabe(slot, c)){ v.style.minHeight = '0'; v.style.height = Math.max(innerHeight <= 500 ? 140 : 240, v.getBoundingClientRect().height - Math.max(sobra(slot), sobra(c))) + 'px'; }
             return cabe(slot, c) ? 1 : 0.6; }
     if (e){ const k = kMax(k => e.style.setProperty('--pl-f', k), () => cabe(slot, c), 0.55);
             return 0.78 + (k - 0.55) * 0.22 / 0.45; }   // la letra del pasaje puede bajar más que el resto
@@ -181,7 +181,8 @@ document.getElementById('tlCerrar').addEventListener('click', function(e){{
     # En la banda, ← antes que →
     cambiar(r'(<button id="tnext"[^>]*>.*?</button>)\s*(<button id="tprev"[^>]*>.*?</button>)', r"\2\n      \1", regex=True)
     # banda angosta: 2 filas de hitos más compactas, arriba del todo (sin la barra de filtros)
-    cambiar("ROWS=3,", "ROWS=2,")
+    cambiar(r"const (MINY=[^;\n]*?), ROWS=3,", r"let ROWS=2;\nconst \1,", regex=True)
+    cambiar("function layout(){", "function layout(){ ROWS=innerHeight<=500?1:2;")   # celular en horizontal: 1 fila
     cambiar("ROWH=44", "ROWH=38")
     cambiar("ARC=22", "ARC=-2")
     cambiar("const axisY=h-50,", "const axisY=h-30,")
@@ -224,6 +225,17 @@ document.getElementById('tlCerrar').addEventListener('click', function(e){{
 @media (max-width:760px){
   .slide{padding-block:16px 16px}
   .vivo{height:34vh;min-height:220px} .vivo.viaje{height:38vh}
+}
+/* pantallas bajas (celular en horizontal): menú solo con iconos y banda de una fila */
+@media (max-height:500px){
+  .stage{padding-top:42px}
+  .topbar{height:42px;padding:0 10px;gap:4px}
+  .topbar span{display:none} .topbar span.ico{display:inline-grid}
+  .topbar button,.topbar .volver{min-width:0;min-height:28px;padding:4px 9px;display:inline-grid;place-items:center}
+  .tn{height:118px}
+  .tn-tools{gap:0;padding-top:2px} .tn-tools button{height:27px} .tn-tools hr{margin:1px 0}
+  .slide{padding-block:10px 10px}
+  .atl-ley{display:none} .atl-capas button{font-size:11px;padding:3px 7px}
 }
 /* celular: iconos visibles (antes se ocultaban con el texto) y menú compacto */
 @media (max-width:600px){
