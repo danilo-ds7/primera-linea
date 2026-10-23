@@ -1,0 +1,18 @@
+---
+title: "David, pastor y rey"
+subtitle: "Pastor, fugitivo y rey · 48 hitos · c. 1040–970 a. e. c."
+description: "De Belén a Jerusalén con un atlas interactivo: relieve real, pasajes bíblicos, hallazgos arqueológicos (Khirbet Qeiyafa, Tel Dan, la Ciudad de David) y los lugares hoy; texto hebreo y griego, los Salmos y la tradición judía."
+date: 2026-10-23
+categories: [Líneas de tiempo]
+order: 2
+numero: "Línea 2"
+body-classes: serie-atributos linea-tiempo
+---
+
+«He hallado a David, el hijo de Isaí, un varón conforme a mi corazón» (Hechos 13:22). Cuarenta y ocho hitos recorren la vida de David desde Belén hasta la Ciudad de David: el pastor y la honda, las tres unciones (Belén, Hebrón y, para su hijo, Guihón), los años de fugitivo en el desierto de Judá, Hebrón, la toma de Jerusalén, el arca, el pacto de 2 Samuel 7, Betsabé y el Salmo 51, Absalón y las últimas palabras. Cada hito contrasta el texto de Samuel y de los Salmos con los comentaristas, la tradición judía y la arqueología de la biblioteca de Primera Línea.
+
+{{< include _david.html >}}
+
+<p class="linea-nota">Toca la línea para abrirla. Dentro, avanza con las flechas o el teclado (← →), acerca las fechas con las lupas o con <kbd>+</kbd>/<kbd>−</kbd>, toca un lugar, un cuerno de unción o un tramo del camino en los mapas para leer el pasaje, la arqueología y qué hay allí hoy, y abre el <b>Atlas</b> para ver el recorrido completo de Belén a Jerusalén. El botón <b>⛶ Pantalla completa</b> (o la tecla <kbd>F</kbd>) agranda la línea en esta misma página; <b>✕ Cerrar</b> (o <kbd>Esc</kbd>) vuelve a esta presentación. Las fechas siguen la cronología bíblica «temprana» y son aproximadas.</p>
+
+[← Volver a las líneas de tiempo](../lineas.qmd)
