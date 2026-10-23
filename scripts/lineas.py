@@ -89,6 +89,90 @@ document.getElementById('tlCerrar').addEventListener('click', function(e){{
 </html>"""
     cambiar(r"</script>\s*</html>\s*$", "</script>\n" + cierre, regex=True)
 
+    # --- optimización del espacio: cada hito cabe entero entre el menú y la banda ------------------
+    # En pantallas anchas (> 760 px), cada vez que se muestra un hito se prueban varias distribuciones
+    # y se elige la que cabe con la letra más grande:
+    #   · dos columnas (imagen/mapa/pasaje + texto): 5 repartos del ancho; en cada uno se busca (búsqueda
+    #     binaria) el mayor tamaño que cabe en cada columna; gana el reparto con el mayor mínimo.
+    #     Mapa: baja su alto. Pasaje (griego/hebreo): el recuadro ocupa todo el ancho y baja solo la letra.
+    #   · portada: imagen al lado del texto o apilada; en pantallas horizontales se prefiere al lado.
+    #   · hitos de una columna: se reduce el tamaño hasta que cabe.
+    # Si ni al mínimo cabe, la columna se desplaza por dentro (nunca bajo la banda). En el celular, el hito
+    # se desplaza entero.
+    ajuste = """<script>
+(function(){
+  const ANCHO = () => innerWidth > 760;
+  const sobra = c => c ? c.scrollHeight - c.clientHeight - 2 : 0;
+  const cabe = (...els) => els.every(e => sobra(e) <= 1);
+  // mayor k en [min, 1] con el que cabe (búsqueda binaria); devuelve k, o min - 0.1 si ni así cabe
+  function kMax(poner, cabeYa, min){
+    poner(1); if (cabeYa()) return 1;
+    poner(min); if (!cabeYa()) return min - 0.1;
+    let lo = min, hi = 1; for (let n = 0; n < 7; n++){ const k = (lo + hi) / 2; poner(k); if (cabeYa()) lo = k; else hi = k; }
+    poner(lo); return lo;
+  }
+  function limpiar(s){
+    s.style.gridTemplateColumns = ''; s.classList.remove('pl-lado');
+    [...s.children].forEach(c => c.style.zoom = '');
+    s.querySelectorAll('.vivo').forEach(v => v.style.height = '');
+    s.querySelectorAll('.escr').forEach(e => e.style.removeProperty('--pl-f'));
+  }
+  // columna de imagen, mapa o pasaje: devuelve qué tan grande queda (1 = tamaño normal)
+  function medirMedia(c){
+    const slot = c.querySelector(':scope>.mslot') || c, v = c.querySelector('.vivo'), e = c.querySelector('.escr');
+    if (v){ v.style.height = ''; if (!cabe(slot, c)) v.style.height = Math.max(240, v.getBoundingClientRect().height - Math.max(sobra(slot), sobra(c))) + 'px';
+            return cabe(slot, c) ? 1 : 0.6; }
+    if (e){ const k = kMax(k => e.style.setProperty('--pl-f', k), () => cabe(slot, c), 0.55);
+            return 0.78 + (k - 0.55) * 0.22 / 0.45; }   // la letra del pasaje puede bajar más que el resto
+    return kMax(k => c.style.zoom = k, () => cabe(slot, c), 0.7);
+  }
+  const medirTexto = t => kMax(k => t.style.zoom = k, () => cabe(t), 0.7);
+  const REPARTOS = ['1.05fr 1fr', '1.35fr 1fr', '1fr 1.35fr', '1.7fr 1fr', '1fr 1.7fr'];
+  function dosColumnas(s){
+    const m = s.querySelector(':scope>.media'), t = s.querySelector(':scope>.text');
+    const probar = r => { limpiar(s); const [a, b] = r.split(' ');
+      s.style.gridTemplateColumns = `minmax(0,${a}) minmax(0,${b})`; return Math.min(medirMedia(m), medirTexto(t)); };
+    let mejor = REPARTOS[0], pm = probar(mejor);
+    if (pm < 1) for (const r of REPARTOS.slice(1)){ const p = probar(r); if (p > pm + 0.02){ pm = p; mejor = r; } if (pm >= 1) break; }
+    probar(mejor);
+  }
+  function portada(s){
+    const hijos = [...s.children].filter(c => !c.matches('.hero'));
+    const probar = lado => { limpiar(s); s.classList.toggle('pl-lado', lado);
+      return kMax(k => (lado ? hijos : [...s.children]).forEach(c => c.style.zoom = k), () => cabe(s), 0.62); };
+    const horizontal = s.clientWidth / s.clientHeight > 1.25;
+    const pl = probar(true), pa = probar(false);
+    probar(horizontal ? pl >= pa - 0.08 : pl > pa + 0.02);
+  }
+  function unaColumna(s){ limpiar(s); kMax(k => [...s.children].forEach(c => c.style.zoom = k), () => cabe(s), 0.72); }
+  function ajustar(s){
+    if (!s) return;
+    s.classList.add('pl-midiendo');   // sin la animación de entrada, que desplaza el texto unos píxeles
+    try {
+      limpiar(s);
+      if (!ANCHO() || s.classList.contains('viaje')) return;
+      if (s.classList.contains('title')) portada(s);
+      else if (s.querySelector(':scope>.media') && s.querySelector(':scope>.text') && s.children.length === 2) dosColumnas(s);
+      else if (!s.querySelector('.vivo')) unaColumna(s);
+    } finally { s.classList.remove('pl-midiendo'); }
+  }
+  const actual = () => document.querySelector('.slide.on');
+  let t = null; const pronto = () => { clearTimeout(t); t = setTimeout(() => ajustar(actual()), 60); };
+  const track = document.getElementById('track');
+  // solo cuando un hito pasa a ser el activo (no al medir, que también cambia sus clases)
+  new MutationObserver(m => { if (m.some(x => x.target.classList && x.target.classList.contains('on') &&
+      !(' ' + (x.oldValue || '') + ' ').includes(' on '))) pronto(); })
+    .observe(track, { subtree: true, attributes: true, attributeFilter: ['class'], attributeOldValue: true });
+  addEventListener('resize', pronto);
+  track.addEventListener('load', pronto, true);   // imágenes que llegan después
+  if (document.fonts) document.fonts.ready.then(pronto);
+  pronto();
+  window.plAjustar = ajustar;
+})();
+</script>
+</html>"""
+    cambiar(r"</html>\s*$", ajuste, regex=True)
+
     # --- todo en una pantalla: un botón por tarea y una banda de tiempo más baja ----------------
     # Fuera (repetían otra tarea o eran secundarios): «Arqueología» y «Hoy» del menú (el Atlas tiene sus
     # propias capas), las flechas grandes sobre el texto (repetían ← → de la banda y lo tapaban), los
@@ -115,6 +199,28 @@ document.getElementById('tlCerrar').addEventListener('click', function(e){{
 .tn{height:158px}
 .mk{height:30px} .mk .mn{min-width:24px;height:24px}
 .slide{padding-block:22px 22px;padding-inline:clamp(16px,6vw,96px)}
+.pl-midiendo,.pl-midiendo *{animation:none!important;transition:none!important}
+/* pantallas anchas: cada columna del hito se limita al alto disponible (el ajuste la encoge si hace falta) */
+@media (min-width:761px){
+  .slide:has(>.media):not(.viaje){grid-template-rows:minmax(0,1fr)}
+  .slide:has(>.media):not(.viaje)>.media,.slide:has(>.media):not(.viaje)>.text{max-height:100%;overflow:auto;scrollbar-width:thin}
+  /* imagen, mapa o pasaje: su recuadro se achica y se desplaza por dentro; la leyenda queda a la vista */
+  .slide:has(>.media):not(.viaje)>.media{display:flex;flex-direction:column;overflow:hidden}
+  .slide:has(>.media):not(.viaje)>.media>.mslot{flex:0 1 auto;min-height:0;overflow:auto;scrollbar-width:thin}
+  .slide:has(>.media):not(.viaje)>.media>figcaption{flex:none}
+  /* pasaje en griego o hebreo: el recuadro ocupa todo el ancho de su columna; el ajuste baja solo la letra */
+  .slide:has(>.media):not(.viaje) .escr{width:100%;max-width:none;box-sizing:border-box}
+  .escr .gr{font-size:calc(clamp(22px,2.3vw,30px) * var(--pl-f,1))}
+  .escr .he{font-size:calc(clamp(23px,2.5vw,33px) * var(--pl-f,1))}
+  .escr .tr{font-size:calc(clamp(17px,1.5vw,20px) * var(--pl-f,1))}
+  /* portada lado a lado: la imagen a la izquierda, el texto a la derecha */
+  .slide.title.pl-lado{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);grid-auto-rows:min-content;justify-items:start;
+    text-align:left;align-content:center;column-gap:clamp(24px,4vw,64px);row-gap:10px}
+  .slide.title.pl-lado>.hero{grid-column:1;grid-row:1 / span 8;align-self:center;justify-self:stretch;width:100%!important;height:auto!important;max-height:none}
+  .slide.title.pl-lado>:not(.hero){grid-column:2}
+  .slide.title.pl-lado .how{max-width:none}
+  .slide.title.pl-lado>*{text-align:left}
+}
 @media (max-width:760px){
   .slide{padding-block:16px 16px}
   .vivo{height:34vh;min-height:220px} .vivo.viaje{height:38vh}
