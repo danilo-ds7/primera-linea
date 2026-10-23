@@ -51,12 +51,12 @@ website:
             text: Festividades santas
           - href: pablo.qmd
             text: "Bonus: Palabras difíciles de Pablo"
-          - href: lineas.qmd
-            text: Líneas de tiempo
           - href: estudios.qmd
             text: Todos los estudios
           - href: diccionarios.qmd
             text: Diccionarios bíblicos
+      - href: lineas.qmd
+        text: Líneas de tiempo
       - href: metodologia.qmd
         text: Metodología
       - href: videos.qmd

@@ -16,9 +16,9 @@ listing:
 
 Cada línea de tiempo ordena un tema bíblico hito por hito: se avanza con las flechas o el teclado, se acercan y alejan las fechas con las lupas, y cada hito abre el texto hebreo o griego con traducción propia, los lugares en un mapa y las fuentes en formato APA.
 
-Se pueden ver aquí, dentro del sitio, o abrir a pantalla completa en el celular o en la sala de clases.
+Cada página presenta primero el tema y una línea pequeña; al tocarla se abre la línea completa, que también se puede ver a pantalla completa en el celular o en la sala de clases.
 
 ::: {#lista-lineas}
 :::
 
-[← Volver a las líneas de estudio](index.qmd#estudios)
+[← Volver al inicio](index.qmd)

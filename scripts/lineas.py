@@ -6,10 +6,33 @@ ese mismo contenedor.
 Se ejecuta antes de cada render (pre-render en _quarto.yml): toma cada estudios/lineas/<slug>.html
 y escribe lineas/_<slug>.html, que lineas/<slug>.qmd incluye con {{< include _<slug>.html >}}.
 """
-import re, shutil, sys
+import json, re, shutil, sys
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
+
+def anio(y: float) -> str:
+    y = round(y)
+    return f"c. {abs(y)} a. e. c." if y < 0 else f"c. {y} e. c."
+
+def mini(js: str, ID: str) -> str:
+    """Línea pequeña: eras y hitos a escala, todo un botón que abre la línea completa."""
+    data = json.loads(re.search(r"^const DATA = (\{.*?\});\s*$", js, re.M | re.S).group(1))
+    bands = data["bands"][0]
+    ys = [e["y"] for e in data["events"]]
+    y0, y1 = min(bands[0][0], min(ys)), max(bands[-1][1], max(ys))
+    esc = lambda y: (y - y0) / (y1 - y0) * 100
+    eras = []
+    for i, (a, b, nombre, _) in enumerate(bands):
+        w = esc(b) - esc(a)
+        eras.append(f'<span class="lm-era" data-w="{"s" if w < 9 else "l"}" style="left:{esc(a):.2f}%;width:{w:.2f}%;--i:{i % 4}" title="{nombre}"><i>{nombre}</i></span>')
+    dots = "".join(f'<span class="lm-dot" style="left:{esc(y):.2f}%"></span>' for y in ys)
+    n = len(ys)
+    return f"""<button type="button" class="linea-mini" id="{ID}-mini" aria-controls="{ID}" aria-expanded="false" aria-label="Abrir la línea de tiempo interactiva">
+<span class="lm-head"><span class="lm-eyebrow">Línea de tiempo interactiva · {n} hitos</span><span class="lm-cta">Abrir la línea de tiempo →</span></span>
+<span class="lm-track">{"".join(eras)}{dots}</span>
+<span class="lm-years"><span>{anio(y0)}</span><span>{anio(y1)}</span></span>
+</button>"""
 
 def embed(src: Path, dst: Path, ID: str):
     html = src.read_text(encoding="utf-8")
@@ -109,11 +132,12 @@ def embed(src: Path, dst: Path, ID: str):
     js = js.replace("if(!(document.documentElement.requestFullscreen||document.documentElement.webkitRequestFullscreen)) $('#fsBtn').hidden=true;", "")
     teclas = "  if(e.key==='Escape'){ hidePop(); return closeDrawer(); }"
     assert teclas in js, "lineas.py: no se encontró el manejador de Escape"
-    js = js.replace(teclas, "  if(e.key==='Escape'){ hidePop(); if($('#drawer').classList.contains('on')) return closeDrawer(); if(TL.classList.contains('tl-full')){ TL.classList.remove('tl-full'); fsLabel(); } return; }\n  if(!(fsOn()||TL.matches(':hover')||TL.contains(document.activeElement))) return;")
+    js = js.replace(teclas, "  if(e.key==='Escape'){ hidePop(); if($('#drawer').classList.contains('on')) return closeDrawer(); if(TL.classList.contains('tl-full')){ TL.classList.remove('tl-full'); fsLabel(); return; } if(fsOn()) return; cerrarTL(); return; }\n  if(!(fsOn()||TL.matches(':hover')||TL.contains(document.activeElement))) return;")
     js = js.replace("const $ = s => document.querySelector(s);", f"const TL=document.getElementById('{ID}');\nconst $ = s => TL.querySelector(s);")
     js = js.replace("$('#drawer').classList", "$('#drawer').classList")
     # enlace «← Primera Línea» del topbar: aquí no hace falta
-    body = re.sub(r'<a class="volver"[^>]*>.*?</a>', "", body)
+    body = re.sub(r'<a class="volver"[^>]*>.*?</a>',
+                  '<button type="button" class="volver" id="tlCerrar" title="Cerrar la línea de tiempo (Esc)" aria-label="Cerrar la línea de tiempo"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span><span> Cerrar</span></button>', body)
     body = body.replace('<main class="stage"', '<div class="stage"').replace("</main>", "</div>")   # <main> confunde a Quarto
     body = body.replace('<aside class="drawer"', '<div class="drawer"').replace("</aside>", "</div>")  # <aside> = margen para Quarto
 
@@ -122,12 +146,25 @@ def embed(src: Path, dst: Path, ID: str):
 <style>
 {css}
 </style>
-<div id="{ID}" class="linea-tiempo-marco" tabindex="-1" aria-label="Línea de tiempo interactiva">
+{mini(js, ID)}
+<div id="{ID}" class="linea-tiempo-marco" tabindex="-1" aria-label="Línea de tiempo interactiva" hidden>
 {body}
 </div>
 <script>
 (function(){{
 {js}
+/* --- abrir / cerrar la línea desde la línea pequeña --- */
+const MINI=document.getElementById('{ID}-mini');
+function abrirTL(){{ TL.hidden=false; MINI.hidden=true; MINI.setAttribute('aria-expanded','true');
+  setTimeout(()=>{{ try{{ layout(); centerOn(cur,false); }}catch(_){{}} TL.scrollIntoView({{behavior:'smooth',block:'start'}}); TL.focus({{preventScroll:true}}); }},40); }}
+function cerrarTL(){{ const d=document;
+  try{{ if(d.fullscreenElement||d.webkitFullscreenElement) (d.exitFullscreen||d.webkitExitFullscreen).call(d); }}catch(_){{}}
+  TL.classList.remove('tl-full'); hidePop(); if($('#drawer').classList.contains('on')) closeDrawer();
+  TL.hidden=true; MINI.hidden=false; MINI.setAttribute('aria-expanded','false');
+  MINI.scrollIntoView({{behavior:'smooth',block:'center'}}); MINI.focus({{preventScroll:true}}); }}
+MINI.addEventListener('click',abrirTL);
+$('#tlCerrar').addEventListener('click',cerrarTL);
+if(location.hash==='#linea') abrirTL();
 }})();
 </script>
 ```
