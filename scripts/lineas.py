@@ -192,7 +192,14 @@ document.getElementById('tlCerrar').addEventListener('click', function(e){{
     cambiar(r'(<button id="tnext"[^>]*>.*?</button>)\s*(<button id="tprev"[^>]*>.*?</button>)', r"\2\n      \1", regex=True)
     # banda angosta: 2 filas de hitos más compactas, arriba del todo (sin la barra de filtros)
     cambiar(r"const (MINY=[^;\n]*?), ROWS=3,", r"let ROWS=2;\nconst \1,", regex=True)
-    cambiar("function layout(){", "function layout(){ ROWS=innerHeight<=500?1:2;")   # celular en horizontal: 1 fila
+    # La banda es una sola tira que crece ×1,6 con cada lupa «+»: en el iPhone llegaba a ~126.000 px de
+    # ancho (~650 MB de memoria gráfica) y Safari cerraba la pestaña. El zoom máximo se calcula según la
+    # pantalla para que la tira no pase de ~20.000 px en el celular ni de ~60.000 px en el computador.
+    cambiar(r"(MKW=\d+), MAXZ=\d+;", r"\1;\nlet MAXZ=15;", regex=True)
+    cambiar("function layout(){", "function layout(){ ROWS=innerHeight<=500?1:2;"   # celular en horizontal: 1 fila
+            " { const lim=matchMedia('(pointer:coarse)').matches?20000:60000;"
+            " MAXZ=Math.max(5,Math.floor(Math.log(lim/Math.max(200,view.clientWidth-80))/Math.log(1.6)));"
+            " if(zoom>MAXZ) zoom=MAXZ; }")
     cambiar("ROWH=44", "ROWH=38")
     cambiar("ARC=22", "ARC=-2")
     cambiar("const axisY=h-50,", "const axisY=h-30,")
@@ -211,6 +218,9 @@ document.getElementById('tlCerrar').addEventListener('click', function(e){{
 .mk{height:30px} .mk .mn{min-width:24px;height:24px}
 .slide{padding-block:22px 22px;padding-inline:clamp(16px,6vw,96px)}
 .pl-midiendo,.pl-midiendo *{animation:none!important;transition:none!important}
+.tn-canvas{will-change:auto}
+.slide{content-visibility:auto;contain-intrinsic-size:auto 100vw auto 100%}
+@media (pointer:coarse) and (max-width:1100px){.slide.on .media img{animation:none}}
 /* pantallas anchas: cada columna del hito se limita al alto disponible (el ajuste la encoge si hace falta) */
 @media (min-width:761px){
   .slide:has(>.media):not(.viaje){grid-template-rows:minmax(0,1fr)}
