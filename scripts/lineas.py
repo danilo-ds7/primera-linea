@@ -183,7 +183,7 @@ document.getElementById('tlCerrar').addEventListener('click', function(e){{
     if (pm < 1) for (let n = 0; n <= Math.min(3, total) && pm < 1; n++)
       for (const r of REPARTOS){ if (n === 0 && r === REPARTOS[0]) continue;
         const p = probar(r, n); if (p > pm + 0.02){ pm = p; mejor = [r, n]; } if (pm >= 1) break; }
-    probar(...mejor);
+    return probar(...mejor);
   }
   function portada(s){
     const hijos = [...s.children].filter(c => !c.matches('.hero'));
@@ -199,23 +199,51 @@ document.getElementById('tlCerrar').addEventListener('click', function(e){{
     const probar = ancho => { limpiar(s); if (ancho) s.style.gridTemplateColumns = `minmax(0,${ancho})`;
       return kMax(k => [...s.children].forEach(c => c.style.zoom = k), () => cabe(s), min); };
     // columna única: su ancho propio o una más ancha (hasta 1150 px), la que deje la letra más grande
-    const propio = probar(''); if (propio >= 1) return;
-    const ancho = probar('min(1150px,100%)'); if (ancho <= propio + 0.02) probar('');
+    const propio = probar(''); if (propio >= 1) return propio;
+    const ancho = probar('min(1150px,100%)'); return ancho <= propio + 0.02 ? probar('') : ancho;
   }
+  // Pestañas desplegables: si el hito solo cabe con la letra bajo el 85 %, sus bloques secundarios se
+  // pliegan de a uno (del menos al más importante) con el mismo diseño de «Otras voces», hasta que quepa.
+  const PLIEGUES = [['see', () => 'Ver también'], ['chips', () => 'Pasajes y fuentes'],
+    ['det', el => (el.querySelector('b') || {}).textContent || 'Eruditos y arqueología'], ['salmo', () => 'Salmo del camino']];
+  function desplegar(s){ s.querySelectorAll('details.pl-plegable').forEach(d => d.replaceWith(d.lastElementChild)); }
+  function plegar(s, n){
+    let hechos = 0;
+    for (const [cls, rotulo] of PLIEGUES){
+      for (const el of s.querySelectorAll(`.text>.${cls}`)){
+        if (hechos >= n) return hechos;
+        const d = document.createElement('details'); d.className = 'com pl-plegable';
+        const sm = document.createElement('summary'); sm.innerHTML = `<span>${rotulo(el)}</span>`;
+        el.replaceWith(d); d.append(sm, el); hechos++;
+      }
+    }
+    return hechos;
+  }
+  const UMBRAL = 0.85;
   function ajustar(s){
     if (!s) return;
     s.classList.add('pl-midiendo');   // sin la animación de entrada, que desplaza el texto unos píxeles
     try {
-      limpiar(s);
+      limpiar(s); desplegar(s);
       if (!ANCHO() || s.classList.contains('viaje')) return;
-      if (s.classList.contains('title')) portada(s);
-      else if (s.querySelector(':scope>.media') && s.querySelector(':scope>.text') && s.children.length === 2) dosColumnas(s);
-      else if (!s.querySelector('.vivo')) unaColumna(s);
+      if (s.classList.contains('title')) { portada(s); return; }
+      const dos = s.querySelector(':scope>.media') && s.querySelector(':scope>.text') && s.children.length === 2;
+      if (!dos && s.querySelector('.vivo')) return;
+      const medir = () => dos ? dosColumnas(s) : unaColumna(s);
+      let k = medir();
+      for (let n = 1; k < UMBRAL && n <= PLIEGUES.length * 2; n++){
+        limpiar(s); desplegar(s); if (plegar(s, n) < n) { limpiar(s); desplegar(s); plegar(s, n - 1); k = medir(); break; }
+        k = medir();
+      }
     } finally { s.classList.remove('pl-midiendo'); }
   }
   const actual = () => document.querySelector('.slide.on');
+  // dos pasadas: al llegar el hito y al terminar el deslizamiento (0,7 s); la segunda no repite la
+  // animación de entrada (pl-ajustado), que vuelve a correr la próxima vez que se llega al hito
   let t = null, t2 = null; const pronto = () => { clearTimeout(t); clearTimeout(t2);
-    t = setTimeout(() => ajustar(actual()), 60); t2 = setTimeout(() => ajustar(actual()), 800); };
+    document.querySelectorAll('.slide.pl-ajustado').forEach(x => x.classList.remove('pl-ajustado'));
+    t = setTimeout(() => ajustar(actual()), 60);
+    t2 = setTimeout(() => { const s = actual(); if (s){ s.classList.add('pl-ajustado'); ajustar(s); } }, 800); };
   const track = document.getElementById('track');
   // solo cuando un hito pasa a ser el activo (no al medir, que también cambia sus clases)
   new MutationObserver(m => { if (m.some(x => x.target.classList && x.target.classList.contains('on') &&
@@ -272,6 +300,10 @@ document.getElementById('tlCerrar').addEventListener('click', function(e){{
 .slide{padding-block:22px 22px;padding-inline:clamp(16px,6vw,96px)}
 .pl-midiendo,.pl-midiendo *{animation:none!important;transition:none!important}
 .slide.cine{overflow-y:auto}
+.pl-ajustado .text>*,.pl-ajustado .pl-extra>*{animation:none!important}
+.pl-plegable>:not(summary){margin:0 12px 12px!important}
+.pl-plegable>.det,.pl-plegable>.salmo{border-radius:6px}
+.pl-plegable summary span{text-transform:none}
 .tn-canvas{will-change:auto}
 .slide{content-visibility:auto;contain-intrinsic-size:auto 100vw auto 100%}
 .slide.on,.pl-midiendo{content-visibility:visible!important}
