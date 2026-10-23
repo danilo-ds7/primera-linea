@@ -112,7 +112,7 @@ def embed(src: Path, dst: Path, ID: str):
     #{ID} .scrim{{z-index:2000}} #{ID} .drawer{{z-index:2001}} #{ID} #pop{{z-index:2002}}
     #{ID} .tl-topbar{{z-index:6}}
 #{ID} .tn{{height:254px}} #{ID}:fullscreen .tn,#{ID}.tl-full .tn{{height:258px}}
-    @media (max-width:600px){{#{ID} .tn{{height:206px}} #{ID}{{height:88vh;height:88dvh;min-height:600px;width:100vw;margin-left:calc(50% - 50vw);border-radius:0;border-inline:0}}}}
+    @media (max-width:600px){{#{ID} .tl-topbar span.ico{{display:inline-grid}} #{ID} .tl-topbar button{{min-width:34px;min-height:30px;display:inline-grid;place-items:center}} #{ID} .tn{{height:206px}} #{ID}{{height:88vh;height:88dvh;min-height:600px;width:100vw;margin-left:calc(50% - 50vw);border-radius:0;border-inline:0}}}}
     """
 
     # --- JS: tema, pantalla completa y teclado sobre el contenedor -------------
@@ -162,12 +162,14 @@ def embed(src: Path, dst: Path, ID: str):
 /* --- abrir / cerrar la línea desde la línea pequeña --- */
 const MINI=document.getElementById('{ID}-mini');
 function abrirTL(){{ TL.hidden=false; MINI.hidden=true; MINI.setAttribute('aria-expanded','true');
-  setTimeout(()=>{{ try{{ layout(); centerOn(cur,false); }}catch(_){{}} TL.scrollIntoView({{behavior:'smooth',block:'start'}}); TL.focus({{preventScroll:true}}); }},40); }}
+  setTimeout(()=>{{ try{{ layout(); centerOn(cur,false); }}catch(_){{}} irA(TL,0); TL.focus({{preventScroll:true}}); }},40); }}
+function altoMenu(){{ const h=document.getElementById('quarto-header'); if(!h) return 0; const r=h.getBoundingClientRect(); return r.bottom>0?r.height:0; }}
+function irA(el,extra){{ const y=el.getBoundingClientRect().top+window.scrollY-altoMenu()-8-extra; window.scrollTo({{top:Math.max(0,y),behavior:'auto'}}); }}
 function cerrarTL(){{ const d=document;
   try{{ if(d.fullscreenElement||d.webkitFullscreenElement) (d.exitFullscreen||d.webkitExitFullscreen).call(d); }}catch(_){{}}
   TL.classList.remove('tl-full'); hidePop(); if($('#drawer').classList.contains('on')) closeDrawer();
   TL.hidden=true; MINI.hidden=false; MINI.setAttribute('aria-expanded','false');
-  MINI.scrollIntoView({{behavior:'smooth',block:'center'}}); MINI.focus({{preventScroll:true}}); }}
+  irA(MINI,80); MINI.focus({{preventScroll:true}}); }}
 MINI.addEventListener('click',abrirTL);
 $('#tlCerrar').addEventListener('click',cerrarTL);
 if(location.hash==='#linea') abrirTL();
