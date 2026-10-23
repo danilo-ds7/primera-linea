@@ -118,6 +118,12 @@ def embed(src: Path, dst: Path, ID: str):
     # --- JS: tema, pantalla completa y teclado sobre el contenedor -------------
     js = js.replace("document.documentElement.dataset.theme=t", f"TL.dataset.theme=t")
     js = js.replace("function temaRaiz(){ return document.documentElement; }", "function temaRaiz(){ return TL; }")
+    # Siempre se abre en el tema de día (Papiro): no sigue el modo oscuro del dispositivo ni recuerda el tema
+    js = re.sub(r"\(function\(\)\{ let t=null; try\{t=localStorage\.getItem\('[^']+-theme'\);\}catch\(_\)\{\} if\(t\) TL\.dataset\.theme=t; \}\)\(\);",
+                "TL.dataset.theme='light';", js, count=1)
+    assert "TL.dataset.theme='light';" in js, "lineas.py: no se encontró la carga del tema guardado"
+    js = js.replace("return r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');", "return r.dataset.theme||'light';")
+    js = re.sub(r"try\{localStorage\.setItem\('[^']+-theme',r\.dataset\.theme\);\}catch\(_\)\{\}", "", js)
     js = re.sub(r"function toggleFS\(\)\{.*?\n(?=function fsLabel)",
     f"""function fsOn(){{ return !!(document.fullscreenElement||document.webkitFullscreenElement)||TL.classList.contains('tl-full'); }}
     function toggleFS(){{ const d=document;
