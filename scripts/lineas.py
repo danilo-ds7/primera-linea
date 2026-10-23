@@ -89,6 +89,16 @@ document.getElementById('tlCerrar').addEventListener('click', function(e){{
 </html>"""
     cambiar(r"</script>\s*</html>\s*$", "</script>\n" + cierre, regex=True)
 
+    # --- celular y tablet: menos memoria para el mapa ---------------------------------------------
+    # Safari en iPhone cerraba la pestaña («Ocurrió un problema varias veces») al girar: el relieve son
+    # imágenes de ~2000 px (~17 MB de memoria gráfica cada una) y el mapa se dibujaba a 3×. En pantallas
+    # táctiles se usa el relieve a la mitad (relieve/movil/, lo genera este script) y el mapa a 2× como máximo.
+    cambiar(r"url:ATL_BASE\+r\.src\.replace\(/\^([\w-]+)\\//,''\)",
+            r"url:ATL_BASE+(window.PL_MOVIL?r.src.replace(/^\1\/relieve\//,'relieve/movil/'):r.src.replace(/^\1\//,''))", regex=True)
+    cambiar("const map=new maplibregl.Map({container:cont,",
+            "const map=new maplibregl.Map({container:cont,pixelRatio:window.PL_MOVIL?Math.min(devicePixelRatio,2):devicePixelRatio,")
+    cambiar("<script>\nconst DATA", "<script>\nwindow.PL_MOVIL=matchMedia('(pointer:coarse)').matches&&Math.min(screen.width,screen.height)<=1100;\nconst DATA")
+
     # --- optimización del espacio: cada hito cabe entero entre el menú y la banda ------------------
     # En pantallas anchas (> 760 px), cada vez que se muestra un hito se prueban varias distribuciones
     # y se elige la que cabe con la letra más grande:
@@ -248,6 +258,25 @@ document.getElementById('tlCerrar').addEventListener('click', function(e){{
     return html
 
 
+
+def relieve_movil(carpeta: Path):
+    """Relieve a la mitad de resolución para celular y tablet (relieve/movil/): ~4 veces menos memoria."""
+    if not carpeta.is_dir():
+        return
+    try:
+        from PIL import Image
+    except ImportError:   # sin Pillow, el celular usa el relieve completo (como copia)
+        Image = None
+    movil = carpeta / "movil"
+    movil.mkdir(exist_ok=True)
+    for f in carpeta.glob("*.webp"):
+        if Image is None:
+            shutil.copy2(f, movil / f.name); continue
+        with Image.open(f) as im:
+            im.resize((max(1, im.width // 2), max(1, im.height // 2)), Image.LANCZOS).save(movil / f.name, "WEBP", quality=82, method=6)
+    print(f"{movil}: {len(list(movil.glob('*.webp')))} imágenes")
+
+
 if __name__ == "__main__":
     origen = RAIZ / "estudios" / "lineas"
     destino = RAIZ / "lineas"
@@ -266,3 +295,5 @@ if __name__ == "__main__":
                 shutil.copytree(d, dst)
         for f in (origen / slug).glob("*.css"):   # hojas de estilo propias de la línea (p. ej. tema.css)
             shutil.copy2(f, destino / slug / f.name)
+        relieve_movil(destino / slug / "relieve")
+
