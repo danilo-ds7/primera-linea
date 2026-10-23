@@ -84,7 +84,7 @@ function tramoHTML(t){ const T=ATL.data.tramos, d=kmTramo(t);
     ${(t.bib||[]).length?`<div class="pp-sub">Biblioteca de Primera Línea</div>${t.bib.map(([f,x])=>`<p>${esc(x)}</p><p class="pp-cit">— ${esc(f)}</p>`).join('')}`:''}
     <div class="pp-gmbar">${gmBtn(GM.dir(t.pts[0],t.pts[t.pts.length-1]),'Recorrer hoy en Google Maps (a pie)','principal')}</div>
     <div class="pp-f"><button type="button" data-tr="${t.n-1}" ${t.n>1?'':'disabled'}>← Tramo ${t.n-1||''}</button><button type="button" data-lug="${esc(t.site)}">${esc(t.a)}</button><button type="button" data-tr="${t.n+1}" ${t.n<T.length?'':'disabled'}>Tramo ${t.n<T.length?t.n+1:''} →</button></div></div>`; }
-function cablear(root){ root.querySelectorAll('.pp-tabs button').forEach(b=>b.onclick=()=>{ const pp=b.closest('.pp'); pp.querySelectorAll('.pp-tabs button').forEach(x=>x.setAttribute('aria-selected',x===b)); pp.querySelectorAll('.pp-p').forEach(p=>p.hidden=p.dataset.p!==b.dataset.t); });
+function cablear(root){ root.querySelectorAll('.pp-tabs button').forEach(b=>b.onclick=()=>{ const pp=b.closest('.pp'); pp.querySelectorAll('.pp-tabs button').forEach(x=>x.setAttribute('aria-selected',x===b)); pp.querySelectorAll('.pp-p').forEach(p=>p.hidden=p.dataset.p!==b.dataset.t); if(root.closest('.maplibregl-popup')) ajustarPopup(); });
   root.querySelectorAll('[data-ficha]').forEach(b=>b.onclick=()=>abrirLugar(b.dataset.ficha,b));
   root.querySelectorAll('[data-goto]').forEach(b=>b.onclick=()=>{ atlasCerrar(); closeDrawer(); go(+b.dataset.goto); });
   root.querySelectorAll('[data-tr]').forEach(b=>b.onclick=()=>atlasTramo(+b.dataset.tr));
@@ -184,7 +184,7 @@ function atlasCrear(){ if(ATL.map) return ATL.map;
     const ev=events[cur-1]||{}; if(ATL.popup) ATL.popup.remove();
     const h=`<div class="pp k-tramo"><div class="pp-h"><span class="pp-k">Camino · hito ${cur}</span><b>${esc(f.properties.lab||ev.title||'Camino')}</b></div><p style="padding:10px 14px 4px">${esc(plain(ev.text||''))}</p>${(ev.refs||[]).length?`<div class="pp-f">${ev.refs.map(r=>`<button type="button" data-refpp="${r}">${esc(refs[r].label)}</button>`).join('')}</div>`:''}</div>`;
     if(ATL.host.clientWidth<560){ openDrawer(h,'c'+(ev.era||7)); $('#dbody').querySelectorAll('[data-refpp]').forEach(b=>b.onclick=()=>openRef(b.dataset.refpp,b)); return; }
-    ATL.popup=new maplibregl.Popup({className:'atl-pop',maxWidth:'360px'}).setLngLat(e.lngLat).setHTML(h).addTo(map); ATL.popup.getElement().querySelectorAll('[data-refpp]').forEach(b=>b.onclick=()=>openRef(b.dataset.refpp,b)); });
+    ATL.popup=new maplibregl.Popup(popupOpts(e.lngLat,{maxWidth:'360px'})).setLngLat(e.lngLat).setHTML(h).addTo(map); ATL.popup.getElement().querySelectorAll('[data-refpp]').forEach(b=>b.onclick=()=>openRef(b.dataset.refpp,b)); ajustarPopup(); });
   /* fondo del mapa: el lugar más cercano (hasta 30 px) se abre; si no hay ninguno, un aviso breve */
   map.on('click',e=>{ if(map.queryRenderedFeatures(e.point,{layers:['ruta-toque','trazo-toque','rutas-toque','ciudades'].filter(l=>map.getLayer(l))}).length) return;
     let best=null,bd=30; ATL.data.lugares.forEach(L=>{ if(L.k==='hoy'&&!ATL.capas.hoy) return; if(L.k==='arqueo'&&!ATL.capas.arq) return; const q=map.project(lonlat(L.ll)), d=Math.hypot(q.x-e.point.x,q.y-e.point.y); if(d<bd){ bd=d; best=L; } });
@@ -196,7 +196,7 @@ function atlasCrear(){ if(ATL.map) return ATL.map;
   map.on('mouseleave','rutas-toque',()=>{ map.getCanvas().style.cursor=''; ATL.tip.hidden=true; });
   map.on('click','rutas-toque',e=>{ const r=ATL.rutasL[e.features[0].id-1]; if(ATL.popup) ATL.popup.remove();
     const h=`<div class="pp k-ruta"><div class="pp-h"><span class="pp-k">Ruta antigua</span><b>${esc(r.n)}</b>${r.he?`<span class="pp-he" lang="he" dir="rtl">${esc(r.he)}</span>`:''}</div><p style="padding:10px 14px 4px">${esc(r.nota)}</p><p class="pp-cit" style="padding:0 14px 12px">— Curso «Explorando la Tierra Bíblica de Israel»</p></div>`;
-    if(ATL.host.clientWidth<560){ openDrawer(h,'c7'); return; } ATL.popup=new maplibregl.Popup({className:'atl-pop',maxWidth:'340px'}).setLngLat(e.lngLat).setHTML(h).addTo(map); });
+    if(ATL.host.clientWidth<560){ openDrawer(h,'c7'); return; } ATL.popup=new maplibregl.Popup(popupOpts(e.lngLat,{maxWidth:'340px'})).setLngLat(e.lngLat).setHTML(h).addTo(map); ajustarPopup(); });
   map.on('click','ciudades',e=>{ const f=e.features[0]; new maplibregl.Popup({closeButton:true,className:'atl-pop',maxWidth:'260px'}).setLngLat(f.geometry.coordinates).setHTML(`<div class="pp k-hoy"><div class="pp-h"><span class="pp-k">Ciudad actual</span><b>${esc(f.properties.n)}</b></div></div>`).addTo(map); });
   map.on('zoom',()=>atlasEtiquetas()); map.on('moveend',()=>atlasEtiquetas());
   ATL.tip=el('div',{class:'atl-tip',hidden:''}); host.append(ATL.tip);
@@ -246,11 +246,23 @@ function desamontonar(){ const pri=n=>n.classList.contains('altar')?5:n.classLis
     const rd=dot.getBoundingClientRect(); const rl=lab?lab.getBoundingClientRect():n.getBoundingClientRect();
     if(ok.some(q=>hit(rl,q))){ n.classList.add('sinlab'); if(!lab) return; ok.push(rd); } else { ok.push(rl); if(lab) ok.push(rd); } }); }
 
+/* la ficha siempre completa: se elige el lado con más espacio, se limita su alto a ese espacio (con desplazamiento interno)
+   y, si el mapa puede moverse, se desplaza para dar más sitio */
+function popupOpts(ll,extra={}){ const m=ATL.map, H=ATL.host.clientHeight, W=ATL.host.clientWidth; let q=m.project(ll);
+  const arriba=q.y-60, abajo=H-q.y-36, ideal=Math.min(520,H-110);
+  if(Math.max(arriba,abajo)<ideal){ const quiero=Math.min(ideal+60,H-70); m.panBy([0,q.y-quiero],{duration:0}); q=m.project(ll); }
+  const ar=q.y-60, ab=H-q.y-36, lado=ar>=ab?'bottom':'top', room=Math.max(ar,ab);
+  const anchor=lado+(q.x<W*.3?'-left':q.x>W*.7?'-right':'');
+  ATL.popMax=Math.max(200,Math.min(ideal,room-16));
+  return Object.assign({className:'atl-pop',anchor,offset:lado==='bottom'?[0,-14]:[0,14]},extra); }
+function ajustarPopup(){ const P=ATL.popup; if(!P||!P.isOpen()) return; const pp=P.getElement().querySelector('.pp'); if(pp&&ATL.popMax) pp.style.maxHeight=ATL.popMax+'px';
+  requestAnimationFrame(()=>{ if(!P.isOpen()) return; const host=ATL.host.getBoundingClientRect(), r=P.getElement().getBoundingClientRect(); let dx=0;
+    if(r.left<host.left+10) dx=r.left-host.left-10; else if(r.right>host.right-10) dx=r.right-host.right+10; if(Math.abs(dx)>2) ATL.map.panBy([dx,0],{duration:300}); }); }
 function atlasPopLugar(key,tab){ const L=datosLugar(key); if(!L) return; if(ATL.popup) ATL.popup.remove();
   const m_=ATL.map, ll_=lonlat(L.ll); if(!m_.getBounds().contains(ll_)) m_.easeTo({center:ll_,duration:600});
-  if(ATL.host.clientWidth<560){ openDrawer(fichaHTML(L,tab),'c'+(events[cur-1]?events[cur-1].era:7)); cablear($('#dbody')); return; }
-  ATL.popup=new maplibregl.Popup({className:'atl-pop',maxWidth:'360px',offset:[0,-14],focusAfterOpen:true}).setLngLat(lonlat(L.ll)).setHTML(fichaHTML(L,tab)).addTo(ATL.map);
-  cablear(ATL.popup.getElement()); }
+  if(ATL.host.clientWidth<560||(!ATL.full&&ATL.host.clientHeight<460)){ openDrawer(fichaHTML(L,tab),'c'+(events[cur-1]?events[cur-1].era:7)); cablear($('#dbody')); return; }
+  ATL.popup=new maplibregl.Popup(popupOpts(lonlat(L.ll),{maxWidth:'360px',focusAfterOpen:true})).setLngLat(lonlat(L.ll)).setHTML(fichaHTML(L,tab)).addTo(ATL.map);
+  cablear(ATL.popup.getElement()); ajustarPopup(); }
 function atlasTramo(n,at){ const T=ATL.data.tramos, t=T[n-1]; if(!t) return; const m=ATL.map;
   if(ATL.tramo) m.setFeatureState({source:'ruta',id:ATL.tramo},{sel:false}); ATL.tramo=n; m.setFeatureState({source:'ruta',id:n},{sel:true});
   const b=new maplibregl.LngLatBounds(); t.pts.forEach(p=>b.extend(lonlat(p)));
@@ -258,7 +270,7 @@ function atlasTramo(n,at){ const T=ATL.data.tramos, t=T[n-1]; if(!t) return; con
   m.fitBounds(b,{padding:pad,maxZoom:t.pts.length<5?9.6:8.4,duration:matchMedia('(prefers-reduced-motion: reduce)').matches?0:1400});
   if(ATL.popup) ATL.popup.remove(); const mid=t.pts[Math.floor(t.pts.length/2)];
   if(ATL.host.clientWidth<560){ openDrawer(tramoHTML(t),'c7'); cablear($('#dbody')); document.querySelectorAll('.tramos button').forEach(x=>x.setAttribute('aria-current',+x.dataset.n===n)); return; }
-  ATL.popup=new maplibregl.Popup({className:'atl-pop',maxWidth:'380px',focusAfterOpen:false}).setLngLat(at||lonlat(mid)).setHTML(tramoHTML(t)).addTo(m); cablear(ATL.popup.getElement());
+  m.once('moveend',()=>{ if(ATL.tramo!==n) return; const ll=at||lonlat(mid); ATL.popup=new maplibregl.Popup(popupOpts(ll,{maxWidth:'380px',focusAfterOpen:false})).setLngLat(ll).setHTML(tramoHTML(t)).addTo(m); cablear(ATL.popup.getElement()); ajustarPopup(); });
   document.querySelectorAll('.tramos button').forEach(x=>x.setAttribute('aria-current',+x.dataset.n===n)); }
 function atlasLugar(key){ atlasAbrir(); const L=datosLugar(key); if(!L) return; const go_=()=>{ ATL.map.flyTo({center:lonlat(L.ll),zoom:Math.max(ATL.map.getZoom(),8.6),duration:1300}); atlasPopLugar(key); };
   ATL.listo?go_():ATL.map.once('load',go_); }
