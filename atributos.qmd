@@ -16,7 +16,7 @@ listing:
 
 Primero conocer al Autor de la Biblia: el Dios de Israel y sus atributos. La armonía perfecta de sus atributos es como un paraguas que da coherencia a todo lo que la Escritura dice sobre cada tema. Cada estudio parte de un texto ancla, analiza el hebreo y el griego, y lee el atributo con Pablo.
 
-Cada estudio se puede leer aquí o descargar en PDF, junto con la presentación que lo acompaña.
+Cada estudio se puede leer aquí o descargar en PDF; la presentación que lo acompaña se descarga con un código QR.
 
 ```{=html}
 <a class="libro" href="atributos/pdf/la-gloria-de-dios-libro.pdf" download>

@@ -402,10 +402,30 @@ def yaml_str(t):
     return json.dumps(t, ensure_ascii=False)
 
 
+def url_sitio():
+    m = re.search(r'site-url:\s*"([^"]+)"', (RAIZ / "_quarto.yml").read_text())
+    return (m.group(1) if m else "https://primera-linea.cl").rstrip("/")
+
+
+def boton_qr(archivo):
+    """Presentación: sin descarga directa; se descarga escaneando un código QR."""
+    import segno  # pip install segno (paso «Instalar segno» de publicar.yml)
+    url = f"{url_sitio()}/{SERIE['salida']}/pdf/{archivo}"
+    svg = segno.make(url, error="m").svg_inline(scale=1, border=2, dark="#0f1a33", light="#ffffff", omitsize=True)
+    corto = url.split("://", 1)[-1]
+    return ('<details class="qr-descarga"><summary class="btn ghost">Presentación: descargar con código QR</summary>'
+            f'<div class="qr-panel"><div class="qr-img" role="img" aria-label="Código QR para descargar la presentación">{svg}</div>'
+            '<p>Escanea el código con la cámara del celular para descargar la presentación (PDF).</p>'
+            f'<p class="qr-url">{corto}</p></div></details>')
+
+
 def escribir_pagina(estudio, md):
     e = estudio
     descargas = []
     for d in e["pdfs"]:
+        if d.get("qr"):
+            descargas.append(boton_qr(d["archivo"]))
+            continue
         descargas.append(f'<a class="btn {"primary" if not descargas else "ghost"}" href="pdf/{d["archivo"]}" download>'
                          f'{d["etiqueta"]}</a>')
     cabecera = f"""---
@@ -464,7 +484,7 @@ def procesar_estudio(carpeta, orden):
         if pdf:
             nombre = f"{slug_base}-presentacion.pdf"
             shutil.copy2(pdf, SALIDA / "pdf" / nombre)
-            pdfs.append({"archivo": nombre, "etiqueta": "Descargar la presentación (PDF)"})
+            pdfs.append({"archivo": nombre, "etiqueta": "Presentación (código QR)", "qr": True})
 
     descripcion = texto_plano(resumen).split(". ")[0].rstrip(".") + "." if resumen else ""
     estudio = {

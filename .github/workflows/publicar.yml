@@ -36,6 +36,9 @@ jobs:
       - name: Instalar Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
+      - name: Instalar segno (códigos QR de las presentaciones)
+        run: python3 -m pip install --break-system-packages segno || python3 -m pip install segno
+
       - name: Compilar los estudios LaTeX y generar sus páginas
         run: python3 scripts/atributos.py
 
