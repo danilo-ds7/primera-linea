@@ -142,9 +142,12 @@ document.getElementById('tlCerrar').addEventListener('click', function(e){{
   const ANCHO = () => innerWidth > 760;
   const sobra = c => c ? c.scrollHeight - c.clientHeight - 2 : 0;
   const cabe = (...els) => els.every(e => sobra(e) <= 1);
+  // piso del tamaño: 1 mientras queden bloques por plegar (la letra no se achica); 0,9 solo al final
+  let piso = 1;
   // mayor k en [min, 1] con el que cabe (búsqueda binaria); devuelve k, o min - 0.1 si ni así cabe
   function kMax(poner, cabeYa, min){
     poner(1); if (cabeYa()) return 1;
+    if (min >= 1) return 0.9;
     poner(min); if (!cabeYa()) return min - 0.1;
     let lo = min, hi = 1; for (let n = 0; n < 7; n++){ const k = (lo + hi) / 2; poner(k); if (cabeYa()) lo = k; else hi = k; }
     poner(lo); return lo;
@@ -154,28 +157,34 @@ document.getElementById('tlCerrar').addEventListener('click', function(e){{
     s.style.gridTemplateColumns = ''; s.classList.remove('pl-lado');
     [...s.children].forEach(c => c.style.zoom = '');
     s.querySelectorAll('.vivo').forEach(v => { v.style.height = ''; v.style.minHeight = ''; });
-    s.querySelectorAll('.escr').forEach(e => e.style.removeProperty('--pl-f'));
+    s.querySelectorAll('.escr').forEach(e => { e.style.maxHeight = ''; e.classList.remove('pl-recorte'); });
+    s.querySelectorAll('.pl-leer').forEach(b => b.remove());
   }
   // columna de imagen, mapa o pasaje: devuelve qué tan grande queda (1 = tamaño normal)
   function medirMedia(c){
     const slot = c.querySelector(':scope>.mslot') || c, v = c.querySelector('.vivo'), e = c.querySelector('.escr');
     if (v){ v.style.height = ''; v.style.minHeight = ''; if (!cabe(slot, c)){ v.style.minHeight = '0'; v.style.height = Math.max(innerHeight <= 500 ? 140 : 240, v.getBoundingClientRect().height - Math.max(sobra(slot), sobra(c))) + 'px'; }
             return cabe(slot, c) ? 1 : 0.6; }
-    if (e){ const k = kMax(k => e.style.setProperty('--pl-f', k), () => cabe(slot, c), 0.55);
-            return 0.78 + (k - 0.55) * 0.22 / 0.45; }   // la letra del pasaje puede bajar más que el resto
-    return kMax(k => c.style.zoom = k, () => cabe(slot, c), 0.7);
+    if (e){   // pasaje bíblico: se muestra su comienzo a tamaño normal y «Leer el pasaje completo» lo hace emerger
+      if (cabe(slot, c)) return 1;
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'pl-leer';
+      b.innerHTML = '<span aria-hidden="true">⤢</span> Leer el pasaje completo';
+      b.addEventListener('click', () => { const x = e.cloneNode(true); x.classList.remove('pl-recorte'); x.style.maxHeight = ''; emerger(b, x, e.querySelector('.rf') ? e.querySelector('.rf').textContent : 'Pasaje'); });
+      e.after(b); e.classList.add('pl-recorte');
+      e.style.maxHeight = Math.max(170, e.offsetHeight - Math.max(sobra(slot), sobra(c)) - 8) + 'px';
+      return cabe(slot, c) ? 1 : 0.9; }
+    return kMax(k => c.style.zoom = k, () => cabe(slot, c), Math.max(piso, 0.7));
   }
-  const medirTexto = t => kMax(k => t.style.zoom = k, () => cabe(t), 0.7);
+  const medirTexto = t => kMax(k => t.style.zoom = k, () => cabe(t), Math.max(piso, 0.7));
   const REPARTOS = ['1.05fr 1fr', '1.35fr 1fr', '1fr 1.35fr', '1.7fr 1fr', '1fr 1.7fr'];
-  // bloques finales del texto que pueden pasar bajo la imagen (salmo, voces, fuentes, «ver también»…);
-  // nunca la etiqueta, la fecha, el título ni el primer párrafo
+  // bloques finales del texto que pueden pasar bajo la imagen; nunca la etiqueta, la fecha, el título ni el primer párrafo
   const movibles = t => [...t.children].slice(4);
   function devolver(s){ const x = s.querySelector(':scope>.media>.pl-extra'), t = s.querySelector(':scope>.text');
     if (x){ [...x.children].forEach(n => t.append(n)); x.remove(); } }
   function dosColumnas(s){
     const m = s.querySelector(':scope>.media'), t = s.querySelector(':scope>.text');
     const total = movibles(t).length;
-    const probar = (r, n) => { limpiar(s); devolver(s); const [a, b] = r.split(' ');
+    const probar = (r, n) => { limpiar(s); const [a, b] = r.split(' ');
       s.style.gridTemplateColumns = `minmax(0,${a}) minmax(0,${b})`;
       if (n > 0){ const x = document.createElement('div'); x.className = 'text pl-extra'; movibles(t).slice(-n).forEach(e => x.append(e)); m.append(x); }
       return Math.min(medirMedia(m), medirTexto(t)); };
@@ -195,52 +204,117 @@ document.getElementById('tlCerrar').addEventListener('click', function(e){{
     probar(horizontal ? pl >= pa - 0.08 : pl > pa + 0.02);
   }
   function unaColumna(s){
-    const min = s.classList.contains('cine') ? 0.6 : 0.72;
+    const min = Math.max(piso, s.classList.contains('cine') ? 0.6 : 0.72);
     const probar = ancho => { limpiar(s); if (ancho) s.style.gridTemplateColumns = `minmax(0,${ancho})`;
       return kMax(k => [...s.children].forEach(c => c.style.zoom = k), () => cabe(s), min); };
-    // columna única: su ancho propio o una más ancha (hasta 1150 px), la que deje la letra más grande
     const propio = probar(''); if (propio >= 1) return propio;
     const ancho = probar('min(1150px,100%)'); return ancho <= propio + 0.02 ? probar('') : ancho;
   }
-  // Pestañas desplegables: si el hito solo cabe con la letra bajo el 85 %, sus bloques secundarios se
-  // pliegan de a uno (del menos al más importante) con el mismo diseño de «Otras voces», hasta que quepa.
-  const PLIEGUES = [['see', () => 'Ver también'], ['chips', () => 'Pasajes y fuentes'],
-    ['det', el => (el.querySelector('b') || {}).textContent || 'Eruditos y arqueología'], ['salmo', () => 'Salmo del camino']];
-  function desplegar(s){ s.querySelectorAll('details.pl-plegable').forEach(d => d.replaceWith(d.lastElementChild)); }
+
+  // --- bloques plegados: botones que abren un panel lateral o una ventana que emerge -------------
+  // Orden: del menos al más importante. El salmo y el texto bíblico emergen (como en el Mac); los demás
+  // entran desde el costado de su columna (derecha o izquierda). La letra conserva su tamaño.
+  const PLIEGUES = [
+    ['see',   () => 'Ver también', 'panel'],
+    ['chips', () => 'Pasajes y fuentes', 'panel'],
+    ['com',   el => 'Otras voces' + (el.querySelector('summary small') ? ' · ' + el.querySelector('summary small').textContent : ''), 'panel'],
+    ['det',   el => (el.querySelector('b') || {}).textContent || 'Eruditos y arqueología', 'panel']];
+  // el salmo del camino es siempre una ventana que emerge (en todas las pantallas)
+  const SIEMPRE = [['salmo', el => 'Salmo del camino' + (el.querySelector('.sl-ref b') ? ' · ' + el.querySelector('.sl-ref b').textContent.trim() : ''), 'emerge']];
+  const ICONO = { panel: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z M14 5v14"/></svg>',
+                  emerge: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19L19 5 M9 5h10v10"/></svg>' };
+  function desplegar(s){
+    cerrarTodo();
+    (s._pl || []).forEach(([ph, el]) => ph.replaceWith(el)); s._pl = [];
+    s.querySelectorAll('.pl-acciones').forEach(b => b.remove());
+  }
+  function guardar(s, el, rotulo, modo){
+    const t = s.querySelector(':scope>.text') || s; s._pl = s._pl || [];
+    let barra = t.querySelector(':scope>.pl-acciones');
+    if (!barra){ barra = document.createElement('div'); barra.className = 'pl-acciones'; t.append(barra); }
+    const ph = document.createComment('pl'); el.replaceWith(ph); s._pl.push([ph, el]);
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'pl-boton pl-b-' + modo;
+    const txt = rotulo(el); b.innerHTML = ICONO[modo] + `<span>${txt}</span>`;
+    b.addEventListener('click', () => modo === 'emerge' ? emerger(b, el, txt) : lateral(b, el, txt));
+    if (modo === 'emerge') barra.prepend(b); else barra.insertBefore(b, barra.querySelector('.pl-b-emerge') ? barra.querySelector('.pl-b-emerge').nextSibling : barra.firstChild);
+  }
+  function plegarSiempre(s){
+    const t = s.querySelector(':scope>.text') || s;
+    for (const [cls, rotulo, modo] of SIEMPRE) for (const el of [...t.querySelectorAll(`:scope>.${cls}`)]) guardar(s, el, rotulo, modo);
+  }
   function plegar(s, n){
-    let hechos = 0;
-    for (const [cls, rotulo] of PLIEGUES){
-      for (const el of s.querySelectorAll(`.text>.${cls}`)){
-        if (hechos >= n) return hechos;
-        const d = document.createElement('details'); d.className = 'com pl-plegable';
-        const sm = document.createElement('summary'); sm.innerHTML = `<span>${rotulo(el)}</span>`;
-        el.replaceWith(d); d.append(sm, el); hechos++;
-      }
-    }
+    const t = s.querySelector(':scope>.text') || s; let hechos = 0;
+    plegarSiempre(s);
+    for (const [cls, rotulo, modo] of PLIEGUES)
+      for (const el of [...t.querySelectorAll(`:scope>.${cls}`)]){ if (hechos >= n) return hechos; guardar(s, el, rotulo, modo); hechos++; }
     return hechos;
   }
-  const UMBRAL = 0.85;
+  // panel lateral: entra desde el costado de la columna del botón
+  function lateral(btn, el, titulo){
+    cerrarTodo();
+    const st = document.getElementById('stage'), izq = !!btn.closest('.pl-extra, .media');
+    const p = document.createElement('aside'); p.className = 'pl-panel ' + (izq ? 'izq' : 'der');
+    p.setAttribute('role', 'dialog'); p.setAttribute('aria-label', titulo);
+    p.innerHTML = `<div class="pl-cab"><b>${titulo}</b><button type="button" class="pl-x" aria-label="Cerrar">✕</button></div>`;
+    const cuerpo = document.createElement('div'); cuerpo.className = 'text pl-cuerpo'; cuerpo.append(el); p.append(cuerpo);
+    if (el.matches('details')) el.open = true;
+    st.append(p);
+    const desde = izq ? 'translateX(-104%)' : 'translateX(104%)';
+    p.animate([{ transform: desde }, { transform: 'none' }], { duration: 320, easing: 'cubic-bezier(.2,.8,.2,1)' });
+    p.querySelector('.pl-x').onclick = () => p.animate([{ transform: 'none' }, { transform: desde }], { duration: 220, easing: 'ease-in' }).onfinish = () => p.remove();
+    p.querySelector('.pl-x').focus();
+  }
+  // ventana que emerge desde el botón, como en el Mac, y vuelve a él al cerrarse
+  function emerger(btn, el, titulo){
+    cerrarTodo();
+    const ov = document.createElement('div'); ov.className = 'pl-emerge';
+    const w = document.createElement('div'); w.className = 'pl-ventana'; w.setAttribute('role', 'dialog'); w.setAttribute('aria-label', titulo);
+    w.innerHTML = `<button type="button" class="pl-x" aria-label="Cerrar">✕</button>`;
+    const cuerpo = document.createElement('div'); cuerpo.className = 'text pl-cuerpo'; cuerpo.append(el); w.append(cuerpo);
+    ov.append(w); document.body.append(ov);
+    const b = btn.getBoundingClientRect(), r = w.getBoundingClientRect();
+    const desde = `translate(${b.left - r.left}px,${b.top - r.top}px) scale(${Math.max(.05, b.width / r.width)},${Math.max(.05, b.height / r.height)})`;
+    w.style.transformOrigin = '0 0';
+    w.animate([{ transform: desde, opacity: .3, borderRadius: '999px' }, { transform: 'none', opacity: 1, borderRadius: '14px' }], { duration: 420, easing: 'cubic-bezier(.16,1,.3,1)' });
+    ov.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 260 });
+    const cerrar = () => { const b2 = btn.getBoundingClientRect(), r2 = w.getBoundingClientRect();
+      const hacia = `translate(${b2.left - r2.left}px,${b2.top - r2.top}px) scale(${Math.max(.05, b2.width / r2.width)},${Math.max(.05, b2.height / r2.height)})`;
+      ov.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 260 });
+      w.animate([{ transform: 'none', opacity: 1 }, { transform: hacia, opacity: .2 }], { duration: 280, easing: 'cubic-bezier(.4,0,.8,.4)' }).onfinish = () => ov.remove(); };
+    w.querySelector('.pl-x').onclick = cerrar; ov.addEventListener('click', e => { if (e.target === ov) cerrar(); });
+    ov._cerrar = cerrar; w.querySelector('.pl-x').focus();
+  }
+  function cerrarTodo(){ document.querySelectorAll('.pl-panel, .pl-emerge').forEach(x => x.remove()); }
+  addEventListener('keydown', e => { if (e.key === 'Escape' && document.querySelector('.pl-panel, .pl-emerge')){
+    e.stopImmediatePropagation(); const ov = document.querySelector('.pl-emerge');
+    if (ov && ov._cerrar) ov._cerrar(); else { const p = document.querySelector('.pl-panel'); p && p.querySelector('.pl-x').click(); } } }, true);
+
   function ajustar(s){
     if (!s) return;
     s.classList.add('pl-midiendo');   // sin la animación de entrada, que desplaza el texto unos píxeles
     try {
-      limpiar(s); desplegar(s);
-      if (!ANCHO() || s.classList.contains('viaje')) return;
+      piso = 1; limpiar(s); desplegar(s);
+      if (!ANCHO() || s.classList.contains('viaje')) { plegarSiempre(s); return; }
       if (s.classList.contains('title')) { portada(s); return; }
       const dos = s.querySelector(':scope>.media') && s.querySelector(':scope>.text') && s.children.length === 2;
       if (!dos && s.querySelector('.vivo')) return;
       const medir = () => dos ? dosColumnas(s) : unaColumna(s);
-      let k = medir();
-      for (let n = 1; k < UMBRAL && n <= PLIEGUES.length * 2; n++){
-        limpiar(s); desplegar(s); if (plegar(s, n) < n) { limpiar(s); desplegar(s); plegar(s, n - 1); k = medir(); break; }
+      // 1) sin achicar la letra: el salmo emerge siempre; los demás bloques se pliegan de a uno hasta que quepa
+      plegarSiempre(s);
+      let k = medir(), n = 0;
+      while (k < 1){
+        n++; limpiar(s); desplegar(s);
+        if (plegar(s, n) < n){ n--; break; }
         k = medir();
       }
+      // 2) todo plegado y aún no cabe: se achica un poco (hasta 90 %); si no, se desplaza por dentro
+      if (k < 1){ piso = 0.9; limpiar(s); desplegar(s); plegar(s, n); medir(); }
     } finally { s.classList.remove('pl-midiendo'); }
   }
   const actual = () => document.querySelector('.slide.on');
   // dos pasadas: al llegar el hito y al terminar el deslizamiento (0,7 s); la segunda no repite la
   // animación de entrada (pl-ajustado), que vuelve a correr la próxima vez que se llega al hito
-  let t = null, t2 = null; const pronto = () => { clearTimeout(t); clearTimeout(t2);
+  let t = null, t2 = null; const pronto = () => { clearTimeout(t); clearTimeout(t2); cerrarTodo();
     document.querySelectorAll('.slide.pl-ajustado').forEach(x => x.classList.remove('pl-ajustado'));
     t = setTimeout(() => ajustar(actual()), 60);
     t2 = setTimeout(() => { const s = actual(); if (s){ s.classList.add('pl-ajustado'); ajustar(s); } }, 800); };
@@ -257,7 +331,9 @@ document.getElementById('tlCerrar').addEventListener('click', function(e){{
 })();
 </script>
 </html>"""
-    cambiar(r"</html>\s*$", ajuste, regex=True)
+    html = html.rstrip()
+    assert html.endswith("</html>"), f"lineas.py ({slug}): la página no termina en </html>"
+    html = html[:-len("</html>")] + ajuste   # sin regex: el script lleva barras invertidas
 
     # --- todo en una pantalla: un botón por tarea y una banda de tiempo más baja ----------------
     # Fuera (repetían otra tarea o eran secundarios): «Arqueología» y «Hoy» del menú (el Atlas tiene sus
@@ -301,9 +377,32 @@ document.getElementById('tlCerrar').addEventListener('click', function(e){{
 .pl-midiendo,.pl-midiendo *{animation:none!important;transition:none!important}
 .slide.cine{overflow-y:auto}
 .pl-ajustado .text>*,.pl-ajustado .pl-extra>*{animation:none!important}
-.pl-plegable>:not(summary){margin:0 12px 12px!important}
-.pl-plegable>.det,.pl-plegable>.salmo{border-radius:6px}
-.pl-plegable summary span{text-transform:none}
+.pl-acciones{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.pl-boton{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--rule);border-radius:999px;
+  background:var(--surface);font:700 14px/1.2 var(--f-ui);color:var(--c-ink,var(--accent-ink));box-shadow:0 6px 14px -12px rgba(0,0,0,.55);transition:transform .15s,background .15s}
+.pl-boton:hover{background:color-mix(in srgb,var(--c,var(--accent)) 10%,var(--surface));transform:translateY(-1px)}
+.pl-boton:focus-visible,.pl-leer:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.pl-boton svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.slide.cine .pl-boton{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.3)}
+.pl-panel{position:absolute;top:54px;bottom:0;width:min(470px,48%);z-index:30;overflow:auto;background:var(--surface);color:var(--ink);
+  padding:0 24px 24px;box-shadow:0 0 50px -18px rgba(0,0,0,.6)}
+.pl-panel.der{right:0;border-left:1px solid var(--rule)} .pl-panel.izq{left:0;border-right:1px solid var(--rule)}
+.pl-cab{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0 12px;background:var(--surface);
+  font:700 13px var(--f-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--rule);margin-bottom:14px}
+.pl-x{all:unset;cursor:pointer;width:32px;height:32px;display:grid;place-items:center;border-radius:50%;border:1px solid var(--rule);color:var(--muted);font:600 15px var(--f-ui);background:var(--surface)}
+.pl-x:hover{color:var(--ink)}
+.pl-cuerpo{display:grid;gap:14px}
+.pl-cuerpo>.com>summary{display:none}
+.pl-emerge{position:fixed;inset:0;z-index:4000;display:grid;place-items:center;padding:24px;background:color-mix(in srgb,#140e06 38%,transparent);backdrop-filter:blur(3px)}
+.pl-ventana{position:relative;width:min(760px,92vw);max-height:86vh;overflow:auto;background:var(--surface);color:var(--ink);border-radius:14px;padding:30px 34px 28px;
+  border:1px solid var(--rule);box-shadow:0 40px 90px -25px rgba(0,0,0,.6)}
+.pl-ventana .pl-x{position:absolute;top:12px;right:12px}
+.pl-ventana .salmo{margin:0;border:0;padding:0;background:none}
+.pl-ventana .escr{width:100%;box-shadow:none;border:0;padding:0;background:none}
+.escr.pl-recorte{overflow:hidden;-webkit-mask-image:linear-gradient(#000 78%,transparent);mask-image:linear-gradient(#000 78%,transparent)}
+.pl-leer{all:unset;cursor:pointer;align-self:flex-start;margin-top:10px;padding:8px 14px;border-radius:999px;border:1px solid var(--rule);background:var(--surface);
+  font:700 14px var(--f-ui);color:var(--c-ink,var(--accent-ink));box-shadow:0 6px 14px -12px rgba(0,0,0,.55)}
+@media (max-height:500px){.pl-panel{top:42px}}
 .tn-canvas{will-change:auto}
 .slide{content-visibility:auto;contain-intrinsic-size:auto 100vw auto 100%}
 .slide.on,.pl-midiendo{content-visibility:visible!important}
