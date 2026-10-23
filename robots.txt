@@ -1,0 +1,5 @@
+# Sitio en preparación: las páginas llevan «noindex». Los PDF y audios no pueden
+# llevar esa marca, así que se bloquean aquí. Al lanzar: borrar las líneas Disallow.
+User-agent: *
+Disallow: /*.pdf$
+Disallow: /predicaciones/audio/

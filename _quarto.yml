@@ -6,6 +6,7 @@ project:
     - scripts/predicaciones.py   # publica las predicaciones (PDF + audio) de estudios/predicaciones/
     - scripts/lineas.py          # integra las líneas de tiempo de estudios/lineas/ en sus páginas
   resources:
+    - "robots.txt"
     - "app/**"
     - "datos/**"
     - "sincronia/**"
