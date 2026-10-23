@@ -30,8 +30,8 @@ OUT.mkdir(parents=True, exist_ok=True)
 RAMPA = [(-450, (150, 160, 128)), (-200, (184, 186, 146)), (0, (226, 214, 170)), (150, (236, 223, 182)),
          (400, (232, 212, 164)), (800, (218, 190, 140)), (1300, (198, 166, 120)), (2000, (176, 148, 112)),
          (3000, (190, 176, 156)), (4200, (232, 228, 220))]
-MAR = np.array((196, 208, 202), float)
-MAR_COSTA = np.array((214, 222, 212), float)
+MAR = np.array((118, 164, 200), float)        # azul de atlas: mar abierto
+MAR_COSTA = np.array((176, 208, 228), float)  # aguas someras junto a la costa
 
 def merc(lon, lat):
     x = math.radians(lon) * 6378137
@@ -100,7 +100,7 @@ def render(nombre, tif, latlon, ancho_px, exag, trozos=(1, 1)):
     col += rng.normal(0, 2.2, col.shape[:2])[..., None]
     # mar con degradado desde la costa
     d = ndimage.distance_transform_edt(~land) * (px / 1000)          # km al mar abierto
-    t = np.clip(d / (18 if W / (e_ - w_) > 800 else 60), 0, 1)[..., None]
+    t = np.clip(d / (14 if W / (e_ - w_) > 800 else 45), 0, 1)[..., None] ** .7
     mar = MAR_COSTA * (1 - t) + MAR * t
     col = np.where(land[..., None], col, mar)
     img = np.clip(col, 0, 255).astype(np.uint8)

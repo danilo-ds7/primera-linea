@@ -38,6 +38,7 @@ def embed(src: Path, dst: Path, ID: str):
     css = re.sub(r"\nbody\{[^}]*\}", "", css, count=1)
     css = css.replace(":root:not([data-theme=\"light\"])", f"#{ID}:not([data-theme=\"light\"])")
     css = css.replace(":root[data-theme=\"dark\"]", f"#{ID}[data-theme=\"dark\"]")
+    css = css.replace(":root[data-theme=\"jerusalen\"]", f"#{ID}[data-theme=\"jerusalen\"]")
     css = css.replace(":root{", f"#{ID}{{")
     css = re.sub(r"(\d+)vh\b", r"\1cqh", css)          # alturas relativas al contenedor, no a la ventana
     css = re.sub(r"(\d+)vw\b", r"\1cqw", css)
@@ -93,7 +94,7 @@ def embed(src: Path, dst: Path, ID: str):
 
     # --- JS: tema, pantalla completa y teclado sobre el contenedor -------------
     js = js.replace("document.documentElement.dataset.theme=t", f"TL.dataset.theme=t")
-    js = js.replace("const r=document.documentElement; const dark", "const r=TL; const dark")
+    js = js.replace("function temaRaiz(){ return document.documentElement; }", "function temaRaiz(){ return TL; }")
     js = re.sub(r"function toggleFS\(\)\{.*?\n(?=function fsLabel)",
     f"""function fsOn(){{ return !!(document.fullscreenElement||document.webkitFullscreenElement)||TL.classList.contains('tl-full'); }}
     function toggleFS(){{ const d=document;

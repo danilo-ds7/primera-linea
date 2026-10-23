@@ -1,7 +1,7 @@
 /* ---------- ATLAS VIVO: MapLibre GL + relieve Copernicus + capas Escritura · Arqueología · Hoy ---------- */
 /* Un solo mapa WebGL compartido: cada diapositiva con mapa lo toma al activarse; el atlas completo lo
    abre a pantalla completa. Si WebGL no está disponible, queda el mapa TikZ con sus puntos tocables. */
-const ATL={p:null,ok:null,map:null,host:null,data:null,base:null,rel:null,mk:[],ev:null,capas:{relato:true,arq:true,hoy:false,relieve:true},
+const ATL={p:null,ok:null,map:null,host:null,data:null,base:null,rel:null,mk:[],ev:null,capas:{relato:true,arq:true,hoy:false,rutas:false},fondo:'relieve',
   popup:null,full:false,tramo:0,play:0,lug:{}};
 const ATL_BASE='abraham/';
 const MLV='4.7.1';
@@ -36,21 +36,32 @@ function fichaHTML(L,tab){ const usa=L.site?SITEUSE[L.site]||[]:[];
   const B=(L.biblia||[]).map(([r,t])=>`<blockquote class="pp-q"><cite>${esc(r)}</cite>${esc(t)}</blockquote>`).join('')||'<p class="pp-v">Sin pasaje directo: es contexto para el relato.</p>';
   const A=(L.arq||[]).map(t=>`<p>${esc(t)}</p>`).join('')||'<p class="pp-v">—</p>';
   const H=L.hoy?`<p>${esc(L.hoy)}</p>`:'<p class="pp-v">—</p>';
-  const tabs=[['esc','Escritura',B],['arq','Arqueología',A],['hoy','Hoy',H]];
+  const Bb=(L.bib||[]).map(([f,t])=>`<p>${esc(t)}</p><p class="pp-cit">— ${esc(f)}</p>`).join('');
+  const tabs=[['esc','Escritura',B],['arq','Arqueología',A],['hoy','Hoy',H+gmaps(L)],...(Bb?[['bib','Biblioteca',Bb]]:[])];
   const t0=tab||(L.k==='arqueo'?'arq':L.k==='hoy'?'hoy':'esc');
   return `<div class="pp k-${L.k}"><div class="pp-h"><span class="pp-k">${KIND[L.k]||'Lugar'}</span><b>${esc(L.n)}</b>${L.he?`<span class="pp-he" lang="he" dir="rtl">${esc(L.he)}</span>`:''}${L.actual?`<small>${esc(L.actual)}</small>`:''}</div>
     <div class="pp-tabs" role="tablist">${tabs.map(([k,t])=>`<button type="button" role="tab" data-t="${k}" aria-selected="${k===t0}">${t}</button>`).join('')}</div>
     ${tabs.map(([k,,c])=>`<div class="pp-p" data-p="${k}" ${k===t0?'':'hidden'}>${c}</div>`).join('')}
-    <div class="pp-f"><button type="button" data-ficha="${esc(L.site||L.id)}">Ficha completa</button>${usa.slice(0,4).map(u=>`<button type="button" data-goto="${u}">Hito ${u}</button>`).join('')}</div></div>`; }
+    <div class="pp-f"><button type="button" data-ficha="${esc(L.site||L.id)}">Ficha completa</button><button type="button" data-sat="${esc(L.site||L.id)}">🛰 Ver hoy</button>${usa.slice(0,3).map(u=>`<button type="button" data-goto="${u}">Hito ${u}</button>`).join('')}</div></div>`; }
+/* enlaces oficiales de Google Maps (URLs públicas de Maps, sin API) */
+function gmaps(L){ const q=`${L.ll[0]},${L.ll[1]}`;
+  return `<div class="pp-gm"><a href="https://www.google.com/maps/search/?api=1&query=${q}" target="_blank" rel="noopener">Abrir en Google Maps ↗</a><a href="https://www.google.com/maps/@?api=1&map_action=map&center=${q}&zoom=17&basemap=satellite" target="_blank" rel="noopener">Vista satelital en Google ↗</a></div>`; }
 function tramoHTML(t){ const T=ATL.data.tramos, d=kmTramo(t);
   return `<div class="pp k-tramo"><div class="pp-h"><span class="pp-k">Tramo ${t.n} de ${T.length} · ≈ ${fmtKm(d)} km</span><b>${esc(t.de)} → ${esc(t.a)}</b></div>
     <blockquote class="pp-q"><cite>${esc(t.ref)}</cite>${esc(t.txt)}</blockquote><div class="pp-sub">Camino y arqueología</div><p>${esc(t.arq)}</p>
+    ${(t.bib||[]).length?`<div class="pp-sub">Biblioteca de Primera Línea</div>${t.bib.map(([f,x])=>`<p>${esc(x)}</p><p class="pp-cit">— ${esc(f)}</p>`).join('')}`:''}
     <div class="pp-f"><button type="button" data-tr="${t.n-1}" ${t.n>1?'':'disabled'}>← Tramo ${t.n-1||''}</button><button type="button" data-lug="${esc(t.site)}">${esc(t.a)}</button><button type="button" data-tr="${t.n+1}" ${t.n<T.length?'':'disabled'}>Tramo ${t.n<T.length?t.n+1:''} →</button></div></div>`; }
 function cablear(root){ root.querySelectorAll('.pp-tabs button').forEach(b=>b.onclick=()=>{ const pp=b.closest('.pp'); pp.querySelectorAll('.pp-tabs button').forEach(x=>x.setAttribute('aria-selected',x===b)); pp.querySelectorAll('.pp-p').forEach(p=>p.hidden=p.dataset.p!==b.dataset.t); });
   root.querySelectorAll('[data-ficha]').forEach(b=>b.onclick=()=>abrirLugar(b.dataset.ficha,b));
   root.querySelectorAll('[data-goto]').forEach(b=>b.onclick=()=>{ atlasCerrar(); closeDrawer(); go(+b.dataset.goto); });
   root.querySelectorAll('[data-tr]').forEach(b=>b.onclick=()=>atlasTramo(+b.dataset.tr));
-  root.querySelectorAll('[data-lug]').forEach(b=>b.onclick=()=>atlasLugar(b.dataset.lug)); }
+  root.querySelectorAll('[data-lug]').forEach(b=>b.onclick=()=>atlasLugar(b.dataset.lug));
+  root.querySelectorAll('[data-sat]').forEach(b=>b.onclick=()=>verHoy(b.dataset.sat)); }
+/* «Ver hoy»: el mismo lugar en la imagen satelital actual, muy de cerca */
+function verHoy(key){ const L=datosLugar(key); if(!L) return; closeDrawer(); const go_=()=>{ atlasFondo('satelite'); ATL.capas.hoy=true; atlasCapas();
+    ATL.map.flyTo({center:lonlat(L.ll),zoom:15.2,duration:1600}); atlasPopLugar(key,'hoy'); };
+  if(!ATL.full&&ATL.host&&ATL.host.clientWidth<700){ atlasAbrir(); }
+  ATL.listo?go_():(atlasCargar().then(()=>{ atlasCrear(); ATL.map.once('load',go_); })); }
 function abrirLugar(key,from){ const L=datosLugar(key); if(!L) return;
   const usa=L.site?SITEUSE[L.site]||[]:[], A=L.site?(DATA.altars||{})[L.site]:null;
   openDrawer(`<div class="era">${KIND[L.k]||'Lugar'}${A?` · altar ${A.n}`:''}</div><h3 class="ref" id="dref">${esc(L.n)}</h3>${L.he?`<div class="he" lang="he" dir="rtl">${esc(L.he)}</div>`:''}
@@ -58,7 +69,8 @@ function abrirLugar(key,from){ const L=datosLugar(key); if(!L) return;
     <div class="lab">Escritura</div>${(L.biblia||[]).map(([r,t])=>`<blockquote><b>${esc(r)}</b> ${esc(t)}</blockquote>`).join('')||'<p>—</p>'}
     ${A?`<div class="lab">Altar ${A.n} · ${esc(A.ref)}</div><p><b>${esc(A.tr)}</b> — ${esc(A.mean)}</p><p><b>Atributo de Dios:</b> ${esc(A.attr)}</p>`:''}
     <div class="lab">Arqueología</div>${(L.arq||[]).map(t=>`<p>${esc(t)}</p>`).join('')}
-    <div class="lab">Hoy</div><p>${esc(L.hoy||'—')}</p>${(L.fuentes||[]).length?`<div class="lab">Fuentes</div>${L.fuentes.map(f=>`<p class="src">${esc(f)}</p>`).join('')}`:''}
+    <div class="lab">Hoy</div><p>${esc(L.hoy||'—')}</p>${gmaps(L)}
+    ${(L.bib||[]).length?`<div class="lab">Biblioteca de Primera Línea</div>${L.bib.map(([f,t])=>`<p>${esc(t)}</p><p class="src">${esc(f)}</p>`).join('')}`:''}${(L.fuentes||[]).length?`<div class="lab">Fuentes</div>${L.fuentes.map(f=>`<p class="src">${esc(f)}</p>`).join('')}`:''}
     <p><button type="button" class="vermapa" data-lug="${esc(L.site||L.id)}">Ver en el atlas</button></p>
     ${usa.length?`<div class="lab">Aparece en</div><div class="see" style="border:0;padding:0">${usa.map(u=>`<button type="button" data-goto="${u}"><span>${u}</span>${esc(events[u-1].title)}</button>`).join('')}</div>`:''}`,
     'c'+(events[cur-1]?events[cur-1].era:7),from);
@@ -69,32 +81,45 @@ function abrirLugar(key,from){ const L=datosLugar(key); if(!L) return;
 function atlasCrear(){ if(ATL.map) return ATL.map;
   const host=el('div',{class:'atl'}), cont=el('div',{class:'atl-map'});
   const bar=el('div',{class:'atl-capas',role:'group','aria-label':'Capas del mapa'});
-  [['relato','Relato'],['arq','Arqueología'],['hoy','Hoy'],['relieve','Relieve']].forEach(([k,t])=>{ const b=el('button',{type:'button','data-capa':k,'aria-pressed':ATL.capas[k]}); b.textContent=t; b.onclick=()=>{ ATL.capas[k]=!ATL.capas[k]; b.setAttribute('aria-pressed',ATL.capas[k]); atlasCapas(); }; bar.append(b); });
+  const fondo=el('div',{class:'atl-fondo',role:'radiogroup','aria-label':'Mapa base'});
+  [['relieve','⛰','Relieve'],['satelite','🛰','Satélite'],['calles','🗺','Calles']].forEach(([k,i,t])=>{ const b=el('button',{type:'button','data-fondo':k,role:'radio','aria-checked':ATL.fondo===k,title:t}); b.innerHTML=`<span aria-hidden="true">${i}</span> ${t}`; b.onclick=()=>atlasFondo(k); fondo.append(b); });
+  [['relato','Relato'],['arq','Arqueología'],['hoy','Hoy'],['rutas','Rutas']].forEach(([k,t])=>{ const b=el('button',{type:'button','data-capa':k,'aria-pressed':ATL.capas[k]}); b.textContent=t; b.onclick=()=>{ ATL.capas[k]=!ATL.capas[k]; b.setAttribute('aria-pressed',ATL.capas[k]); atlasCapas(); }; bar.append(b); });
+  bar.prepend(fondo);
   const tools=el('div',{class:'atl-tools'});
   const mkb=(t,l,f)=>{ const b=el('button',{type:'button','aria-label':l,title:l}); b.innerHTML=t; b.onclick=f; tools.append(b); return b; };
   mkb('+','Acercar',()=>ATL.map.zoomIn()); mkb('−','Alejar',()=>ATL.map.zoomOut()); mkb('⟲','Volver a la vista del hito',()=>atlasVista(ATL.ev,true));
   ATL.btnFull=mkb('⤢','Abrir el atlas completo',()=>ATL.full?atlasCerrar():atlasAbrir());
-  const leyenda=el('div',{class:'atl-ley'}); leyenda.innerHTML='<span><i class="lg-b"></i>Lugar bíblico</span><span><i class="lg-a"></i>Arqueología</span><span><i class="lg-h"></i>Hoy</span><span><i class="lg-r"></i>Camino</span>';
-  const cred=el('div',{class:'atl-cred'}); cred.textContent='Relieve: Copernicus DEM GLO-90 © ESA · Cartografía: Natural Earth';
+  const leyenda=el('div',{class:'atl-ley'}); leyenda.innerHTML='<span><i class="lg-b"></i>Lugar bíblico</span><span><i class="lg-a"></i>Arqueología</span><span><i class="lg-h"></i>Hoy</span><span><i class="lg-r"></i>Camino</span><span><i class="lg-v"></i>Ruta antigua</span>';
+  const cred=el('div',{class:'atl-cred'}); ATL.cred=cred;
   host.append(cont,bar,tools,leyenda,cred); ATL.host=host;
-  const st={version:8,sources:{},layers:[{id:'mar',type:'background',paint:{'background-color':'#c4d0ca'}}]};
+  const st={version:8,sources:{
+      sat:{type:'raster',tiles:['https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless-2021_3857/default/g/{z}/{y}/{x}.jpg'],tileSize:256,maxzoom:15},
+      osm:{type:'raster',tiles:['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],tileSize:256,maxzoom:19}},
+    layers:[{id:'mar',type:'background',paint:{'background-color':'#76a4c8'}},
+      {id:'sat',type:'raster',source:'sat',layout:{visibility:'none'},paint:{'raster-fade-duration':200}},
+      {id:'osm',type:'raster',source:'osm',layout:{visibility:'none'},paint:{'raster-fade-duration':200}}]};
   ATL.rel.forEach((r,k)=>{ st.sources['rel'+k]={type:'image',url:ATL_BASE+r.src.replace(/^abraham\//,''),coordinates:r.coords};
     st.layers.push({id:'rel'+k,type:'raster',source:'rel'+k,...(r.nivel==='levante'?{minzoom:5.6}:{}),paint:{'raster-fade-duration':180,'raster-contrast':.04}}); });
   const B=ATL.base, fc=f=>({type:'geojson',data:f});
   st.sources.lagos=fc(B.lagos); st.sources.rios=fc(B.rios); st.sources.costa=fc(B.costa); st.sources.fronteras=fc(B.fronteras);
   st.sources.ruta=fc({type:'FeatureCollection',features:ATL.data.tramos.map(t=>({type:'Feature',id:t.n,properties:{n:t.n,v:t.vuelta?1:0},geometry:{type:'LineString',coordinates:curva(t.pts)}}))});
   st.sources.trazo=fc({type:'FeatureCollection',features:[]});
+  const RT=[...(ATL.data.rutas||[]),...ATL.data.tramos.filter(t=>t.alt).map(t=>({n:`Variante del tramo ${t.n}`,alt:1,nota:'Ruta alternativa por el Éufrates, Carquemis, Alepo y el valle del Orontes.',pts:t.alt}))];
+  st.sources.rutas=fc({type:'FeatureCollection',features:RT.map((r,i)=>({type:'Feature',id:i+1,properties:{n:r.n,alt:r.alt?1:0},geometry:{type:'LineString',coordinates:curva(r.pts)}}))}); ATL.rutasL=RT;
   const cfx=[...B.ciudades.map(c=>({n:c.n,c:c.c})),...(ATL.data.ciudades_extra||[]).map(([n,la,lo])=>({n,c:[lo,la]}))];
   st.sources.ciudades=fc({type:'FeatureCollection',features:cfx.map(c=>({type:'Feature',properties:{n:c.n},geometry:{type:'Point',coordinates:c.c}}))});
   st.layers.push(
-    {id:'lagos',type:'fill',source:'lagos',filter:['==',['get','hoy'],0],paint:{'fill-color':'#b6c9c4','fill-outline-color':'#5f8a8c'}},
-    {id:'lagos-hoy',type:'fill',source:'lagos',filter:['==',['get','hoy'],1],layout:{visibility:'none'},paint:{'fill-color':'#a9c3c8','fill-opacity':.85}},
-    {id:'costa',type:'line',source:'costa',paint:{'line-color':'#5d6f69','line-width':['interpolate',['linear'],['zoom'],4,.5,9,1.2],'line-opacity':.8}},
+    {id:'lagos',type:'fill',source:'lagos',filter:['==',['get','hoy'],0],paint:{'fill-color':'#8dbadc','fill-outline-color':'#3d78a8'}},
+    {id:'lagos-hoy',type:'fill',source:'lagos',filter:['==',['get','hoy'],1],layout:{visibility:'none'},paint:{'fill-color':'#7fb2dc','fill-opacity':.9}},
+    {id:'costa',type:'line',source:'costa',paint:{'line-color':'#3f6f94','line-width':['interpolate',['linear'],['zoom'],4,.5,9,1.2],'line-opacity':.75}},
     {id:'rios',type:'line',source:'rios',filter:['==',['get','hoy'],0],layout:{'line-cap':'round','line-join':'round'},
-      paint:{'line-color':'#4f7f84','line-width':['interpolate',['linear'],['zoom'],4,['case',['<=',['get','r'],4],1.4,.7],9,['case',['<=',['get','r'],4],3,1.6]],'line-opacity':['case',['==',['get','esq'],1],.75,.95]}},
-    {id:'rios-hoy',type:'line',source:'rios',filter:['==',['get','hoy'],1],layout:{visibility:'none'},paint:{'line-color':'#2f6f8a','line-width':1.2,'line-dasharray':[2,1.5]}},
+      paint:{'line-color':'#2f7fc0','line-width':['interpolate',['linear'],['zoom'],4,['case',['<=',['get','r'],4],1.4,.7],9,['case',['<=',['get','r'],4],3,1.6]],'line-opacity':['case',['==',['get','esq'],1],.75,.95]}},
+    {id:'rios-hoy',type:'line',source:'rios',filter:['==',['get','hoy'],1],layout:{visibility:'none'},paint:{'line-color':'#1f6fae','line-width':1.2,'line-dasharray':[2,1.5]}},
     {id:'fronteras',type:'line',source:'fronteras',layout:{visibility:'none','line-join':'round'},paint:{'line-color':'#7a2f3b','line-width':['interpolate',['linear'],['zoom'],4,.8,9,1.6],'line-dasharray':[4,2],'line-opacity':.8}},
     {id:'ciudades',type:'circle',source:'ciudades',layout:{visibility:'none'},paint:{'circle-radius':3.2,'circle-color':'#2f4f6f','circle-stroke-color':'#fff','circle-stroke-width':1.2}},
+    {id:'rutas',type:'line',source:'rutas',layout:{visibility:'none','line-cap':'round','line-join':'round'},
+      paint:{'line-color':['case',['==',['get','alt'],1],'#7a2f3b','#1f4e8c'],'line-width':['interpolate',['linear'],['zoom'],4,2.2,9,4],'line-dasharray':[1.2,1.4],'line-opacity':['case',['boolean',['feature-state','hov'],false],1,.85]}},
+    {id:'rutas-toque',type:'line',source:'rutas',layout:{visibility:'none'},paint:{'line-color':'#000','line-opacity':0,'line-width':14}},
     {id:'ruta-casco',type:'line',source:'ruta',layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':'#fff8e8','line-width':['interpolate',['linear'],['zoom'],4,4.5,9,8],'line-opacity':.75}},
     {id:'ruta',type:'line',source:'ruta',layout:{'line-cap':'round','line-join':'round'},
       paint:{'line-color':['case',['boolean',['feature-state','sel'],false],'#d6aa40',['boolean',['feature-state','hov'],false],'#c4612f','#9a4a2a'],
@@ -105,7 +130,7 @@ function atlasCrear(){ if(ATL.map) return ATL.map;
     {id:'ruta-toque',type:'line',source:'ruta',paint:{'line-color':'#000','line-opacity':0,'line-width':18}},
     {id:'trazo-casco',type:'line',source:'trazo',layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':'#fff8e8','line-width':6,'line-opacity':.7}},
     {id:'trazo',type:'line',source:'trazo',layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':['coalesce',['get','col'],'#9a4a2a'],'line-width':3.4}});
-  const map=new maplibregl.Map({container:cont,style:st,center:[38,33],zoom:5,minZoom:4.2,maxZoom:12.5,maxBounds:[[28.05,27.05],[50.95,39.95]],attributionControl:false,
+  const map=new maplibregl.Map({container:cont,style:st,center:[38,33],zoom:5,minZoom:4.2,maxZoom:17,maxBounds:[[28.05,27.05],[50.95,39.95]],attributionControl:false,
     cooperativeGestures:false,dragRotate:false,pitchWithRotate:false,touchPitch:false,renderWorldCopies:false,fadeDuration:150,locale:{
       'CooperativeGesturesHandler.WindowsHelpText':'Usa Ctrl + rueda para acercar o alejar el mapa','CooperativeGesturesHandler.MacHelpText':'Usa ⌘ + rueda para acercar o alejar el mapa','CooperativeGesturesHandler.MobileHelpText':'Usa dos dedos para mover el mapa'}});
   map.touchZoomRotate.disableRotation();
@@ -115,6 +140,12 @@ function atlasCrear(){ if(ATL.map) return ATL.map;
     const t=ATL.data.tramos[f.id-1]; ATL.tip.innerHTML=`<b>Tramo ${t.n}</b> ${esc(t.de)} → ${esc(t.a)} · <i>${esc(t.ref)}</i>`; ATL.tip.style.left=e.point.x+'px'; ATL.tip.style.top=e.point.y+'px'; ATL.tip.hidden=false; });
   map.on('mouseleave','ruta-toque',()=>{ if(hov!==null) map.setFeatureState({source:'ruta',id:hov},{hov:false}); hov=null; map.getCanvas().style.cursor=''; ATL.tip.hidden=true; });
   map.on('click','ruta-toque',e=>{ ATL.tip.hidden=true; atlasTramo(e.features[0].id,e.lngLat); });
+  map.on('mouseenter','rutas-toque',e=>{ map.getCanvas().style.cursor='pointer'; });
+  map.on('mousemove','rutas-toque',e=>{ const r=ATL.rutasL[e.features[0].id-1]; ATL.tip.innerHTML=`<b>${esc(r.n)}</b>`; ATL.tip.style.left=e.point.x+'px'; ATL.tip.style.top=e.point.y+'px'; ATL.tip.hidden=false; });
+  map.on('mouseleave','rutas-toque',()=>{ map.getCanvas().style.cursor=''; ATL.tip.hidden=true; });
+  map.on('click','rutas-toque',e=>{ const r=ATL.rutasL[e.features[0].id-1]; if(ATL.popup) ATL.popup.remove();
+    const h=`<div class="pp k-ruta"><div class="pp-h"><span class="pp-k">Ruta antigua</span><b>${esc(r.n)}</b>${r.he?`<span class="pp-he" lang="he" dir="rtl">${esc(r.he)}</span>`:''}</div><p style="padding:10px 14px 4px">${esc(r.nota)}</p><p class="pp-cit" style="padding:0 14px 12px">— Curso «Explorando la Tierra Bíblica de Israel»</p></div>`;
+    if(ATL.host.clientWidth<560){ openDrawer(h,'c7'); return; } ATL.popup=new maplibregl.Popup({className:'atl-pop',maxWidth:'340px'}).setLngLat(e.lngLat).setHTML(h).addTo(map); });
   map.on('click','ciudades',e=>{ const f=e.features[0]; new maplibregl.Popup({closeButton:true,className:'atl-pop',maxWidth:'260px'}).setLngLat(f.geometry.coordinates).setHTML(`<div class="pp k-hoy"><div class="pp-h"><span class="pp-k">Ciudad actual</span><b>${esc(f.properties.n)}</b></div></div>`).addTo(map); });
   map.on('zoom',()=>atlasEtiquetas()); map.on('moveend',()=>atlasEtiquetas());
   ATL.tip=el('div',{class:'atl-tip',hidden:''}); host.append(ATL.tip);
@@ -123,8 +154,13 @@ function atlasCrear(){ if(ATL.map) return ATL.map;
   return map; }
 
 function atlasCapas(){ const m=ATL.map; if(!m||!ATL.listo) return; const C=ATL.capas, vis=v=>v?'visible':'none';
-  ATL.rel.forEach((r,k)=>m.setLayoutProperty('rel'+k,'visibility',vis(C.relieve)));
-  m.setPaintProperty('mar','background-color',C.relieve?'#c4d0ca':'#efe6cf');
+  const F=ATL.fondo; ATL.rel.forEach((r,k)=>m.setLayoutProperty('rel'+k,'visibility',vis(F==='relieve')));
+  m.setLayoutProperty('sat','visibility',vis(F==='satelite')); m.setLayoutProperty('osm','visibility',vis(F==='calles'));
+  ['costa','lagos','rios'].forEach(id=>m.setLayoutProperty(id,'visibility',vis(F==='relieve')));
+  ['rutas','rutas-toque'].forEach(id=>m.setLayoutProperty(id,'visibility',vis(C.rutas)));
+  ATL.host.classList.toggle('f-sat',F==='satelite'); ATL.host.classList.toggle('f-osm',F==='calles');
+  ATL.cred.innerHTML=F==='satelite'?'Satélite: <a href="https://s2maps.eu" target="_blank" rel="noopener">Sentinel-2 cloudless 2021 por EOX</a> (datos Copernicus Sentinel modificados)':F==='calles'?'© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">colaboradores de OpenStreetMap</a>':'Relieve: Copernicus DEM GLO-90 © ESA · Cartografía: Natural Earth';
+  ATL.host.querySelectorAll('[data-fondo]').forEach(b=>b.setAttribute('aria-checked',b.dataset.fondo===F));
   ['fronteras','ciudades','lagos-hoy','rios-hoy'].forEach(id=>m.setLayoutProperty(id,'visibility',vis(C.hoy)));
   const verRuta=ATL.ev&&ATL.ev.viaje||ATL.full; ['ruta-casco','ruta','ruta-v','ruta-toque'].forEach(id=>m.setLayoutProperty(id,'visibility',vis(C.relato&&verRuta)));
   ['trazo','trazo-casco'].forEach(id=>m.setLayoutProperty(id,'visibility',vis(C.relato&&!verRuta)));
@@ -148,6 +184,7 @@ function atlasMarcadores(){ const m=ATL.map, C=ATL.capas, ev=ATL.ev||{}; ATL.mk.
     ATL.base.paises.forEach(p=>{ const n=el('div',{class:'atl-pais'}); n.textContent=p.n; const k=new maplibregl.Marker({element:n,anchor:'center'}).setLngLat(p.c).addTo(m); n.dataset.minz=0; n.dataset.maxz=8.5; ATL.mk.push(k); });
     [...ATL.base.ciudades.map(c=>[c.n,c.c]),...(ATL.data.ciudades_extra||[]).map(([n,la,lo])=>[n,[lo,la]])].forEach(([nm,c])=>{ const n=el('div',{class:'atl-ciu'}); n.textContent=nm; const k=new maplibregl.Marker({element:n,anchor:'left',offset:[6,0]}).setLngLat(c).addTo(m); n.dataset.minz=5.4; ATL.mk.push(k); }); }
   atlasEtiquetas(); }
+function atlasFondo(k){ ATL.fondo=k; if(k!=='relieve'&&!ATL.capas.hoy){ ATL.capas.hoy=true; } atlasCapas(); }
 function atlasEtiquetas(){ const z=ATL.map.getZoom(); ATL.mk.forEach(k=>{ const n=k.getElement(); n.classList.toggle('zoculto',z<+(n.dataset.minz||0)||(!!n.dataset.maxz&&z>+n.dataset.maxz)); });
   cancelAnimationFrame(ATL.dcl); ATL.dcl=requestAnimationFrame(desamontonar); }
 /* rótulos sin choques: prioridad altar > bíblico > arqueología > hoy > ciudades; los que chocan quedan solo con su punto */
@@ -193,12 +230,25 @@ function mVivo(m,label){ const w=el('div',{class:'vivo'+(m.viaje?' viaje':'')});
   return w; }
 
 /* atlas completo a pantalla completa, con la lista de tramos */
-function atlasAbrir(){ if(ATL.full){ return; } atlasCargar().then(()=>{ const map=atlasCrear(); ATL.full=true;
+function atlasAbrir(tab){ if(ATL.full){ if(tab&&ATL.panel) ATL.panel.show(tab); return; } atlasCargar().then(()=>{ const map=atlasCrear(); ATL.full=true;
+    if(!ATL.panel){ ATL.panel=panelAtlas(); $('#atlasFull').querySelector('.af-lista').append(ATL.panel); }
     const ov=$('#atlasFull'); ov.hidden=false; ov.querySelector('.af-map').append(ATL.host); ATL.btnFull.textContent='✕'; ATL.btnFull.setAttribute('aria-label','Cerrar el atlas'); ATL.btnFull.title='Cerrar el atlas';
-    const prev=ATL.ev; ATL.ev={bbox:[29.4,37.6,30.8,47.2],viaje:1}; ATL.evPrev=prev; requestAnimationFrame(()=>{ map.resize(); atlasVista(ATL.ev,false); }); ov.querySelector('.af-cerrar').focus(); })
+    const prev=ATL.ev; ATL.ev={bbox:[29.4,37.6,30.8,47.2],viaje:1}; ATL.evPrev=prev; requestAnimationFrame(()=>{ map.resize(); atlasVista(ATL.ev,false); ATL.panel.show(tab||'camino'); }); ov.querySelector('.af-cerrar').focus(); })
   .catch(()=>{}); }
 function atlasCerrar(){ if(!ATL.full) return; ATL.full=false; atlasPlay(false); $('#atlasFull').hidden=true; ATL.btnFull.textContent='⤢'; ATL.btnFull.setAttribute('aria-label','Abrir el atlas completo'); ATL.btnFull.title='Abrir el atlas completo';
   if(ATL.popup){ ATL.popup.remove(); ATL.popup=null; } ATL.ev=ATL.evPrev||null; renderMedia(cur); }
+/* panel del atlas: pestañas Camino · Arqueología · Hoy · Rutas */
+function panelAtlas(){ const D=ATL.data, w=el('div',{class:'af-tabs-w'});
+  const tabs=[['camino','Camino'],['arq','Arqueología'],['hoy','Hoy'],['rutas','Rutas']], bar=el('div',{class:'af-tabs',role:'tablist'}), cuerpo=el('div',{class:'af-cuerpo'});
+  const tarjeta=(L,tab,extra='')=>{ const b=el('button',{type:'button',class:'af-card k-'+L.k}); b.innerHTML=`<b>${esc(L.n)}</b><small>${esc(L.actual||'')}</small>${extra}`; b.onclick=()=>{ atlasPlay(false); const go_=()=>{ ATL.map.flyTo({center:lonlat(L.ll),zoom:Math.max(8.4,ATL.map.getZoom()),duration:1200}); atlasPopLugar(L.site||L.id,tab); }; go_(); }; return b; };
+  const pan={camino:()=>{ const [ol,tot]=listaTramos(); return [tot,ol]; },
+    arq:()=>{ ATL.capas.arq=true; atlasCapas(); return D.lugares.filter(l=>l.k==='arqueo'||(l.arq||[]).length>1).map(L=>tarjeta(L,'arq',`<span>${esc(((L.arq||[])[0]||'').slice(0,110))}…</span>`)); },
+    hoy:()=>{ return D.lugares.filter(l=>l.hoy).map(L=>{ const c=tarjeta(L,'hoy',`<span>${esc(L.hoy.slice(0,110))}…</span>`); const s=el('div',{class:'af-row'}); const sb=el('button',{type:'button',class:'af-sat'}); sb.textContent='🛰 Ver hoy'; sb.onclick=()=>verHoy(L.site||L.id); s.append(c,sb); return s; }); },
+    rutas:()=>{ ATL.capas.rutas=true; atlasCapas(); return ATL.rutasL.map(r=>{ const b=el('button',{type:'button',class:'af-card k-ruta'}); b.innerHTML=`<b>${esc(r.n)}</b>${r.he?`<small lang="he" dir="rtl">${esc(r.he)}</small>`:''}<span>${esc(r.nota)}</span>`;
+      b.onclick=()=>{ const bb=new maplibregl.LngLatBounds(); r.pts.forEach(p=>bb.extend(lonlat(p))); ATL.map.fitBounds(bb,{padding:{top:60,bottom:60,left:60,right:60},duration:1200}); }; return b; }); }};
+  const show=k=>{ if(ATL.popup){ ATL.popup.remove(); ATL.popup=null; } atlasPlay(false); bar.querySelectorAll('button').forEach(b=>b.setAttribute('aria-selected',b.dataset.t===k)); cuerpo.replaceChildren(...pan[k]()); cuerpo.scrollTop=0; };
+  tabs.forEach(([k,t])=>{ const b=el('button',{type:'button',role:'tab','data-t':k}); b.textContent=t; b.onclick=()=>show(k); bar.append(b); });
+  w.append(bar,cuerpo); w.show=show; return w; }
 function listaTramos(){ const T=ATL.data?ATL.data.tramos:[]; const ol=el('ol',{class:'tramos'});
   let tot=0; T.forEach(t=>{ const d=kmTramo(t); tot+=d; const li=el('li'), b=el('button',{type:'button','data-n':t.n});
     b.innerHTML=`<span class="tn-n">${t.n}</span><span class="tn-t"><b>${esc(t.de)} → ${esc(t.a)}</b><small>${esc(t.ref)} · ≈ ${fmtKm(d)} km</small></span>`; b.onclick=()=>{ atlasPlay(false); atlasTramo(t.n); }; li.append(b); ol.append(li); });
