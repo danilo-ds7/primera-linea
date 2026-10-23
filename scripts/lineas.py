@@ -15,23 +15,28 @@ def anio(y: float) -> str:
     y = round(y)
     return f"c. {abs(y)} a. e. c." if y < 0 else f"c. {y} e. c."
 
-def mini(js: str, ID: str) -> str:
-    """Línea pequeña: eras y hitos a escala, todo un botón que abre la línea completa."""
+def mini(js: str, ID: str, nodos_json: Path) -> str:
+    """Línea pequeña: una sola línea con pocos nodos (lugares clave); toda ella abre la línea completa.
+    Los nodos salen de estudios/lineas/<slug>-mini.json; si no existe, de las eras de la línea."""
     data = json.loads(re.search(r"^const DATA = (\{.*?\});\s*$", js, re.M | re.S).group(1))
-    bands = data["bands"][0]
-    ys = [e["y"] for e in data["events"]]
-    y0, y1 = min(bands[0][0], min(ys)), max(bands[-1][1], max(ys))
-    esc = lambda y: (y - y0) / (y1 - y0) * 100
-    eras = []
-    for i, (a, b, nombre, _) in enumerate(bands):
-        w = esc(b) - esc(a)
-        eras.append(f'<span class="lm-era" data-w="{"s" if w < 9 else "l"}" style="left:{esc(a):.2f}%;width:{w:.2f}%;--i:{i % 4}" title="{nombre}"><i>{nombre}</i></span>')
-    dots = "".join(f'<span class="lm-dot" style="left:{esc(y):.2f}%"></span>' for y in ys)
-    n = len(ys)
+    n = len(data["events"])
+    if nodos_json.exists():
+        nodos = json.loads(nodos_json.read_text(encoding="utf-8"))["nodos"]
+    else:
+        bands = data["bands"][0]
+        paso = max(1, len(bands) // 6)
+        nodos = [{"es": b[2], "he": "", "y": b[0]} for b in bands[::paso]][:7]
+    k = len(nodos)
+    pts = []
+    for i, nd in enumerate(nodos):
+        x = 5 + i * (90 / (k - 1)) if k > 1 else 50
+        he = f'<span class="lm-he" lang="he" dir="rtl">{nd["he"]}</span>' if nd.get("he") else ""
+        pts.append(f'<span class="lm-nodo" style="left:{x:.2f}%;--d:{i * 0.12:.2f}s">{he}'
+                   f'<span class="lm-pt"></span><span class="lm-es">{nd["es"]}</span>'
+                   f'<span class="lm-y">{anio(nd["y"]) if i == k - 1 else "c. " + str(abs(round(nd["y"])))}</span></span>')
     return f"""<button type="button" class="linea-mini" id="{ID}-mini" aria-controls="{ID}" aria-expanded="false" aria-label="Abrir la línea de tiempo interactiva">
-<span class="lm-head"><span class="lm-eyebrow">Línea de tiempo interactiva · {n} hitos</span><span class="lm-cta">Abrir la línea de tiempo →</span></span>
-<span class="lm-track">{"".join(eras)}{dots}</span>
-<span class="lm-years"><span>{anio(y0)}</span><span>{anio(y1)}</span></span>
+<span class="lm-head"><span class="lm-eyebrow">Línea de tiempo · {n} hitos</span><span class="lm-cta">Abrir <span aria-hidden="true">→</span></span></span>
+<span class="lm-track"><span class="lm-linea"></span>{"".join(pts)}</span>
 </button>"""
 
 def embed(src: Path, dst: Path, ID: str):
@@ -152,7 +157,7 @@ def embed(src: Path, dst: Path, ID: str):
 <style>
 {css}
 </style>
-{mini(js, ID)}
+{mini(js, ID, src.with_name(src.stem + '-mini.json'))}
 <div id="{ID}" class="linea-tiempo-marco" tabindex="-1" aria-label="Línea de tiempo interactiva" hidden>
 {body}
 </div>
