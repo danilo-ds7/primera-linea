@@ -1,0 +1,49 @@
+/* Tema de la línea de Moisés: Arena del Sinaí (claro), Noche del desierto (oscuro) y Tabernáculo
+   (azul, púrpura y carmesí sobre lino, Ex 26:1). Reemplaza los tokens del motor de Abraham. */
+:root{
+  --bg:#f2e8d8; --surface:#fbf6ec; --nav:#e7d9c0; --nav-2:#dac7a4; --ink:#251c13; --muted:#6c5840; --rule:#cfb994;
+  --accent:#23498a; --accent-ink:#23498a; --on-accent:#fbf6ec; --warn:#8e2a33;
+  --gold:#c9962c; --gold-ink:#7f5c0e; --olive:#5d6a2c; --earth:#3a2c1c; --sepia:#7a5a36; --wine:#8e2a33; --teal:#17707a; --blue:#23498a; --terra:#a5482a; --grey:#7d7262;
+  --purple:#5b2f6e; --azure:#2a6c9c;
+  --on-c:#fbf6ec; --sea:#c9d8e3; --land:#f0e3c8; --river:#3d7aa6;
+  --shadow:0 18px 40px -22px rgba(70,45,15,.5); --glow:none;
+  --f-display:"Latin Modern Roman","Noto Serif Hebrew","Times New Roman",serif;
+  --f-ui:"Latin Modern Sans","Noto Serif Hebrew",system-ui,sans-serif;
+  --f-mono:"Latin Modern Roman Caps","Latin Modern Roman",serif;
+  --f-tech:"Latin Modern Roman","Noto Serif Hebrew","Times New Roman",serif;
+  --f-he:"Noto Serif Hebrew","Times New Roman",serif;
+  --f-gr:"GFS Porson","Latin Modern Roman",serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12151f; --surface:#1a1e2b; --nav:#0e1119; --nav-2:#242a3b; --ink:#efe6d4; --muted:#b3a98f; --rule:#3a4056;
+  --accent:#e2b456; --accent-ink:#e8c068; --on-accent:#12151f; --warn:#ec8f8f;
+  --gold:#e6bd58; --gold-ink:#ecc86e; --olive:#b5c27a; --earth:#d9caa9; --sepia:#cfa877; --wine:#e48b93; --teal:#6cc3c9; --blue:#90b0e8; --terra:#e59a74; --grey:#a59e8b;
+  --purple:#c49bd9; --azure:#86c0e8;
+  --on-c:#12151f; --sea:#1b2433; --land:#252a36; --river:#6fa3cf;
+  --shadow:0 18px 40px -22px rgba(0,0,0,.9); --glow:none; color-scheme:dark}}
+:root[data-theme="tabernaculo"]{
+  --bg:#f4efe5; --surface:#fcfaf4; --nav:#e9e1d2; --nav-2:#dacdb6; --ink:#1b1f3a; --muted:#585370; --rule:#d2c5ac;
+  --accent:#2a3f8f; --accent-ink:#2a3f8f; --on-accent:#fcfaf4; --warn:#a3203a;
+  --gold:#bf8f27; --gold-ink:#7a5a0f; --olive:#536a2e; --earth:#2e2a26; --sepia:#7a6248; --wine:#a3203a; --teal:#226b71; --blue:#2a3f8f; --terra:#8f5527; --grey:#7f7a6e;
+  --purple:#6a2c70; --azure:#36609f;
+  --on-c:#fcfaf4; --sea:#bfd0e6; --land:#f2ece0; --river:#2f5fa0;
+  --shadow:0 18px 40px -22px rgba(27,31,58,.45); --glow:none; color-scheme:light}
+:root[data-theme="dark"]{
+  --bg:#12151f; --surface:#1a1e2b; --nav:#0e1119; --nav-2:#242a3b; --ink:#efe6d4; --muted:#b3a98f; --rule:#3a4056;
+  --accent:#e2b456; --accent-ink:#e8c068; --on-accent:#12151f; --warn:#ec8f8f;
+  --gold:#e6bd58; --gold-ink:#ecc86e; --olive:#b5c27a; --earth:#d9caa9; --sepia:#cfa877; --wine:#e48b93; --teal:#6cc3c9; --blue:#90b0e8; --terra:#e59a74; --grey:#a59e8b;
+  --purple:#c49bd9; --azure:#86c0e8;
+  --on-c:#12151f; --sea:#1b2433; --land:#252a36; --river:#6fa3cf;
+  --shadow:0 18px 40px -22px rgba(0,0,0,.9); --glow:none; color-scheme:dark}
+/*TEMA:ERAS*/
+.c0{--c:var(--blue);--c-ink:var(--blue);--c-on:var(--on-c)}
+.c1{--c:var(--terra);--c-ink:var(--terra);--c-on:var(--on-c)}
+.c2{--c:var(--olive);--c-ink:var(--olive);--c-on:var(--on-c)}
+.c3{--c:var(--gold);--c-ink:var(--gold-ink);--c-on:#251c13}
+.c4{--c:var(--wine);--c-ink:var(--wine);--c-on:var(--on-c)}
+.c5{--c:var(--teal);--c-ink:var(--teal);--c-on:var(--on-c)}
+.c6{--c:var(--sepia);--c-ink:var(--sepia);--c-on:var(--on-c)}
+.c7{--c:var(--purple);--c-ink:var(--purple);--c-on:var(--on-c)}
+.c8{--c:var(--grey);--c-ink:var(--grey);--c-on:var(--on-c)}
+.c9{--c:var(--azure);--c-ink:var(--azure);--c-on:var(--on-c)}

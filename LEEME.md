@@ -50,6 +50,12 @@ cronologías se dibujan en TikZ con `python3 scripts/lineas_tikz.py <slug>` (XeL
 que anota en el HTML las rutas y los puntos tocables; hay que correrlo cada vez que cambian los
 mapas o los datos de la línea, y subir los SVG resultantes.
 
+Las líneas nuevas comparten el motor de la de Abraham: sus datos van en `estudios/lineas/<slug>/datos.py`
+(hitos en `hitos.py`, atlas en `atlas_datos.py`, tema visual en `tema.css`) y el HTML se genera con
+`python3 scripts/lineas_generar.py <slug>`, seguido de `python3 scripts/lineas_tikz.py <slug>`.
+El relieve del atlas sale de `scripts/lineas_relieve.py` (rama `datos-relieve`) y las capas de
+Natural Earth de `scripts/lineas_vectores.py`. Línea 2: Moisés (`moises`).
+
 ## Publicación
 
 Cada cambio que llega a GitHub se publica solo (`.github/workflows/publicar.yml`) en

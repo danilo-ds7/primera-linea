@@ -1,0 +1,18 @@
+---
+title: "Moisés, el siervo de YHWH"
+subtitle: "Del Nilo al Nebo · 63 hitos · c. 1526–1406 a. e. c."
+description: "Del Nilo al Nebo con el atlas del Éxodo: relieve real, las propuestas para el cruce del mar y el monte Sinaí, pasajes en hebreo y griego, arqueología, tradición judía y los lugares hoy."
+date: 2026-10-23
+categories: [Líneas de tiempo]
+order: 2
+numero: "Línea 2"
+body-classes: serie-atributos linea-tiempo
+---
+
+«…se mantuvo firme como quien ve al Invisible» (Hebreos 11:27). Sesenta y tres hitos recorren la vida de Moisés en sus tres tramos de cuarenta años: el palacio de Egipto, el desierto de Madián y el camino del Éxodo. La zarza y el Nombre (*Ehyé asher ehyé*), las plagas y la Pascua, el cruce del mar, el Sinaí y la Morada, Cades y los cuarenta años, y la muerte del siervo de YHWH en el Nebo. Cada hito contrasta el texto de la Torá con la tradición judía, los comentaristas y la arqueología.
+
+{{< include _moises.html >}}
+
+<p class="linea-nota">Toca la línea para abrirla. Dentro, avanza con las flechas o el teclado (← →), acerca las fechas con las lupas o con <kbd>+</kbd>/<kbd>−</kbd>, toca un lugar o un tramo del camino en los mapas para leer el pasaje, la arqueología y qué hay allí hoy, y abre el <b>Atlas</b> para ver el recorrido completo del Nilo al Nebo, con las seis propuestas para el cruce del mar y los cinco candidatos al monte Sinaí. El botón <b>⛶ Pantalla completa</b> (o la tecla <kbd>F</kbd>) agranda la línea en esta misma página; <b>✕ Cerrar</b> (o <kbd>Esc</kbd>) vuelve a esta presentación. Las fechas siguen la cronología bíblica «temprana» (éxodo c. 1446 a. e. c.) y son aproximadas.</p>
+
+[← Volver a las líneas de tiempo](../lineas.qmd)

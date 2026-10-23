@@ -1,0 +1,2460 @@
+{
+"nota": "Pasajes bíblicos: traducción propia desde el hebreo (Códice de Leningrado, base de la BHS) y el griego (SBLGNT). Los hallazgos se presentan como datos con su interpretación separada; las identificaciones discutidas se señalan como tales. Rutas aproximadas.",
+"lugares": [
+{
+"id": "ramses",
+"site": "ramses",
+"n": "Raamsés (Pi-Ramsés)",
+"he": "רַעְמְסֵס",
+"ll": [
+30.8,
+31.835
+],
+"k": "biblico",
+"actual": "Qantir · gobernación de Sharqía, Egipto",
+"biblia": [
+[
+"Ex 1:8–11",
+"Y se levantó sobre Egipto un rey nuevo, que no había conocido a José. Dijo a su pueblo: «El pueblo de los hijos de Israel es más numeroso y fuerte que nosotros. Vamos, seamos astutos con él, no sea que se multiplique y, si hay guerra, se una a nuestros enemigos, luche contra nosotros y suba de la tierra». Pusieron sobre él jefes de trabajos forzados para oprimirlo con sus cargas, y edificó para el faraón ciudades de almacenes: Pitón y Raamsés."
+],
+[
+"Ex 12:37–38",
+"Los hijos de Israel partieron de Raamsés hacia Sucot, unos seiscientos mil (shesh meot élef) hombres de a pie, sin contar los niños. Subió también con ellos una multitud mezclada (érev rav), y ovejas y vacas, muchísimo ganado."
+]
+],
+"arq": [
+"Pi-Ramsés, «casa de Ramsés», fue la capital de Ramsés II en el delta oriental. Las prospecciones magnéticas de Edgar Pusch en Qantir revelaron palacios, cuadras para carros y talleres de bronce bajo los campos.",
+"La fecha temprana del éxodo lee el nombre «Raamsés» de Ex 1:11 como una actualización posterior del topónimo (como «tierra de Ramsés» en Gn 47:11); la fecha ramésida lo toma como dato de época."
+],
+"hoy": "Hoy son campos de cultivo entre los pueblos de Qantir y Tell el-Dab‘a. Muchas estatuas y obeliscos de Pi-Ramsés se trasladaron en la Antigüedad a Tanis.",
+"fuentes": [
+"Pusch, E. B., & Becker, H. (2017). Fenster in die Vergangenheit. Forschungen in der Ramses-Stadt."
+],
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 53–58",
+"Hoffmeier sigue el consenso que identifica la Ramesés bíblica con Pi-Ramsés, la capital de Ramsés II en Qantir. La ciudad floreció solo unos 150 años (ca. 1270–1120 a. C.); para él, el nombre en Éxodo refleja un recuerdo antiguo, no la geografía del siglo VI."
+],
+[
+"Hoffmeier, J. K. (2008). Arqueología de la Biblia. San Pablo, pp. 51–53",
+"Durante décadas se creyó que Ramesés era Tanis (San el-Hagar). Las excavaciones de Habachi y de equipos alemanes en Qantir mostraron una gran ciudad ramésida; los bloques de Tanis habrían sido trasladados desde allí hacia el 1070 a. C. Se halló un establo para unos 500 caballos."
+],
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Ex 1:11",
+"MacArthur señala que la identificación arqueológica de Pitón y Ramesés no es definitiva, aunque se suele aceptar que Ramesés es Qantir, en el delta oriental."
+]
+]
+},
+{
+"id": "avaris",
+"site": "avaris",
+"n": "Avaris (Tell el-Dab‘a)",
+"he": "",
+"ll": [
+30.787,
+31.821
+],
+"k": "arqueo",
+"actual": "Tell el-Dab‘a · Sharqía, Egipto",
+"biblia": [],
+"arq": [
+"Manfred Bietak excava el sitio desde 1966. Halló la Avaris de los hicsos, con casas, tumbas y cerámica de tradición cananea, y encima Perunefer, el puerto militar de la dinastía XVIII.",
+"Es el mejor testimonio arqueológico de una población semita numerosa viviendo en el delta oriental durante el II milenio a. e. c."
+],
+"hoy": "Es un campo arqueológico activo del Instituto Arqueológico Austriaco, rodeado de cultivos; no está abierto como sitio turístico.",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, p. 54",
+"Según Hoffmeier, el consenso actual sostiene que los sitios contiguos de Tell el-Dab‘a (excavado por Bietak desde 1966) y Qantir (Pusch) fueron Avaris y Pi-Ramsés respectivamente."
+],
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 4: La narración del Éxodo, parte 1 (del Delta al mar de las Cañas)",
+"El curso presenta Tel ed-Dab‘a como Avaris, la capital de los hicsos (siglos XVII–XVI a. C.), gobernantes semitas del Bajo Egipto, distinta de la posterior Pi-Ramsés en Qantir (siglos XIII–XI)."
+]
+]
+},
+{
+"id": "piton",
+"site": "piton",
+"n": "Pitón",
+"he": "פִּתֹם",
+"ll": [
+30.546,
+31.96
+],
+"k": "biblico",
+"actual": "Tell el-Retaba · Wadi Tumilat, Egipto",
+"biblia": [
+[
+"Ex 1:8–11",
+"Y se levantó sobre Egipto un rey nuevo, que no había conocido a José. Dijo a su pueblo: «El pueblo de los hijos de Israel es más numeroso y fuerte que nosotros. Vamos, seamos astutos con él, no sea que se multiplique y, si hay guerra, se una a nuestros enemigos, luche contra nosotros y suba de la tierra». Pusieron sobre él jefes de trabajos forzados para oprimirlo con sus cargas, y edificó para el faraón ciudades de almacenes: Pitón y Raamsés."
+]
+],
+"arq": [
+"Hoffmeier identifica Pitón con Tell el-Retaba, Per-Atum («casa de Atum»), una fortaleza del Reino Nuevo con murallas de adobe en el Wadi Tumilat. Otros prefieren Tell el-Maskhuta, 14 km al este.",
+"La misión polaco-eslovaca de Tell el-Retaba (desde 2007) documentó fortificaciones de Ramsés II y niveles anteriores de la dinastía XVIII."
+],
+"hoy": "Está junto al canal de Ismailía y la carretera El Cairo–Ismailía, entre aldeas agrícolas.",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 58–65",
+"Hoffmeier concluye que el nombre Pitón («casa de Atum») se asoció en el Reino Nuevo con Tell el-Retabeh y, desde ca. 610 a. C., con Tell el-Maskhuta, adonde se habrían llevado sus monumentos. También admite que las «ciudades almacén» pudieron ser depósitos de un templo."
+],
+[
+"Hoffmeier, J. K. (2008). Arqueología de la Biblia. San Pablo, pp. 51–53",
+"Naville creyó hallar Pitón en Tell el-Maskhuta, pero ese sitio no estuvo ocupado en el Reino Nuevo. Un papiro ramésida sitúa Per-Atum en la región de Tjeku; Tell el-Retabeh es el único sitio importante de esa época en el Wadi Tumilat."
+],
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 4: La narración del Éxodo, parte 1 (del Delta al mar de las Cañas)",
+"El curso identifica Tell el-Retabeh con Pitón (Per-Atum) y cita un papiro que menciona los estanques de Per-Atum, en Tjeku, donde se dejó pasar a tribus shasu de Edom."
+]
+]
+},
+{
+"id": "sucot",
+"site": "sucot",
+"n": "Sucot (Tjeku)",
+"he": "סֻכֹּת",
+"ll": [
+30.553,
+32.098
+],
+"k": "biblico",
+"actual": "Tell el-Maskhuta · Ismailía, Egipto",
+"biblia": [
+[
+"Ex 12:37–38",
+"Los hijos de Israel partieron de Raamsés hacia Sucot, unos seiscientos mil (shesh meot élef) hombres de a pie, sin contar los niños. Subió también con ellos una multitud mezclada (érev rav), y ovejas y vacas, muchísimo ganado."
+]
+],
+"arq": [
+"Sucot es la primera jornada desde Raamsés. Su nombre se corresponde con Tjeku, la región del extremo oriental del Wadi Tumilat en los textos egipcios.",
+"El Papiro Anastasi VI (fines del s. XIII a. e. c.) registra que unos pastores shasu de Edom cruzaron el fuerte de Tjeku para abrevar sus rebaños en los estanques de Per-Atum: un paralelo de cómo se entraba a Egipto por allí."
+],
+"hoy": "Tell el-Maskhuta queda a unos 15 km al oeste de Ismailía, junto al canal de agua dulce.",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 65–68",
+"Hoffmeier explica que Sucot corresponde al egipcio Tjeku, nombre del Wadi Tumilat y a veces de un fuerte dentro de él. El papiro Anastasi V narra a un oficial que fue de Pi-Ramsés al fuerte de Tjeku en un día persiguiendo a dos esclavos fugitivos."
+],
+[
+"Hoffmeier, J. K. (2008). Arqueología de la Biblia. San Pablo, pp. 52–53",
+"Tell el-Maskhuta conserva en su nombre la antigua palabra «Sucot»; textos egipcios del Reino Nuevo usan Tjeku para la región del Wadi Tumilat."
+],
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Ex 12:37",
+"MacArthur explica que Sucot significa «cabaña» y que aquí se trata de un lugar cercano a Egipto, distinto de la Sucot al este del Jordán."
+]
+]
+},
+{
+"id": "gosen",
+"site": "gosen",
+"n": "Gosén",
+"he": "גֹּשֶׁן",
+"ll": [
+30.66,
+31.62
+],
+"k": "biblico",
+"actual": "Delta oriental del Nilo · Sharqía, Egipto",
+"biblia": [
+[
+"Gn 47:11",
+"José estableció a su padre y a sus hermanos y les dio posesión en la tierra de Egipto, en lo mejor de la tierra, en la tierra de Ramsés."
+]
+],
+"arq": [
+"Gosén no aparece con ese nombre en los textos egipcios. La Biblia la ubica en la «tierra de Ramsés», el delta oriental, una región de pastos entre el brazo pelusíaco del Nilo y el Wadi Tumilat."
+],
+"hoy": "Es una de las zonas agrícolas más densas de Egipto, en la gobernación de Sharqía (capital: Zagazig).",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 4: La narración del Éxodo, parte 1 (del Delta al mar de las Cañas)",
+"El curso relaciona Gosén con «la tierra de Ramsés» (Gn 47:11) y propone como etimologías el hebreo «terrón» o el egipcio «inundado»; allí se asentaron los hijos de Jacob como pastores."
+],
+[
+"Hoffmeier, J. K. (2008). Arqueología de la Biblia. San Pablo, pp. 51–52",
+"Petrie y Naville pensaron que el Wadi Tumilat era la tierra de Gosén; el Salmo 78 ubica las plagas en los «campos de Zoán» (Tanis), en el delta nororiental."
+],
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Gn 45:10",
+"MacArthur sitúa Gosén en el noreste del delta del Nilo, una región apta para el pastoreo; en Gn 47:11 «tierra de Ramesés» sería otra designación de la misma zona."
+]
+]
+},
+{
+"id": "hebua",
+"site": "hebua",
+"n": "Tjaru (Tell Hebua)",
+"he": "",
+"ll": [
+30.932,
+32.378
+],
+"k": "arqueo",
+"actual": "Tell Hebua I · norte del Sinaí, Egipto",
+"biblia": [],
+"arq": [
+"Tjaru (Sile) era la gran fortaleza de la frontera oriental de Egipto y el punto de partida del Camino de Horus. Las excavaciones egipcias de Mohamed Abd el-Maksoud (desde 1986) sacaron a la luz una ciudadela de unos 800 × 400 m, con murallas y graneros.",
+"Los relieves de Seti I en Karnak muestran a Tjaru junto a un canal con cocodrilos: el canal fronterizo que separaba Egipto del Sinaí."
+],
+"hoy": "Está al este del Canal de Suez, cerca de El Qantara Este.",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 90–93",
+"Las excavaciones de Abd el-Maksoud en Tell Hebua I sacaron a la luz un enorme fuerte del Reino Nuevo (800 × 400 m). Una estatua con el nombre Tjaru, hallada en 1999 en presencia de Hoffmeier, confirmó que era Tjaru/Sile, puerta oriental de Egipto."
+],
+[
+"Hoffmeier, J. K. (2008). Arqueología de la Biblia. San Pablo, pp. 56–57",
+"Tjaru estaba sobre una antigua isla barrera, con el Mediterráneo al norte y un brazo del Nilo al sur. Hoffmeier la describe como una trampa para fugitivos: un istmo estrecho con agua a ambos lados, una gran fortaleza delante y carros detrás."
+]
+]
+},
+{
+"id": "borg",
+"site": "borg",
+"n": "Tell el-Borg",
+"he": "",
+"ll": [
+30.902,
+32.425
+],
+"k": "arqueo",
+"actual": "Norte del Sinaí, Egipto",
+"biblia": [],
+"arq": [
+"James Hoffmeier excavó entre 1999 y 2008 dos fuertes sucesivos del Reino Nuevo, de Tutmosis III y de Ramsés II, con un foso y una puerta. Estaban al sureste de Tjaru, en la ruta de entrada a Egipto.",
+"Para Hoffmeier, la cadena de fuertes explica Ex 13:17: el camino corto por la costa estaba vigilado por el ejército egipcio."
+],
+"hoy": "Es una zona militar restringida al este del Canal de Suez; el sitio no se puede visitar.",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 97–102",
+"Hoffmeier dirigió las excavaciones de Tell el-Borg desde 2000: un foso de ladrillo cocido de la dinastía XVIII y un fuerte ramésida posterior, junto a un brazo del Nilo. Lo identifica provisionalmente con la «Morada del León», no con Migdol."
+],
+[
+"Hoffmeier, J. K. (2008). Arqueología de la Biblia. San Pablo, pp. 57–58",
+"En Tell el-Borg, unos 5 km al sureste de Hebua, se hallaron dos fortalezas: un foso de ca. 1450–1320 a. C. y un fuerte de ca. 1320–1175 a. C. No apareció ningún texto con el nombre del lugar."
+]
+]
+},
+{
+"id": "etam",
+"site": "etam",
+"n": "Etam",
+"he": "אֵתָם",
+"ll": [
+30.585,
+32.235
+],
+"k": "biblico",
+"actual": "Extremo oriental del Wadi Tumilat · Ismailía (aproximado)",
+"biblia": [
+[
+"Ex 13:20",
+"Partieron de Sucot y acamparon en Etam, al borde del desierto."
+]
+],
+"arq": [
+"Hoffmeier propone que Etam corresponde al egipcio «isla de Atum»; la vieja relación con ḫtm, «fortaleza», le parece fonéticamente imposible. MacArthur la mantiene. La ubicación es aproximada."
+],
+"hoy": "La zona está entre Ismailía y el lago Timsah, en la orilla occidental del Canal de Suez.",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 68–70",
+"Hoffmeier descarta que Etam venga del egipcio ḫtm («fortaleza») por razones fonéticas y propone, con Kitchen y Muchiki, «isla de Atum». Lo sitúa hacia el extremo del Wadi Tumilat, quizá cerca del lago Timsah, al borde del desierto."
+],
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Ex 13:20",
+"MacArthur sugiere que Etam podría transliterar el egipcio Khetem, «fortaleza», en relación con la línea de fortificaciones; aunque no se identifique, era un lugar limítrofe con el desierto al este de Egipto."
+]
+]
+},
+{
+"id": "pihahirot",
+"site": "pihahirot",
+"n": "Pi-hahirot",
+"he": "פִּי הַחִירֹת",
+"ll": [
+30.79,
+32.3
+],
+"k": "biblico",
+"actual": "Istmo de Suez, al sur de El Qantara (hipótesis)",
+"biblia": [
+[
+"Ex 14:1–2",
+"YHWH habló a Moisés: «Di a los hijos de Israel que se vuelvan y acampen delante de Pi-hahirot, entre Migdol y el mar, frente a Baal-zefón; frente a él acamparán, junto al mar»."
+]
+],
+"arq": [
+"El nombre puede significar «la boca de los canales». Hoffmeier lo sitúa en la unión del canal fronterizo con los antiguos lagos Ballah. Es una hipótesis: ningún topónimo de Ex 14:2 está identificado con seguridad."
+],
+"hoy": "El Canal de Suez (1869) y su ampliación de 2015 cruzan hoy toda esta zona, que ya no tiene sus lagos antiguos.",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 105–108",
+"Hoffmeier relaciona Pi-hahirot con p3 ḥr, «el canal», mencionado en el papiro Anastasi III junto a las «aguas de Baal» y p3 twfy. Propone que se refiera al Canal de la Frontera Oriental donde se unía al lago Ballah."
+],
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 4: La narración del Éxodo, parte 1 (del Delta al mar de las Cañas)",
+"El curso ofrece dos etimologías: egipcia, Pr-Hthr («casa de Hathor»), y hebrea, «boca» + «cavar». Su ubicación es desconocida; quizá era una zona de canales de riego."
+]
+]
+},
+{
+"id": "migdol",
+"site": "migdol",
+"n": "Migdol",
+"he": "מִגְדֹּל",
+"ll": [
+30.875,
+32.465
+],
+"k": "biblico",
+"actual": "Norte del Sinaí (hipótesis)",
+"biblia": [
+[
+"Ex 14:1–2",
+"YHWH habló a Moisés: «Di a los hijos de Israel que se vuelvan y acampen delante de Pi-hahirot, entre Migdol y el mar, frente a Baal-zefón; frente a él acamparán, junto al mar»."
+]
+],
+"arq": [
+"«Migdol» significa «torre, fortaleza». Hoffmeier propone un fuerte cerca de Tell el-Borg; Eliezer Oren excavó un Migdol posterior (T. 21, ss. VII–VI) más al norte. Varios lugares llevaban ese nombre."
+],
+"hoy": "Toda la franja del istmo es hoy zona militar o agrícola, con el canal de por medio.",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 94–105",
+"Hoffmeier identifica el Migdol de Éxodo con el fuerte Migdol de Seti I en el camino de Horus. Excluye Tell el-Herr y Tell Qedua por carecer de restos del Reino Nuevo, y lo sitúa unos 5 km al sureste de Tell el-Borg, junto a la laguna oriental."
+],
+[
+"Hoffmeier, J. K. (2008). Arqueología de la Biblia. San Pablo, pp. 57–59",
+"Hoffmeier considera probable que el Migdal de los relieves de Seti I sea el de Éxodo 14:2; en 2008 escribe que debió estar más al este de Tell el-Borg, sin saberse cuánto."
+],
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 4: La narración del Éxodo, parte 1 (del Delta al mar de las Cañas)",
+"El curso explica que Migdol significa «torre», un fuerte fronterizo (mktr en egipcio) que Ezequiel 29:10 sitúa en el extremo norte de Egipto, y lo ubica en Tel el-Heir, cerca de Pelusio."
+]
+]
+},
+{
+"id": "baalzefon",
+"site": "baalzefon",
+"n": "Baal-zefón",
+"he": "בַּעַל צְפֹן",
+"ll": [
+31.14,
+33.08
+],
+"k": "biblico",
+"actual": "Ras Qasrun, laguna de Bardawil (hipótesis)",
+"biblia": [
+[
+"Ex 14:1–2",
+"YHWH habló a Moisés: «Di a los hijos de Israel que se vuelvan y acampen delante de Pi-hahirot, entre Migdol y el mar, frente a Baal-zefón; frente a él acamparán, junto al mar»."
+]
+],
+"arq": [
+"Otto Eissfeldt identificó Baal-zefón con el monte Casio, una duna alta en la barra del lago Bardawil, donde hubo un santuario de Zeus Casio. Hoffmeier objeta que ese santuario es grecorromano y relaciona Baal-zefón con las «aguas de Baal» del Papiro Anastasi III, junto a los lagos Ballah. Es una hipótesis."
+],
+"hoy": "La barra de Bardawil es una reserva natural de aves migratorias (sitio Ramsar).",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 73, 106–107",
+"Hoffmeier rechaza la ubicación en el monte Casio, junto al lago Bardawil, porque esa franja de tierra no existía en el segundo milenio. Relaciona Baal-zefón con las «aguas de Baal» del papiro Anastasi III, en la zona del lago Ballah."
+],
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 4: La narración del Éxodo, parte 1 (del Delta al mar de las Cañas)",
+"El curso relaciona Baal-zefón con el dios cananeo de la tormenta y con un templo para navegantes, luego de Zeus Casio, en la colina de Mahmudiyya, en el borde occidental del lago Bardawil."
+]
+]
+},
+{
+"id": "ballah",
+"site": "ballah",
+"n": "Lagos Ballah",
+"he": "",
+"ll": [
+30.83,
+32.29
+],
+"k": "biblico",
+"actual": "Istmo de Suez (drenados)",
+"biblia": [
+[
+"Ex 14:21–22",
+"Moisés extendió su mano sobre el mar, y YHWH hizo retroceder el mar con un fuerte viento del este toda la noche; convirtió el mar en tierra seca, y las aguas se dividieron. Los hijos de Israel entraron por en medio del mar en lo seco, y las aguas eran para ellos un muro a su derecha y a su izquierda."
+]
+],
+"arq": [
+"Bietak y Hoffmeier proponen que el yam suf del cruce fueron los lagos Ballah, un sistema de aguas someras con juncos que cerraba el istmo entre el Mediterráneo y el lago Timsah. Los sondeos geológicos de los años 90 (Sneh, Weissbrod) reconstruyeron su antigua línea de costa."
+],
+"hoy": "Fueron drenados al construir el Canal de Suez; hoy son tierras de cultivo y salinas.",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 85–89, 108",
+"Hoffmeier sigue a Bietak en identificar p3 twfy, el «yam suf» egipcio, con los lagos Ballah, y lo apoya con el nombre de Tell Abu Sefeh. Ubica el cruce entre el norte de los lagos Ballah y la laguna oriental."
+],
+[
+"Hoffmeier, J. K. (2008). Arqueología de la Biblia. San Pablo, pp. 55–57",
+"Imágenes satelitales muestran el antiguo lago Ballah, de unos 20 × 15 km, desecado al construirse el canal de Suez. Un estudio geológico indica que pudo tener 5–6 m de profundidad. Estaba a 34 km al este de Ramesés."
+],
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 4: La narración del Éxodo, parte 1 (del Delta al mar de las Cañas)",
+"El curso incluye el lago Balah entre los pantanos de agua dulce cercanos a Gosén donde crece el papiro y que pudieron ser el mar de las Cañas."
+]
+]
+},
+{
+"id": "timsah",
+"site": "timsah",
+"n": "Lago Timsah",
+"he": "",
+"ll": [
+30.565,
+32.29
+],
+"k": "biblico",
+"actual": "Ismailía, Egipto",
+"biblia": [],
+"arq": [
+"El «lago de los cocodrilos» es un candidato antiguo al cruce del mar, por su posición en la salida del Wadi Tumilat. Hoffmeier lo propuso en 1997 y lo abandonó en 2005: Ex 14:2 exige un giro hacia el norte."
+],
+"hoy": "Ismailía, fundada en 1863 para construir el Canal, está en su orilla norte; el lago forma parte del Canal de Suez.",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 85–86",
+"En 1997 Hoffmeier había propuesto el lago Timsah como yam suf. Aquí lo descarta porque Éxodo 14:2 exige un giro al norte desde la zona de Sucot y Timsah; en egipcio, Timsah y los Lagos Amargos se llamaban km wr, «la Gran Negra»."
+],
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 4: La narración del Éxodo, parte 1 (del Delta al mar de las Cañas)",
+"El curso cuenta el lago Timsah entre los pantanos donde crecía el papiro, hoy salados por estar unidos al canal de Suez, como posibles candidatos al mar de las Cañas."
+],
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Ex 13:18",
+"MacArthur menciona la opción del lago Timsah o del extremo sur del lago Menzaleh, pero la considera probablemente a más de tres días de Mara."
+]
+]
+},
+{
+"id": "amargos",
+"site": "amargos",
+"n": "Lagos Amargos",
+"he": "",
+"ll": [
+30.33,
+32.38
+],
+"k": "biblico",
+"actual": "Canal de Suez, Egipto",
+"biblia": [],
+"arq": [
+"El Gran y el Pequeño Lago Amargo son otro candidato al cruce, preferido por MacArthur; Hillel lo sitúa en la unión de los dos lagos. En la Antigüedad el golfo de Suez pudo extenderse hasta ellos."
+],
+"hoy": "Los barcos del Canal de Suez se cruzan en el Gran Lago Amargo. Allí quedaron atrapados catorce buques entre 1967 y 1975.",
+"bib": [
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Ex 13:18",
+"MacArthur repasa cuatro propuestas para el cruce y prefiere la región de los Lagos Amargos, porque se ajusta a la geografía y a los tiempos del relato."
+],
+[
+"Hillel, D. (2006). The Natural History of the Bible. Columbia University Press, p. 127",
+"Hillel propone como posible cruce la unión entre el Gran y el Pequeño Lago Amargo: un lomo de tierra bajo y pantanoso, cubierto de juncos, transitable a pie, donde los carros pudieron atascarse en el barro."
+],
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 85–86",
+"Hoffmeier excluye los Lagos Amargos como lugar del cruce, porque Éxodo 14:2 obliga a girar al norte desde el Wadi Tumilat."
+]
+]
+},
+{
+"id": "golfosuez",
+"site": "golfosuez",
+"n": "Golfo de Suez",
+"he": "",
+"ll": [
+29.93,
+32.56
+],
+"k": "biblico",
+"actual": "Suez, Egipto",
+"biblia": [
+[
+"Nm 33:10–11",
+"Partieron de Elim y acamparon junto al Yam Suf. Partieron del Yam Suf y acamparon en el desierto de Sin."
+]
+],
+"arq": [
+"La identificación tradicional del cruce, desde la Septuaginta («mar Rojo»), es el extremo norte del golfo de Suez. Nm 33:10 llama Yam Suf a este golfo después del cruce."
+],
+"hoy": "La ciudad de Suez, en la entrada sur del Canal, es el gran puerto del golfo.",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 81, 163–164",
+"Hoffmeier explica que la traducción «mar Rojo» viene de la Septuaginta, que pensaba en el golfo de Suez. Para él, el campamento «junto al yam suf» de Números 33:10 sí se refiere al golfo de Suez, que pasó a llevar el nombre del mar cruzado."
+],
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Ex 13:18",
+"MacArthur descarta el extremo norte del golfo de Suez como lugar del cruce, porque así no se entraría al desierto de Shur."
+],
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 4: La narración del Éxodo, parte 1 (del Delta al mar de las Cañas)",
+"El curso rechaza el golfo de Suez por tres razones: «mar Rojo» es una traducción de la Septuaginta, allí no crece el suf (papiro) y los fugitivos no habrían llegado tan lejos antes de ser alcanzados."
+]
+]
+},
+{
+"id": "bardawil",
+"site": "bardawil",
+"n": "Laguna de Bardawil",
+"he": "",
+"ll": [
+31.15,
+33.2
+],
+"k": "biblico",
+"actual": "Norte del Sinaí, Egipto",
+"biblia": [],
+"arq": [
+"Laguna costera separada del Mediterráneo por una barra de arena (el Sirbonis de los autores clásicos). Eissfeldt y el curso de Tierras Bíblicas la proponen para el cruce, por su cercanía a Baal-zefón. Hoffmeier lo descarta: la barra de arena no unió la laguna con tierra firme hasta unos mil años después, y no tiene sitios del II milenio."
+],
+"hoy": "Es una reserva natural; sus pescadores sacan doradas y lubinas a través de pasos abiertos en la barra.",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 4: La narración del Éxodo, parte 1 (del Delta al mar de las Cañas)",
+"El curso favorece el lago Bardawil (Sirbonis): un pantano poco profundo rodeado de dunas, donde el viento cubre el lodo de arena; los israelitas, sobre la barra, habrían atraído a los carros egipcios, que se atascaron."
+],
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 72–73",
+"Hoffmeier rechaza la ruta norte de Eissfeldt y Jarvis: la barrera de arena del Bardawil no se unía al continente en el segundo milenio, el estudio de Oren no halló allí sitios de esa época y el santuario de Zeus Casio es grecorromano."
+]
+]
+},
+{
+"id": "nuweiba",
+"site": "nuweiba",
+"n": "Nuweiba",
+"he": "",
+"ll": [
+28.975,
+34.655
+],
+"k": "hoy",
+"actual": "Sur del Sinaí, Egipto",
+"biblia": [],
+"arq": [
+"La hipótesis que sitúa el Sinaí en Arabia (Jebel al-Lawz) pone el cruce en esta playa del golfo de Áqaba, a unos 1,6 km de profundidad máxima en el estrecho. La mayoría de los estudiosos no la acepta: el recorrido no encaja con Ex 13–15."
+],
+"hoy": "Es un puerto de ferris a Áqaba (Jordania) y un pueblo de buceo y turismo.",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 133–134",
+"Hoffmeier critica la propuesta de BASE/Cornuke de cruzar por el golfo de Aqaba en el estrecho de Tirán: exigiría unos 515 km desde Ramesés en tres etapas, cuando el itinerario sugiere 72–96 km hasta el mar. No menciona Nuweiba."
+],
+[
+"Hoffmeier, J. K. (2008). Arqueología de la Biblia. San Pablo, pp. 59–60",
+"Quienes ponen el Sinaí en Arabia leen yam suf como golfo de Aqaba; Hoffmeier responde que el campamento junto al mar era la tercera parada desde Ramesés, a no más de 96 km, y el golfo está a más de 320 km."
+]
+]
+},
+{
+"id": "mara",
+"site": "mara",
+"n": "Mara",
+"he": "מָרָה",
+"ll": [
+29.876,
+32.648
+],
+"k": "biblico",
+"actual": "‘Ayun Musa · sur de Suez (propuesta)",
+"biblia": [
+[
+"Ex 15:25–26",
+"Él clamó a YHWH, y YHWH le mostró un árbol; lo echó en las aguas, y las aguas se endulzaron. Allí le dio estatuto y ordenanza, y allí lo probó. Y dijo: «Si escuchas atentamente la voz de YHWH tu Dios… ninguna de las enfermedades que puse sobre Egipto pondré sobre ti, porque yo soy YHWH, tu sanador»."
+]
+],
+"arq": [
+"‘Ayun Musa, «las fuentes de Moisés», es una serie de manantiales salobres con palmeras a unos 12 km al sureste de Suez. Otros proponen Bir el-Mura o ‘Ain Hawara, más al sur."
+],
+"hoy": "Es una parada turística con algunos pozos y palmeras junto a la carretera de la costa del Sinaí.",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 161–162",
+"Tres días al sur de los lagos Ballah llevan a la zona de Suez. Hoffmeier considera plausible Bir el-Mura («pozo amargo») o ‘Ayun Musa; rechaza ‘Ain Hawara porque está a pocas horas de Wadi Gharandel."
+],
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Ex 15:25",
+"MacArthur identifica Mara con la actual ‘Ain Hawarah, de aguas salobres, y entiende el endulzamiento como un milagro."
+],
+[
+"Hillel, D. (2006). The Natural History of the Bible. Columbia University Press, p. 128",
+"Hillel sugiere explicaciones naturales: el madero pudo remover un charco estancado o, si era una planta que exuda sal como el tamarisco, ayudar a que el sedimento se asentara."
+]
+]
+},
+{
+"id": "elim",
+"site": "elim",
+"n": "Elim",
+"he": "אֵילִם",
+"ll": [
+29.27,
+32.98
+],
+"k": "biblico",
+"actual": "Wadi Gharandel · sur del Sinaí (aproximado)",
+"biblia": [
+[
+"Ex 15:27",
+"Llegaron a Elim, donde había doce manantiales de agua y setenta palmeras, y acamparon allí junto a las aguas."
+]
+],
+"arq": [
+"El oasis de Wadi Gharandel, con manantiales y palmeras, es la identificación tradicional de Elim («árboles grandes»)."
+],
+"hoy": "Está junto a la carretera costera de Ras Sudr a Abu Zenima.",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 162–163",
+"Los exploradores del siglo XIX identificaron Elim con Wadi Gharandel, con acacias, tamariscos, palmeras y agua algo salobre. Hoffmeier objeta que Gharandel queda a solo 2,5–3 horas de ‘Ain Hawara, lo que no equivale a una jornada."
+],
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Ex 15:27",
+"MacArthur ubica Elim muy probablemente en el actual Wadi Garandel, con abundante agua."
+]
+]
+},
+{
+"id": "markha",
+"site": "markha",
+"n": "Junto al mar · desierto de Sin",
+"he": "",
+"ll": [
+29.05,
+33.12
+],
+"k": "biblico",
+"actual": "Llanura de el-Markha, cerca de Abu Zenima",
+"biblia": [
+[
+"Ex 16:14–15",
+"Cuando se evaporó la capa de rocío, sobre la superficie del desierto había una cosa menuda, como escamas, menuda como la escarcha sobre la tierra. Al verla, los hijos de Israel se dijeron unos a otros: «¿Man hu?» (¿Qué es esto?), porque no sabían qué era. Y Moisés les dijo: «Es el pan que YHWH les da para comer»."
+]
+],
+"arq": [
+"Nm 33:10 añade un campamento «junto al Yam Suf» que Éxodo no menciona. Muchos lo sitúan en la llanura costera de el-Markha, y el desierto de Sin al este, al pie de las montañas."
+],
+"hoy": "Abu Zenima es un pequeño puerto minero de manganeso.",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 163–165",
+"Hoffmeier ubica el campamento «junto al mar» (Nm 33:10) en el golfo de Suez. Gebel Hammam Faraún obliga a rodear tierra adentro hasta Abu Zenimah; la llanura de el-Markha, con un puerto minero egipcio del Reino Nuevo, es una candidata."
+],
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, p. 38",
+"Hoffmeier distingue el desierto de Sin del desierto de Sinaí: Éxodo 16:1 sitúa Sin entre Elim y el Sinaí, y al Sinaí se llega solo después de Refidim."
+],
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Ex 16:1",
+"MacArthur señala que el desierto de Sin se alcanza treinta días después de salir de Ramesés y remite a Números 33 para el detalle de los campamentos."
+]
+]
+},
+{
+"id": "serabit",
+"site": "serabit",
+"n": "Serabit el-Jadim",
+"he": "",
+"ll": [
+29.036,
+33.459
+],
+"k": "arqueo",
+"actual": "Sur del Sinaí, Egipto",
+"biblia": [],
+"arq": [
+"Minas egipcias de turquesa explotadas desde el Reino Medio, con un templo de Hathor, «señora de la turquesa». Flinders Petrie halló allí en 1904–1905 las inscripciones protosinaíticas, escritas por trabajadores semitas: la forma más antigua conocida del alfabeto.",
+"Una esfinge de Serabit con texto egipcio y protosinaítico (Museo Británico) permitió a Alan Gardiner leer la palabra lbʿlt, «para la Señora»."
+],
+"hoy": "Se llega en jeep y una caminata desde el pueblo de Sheikh Barakat; las ruinas del templo y las estelas siguen en la meseta.",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 165–168",
+"La ruta minera egipcia hacia las minas de turquesa de Serabit el-Khadim seguía probablemente el Wadi Humr. Las expediciones, de hasta 3.000–4.000 hombres, llegaban en invierno; Hoffmeier calcula que los israelitas habrían pasado en mayo–junio, sin mineros."
+],
+[
+"Baker, L. S., Jr. (2019). Archaeological Backgrounds of the Sanctuary (tesis doctoral). Andrews University, pp. 192–193",
+"Baker menciona la región de Serabit el-Khadim, en el suroeste del Sinaí, y Timna, en la Arabá, como fuentes egipcias de cobre; en Timna la minería alcanzó su apogeo en el Reino Nuevo."
+]
+]
+},
+{
+"id": "dofca",
+"site": "dofca",
+"n": "Dofcá",
+"he": "דָּפְקָה",
+"ll": [
+28.9,
+33.37
+],
+"k": "biblico",
+"actual": "Wadi Maghara (hipótesis)",
+"biblia": [
+[
+"Nm 33:12",
+"Partieron del desierto de Sin y acamparon en Dofcá."
+]
+],
+"arq": [
+"Hoffmeier relaciona Dofcá con el egipcio mfk3t, «turquesa», el nombre de la región minera de Wadi Maghara, donde hay relieves de faraones desde la dinastía III. Es una hipótesis."
+],
+"hoy": "Los relieves de Wadi Maghara fueron dañados por la minería moderna de manganeso en el s. XX.",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 166–168",
+"Se ha relacionado Dofca con el egipcio mfk’t, «turquesa». Hoffmeier reconoce problemas lingüísticos, pero si la relación vale, la vincula con el distrito minero de Wadi Maghara más que con Serabit; también relaciona la turquesa del pectoral sacerdotal con esa zona."
+],
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Ex 16:1",
+"MacArthur identifica Dofca con la actual Debbet er-Ramleh, en el suroeste de la península, en línea recta entre Elim y el Sinaí."
+]
+]
+},
+{
+"id": "refidim",
+"site": "refidim",
+"n": "Refidim",
+"he": "רְפִידִם",
+"ll": [
+28.7,
+33.63
+],
+"k": "biblico",
+"actual": "Wadi Feirán · sur del Sinaí",
+"biblia": [
+[
+"Ex 17:6–7",
+"«He aquí que yo estaré delante de ti allí, sobre la peña, en Horeb; golpearás la peña, y saldrán de ella aguas, y beberá el pueblo». Moisés lo hizo así a la vista de los ancianos de Israel. Y llamó el nombre del lugar Masá y Meribá, por la contienda de los hijos de Israel y porque tentaron a YHWH, diciendo: «¿Está YHWH en medio de nosotros, o no?»."
+],
+[
+"Ex 17:15–16",
+"Moisés edificó un altar y lo llamó YHWH-nisí (YHWH es mi estandarte), y dijo: «Porque una mano se alzó contra el trono de Yah: guerra tendrá YHWH con Amalec de generación en generación»."
+]
+],
+"arq": [
+"El oasis de Feirán, el mayor del sur del Sinaí, es la identificación mayoritaria de Refidim. En el Tell el-Mekharet hubo una ciudad bizantina, Farán, con sede episcopal en el s. IV."
+],
+"hoy": "En el oasis vive una comunidad beduina, y hay un convento de monjas dependiente de Santa Catalina.",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 169–171",
+"Hoffmeier acepta la identificación tradicional de Refidim con el oasis de Wadi Feiran, rico en palmeras y agua, quizá con Wadi ‘Esh como Alús. Recoge la sugerencia de que el combate con Amalec se debió al control del agua."
+],
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Ex 17:1",
+"MacArthur identifica Refidim con el actual Wadi Refayid."
+],
+[
+"Hillel, D. (2006). The Natural History of the Bible. Columbia University Press, p. 128",
+"Hillel explica que golpear una roca para obtener agua es posible donde aguas subterráneas someras forman una costra porosa de calcita y yeso; romperla libera el agua que hay debajo."
+]
+]
+},
+{
+"id": "sinai",
+"site": "sinai",
+"n": "Monte Sinaí (Horeb)",
+"he": "סִינַי",
+"ll": [
+28.539,
+33.975
+],
+"k": "biblico",
+"actual": "Jebel Musa · sur del Sinaí, Egipto",
+"biblia": [
+[
+"Ex 3:1–2",
+"Moisés apacentaba el rebaño de Jetró, su suegro, sacerdote de Madián. Llevó el rebaño más allá del desierto y llegó al monte de Dios, a Horeb. Allí se le apareció el ángel de YHWH en una llama de fuego en medio de una zarza (sené). Miró, y he aquí que la zarza ardía en el fuego, y la zarza no se consumía."
+],
+[
+"Ex 19:18–19",
+"Todo el monte Sinaí humeaba, porque YHWH había descendido sobre él en fuego; su humo subía como el humo de un horno, y todo el monte temblaba en gran manera. El sonido del shofar iba aumentando mucho; Moisés hablaba, y Dios le respondía con una voz."
+],
+[
+"Ex 24:4",
+"Moisés escribió todas las palabras de YHWH. Se levantó de mañana y edificó un altar al pie del monte, y doce estelas según las doce tribus de Israel."
+]
+],
+"arq": [
+"La identificación con Jebel Musa (2285 m) está documentada desde el s. IV: Egeria subió al monte con monjes, y Justiniano mandó construir el monasterio (548–565). Ras Safsafah, en el mismo macizo, domina la llanura de er-Raha, donde podría acampar una gran multitud.",
+"No hay hallazgos arqueológicos de la época del éxodo en el macizo; la identificación se apoya en la tradición y en la geografía de Éxodo y Números."
+],
+"hoy": "Los peregrinos suben de noche por los 3750 «escalones del arrepentimiento» o por el camino de los camellos para ver amanecer en la cumbre, donde hay una capilla y una pequeña mezquita.",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 140–146, 148",
+"Hoffmeier considera el sur del Sinaí la región más probable, por la tradición cristiana antigua, la ecología y la distancia de 11 días hasta Cades. Prefiere Ras Safsafah, frente a la llanura de er-Raha, a Jebel Musa, que no tiene un llano delante."
+],
+[
+"Hoffmeier, J. K. (2008). Arqueología de la Biblia. San Pablo, pp. 58–60",
+"El monje Julianus Sabus construyó una capilla en la cima de Gebel Musa hacia el 360 d. C., y Justiniano amuralló el monasterio de Santa Catalina en el siglo VI. Hoffmeier dice que el sur del Sinaí encaja con las distancias, pero ninguna huella arqueológica lo confirma."
+],
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Ex 3:1",
+"MacArthur presenta Horeb como otro nombre del monte Sinaí, identificado tradicionalmente con Jebel Musa, «el monte de Moisés», en el sur de la península."
+]
+]
+},
+{
+"id": "santacatalina",
+"site": "santacatalina",
+"n": "Monasterio de Santa Catalina",
+"he": "",
+"ll": [
+28.556,
+33.976
+],
+"k": "hoy",
+"actual": "Santa Catalina · sur del Sinaí, Egipto",
+"biblia": [],
+"arq": [
+"Fundado por Justiniano entre 548 y 565 junto a la capilla de la zarza ardiente (s. IV). Su biblioteca conservó el Códice Sinaítico (s. IV), uno de los manuscritos más antiguos de toda la Biblia griega, que Tischendorf sacó en 1859."
+],
+"hoy": "Es uno de los monasterios cristianos en uso continuo más antiguos del mundo y Patrimonio de la Humanidad (UNESCO, 2002). Los monjes enseñan un arbusto que la tradición identifica con la zarza."
+},
+{
+"id": "serbal",
+"site": "serbal",
+"n": "Jebel Serbal",
+"he": "",
+"ll": [
+28.646,
+33.662
+],
+"k": "biblico",
+"actual": "Sur del Sinaí, Egipto",
+"biblia": [],
+"arq": [
+"Monte de 2070 m sobre el oasis de Feirán, con inscripciones nabateas y restos de ermitas. Eusebio y algunos peregrinos antiguos lo tuvieron por el Sinaí, y Hoffmeier lo considera un candidato serio."
+],
+"hoy": "Se sube en una jornada desde Feirán con guías beduinos.",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 146–148",
+"Hoffmeier considera Gebel Serbal (2.070 m), junto a Wadi Feiran, un candidato viable: tiene inscripciones nabateas que indican peregrinación, iglesias antiguas en Farán y agua abundante. Le preocupa que esté a menos de 10 km de Refidim."
+],
+[
+"Hoffmeier, J. K. (2008). Arqueología de la Biblia. San Pablo, p. 60",
+"Una de las cinco comunidades monásticas antiguas del sur del Sinaí estaba en Gebel Serbal, otra posible ubicación del monte Sinaí."
+]
+]
+},
+{
+"id": "sinbishar",
+"site": "sinbishar",
+"n": "Jebel Sin Bishar",
+"he": "",
+"ll": [
+29.7,
+32.95
+],
+"k": "biblico",
+"actual": "Noroeste del Sinaí (aproximado)",
+"biblia": [],
+"arq": [
+"Menashe Har-El propuso esta colina de 618 m como el Sinaí, por su cercanía a Egipto y su nombre («Sin»)."
+],
+"hoy": "",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 126–128",
+"Har-el propuso Gebel Sin Bishr, cerca de Ras el-Sudr, porque leía el nombre como «promulgación de la ley». Hoffmeier responde que significa probablemente «diente humano», por su forma, y que queda demasiado cerca del mar y de Cades."
+],
+[
+"Hoffmeier, J. K. (2008). Arqueología de la Biblia. San Pablo, pp. 59",
+"Hoffmeier calcula que Gebel Sin Bishr está a 112–128 km de Cades-barnea, una distancia demasiado corta para los once días de Deuteronomio 1:2."
+]
+]
+},
+{
+"id": "karkom",
+"site": "karkom",
+"n": "Har Karkom",
+"he": "",
+"ll": [
+30.29,
+34.735
+],
+"k": "arqueo",
+"actual": "Neguev, Israel",
+"biblia": [],
+"arq": [
+"Emmanuel Anati catalogó en la meseta más de 40 000 grabados rupestres y estructuras de culto, sobre todo del III milenio. Por eso lo propuso como el Sinaí, aunque esa fecha no encaja con ninguna cronología del éxodo."
+],
+"hoy": "Está dentro de una zona de tiro militar; solo se abre al público algunos fines de semana.",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 125–126",
+"Anati halló en Har Karkom unos 1.200 sitios arqueológicos, pero hay un vacío entre ca. 2000 y 900 a. C. y ninguna presencia en la Edad del Bronce Tardío. Hoffmeier, con Finkelstein, rechaza la cronología de Anati; además, el monte queda a menos de 50 km de Cades."
+]
+]
+},
+{
+"id": "lawz",
+"site": "lawz",
+"n": "Jebel al-Lawz",
+"he": "",
+"ll": [
+28.654,
+35.306
+],
+"k": "biblico",
+"actual": "Tabuk, Arabia Saudita",
+"biblia": [],
+"arq": [
+"La hipótesis madianita sitúa el Sinaí en Arabia porque Moisés estaba en Madián cuando vio la zarza y porque Gá 4:25 dice «Sinaí, monte de Arabia». Sus defensores señalan una cumbre ennegrecida y estructuras al pie; los arqueólogos no las fechan en el Bronce Tardío."
+],
+"hoy": "Desde 2018 forma parte del proyecto turístico saudí NEOM y de rutas de senderismo de la región de Tabuk.",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 132–136",
+"Hoffmeier rechaza la propuesta de Cornuke (BASE) para Jebel al-Lawz: la cima negra es barniz del desierto, el «altar» no tiene paralelos antiguos, los pilares parecen nabateos o romanos y las distancias no encajan con los itinerarios."
+],
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 5: La narración del Éxodo, parte 2 (de Cades-barnea al monte Nebo)",
+"El curso presenta Jebel al-Lawz, en el Hiyaz (2.580 m), cuyo pico ennegrecido algunos asocian con el humo de Éxodo 19:18, como parte de la hipótesis madianita."
+],
+[
+"Hoffmeier, J. K. (2008). Arqueología de la Biblia. San Pablo, pp. 59",
+"Hoffmeier observa que Gebel el-Lawz y Hallat el-Badr están demasiado lejos del yam suf; Hallat el-Badr queda a 560 km de ‘Ain Qudeirat."
+]
+]
+},
+{
+"id": "madian",
+"site": "madian",
+"n": "Madián",
+"he": "מִדְיָן",
+"ll": [
+28.48,
+35.02
+],
+"k": "biblico",
+"actual": "Al-Bad‘ · Tabuk, Arabia Saudita",
+"biblia": [
+[
+"Ex 2:15",
+"El faraón oyó de este asunto y procuró matar a Moisés. Pero Moisés huyó de la presencia del faraón y se quedó en la tierra de Madián, y se sentó junto al pozo."
+],
+[
+"Ex 2:21–22",
+"Moisés aceptó quedarse con aquel hombre, y él dio a Moisés a su hija Séfora. Ella dio a luz un hijo, y él le puso por nombre Gersom, porque dijo: «Forastero (ger) he sido en tierra extraña»."
+]
+],
+"arq": [
+"La tierra de Madián estaba al este del golfo de Áqaba. En Qurayyah, al norte de Al-Bad‘, se halló una ciudad del Bronce Tardío con cerámica pintada «madianita», que también aparece en Timna.",
+"Al-Bad‘ conserva tumbas nabateas talladas en la roca que la tradición local llama Magha‘ir Shu‘ayb, «las cuevas de Jetró»."
+],
+"hoy": "Al-Bad‘ es un pueblo de la provincia de Tabuk; Magha‘ir Shu‘ayb se abrió al turismo en la última década.",
+"bib": [
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Ex 2:15",
+"MacArthur sitúa a los madianitas, descendientes de Abraham y Cetura, en la península arábiga, en la costa oriental del golfo de Aqaba."
+],
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 128–132",
+"Hoffmeier sitúa Madián en el norte de Arabia, tierra adentro del golfo de Aqaba, junto a Edom. Señala que la Biblia nunca ubica el Sinaí en Madián, y que los nombres árabes relacionados con Moisés allí pueden ser tardíos."
+],
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, p. 237",
+"En Timna hay cerámica madianita. Tras el abandono egipcio, hacia 1150 a. C., los madianitas habrían transformado el templo de Hathor en un santuario de tienda, del que quedaron telas rojas y amarillas."
+]
+]
+},
+{
+"id": "timna",
+"site": "timna",
+"n": "Timna",
+"he": "",
+"ll": [
+29.785,
+34.985
+],
+"k": "arqueo",
+"actual": "Valle de Timna · Arabá, Israel",
+"biblia": [],
+"arq": [
+"Beno Rothenberg excavó un santuario egipcio de Hathor (ss. XIV–XII). En su última fase lo usaron madianitas, que lo cubrieron con una tienda de lana roja y amarilla y dejaron una serpiente de cobre con la cabeza dorada.",
+"Erez Ben-Yosef fechó con radiocarbono las minas de cobre de Timna también en los ss. X–IX a. e. c."
+],
+"hoy": "El Parque de Timna tiene una réplica a escala del tabernáculo y senderos por las minas y los «pilares de Salomón».",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, p. 237",
+"Hoffmeier recoge que en Timna, mina de cobre egipcia, hay cerámica madianita; tras el abandono egipcio hacia 1150 a. C., los madianitas habrían convertido el templo de Hathor en un santuario de tienda."
+],
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, p. 138",
+"Hoffmeier rechaza la idea de Humphreys de identificar Pi-hahirot con Timna («casa de Hathor»): el santuario era pequeño, no se llamaría pr en egipcio y la equivalencia es lingüísticamente incompatible."
+],
+[
+"Baker, L. S., Jr. (2019). Archaeological Backgrounds of the Sanctuary (tesis doctoral). Andrews University, pp. 192–193",
+"Baker anota que en Timna, en el Wadi Arabá, las excavaciones muestran que la minería de cobre alcanzó su apogeo en el Reino Nuevo."
+]
+]
+},
+{
+"id": "hazerot",
+"site": "hazerot",
+"n": "Hazerot",
+"he": "חֲצֵרֹת",
+"ll": [
+28.88,
+34.42
+],
+"k": "biblico",
+"actual": "‘Ain Hudra · sur del Sinaí",
+"biblia": [
+[
+"Nm 11:35",
+"De Kibrot-hataavá partió el pueblo a Hazerot, y se quedó en Hazerot."
+]
+],
+"arq": [
+"‘Ain Hudra, un oasis con manantial en el camino del Sinaí a la costa de Áqaba, es la identificación tradicional."
+],
+"hoy": "Es parada de las excursiones al Cañón Blanco, entre Santa Catalina y Nuweiba."
+},
+{
+"id": "cades",
+"site": "cades",
+"n": "Cades-barnea",
+"he": "קָדֵשׁ בַּרְנֵעַ",
+"ll": [
+30.651,
+34.425
+],
+"k": "biblico",
+"actual": "‘Ain el-Qudeirat · norte del Sinaí, Egipto",
+"biblia": [
+[
+"Nm 13:27–28",
+"Y le contaron: «Fuimos a la tierra a la que nos enviaste; ciertamente mana leche y miel, y este es su fruto. Pero el pueblo que habita la tierra es fuerte, y las ciudades son fortificadas y muy grandes; y también vimos allí a los hijos de Anac»."
+],
+[
+"Nm 20:11–12",
+"Moisés alzó su mano y golpeó la peña con su vara dos veces, y salieron muchas aguas, y bebió la congregación y su ganado. Y YHWH dijo a Moisés y a Aarón: «Por cuanto no creyeron en mí para santificarme a los ojos de los hijos de Israel, por tanto, no introducirán a esta asamblea en la tierra que les he dado»."
+]
+],
+"arq": [
+"Rudolph Cohen excavó en Tell el-Qudeirat (1976–1982) tres fortalezas israelitas sucesivas de los ss. X–VII a. e. c., junto al mayor manantial del norte del Sinaí. No apareció ningún nivel del Bronce Tardío.",
+"La falta de restos del s. XV o XIII es un argumento frecuente contra la historicidad del relato; otros responden que un campamento de tiendas no deja estratos."
+],
+"hoy": "Está en el lado egipcio de la frontera, en una zona de acceso restringido; el oasis sigue regando huertas beduinas.",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 123–124",
+"Se han propuesto dos oasis a menos de 10 km uno del otro: ‘Ain Qadis, que conserva el nombre, y ‘Ain Qudeirat, con fuertes israelitas de los siglos X–VII a. C. En Qudeirat no se ha hallado nada del Bronce Tardío; Cades quizá designaba toda la región."
+],
+[
+"Hoffmeier, J. K. (2008). Arqueología de la Biblia. San Pablo, pp. 58–59",
+"Cades-barnea se identifica con ‘Ain Qudeirat, manantial perenne en la frontera entre Egipto e Israel, ocupado desde hace 60.000–40.000 años; si no es allí, estaría en ‘Ain Qadis, a unos 10 km."
+],
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 5: La narración del Éxodo, parte 2 (de Cades-barnea al monte Nebo)",
+"El curso identifica Cades probablemente con Ein el-Qudeirat, un oasis al que Israel llega 14 meses después de salir de Egipto y punto de partida de los espías. Lo distingue de la Cades de Génesis, que sitúa en Wadi Musa (Petra)."
+]
+]
+},
+{
+"id": "hebron",
+"site": "hebron",
+"n": "Hebrón y Escol",
+"he": "",
+"ll": [
+31.53,
+35.1
+],
+"k": "biblico",
+"actual": "Hebrón · Cisjordania",
+"biblia": [
+[
+"Nm 13:27–28",
+"Y le contaron: «Fuimos a la tierra a la que nos enviaste; ciertamente mana leche y miel, y este es su fruto. Pero el pueblo que habita la tierra es fuerte, y las ciudades son fortificadas y muy grandes; y también vimos allí a los hijos de Anac»."
+]
+],
+"arq": [
+"Nm 13:22 añade que Hebrón «fue edificada siete años antes que Zoán en Egipto». Escol, «racimo», era un valle de viñas junto a la ciudad."
+],
+"hoy": "Hebrón es hoy una de las ciudades más grandes de Cisjordania, conocida por sus viñas, su vidrio y la Tumba de los Patriarcas.",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 5: La narración del Éxodo, parte 2 (de Cades-barnea al monte Nebo)",
+"El curso describe la ruta de los espías: de Cades por el desierto de Zin y el Neguev hasta Hebrón y el valle de Escol, «el valle del racimo», en las colinas de Hebrón, con la temporada de las primeras uvas."
+],
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Nm 13:23",
+"MacArthur explica que Escol significa «racimo»."
+]
+]
+},
+{
+"id": "eziongeber",
+"site": "eziongeber",
+"n": "Ezión-geber",
+"he": "",
+"ll": [
+29.539,
+34.983
+],
+"k": "biblico",
+"actual": "Elat (Israel) y Áqaba (Jordania)",
+"biblia": [
+[
+"Nm 33:35–36",
+"Partieron de Abroná y acamparon en Ezión-geber. Partieron de Ezión-geber y acamparon en el desierto de Zin, que es Cades."
+]
+],
+"arq": [
+"Nelson Glueck identificó Ezión-geber con Tell el-Jeleifeh, entre Elat y Áqaba; la reinterpretación posterior de Pratico (1985) fechó sus restos en los ss. VIII–VI. La identificación sigue discutida."
+],
+"hoy": "Elat y Áqaba comparten la cabecera del golfo: dos puertos y balnearios separados por una frontera.",
+"bib": [
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Dt 2:8",
+"MacArthur sitúa Elat y Ezión-geber al norte del golfo de Aqaba; Israel pasó al este de Edom y de Moab en su viaje hacia el norte. En 1 Re 9:26 la llama el puerto de Salomón."
+],
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 124, 143–144",
+"Para Hoffmeier, «por el camino del monte Seir» (Dt 1:2) equivale a pasar por Ezión-geber (Nm 33:36). Sigue a Davies y Meshel en la ruta Darb el-‘Azza, de Cades al extremo norte del golfo de Aqaba."
+]
+]
+},
+{
+"id": "hor",
+"site": "hor",
+"n": "Monte Hor",
+"he": "הֹר הָהָר",
+"ll": [
+30.317,
+35.407
+],
+"k": "biblico",
+"actual": "Jebel Harún · Petra, Jordania",
+"biblia": [
+[
+"Nm 33:38–39",
+"Y el sacerdote Aarón subió al monte Hor por mandato de YHWH, y murió allí, en el año cuarenta de la salida de los hijos de Israel de la tierra de Egipto, en el mes quinto, el primero del mes. Aarón tenía ciento veintitrés años cuando murió en el monte Hor."
+]
+],
+"arq": [
+"Desde Josefo, la tradición sitúa la muerte de Aarón en Jebel Harún (1350 m), junto a Petra. Un proyecto finlandés (FJHP, 1997–2007) excavó allí un monasterio bizantino dedicado a san Aarón."
+],
+"hoy": "En la cumbre hay un santuario islámico blanco del s. XIV, el Qabr Harún; se sube a pie o en mula desde Petra en unas tres horas.",
+"bib": [
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Nm 20:22",
+"MacArthur ubica el monte Hor probablemente al noreste de Cades, en la frontera con Edom; en Dt 10:6 identifica Mosera como el distrito donde está el monte y donde murió Aarón."
+],
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 5: La narración del Éxodo, parte 2 (de Cades-barnea al monte Nebo)",
+"El curso recuerda Deuteronomio 32:50: Moisés moriría en el Nebo como Aarón murió en el monte Hor, por la infidelidad en Meriba-cades."
+]
+]
+},
+{
+"id": "punon",
+"site": "punon",
+"n": "Punón",
+"he": "פּוּנֹן",
+"ll": [
+30.627,
+35.493
+],
+"k": "biblico",
+"actual": "Wadi Feinan · Arabá, Jordania",
+"biblia": [
+[
+"Nm 21:8–9",
+"YHWH dijo a Moisés: «Hazte un serafín (saraf) y ponlo sobre un asta; y todo el que haya sido mordido y lo mire, vivirá». Moisés hizo una serpiente de bronce (nejash nejóshet) y la puso sobre un asta; y cuando una serpiente mordía a alguno, miraba a la serpiente de bronce y vivía."
+]
+],
+"arq": [
+"Feinan fue uno de los mayores centros de producción de cobre del Levante. La tradición sitúa cerca la serpiente de bronce. En Khirbet en-Nahas, Levy y Ben-Yosef fecharon una gran actividad metalúrgica en los ss. X–IX."
+],
+"hoy": "Hay un ecolodge en la reserva de la biosfera de Dana, junto a las antiguas escorias.",
+"bib": [
+[
+"Garfinkel, Y., Ganor, S. y Hasel, M. (2018). In the Footsteps of King David. Thames & Hudson, cap. 7",
+"Los autores señalan que el cobre de Khirbet Qeiyafa pudo venir de las minas de Faynan o de Timna, en la Arabá."
+]
+]
+},
+{
+"id": "aroer",
+"site": "aroer",
+"n": "Aroer y el Arnón",
+"he": "",
+"ll": [
+31.474,
+35.841
+],
+"k": "biblico",
+"actual": "‘Ara‘ir · gobernación de Madaba, Jordania",
+"biblia": [
+[
+"Nm 21:24",
+"E Israel lo hirió a filo de espada y tomó posesión de su tierra desde el Arnón hasta el Jaboc, hasta los hijos de Amón; porque la frontera de los hijos de Amón era fuerte."
+]
+],
+"arq": [
+"El cañón del Arnón (Wadi Mujib) era la frontera entre Moab y la tierra de Sehón. Aroer vigilaba su borde norte; Mesa dice en su estela que construyó allí el camino del Arnón."
+],
+"hoy": "El Wadi Mujib es una reserva natural con cañones que se recorren por el agua; la represa de Mujib cierra el valle.",
+"bib": [
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a 2 Sa 24:5",
+"MacArthur sitúa Aroer a unos 22,5 km al este del mar Muerto, en la ribera norte del Arnón, en el extremo sudoriental de Israel."
+],
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 5: La narración del Éxodo, parte 2 (de Cades-barnea al monte Nebo)",
+"El curso cita Dt 2:36: tras la victoria sobre Sehón, Israel tomó desde Aroer, a orillas del Arnón, hasta Galaad."
+]
+]
+},
+{
+"id": "dibon",
+"site": "dibon",
+"n": "Dibón",
+"he": "",
+"ll": [
+31.499,
+35.777
+],
+"k": "arqueo",
+"actual": "Dhiban · Jordania",
+"biblia": [
+[
+"Nm 33:45",
+"Partieron de Iyim y acamparon en Dibón-gad."
+]
+],
+"arq": [
+"En 1868 apareció aquí la estela de Mesa, rey de Moab (c. 840 a. e. c.). En 34 líneas menciona a YHWH, a Omri rey de Israel y la toma del monte Nebo: «tomé de allí los vasos de YHWH»."
+],
+"hoy": "La estela está en el Louvre de París; una réplica se exhibe en el museo de Madaba.",
+"bib": [
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a 2 Re 3:4",
+"MacArthur recuerda que la estela de Mesa, rey de Moab, se descubrió en Dibón en 1868 y data de ca. 840–820 a. C.; Moab estaba entre el Arnón y el Zered."
+],
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Is 15:2",
+"MacArthur sitúa Dibón unos 5 km al norte del Arnón, con un templo del dios moabita Quemos."
+]
+]
+},
+{
+"id": "hesbon",
+"site": "hesbon",
+"n": "Hesbón",
+"he": "חֶשְׁבּוֹן",
+"ll": [
+31.802,
+35.81
+],
+"k": "biblico",
+"actual": "Tell Hesbán · Jordania",
+"biblia": [
+[
+"Nm 21:24",
+"E Israel lo hirió a filo de espada y tomó posesión de su tierra desde el Arnón hasta el Jaboc, hasta los hijos de Amón; porque la frontera de los hijos de Amón era fuerte."
+]
+],
+"arq": [
+"La Universidad Andrews excavó Tell Hesbán desde 1968 buscando la ciudad de Sehón. Los niveles más antiguos son del Hierro I (c. 1200); no apareció la ciudad del Bronce Tardío. Por eso algunos buscan la Hesbón de Sehón en otro sitio, como Tell Jalul."
+],
+"hoy": "Es un parque arqueológico junto a la ciudad de Hesbán, al sur de Ammán.",
+"bib": [
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Is 15:4",
+"MacArthur sitúa Hesbón a unos 32 km al este del extremo norte del mar Muerto, en un territorio que reclamaban tanto Israel como Moab."
+],
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Nm 21:21",
+"MacArthur explica que Sehón, rey amorreo, negó el paso; Israel lo derrotó y tomó la tierra entre el Arnón y el Jaboc, del mar Muerto y el Jordán hasta el territorio amonita."
+]
+]
+},
+{
+"id": "sitim",
+"site": "sitim",
+"n": "Sitim (llanuras de Moab)",
+"he": "שִׁטִּים",
+"ll": [
+31.84,
+35.673
+],
+"k": "biblico",
+"actual": "Tell el-Hammam · valle del Jordán, Jordania (propuesta)",
+"biblia": [
+[
+"Dt 1:3–5",
+"En el año cuarenta, en el mes undécimo, el primero del mes, Moisés habló a los hijos de Israel conforme a todo lo que YHWH le había mandado para ellos… Al otro lado del Jordán, en la tierra de Moab, comenzó Moisés a explicar esta Torá."
+]
+],
+"arq": [
+"Las «llanuras de Moab» frente a Jericó son el último campamento de Israel (Nm 33:49). Abel-sitim se identifica a menudo con Tell el-Hammam, un gran tell del Bronce."
+],
+"hoy": "La zona es hoy el valle agrícola del Jordán, con invernaderos y bananos, a pocos kilómetros del lugar del bautismo (Betania al otro lado del Jordán).",
+"bib": [
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Nm 25:1",
+"MacArthur traduce Sitim como «encinar»: la región al otro lado del Jordán frente a Jericó, desde donde Israel entró en Canaán (Jos 2:1)."
+],
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 6: Josué y la batalla de Jericó",
+"El curso sitúa el campamento de Josué 1 en los llanos de Moab (Abel-Sitim), antes del envío de los espías a Jericó y del cruce del Jordán."
+]
+]
+},
+{
+"id": "deiralla",
+"site": "deiralla",
+"n": "Deir Alla",
+"he": "",
+"ll": [
+32.197,
+35.623
+],
+"k": "arqueo",
+"actual": "Tell Deir Alla · valle del Jordán, Jordania",
+"biblia": [],
+"arq": [
+"Una expedición holandesa halló en 1967 fragmentos de un texto pintado en una pared de yeso (c. 800 a. e. c.): «Libro de Balaam hijo de Beor, el hombre que veía a los dioses». Es la única mención fuera de la Biblia del profeta de Nm 22–24."
+],
+"hoy": "Los fragmentos se exhiben en el Museo de Jordania, en Ammán.",
+"bib": [
+[
+"Garfinkel, Y., Ganor, S. y Hasel, M. (2018). In the Footsteps of King David. Thames & Hudson, cap. 5",
+"Los autores mencionan la inscripción en yeso de Tell Deir Alla, al otro lado del valle del Jordán y del siglo VIII a. C. aproximadamente, que habla de Balaam hijo de Beor, un vidente conocido también por la Biblia en la misma región."
+]
+]
+},
+{
+"id": "nebo",
+"site": "nebo",
+"n": "Monte Nebo (Pisgá)",
+"he": "נְבוֹ",
+"ll": [
+31.768,
+35.725
+],
+"k": "biblico",
+"actual": "Ras Siyagha · Madaba, Jordania",
+"biblia": [
+[
+"Dt 34:1–4",
+"Subió Moisés de las llanuras de Moab al monte Nebo, a la cumbre del Pisgá, que está frente a Jericó, y YHWH le mostró toda la tierra: Galaad hasta Dan, todo Neftalí, la tierra de Efraín y de Manasés, toda la tierra de Judá hasta el mar occidental, el Neguev y la llanura del valle de Jericó, ciudad de las palmeras, hasta Zoar. Y YHWH le dijo: «Esta es la tierra que juré a Abraham, a Isaac y a Jacob… Te la he hecho ver con tus ojos, pero no pasarás allá»."
+],
+[
+"Dt 34:5–7",
+"Y murió allí Moisés, siervo de YHWH, en la tierra de Moab, conforme a la palabra (al-pi, «por boca») de YHWH. Y lo sepultó en el valle, en la tierra de Moab, frente a Bet-peor; y nadie conoce su sepultura hasta hoy. Moisés tenía ciento veinte años cuando murió; sus ojos no se habían oscurecido ni había perdido su vigor."
+]
+],
+"arq": [
+"Los franciscanos excavan Siyagha desde 1933: una iglesia memorial de Moisés del s. IV, ampliada en los ss. V–VI, con mosaicos excepcionales. La peregrina Egeria la visitó hacia 383."
+],
+"hoy": "El Memorial de Moisés fue restaurado y reabierto en 2016. En la terraza hay una escultura de la serpiente de bronce entrelazada con una cruz (Giovanni Fantoni) y un mirador hacia Jericó. Juan Pablo II lo visitó en 2000 y Benedicto XVI en 2009.",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 5: La narración del Éxodo, parte 2 (de Cades-barnea al monte Nebo)",
+"El curso explica los nombres del Nebo (Jebel Shayhan): Nebo, un dios; Abarim, «cruce»; Pisga, «pico». Domina uno de los vados más usados del Jordán y está al este de Jerusalén, punto ideal para ver Canaán."
+],
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Dt 34:1",
+"MacArthur describe el Pisga como la cordillera cuyo punto más alto es el Nebo, en la cadena de Abarim, al este del extremo norte del mar Muerto (nota a Dt 32:49)."
+],
+[
+"Hoffmeier, J. K. (2008). Arqueología de la Biblia. San Pablo, p. 72",
+"Hoffmeier recuerda que los antiguos cristianos construyeron varias iglesias en el monte Nebo y sus alrededores, donde creían que había estado Moisés."
+]
+]
+},
+{
+"id": "jerico",
+"site": "jerico",
+"n": "Jericó",
+"he": "",
+"ll": [
+31.871,
+35.444
+],
+"k": "biblico",
+"actual": "Tell es-Sultan · Cisjordania",
+"biblia": [
+[
+"Dt 34:1–4",
+"Subió Moisés de las llanuras de Moab al monte Nebo, a la cumbre del Pisgá, que está frente a Jericó, y YHWH le mostró toda la tierra: Galaad hasta Dan, todo Neftalí, la tierra de Efraín y de Manasés, toda la tierra de Judá hasta el mar occidental, el Neguev y la llanura del valle de Jericó, ciudad de las palmeras, hasta Zoar. Y YHWH le dijo: «Esta es la tierra que juré a Abraham, a Isaac y a Jacob… Te la he hecho ver con tus ojos, pero no pasarás allá»."
+]
+],
+"arq": [
+"Tell es-Sultan, la «ciudad de las palmeras», es uno de los asentamientos más antiguos del mundo, con una torre neolítica de c. 8000 a. e. c."
+],
+"hoy": "Tell es-Sultan fue inscrito en el Patrimonio Mundial de la UNESCO en 2023.",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 6: Josué y la batalla de Jericó",
+"El curso presenta Tel es-Sultan como la ciudad más antigua y más baja (258 m bajo el nivel del mar), con un manantial de unos 4.500 litros por minuto y el control de los vados entre Rabat-Amón y Jerusalén."
+],
+[
+"Hoffmeier, J. K. (2008). Arqueología de la Biblia. San Pablo, pp. 68–69",
+"Hoffmeier resume el debate sobre la destrucción de la Ciudad IV de Jericó: Garstang la fechó hacia 1400 a. C., Kenyon hacia 1550 y Wood volvió a 1400. Los restos del Bronce Tardío son escasos; la ciudad se reconstruyó en el siglo IX."
+]
+]
+},
+{
+"id": "ketef",
+"site": "ketef",
+"n": "Ketef Hinom",
+"he": "",
+"ll": [
+31.768,
+35.227
+],
+"k": "arqueo",
+"actual": "Jerusalén",
+"biblia": [],
+"arq": [
+"En una tumba excavada por Gabriel Barkay en 1979 aparecieron dos laminillas de plata enrolladas con la bendición sacerdotal de Nm 6:24–26 (ss. VII–VI a. e. c.), el texto bíblico más antiguo que se conserva."
+],
+"hoy": "Las laminillas se exhiben en el Museo de Israel, en Jerusalén."
+},
+{
+"id": "benihasan",
+"site": "benihasan",
+"n": "Beni Hasán",
+"he": "",
+"ll": [
+27.93,
+30.88
+],
+"k": "arqueo",
+"actual": "Minia, Egipto",
+"biblia": [],
+"arq": [
+"En la tumba de Jnumhotep II (c. 1890 a. e. c.) se pinta una caravana de 37 «asiáticos» con túnicas de colores que llega a Egipto: el retrato más famoso de semitas entrando en el país."
+],
+"hoy": "Las tumbas rupestres de Beni Hasán se visitan en la orilla oriental del Nilo, al sur de Minia."
+}
+],
+"tramos": [
+{
+"n": 1,
+"de": "Egipto",
+"a": "Madián",
+"ref": "Ex 2:15",
+"txt": "El faraón procuró matar a Moisés; pero Moisés huyó de la presencia del faraón y se quedó en la tierra de Madián.",
+"arq": "La ruta más probable cruza el centro del Sinaí por el camino que después siguieron los peregrinos a La Meca (Darb el-Hajj) hasta la cabecera del golfo de Áqaba.",
+"pts": [
+[
+30.787,
+31.821
+],
+[
+30.6,
+32.05
+],
+[
+30.3,
+32.55
+],
+[
+30.0,
+33.15
+],
+[
+29.9,
+33.75
+],
+[
+29.72,
+34.4
+],
+[
+29.53,
+34.98
+],
+[
+29.1,
+34.92
+],
+[
+28.48,
+35.02
+]
+],
+"site": "madian",
+"bib": [
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Ex 2:15",
+"MacArthur sitúa Madián en la costa oriental del golfo de Aqaba, adonde huyó Moisés."
+],
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Dt 31:2",
+"MacArthur divide la vida de Moisés en tres períodos de cuarenta años: Egipto, Madián y el desierto (cf. Hch 7:30)."
+]
+]
+},
+{
+"n": 2,
+"de": "Madián",
+"a": "Horeb",
+"ref": "Ex 3:1",
+"txt": "Llevó el rebaño más allá del desierto y llegó al monte de Dios, a Horeb.",
+"arq": "Si Horeb es Jebel Musa, Moisés cruzó con el rebaño al Sinaí; si es Jebel al-Lawz, se quedó en Madián. El trazado sigue la identificación tradicional.",
+"pts": [
+[
+28.48,
+35.02
+],
+[
+28.95,
+34.9
+],
+[
+29.45,
+34.88
+],
+[
+29.35,
+34.55
+],
+[
+28.95,
+34.3
+],
+[
+28.565,
+33.955
+]
+],
+"site": "sinai",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, p. 142",
+"Hoffmeier recuerda que los beduinos suben en verano a las alturas del sur del Sinaí, donde hay pasto y agua, lo que explicaría que Moisés apacentara allí el rebaño de su suegro."
+],
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Ex 3:1",
+"MacArthur identifica Horeb con el monte Sinaí, tradicionalmente Jebel Musa, en el sur de la península."
+]
+]
+},
+{
+"n": 3,
+"de": "Horeb",
+"a": "Egipto",
+"ref": "Ex 4:20.27",
+"txt": "Moisés tomó a su mujer y a sus hijos… y volvió a la tierra de Egipto. Aarón fue y lo encontró en el monte de Dios.",
+"arq": "El regreso desanda el camino por el centro del Sinaí.",
+"pts": [
+[
+28.565,
+33.955
+],
+[
+28.95,
+34.3
+],
+[
+29.35,
+34.55
+],
+[
+29.45,
+34.88
+],
+[
+28.95,
+34.9
+],
+[
+28.48,
+35.02
+],
+[
+29.1,
+34.92
+],
+[
+29.53,
+34.98
+],
+[
+29.72,
+34.4
+],
+[
+29.9,
+33.75
+],
+[
+30.0,
+33.15
+],
+[
+30.3,
+32.55
+],
+[
+30.6,
+32.05
+],
+[
+30.787,
+31.821
+]
+],
+"site": "ramses",
+"vuelta": 1
+},
+{
+"n": 4,
+"de": "Raamsés",
+"a": "Sucot",
+"ref": "Ex 12:37",
+"txt": "Los hijos de Israel partieron de Raamsés hacia Sucot.",
+"arq": "De Qantir hacia el sur por la llanura del delta y, luego, al este por el Wadi Tumilat, la vía natural de Egipto al istmo.",
+"pts": [
+[
+30.8,
+31.835
+],
+[
+30.67,
+31.9
+],
+[
+30.55,
+31.96
+],
+[
+30.553,
+32.098
+]
+],
+"site": "sucot",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 66–68",
+"Según el papiro Anastasi V, un oficial cubrió de noche el camino de Pi-Ramsés al fuerte de Tjeku, a unos 30 km si estaba en Tell el-Retabeh. Hoffmeier ve aquí una ruta directa como la de Éxodo 12:37."
+],
+[
+"Hoffmeier, J. K. (2008). Arqueología de la Biblia. San Pablo, pp. 57",
+"Para evitar la trampa de Tjaru en el camino del norte, los israelitas fueron de Ramesés hacia Sucot, al sureste; pero el Wadi Tumilat también estaba fortificado."
+]
+]
+},
+{
+"n": 5,
+"de": "Sucot",
+"a": "Etam",
+"ref": "Ex 13:20",
+"txt": "Partieron de Sucot y acamparon en Etam, al borde del desierto.",
+"arq": "Etam marca el límite entre la tierra cultivada y el desierto del istmo.",
+"pts": [
+[
+30.553,
+32.098
+],
+[
+30.585,
+32.235
+]
+],
+"site": "etam",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 68–71",
+"Hoffmeier explica que al final del Wadi Tumilat había un fuerte ḫtm que controlaba la salida de personas, y quizá un canal antiguo, que los fugitivos querían evitar. Etam quedaba al borde del desierto."
+]
+]
+},
+{
+"n": 6,
+"de": "Etam",
+"a": "Pi-hahirot",
+"ref": "Ex 14:2",
+"txt": "Que se vuelvan y acampen delante de Pi-hahirot, entre Migdol y el mar, frente a Baal-zefón.",
+"arq": "«Que se vuelvan»: el pueblo retrocede y queda entre los fuertes de la frontera y el agua. Trazado según Hoffmeier (lagos Ballah).",
+"pts": [
+[
+30.585,
+32.235
+],
+[
+30.68,
+32.27
+],
+[
+30.79,
+32.3
+]
+],
+"site": "pihahirot",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 71–73",
+"Hoffmeier entiende «volverse» (Ex 14:2) como un giro hacia el norte desde la zona de Timsah. Bordeando el oeste de los lagos Ballah, unos 50 km, se llega a la región de Qantara, donde ubica Pi-hahirot, Migdol y Baal-zefón."
+],
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 4: La narración del Éxodo, parte 1 (del Delta al mar de las Cañas)",
+"El curso reconstruye la ruta de Gosén al sur hasta Sucot y Etam, y luego de vuelta al norte hasta el lago Sirbonis (Bardawil), donde ubica la liberación en el mar."
+]
+],
+"vuelta": 1
+},
+{
+"n": 7,
+"de": "El mar",
+"a": "Desierto de Shur",
+"ref": "Ex 14:22; 15:22",
+"txt": "Los hijos de Israel entraron por en medio del mar en lo seco… Moisés hizo partir a Israel del Yam Suf, y salieron al desierto de Shur.",
+"arq": "El cruce se dibuja en los lagos Ballah, una de seis propuestas (ver el hito «Entre Migdol y el mar»).",
+"pts": [
+[
+30.79,
+32.3
+],
+[
+30.84,
+32.37
+],
+[
+30.87,
+32.45
+]
+],
+"site": "ballah",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 160–161",
+"Hoffmeier explica que, cruzado el mar por el norte de los lagos Ballah, Israel giró al sur, al este de los lagos. Así volvió al desierto de Etam (Nm 33:8), que en Éxodo 15:22 se llama Shur, nombre semítico de la misma zona."
+],
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Ex 13:18",
+"MacArthur rechaza el golfo de Suez porque excluye la entrada en el desierto de Shur, y prefiere los Lagos Amargos."
+]
+]
+},
+{
+"n": 8,
+"de": "Desierto de Shur",
+"a": "Mara",
+"ref": "Ex 15:22–23",
+"txt": "Anduvieron tres días por el desierto sin hallar agua. Llegaron a Mara, y no pudieron beber las aguas de Mara, porque eran amargas.",
+"arq": "Shur («muro») es el desierto al este de la frontera egipcia. La ruta baja por la costa del golfo de Suez.",
+"pts": [
+[
+30.87,
+32.45
+],
+[
+30.55,
+32.5
+],
+[
+30.2,
+32.56
+],
+[
+29.876,
+32.648
+]
+],
+"site": "mara",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, p. 161",
+"Hoffmeier calcula tres jornadas de unos 32 km, unos 96 km al sur pasando los Lagos Amargos, hasta la zona de Suez. Sinuhé, al pasar por los Lagos Amargos, también habla de una sed terrible."
+]
+]
+},
+{
+"n": 9,
+"de": "Mara",
+"a": "Elim",
+"ref": "Ex 15:27",
+"txt": "Llegaron a Elim, donde había doce manantiales y setenta palmeras.",
+"arq": "Por la llanura costera hasta el oasis de Wadi Gharandel.",
+"pts": [
+[
+29.876,
+32.648
+],
+[
+29.6,
+32.78
+],
+[
+29.27,
+32.98
+]
+],
+"site": "elim",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 162–163",
+"Hoffmeier señala que si Mara fuera ‘Ain Hawara y Elim Wadi Gharandel, estarían a menos de tres horas: no habría razón para acampar junto al agua amarga."
+]
+]
+},
+{
+"n": 10,
+"de": "Elim",
+"a": "Junto al mar · desierto de Sin",
+"ref": "Nm 33:10; Ex 16:1",
+"txt": "Partieron de Elim y acamparon junto al Yam Suf… y llegaron al desierto de Sin, entre Elim y el Sinaí.",
+"arq": "Aquí cae el maná (Ex 16).",
+"pts": [
+[
+29.27,
+32.98
+],
+[
+29.05,
+33.12
+]
+],
+"site": "markha",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 163–164",
+"Pasado Gharandel, Gebel Hammam Faraún, con fuentes sulfurosas, cae al mar y obliga a rodear 26 km tierra adentro hasta Abu Zenimah. Hoffmeier sugiere que acercarse al mar daba ocasión de pescar y de obtener agua cavando en la playa."
+]
+]
+},
+{
+"n": 11,
+"de": "Desierto de Sin",
+"a": "Dofcá",
+"ref": "Nm 33:12",
+"txt": "Partieron del desierto de Sin y acamparon en Dofcá.",
+"arq": "Entrada a la región minera de turquesa (Wadi Maghara, Serabit el-Jadim).",
+"pts": [
+[
+29.05,
+33.12
+],
+[
+28.98,
+33.25
+],
+[
+28.9,
+33.37
+]
+],
+"site": "dofca",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 165–166",
+"Hoffmeier cuenta tres wadis que suben al macizo del sur: Humr, Sidri y Feiran. Wadi Humr era probablemente la ruta de las expediciones mineras egipcias, de miles de hombres, a Serabit el-Khadim."
+]
+]
+},
+{
+"n": 12,
+"de": "Dofcá",
+"a": "Refidim",
+"ref": "Ex 17:1; Nm 33:13–14",
+"txt": "Toda la congregación partió del desierto de Sin… y acampó en Refidim, y no había agua para que el pueblo bebiera.",
+"arq": "Por los wadis del macizo central hacia el oasis de Feirán.",
+"pts": [
+[
+28.9,
+33.37
+],
+[
+28.8,
+33.5
+],
+[
+28.7,
+33.63
+]
+],
+"site": "refidim",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, p. 169",
+"Números 33 añade Alús entre Dofca y Refidim, y Éxodo 17 la omite. Hoffmeier considera plausible Wadi ‘Esh, entre Wadi Maghara y Wadi Feiran."
+],
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, p. 167",
+"Las expediciones mineras egipcias trabajaban en invierno; Hoffmeier estima que Israel habría pasado por la zona minera en mayo–junio, sin mineros."
+]
+]
+},
+{
+"n": 13,
+"de": "Refidim",
+"a": "Sinaí",
+"ref": "Ex 19:1–2",
+"txt": "Al tercer mes… partieron de Refidim, llegaron al desierto del Sinaí y acamparon en el desierto; acampó allí Israel frente al monte.",
+"arq": "Del oasis de Feirán a la llanura de er-Raha, al pie del macizo de Jebel Musa.",
+"pts": [
+[
+28.7,
+33.63
+],
+[
+28.62,
+33.8
+],
+[
+28.565,
+33.955
+]
+],
+"site": "sinai",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, p. 171",
+"La llegada al desierto del Sinaí en la tercera luna nueva equivale a unas seis semanas después de la salida, entre mayo y junio, cuando el sur del Sinaí es más templado y tiene más agua."
+],
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 147–148",
+"Éxodo 19:2 menciona dos veces que acamparon. Hoffmeier señala que, si Refidim es Feiran, Gebel Serbal queda demasiado cerca para un campamento intermedio."
+]
+]
+},
+{
+"n": 14,
+"de": "Sinaí",
+"a": "Hazerot",
+"ref": "Nm 10:12; 11:34–35",
+"txt": "Los hijos de Israel partieron del desierto del Sinaí según su orden de marcha… De Kibrot-hataavá partió el pueblo a Hazerot.",
+"arq": "Kibrot-hataavá, «tumbas del deseo», recuerda las codornices (Nm 11). Hazerot es ‘Ain Hudra.",
+"pts": [
+[
+28.565,
+33.955
+],
+[
+28.7,
+34.15
+],
+[
+28.88,
+34.42
+]
+],
+"site": "hazerot",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 4: La narración del Éxodo, parte 1 (del Delta al mar de las Cañas)",
+"El curso advierte que muchos nombres de la ruta, como Kibrot-hataavá («tumbas de la glotonería») o Tabera, fueron apodos que no se conservaron en el paisaje."
+],
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Nm 10:33",
+"MacArthur anota que desde el Sinaí caminaron tres días antes de acampar por más de una noche; en Dt 9:22 explica Kibrot-hataavá como «tumbas del anhelo»."
+]
+]
+},
+{
+"n": 15,
+"de": "Hazerot",
+"a": "Cades-barnea",
+"ref": "Nm 12:16; 13:26; Dt 1:2",
+"txt": "Once jornadas hay desde Horeb, por el camino del monte Seír, hasta Cades-barnea.",
+"arq": "Por los valles del este del Sinaí y la meseta de Parán hasta el oasis de ‘Ain el-Qudeirat.",
+"pts": [
+[
+28.88,
+34.42
+],
+[
+29.3,
+34.6
+],
+[
+29.8,
+34.65
+],
+[
+30.25,
+34.5
+],
+[
+30.651,
+34.425
+]
+],
+"site": "cades",
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 143–144",
+"Hoffmeier sigue a Davies y Meshel: por la Darb el-‘Azza, desde el sur del Sinaí por la costa oriental hasta cerca de Eilat y luego a Cades, hay unos 320 km, unos 29 km por día durante once jornadas."
+],
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Dt 1:2",
+"MacArthur calcula unos 240 km de Horeb a Cades-barnea: un viaje de once días que a Israel le llevó treinta y ocho años más."
+]
+]
+},
+{
+"n": 16,
+"de": "Cades",
+"a": "Ezión-geber",
+"ref": "Nm 33:35–36; Dt 2:1",
+"txt": "Nos volvimos y partimos al desierto, camino del Yam Suf… y rodeamos el monte Seír muchos días.",
+"arq": "Los años de desierto: Nm 33 enumera dieciocho campamentos entre el Sinaí y Cades, la mayoría sin identificar.",
+"pts": [
+[
+30.651,
+34.425
+],
+[
+30.25,
+34.75
+],
+[
+29.85,
+34.95
+],
+[
+29.539,
+34.983
+]
+],
+"site": "eziongeber",
+"bib": [
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Dt 2:1",
+"MacArthur explica que desde Cades viajaron hacia el sureste, hacia el golfo de Aqaba por el camino del mar Rojo, y rodearon por mucho tiempo el monte Seir."
+],
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 5: La narración del Éxodo, parte 2 (de Cades-barnea al monte Nebo)",
+"El curso señala que, al negarse el paso por Edom, Israel tuvo que bajar hacia el sur para rodearlo, pasando lejos de Elat y Ezión-geber (Dt 2:8)."
+]
+],
+"vuelta": 1
+},
+{
+"n": 17,
+"de": "Cades",
+"a": "Monte Hor",
+"ref": "Nm 20:22",
+"txt": "Partieron de Cades, y los hijos de Israel, toda la congregación, llegaron al monte Hor.",
+"arq": "Hacia el Arabá y la frontera de Edom.",
+"pts": [
+[
+30.651,
+34.425
+],
+[
+30.55,
+34.8
+],
+[
+30.45,
+35.1
+],
+[
+30.317,
+35.407
+]
+],
+"site": "hor",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 5: La narración del Éxodo, parte 2 (de Cades-barnea al monte Nebo)",
+"El plan de Números 20 era salir de Cades, atravesar Edom y tomar el Camino Real hacia el norte; el rey de Edom negó el paso."
+],
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Nm 20:22",
+"MacArthur sitúa el monte Hor probablemente al noreste de Cades, en la frontera con Edom."
+]
+]
+},
+{
+"n": 18,
+"de": "Monte Hor",
+"a": "Punón",
+"ref": "Nm 21:4; 33:41–42",
+"txt": "Partieron del monte Hor camino del Yam Suf, para rodear la tierra de Edom; y se impacientó el alma del pueblo en el camino.",
+"arq": "Rodeo hacia el sur por el Arabá y vuelta al norte por las minas de cobre de Feinan.",
+"pts": [
+[
+30.317,
+35.407
+],
+[
+30.1,
+35.2
+],
+[
+29.8,
+35.05
+],
+[
+29.6,
+35.1
+],
+[
+29.8,
+35.5
+],
+[
+30.3,
+35.6
+],
+[
+30.627,
+35.493
+]
+],
+"site": "punon",
+"bib": [
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Nm 21:4",
+"MacArthur explica que, cerrado el camino por Edom, Moisés giró al sur hacia Elat, en el golfo de Aqaba, para rodearlo; ese largo rodeo causó impaciencia."
+],
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Dt 2:8",
+"MacArthur añade que Israel pasó al este de Edom y de Moab en su viaje hacia el norte."
+]
+]
+},
+{
+"n": 19,
+"de": "Punón",
+"a": "El Arnón",
+"ref": "Nm 21:10–13",
+"txt": "Partieron… y acamparon al otro lado del Arnón, que está en el desierto y sale del territorio de los amorreos.",
+"arq": "Por el borde del desierto, al este de Edom y Moab, cruzando el Zered (Wadi Hasa).",
+"pts": [
+[
+30.627,
+35.493
+],
+[
+30.85,
+35.7
+],
+[
+31.05,
+35.9
+],
+[
+31.3,
+36.05
+],
+[
+31.47,
+35.95
+]
+],
+"site": "aroer",
+"bib": [
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Nm 21:10",
+"MacArthur resume que Israel rodeó Edom y Moab y acampó en la ribera norte del Arnón, en territorio amorreo; el Arnón marcaba el límite norte de Moab (Nm 21:14)."
+],
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 5: La narración del Éxodo, parte 2 (de Cades-barnea al monte Nebo)",
+"El curso cita Dt 2:13–14: cruzar el Zered (Wadi al-Hesa) cerró los treinta y ocho años desde Cades-barnea."
+]
+]
+},
+{
+"n": 20,
+"de": "El Arnón",
+"a": "Llanuras de Moab",
+"ref": "Nm 21:21–25; 22:1",
+"txt": "Israel tomó todas estas ciudades y habitó en todas las ciudades de los amorreos, en Hesbón… Partieron y acamparon en las llanuras de Moab, al otro lado del Jordán, frente a Jericó.",
+"arq": "Por la meseta de Madaba y Hesbón, bajando al valle del Jordán.",
+"pts": [
+[
+31.47,
+35.95
+],
+[
+31.65,
+35.85
+],
+[
+31.802,
+35.81
+],
+[
+31.84,
+35.673
+]
+],
+"site": "sitim",
+"bib": [
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Nm 21:21",
+"MacArthur explica que Israel derrotó a Sehón y tomó la tierra entre el Arnón y el Jaboc; asegurada Transjordania, avanzó sin obstáculos a los campos de Moab (nota a Nm 22:1)."
+],
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 5: La narración del Éxodo, parte 2 (de Cades-barnea al monte Nebo)",
+"El curso cita Dt 2:32–36: Sehón salió a pelear en Jahaza y fue vencido; Israel tomó las ciudades desde Aroer, junto al Arnón, hasta Galaad."
+]
+]
+},
+{
+"n": 21,
+"de": "Llanuras de Moab",
+"a": "Monte Nebo",
+"ref": "Dt 34:1",
+"txt": "Subió Moisés de las llanuras de Moab al monte Nebo, a la cumbre del Pisgá, que está frente a Jericó.",
+"arq": "Una subida de unos 1100 m de desnivel, del valle del Jordán (−250 m) a Ras Siyagha (710 m).",
+"pts": [
+[
+31.84,
+35.673
+],
+[
+31.8,
+35.7
+],
+[
+31.768,
+35.725
+]
+],
+"site": "nebo",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 5: La narración del Éxodo, parte 2 (de Cades-barnea al monte Nebo)",
+"El curso explica que desde el Nebo Moisés ve la mayor parte de Canaán y el vado del Jordán en Qasr al-Yehud; su muerte prepara la etapa siguiente: el cruce del Jordán y Jericó."
+],
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Dt 34:1",
+"MacArthur describe el Pisga como la cordillera cuyo punto más alto es el monte Nebo, frente a Jericó."
+]
+]
+}
+],
+"rutas": [
+{
+"n": "Camino de Horus",
+"nota": "La ruta militar egipcia de la costa norte del Sinaí, de Tjaru a Gaza, con una cadena de fuertes y pozos: el «camino de la tierra de los filisteos» que Dios evitó (Ex 13:17).",
+"pts": [
+[
+30.932,
+32.378
+],
+[
+31.03,
+32.6
+],
+[
+31.08,
+33.1
+],
+[
+31.13,
+33.8
+],
+[
+31.25,
+34.1
+],
+[
+31.5,
+34.45
+]
+],
+"fuente": "Hoffmeier, Ancient Israel in Sinai"
+},
+{
+"n": "Camino de Shur",
+"he": "דֶּרֶךְ שׁוּר",
+"nota": "Del istmo de Suez por el centro del Sinaí hacia Beerseba y Hebrón (Gn 16:7). Agar huía a Egipto por aquí.",
+"pts": [
+[
+30.6,
+32.3
+],
+[
+30.65,
+33.0
+],
+[
+30.75,
+33.8
+],
+[
+30.95,
+34.35
+],
+[
+31.244,
+34.84
+]
+]
+},
+{
+"n": "Darb el-Hajj",
+"nota": "El camino de los peregrinos de Egipto a La Meca, por el centro del Sinaí (Nakhl) hasta la cabecera del golfo de Áqaba; probablemente el de la huida de Moisés.",
+"pts": [
+[
+29.95,
+32.56
+],
+[
+29.95,
+33.2
+],
+[
+29.9,
+33.75
+],
+[
+29.72,
+34.4
+],
+[
+29.53,
+34.98
+]
+],
+"bib": [
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, pp. 131, 138–139",
+"Hoffmeier llama Darb el-Hagg al «camino del desierto», que cruza el centro del Sinaí hacia Ezión-geber/Elat. Duda que los carros egipcios pudieran recorrerlo, y señala que solo en la ruta costera de Horus hay pruebas de carros."
+],
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 4: La narración del Éxodo, parte 1 (del Delta al mar de las Cañas)",
+"Entre las cuatro rutas posibles del éxodo, el curso cuenta la ruta central, el «camino Hajj», junto a la costera, la de Shur y la del sur por las minas de turquesa y cobre."
+]
+]
+},
+{
+"n": "Camino del Rey",
+"he": "דֶּרֶךְ הַמֶּלֶךְ",
+"nota": "La ruta de la meseta de Transjordania, de Áqaba a Damasco por Edom, Moab y Amón. Moisés pidió pasar por ella (Nm 20:17; 21:22).",
+"pts": [
+[
+29.53,
+35.0
+],
+[
+29.9,
+35.35
+],
+[
+30.32,
+35.48
+],
+[
+30.8,
+35.6
+],
+[
+31.18,
+35.7
+],
+[
+31.499,
+35.777
+],
+[
+31.72,
+35.79
+],
+[
+31.802,
+35.81
+],
+[
+32.0,
+35.88
+],
+[
+32.3,
+36.0
+]
+],
+"bib": [
+[
+"MacArthur, J. Biblia de Estudio MacArthur, nota a Nm 20:17",
+"MacArthur describe el camino real como la principal ruta comercial de sur a norte, desde el golfo de Aqaba hasta Damasco, pasando por la ciudad edomita de Sela."
+],
+[
+"Hoffmeier, J. K. (2005). Ancient Israel in Sinai. Oxford University Press, p. 168",
+"Hoffmeier menciona que Edom ocupaba un lugar estratégico en la ruta comercial del camino del Rey, entre el mar Rojo y Damasco, lo que explicaría el comercio de turquesa (Ez 27:16)."
+],
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 5: La narración del Éxodo, parte 2 (de Cades-barnea al monte Nebo)",
+"El curso explica que Israel pidió pasar por el Camino Real a través de Edom (Nm 20:17); al negársele, tuvo que rodear Edom y subir por el camino del desierto."
+]
+]
+}
+],
+"ciudades_extra": [
+[
+"Santa Catalina",
+28.556,
+33.95
+],
+[
+"Sharm el-Sheij",
+27.915,
+34.33
+],
+[
+"Nuweiba",
+28.975,
+34.655
+],
+[
+"Elat",
+29.557,
+34.952
+],
+[
+"Áqaba",
+29.532,
+35.006
+],
+[
+"Petra",
+30.329,
+35.444
+],
+[
+"Madaba",
+31.716,
+35.794
+],
+[
+"El Arish",
+31.131,
+33.798
+],
+[
+"Zagazig",
+30.587,
+31.502
+],
+[
+"Ras Sudr",
+29.59,
+32.71
+],
+[
+"Tabuk",
+28.383,
+36.566
+]
+]
+}

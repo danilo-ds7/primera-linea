@@ -200,7 +200,7 @@ def mapa_tikz(n, m):
         st = {"seal": "mar", "reg": "region", "rel": "relieve"}[cls]
         A(f"\\node[{st},font=\\fontsize{{{fs*F*.78:.1f}}}{{{fs*F*.9:.1f}}}\\selectfont,anchor={anchor},rotate={rot}{extra}] at ({fmt(lon*ASPECT)},{fmt(lat)}) {{{t}}};")
     if wide:
-        for t, la_, lo_, c, fs, mn, mx in LAB_W:
+        for t, la_, lo_, c, fs, mn, mx in DATA.get("labw", []) + LAB_W:
             if mn <= SC < mx: lab(t, la_, lo_, c, fs)
     else:
         if B[2] < 34.6:
@@ -318,19 +318,26 @@ def mapa_tikz(n, m):
 
 
 def portada_tikz():
+    """Portada: el nombre en hebreo y el arco de lugares (con altar los que lo tienen). Los datos de la
+    línea pueden traer su propia portada en DATA["portada_spec"]; si no, la de Abraham."""
+    P = DATA.get("portada_spec") or {"he": "אַבְרָהָם", "color": "olive",
+         "lugares": [["אוּר", "Ur", 0], ["שְׁכֶם", "Siquem", 1], ["בֵּית־אֵל", "Betel", 2], ["חֶבְרוֹן", "Hebrón", 3], ["מוֹרִיָּה", "Moriah", 4]]}
     W, H = 18.0, 6.3
     L = []; A = L.append
     A("\\begin{tikzpicture}[x=1cm,y=1cm]")
     A(f"\\useasboundingbox (0,0) rectangle ({W},{H});")
     A(f"\\shade[top color=land!60!white,bottom color=land] (0,0) rectangle ({W},{H});")
     A(f"\\draw[rule,line width=.4pt] (.12,.12) rectangle ({W-.12},{H-.12}); \\draw[sepia,line width=1pt] (.22,.22) rectangle ({W-.22},{H-.22});")
-    A(f"\\node[text=olive,font=\\hebfont\\bfseries\\fontsize{{52}}{{56}}\\selectfont] at ({W/2},{H-1.75}) {{\\beginR אַבְרָהָם\\endR}};")
+    A(f"\\node[text={P.get('color','olive')},font=\\hebfont\\bfseries\\fontsize{{52}}{{56}}\\selectfont] at ({W/2},{H-1.75}) {{\\beginR {P['he']}\\endR}};")
     A(f"\\node[grat,font=\\sffamily\\fontsize{{6.5}}{{7}}\\selectfont,anchor=north east] at ({W-.5},{H-.45}) {{se lee de derecha a izquierda $\\leftarrow$}};")
     # arco de peregrinación: Ur y cuatro altares
-    xs = [1.3, 4.95, 8.6, 12.25, 15.9]; ys = [1.9, 2.4, 2.6, 2.4, 1.9]
+    n = len(P["lugares"])
+    if DATA.get("portada_spec"):
+        xs = [1.3 + k * (W - 2.6) / (n - 1) for k in range(n)]; ys = [1.9 + .7 * math.sin(math.pi * k / (n - 1)) for k in range(n)]
+    else:
+        xs = [1.3, 4.95, 8.6, 12.25, 15.9]; ys = [1.9, 2.4, 2.6, 2.4, 1.9]
     A(f"\\draw[rule,line width=.9pt,dash pattern=on .5pt off 3pt,line cap=round] plot[smooth,tension=.7] coordinates {{{' '.join(f'({x},{y})' for x,y in zip(xs,ys))}}};")
-    nombres = [("אוּר", "Ur", 0), ("שְׁכֶם", "Siquem", 1), ("בֵּית־אֵל", "Betel", 2), ("חֶבְרוֹן", "Hebrón", 3), ("מוֹרִיָּה", "Moriah", 4)]
-    for (he, es, k), x, y in zip(nombres, xs, ys):
+    for (he, es, k), x, y in zip(P["lugares"], xs, ys):
         if k:
             A(f"\\pic[scale=1.1] at ({x},{y+.05}) {{altar}};")
             A(f"\\node[insignia,minimum size=11pt,font=\\sffamily\\bfseries\\fontsize{{6.5}}{{7}}\\selectfont] at ({x+.5},{y+.95}) {{{k}}};")
@@ -381,7 +388,10 @@ for i, e in enumerate(EV):
     md = e.get("media")
     if md and md.get("tipo") == "cronos":
         tc, rc = cronos_tikz(md); figs.append(tc); extras.append((f"cronos-{i+1:02d}", rc, i))
-(TRABAJO / "mapas.tex").write_text(PREAMBULO.replace("FONTSDIR", str(FONTS)) + "\n\n".join(figs) + "\n\\end{document}\n", encoding="utf-8")
+PRE = PREAMBULO
+if DATA.get("tikz_colores"):   # paleta propia de la línea (tema)
+    PRE = PRE.replace("\\tikzset{\n  sitio", "".join(f"\\definecolor{{{k}}}{{HTML}}{{{v}}}" for k, v in DATA["tikz_colores"].items()) + "\n\\tikzset{\n  sitio", 1)
+(TRABAJO / "mapas.tex").write_text(PRE.replace("FONTSDIR", str(FONTS)) + "\n\n".join(figs) + "\n\\end{document}\n", encoding="utf-8")
 for _ in range(2):
     r = subprocess.run(["xelatex", "-interaction=nonstopmode", "-halt-on-error", "mapas.tex"], cwd=TRABAJO, capture_output=True, text=True)
     if r.returncode != 0:
