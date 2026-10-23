@@ -89,10 +89,41 @@ document.getElementById('tlCerrar').addEventListener('click', function(e){{
 </html>"""
     cambiar(r"</script>\s*</html>\s*$", "</script>\n" + cierre, regex=True)
 
-    # celular: el menú mostraba botones vacíos (ocultaba también los iconos) y no cabía entero
-    cambiar("</style>", """@media (max-width:600px){
+    # --- todo en una pantalla: un botón por tarea y una banda de tiempo más baja ----------------
+    # Fuera (repetían otra tarea o eran secundarios): «Arqueología» y «Hoy» del menú (el Atlas tiene sus
+    # propias capas), las flechas grandes sobre el texto (repetían ← → de la banda y lo tapaban), los
+    # filtros de la banda, el minimapa y «ver toda la línea» (se confundía con pantalla completa).
+    # Se ocultan con CSS para no romper el código que los actualiza.
+    # En la banda, ← antes que →
+    cambiar(r'(<button id="tnext"[^>]*>.*?</button>)\s*(<button id="tprev"[^>]*>.*?</button>)', r"\2\n      \1", regex=True)
+    # banda angosta: 2 filas de hitos más compactas, arriba del todo (sin la barra de filtros)
+    cambiar("ROWS=3,", "ROWS=2,")
+    cambiar("ROWH=44", "ROWH=38")
+    cambiar("ARC=22", "ARC=-2")
+    cambiar("const axisY=h-50,", "const axisY=h-30,")
+    html = html.replace("(top+38)", "(top+34)").replace("bandTop-top-38", "bandTop-top-34")
+    cambiar("axisY+17", "axisY+13")
+    cambiar("</style>", """/* Primera Línea: un botón por tarea, menú en su propia franja y banda de tiempo angosta */
+#arqBtn,#hoyBtn,.stage>.arrow,#zfit,.tn-filtros,.mini{display:none!important}
+/* menú arriba: franja propia (no flota sobre el mapa ni el texto); Cerrar a la izquierda */
+.stage{padding-top:54px}
+.topbar{top:0;left:0;right:0;height:54px;padding:0 16px;justify-content:flex-end;gap:8px;
+  background:var(--bg);border-bottom:1px solid var(--rule)}
+.topbar .volver{margin-right:auto}
+.tb-grupo{box-shadow:none}
+/* banda de tiempo angosta */
+.tn{height:158px}
+.mk{height:30px} .mk .mn{min-width:24px;height:24px}
+.slide{padding-block:22px 22px;padding-inline:clamp(16px,6vw,96px)}
+@media (max-width:760px){
+  .slide{padding-block:16px 16px}
+  .vivo{height:34vh;min-height:220px} .vivo.viaje{height:38vh}
+}
+/* celular: iconos visibles (antes se ocultaban con el texto) y menú compacto */
+@media (max-width:600px){
+  .stage{padding-top:48px}
+  .topbar{height:48px;padding:0 8px;gap:4px}
   .topbar span.ico{display:inline-grid}
-  .topbar{left:10px;justify-content:flex-end;gap:4px}
   .topbar button,.topbar .volver{min-width:0;min-height:30px;padding:6px 8px;display:inline-grid;place-items:center}
 }
 </style>""")
