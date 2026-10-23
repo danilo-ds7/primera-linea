@@ -322,31 +322,50 @@ def mapa_tikz(n, m):
 
 
 def portada_tikz():
-    W, H = 18.0, 6.3
+    """Escena: de Belén (el pastor, a la izquierda) a Jerusalén (la ciudad, a la derecha), al caer la tarde."""
+    W, H = 20.0, 7.6
     L = []; A = L.append
     A("\\begin{tikzpicture}[x=1cm,y=1cm]")
     A(f"\\useasboundingbox (0,0) rectangle ({W},{H});")
-    A(f"\\shade[top color=land!60!white,bottom color=land] (0,0) rectangle ({W},{H});")
-    A(f"\\draw[rule,line width=.4pt] (.12,.12) rectangle ({W-.12},{H-.12}); \\draw[sepia,line width=1pt] (.22,.22) rectangle ({W-.22},{H-.22});")
-    A(f"\\node[text=olive,font=\\hebfont\\bfseries\\fontsize{{52}}{{56}}\\selectfont] at ({W/2},{H-1.75}) {{\\beginR דָּוִד\\endR}};")
-    A(f"\\node[grat,font=\\sffamily\\fontsize{{6.5}}{{7}}\\selectfont,anchor=north east] at ({W-.5},{H-.45}) {{se lee de derecha a izquierda $\\leftarrow$}};")
-    # el camino: Belén (unción 1), Ela (la honda), Adulam (la cueva), Hebrón (unción 2), Guihón/Jerusalén (unción 3)
-    xs = [1.3, 4.95, 8.6, 12.25, 15.9]; ys = [1.9, 2.4, 2.6, 2.4, 1.9]
-    A(f"\\draw[rule,line width=.9pt,dash pattern=on .5pt off 3pt,line cap=round] plot[smooth,tension=.7] coordinates {{{' '.join(f'({x},{y})' for x,y in zip(xs,ys))}}};")
-    nombres = [("בֵּית לֶחֶם", "Belén", 1), ("עֵמֶק הָאֵלָה", "Valle de Ela", 0), ("עֲדֻלָּם", "Adulam", 0), ("חֶבְרוֹן", "Hebrón", 2), ("גִּיחוֹן", "Guihón · Jerusalén", 3)]
-    for (he, es, k), x, y in zip(nombres, xs, ys):
-        if k:
-            A(f"\\pic[scale=1.1] at ({x},{y+.05}) {{altar}};")
-            A(f"\\node[insignia,minimum size=11pt,font=\\sffamily\\bfseries\\fontsize{{6.5}}{{7}}\\selectfont] at ({x+.55},{y+1.05}) {{{k}}};")
-        elif es == "Valle de Ela":
-            # honda: dos cuerdas y la bolsa con la piedra
-            A(f"\\draw[earth,line width=.6pt,line cap=round] ({x-.35},{y+.55}) .. controls ({x-.15},{y+.2}) .. ({x},{y+.05}) .. controls ({x+.15},{y+.2}) .. ({x+.35},{y+.55});")
-            A(f"\\filldraw[fill=land2,draw=earth,line width=.5pt] ({x},{y+.05}) ellipse (.17 and .09); \\fill[grey] ({x},{y+.05}) circle (1.6pt);")
-        else:
-            # cueva: arco oscuro
-            A(f"\\filldraw[fill=earth,draw=earth] ({x-.3},{y}) -- ({x-.3},{y+.25}) arc (180:0:.3) -- ({x+.3},{y}) -- cycle; \\fill[land] ({x-.18},{y}) -- ({x-.18},{y+.2}) arc (180:0:.18) -- ({x+.18},{y}) -- cycle;")
-        A(f"\\node[text=ink,font=\\hebfont\\fontsize{{12}}{{13}}\\selectfont,anchor=north] at ({x},{y-.28}) {{\\beginR {he}\\endR}};")
-        A(f"\\node[text=muted,font=\\scshape\\fontsize{{8}}{{9}}\\selectfont,anchor=north] at ({x},{y-.78}) {{{es}}};")
+    A(f"\\clip (0,0) rectangle ({W},{H});")
+    # cielo del atardecer
+    A(f"\\shade[top color=blue!85!black,bottom color=gold!35!land,middle color=blue!45!land] (0,0) rectangle ({W},{H});")
+    # estrellas
+    import random
+    rnd = random.Random(7)
+    for _ in range(70):
+        x, y = rnd.uniform(.3, W-.3), rnd.uniform(H*.45, H-.25); r = rnd.choice([.35, .5, .5, .7, 1.0])
+        A(f"\\fill[white,opacity={rnd.uniform(.35,.9):.2f}] ({x:.2f},{y:.2f}) circle ({r:.2f}pt);")
+    # luna creciente
+    A(f"\\begin{{scope}} \\clip ({W-2.6},{H-1.35}) circle (.42); \\fill[land!92!white,even odd rule] ({W-2.38},{H-1.2}) circle (.42) (-1,-1) rectangle ({W+1},{H+1}); \\end{{scope}}")
+    # cadenas de cerros, de lejos a cerca
+    A(f"\\fill[blue!30!sepia!70] (0,2.4) .. controls (2,3.4) and (4,2.6) .. (6.5,3.3) .. controls (9,4.0) and (11,2.9) .. (13.5,3.5) .. controls (16,4.1) and (18,3.0) .. ({W},3.4) -- ({W},0) -- (0,0) -- cycle;")
+    A(f"\\fill[sepia!70!blue!80] (0,1.9) .. controls (2.5,2.7) and (5,1.6) .. (8,2.5) .. controls (10.5,3.3) and (12,2.2) .. (14.6,2.9) .. controls (17,3.5) and (18.5,2.4) .. ({W},2.7) -- ({W},0) -- (0,0) -- cycle;")
+    # Jerusalén sobre su cerro, a la derecha: muralla almenada, torres y ventanas encendidas
+    cx, cy = 15.2, 2.95
+    A(f"\\fill[olive!40!sepia] ({cx-3.6},1.3) .. controls ({cx-2.2},2.9) and ({cx-1.2},{cy+.2}) .. ({cx},{cy+.15}) .. controls ({cx+1.2},{cy+.2}) and ({cx+2.4},2.8) .. ({cx+3.8},1.3) -- ({cx+3.8},0) -- ({cx-3.6},0) -- cycle;")
+    alm = " ".join(f"-- ({cx-1.4+k*.2:.2f},{cy+.55 if k%2 else cy+.42:.2f}) -- ({cx-1.4+(k+1)*.2:.2f},{cy+.55 if k%2 else cy+.42:.2f})" for k in range(14))
+    A(f"\\fill[earth!85!blue] ({cx-1.4},{cy}) -- ({cx-1.4},{cy+.42}) {alm} -- ({cx+1.4},{cy}) -- cycle;")
+    A(f"\\fill[earth!85!blue] ({cx-1.55},{cy-.05}) rectangle ({cx-1.15},{cy+.95}); \\fill[earth!85!blue] ({cx+1.1},{cy-.05}) rectangle ({cx+1.55},{cy+1.15}); \\fill[earth!85!blue] ({cx-.25},{cy+.3}) rectangle ({cx+.35},{cy+1.3}); \\fill[earth!85!blue] ({cx-.9},{cy+.3}) rectangle ({cx-.55},{cy+.85});")
+    A(f"\\fill[earth!85!blue] ({cx-.08},{cy-.05}) rectangle ({cx+.2},{cy+.3}); \\fill[gold!70!land] ({cx},{cy}) arc (180:0:.07) -- ({cx+.14},{cy-.02}) -- ({cx},{cy-.02}) -- cycle;")
+    for k, (dx, dy) in enumerate(((-1.35,.45),(-.75,.5),(.05,.9),(.6,.4),(1.3,.55),(1.3,.85),(-.1,.55))):
+        A(f"\\fill[gold!80] ({cx+dx:.2f},{cy+dy:.2f}) rectangle ({cx+dx+.08:.2f},{cy+dy+.12:.2f});")
+    # cerro del primer plano, con el pastor y las ovejas
+    A(f"\\fill[olive!55!sepia!90] (0,1.3) .. controls (3,2.3) and (5.5,1.1) .. (8.5,1.8) .. controls (11,2.4) and (13,1.3) .. (16,1.5) .. controls (18,1.6) and (19,1.0) .. ({W},1.2) -- ({W},0) -- (0,0) -- cycle;")
+    # camino de puntos entre el pastor y la ciudad
+    A(f"\\draw[land,line width=1pt,dash pattern=on .8pt off 4pt,line cap=round,opacity=.8] (3.4,1.85) .. controls (6,2.2) and (9,1.6) .. (11.5,2.2) .. controls (13,2.6) and (14,2.5) .. ({cx-1.3},{cy-.1});")
+    # pastor: túnica, cabeza, cayado
+    px, py = 2.6, 1.95
+    A(f"\\fill[earth] ({px-.22},{py}) -- ({px+.22},{py}) -- ({px+.16},{py+.95}) -- ({px-.16},{py+.95}) -- cycle; \\fill[earth] ({px},{py+1.1}) circle (.16);")
+    A(f"\\fill[earth] ({px-.3},{py+.75}) -- ({px-.16},{py+.95}) -- ({px-.1},{py+.6}) -- cycle;")
+    A(f"\\draw[earth,line width=1.4pt,line cap=round] ({px-.42},{py-.02}) -- ({px-.42},{py+1.35}) arc (180:0:.13);")
+    # ovejas
+    for sx, sy, sc in ((1.3, 1.65, 1), (1.9, 1.5, .9), (3.5, 1.62, 1), (4.2, 1.45, .85), (0.6, 1.5, .8)):
+        A(f"\\fill[land!92!white] ({sx},{sy+.22*sc}) ellipse ({.32*sc} and {.2*sc}); \\fill[earth] ({sx+.3*sc},{sy+.3*sc}) circle ({.08*sc});")
+        A(f"\\draw[earth,line width=.6pt] ({sx-.15*sc},{sy+.05*sc}) -- ({sx-.15*sc},{sy-.08*sc}) ({sx+.12*sc},{sy+.05*sc}) -- ({sx+.12*sc},{sy-.08*sc});")
+    # rótulos
+    A(f"\\node[text=land,font=\\scshape\\fontsize{{7.5}}{{8}}\\selectfont,anchor=south] at ({px},{py+1.55}) {{Belén}};")
+    A(f"\\node[text=land,font=\\scshape\\fontsize{{7.5}}{{8}}\\selectfont,anchor=south] at ({cx},{cy+1.3}) {{Jerusalén}};")
     A("\\end{tikzpicture}")
     return "\n".join(L), round(W / H, 4)
 
@@ -374,6 +393,130 @@ def cronos_tikz(m):
     A("\\end{tikzpicture}")
     return "\n".join(L), round(W / H, 4)
 
+
+# ---------- láminas ilustradas de la línea de David ----------
+def caja(A, x, y, w, h, t1, t2="", fill="land", draw="sepia", t1c="ink", bold=True, fs=8.5):
+    A(f"\\filldraw[fill={fill},draw={draw},line width=.5pt,rounded corners=2pt] ({x-w/2:.2f},{y-h/2:.2f}) rectangle ({x+w/2:.2f},{y+h/2:.2f});")
+    if t2:
+        A(f"\\node[text={t1c},font={'\\bfseries' if bold else ''}\\fontsize{{{fs}}}{{{fs+1}}}\\selectfont,anchor=south] at ({x:.2f},{y-.02:.2f}) {{{t1}}};")
+        A(f"\\node[text=muted,font=\\itshape\\fontsize{{{fs-2}}}{{{fs-1}}}\\selectfont,anchor=north] at ({x:.2f},{y+.02:.2f}) {{{t2}}};")
+    else:
+        A(f"\\node[text={t1c},font={'\\bfseries' if bold else ''}\\fontsize{{{fs}}}{{{fs+1}}}\\selectfont] at ({x:.2f},{y:.2f}) {{{t1}}};")
+
+def lamina_genealogia(m):
+    W, H = 15.0, 7.2
+    L = []; A = L.append
+    A("\\begin{tikzpicture}[x=1cm,y=1cm]")
+    A(f"\\useasboundingbox (0,0) rectangle ({W},{H});")
+    A(f"\\shade[top color=land!60!white,bottom color=land] (0,0) rectangle ({W},{H}); \\draw[rule,line width=.4pt] (.12,.12) rectangle ({W-.12},{H-.12});")
+    A(f"\\node[text=ink,font=\\bfseries\\fontsize{{10}}{{11}}\\selectfont,anchor=north west] at (.45,{H-.35}) {{De Rut a Jesús: la casa de David}};")
+    A(f"\\node[text=muted,font=\\itshape\\fontsize{{7.5}}{{8.5}}\\selectfont,anchor=north west] at (.45,{H-.8}) {{Rut 4:18–22 $\\cdot$ 1 Sam 16 $\\cdot$ 2 Sam 3:2–5; 5:14 $\\cdot$ Mt 1:1–16}};")
+    y0 = 4.7
+    gen = [("Salmón", "y Rahab"), ("Booz", "y Rut, la moabita"), ("Obed", ""), ("Isaí", "de Belén, efrateo"), ("David", "rey, c. 1040–970")]
+    xs = [1.4, 3.55, 5.7, 7.85, 10.3]
+    hijos = ["Eliab", "Abinadab", "Samá", "Natanael", "Radai", "Ozem", "(sin nombre)", "David, el menor"]
+    dh = [("Amnón", "Ajinoam"), ("Absalón", "Maaca"), ("Adonías", "Haguit"), ("Salomón", "Betsabé"), ("Natán", "Betsabé")]
+    # líneas primero
+    for a, b in zip(xs, xs[1:]):
+        A(f"\\draw[sepia,line width=.8pt,-{{Stealth[length=5pt]}}] ({a+.95:.2f},{y0}) -- ({b-.95:.2f},{y0});")
+    for k, h in enumerate(hijos):
+        x = 1.1 + k * 1.62; y = 2.85
+        A(f"\\draw[rule,line width=.5pt] (7.85,{y0-.5}) -- (7.85,{y+.5}) -- ({x:.2f},{y+.5}) -- ({x:.2f},{y+.25});")
+    for k, (h, mm) in enumerate(dh):
+        x = 8.2 + k * 1.3; y = 1.2
+        A(f"\\draw[rule,line width=.5pt] (10.3,{y0-.5}) -- (10.3,{y+.8}) -- ({x:.2f},{y+.8}) -- ({x:.2f},{y+.3});")
+    A(f"\\draw[gold!60!earth,line width=1pt,dash pattern=on 3pt off 2pt,-{{Stealth[length=5pt]}}] (11.3,{y0}) -- (12.5,{y0});")
+    # cajas
+    for (t1, t2), x in zip(gen, xs):
+        caja(A, x, y0, 2.0, 1.0, t1, t2, fill="gold!35!land" if t1 == "David" else "land", draw="gold!60!earth" if t1 == "David" else "sepia", fs=8)
+    for k, h in enumerate(hijos):
+        x = 1.1 + k * 1.62; y = 2.85
+        caja(A, x, y, 1.55, .5, h, fill="gold!35!land" if h.startswith("David") else "land!85!white", bold=False, fs=6.3)
+    for k, (h, mm) in enumerate(dh):
+        x = 8.2 + k * 1.3; y = 1.2
+        caja(A, x, y, 1.18, .6, h, mm, fill="gold!35!land" if h == "Salomón" else "land!85!white", bold=False, fs=6.8)
+    A(f"\\node[text=muted,font=\\itshape\\fontsize{{6.8}}{{7.5}}\\selectfont,anchor=west] at (.5,2.2) {{«Queda todavía el menor, que apacienta las ovejas» (1 Sam 16:11). 1 Cr 2:13–15 nombra siete: uno murió sin descendencia.}};")
+    A(f"\\node[text=ink,font=\\bfseries\\fontsize{{8}}{{9}}\\selectfont,align=left,anchor=west,text width=2.1cm] at (12.6,{y0+.3}) {{Jesús,\\\\hijo de David}};")
+    A(f"\\node[text=muted,font=\\itshape\\fontsize{{6.4}}{{7.2}}\\selectfont,align=left,anchor=west,text width=2.1cm] at (12.6,{y0-.45}) {{por Salomón (Mt 1) y por Natán (Lc 3)}};")
+    A("\\end{tikzpicture}")
+    return "\n".join(L), round(W / H, 4)
+
+def lamina_honda(m):
+    W, H = 15.0, 9.0
+    L = []; A = L.append
+    A("\\begin{tikzpicture}[x=1cm,y=1cm]")
+    A(f"\\useasboundingbox (0,0) rectangle ({W},{H});")
+    A(f"\\shade[top color=land!60!white,bottom color=land] (0,0) rectangle ({W},{H}); \\draw[rule,line width=.4pt] (.12,.12) rectangle ({W-.12},{H-.12});")
+    A(f"\\node[text=ink,font=\\bfseries\\fontsize{{10}}{{11}}\\selectfont,anchor=north west] at (.45,{H-.35}) {{Honda contra bronce: los útiles del pastor y la panoplia de Goliat}};")
+    A(f"\\node[text=muted,font=\\itshape\\fontsize{{7.5}}{{8.5}}\\selectfont,anchor=north west] at (.45,{H-.8}) {{1 Sam 17:4–7.40 $\\cdot$ pesos según el siclo de 11,4 g $\\cdot$ estatura según el TM y la LXX}};")
+    A(f"\\draw[rule,line width=.4pt] (8.1,.9) -- (8.1,{H-1.4});")
+    # --- izquierda: útiles ---
+    A("\\node[text=olive,font=\\scshape\\bfseries\\fontsize{8.5}{9}\\selectfont,anchor=west] at (.6,7.35) {El pastor de Belén};")
+    A("\\draw[earth,line width=2.2pt,line cap=round] (1.3,2.6) -- (1.3,6.3) arc (180:0:.32);")
+    A("\\node[text=ink,font=\\fontsize{7.5}{8}\\selectfont,anchor=west] at (2.15,6.3) {cayado (maqel)}; \\node[text=muted,font=\\itshape\\fontsize{6.5}{7}\\selectfont,anchor=west,text width=2.2cm] at (2.15,5.75) {«tomó su cayado en la mano» (17:40)};")
+    A("\\draw[earth,line width=.9pt,line cap=round] (3.6,2.8) .. controls (4.0,3.9) .. (4.5,4.9) (4.5,4.9) .. controls (5.0,3.9) .. (5.4,2.8);")
+    A("\\filldraw[fill=land2,draw=earth,line width=.6pt] (4.5,4.9) ellipse (.42 and .2); \\fill[grey] (4.5,4.92) circle (3pt);")
+    A("\\node[text=ink,font=\\fontsize{7.5}{8}\\selectfont] at (4.5,5.45) {honda (qela‘)}; \\node[text=muted,font=\\itshape\\fontsize{6.5}{7}\\selectfont,align=center,text width=3.1cm] at (4.5,2.3) {dos cuerdas y una bolsa de cuero; más de 150 km/h en manos expertas};")
+    A("\\node[text=ink,font=\\fontsize{7.5}{8}\\selectfont] at (6.85,6.3) {cinco piedras lisas};")
+    for k, d in enumerate([.5, .6, .7, .8, .65]):
+        A(f"\\filldraw[fill=grey!70!land,draw=earth,line width=.5pt] ({5.9+k*.52:.2f},5.6) circle ({d/2.6:.2f});")
+    A("\\node[text=muted,font=\\itshape\\fontsize{6.5}{7}\\selectfont,align=center,text width=2.6cm] at (6.85,4.75) {5–8 cm, del tamaño de una pelota de golf o de tenis};")
+    A("\\filldraw[fill=sepia!60!land,draw=earth,line width=.5pt,rounded corners=3pt] (6.1,2.7) rectangle (7.6,3.8); \\draw[earth,line width=.6pt] (6.3,3.8) .. controls (6.85,4.4) .. (7.4,3.8);")
+    A("\\node[text=ink,font=\\fontsize{7.5}{8}\\selectfont] at (6.85,2.25) {zurrón (yalqut)};")
+    A("\\node[text=muted,font=\\itshape\\fontsize{6.5}{7.5}\\selectfont,anchor=north,align=center,text width=7cm] at (4.1,1.55) {«Tú vienes a mí con espada, lanza y jabalina; yo vengo a ti en el nombre de YHWH de los ejércitos» (1 Sam 17:45)};")
+    # --- derecha: Goliat ---
+    A("\\node[text=wine,font=\\scshape\\bfseries\\fontsize{8.5}{9}\\selectfont,anchor=west] at (8.6,7.35) {El campeón de Gat};")
+    A("\\node[text=ink,font=\\fontsize{7}{8.2}\\selectfont,anchor=north west,align=left,text width=5.9cm] at (8.6,7.0) {yelmo y grebas de bronce $\\cdot$ coraza de escamas de 5\\,000 siclos $\\approx$ 57 kg $\\cdot$ jabalina de bronce $\\cdot$ lanza «como rodillo de telar» con punta de 600 siclos de hierro $\\approx$ 7 kg $\\cdot$ un escudero delante};")
+    base, esc = 1.9, 1.02
+    for x, hm, lab, col in ((9.6, 2.92, "TM: seis codos\\\\y un palmo", "wine"), (11.4, 2.02, "LXX: cuatro codos\\\\y un palmo", "wine!60!grey"), (13.2, 1.70, "un hombre de talla media", "olive")):
+        h = hm * esc
+        A(f"\\fill[{col}!40!land] ({x-.3},{base}) rectangle ({x+.3},{base+h*.62:.2f}); \\fill[{col}!40!land] ({x},{base+h*.62+.13*h:.2f}) circle ({.1*h:.2f}); \\fill[{col}!40!land] ({x-.42},{base+h*.62:.2f}) rectangle ({x+.42},{base+h*.62+.05*h:.2f});")
+        A(f"\\draw[{col},line width=.6pt] ({x-.6},{base+h:.2f}) -- ({x+.6},{base+h:.2f}); \\node[text={col},font=\\bfseries\\fontsize{{7}}{{7.5}}\\selectfont,anchor=south] at ({x},{base+h+.04:.2f}) {{{hm:.1f} m}};")
+        A(f"\\node[text=muted,font=\\itshape\\fontsize{{6.2}}{{7}}\\selectfont,anchor=north,align=center,text width=1.9cm] at ({x},{base-.12:.2f}) {{{lab}}};")
+    A(f"\\draw[rule,line width=.4pt] (8.8,{base}) -- (14.2,{base});")
+    A("\\node[text=muted,font=\\itshape\\fontsize{6.3}{7}\\selectfont,anchor=south east] at (14.5,.25) {Elaboración propia a partir de Hoffmeier (2008) y Yadin (1963).};")
+    A("\\end{tikzpicture}")
+    return "\n".join(L), round(W / H, 4)
+
+def lamina_corte(m):
+    W, H = 15.0, 7.4
+    L = []; A = L.append
+    A("\\begin{tikzpicture}[x=1cm,y=1cm]")
+    A(f"\\useasboundingbox (0,0) rectangle ({W},{H});")
+    A(f"\\shade[top color=land!60!white,bottom color=land] (0,0) rectangle ({W},{H}); \\draw[rule,line width=.4pt] (.12,.12) rectangle ({W-.12},{H-.12});")
+    A(f"\\node[text=ink,font=\\bfseries\\fontsize{{10}}{{11}}\\selectfont,anchor=north west] at (.45,{H-.35}) {{Jerusalén en corte: de la Ciudad de David a la era de Arauna}};")
+    A(f"\\node[text=muted,font=\\itshape\\fontsize{{7.5}}{{8.5}}\\selectfont,anchor=north west] at (.45,{H-.8}) {{Perfil oeste–este por Guihón (arriba) y sur–norte por la colina oriental (abajo); alturas aproximadas.}};")
+    # perfil O-E
+    y0, esc = 3.55, .0085   # 1 m = .012 cm, base 600 m
+    def Y(h): return y0 + (h - 600) * esc * 1.0
+    prof = [(0.6, 770), (2.4, 775), (3.6, 700), (4.6, 695), (6.2, 715), (7.4, 700), (8.0, 650), (8.6, 640), (9.6, 660), (11.4, 760), (13.0, 815), (14.4, 790)]
+    pts = " ".join(f"({x:.2f},{Y(h):.2f})" for x, h in prof)
+    A(f"\\fill[land2] plot[smooth,tension=.6] coordinates {{{pts}}} -- (14.4,{y0-.35}) -- (.6,{y0-.35}) -- cycle; \\draw[sepia,line width=.7pt] plot[smooth,tension=.6] coordinates {{{pts}}};")
+    for x, h, t in ((1.5, 775, "colina occidental"), (4.1, 695, "Tiropeón"), (6.8, 715, "Ciudad de David"), (9.3, 650, "Cedrón"), (13.0, 815, "monte de los Olivos")):
+        A(f"\\node[text=ink,font=\\scshape\\fontsize{{6.8}}{{7.5}}\\selectfont,anchor=south] at ({x},{Y(h)+.08:.2f}) {{{t}}}; \\node[text=muted,font=\\fontsize{{5.8}}{{6.5}}\\selectfont,anchor=north] at ({x},{Y(h)-.02:.2f}) {{{h} m}};")
+    # Guihón, pozo de Warren, estructura escalonada
+    A(f"\\fill[river] (8.15,{Y(636)}) circle (2.4pt); \\node[text=river,font=\\fontsize{{6.5}}{{7}}\\selectfont,anchor=north west] at (8.25,{Y(636)-.08:.2f}) {{fuente de Guihón (636 m)}};")
+    A(f"\\draw[earth,line width=.6pt,dash pattern=on 2pt off 1.5pt] (8.15,{Y(636)}) -- (7.6,{Y(660)}) -- (7.6,{Y(700)}); \\node[text=earth,font=\\itshape\\fontsize{{6}}{{6.5}}\\selectfont,anchor=east] at (7.45,{Y(662)}) {{túneles y pozo}};")
+    for k in range(6):
+        A(f"\\draw[sepia,line width=1.1pt] ({7.45+k*.1:.2f},{Y(700-k*8):.2f}) -- ({7.55+k*.1:.2f},{Y(700-k*8):.2f});")
+    A(f"\\node[text=sepia,font=\\itshape\\fontsize{{6}}{{6.5}}\\selectfont,anchor=west,align=left] at (8.55,{Y(700)+.42:.2f}) {{Estructura escalonada\\\\y Gran Estructura de Piedra}};")
+    A(f"\\node[text=muted,font=\\fontsize{{6}}{{6.5}}\\selectfont,anchor=west] at (.6,{y0-.25}) {{O}}; \\node[text=muted,font=\\fontsize{{6}}{{6.5}}\\selectfont,anchor=east] at (14.4,{y0-.25}) {{E}};")
+    # perfil S-N (abajo)
+    y1, esc2 = 0.95, .0085
+    def Y2(h): return y1 + (h - 600) * esc2
+    prof2 = [(0.6, 630), (2.0, 660), (4.0, 700), (6.0, 715), (8.0, 735), (10.0, 743), (12.0, 745), (14.4, 760)]
+    pts2 = " ".join(f"({x:.2f},{Y2(h):.2f})" for x, h in prof2)
+    A(f"\\fill[land2] plot[smooth,tension=.6] coordinates {{{pts2}}} -- (14.4,{y1-.25}) -- (.6,{y1-.25}) -- cycle; \\draw[sepia,line width=.7pt] plot[smooth,tension=.6] coordinates {{{pts2}}};")
+    for x, h, t in ((1.6, 660, "Siloé"), (5.0, 710, "Ciudad de David · Sion"), (8.0, 735, "Ofel · Milo"), (11.5, 745, "era de Arauna · Moriah")):
+        A(f"\\node[text=ink,font=\\scshape\\fontsize{{6.8}}{{7.5}}\\selectfont,anchor=south] at ({x},{Y2(h)+.08:.2f}) {{{t}}};")
+    A(f"\\filldraw[fill=land2,draw=earth,line width=.4pt] (11.3,{Y2(745):.2f}) rectangle (11.7,{Y2(745)+.12:.2f}) (11.35,{Y2(745)+.12:.2f}) rectangle (11.65,{Y2(745)+.22:.2f}); \\fill[terra] (11.5,{Y2(745)+.22:.2f}) .. controls (11.62,{Y2(745)+.36:.2f}) .. (11.5,{Y2(745)+.5:.2f}) .. controls (11.38,{Y2(745)+.36:.2f}) .. cycle; \\node[text=terra,font=\\itshape\\fontsize{{6}}{{6.5}}\\selectfont,anchor=north] at (11.5,{Y2(745)-.08:.2f}) {{altar de David (2 Sam 24:25)}};")
+    A(f"\\node[text=muted,font=\\fontsize{{6}}{{6.5}}\\selectfont,anchor=west] at (.6,{y1-.15}) {{S}}; \\node[text=muted,font=\\fontsize{{6}}{{6.5}}\\selectfont,anchor=east] at (14.4,{y1-.15}) {{N}};")
+    A("\\node[text=muted,font=\\itshape\\fontsize{6.3}{7}\\selectfont,anchor=south west] at (.45,.2) {Elaboración propia a partir de Hillel (2006), Garfinkel–Ganor–Hasel (2018) y el Curso Tierras Bíblicas, clases 11–12.};")
+    A("\\end{tikzpicture}")
+    return "\n".join(L), round(W / H, 4)
+
+LAMINAS = {"genealogia": lamina_genealogia, "honda": lamina_honda, "corte": lamina_corte}
+
 # --- generar -----------------------------------------------------------------
 IMG.mkdir(parents=True, exist_ok=True)
 if TRABAJO.exists(): shutil.rmtree(TRABAJO)
@@ -390,6 +533,8 @@ for i, e in enumerate(EV):
     md = e.get("media")
     if md and md.get("tipo") == "cronos":
         tc, rc = cronos_tikz(md); figs.append(tc); extras.append((f"cronos-{i+1:02d}", rc, i))
+    if md and md.get("tipo") == "lamina":
+        tl_, rl = LAMINAS[md["id"]](md); figs.append(tl_); extras.append((f"lamina-{i+1:02d}", rl, i))
 (TRABAJO / "mapas.tex").write_text(PREAMBULO.replace("FONTSDIR", str(FONTS)) + "\n\n".join(figs) + "\n\\end{document}\n", encoding="utf-8")
 for _ in range(2):
     r = subprocess.run(["xelatex", "-interaction=nonstopmode", "-halt-on-error", "mapas.tex"], cwd=TRABAJO, capture_output=True, text=True)
