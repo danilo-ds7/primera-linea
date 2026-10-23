@@ -1,0 +1,2871 @@
+{
+"nota": "Pasajes bíblicos: traducción propia desde el texto hebreo (BHS). Los hallazgos se presentan como datos con su interpretación separada; las identificaciones discutidas se señalan como tales. Fuentes principales: la biblioteca de Primera Línea (Garfinkel, Ganor y Hasel 2018; Hoffmeier 2008; Hillel 2006; Curso «Explorando la Tierra Bíblica de Israel»).",
+"lugares": [
+{
+"id": "belen",
+"site": "belen",
+"n": "Belén",
+"ll": [
+31.7054,
+35.2024
+],
+"k": "biblico",
+"actual": "Beit Lahm · Cisjordania",
+"biblia": [
+[
+"1 Sam 16:1",
+"«Llena tu cuerno de aceite y ve: te envío a Isaí de Belén, porque entre sus hijos me he provisto un rey»."
+],
+[
+"Rut 4:11",
+"«Sé poderoso en Efrata y ten renombre en Belén»."
+],
+[
+"Miq 5:2",
+"«Y tú, Belén Efrata, pequeña para estar entre los clanes de Judá: de ti me saldrá el que ha de ser gobernante en Israel»."
+]
+],
+"arq": [
+"Belén no se ha excavado de modo significativo para la Edad del Hierro: la ciudad moderna cubre la antigua. Hoffmeier la cuenta entre los pocos topónimos que sobreviven con su nombre desde la Antigüedad.",
+"Un sello de arcilla (bulla) del s. VIII–VII a. e. c. con la palabra «Belén», hallado en 2012 en la Ciudad de David, es la mención más antigua del nombre fuera de la Biblia (dato de la Autoridad de Antigüedades de Israel).",
+"El valle de Ela nace cerca de Belén y baja por la Sefelá hasta Gat: la ciudad natal de David y la de Goliat están unidas por el mismo valle."
+],
+"hoy": "Ciudad palestina de unos 30 000 habitantes, a 9 km al sur de Jerusalén. La basílica de la Natividad (s. IV, reconstruida por Justiniano) y la Tumba de Raquel marcan su memoria bíblica; los «campos de los pastores» se visitan en Beit Sahur.",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 8: Rut la moabita llega a Belén",
+"«¿Por qué Belén? Dos tipos de consideraciones: a corto plazo, geografía; a largo plazo, genealogía.» Judá es la convergencia de agricultores sedentarios y pastores; Belén está en la frontera entre ambos mundos."
+],
+[
+"Garfinkel, Ganor y Hasel (2018). In the Footsteps of King David. Thames & Hudson",
+"El valle de Ela «se origina en las cercanías de Belén» y domina la ruta que sube «a Hebrón, Belén y Jerusalén» (cap. 1)."
+]
+],
+"he": "בֵּית לֶחֶם"
+},
+{
+"id": "gabaa",
+"site": "gabaa",
+"n": "Gabaa de Saúl",
+"ll": [
+31.8235,
+35.2324
+],
+"k": "biblico",
+"actual": "Tell el-Ful · Jerusalén (Pisgat Ze'ev)",
+"biblia": [
+[
+"1 Sam 10:26",
+"Saúl se fue también a su casa, en Gabaa, y con él un grupo de valientes a quienes Dios había tocado el corazón."
+],
+[
+"1 Sam 22:6",
+"Saúl estaba sentado en Gabaa, bajo el tamarisco de la altura, con la lanza en la mano."
+]
+],
+"arq": [
+"Edward Robinson identificó Gabaa con Tell el-Ful hacia 1840; el nombre hebreo significa «colina». Excavaron Albright (1922–1923, 1933) y Paul Lapp (1964).",
+"Lapp documentó una ocupación de c. 1200–1150, un abandono y una reocupación c. 1025 con «una pequeña estructura fortificada rectangular, posiblemente con torres cuadradas en cada esquina»: la fortaleza de Saúl.",
+"Lapp excavó porque el rey Husein de Jordania quería levantar allí un palacio; la guerra de 1967 dejó el esqueleto de hormigón que aún corona el tell."
+],
+"hoy": "Colina en el norte de Jerusalén, junto a Pisgat Ze'ev, con el palacio inacabado del rey Husein; se ve desde la carretera a Ramala.",
+"bib": [
+[
+"Hoffmeier, J. K. (2008). Arqueología de la Biblia. San Pablo",
+"Cap. 6, «De juez a rey»: la fortaleza de Tell el-Ful y el reinado de Saúl (1040–1010)."
+]
+],
+"he": "גִּבְעַת שָׁאוּל"
+},
+{
+"id": "rama",
+"site": "rama",
+"n": "Ramá",
+"ll": [
+31.8494,
+35.2306
+],
+"k": "biblico",
+"actual": "Er-Ram · Cisjordania",
+"biblia": [
+[
+"1 Sam 7:17",
+"Luego volvía a Ramá, porque allí estaba su casa; allí juzgaba a Israel y allí edificó un altar a YHWH."
+],
+[
+"1 Sam 19:18",
+"David huyó, escapó y llegó donde Samuel, en Ramá."
+],
+[
+"1 Sam 25:1",
+"Murió Samuel… y lo sepultaron en su casa, en Ramá."
+]
+],
+"arq": [
+"La identificación con Er-Ram, 8 km al norte de Jerusalén, es la tradicional; otros proponen Nebi Samwil, la colina donde una tradición medieval venera la tumba de Samuel. Ninguna excavación ha fijado la cuestión.",
+"El Curso cuenta Ramá entre los santuarios israelitas anteriores a Jerusalén (1 Sam 9), con Silo, Mizpa, Gilgal y Nob."
+],
+"hoy": "Er-Ram es una localidad palestina junto a la carretera Jerusalén–Ramala; Nebi Samwil, al oeste, es un parque nacional con la mezquita-tumba de Samuel y vistas sobre Gabaón.",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 12: David trae el arca a Jerusalén",
+"Lista de los «centros de culto israelitas antes de Jerusalén»: Silo, Mizpa, Gilgal, Ramá, Nob, Gabaón."
+]
+],
+"he": "הָרָמָה"
+},
+{
+"id": "nob",
+"site": "nob",
+"n": "Nob",
+"ll": [
+31.801,
+35.246
+],
+"k": "biblico",
+"actual": "Monte Scopus / Ras el-Mesharif · Jerusalén (ubicación discutida)",
+"biblia": [
+[
+"1 Sam 21:1",
+"David llegó a Nob, donde estaba el sacerdote Ajimélec; Ajimélec salió temblando a su encuentro."
+],
+[
+"1 Sam 22:19",
+"Y a Nob, la ciudad de los sacerdotes, la pasó a filo de espada."
+],
+[
+"Is 10:32",
+"Hoy mismo se detendrá en Nob; agitará su mano contra el monte de la hija de Sion."
+]
+],
+"arq": [
+"Nob no está identificada. Isaías 10:32 la sitúa a la vista de Jerusalén, en el último alto de la marcha asiria desde el norte: de ahí el monte Scopus (Josefo y la mayoría) o la ladera norte del monte de los Olivos (JFB).",
+"Dhorme propuso Beit Nuba, junto a Ayalón, camino de Filistea, lo que explicaría que David llegara a Gat «aquel mismo día» (1 Sam 21:10).",
+"Garfinkel compara el depósito de la espada de Goliat en el santuario de Nob con las tres espadas de hierro halladas en una sala de culto de Qeiyafa: «depositar armas en un lugar de culto» era una práctica real."
+],
+"hoy": "El monte Scopus, con la Universidad Hebrea y el hospital Hadassah, domina Jerusalén desde el noreste.",
+"bib": [
+[
+"Profesores de Salamanca, Biblia comentada II: Libros históricos",
+"Discusión del emplazamiento: Scopus (Abel, De Vaux, Ubach) frente a Beit Nuba (Dhorme)."
+],
+[
+"Garfinkel, Ganor y Hasel (2018). In the Footsteps of King David. Thames & Hudson",
+"Cap. 9: tres fuentes —una arqueológica y dos literarias— apuntan al mismo patrón: depositar armas en un lugar de culto."
+]
+],
+"he": "נֹב"
+},
+{
+"id": "ela",
+"site": "ela",
+"n": "Valle de Ela",
+"ll": [
+31.6906,
+34.964
+],
+"k": "biblico",
+"actual": "Wadi es-Sant · Israel",
+"biblia": [
+[
+"1 Sam 17:2–3",
+"Saúl y los hombres de Israel acamparon en el valle de Ela y ordenaron la batalla frente a los filisteos; los filisteos en el monte de un lado e Israel en el monte del otro, con el valle en medio."
+],
+[
+"1 Sam 17:40",
+"Escogió cinco piedras lisas del arroyo y las puso en el zurrón de pastor."
+]
+],
+"arq": [
+"Ela es el terebinto (Pistacia palaestina), no la encina: el valle del Terebinto, Wadi es-Sant, es el único valle ancho y abierto de la Sefelá, con laderas «como asientos de estadio» a ambos lados.",
+"Es la ruta principal de la llanura costera a Hebrón, Belén y Jerusalén; un tramo de calzada romana lo confirma. Los campos de cebada y lentejas del valle (2 Sam 23:11; 1 Cr 11:13) fueron un factor del conflicto con Gat.",
+"Efes-damim, el campamento filisteo «entre Soco y Azeca», podría significar «frontera de sangre» (D. Adams): el valle solo fue frontera disputada en los ss. X–IX, antes de la destrucción de Gat."
+],
+"hoy": "Valle agrícola entre la carretera 38 y Beit Shemesh; el arroyo seco se cruza junto al cerro de Khirbet Qeiyafa, y la tradición cristiana sitúa una «tumba de Goliat» en Khirbet Hanut.",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 9: La batalla de David y Goliat — la Sefelá",
+"«El valle de Ela conecta la ciudad filistea de Gat con la ciudad judaíta de Belén… tiene sentido que la batalla hubiera ocurrido aquí.»"
+],
+[
+"Garfinkel, Ganor y Hasel (2018). In the Footsteps of King David. Thames & Hudson",
+"Cap. 1, «A boy with a sling»: geografía del relato; «before us is a soldier's tale, recounted at night by the light of a fire»."
+]
+],
+"he": "עֵמֶק הָאֵלָה"
+},
+{
+"id": "soco",
+"site": "soco",
+"n": "Soco",
+"ll": [
+31.6803,
+34.9728
+],
+"k": "biblico",
+"actual": "Khirbet Shuweikeh · Israel",
+"biblia": [
+[
+"1 Sam 17:1",
+"Se juntaron en Soco de Judá y acamparon entre Soco y Azeca, en Efes-damim."
+]
+],
+"arq": [
+"Ciudad de Judá en la Sefelá (Jos 15:35), fortificada por Roboam (2 Cr 11:7) y nombrada en las asas lmlk del s. VIII. El equipo de Qeiyafa hizo una prospección en 2017.",
+"Está a 2,5 km al sureste de Qeiyafa, en la margen sur del valle."
+],
+"hoy": "Tell con restos de muralla junto al moshav Neve Michael.",
+"bib": [
+[
+"Garfinkel, Ganor y Hasel (2018). In the Footsteps of King David. Thames & Hudson",
+"Cap. 3: Qeiyafa está «entre Soco y Azeca»; Soco en la lista de fortalezas de Roboam, memoria del s. X."
+]
+]
+},
+{
+"id": "azeca",
+"site": "azeca",
+"n": "Azeca",
+"ll": [
+31.7006,
+34.9361
+],
+"k": "biblico",
+"actual": "Tel Azeka · Israel",
+"biblia": [
+[
+"Jos 10:10",
+"Los derrotó en Gabaón y los persiguió por la subida de Bet-horón hasta Azeca y Maceda."
+],
+[
+"1 Sam 17:1",
+"…entre Soco y Azeca."
+]
+],
+"arq": [
+"Tell Zakariya, excavado por Bliss y Macalister (1898–1899) y desde 2012 por la expedición Lautenschläger de Tel Aviv: ciudad cananea y judaíta, mencionada en las cartas de Laquis y en los anales de Senaquerib.",
+"A 2 km al oeste de Qeiyafa, cierra el valle de Ela por el lado filisteo."
+],
+"hoy": "Parque nacional Britannia con el cerro de Azeca y vistas al valle; mirador con la historia de David y Goliat.",
+"bib": [
+[
+"Garfinkel, Ganor y Hasel (2018). In the Footsteps of King David. Thames & Hudson",
+"Azeca entre las excavaciones clásicas de Judá (cap. 2)."
+]
+]
+},
+{
+"id": "qeiyafa",
+"site": "qeiyafa",
+"n": "Qeiyafa (Saaraim)",
+"ll": [
+31.6967,
+34.9573
+],
+"k": "biblico",
+"actual": "Khirbet Qeiyafa · Israel (parque arqueológico)",
+"biblia": [
+[
+"1 Sam 17:52",
+"Los filisteos caían heridos por el camino de Saaraim, hasta Gat y hasta Ecrón."
+],
+[
+"Jos 15:35–36",
+"Jarmut, Adulam, Soco, Azeca, Saaraim, Aditaim…"
+]
+],
+"arq": [
+"Ciudad elíptica de 2,3 ha sobre roca madre, con muralla de casamatas de 600 m (megalitos de hasta 8 toneladas) y dos puertas de cuatro cámaras idénticas: la occidental hacia Gat y la sur, monumental, hacia el valle y Jerusalén. Excavada por Garfinkel, Ganor y Hasel en 2007–2013.",
+"Datación: casi treinta muestras de carbono 14 (huesos de aceituna) fechan su destrucción no más tarde de 980–970 a. e. c.; vivió una sola generación. Judaíta por seis razones: plan urbano, dieta sin cerdo, culto sin imágenes, hierro, posición frente a Gat y el ostracón en hebreo.",
+"Hallazgos: 693 asas con impresiones digitales, tres espadas de hierro, cuatro maquetas de templo, el ostracón de cinco líneas (2008) y la inscripción «Esbaal hijo de Beda» (2012). Saaraim significa «dos puertas»: de ahí la identificación, discutida por Na'aman, Finkelstein y otros."
+],
+"hoy": "Sitio excavado y restaurado, con las dos puertas reconstruidas (línea de «restauración» marcada), abierto al público sobre el valle de Ela; los almendros florecen en febrero.",
+"bib": [
+[
+"Garfinkel, Ganor y Hasel (2018). In the Footsteps of King David. Thames & Hudson",
+"Caps. 3–7: construcción, hallazgos, inscripciones, culto y «el reino de David»; «King David himself would probably have entered the city through this gate»."
+],
+[
+"Hoffmeier, J. K. (2008). Arqueología de la Biblia. San Pablo",
+"Cap. 6, recuadro «David y Goliat»: el armamento y la honda."
+]
+],
+"he": "שַׁעֲרַיִם"
+},
+{
+"id": "gat",
+"site": "gat",
+"n": "Gat",
+"ll": [
+31.7,
+34.847
+],
+"k": "biblico",
+"actual": "Tell es-Safi · Israel (parque nacional)",
+"biblia": [
+[
+"1 Sam 17:4",
+"Salió del campamento filisteo un campeón llamado Goliat, de Gat."
+],
+[
+"1 Sam 21:10",
+"David huyó de Saúl y llegó donde Aquis, rey de Gat."
+],
+[
+"2 Sam 1:20",
+"No lo anunciéis en Gat, no lo publiquéis en las calles de Ascalón."
+]
+],
+"arq": [
+"Tell es-Safi, a 12 km al oeste de Qeiyafa, excavado por Aren Maeir desde 1996: pequeña en los ss. XII–XI, creció hasta unas 40 ha en los ss. X–IX, la mayor ciudad filistea; Hazael de Damasco la destruyó c. 830 y dejó un foso de asedio de 2 km.",
+"Un ostracón del s. X hallado en 2005 lleva dos nombres indoeuropeos semejantes a «Goliat» (ʾlwt, wlt): prueba de que el nombre era corriente en Filistea, no del gigante.",
+"Huesos de cerdo abundantes y cerámica de Asdod: el contraste con Qeiyafa, sin cerdo, es uno de los argumentos étnicos de Garfinkel."
+],
+"hoy": "Parque nacional Tel Tzafit, con el tell blanco (Safi = «brillante») visible desde la carretera 383; las excavaciones continúan cada verano.",
+"bib": [
+[
+"Garfinkel, Ganor y Hasel (2018). In the Footsteps of King David. Thames & Hudson",
+"Cap. 7: Gat como «prime suspect» de la destrucción de Qeiyafa; la alternancia Gat/Ecrón como centro filisteo."
+],
+[
+"Hoffmeier, J. K. (2008). Arqueología de la Biblia. San Pablo",
+"Cap. 6: la inscripción «Goliat» de Tell es-Safi."
+]
+],
+"he": "גַּת"
+},
+{
+"id": "ecron",
+"site": "ecron",
+"n": "Ecrón",
+"ll": [
+31.7794,
+34.8519
+],
+"k": "biblico",
+"actual": "Tel Miqne · Israel",
+"biblia": [
+[
+"1 Sam 17:52",
+"…hasta las puertas de Ecrón."
+],
+[
+"1 Sam 5:10",
+"Enviaron el arca de Dios a Ecrón."
+]
+],
+"arq": [
+"Tel Miqne, junto al valle del Sorec: centro filisteo de 20 ha en el Hierro I, destruido a fines del s. XI, pequeño en los ss. X–IX y de nuevo grande en el VII (aceite de oliva). La inscripción real de Ecrón (1996) confirmó la identificación.",
+"Garfinkel y Hasel se conocieron excavando aquí a comienzos de los años 1990."
+],
+"hoy": "Tell en campos del kibutz Revadim; los hallazgos están en el Museo de Israel.",
+"bib": [
+[
+"Garfinkel, Ganor y Hasel (2018). In the Footsteps of King David. Thames & Hudson",
+"Cap. 1: la tradición bíblica «sigue» el desplazamiento del centro filisteo del Sorec (Ecrón) al Ela (Gat)."
+]
+]
+},
+{
+"id": "asdod",
+"site": "asdod",
+"n": "Asdod",
+"ll": [
+31.7558,
+34.6547
+],
+"k": "biblico",
+"actual": "Tel Ashdod · Israel",
+"biblia": [
+[
+"1 Sam 5:1–2",
+"Los filisteos tomaron el arca de Dios y la llevaron de Eben-ezer a Asdod, al templo de Dagón."
+]
+],
+"arq": [
+"Ciudad de la pentápolis a 5 km de la costa; excavada por Dothan (1962–1972): cerámica filistea bicroma y niveles del Hierro. Su cerámica aparece importada en Qeiyafa."
+],
+"hoy": "El tell está al sur de la moderna Asdod, ciudad portuaria.",
+"bib": [
+[
+"MacArthur, J. Biblia de Estudio MacArthur",
+"Nota a 1 Sam 5:1: Asdod a 5 km de la costa y 53 km al oeste de Jerusalén."
+]
+]
+},
+{
+"id": "ascalon",
+"site": "ascalon",
+"n": "Ascalón",
+"ll": [
+31.6628,
+34.5467
+],
+"k": "biblico",
+"actual": "Tel Ashkelon · Israel",
+"biblia": [
+[
+"2 Sam 1:20",
+"No lo publiquéis en las calles de Ascalón, para que no se alegren las hijas de los filisteos."
+]
+],
+"arq": [
+"Puerto filisteo excavado por Stager (1985–2016): la puerta cananea más antigua del mundo (c. 1850) y niveles filisteos. Khirbet er-Ra‘i, la candidata a Siclag, está «frente a Ascalón» como Qeiyafa frente a Gat."
+],
+"hoy": "Parque nacional junto al mar, al sur de la ciudad moderna.",
+"bib": [
+[
+"Garfinkel, Ganor y Hasel (2018). In the Footsteps of King David. Thames & Hudson",
+"Cap. 3: Khirbet al-Ra'i y Ascalón; relectura de 2 Sam 1:20."
+]
+]
+},
+{
+"id": "gaza",
+"site": "gaza",
+"n": "Gaza",
+"ll": [
+31.5017,
+34.4668
+],
+"k": "biblico",
+"actual": "Gaza · Franja de Gaza",
+"biblia": [
+[
+"1 Sam 6:17",
+"Estos son los tumores de oro que los filisteos pagaron a YHWH: por Asdod uno, por Gaza uno…"
+]
+],
+"arq": [
+"Ciudad más meridional de la pentápolis, en el Camino del Mar hacia Egipto; la ciudad moderna cubre la antigua. El mosaico de la sinagoga de Gaza (s. VI, hallado en 1965) muestra a «David» tocando la lira."
+],
+"hoy": "Ciudad de la Franja de Gaza.",
+"bib": [
+[
+"Hoffmeier, J. K. (2008). Arqueología de la Biblia. San Pablo",
+"Cap. 6: el mosaico de Gaza con David músico, paralelo del marfil de Meguido."
+]
+]
+},
+{
+"id": "adulam",
+"site": "adulam",
+"n": "Adulam",
+"ll": [
+31.65,
+34.9867
+],
+"k": "biblico",
+"actual": "Khirbet esh-Sheikh Madhkur · Israel",
+"biblia": [
+[
+"1 Sam 22:1",
+"David se fue de allí y escapó a la cueva de Adulam."
+],
+[
+"Sal 57:1",
+"Mictam de David, cuando huía de Saúl en la cueva."
+]
+],
+"arq": [
+"Ciudad cananea y judaíta de la Sefelá (Gn 38:1; Jos 15:35), fortificada por Roboam. El cerro, en caliza blanda, está horadado de cuevas; JFB la identificó con Deir-Dubban, pero la identificación aceptada es Tell esh-Sheikh Madhkur, «a unas tres horas al oeste de Belén».",
+"Garfinkel sitúa «la cueva de Adulam en el mismo valle» de Ela, a la vista de Qeiyafa."
+],
+"hoy": "Parque de Adulam (Adullam-France Park), con senderos entre cuevas y ruinas de aldeas bizantinas, junto a la carretera 375.",
+"bib": [
+[
+"Profesores de Salamanca, Biblia comentada II: Libros históricos",
+"Odulam = Tell esh-Sheikh Madkur, a diez kilómetros al norte de Beit Gibrin."
+],
+[
+"Hillel, D. (2006). The Natural History of the Bible. Columbia University Press",
+"Cap. 3: la banda de Adulam y el «bandidaje» del margen de la estepa."
+]
+],
+"he": "עֲדֻלָּם"
+},
+{
+"id": "keila",
+"site": "keila",
+"n": "Keila",
+"ll": [
+31.6145,
+35.0
+],
+"k": "biblico",
+"actual": "Khirbet Qila · Cisjordania",
+"biblia": [
+[
+"1 Sam 23:5",
+"David fue con sus hombres a Keila, peleó contra los filisteos… y salvó a los habitantes de Keila."
+]
+],
+"arq": [
+"Khirbet Qila, en la Sefelá alta, a medio día de camino de Qeiyafa y de Hebrón; aparece como Qiltu en las cartas de El-Amarna (s. XIV). Sin excavar.",
+"Tenía «puertas y cerrojos» (1 Sam 23:7): una ciudad amurallada, como las de Judá del s. X."
+],
+"hoy": "Ruina sobre la aldea de Qila, al noroeste de Hebrón.",
+"bib": [
+[
+"Garfinkel, Ganor y Hasel (2018). In the Footsteps of King David. Thames & Hudson",
+"Cap. 7: Keila como posible centro secundario del reino temprano; «excavar el sitio daría información sobre el s. X»."
+]
+]
+},
+{
+"id": "zif",
+"site": "zif",
+"n": "Zif",
+"ll": [
+31.4844,
+35.1364
+],
+"k": "biblico",
+"actual": "Tell Zif · Cisjordania",
+"biblia": [
+[
+"1 Sam 23:14",
+"David se quedó en la montaña, en el desierto de Zif; Saúl lo buscaba cada día, pero Dios no lo entregó en su mano."
+],
+[
+"Sal 54:1",
+"Maskil de David, cuando vinieron los zifeos."
+]
+],
+"arq": [
+"Tell Zif, 7 km al sureste de Hebrón, nombrado en las asas lmlk del s. VIII como uno de los cuatro centros administrativos de Judá. El desierto de Zif es la estepa al este, con cuevas y mesetas de laderas empinadas: los «refugios» de 1 Sam 23:14."
+],
+"hoy": "Tell junto a la carretera 60 al sur de Hebrón, con vistas al desierto de Judá.",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 10: David elude a Saúl en el desierto",
+"Diapositivas «Tel Zif» y «El desierto de Zif: cuevas para esconderse»; midbar = tierra adonde se guían los rebaños."
+]
+]
+},
+{
+"id": "maon",
+"site": "maon",
+"n": "Maón",
+"ll": [
+31.4278,
+35.1286
+],
+"k": "biblico",
+"actual": "Tell Ma‘in · Cisjordania",
+"biblia": [
+[
+"1 Sam 23:28",
+"Por eso llamaron a aquel lugar Sela-hammahlecot, «la roca de la separación»."
+],
+[
+"1 Sam 25:2",
+"Había en Maón un hombre que tenía su hacienda en Carmel, muy rico."
+]
+],
+"arq": [
+"Tell Ma‘in, al sur de Zif; el Curso identifica la «roca de la separación» con el monte Holed. Cada ciudad del sur tenía su propio desierto: el de Maón y el de Zif."
+],
+"hoy": "Aldea de Ma‘in sobre el tell, al borde del desierto.",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 10: David elude a Saúl en el desierto",
+"Sela Hamahlekot = «la roca de la división», identificada con el monte Holed; Maón = «morada»."
+]
+]
+},
+{
+"id": "carmel",
+"site": "carmel",
+"n": "Carmel de Judá",
+"ll": [
+31.4389,
+35.1258
+],
+"k": "biblico",
+"actual": "Khirbet el-Karmil · Cisjordania",
+"biblia": [
+[
+"1 Sam 25:40",
+"Los siervos de David fueron a Carmel y hablaron con Abigail."
+],
+[
+"1 Sam 15:12",
+"Saúl ha ido a Carmel y se ha levantado un monumento."
+]
+],
+"arq": [
+"Khirbet el-Karmil, junto a Maón, con un gran estanque antiguo y restos romanos y bizantinos; distinto del monte Carmelo del norte."
+],
+"hoy": "Ruinas junto a la aldea de Karmil, al sureste de Hebrón.",
+"bib": [
+[
+"Profesores de Salamanca, Biblia comentada II: Libros históricos",
+"Maón y Carmel al sur de Hebrón; el relato de Nabal, «necio», con tono irónico."
+]
+]
+},
+{
+"id": "engadi",
+"site": "engadi",
+"n": "En-gadi",
+"ll": [
+31.4614,
+35.3892
+],
+"k": "biblico",
+"actual": "Reserva natural de Ein Gedi · Israel",
+"biblia": [
+[
+"1 Sam 24:2",
+"Saúl tomó tres mil hombres escogidos y fue a buscar a David por las peñas de las cabras monteses."
+],
+[
+"Cnt 1:14",
+"Racimo de alheña es mi amado para mí, en las viñas de En-gadi."
+]
+],
+"arq": [
+"Oasis con fuente perenne en el escarpe del mar Muerto, 400 m bajo el nivel del mar: Nahal David y Nahal Arugot, con cascadas. Un templo calcolítico (IV milenio) sobre el oasis y, en Tel Goren, una ciudad del s. VII con industria de perfumes (bálsamo).",
+"Las «peñas de las cabras monteses» son los riscos donde aún viven íbices y damanes; el relato de la cueva encaja con las grutas de los wadis."
+],
+"hoy": "Reserva natural y kibutz; cascadas, íbices, la sinagoga bizantina con mosaico y el balneario del mar Muerto.",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 10: David elude a Saúl en el desierto",
+"Ein = fuente, Gedi = cabra montés; viñas y alheña de Cnt 1:14; diapositivas de las cascadas."
+],
+[
+"Hillel, D. (2006). The Natural History of the Bible. Columbia University Press",
+"Ein Gedi como ejemplo de manantial en pleno desierto (notas al cap. 6)."
+]
+],
+"he": "עֵין גֶּדִי"
+},
+{
+"id": "siclag",
+"site": "siclag",
+"n": "Siclag",
+"ll": [
+31.3936,
+34.6797
+],
+"k": "biblico",
+"actual": "Tel Sera‘ (identificación tradicional) · Israel",
+"biblia": [
+[
+"1 Sam 27:6",
+"Aquel día Aquis le dio Siclag; por eso Siclag ha pertenecido a los reyes de Judá hasta hoy."
+],
+[
+"1 Sam 30:1",
+"Los amalecitas habían invadido el Neguev y Siclag, y la habían quemado."
+]
+],
+"arq": [
+"Siclag no está identificada con seguridad. Tel Sera‘ (Tell esh-Shari‘a), junto al Besor, es la propuesta tradicional (Oren, 1972–1979). En 2019 Garfinkel, Ganor y el equipo de Khirbet er-Ra‘i, a 3 km de Laquis, la propusieron por su nivel filisteo del s. XI y judaíta del X.",
+"Ninguna de las dos tiene inscripción que la confirme: marcar como discutida."
+],
+"hoy": "Tel Sera‘ es un tell en el Neguev occidental, cerca del kibutz Re‘im; Khirbet er-Ra‘i, un cerro en excavación junto a Laquis.",
+"bib": [
+[
+"Garfinkel, Ganor y Hasel (2018). In the Footsteps of King David. Thames & Hudson",
+"Cap. 3: Khirbet al-Ra'i, «impresionante actividad constructiva de comienzos del s. X», frente a Ascalón."
+],
+[
+"Hillel, D. (2006). The Natural History of the Bible. Columbia University Press",
+"Apéndice: la alianza con Aquis como «detalle embarazoso» que avala la historicidad."
+]
+]
+},
+{
+"id": "besor",
+"site": "besor",
+"n": "Arroyo de Besor",
+"ll": [
+31.333,
+34.62
+],
+"k": "biblico",
+"actual": "Nahal Besor · Israel",
+"biblia": [
+[
+"1 Sam 30:9–10",
+"Llegaron al arroyo de Besor, donde se quedaron los rezagados: doscientos hombres, demasiado cansados para cruzar."
+]
+],
+"arq": [
+"El mayor cauce del Neguev occidental, que desemboca al sur de Gaza; en su cuenca están Tel Sera‘, Tel Haror y Tel Gamma. Es el primer «arroyo» que un ejército encuentra al salir de Siclag hacia el sur."
+],
+"hoy": "Reserva de Eshkol–Besor, con senderos y puentes colgantes sobre el cauce.",
+"bib": [
+[
+"MacArthur, J. Biblia de Estudio MacArthur",
+"Nota a 1 Sam 30:9: Besor, el torrente al sur de Siclag."
+]
+]
+},
+{
+"id": "afec",
+"site": "afec",
+"n": "Afec",
+"ll": [
+32.105,
+34.9303
+],
+"k": "biblico",
+"actual": "Tel Afek (Antipatris) · Israel",
+"biblia": [
+[
+"1 Sam 29:1",
+"Los filisteos reunieron todas sus tropas en Afec; Israel acampó junto a la fuente de Jezreel."
+],
+[
+"1 Sam 4:1",
+"Israel acampó junto a Eben-ezer, y los filisteos en Afec."
+]
+],
+"arq": [
+"Tel Afek, en las fuentes del Yarkón, controla el paso del Camino del Mar entre el río y la montaña; excavado por Kochavi (1972–1985): palacio cananeo, fuerte egipcio y la Antipatris de Herodes.",
+"Fue también el punto de partida de la batalla en que se perdió el arca (1 Sam 4)."
+],
+"hoy": "Parque nacional Yarkon–Afek, con la fortaleza otomana sobre el tell.",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 13: La llanura costera y los filisteos",
+"Afec y el Camino del Mar."
+]
+]
+},
+{
+"id": "gezer",
+"site": "gezer",
+"n": "Gezer",
+"ll": [
+31.8597,
+34.9189
+],
+"k": "biblico",
+"actual": "Tel Gezer · Israel",
+"biblia": [
+[
+"2 Sam 5:25",
+"Hirió a los filisteos desde Gabaón hasta Gezer."
+]
+],
+"arq": [
+"Tel Gezer, excavado por Macalister (1902–1909) y por Dever (1964–1990): el calendario de Gezer (s. X), las piedras erguidas cananeas y la puerta de seis cámaras atribuida a Salomón (1 R 9:15–17)."
+],
+"hoy": "Parque nacional en el borde de la Sefelá, junto a Ramla.",
+"bib": [
+[
+"Garfinkel, Ganor y Hasel (2018). In the Footsteps of King David. Thames & Hudson",
+"Cap. 2: las puertas de seis cámaras de Hazor, Meguido y Gezer y el «paradigma bíblico» de Yadin."
+]
+]
+},
+{
+"id": "hebron",
+"site": "hebron",
+"n": "Hebrón",
+"ll": [
+31.5326,
+35.0998
+],
+"k": "biblico",
+"actual": "Tel Rumeida (Tell el-Khalil) · Hebrón, Cisjordania",
+"biblia": [
+[
+"2 Sam 2:1",
+"«¿Adónde subiré?» Y él respondió: «A Hebrón»."
+],
+[
+"2 Sam 5:5",
+"En Hebrón reinó sobre Judá siete años y seis meses."
+],
+[
+"2 Sam 15:10",
+"«¡Absalón reina en Hebrón!»"
+]
+],
+"arq": [
+"La Hebrón bíblica es Tell Rumeida, bajo la ciudad moderna, excavada de modo limitado (Hammond 1964–1966; Ofer 1984–1986; Eisenberg 1999, 2014): muralla ciclópea del Bronce Medio y niveles del Hierro. Su nombre aparece en las asas lmlk como centro administrativo.",
+"Garfinkel la ve como «el núcleo del que se desarrolló el reino de Judá» y propone cuatro fases: David en Hebrón (fin del s. XI); Hebrón–Jerusalén–Qeiyafa (comienzos del X); Bet-semes (2.ª mitad); Laquis (fin del X). Hebrón y Jerusalén no superarían las 3 ha entonces.",
+"El Haram el-Khalil, sobre la cueva de Macpela, es el recinto herodiano mejor conservado."
+],
+"hoy": "Ciudad palestina de unos 200 000 habitantes, con el Haram/Tumba de los Patriarcas y Tel Rumeida en un enclave; la vieja Hebrón es patrimonio mundial.",
+"bib": [
+[
+"Garfinkel, Ganor y Hasel (2018). In the Footsteps of King David. Thames & Hudson",
+"Cap. 7, «The first phase: David in Hebron»."
+],
+[
+"Hoffmeier, J. K. (2008). Arqueología de la Biblia. San Pablo",
+"Cap. 7: «David empezó reinando desde Hebrón, en el centro de Judá, con el apoyo de su propia tribu»."
+],
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 8: Rut la moabita llega a Belén",
+"Diapositivas «Tel Rumeida, Hebrón» y «Hebrón, primera capital de David»."
+]
+],
+"he": "חֶבְרוֹן"
+},
+{
+"id": "gabaon",
+"site": "gabaon",
+"n": "Gabaón",
+"ll": [
+31.8478,
+35.1847
+],
+"k": "biblico",
+"actual": "El-Jib · Cisjordania",
+"biblia": [
+[
+"2 Sam 2:13",
+"Se encontraron junto al estanque de Gabaón: se sentaron unos a un lado del estanque y los otros al otro lado."
+],
+[
+"1 R 3:5",
+"En Gabaón se apareció YHWH a Salomón en sueños."
+]
+],
+"arq": [
+"James Pritchard excavó el-Jib (1956–1962): el gran estanque circular tallado en la roca, de 11 m de diámetro y 25 m de profundidad con escalera en espiral de 79 peldaños, y 31 asas de jarra con el nombre «Gabaón» que fijaron la identificación.",
+"Garfinkel la cuenta, con Khirbet ed-Dawwara, entre los centros regionales del reino temprano; aparece en la lista de Sisac (c. 925)."
+],
+"hoy": "Aldea de El-Jib, al noroeste de Jerusalén; el estanque es visitable.",
+"bib": [
+[
+"Garfinkel, Ganor y Hasel (2018). In the Footsteps of King David. Thames & Hudson",
+"Cap. 7: Gabaón «a medio día de camino de Jerusalén», en tiempos de David y Salomón y en la inscripción de Sheshonq."
+]
+],
+"he": "גִּבְעוֹן"
+},
+{
+"id": "quiriat",
+"site": "quiriat",
+"n": "Quiriat-jearim",
+"ll": [
+31.8056,
+35.105
+],
+"k": "biblico",
+"actual": "Deir el-Azar · Abu Gosh, Israel",
+"biblia": [
+[
+"1 Sam 7:1–2",
+"Llevaron el arca de YHWH a casa de Abinadab, en la colina… y pasaron veinte años."
+],
+[
+"2 Sam 6:2",
+"David fue con todo el pueblo desde Baalá de Judá para subir de allí el arca de Dios."
+]
+],
+"arq": [
+"Deir el-Azar, la colina sobre Abu Gosh con el monasterio de Nuestra Señora del Arca: excavaciones de Finkelstein y Römer (2017–2019) hallaron una gran plataforma del s. VIII. Quizá figura en la lista de Sisac.",
+"El arca llegó aquí desde Bet-semes tras volver de Filistea, y de aquí la subió David."
+],
+"hoy": "Abu Gosh, pueblo árabe-israelí con la iglesia de los cruzados y el monasterio sobre la colina.",
+"bib": [
+[
+"Garfinkel, Ganor y Hasel (2018). In the Footsteps of King David. Thames & Hudson",
+"Cap. 7: Quiriat-jearim como posible centro intermedio entre Jerusalén y Qeiyafa."
+],
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 12: David trae el arca a Jerusalén",
+"Itinerario del arca en diez estaciones."
+]
+]
+},
+{
+"id": "jerusalen",
+"site": "jerusalen",
+"n": "Jerusalén",
+"ll": [
+31.7736,
+35.2353
+],
+"k": "biblico",
+"actual": "Ciudad de David (Silwan) · Jerusalén",
+"biblia": [
+[
+"2 Sam 5:7",
+"David tomó la fortaleza de Sion, que es la Ciudad de David."
+],
+[
+"2 Sam 5:9",
+"David se estableció en la fortaleza y la llamó Ciudad de David, y edificó alrededor, desde el Milo hacia adentro."
+],
+[
+"1 R 2:10",
+"David descansó con sus padres y fue sepultado en la Ciudad de David."
+]
+],
+"arq": [
+"La Jerusalén de David es la colina sureste, un espolón de unas 6 ha (15 acres) sobre la fuente de Guihón, entre el Cedrón y el Tiropeón: la Ciudad de David. Rušalim en los Textos de Execración (s. XIX) y Urušalim en Amarna (s. XIV, Abdi-Hepa).",
+"La Estructura escalonada de piedra (Macalister 1923–1925; Kenyon 1961–1967; Shiloh 1978–1985): un muro de contención de 55 escalones y casi 30 m, sobre ruinas de c. 1300–1200, que sostuvo una ciudadela; se ha identificado con el Milo. Encima y al norte, Eilat Mazar expuso en 2005–2007 la Gran Estructura de Piedra, que fecha en el s. X y propone como palacio de David; otros la fechan más tarde o la dividen en varios edificios.",
+"Garfinkel: la datación de ambas «es muy problemática» (sin cerámica ni carbono 14), pero tras Qeiyafa ya no puede negarse que un reino del s. X las construyera. Jerusalén es difícil de excavar: la ciudad moderna la cubre, cada época arrasó hasta la roca y hubo 400 años sin destrucciones."
+],
+"hoy": "Parque arqueológico «Ciudad de David» en Silwan, con el Área G (Estructura escalonada), el pozo de Warren, el túnel de Ezequías y el estanque de Siloé; también los Muros Anchos y el Ofel junto al monte del Templo.",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 11: David conquista la fortaleza de Sión",
+"Cinco razones para elegir Jerusalén: central, neutral, segura, habitable y sagrada; «sitio de dos tronos» (Sal 132; 122:5)."
+],
+[
+"Garfinkel, Ganor y Hasel (2018). In the Footsteps of King David. Thames & Hudson",
+"Cap. 2, pp. 29–30: Estructura escalonada, Gran Estructura de Piedra y Ofel; «no es posible decir inequívocamente que se haya descubierto en Jerusalén un edificio monumental del tiempo de David»."
+],
+[
+"Hoffmeier, J. K. (2008). Arqueología de la Biblia. San Pablo",
+"Cap. 7, «Excavaciones en la Ciudad de David»: la estructura escalonada y «los ciegos y los cojos»."
+],
+[
+"Hillel, D. (2006). The Natural History of the Bible. Columbia University Press",
+"Cap. 9: Jerusalén debe «su propia existencia» a la fuente de Guihón; capital neutral como el Distrito de Columbia."
+]
+],
+"he": "עִיר דָּוִד"
+},
+{
+"id": "guihon",
+"site": "guihon",
+"n": "Fuente de Guihón",
+"ll": [
+31.773,
+35.237
+],
+"k": "biblico",
+"actual": "Fuente de Guihón · Ciudad de David",
+"biblia": [
+[
+"2 Sam 5:8",
+"«Todo el que hiera al jebuseo, que suba por el canal (tsinnor)…»"
+],
+[
+"1 R 1:38–39",
+"Montaron a Salomón en la mula del rey David y lo llevaron a Guihón; Sadoc tomó el cuerno del aceite y ungió a Salomón."
+]
+],
+"arq": [
+"Manantial kárstico intermitente («el que brota») en el Cedrón, única fuente de Jerusalén. Charles Warren halló en 1867 el pozo vertical («pozo de Warren») y Reich y Shukron (1995–2011) las torres del Bronce Medio (c. 1800) que protegían la fuente y el estanque.",
+"Hillel: «fisuras naturales o pozos tallados en la roca pudieron ser usados por los hombres de David para entrar furtivamente en la ciudad» (2 Sam 5:6–8). El túnel de Ezequías (s. VIII, 533 m) y la inscripción de Siloé son posteriores."
+],
+"hoy": "Entrada al túnel de Ezequías en el parque de la Ciudad de David; se recorre con agua hasta la rodilla hasta Siloé.",
+"bib": [
+[
+"Hillel, D. (2006). The Natural History of the Bible. Columbia University Press",
+"Cap. 9, p. 184 y nota 11 (Gill 1991; Reich y Shukron 2002)."
+],
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 11: David conquista la fortaleza de Sión",
+"Sistema de agua cananeo: piscina de la Torre sobre la fuente de Gihón, c. 1800 a. e. c.; sentidos de tsinnor."
+]
+],
+"he": "גִּיחוֹן"
+},
+{
+"id": "moriah",
+"site": "moriah",
+"n": "Era de Arauna",
+"ll": [
+31.778,
+35.2354
+],
+"k": "biblico",
+"actual": "Explanada de las Mezquitas / monte del Templo · Jerusalén",
+"biblia": [
+[
+"2 Sam 24:18",
+"Sube y levanta un altar a YHWH en la era de Arauna el jebuseo."
+],
+[
+"1 Cr 22:1",
+"«Esta será la casa de YHWH Dios, y este el altar del holocausto para Israel»."
+],
+[
+"2 Cr 3:1",
+"Salomón comenzó a edificar la casa de YHWH en Jerusalén, en el monte Moriah, donde YHWH se había aparecido a David su padre, en la era de Ornán el jebuseo."
+]
+],
+"arq": [
+"La era (goren) del jebuseo estaba en la cima al norte de la Ciudad de David: el futuro monte del Templo. No queda nada del Primer Templo bajo la explanada herodiana, el Domo de la Roca y Al-Aqsa; la «Piedra de Fundación» del Domo se ha propuesto como lugar del Santo de los Santos.",
+"Las maquetas de templo de Qeiyafa (triglifos, marcos rebajados, dos columnas) muestran que el estilo del templo de 1 R 6–7 existía en Judá a comienzos del s. X. El templo de Ain Dara (Siria) es el paralelo mejor conservado.",
+"Hillel considera «aparentemente mítica» la asociación de la colina con el Moriah de Génesis 22; la tradición judía, cristiana e islámica la mantiene."
+],
+"hoy": "Explanada de las Mezquitas (Haram esh-Sharif) con el Domo de la Roca (691) y Al-Aqsa; el Muro Occidental es el muro de contención herodiano. El Proyecto de Cribado del monte del Templo recupera hallazgos del relleno.",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 12: David trae el arca a Jerusalén",
+"Monte del Templo = Moriah; goren = era (Os 13:3); templo tripartito comparado con Ain Dara; dedicación «960 a. C.»."
+],
+[
+"Garfinkel, Ganor y Hasel (2018). In the Footsteps of King David. Thames & Hudson",
+"Cap. 8: las maquetas de Qeiyafa y los términos técnicos de 1 R 6–7."
+]
+],
+"he": "הַר הַמּוֹרִיָּה"
+},
+{
+"id": "sion",
+"site": "sion",
+"n": "Monte Sion",
+"ll": [
+31.7716,
+35.229
+],
+"k": "hoy",
+"actual": "Monte Sion (colina suroeste) · Jerusalén",
+"biblia": [
+[
+"Hch 2:29",
+"«Del patriarca David… su sepulcro está entre nosotros hasta el día de hoy»."
+],
+[
+"Neh 3:16",
+"…hasta frente a los sepulcros de David, hasta el estanque artificial y la casa de los Valientes."
+]
+],
+"arq": [
+"La «Tumba de David» venerada en la planta baja del Cenáculo es una tradición que no consta antes del s. X–XII e. c.; el nombre Sion pasó de la colina oriental (la Ciudad de David) a la occidental en época romano-bizantina, como documenta Kelley. Nehemías sitúa los sepulcros de David en la colina oriental.",
+"Raymond Weill halló en 1913–1914 en el extremo sur de la Ciudad de David túneles tallados que propuso como tumbas reales; la identificación es discutida. Josefo cuenta que Hircano y Herodes abrieron la tumba buscando tesoros."
+],
+"hoy": "Complejo del Cenáculo y la Tumba de David, junto a la abadía de la Dormición, fuera de la puerta de Sion.",
+"bib": [
+[
+"Kelley, J. L. (2019). The Church of the Holy Sepulchre. Archaeopress",
+"Para el periodo bizantino la localización del monte Sión había cambiado de la colina oriental a la occidental (p. 97)."
+],
+[
+"Hillel, D. (2006). The Natural History of the Bible. Columbia University Press",
+"El valle de Hinom rodea «una colina alta (ahora conocida, erróneamente, como monte Sión)»."
+]
+]
+},
+{
+"id": "olivos",
+"site": "olivos",
+"n": "Olivos",
+"ll": [
+31.7783,
+35.2456
+],
+"k": "biblico",
+"actual": "Monte de los Olivos · Jerusalén",
+"biblia": [
+[
+"2 Sam 15:30",
+"David subía la cuesta de los Olivos; subía llorando, con la cabeza cubierta e iba descalzo."
+]
+],
+"arq": [
+"La cuesta que sube desde el Cedrón al este de la ciudad, camino de Jericó y del Jordán: la ruta de la huida. En la cima estaba el lugar «donde se adoraba a Dios» (2 Sam 15:32). El «sepulcro de Absalón» del valle del Cedrón es un monumento herodiano, no el de 2 Sam 18:18."
+],
+"hoy": "Mirador clásico sobre la Ciudad Vieja, con el cementerio judío, Getsemaní y las iglesias de la cima.",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 11: David conquista la fortaleza de Sión",
+"Topografía: monte de los Olivos a 835 m, la «silla de Jerusalén»."
+]
+]
+},
+{
+"id": "bahurim",
+"site": "bahurim",
+"n": "Bahurim",
+"ll": [
+31.7903,
+35.2583
+],
+"k": "biblico",
+"actual": "Ras et-Tmim · Jerusalén Este",
+"biblia": [
+[
+"2 Sam 16:5",
+"Cuando el rey David llegó a Bahurim, salió de allí un hombre de la familia de Saúl llamado Simei, maldiciendo."
+]
+],
+"arq": [
+"Aldea benjaminita en el camino de Jerusalén a Jericó, identificada con Ras et-Tmim, al este del monte Scopus; aquí también se escondieron en un pozo los mensajeros de Husai (2 Sam 17:18)."
+],
+"hoy": "Zona de Jerusalén Este (Al-Tur / Anata).",
+"bib": [
+[
+"MacArthur, J. Biblia de Estudio MacArthur",
+"Nota a 2 Sam 16:5: Bahurim, al este del monte de los Olivos, en Benjamín."
+]
+]
+},
+{
+"id": "refaim",
+"site": "refaim",
+"n": "Valle de Refaim · Baal-perazim",
+"ll": [
+31.754,
+35.208
+],
+"k": "biblico",
+"actual": "Valle de Refaim (Emek Refaim) · Jerusalén",
+"biblia": [
+[
+"2 Sam 5:18",
+"Los filisteos vinieron y se desplegaron por el valle de Refaim."
+],
+[
+"2 Sam 5:20",
+"«YHWH ha abierto brecha entre mis enemigos delante de mí como brecha de aguas»."
+]
+],
+"arq": [
+"El valle que baja al suroeste de la ciudad hacia el Sorec: la vía de acceso filistea a Jerusalén desde la Sefelá. Hoy es el barrio alemán (Colonia Alemana) y la estación de tren antigua."
+],
+"hoy": "Barrio de Emek Refaim, con la vieja estación de tren.",
+"bib": [
+[
+"MacArthur, J. Biblia de Estudio MacArthur",
+"Nota a 2 Sam 5:18: Refaim, «valle de los gigantes», al suroeste de Jerusalén."
+]
+]
+},
+{
+"id": "silo",
+"site": "silo",
+"n": "Silo",
+"ll": [
+32.0558,
+35.2894
+],
+"k": "biblico",
+"actual": "Khirbet Seilun (Tel Shiloh) · Cisjordania",
+"biblia": [
+[
+"1 Sam 4:11",
+"El arca de Dios fue tomada, y murieron los dos hijos de Elí."
+],
+[
+"Jer 7:12",
+"Id a mi lugar en Silo, donde hice habitar mi nombre al principio, y ved lo que le hice."
+]
+],
+"arq": [
+"Excavado por la expedición danesa (1926–1932) y por Finkelstein (1981–1984): asentamiento del Hierro I con almacenes y destrucción por fuego a mediados del s. XI, atribuida a los filisteos tras Eben-ezer. Excavaciones recientes (Stripling) buscan el emplazamiento del tabernáculo."
+],
+"hoy": "Parque arqueológico Tel Shiloh con centro de visitantes.",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 12: David trae el arca a Jerusalén",
+"Silo, primera estación del itinerario del arca."
+]
+]
+},
+{
+"id": "jezreel",
+"site": "jezreel",
+"n": "Jezreel",
+"ll": [
+32.558,
+35.329
+],
+"k": "biblico",
+"actual": "Tel Jezreel · Israel",
+"biblia": [
+[
+"1 Sam 29:1",
+"Israel acampó junto a la fuente que está en Jezreel."
+]
+],
+"arq": [
+"Tel Jezreel, en el borde sureste del valle, con la fuente de Ein Jezreel al pie; excavado por Ussishkin y Woodhead (1990–1996): recinto real de los omridas (s. IX)."
+],
+"hoy": "Tell junto al kibutz Yizre'el, con la fuente y vistas a Gilboa.",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 7: Débora, Barac y Jael en el valle de Jezreel",
+"Las ciudades importantes están en el borde del valle; la fuente de Jezreel = Ein Yizrael."
+]
+]
+},
+{
+"id": "sunem",
+"site": "sunem",
+"n": "Sunem",
+"ll": [
+32.6069,
+35.3339
+],
+"k": "biblico",
+"actual": "Sulam · Israel",
+"biblia": [
+[
+"1 Sam 28:4",
+"Los filisteos se reunieron y acamparon en Sunem; Saúl reunió a todo Israel y acamparon en Gilboa."
+]
+],
+"arq": [
+"Aldea al pie del monte Moré, frente a Gilboa a través del valle; también la ciudad de la sunamita de Eliseo (2 R 4)."
+],
+"hoy": "Aldea árabe de Sulam, junto a Afula.",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 7: Débora, Barac y Jael en el valle de Jezreel",
+"1 Sam 28:3–7: filisteos en Sunem, Israel en Gilboa."
+]
+]
+},
+{
+"id": "endor",
+"site": "endor",
+"n": "Endor",
+"ll": [
+32.6522,
+35.39
+],
+"k": "biblico",
+"actual": "Ein Dor · Israel",
+"biblia": [
+[
+"1 Sam 28:7",
+"«Hay en Endor una mujer que tiene espíritu de adivinación»."
+]
+],
+"arq": [
+"Al norte del monte Moré, a unos 10 km del campamento de Saúl en Gilboa: para llegar, Saúl tuvo que rodear las líneas filisteas de noche. El tell antiguo (Khirbet Safsafa) está junto al kibutz."
+],
+"hoy": "Kibutz Ein Dor, con un pequeño museo arqueológico.",
+"bib": [
+[
+"MacArthur, J. Biblia de Estudio MacArthur",
+"Nota a 1 Sam 28:7: Endor, al norte de Sunem, tras las líneas filisteas."
+]
+]
+},
+{
+"id": "gilboa",
+"site": "gilboa",
+"n": "Monte Gilboa",
+"ll": [
+32.5083,
+35.4167
+],
+"k": "biblico",
+"actual": "Monte Gilboa · Israel",
+"biblia": [
+[
+"1 Sam 31:1",
+"Los filisteos pelearon contra Israel; los hombres de Israel huyeron y cayeron muertos en el monte Gilboa."
+],
+[
+"2 Sam 1:21",
+"¡Montes de Gilboa, ni rocío ni lluvia sobre vosotros!"
+]
+],
+"arq": [
+"Sierra de 18 km que cierra el valle de Jezreel por el sureste y domina Bet-seán; drenaje por el Harod. Hoffmeier: Saúl «fue asesinado por los filisteos en el monte Gelboé»; Hillel: «en las laderas del monte Gilboa, que domina Bet-Seán»."
+],
+"hoy": "Reserva natural con el iris de Gilboa (florece en marzo) y miradores sobre el valle.",
+"bib": [
+[
+"Hillel, D. (2006). The Natural History of the Bible. Columbia University Press",
+"Cap. 8: la importancia estratégica de Bet-seán y Gilboa."
+],
+[
+"Hoffmeier, J. K. (2008). Arqueología de la Biblia. San Pablo",
+"Cap. 6: muerte de Saúl y exposición del cuerpo en Betsán."
+]
+],
+"he": "הַר הַגִּלְבֹּעַ"
+},
+{
+"id": "betsean",
+"site": "betsean",
+"n": "Bet-seán",
+"ll": [
+32.5036,
+35.4997
+],
+"k": "biblico",
+"actual": "Tel Beth-Shean · Israel",
+"biblia": [
+[
+"1 Sam 31:10",
+"Pusieron sus armas en el templo de Astarot y colgaron su cuerpo en la muralla de Bet-seán."
+]
+],
+"arq": [
+"Tell de 18 estratos excavado por la Universidad de Pensilvania (1921–1933) y por A. Mazar (1989–1996): guarnición egipcia del Bronce Final con templos, estelas de Seti I y Ramsés II, y nivel del Hierro I con rasgos filisteos: los «templos» donde colgaron las armas de Saúl.",
+"Hoffmeier compara la exposición del cuerpo con Asaradón, que ató el cuerpo del rebelde Uabu a la puerta de Nínive."
+],
+"hoy": "Parque nacional con la Escitópolis romano-bizantina (teatro, cardo, termas) al pie del tell.",
+"bib": [
+[
+"Garfinkel, Ganor y Hasel (2018). In the Footsteps of King David. Thames & Hudson",
+"Cap. 2: Bet-seán como ejemplo de tell con 18 estratos."
+],
+[
+"Hoffmeier, J. K. (2008). Arqueología de la Biblia. San Pablo",
+"Cap. 6, pp. 84–85."
+]
+]
+},
+{
+"id": "jabes",
+"site": "jabes",
+"n": "Jabes de Galaad",
+"ll": [
+32.4917,
+35.6594
+],
+"k": "biblico",
+"actual": "Tell Maqlub (probable) · Jordania",
+"biblia": [
+[
+"1 Sam 31:12",
+"Todos los valientes caminaron toda la noche, tomaron el cuerpo de Saúl y los de sus hijos de la muralla de Bet-seán y los llevaron a Jabes."
+]
+],
+"arq": [
+"Ciudad de Galaad en el Wadi Yabis, que Saúl salvó de Nahas al comienzo de su reinado (1 Sam 11); Tell Maqlub es la identificación más aceptada, sin excavar. Desde Bet-seán son unos 20 km cruzando el Jordán: «toda la noche»."
+],
+"hoy": "Tell en la orilla jordana, al noreste de Bet-seán.",
+"bib": [
+[
+"MacArthur, J. Biblia de Estudio MacArthur",
+"Nota a 1 Sam 11:1: Jabes de Galaad, 36 km al sur del mar de Galilea."
+]
+]
+},
+{
+"id": "mahanaim",
+"site": "mahanaim",
+"n": "Mahanaim",
+"ll": [
+32.2017,
+35.68
+],
+"k": "biblico",
+"actual": "Tell edh-Dhahab (probable) · Jordania",
+"biblia": [
+[
+"2 Sam 2:8",
+"Abner tomó a Is-boset, hijo de Saúl, y lo llevó a Mahanaim."
+],
+[
+"2 Sam 17:24",
+"David llegó a Mahanaim, y Absalón cruzó el Jordán."
+]
+],
+"arq": [
+"«Dos campamentos» (Gn 32:2), junto al Jaboc: capital de Is-boset y refugio de David ante Absalón, donde Barzilai lo abasteció. Los dos cerros gemelos de Tell edh-Dhahab el-Gharbi y esh-Sharqi, en el cañón del Jaboc, son la identificación más probable.",
+"Garfinkel cita Majanaim junto a Saaraim entre los topónimos cuyo dual sí es significativo."
+],
+"hoy": "Cerros sobre el río Zarqa (Jaboc), en Jordania, con restos helenísticos.",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 11: David conquista la fortaleza de Sión",
+"«Dos reinos antes de la monarquía unida»: Mahanaim, capital del norte; Hebrón, del sur."
+],
+[
+"Garfinkel, Ganor y Hasel (2018). In the Footsteps of King David. Thames & Hudson",
+"Cap. 7: los duales Majanaim, Beerotaim, Saaraim."
+]
+],
+"he": "מַחֲנַיִם"
+},
+{
+"id": "efrain",
+"site": "efrain",
+"n": "Bosque de Efraín",
+"ll": [
+32.25,
+35.76
+],
+"k": "biblico",
+"actual": "Montes de Galaad (Ajlun) · Jordania",
+"biblia": [
+[
+"2 Sam 18:8",
+"La batalla se extendió por todo el país, y el bosque devoró aquel día más gente que la espada."
+]
+],
+"arq": [
+"El «bosque de Efraín», al este del Jordán pese al nombre, era la zona boscosa de Galaad; aún quedan encinares en los montes de Ajlun, los más densos de Jordania."
+],
+"hoy": "Reserva forestal de Ajlun.",
+"bib": [
+[
+"MacArthur, J. Biblia de Estudio MacArthur",
+"Nota a 2 Sam 18:6: el bosque de Efraín, en Galaad, cerca de Mahanaim."
+]
+]
+},
+{
+"id": "jordan",
+"site": "jordan",
+"n": "Vados del Jordán",
+"ll": [
+31.87,
+35.56
+],
+"k": "biblico",
+"actual": "Vados del Jordán frente a Jericó",
+"biblia": [
+[
+"2 Sam 17:22",
+"David se levantó con toda la gente y cruzaron el Jordán; al amanecer no faltaba ninguno."
+],
+[
+"2 Sam 19:15",
+"Judá vino a Gilgal para recibir al rey y hacerle cruzar el Jordán."
+]
+],
+"arq": [
+"Los vados de la llanura de Jericó (Adam/Damiya al norte, los vados de Gilgal al sur) son el paso natural entre Jerusalén y Galaad; aquí cruzó Josué y aquí Judá recibió a David."
+],
+"hoy": "Zona de Qasr el-Yahud (lugar del bautismo) y el puente Allenby.",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 11: David conquista la fortaleza de Sión",
+"Ruta E–O: Rabá-Amón → Jericó → Jerusalén → Jafa."
+]
+]
+},
+{
+"id": "abel",
+"site": "abel",
+"n": "Abel-bet-maaca",
+"ll": [
+33.2606,
+35.5794
+],
+"k": "biblico",
+"actual": "Tel Abel Beth Maacah · Israel",
+"biblia": [
+[
+"2 Sam 20:18",
+"«Antiguamente solían decir: pregunten en Abel, y así concluían el asunto»."
+]
+],
+"arq": [
+"Tell en el extremo norte, al oeste de Dan, excavado desde 2013 (Panitz-Cohen, Mullins): ciudad del Bronce y el Hierro con una cabecita de marfil y oro del s. IX, quizá de un rey. Aquí terminó la revuelta de Seba."
+],
+"hoy": "Tell junto a Metula, en la frontera con el Líbano.",
+"bib": [
+[
+"MacArthur, J. Biblia de Estudio MacArthur",
+"Nota a 2 Sam 20:14: Abel-bet-maaca, ciudad fortificada al norte de Dan."
+]
+]
+},
+{
+"id": "dan",
+"site": "dan",
+"n": "Tel Dan",
+"ll": [
+33.2486,
+35.6522
+],
+"k": "arqueo",
+"actual": "Tel Dan · Israel (reserva natural)",
+"biblia": [
+[
+"2 Sam 3:10",
+"…para traspasar el reino de la casa de Saúl y establecer el trono de David sobre Israel y Judá, desde Dan hasta Beerseba."
+]
+],
+"arq": [
+"El 21 de julio de 1993 apareció en Tel Dan, reutilizado en un muro, un fragmento de estela basáltica en arameo; dos más en 1994. Un rey de Damasco —Hazael, 2.ª mitad del s. IX— se jacta de haber matado a «[Jo]rán rey de Israel» y a «[Ocoz]ías… de la casa de David» (bytdwd).",
+"Es la primera mención de David fuera de la Biblia, un siglo y medio después de su muerte: prueba de que en el s. IX se recordaba al fundador de la dinastía. Los minimalistas la tildaron de falsificación o mal leída; hoy la lectura está aceptada. Publicada por Biran y Naveh (1993, 1995).",
+"Tel Dan conserva además la puerta cananea de adobe del Bronce Medio y el recinto sagrado de Jeroboán con sus piedras erguidas (mazzebot), que Garfinkel compara con la de la puerta sur de Qeiyafa."
+],
+"hoy": "Reserva natural de Tel Dan, en las fuentes del Jordán; la estela está en el Museo de Israel, Jerusalén.",
+"bib": [
+[
+"Garfinkel, Ganor y Hasel (2018). In the Footsteps of King David. Thames & Hudson",
+"Cap. 2, pp. 27–28 (Fig. 8): la estela demuestra «inequívocamente que en el s. IX había memoria de la existencia del fundador de la dinastía llamado David»."
+],
+[
+"Hoffmeier, J. K. (2008). Arqueología de la Biblia. San Pablo",
+"Cap. 7, «La dinastía de David»: «si David solo hubiera sido un cacique sin importancia, los monarcas posteriores no habrían mencionado su nombre de una manera tan honorífica»."
+],
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 11: David conquista la fortaleza de Sión",
+"Estela de Tel Dan, «Casa de David», única mención a David fuera de la Biblia."
+]
+]
+},
+{
+"id": "tiro",
+"site": "tiro",
+"n": "Tiro",
+"ll": [
+33.2704,
+35.2037
+],
+"k": "biblico",
+"actual": "Sur (Tiro) · Líbano",
+"biblia": [
+[
+"2 Sam 5:11",
+"Hiram, rey de Tiro, envió mensajeros a David, con madera de cedro, carpinteros y canteros."
+]
+],
+"arq": [
+"Ciudad-isla fenicia, bajo la ciudad moderna, como Sidón: arqueología limitada. Centro del comercio mediterráneo y de la púrpura del Murex desde el s. XIII. Hillel: «toda la cordillera del Líbano estaba cubierta de un denso bosque de cedros» que los fenicios talaron y exportaron.",
+"Hoffmeier: Israel «carecía de árboles de los que pudiera extraerse madera para la construcción»; Seti I ya enviaba por cedros al Líbano (relieve de Karnak)."
+],
+"hoy": "Ciudad libanesa con el hipódromo romano y la necrópolis de Al-Bass (patrimonio mundial); la «tumba de Hiram» es un monumento tradicional en Hanaouay.",
+"bib": [
+[
+"Hillel, D. (2006). The Natural History of the Bible. Columbia University Press",
+"Cap. 8, «The Maritime Domain», pp. 171–173: cedros, balsas por mar y el pago en trigo y aceite."
+],
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 21: Tiro y Sidón",
+"«Tiro: aliado de David y Salomón» (2 Sam 5:11–12; 1 R 5:1)."
+]
+]
+},
+{
+"id": "damasco",
+"site": "damasco",
+"n": "Damasco",
+"ll": [
+33.5138,
+36.2765
+],
+"k": "biblico",
+"actual": "Damasco · Siria",
+"biblia": [
+[
+"2 Sam 8:6",
+"David puso guarniciones en Aram de Damasco, y los arameos quedaron sometidos a David y le pagaban tributo."
+]
+],
+"arq": [
+"Capital aramea, bajo la ciudad moderna; en el s. IX su rey Hazael dominó Israel y grabó la estela de Tel Dan. Hoffmeier identifica Damasco entre los topónimos que sobreviven con su nombre."
+],
+"hoy": "Capital de Siria.",
+"bib": [
+[
+"Hoffmeier, J. K. (2008). Arqueología de la Biblia. San Pablo",
+"Cap. 7: el imperio de David y el vacío de poder del s. X."
+]
+]
+},
+{
+"id": "soba",
+"site": "soba",
+"n": "Soba",
+"ll": [
+33.73,
+36.1
+],
+"k": "biblico",
+"actual": "Valle de la Becá (ubicación discutida) · Líbano/Siria",
+"biblia": [
+[
+"2 Sam 8:3",
+"David derrotó a Hadad-ezer, hijo de Rehob, rey de Soba, cuando este iba a restablecer su dominio sobre el Éufrates."
+]
+],
+"arq": [
+"Reino arameo al norte de Damasco o en la Becá, el más fuerte antes del ascenso de Damasco; citado en textos asirios como Subatu. Sin identificación segura de la capital."
+],
+"hoy": "—",
+"bib": [
+[
+"MacArthur, J. Biblia de Estudio MacArthur",
+"Nota a 2 Sam 8:3: Soba, reino arameo al norte de Damasco."
+]
+]
+},
+{
+"id": "raba",
+"site": "raba",
+"n": "Rabá de Amón",
+"ll": [
+31.9545,
+35.9345
+],
+"k": "biblico",
+"actual": "Ciudadela de Amán (Jabal al-Qal‘a) · Jordania",
+"biblia": [
+[
+"2 Sam 11:1",
+"Sitiaron Rabá; pero David se quedó en Jerusalén."
+],
+[
+"2 Sam 12:26",
+"Joab combatió contra Rabá de los amonitas y tomó la ciudad real."
+]
+],
+"arq": [
+"La acrópolis de Amán conserva muros del Bronce Medio y del Hierro, el palacio omeya y el templo de Hércules; la «ciudad de las aguas» de 2 Sam 12:27 sería la ciudad baja junto al arroyo. La inscripción de la ciudadela (s. IX) está en amonita.",
+"Dt 3:11 recordaba aquí «la cama de hierro de Og»."
+],
+"hoy": "Ciudadela de Amán con el Museo Arqueológico de Jordania.",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 5: Transjordania",
+"Dt 3:11: la cama de hierro de Og en Rabá; Rabá-Amón como extremo de la ruta E–O."
+]
+]
+},
+{
+"id": "gesur",
+"site": "gesur",
+"n": "Gesur",
+"ll": [
+32.9,
+35.65
+],
+"k": "biblico",
+"actual": "Golán occidental (et-Tell / Betsaida ?) · Israel",
+"biblia": [
+[
+"2 Sam 13:38",
+"Absalón huyó y se fue a Gesur, y estuvo allí tres años."
+]
+],
+"arq": [
+"Pequeño reino arameo al este del Kinéret, patria de Maaca, madre de Absalón. Rami Arav identifica su capital con et-Tell (Betsaida), cuya puerta del Hierro II con estela del dios lunar es una de las mejor conservadas; la identificación es discutida."
+],
+"hoy": "Parque de Betsaida en el Golán, sobre el lago.",
+"bib": [
+[
+"MacArthur, J. Biblia de Estudio MacArthur",
+"Nota a 2 Sam 3:3: Gesur, pequeño reino al noreste del mar de Galilea."
+]
+]
+},
+{
+"id": "moab_mizpa",
+"site": "moab_mizpa",
+"n": "Mizpa de Moab",
+"ll": [
+31.181,
+35.7047
+],
+"k": "biblico",
+"actual": "Cerca de Kerak (no identificada) · Jordania",
+"biblia": [
+[
+"1 Sam 22:3",
+"David fue a Mizpa de Moab y dijo al rey de Moab: «Deja que mi padre y mi madre estén con vosotros»."
+]
+],
+"arq": [
+"Mizpa, «atalaya», no está identificada; se la busca en la meseta moabita, cerca de Kir-hareset (Kerak). David tenía sangre moabita por Rut; «la fortaleza» (metsudá) de 1 Sam 22:4 se ha querido identificar con Masada."
+],
+"hoy": "Meseta de Kerak, con el castillo cruzado.",
+"bib": [
+[
+"MacArthur, J. Biblia de Estudio MacArthur",
+"Nota a 1 Sam 22:3–4."
+],
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 8: Rut la moabita llega a Belén",
+"Moab como refugio de los padres de David."
+]
+]
+},
+{
+"id": "edom_sal",
+"site": "edom_sal",
+"n": "Valle de la Sal",
+"ll": [
+31.08,
+35.35
+],
+"k": "biblico",
+"actual": "Sebkha al sur del mar Muerto · Israel/Jordania",
+"biblia": [
+[
+"2 Sam 8:13",
+"David ganó fama al volver de derrotar a dieciocho mil edomitas en el valle de la Sal."
+]
+],
+"arq": [
+"Las salinas al sur del mar Muerto, junto al monte Sodoma; Abisai y Joab vencieron allí a Edom (1 Cr 18:12; Sal 60), y Amasías repetirá la victoria (2 R 14:7)."
+],
+"hoy": "Zona de Sedom y las piscinas de evaporación del mar Muerto.",
+"bib": [
+[
+"MacArthur, J. Biblia de Estudio MacArthur",
+"Nota a 2 Sam 8:13: el valle de la Sal, al sur del mar Muerto."
+]
+]
+},
+{
+"id": "paran",
+"site": "paran",
+"n": "Desierto de Parán · Neguev",
+"ll": [
+30.95,
+35.0
+],
+"k": "biblico",
+"actual": "Neguev oriental",
+"biblia": [
+[
+"1 Sam 25:1",
+"David se levantó y bajó al desierto de Parán."
+]
+],
+"arq": [
+"La Septuaginta lee «desierto de Maón», que encaja mejor con el capítulo; Parán es la estepa al sur de Judá hacia el Sinaí."
+],
+"hoy": "Desierto del Neguev.",
+"bib": [
+[
+"Profesores de Salamanca, Biblia comentada II: Libros históricos",
+"Variante de LXX: Maón en lugar de Parán."
+]
+]
+},
+{
+"id": "dawwara",
+"n": "Khirbet ed-Dawwara",
+"ll": [
+31.87,
+35.31
+],
+"k": "arqueo",
+"actual": "12 km al noreste de Jerusalén · Cisjordania",
+"biblia": [
+[
+"2 Sam 5:9",
+"…y edificó alrededor, desde el Milo hacia adentro."
+]
+],
+"arq": [
+"Pequeño sitio fortificado con muralla de casamatas y casas adosadas, excavado por Finkelstein (1985–1986), con cerámica paralela a la de Qeiyafa. Garfinkel lo cuenta, con Qeiyafa, Hebrón, Gabaón y Jerusalén, en el «núcleo urbano» del reino de David."
+],
+"hoy": "Ruina en el desierto de Benjamín, al este de Gabaa.",
+"bib": [
+[
+"Garfinkel, Ganor y Hasel (2018). In the Footsteps of King David. Thames & Hudson",
+"Cap. 7, pp. 168–169 y 175–177: el núcleo urbano del reino temprano."
+]
+]
+},
+{
+"id": "betsemes",
+"n": "Bet-semes",
+"ll": [
+31.7517,
+34.9767
+],
+"k": "arqueo",
+"actual": "Tel Beit Shemesh · Israel",
+"biblia": [
+[
+"1 Sam 6:13",
+"Los de Bet-semes segaban el trigo en el valle; alzaron los ojos y vieron el arca, y se alegraron."
+]
+],
+"arq": [
+"Ciudad levítica del Sorec, excavada por Bunimovitz y Lederman (1990–): en el s. X, muralla de casamatas y un gran depósito de agua; para Garfinkel, el sitio que relevó a Qeiyafa como centro de la Sefelá tras su destrucción (tercera fase del reino). Abecedario y ostracón protocananeos."
+],
+"hoy": "Tell junto a la ciudad de Beit Shemesh y la carretera 38.",
+"bib": [
+[
+"Garfinkel, Ganor y Hasel (2018). In the Footsteps of King David. Thames & Hudson",
+"Cap. 7, «The third phase»: Bet-semes y el plan urbano judaíta."
+]
+]
+},
+{
+"id": "tellful",
+"n": "Palacio inacabado del rey Husein",
+"ll": [
+31.8235,
+35.2324
+],
+"k": "hoy",
+"actual": "Tell el-Ful · Jerusalén",
+"biblia": [
+[
+"1 Sam 15:34",
+"Samuel se fue a Ramá y Saúl subió a su casa en Gabaa de Saúl."
+]
+],
+"arq": [
+"El esqueleto de hormigón que corona el tell es el palacio que el rey Husein de Jordania empezó en 1964 y dejó la guerra de 1967; la excavación de Lapp fue de rescate antes de las obras."
+],
+"hoy": "Visible desde la carretera 60 entre Jerusalén y Ramala.",
+"bib": [
+[
+"Hoffmeier, J. K. (2008). Arqueología de la Biblia. San Pablo",
+"Cap. 6: «el rey Husein de Jordania quería levantar allí un palacio»."
+]
+]
+},
+{
+"id": "museo",
+"n": "Museo de Israel",
+"ll": [
+31.7735,
+35.204
+],
+"k": "hoy",
+"actual": "Jerusalén · Guivat Ram",
+"biblia": [
+[
+"2 Sam 7:16",
+"Tu casa y tu reino permanecerán para siempre delante de mí."
+]
+],
+"arq": [
+"Guarda la estela de Tel Dan («casa de David»), el ostracón de Qeiyafa y la maqueta de templo, y los hallazgos de la Ciudad de David; junto a él, el Santuario del Libro con los Rollos del mar Muerto (entre ellos, los Salmos de Qumrán)."
+],
+"hoy": "Museo de Israel, abierto todo el año; la estela de Tel Dan está en el ala de arqueología.",
+"bib": [
+[
+"Garfinkel, Ganor y Hasel (2018). In the Footsteps of King David. Thames & Hudson",
+"Cap. 5: el ostracón de Qeiyafa, hoy en el Museo de Israel."
+]
+]
+}
+],
+"tramos": [
+{
+"n": 1,
+"de": "Belén",
+"a": "Gabaa de Saúl",
+"ref": "1 Sam 16:19–21",
+"txt": "Saúl envió mensajeros a Isaí: «Envíame a tu hijo David, el que está con las ovejas». David llegó a Saúl y se presentó delante de él; Saúl lo amó mucho y lo hizo su escudero.",
+"arq": "Nueve kilómetros por el Camino de los Patriarcas, bordeando la Jebús jebusea por la cresta; medio día de marcha. Tell el-Ful, la Gabaa de Saúl, conserva la fortaleza de c. 1025 excavada por Albright y Lapp.",
+"pts": [
+[
+31.7054,
+35.2024
+],
+[
+31.735,
+35.21
+],
+[
+31.76,
+35.22
+],
+[
+31.79,
+35.228
+],
+[
+31.8235,
+35.2324
+]
+],
+"site": "gabaa",
+"bib": [
+[
+"Hoffmeier, J. K. (2008). Arqueología de la Biblia. San Pablo",
+"Cap. 6: la fortaleza de Tell el-Ful y el reinado de Saúl."
+]
+]
+},
+{
+"n": 2,
+"de": "Gabaa",
+"a": "Valle de Ela",
+"ref": "1 Sam 17:17–20",
+"txt": "Isaí dijo a David: «Lleva a tus hermanos este efa de grano tostado y estos diez panes, y corre al campamento». David se levantó de mañana, dejó las ovejas al cuidado de un guarda y llegó al atrincheramiento cuando el ejército salía a la batalla.",
+"arq": "Desde Belén, el valle de Ela baja hacia el oeste unos 25 km hasta Soco y Azeca: la ruta natural de la montaña a la Sefelá, hoy la carretera 375. Sobre el valle, Khirbet Qeiyafa (Saaraim) vigila el camino.",
+"pts": [
+[
+31.8235,
+35.2324
+],
+[
+31.7736,
+35.2353
+],
+[
+31.7054,
+35.2024
+],
+[
+31.7,
+35.12
+],
+[
+31.695,
+35.05
+],
+[
+31.69,
+35.0
+],
+[
+31.6906,
+34.964
+]
+],
+"site": "ela",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 9: La batalla de David y Goliat — la Sefelá",
+"El valle de Ela conecta Gat con Belén."
+],
+[
+"Garfinkel, Ganor y Hasel (2018). In the Footsteps of King David. Thames & Hudson",
+"Cap. 1: «la ruta principal de la llanura costera a la montaña»."
+]
+]
+},
+{
+"n": 3,
+"de": "Valle de Ela",
+"a": "Gabaa (y Jerusalén)",
+"ref": "1 Sam 17:54; 18:6",
+"txt": "David tomó la cabeza del filisteo y la llevó a Jerusalén, pero puso sus armas en su tienda. Al volver, las mujeres salían de todas las ciudades de Israel cantando y danzando al encuentro del rey Saúl.",
+"arq": "La cabeza de Goliat «a Jerusalén», todavía jebusea, es un anacronismo o una advertencia a los jebuseos, según los comentaristas; la espada acabó en Nob. El regreso triunfal repite el camino de ida.",
+"pts": [
+[
+31.6906,
+34.964
+],
+[
+31.69,
+35.0
+],
+[
+31.7,
+35.12
+],
+[
+31.7054,
+35.2024
+],
+[
+31.7736,
+35.2353
+],
+[
+31.8235,
+35.2324
+]
+],
+"site": "gabaa",
+"bib": [
+[
+"MacArthur, J. Biblia de Estudio MacArthur",
+"Nota a 1 Sam 17:54: la cabeza como advertencia para los jebuseos."
+]
+],
+"vuelta": 1
+},
+{
+"n": 4,
+"de": "Gabaa",
+"a": "Ramá y Nob",
+"ref": "1 Sam 19:18; 21:1",
+"txt": "David huyó, escapó y llegó donde Samuel, en Ramá… Luego llegó a Nob, donde estaba el sacerdote Ajimélec.",
+"arq": "Ramá (Er-Ram) está a 3 km al norte de Gabaa; Nob, «a la vista de Jerusalén» (Is 10:32), en el monte Scopus o el de los Olivos. Son los pueblos de Benjamín que rodean la capital de Saúl.",
+"pts": [
+[
+31.8235,
+35.2324
+],
+[
+31.8494,
+35.2306
+],
+[
+31.83,
+35.245
+],
+[
+31.801,
+35.246
+]
+],
+"site": "nob",
+"bib": [
+[
+"Profesores de Salamanca, Biblia comentada II: Libros históricos",
+"Emplazamiento de Nob: Scopus o Beit Nuba."
+]
+]
+},
+{
+"n": 5,
+"de": "Nob",
+"a": "Gat",
+"ref": "1 Sam 21:10",
+"txt": "Aquel día David se levantó y huyó de Saúl, y llegó donde Aquis, rey de Gat.",
+"arq": "Unos 45 km bajando por el Sorec o el Ela hasta Tell es-Safi, la ciudad de Goliat, con la espada de Goliat al cinto. Gat creció en el s. X hasta ser la mayor ciudad filistea; las excavaciones de Maeir hallaron el ostracón con nombres tipo «Goliat».",
+"pts": [
+[
+31.801,
+35.246
+],
+[
+31.78,
+35.19
+],
+[
+31.76,
+35.1
+],
+[
+31.74,
+35.0
+],
+[
+31.72,
+34.92
+],
+[
+31.7,
+34.847
+]
+],
+"site": "gat",
+"bib": [
+[
+"Garfinkel, Ganor y Hasel (2018). In the Footsteps of King David. Thames & Hudson",
+"Cap. 7: Gat, ~40 ha en los ss. X–IX."
+]
+]
+},
+{
+"n": 6,
+"de": "Gat",
+"a": "Adulam",
+"ref": "1 Sam 22:1",
+"txt": "David se fue de allí y escapó a la cueva de Adulam. Cuando lo supieron sus hermanos y toda la casa de su padre, bajaron allá a reunirse con él.",
+"arq": "Doce kilómetros valle arriba, de vuelta a Judá: Adulam es el cerro con cuevas entre Ela y Keila. Desde aquí David ve Qeiyafa y Gat a la vez: la frontera donde nació su reino.",
+"pts": [
+[
+31.7,
+34.847
+],
+[
+31.68,
+34.92
+],
+[
+31.65,
+34.9867
+]
+],
+"site": "adulam",
+"bib": [
+[
+"Garfinkel, Ganor y Hasel (2018). In the Footsteps of King David. Thames & Hudson",
+"Cap. 1: «la cueva de Adulam en el mismo valle»."
+]
+]
+},
+{
+"n": 7,
+"de": "Adulam",
+"a": "Mizpa de Moab",
+"ref": "1 Sam 22:3",
+"txt": "De allí David fue a Mizpa de Moab y dijo al rey de Moab: «Deja que mi padre y mi madre estén con vosotros hasta que sepa lo que Dios hará conmigo».",
+"arq": "Unos 100 km: subir a Hebrón, bajar por el desierto de Judá a En-gadi o al sur del mar Muerto y subir a la meseta de Moab. El bisnieto de Rut busca refugio en la tierra de su bisabuela.",
+"pts": [
+[
+31.65,
+34.9867
+],
+[
+31.6,
+35.1
+],
+[
+31.5326,
+35.0998
+],
+[
+31.45,
+35.3
+],
+[
+31.38,
+35.38
+],
+[
+31.3,
+35.5
+],
+[
+31.25,
+35.6
+],
+[
+31.181,
+35.7047
+]
+],
+"site": "moab_mizpa",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 8: Rut la moabita llega a Belén",
+"Moab como refugio de los padres de David."
+]
+]
+},
+{
+"n": 8,
+"de": "Moab",
+"a": "Keila",
+"ref": "1 Sam 22:5; 23:5",
+"txt": "El profeta Gad dijo a David: «No te quedes en la fortaleza; vete a la tierra de Judá». David se fue al bosque de Haret… y fue con sus hombres a Keila, y salvó a los habitantes de Keila.",
+"arq": "De vuelta a Judá por el mismo camino, hasta el bosque de Haret (Kharas) y Keila, la ciudad amurallada de la Sefelá alta que aparece en las cartas de Amarna como Qiltu.",
+"pts": [
+[
+31.181,
+35.7047
+],
+[
+31.25,
+35.6
+],
+[
+31.38,
+35.38
+],
+[
+31.45,
+35.3
+],
+[
+31.5326,
+35.0998
+],
+[
+31.58,
+35.04
+],
+[
+31.6145,
+35.0
+]
+],
+"site": "keila",
+"bib": [
+[
+"Garfinkel, Ganor y Hasel (2018). In the Footsteps of King David. Thames & Hudson",
+"Cap. 7: Keila, «a medio día de camino de Khirbet Qeiyafa y de Hebrón»."
+]
+],
+"vuelta": 1
+},
+{
+"n": 9,
+"de": "Keila",
+"a": "Desierto de Zif y Maón",
+"ref": "1 Sam 23:14.24",
+"txt": "David vivía en el desierto, en los refugios, y se quedó en la montaña, en el desierto de Zif… David y sus hombres estaban en el desierto de Maón, en la Arabá, al sur de Jesimón.",
+"arq": "Veinticinco kilómetros al sureste, cruzando la cresta de Hebrón hacia la estepa: Tell Zif y Tell Ma‘in, cada uno con su «desierto» de cuevas y mesetas. Aquí Jonatán lo visita en Hores y los zifeos lo delatan dos veces.",
+"pts": [
+[
+31.6145,
+35.0
+],
+[
+31.58,
+35.06
+],
+[
+31.55,
+35.1
+],
+[
+31.52,
+35.12
+],
+[
+31.4844,
+35.1364
+],
+[
+31.45,
+35.13
+],
+[
+31.4278,
+35.1286
+]
+],
+"site": "maon",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 10: David elude a Saúl en el desierto",
+"Los refugios del desierto: mesetas con laderas empinadas."
+]
+]
+},
+{
+"n": 10,
+"de": "Maón",
+"a": "En-gadi",
+"ref": "1 Sam 23:29; 24:1",
+"txt": "David subió de allí y se quedó en los refugios de En-gadi… Saúl tomó tres mil hombres escogidos y fue a buscar a David por las peñas de las cabras monteses.",
+"arq": "Veinticinco kilómetros de bajada por los wadis del desierto de Judá hasta el oasis del mar Muerto, 400 m bajo el nivel del mar: 1200 m de desnivel en 22 km, el paisaje de los salmos del desierto.",
+"pts": [
+[
+31.4278,
+35.1286
+],
+[
+31.44,
+35.2
+],
+[
+31.45,
+35.28
+],
+[
+31.46,
+35.35
+],
+[
+31.4614,
+35.3892
+]
+],
+"site": "engadi",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 10: David elude a Saúl en el desierto",
+"Caída de 1200 m en 22 km; wadis como cañones individuales."
+]
+]
+},
+{
+"n": 11,
+"de": "En-gadi",
+"a": "Carmel y Parán",
+"ref": "1 Sam 25:1–2",
+"txt": "Murió Samuel… David se levantó y bajó al desierto de Parán. Había en Maón un hombre que tenía su hacienda en Carmel.",
+"arq": "De vuelta a la estepa de Maón y Carmel, donde Nabal trasquila y Abigail sale al encuentro; «Parán» en el texto hebreo, «Maón» en la Septuaginta. Es el territorio que David «protege» a cambio de provisiones.",
+"pts": [
+[
+31.4614,
+35.3892
+],
+[
+31.45,
+35.3
+],
+[
+31.44,
+35.2
+],
+[
+31.4389,
+35.1258
+]
+],
+"site": "carmel",
+"bib": [
+[
+"Hillel, D. (2006). The Natural History of the Bible. Columbia University Press",
+"Cap. 3: el «bandidaje» de la estepa en 1 Sam 25."
+]
+],
+"vuelta": 1
+},
+{
+"n": 12,
+"de": "Carmel",
+"a": "Gat y Siclag",
+"ref": "1 Sam 27:2–6",
+"txt": "David se levantó y pasó con los seiscientos hombres que tenía a Aquis, hijo de Maoc, rey de Gat… Aquel día Aquis le dio Siclag.",
+"arq": "Cincuenta kilómetros a Gat y otros cuarenta al Neguev occidental. Siclag: Tel Sera‘ junto al Besor (tradicional) o Khirbet er-Ra‘i junto a Laquis (propuesta de 2019); la ruta dibujada va a Tel Sera‘.",
+"pts": [
+[
+31.4389,
+35.1258
+],
+[
+31.5,
+35.0
+],
+[
+31.6,
+34.93
+],
+[
+31.7,
+34.847
+],
+[
+31.62,
+34.8
+],
+[
+31.52,
+34.75
+],
+[
+31.45,
+34.71
+],
+[
+31.3936,
+34.6797
+]
+],
+"site": "siclag",
+"bib": [
+[
+"Garfinkel, Ganor y Hasel (2018). In the Footsteps of King David. Thames & Hudson",
+"Cap. 3: Khirbet al-Ra'i frente a Ascalón."
+]
+]
+},
+{
+"n": 13,
+"de": "Siclag",
+"a": "Afec y vuelta",
+"ref": "1 Sam 29:1.11; 30:1",
+"txt": "Los filisteos reunieron todas sus tropas en Afec… David y sus hombres se levantaron de mañana para volver a la tierra de los filisteos… Cuando llegaron a Siclag al tercer día, los amalecitas la habían quemado.",
+"arq": "Más de cien kilómetros por el Camino del Mar hasta Afec (Tel Afek), de donde los jefes filisteos lo devuelven, y tres días de marcha forzada de vuelta: por eso doscientos hombres se quedan agotados en el Besor.",
+"pts": [
+[
+31.3936,
+34.6797
+],
+[
+31.6,
+34.6
+],
+[
+31.8,
+34.7
+],
+[
+32.0,
+34.8
+],
+[
+32.105,
+34.93
+]
+],
+"site": "afec",
+"bib": [
+[
+"Jamieson, Fausset y Brown, Comentario",
+"Nota a 1 Sam 30:9–10: la marcha desde Afec."
+]
+]
+},
+{
+"n": 14,
+"de": "Siclag",
+"a": "Hebrón",
+"ref": "2 Sam 2:1–4",
+"txt": "David consultó a YHWH: «¿Subiré a alguna de las ciudades de Judá?»… «A Hebrón». David subió allá con sus dos mujeres… y los hombres de Judá ungieron allí a David por rey sobre la casa de Judá.",
+"arq": "Cincuenta kilómetros subiendo del Neguev a la montaña de Judá, por Beerseba y el Camino de los Patriarcas. Hebrón, Tell Rumeida, será capital siete años y medio.",
+"pts": [
+[
+31.3936,
+34.6797
+],
+[
+31.42,
+34.8
+],
+[
+31.46,
+34.93
+],
+[
+31.5,
+35.03
+],
+[
+31.5326,
+35.0998
+]
+],
+"site": "hebron",
+"bib": [
+[
+"Garfinkel, Ganor y Hasel (2018). In the Footsteps of King David. Thames & Hudson",
+"Cap. 7: Hebrón, núcleo del reino de Judá."
+]
+]
+},
+{
+"n": 15,
+"de": "Hebrón",
+"a": "Gabaón",
+"ref": "2 Sam 2:12–17",
+"txt": "Joab, hijo de Sarvia, salió con los siervos de David, y se encontraron junto al estanque de Gabaón.",
+"arq": "Treinta y cinco kilómetros por la cresta, pasando Belén y bordeando Jebús, hasta el-Jib: el estanque de roca que excavó Pritchard (1956–1962), con 79 escalones.",
+"pts": [
+[
+31.5326,
+35.0998
+],
+[
+31.62,
+35.13
+],
+[
+31.7054,
+35.2024
+],
+[
+31.78,
+35.2
+],
+[
+31.8478,
+35.1847
+]
+],
+"site": "gabaon",
+"bib": [
+[
+"Pritchard, J. B. (1962). Gibeon, where the sun stood still. Princeton University Press",
+"El estanque y las asas inscritas «gb‘n»."
+]
+]
+},
+{
+"n": 16,
+"de": "Hebrón",
+"a": "Jerusalén",
+"ref": "2 Sam 5:6–9",
+"txt": "El rey y sus hombres fueron a Jerusalén contra los jebuseos… David tomó la fortaleza de Sion, que es la Ciudad de David.",
+"arq": "Treinta kilómetros por el Camino de los Patriarcas: la última subida del pastor de Belén, que pasa junto a su pueblo para tomar la ciudad neutral entre Judá y el norte, sobre la fuente de Guihón.",
+"pts": [
+[
+31.5326,
+35.0998
+],
+[
+31.62,
+35.13
+],
+[
+31.7054,
+35.2024
+],
+[
+31.74,
+35.22
+],
+[
+31.7736,
+35.2353
+]
+],
+"site": "jerusalen",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 11: David conquista la fortaleza de Sión",
+"Cinco razones para elegir Jerusalén."
+],
+[
+"Garfinkel, Ganor y Hasel (2018). In the Footsteps of King David. Thames & Hudson",
+"Cap. 2: Estructura escalonada y Gran Estructura de Piedra."
+]
+]
+},
+{
+"n": 17,
+"de": "Jerusalén",
+"a": "Quiriat-jearim y vuelta con el arca",
+"ref": "2 Sam 6:2–15",
+"txt": "David fue con todo el pueblo desde Baalá de Judá para subir de allí el arca de Dios… David y toda la casa de Israel subían el arca de YHWH con júbilo y sonido de shofar.",
+"arq": "Quince kilómetros al oeste, a Deir el-Azar sobre Abu Gosh, donde el arca llevaba veinte años en casa de Abinadab; la vuelta, con la parada de tres meses en casa de Obed-edom y sacrificios cada seis pasos.",
+"pts": [
+[
+31.7736,
+35.2353
+],
+[
+31.782,
+35.215
+],
+[
+31.79,
+35.18
+],
+[
+31.8,
+35.14
+],
+[
+31.8056,
+35.105
+]
+],
+"site": "quiriat",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 12: David trae el arca a Jerusalén",
+"Itinerario del arca; Obed-edom geteo como levita portero."
+]
+]
+},
+{
+"n": 18,
+"de": "Jerusalén",
+"a": "Mahanaim (huida ante Absalón)",
+"ref": "2 Sam 15:23.30; 17:22.24",
+"txt": "El rey cruzó el torrente Cedrón… David subía la cuesta de los Olivos llorando… cruzaron el Jordán; al amanecer no faltaba ninguno… David llegó a Mahanaim.",
+"arq": "Unos 70 km: Cedrón, Olivos, Bahurim (donde Simei maldice), el desierto de Judá hasta los vados de Jericó, y Galaad hasta el Jaboc. En Mahanaim, Barzilai, Sobi y Maquir abastecen al rey.",
+"pts": [
+[
+31.7736,
+35.2353
+],
+[
+31.7783,
+35.2456
+],
+[
+31.7903,
+35.2583
+],
+[
+31.82,
+35.35
+],
+[
+31.85,
+35.45
+],
+[
+31.87,
+35.56
+],
+[
+31.95,
+35.6
+],
+[
+32.1,
+35.65
+],
+[
+32.2017,
+35.68
+]
+],
+"site": "mahanaim",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 11: David conquista la fortaleza de Sión",
+"Mahanaim, en Galaad, junto al Jaboc."
+]
+]
+},
+{
+"n": 19,
+"de": "Mahanaim",
+"a": "Jerusalén (el regreso)",
+"ref": "2 Sam 19:15–40",
+"txt": "El rey volvió y llegó al Jordán; Judá vino a Gilgal para recibir al rey y hacerle cruzar el Jordán… El rey siguió hasta Gilgal, y Quimam con él.",
+"arq": "El mismo camino a la inversa: Barzilai lo acompaña hasta el Jordán, Simei pide perdón en el vado, Mefiboset sale a su encuentro, y en Gilgal empieza la disputa entre Israel y Judá que encenderá a Seba.",
+"pts": [
+[
+32.2017,
+35.68
+],
+[
+32.1,
+35.65
+],
+[
+31.95,
+35.6
+],
+[
+31.87,
+35.56
+],
+[
+31.85,
+35.45
+],
+[
+31.82,
+35.35
+],
+[
+31.7903,
+35.2583
+],
+[
+31.7736,
+35.2353
+]
+],
+"site": "jerusalen",
+"bib": [
+[
+"MacArthur, J. Biblia de Estudio MacArthur",
+"Nota a 2 Sam 19: el regreso y la grieta entre Israel y Judá."
+]
+],
+"vuelta": 1
+},
+{
+"n": 20,
+"de": "Ciudad de David",
+"a": "Era de Arauna y sepultura",
+"ref": "2 Sam 24:18–25; 1 R 2:10",
+"txt": "Gad vino a David aquel día y le dijo: «Sube y levanta un altar a YHWH en la era de Arauna el jebuseo»… David descansó con sus padres y fue sepultado en la Ciudad de David.",
+"arq": "El último tramo mide unos cientos de metros: de la fortaleza de Sion a la era del jebuseo, en la cima del norte —el futuro monte del Templo—, y de vuelta a la Ciudad de David, donde Nehemías aún conocía «los sepulcros de David».",
+"pts": [
+[
+31.7736,
+35.2353
+],
+[
+31.776,
+35.236
+],
+[
+31.778,
+35.2354
+],
+[
+31.776,
+35.236
+],
+[
+31.7736,
+35.2353
+]
+],
+"site": "moriah",
+"bib": [
+[
+"Curso «Explorando la Tierra Bíblica de Israel», clase 12: David trae el arca a Jerusalén",
+"Monte del Templo = Moriah; la era de Ornán."
+],
+[
+"Kelley, J. L. (2019). The Church of the Holy Sepulchre. Archaeopress",
+"El traslado del nombre Sion a la colina occidental."
+]
+]
+}
+],
+"ciudades_extra": [
+[
+"Belén (Beit Lahm)",
+31.7054,
+35.2024
+],
+[
+"Hebrón (Al-Jalil)",
+31.5326,
+35.0998
+],
+[
+"Jerusalén",
+31.7683,
+35.2137
+],
+[
+"Nablus",
+32.2211,
+35.2544
+],
+[
+"Tel Aviv",
+32.0853,
+34.7818
+],
+[
+"Gaza",
+31.5017,
+34.4668
+],
+[
+"Amán",
+31.9539,
+35.9106
+],
+[
+"Beit Shean",
+32.4969,
+35.4997
+],
+[
+"Ramala",
+31.9038,
+35.2034
+],
+[
+"Ashkelon",
+31.6688,
+34.5743
+],
+[
+"Beerseba",
+31.2518,
+34.7913
+]
+],
+"rutas": [
+{
+"n": "Camino de los Patriarcas",
+"he": "דֶּרֶךְ הָאָבוֹת",
+"nota": "El camino de la cresta de los montes centrales: Siquem, Betel, Gabaa, Jerusalén, Belén, Hebrón y Beerseba. Es el eje de la vida de David: por él sube de Belén a Gabaa, baja a Hebrón y vuelve a Jerusalén.",
+"pts": [
+[
+32.2133,
+35.2819
+],
+[
+31.93,
+35.22
+],
+[
+31.8494,
+35.2306
+],
+[
+31.8235,
+35.2324
+],
+[
+31.7736,
+35.2353
+],
+[
+31.7054,
+35.2024
+],
+[
+31.62,
+35.13
+],
+[
+31.5326,
+35.0998
+],
+[
+31.4,
+35.0
+],
+[
+31.2518,
+34.7913
+]
+]
+},
+{
+"n": "Camino del Mar",
+"he": "דֶּרֶךְ הַיָּם",
+"nota": "La gran ruta internacional entre Egipto y Mesopotamia: costa filistea, Afec, paso de Wadi Ara a Meguido, valle de Jezreel, Bet-seán y Damasco. Por ella subieron los filisteos a Afec y a Sunem antes de Gilboa (1 Sam 29:1; 28:4).",
+"pts": [
+[
+31.5017,
+34.4668
+],
+[
+31.6628,
+34.5467
+],
+[
+31.7558,
+34.6547
+],
+[
+32.05,
+34.76
+],
+[
+32.105,
+34.93
+],
+[
+32.43,
+34.92
+],
+[
+32.585,
+35.18
+],
+[
+32.62,
+35.3
+],
+[
+32.5036,
+35.4997
+],
+[
+32.72,
+35.6
+],
+[
+33.02,
+35.57
+],
+[
+33.25,
+35.65
+],
+[
+33.5138,
+36.2765
+]
+]
+},
+{
+"n": "Carretera del Rey",
+"he": "דֶּרֶךְ הַמֶּלֶךְ",
+"nota": "La ruta del altiplano transjordano: de Damasco por Basán, Galaad (Mahanaim), Rabá de Amón, Moab y Edom hasta el golfo de Aqaba. Las campañas de David contra Amón, Moab y Edom (2 Sam 8; 10) la recorren de norte a sur.",
+"pts": [
+[
+33.5138,
+36.2765
+],
+[
+32.9,
+36.0
+],
+[
+32.55,
+35.9
+],
+[
+32.2017,
+35.68
+],
+[
+31.9545,
+35.9345
+],
+[
+31.5,
+35.78
+],
+[
+31.18,
+35.7
+],
+[
+30.8,
+35.6
+],
+[
+30.3,
+35.5
+],
+[
+29.53,
+35.0
+]
+]
+}
+]
+}

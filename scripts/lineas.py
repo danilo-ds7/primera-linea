@@ -121,11 +121,11 @@ document.getElementById('tlCerrar').addEventListener('click', function(e){{
     # Safari en iPhone cerraba la pestaña («Ocurrió un problema varias veces») al girar: el relieve son
     # imágenes de ~2000 px (~17 MB de memoria gráfica cada una) y el mapa se dibujaba a 3×. En celulares
     # (lado corto ≤ 600 px; el iPad queda con el relieve completo) se usa el relieve a la mitad (relieve/movil/, lo genera este script) y el mapa a 2× como máximo.
-    cambiar(r"url:ATL_BASE\+r\.src\.replace\(/\^([\w-]+)\\//,''\)",
-            r"url:ATL_BASE+(window.PL_MOVIL?r.src.replace(/^\1\/relieve\//,'relieve/movil/'):r.src.replace(/^\1\//,''))", regex=True)
+    cambiar(r"url:(ATL_\w+)\+r\.src\.replace\(/\^([\w-]+)\\//,''\)",
+            r"url:\1+(window.PL_MOVIL?r.src.replace(/^\2\/relieve\//,'relieve/movil/'):r.src.replace(/^\2\//,''))", regex=True)
     cambiar("const map=new maplibregl.Map({container:cont,",
             "const map=new maplibregl.Map({container:cont,pixelRatio:window.PL_MOVIL?Math.min(devicePixelRatio,2):devicePixelRatio,")
-    cambiar("<script>\nconst DATA", "<script>\nwindow.PL_MOVIL=matchMedia('(pointer:coarse)').matches&&Math.min(screen.width,screen.height)<=600;\nconst DATA")
+    cambiar("<script>\nconst DATA", "<script>\nwindow.PL_OP=" + json.dumps({k: v for k, v in (op or {}).items() if k != "nodos"}) + ";\nwindow.PL_MOVIL=matchMedia('(pointer:coarse)').matches&&Math.min(screen.width,screen.height)<=600;\nconst DATA")
 
     # --- optimización del espacio: cada hito cabe entero entre el menú y la banda ------------------
     # En pantallas anchas (> 760 px), cada vez que se muestra un hito se prueban varias distribuciones
@@ -150,6 +150,7 @@ document.getElementById('tlCerrar').addEventListener('click', function(e){{
     poner(lo); return lo;
   }
   function limpiar(s){
+    devolver(s);
     s.style.gridTemplateColumns = ''; s.classList.remove('pl-lado');
     [...s.children].forEach(c => c.style.zoom = '');
     s.querySelectorAll('.vivo').forEach(v => { v.style.height = ''; v.style.minHeight = ''; });
@@ -166,23 +167,41 @@ document.getElementById('tlCerrar').addEventListener('click', function(e){{
   }
   const medirTexto = t => kMax(k => t.style.zoom = k, () => cabe(t), 0.7);
   const REPARTOS = ['1.05fr 1fr', '1.35fr 1fr', '1fr 1.35fr', '1.7fr 1fr', '1fr 1.7fr'];
+  // bloques finales del texto que pueden pasar bajo la imagen (salmo, voces, fuentes, «ver también»…);
+  // nunca la etiqueta, la fecha, el título ni el primer párrafo
+  const movibles = t => [...t.children].slice(4);
+  function devolver(s){ const x = s.querySelector(':scope>.media>.pl-extra'), t = s.querySelector(':scope>.text');
+    if (x){ [...x.children].forEach(n => t.append(n)); x.remove(); } }
   function dosColumnas(s){
     const m = s.querySelector(':scope>.media'), t = s.querySelector(':scope>.text');
-    const probar = r => { limpiar(s); const [a, b] = r.split(' ');
-      s.style.gridTemplateColumns = `minmax(0,${a}) minmax(0,${b})`; return Math.min(medirMedia(m), medirTexto(t)); };
-    let mejor = REPARTOS[0], pm = probar(mejor);
-    if (pm < 1) for (const r of REPARTOS.slice(1)){ const p = probar(r); if (p > pm + 0.02){ pm = p; mejor = r; } if (pm >= 1) break; }
-    probar(mejor);
+    const total = movibles(t).length;
+    const probar = (r, n) => { limpiar(s); devolver(s); const [a, b] = r.split(' ');
+      s.style.gridTemplateColumns = `minmax(0,${a}) minmax(0,${b})`;
+      if (n > 0){ const x = document.createElement('div'); x.className = 'text pl-extra'; movibles(t).slice(-n).forEach(e => x.append(e)); m.append(x); }
+      return Math.min(medirMedia(m), medirTexto(t)); };
+    let mejor = [REPARTOS[0], 0], pm = probar(...mejor);
+    if (pm < 1) for (let n = 0; n <= Math.min(3, total) && pm < 1; n++)
+      for (const r of REPARTOS){ if (n === 0 && r === REPARTOS[0]) continue;
+        const p = probar(r, n); if (p > pm + 0.02){ pm = p; mejor = [r, n]; } if (pm >= 1) break; }
+    probar(...mejor);
   }
   function portada(s){
     const hijos = [...s.children].filter(c => !c.matches('.hero'));
     const probar = lado => { limpiar(s); s.classList.toggle('pl-lado', lado);
       return kMax(k => (lado ? hijos : [...s.children]).forEach(c => c.style.zoom = k), () => cabe(s), 0.62); };
+    if ((window.PL_OP || {}).portada === 'apilada'){ probar(false); return; }   // portada propia de la línea
     const horizontal = s.clientWidth / s.clientHeight > 1.25;
     const pl = probar(true), pa = probar(false);
     probar(horizontal ? pl >= pa - 0.08 : pl > pa + 0.02);
   }
-  function unaColumna(s){ limpiar(s); kMax(k => [...s.children].forEach(c => c.style.zoom = k), () => cabe(s), 0.72); }
+  function unaColumna(s){
+    const min = s.classList.contains('cine') ? 0.6 : 0.72;
+    const probar = ancho => { limpiar(s); if (ancho) s.style.gridTemplateColumns = `minmax(0,${ancho})`;
+      return kMax(k => [...s.children].forEach(c => c.style.zoom = k), () => cabe(s), min); };
+    // columna única: su ancho propio o una más ancha (hasta 1150 px), la que deje la letra más grande
+    const propio = probar(''); if (propio >= 1) return;
+    const ancho = probar('min(1150px,100%)'); if (ancho <= propio + 0.02) probar('');
+  }
   function ajustar(s){
     if (!s) return;
     s.classList.add('pl-midiendo');   // sin la animación de entrada, que desplaza el texto unos píxeles
@@ -195,7 +214,8 @@ document.getElementById('tlCerrar').addEventListener('click', function(e){{
     } finally { s.classList.remove('pl-midiendo'); }
   }
   const actual = () => document.querySelector('.slide.on');
-  let t = null; const pronto = () => { clearTimeout(t); t = setTimeout(() => ajustar(actual()), 60); };
+  let t = null, t2 = null; const pronto = () => { clearTimeout(t); clearTimeout(t2);
+    t = setTimeout(() => ajustar(actual()), 60); t2 = setTimeout(() => ajustar(actual()), 800); };
   const track = document.getElementById('track');
   // solo cuando un hito pasa a ser el activo (no al medir, que también cambia sus clases)
   new MutationObserver(m => { if (m.some(x => x.target.classList && x.target.classList.contains('on') &&
@@ -251,8 +271,10 @@ document.getElementById('tlCerrar').addEventListener('click', function(e){{
 .mk{height:30px} .mk .mn{min-width:24px;height:24px}
 .slide{padding-block:22px 22px;padding-inline:clamp(16px,6vw,96px)}
 .pl-midiendo,.pl-midiendo *{animation:none!important;transition:none!important}
+.slide.cine{overflow-y:auto}
 .tn-canvas{will-change:auto}
 .slide{content-visibility:auto;contain-intrinsic-size:auto 100vw auto 100%}
+.slide.on,.pl-midiendo{content-visibility:visible!important}
 @media (pointer:coarse) and (max-width:1100px){.slide.on .media img{animation:none}}
 /* pantallas anchas: cada columna del hito se limita al alto disponible (el ajuste la encoge si hace falta) */
 @media (min-width:761px){
@@ -262,6 +284,7 @@ document.getElementById('tlCerrar').addEventListener('click', function(e){{
   .slide:has(>.media):not(.viaje)>.media{display:flex;flex-direction:column;overflow:hidden}
   .slide:has(>.media):not(.viaje)>.media>.mslot{flex:0 1 auto;min-height:0;overflow:auto;scrollbar-width:thin}
   .slide:has(>.media):not(.viaje)>.media>figcaption{flex:none}
+  .slide:has(>.media):not(.viaje)>.media>.pl-extra{flex:none;display:grid;gap:12px;margin-top:14px;text-align:left}
   /* pasaje en griego o hebreo: el recuadro ocupa todo el ancho de su columna; el ajuste baja solo la letra */
   .slide:has(>.media):not(.viaje) .escr{width:100%;max-width:none;box-sizing:border-box}
   .escr .gr{font-size:calc(clamp(22px,2.3vw,30px) * var(--pl-f,1))}
