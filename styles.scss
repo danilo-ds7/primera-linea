@@ -1609,20 +1609,20 @@ details.plegable-refs[open] .refs-n { background: var(--surface, #fff); }
 .linea-mini:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .linea-mini .lm-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-family: "Plus Jakarta Sans", system-ui, sans-serif; }
 .linea-mini .lm-eyebrow { font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
-.linea-mini .lm-cta { font-size: .95rem; font-weight: 700; color: var(--accent); white-space: nowrap; }
+.linea-mini .lm-cta { font-size: .95rem; font-weight: 700; color: var(--lm-a, var(--accent)); white-space: nowrap; }
 .linea-mini .lm-cta span { display: inline-block; transition: transform .25s ease; }
 .linea-mini:hover .lm-cta span { transform: translateX(4px); }
 .linea-mini .lm-track { position: relative; display: block; height: 112px; margin-top: 6px; }
 /* la línea: tejélet que se aclara hacia el oro, con punta de flecha */
-.linea-mini .lm-linea { position: absolute; left: 0; right: 10px; top: 52px; height: 3px; border-radius: 3px; background: linear-gradient(90deg, #9db4e6 0%, var(--accent) 55%, #b8862b 100%); transition: filter .4s ease; }
-.linea-mini .lm-linea::after { content: ""; position: absolute; right: -10px; top: -5px; border-left: 11px solid #b8862b; border-top: 6.5px solid transparent; border-bottom: 6.5px solid transparent; }
+.linea-mini .lm-linea { position: absolute; left: 0; right: 10px; top: 52px; height: 3px; border-radius: 3px; background: linear-gradient(90deg, color-mix(in srgb, var(--lm-a, var(--accent)) 45%, white) 0%, var(--lm-a, var(--accent)) 55%, var(--lm-b, #b8862b) 100%); transition: filter .4s ease; }
+.linea-mini .lm-linea::after { content: ""; position: absolute; right: -10px; top: -5px; border-left: 11px solid var(--lm-b, #b8862b); border-top: 6.5px solid transparent; border-bottom: 6.5px solid transparent; }
 .linea-mini:hover .lm-linea { filter: saturate(1.25) brightness(1.05); }
 .linea-mini .lm-nodo { position: absolute; top: 0; width: 0; height: 100%; }
 .linea-mini .lm-he, .linea-mini .lm-es, .linea-mini .lm-y { left: 0; transform: translateX(-50%); }
 .linea-mini .lm-he { position: absolute; top: 18px; font-family: "Noto Serif Hebrew", "SBL Hebrew", serif; font-size: 1.05rem; line-height: 1; color: var(--ink); white-space: nowrap; }
-.linea-mini .lm-pt { position: absolute; top: 46px; width: 15px; height: 15px; margin-left: -7.5px; left: 0; border-radius: 50%; background: #fff; border: 3px solid var(--accent); box-shadow: 0 0 0 4px rgba(35, 80, 184, .1); transition: transform .3s ease; transition-delay: var(--d); }
-.linea-mini .lm-nodo:nth-child(2) .lm-pt { background: var(--accent); }
-.linea-mini .lm-nodo:last-child .lm-pt { background: #b8862b; border-color: #b8862b; box-shadow: 0 0 0 4px rgba(184, 134, 43, .14); }
+.linea-mini .lm-pt { position: absolute; top: 46px; width: 15px; height: 15px; margin-left: -7.5px; left: 0; border-radius: 50%; background: #fff; border: 3px solid var(--lm-a, var(--accent)); box-shadow: 0 0 0 4px color-mix(in srgb, var(--lm-a, var(--accent)) 12%, transparent); transition: transform .3s ease; transition-delay: var(--d); }
+.linea-mini .lm-nodo:nth-child(2) .lm-pt { background: var(--lm-a, var(--accent)); }
+.linea-mini .lm-nodo:last-child .lm-pt { background: var(--lm-b, #b8862b); border-color: var(--lm-b, #b8862b); box-shadow: 0 0 0 4px color-mix(in srgb, var(--lm-b, #b8862b) 16%, transparent); }
 .linea-mini:hover .lm-pt { transform: scale(1.18); }
 .linea-mini .lm-es { position: absolute; top: 70px; font: 700 .82rem/1.1 "Plus Jakarta Sans", system-ui, sans-serif; color: var(--ink); white-space: nowrap; }
 .linea-mini .lm-y { position: absolute; top: 88px; font: 500 .7rem/1.1 "Plus Jakarta Sans", system-ui, sans-serif; color: var(--muted); white-space: nowrap; }

@@ -910,7 +910,8 @@
 "MacArthur, J. Biblia de Estudio MacArthur, nota a Gn 11:31",
 "Harán era la mejor ruta para bajar a Canaán sin cruzar el desierto."
 ]
-]
+],
+"hito": 7
 },
 {
 "n": 2,
@@ -1017,7 +1018,8 @@
 33.51,
 36.28
 ]
-]
+],
+"hito": 11
 },
 {
 "n": 3,
@@ -1046,7 +1048,8 @@
 "Curso «Explorando la Tierra Bíblica de Israel», clase 2: Abraham y Jacob, los patriarcas nómadas",
 "Por el «Camino de los Patriarcas» (Derej HaAvot), sobre la cresta de los montes centrales."
 ]
-]
+],
+"hito": 13
 },
 {
 "n": 4,
@@ -1083,7 +1086,8 @@
 "Curso «Explorando la Tierra Bíblica de Israel», clase 2: Abraham y Jacob, los patriarcas nómadas",
 "El mismo camino de cresta continúa hacia Salem, Hebrón y Beerseba."
 ]
-]
+],
+"hito": 14
 },
 {
 "n": 5,
@@ -1136,7 +1140,8 @@
 "Curso «Explorando la Tierra Bíblica de Israel», clase 2: Abraham y Jacob, los patriarcas nómadas",
 "La ruta internacional costera era el Camino del Mar (Derej ha-Yam)."
 ]
-]
+],
+"hito": 14
 },
 {
 "n": 6,
@@ -1192,7 +1197,8 @@
 ]
 ],
 "site": "betel",
-"vuelta": 1
+"vuelta": 1,
+"hito": 16
 },
 {
 "n": 7,
@@ -1221,7 +1227,8 @@
 "MacArthur, J. Biblia de Estudio MacArthur, nota a Gn 13:18",
 "Hebrón está a más de 1000 m de altura, unos 30 km al suroeste de Jerusalén."
 ]
-]
+],
+"hito": 19
 },
 {
 "n": 8,
@@ -1274,7 +1281,8 @@
 "Curso «Explorando la Tierra Bíblica de Israel», clase 2: Abraham y Jacob, los patriarcas nómadas",
 "El Camino del Mar subía por el valle del Jordán, Hazor y Dan hasta Damasco."
 ]
-]
+],
+"hito": 20
 },
 {
 "n": 9,
@@ -1315,7 +1323,8 @@
 "Curso «Explorando la Tierra Bíblica de Israel»: Jerusalén y su presencia abrahámica",
 "Melquisedec, rey de Salem y sacerdote del Dios Altísimo, es la primera presencia de Abraham en Jerusalén."
 ]
-]
+],
+"hito": 21
 },
 {
 "n": 10,
@@ -1339,7 +1348,8 @@
 ]
 ],
 "site": "mamre",
-"vuelta": 1
+"vuelta": 1,
+"hito": 26
 },
 {
 "n": 11,
@@ -1362,7 +1372,8 @@
 34.6067
 ]
 ],
-"site": "gerar"
+"site": "gerar",
+"hito": 29
 },
 {
 "n": 12,
@@ -1385,7 +1396,8 @@
 34.8408
 ]
 ],
-"site": "beerseba"
+"site": "beerseba",
+"hito": 32
 },
 {
 "n": 13,
@@ -1422,7 +1434,8 @@
 "Hoffmeier, J. K. (2008). Arqueología de la Biblia. San Pablo",
 "Las caravanas de Mari recorrían unos 35 km al día; los 80 km de Beerseba a Jerusalén encajan con «al tercer día» (Gn 22:4)."
 ]
-]
+],
+"hito": 34
 },
 {
 "n": 14,
@@ -1454,7 +1467,8 @@
 ]
 ],
 "site": "beerseba",
-"vuelta": 1
+"vuelta": 1,
+"hito": 36
 },
 {
 "n": 15,
@@ -1487,7 +1501,8 @@
 "MacArthur, J. Biblia de Estudio MacArthur, nota a Gn 23:19",
 "La única propiedad de Abraham en la tierra prometida fue una tumba en Hebrón."
 ]
-]
+],
+"hito": 43
 }
 ],
 "ciudades_extra": [

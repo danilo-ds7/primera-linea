@@ -27,6 +27,19 @@ def datos(html: str) -> dict:
     return json.loads(re.search(r"^const DATA = (\{.*?\});\s*$", html, re.M | re.S).group(1))
 
 
+def opciones(origen: Path, slug: str) -> dict:
+    """Ajustes propios de cada línea, en estudios/lineas/<slug>-mini.json (nodos, emociones…)."""
+    f = origen / f"{slug}-mini.json"
+    return json.loads(f.read_text(encoding="utf-8")) if f.exists() else {}
+
+
+def colores(html: str) -> tuple:
+    """Acento y oro del tema claro de la línea: la línea pequeña lleva los colores de cada línea."""
+    m = re.search(r"\n:root\{([^}]*)\}", html)
+    v = dict(re.findall(r"--([\w-]+):\s*([^;]+);", m.group(1))) if m else {}
+    return v.get("accent", "#2350b8").strip(), v.get("gold", "#b8862b").strip()
+
+
 def mini(html: str, slug: str, nodos_json: Path) -> str:
     """Línea pequeña: una sola línea con pocos nodos (lugares clave); toda ella abre la línea completa."""
     data = datos(html)
@@ -48,7 +61,7 @@ def mini(html: str, slug: str, nodos_json: Path) -> str:
                    f'<span class="lm-y">{y}</span></span>')
     return f"""```{{=html}}
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Hebrew:wght@400;600&display=swap">
-<a class="linea-mini" href="{slug}-linea.html" target="_blank" rel="noopener" aria-label="Abrir la línea de tiempo interactiva en una pestaña nueva">
+<a class="linea-mini" style="--lm-a:{colores(html)[0]};--lm-b:{colores(html)[1]}" href="{slug}-linea.html" target="_blank" rel="noopener" aria-label="Abrir la línea de tiempo interactiva en una pestaña nueva">
 <span class="lm-head"><span class="lm-eyebrow">Línea de tiempo · {n} hitos</span><span class="lm-cta">Abrir <span aria-hidden="true">↗</span></span></span>
 <span class="lm-track"><span class="lm-linea"></span>{"".join(pts)}</span>
 </a>
@@ -56,7 +69,22 @@ def mini(html: str, slug: str, nodos_json: Path) -> str:
 """
 
 
-def pagina(html: str, slug: str) -> str:
+# Línea de emociones (para las líneas que la activan con "emociones": true): curva de 40 px cuya altura es
+# la intensidad del hito (2–5) y cuyos tramos toman el color del tono (asombro, esperanza, tensión, crisis,
+# renovación, reflexión), con un relleno suave debajo para ver cómo sube y baja la historia.
+ARCO_EMOCIONES = r"""if(true){ // línea de emociones
+    const H=40, yv=e=>H-4-(Math.max(1,Math.min(5,e.int))-1)*8.5;
+    const a=sv('svg',{class:'arc emo',width:W,height:H}), pts=events.map(e=>[X(e.y),yv(e)]);
+    const curva=(k)=>{ const [x0,y0]=pts[k-1],[x1,y1]=pts[k], mx=(x0+x1)/2; return ` C${mx},${y0} ${mx},${y1} ${x1},${y1}`; };
+    let d=`M${pts[0][0]},${pts[0][1]}`; for(let k=1;k<pts.length;k++) d+=curva(k);
+    a.append(sv('path',{class:'emo-area',d:d+` L${pts[pts.length-1][0]},${H} L${pts[0][0]},${H} Z`}));
+    for(let k=1;k<pts.length;k++){ const t=sv('path',{class:'emo-tramo',d:`M${pts[k-1][0]},${pts[k-1][1]}`+curva(k)}); t.style.stroke=tones[events[k].tono].color; a.append(t); }
+    events.forEach((e,k)=>{ const c=sv('circle',{cx:pts[k][0],cy:pts[k][1],r:3.8}); c.style.fill=tones[e.tono].color;
+      c.append(sv('title',{},`${k+1}. ${e.title} · ${tones[e.tono].name} · intensidad ${e.int}`)); a.append(c); });
+    canvas.append(a); }"""
+
+
+def pagina(html: str, slug: str, op: dict = None) -> str:
     """La línea completa como página propia: tema de día, botón «Cerrar» y menú que cabe en el celular."""
     def cambiar(viejo, nuevo, regex=False):
         nonlocal html
@@ -201,7 +229,12 @@ document.getElementById('tlCerrar').addEventListener('click', function(e){{
             " MAXZ=Math.max(5,Math.floor(Math.log(lim/Math.max(200,view.clientWidth-80))/Math.log(1.6)));"
             " if(zoom>MAXZ) zoom=MAXZ; }")
     cambiar("ROWH=44", "ROWH=38")
-    cambiar("ARC=22", "ARC=-2")
+    emociones = bool((op or {}).get("emociones"))
+    if emociones:   # línea de emociones: la curva del tono y la intensidad de cada hito, sobre la banda
+        cambiar(r"if\(false\)\{ // arco emocional.*?canvas\.append\(a\); \}", ARCO_EMOCIONES, regex=True)
+        cambiar("ARC=22", "ARC=40")
+    else:
+        cambiar("ARC=22", "ARC=-2")
     cambiar("const axisY=h-50,", "const axisY=h-30,")
     html = html.replace("(top+38)", "(top+34)").replace("bandTop-top-38", "bandTop-top-34")
     cambiar("axisY+17", "axisY+13")
@@ -265,8 +298,19 @@ document.getElementById('tlCerrar').addEventListener('click', function(e){{
   .topbar button,.topbar .volver{min-width:0;min-height:30px;padding:6px 8px;display:inline-grid;place-items:center}
 }
 </style>""")
+    if emociones:
+        cambiar("</style>", """/* línea de emociones (solo en las líneas que la activan) */
+.tn{height:200px}
+.arc.emo{top:2px}
+.arc.emo .emo-area{fill:color-mix(in srgb,var(--accent) 9%,transparent);stroke:none}
+.arc.emo .emo-tramo{fill:none;stroke-width:2.4;stroke-linecap:round;opacity:.9}
+.arc.emo circle{stroke:var(--nav);stroke-width:1.5;pointer-events:auto}
+.tn::after{content:"emociones";position:absolute;left:52px;top:3px;z-index:3;pointer-events:none;
+  font:700 9.5px var(--f-ui);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);opacity:.85;
+  background:color-mix(in srgb,var(--nav) 85%,transparent);padding:0 4px;border-radius:3px}
+@media (max-height:500px){.tn{height:160px}}
+</style>""")
     return html
-
 
 
 def relieve_movil(carpeta: Path):
@@ -295,7 +339,7 @@ if __name__ == "__main__":
         slug = src.stem
         html = src.read_text(encoding="utf-8")
         (destino / f"_{slug}.html").write_text(mini(html, slug, origen / f"{slug}-mini.json"), encoding="utf-8")
-        (destino / f"{slug}-linea.html").write_text(pagina(html, slug), encoding="utf-8")
+        (destino / f"{slug}-linea.html").write_text(pagina(html, slug, opciones(origen, slug)), encoding="utf-8")
         print(f"lineas/{slug}-linea.html · lineas/_{slug}.html")
         for sub in RECURSOS:   # figuras TikZ, fuentes, atlas (MapLibre, relieve, capas)
             d = origen / slug / sub

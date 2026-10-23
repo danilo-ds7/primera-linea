@@ -38,3 +38,5 @@ lineas/_*.html
 lineas/*-linea.html
 lineas/*/
 /.cache/
+
+__pycache__/

@@ -83,7 +83,7 @@ function tramoHTML(t){ const T=ATL.data.tramos, d=kmTramo(t);
     <blockquote class="pp-q"><cite>${esc(t.ref)}</cite>${esc(t.txt)}</blockquote><div class="pp-sub">Camino y arqueología</div><p>${esc(t.arq)}</p>
     ${(t.bib||[]).length?`<div class="pp-sub">Biblioteca de Primera Línea</div>${t.bib.map(([f,x])=>`<p>${esc(x)}</p><p class="pp-cit">— ${esc(f)}</p>`).join('')}`:''}
     <div class="pp-gmbar">${gmBtn(GM.dir(t.pts[0],t.pts[t.pts.length-1]),'Recorrer hoy en Google Maps (a pie)','principal')}</div>
-    <div class="pp-f"><button type="button" data-tr="${t.n-1}" ${t.n>1?'':'disabled'}>← Tramo ${t.n-1||''}</button><button type="button" data-lug="${esc(t.site)}">${esc(t.a)}</button><button type="button" data-tr="${t.n+1}" ${t.n<T.length?'':'disabled'}>Tramo ${t.n<T.length?t.n+1:''} →</button></div></div>`; }
+    <div class="pp-f"><button type="button" data-tr="${t.n-1}" ${t.n>1?'':'disabled'}>← Estación ${t.n-1||''}</button><button type="button" data-lug="${esc(t.site)}">${esc(t.a)}</button>${t.hito?`<button type="button" data-goto="${t.hito}">Leer el hito ${t.hito}</button>`:''}<button type="button" data-tr="${t.n+1}" ${t.n<T.length?'':'disabled'}>Estación ${t.n<T.length?t.n+1:''} →</button></div></div>`; }
 function cablear(root){ root.querySelectorAll('.pp-tabs button').forEach(b=>b.onclick=()=>{ const pp=b.closest('.pp'); pp.querySelectorAll('.pp-tabs button').forEach(x=>x.setAttribute('aria-selected',x===b)); pp.querySelectorAll('.pp-p').forEach(p=>p.hidden=p.dataset.p!==b.dataset.t); if(root.closest('.maplibregl-popup')) ajustarPopup(); });
   root.querySelectorAll('[data-ficha]').forEach(b=>b.onclick=()=>abrirLugar(b.dataset.ficha,b));
   root.querySelectorAll('[data-goto]').forEach(b=>b.onclick=()=>{ atlasCerrar(); closeDrawer(); go(+b.dataset.goto); });
@@ -125,6 +125,9 @@ function atlasCrear(){ if(ATL.map) return ATL.map;
   ATL.btnFull=mkb(ICO.full,'Abrir el atlas completo',()=>ATL.full?atlasCerrar():atlasAbrir());
   const leyenda=el('div',{class:'atl-ley'}); leyenda.innerHTML='<span><i class="lg-b"></i>Lugar bíblico</span><span><i class="lg-a"></i>Arqueología</span><span><i class="lg-h"></i>Hoy</span><span><i class="lg-r"></i>Camino</span><span><i class="lg-v"></i>Ruta antigua</span>';
   const cred=el('div',{class:'atl-cred'}); ATL.cred=cred;
+  const paso=el('div',{class:'atl-paso',hidden:''}); paso.innerHTML=`<button type="button" data-p="-1" aria-label="Estación anterior">${ICO.volver}</button><span>Estación <b>— / —</b></span><button type="button" data-p="1" aria-label="Estación siguiente"><svg viewBox="0 0 24 24"><path d="M10 6l6 6-6 6"/></svg></button><button type="button" class="atl-play" aria-pressed="false">${ICO.play}</button>`;
+  paso.querySelectorAll('[data-p]').forEach(b=>b.onclick=()=>{ atlasPlay(false); const T=ATL.data.tramos, n=Math.max(1,Math.min(T.length,(ATL.tramo||0)+(+b.dataset.p))); atlasTramo(n); });
+  paso.querySelector('.atl-play').onclick=()=>atlasPlay(!ATL.play); ATL.paso=paso; host.append(paso);
   host.append(cont,bar,tools,leyenda,cred); ATL.host=host;
   const st={version:8,sources:{
       sat:{type:'raster',tiles:['https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless-2021_3857/default/g/{z}/{y}/{x}.jpg'],tileSize:256,maxzoom:15},
@@ -230,6 +233,8 @@ function atlasMarcadores(){ const m=ATL.map, C=ATL.capas, ev=ATL.ev||{}; ATL.mk.
       n.insertAdjacentHTML('beforeend',`<span class="atl-lab">${esc(L.n)}</span>`); n.onclick=e=>{ e.stopPropagation(); atlasPopLugar(L.site||L.id); }; add(L.ll,n,0); }); }
   (ev.stations||[]).length&&C.relato&&!verTodo&&(()=>{ const grp={}; ev.stations.forEach(([nn,key,ring,ov])=>{ const ll=ov||sites[key].slice(0,2), k=ll.map(v=>v.toFixed(2)).join(); (grp[k]=grp[k]||{ll,key,l:[]}).l.push([nn,ring]); });
     Object.values(grp).forEach(g=>{ const n=el('button',{type:'button',class:'atl-est','aria-label':`Estaciones ${g.l.map(x=>x[0]).join(', ')}: ${sites[g.key][2]}`}); n.innerHTML=g.l.map(([nn,r])=>`<i class="${r?'ring':''}">${nn}</i>`).join(''); n.onclick=e=>{ e.stopPropagation(); atlasPopLugar(g.key); }; add(g.ll,n,0).classList.add('est'); }); })();
+  if(C.relato&&verTodo){ ATL.data.tramos.forEach(t=>{ const L=datosLugar(t.site); if(!L) return; const n=el('button',{type:'button',class:'atl-est camino'+(ATL.tramo===t.n?' activa':''),'data-n':t.n,'aria-label':`Estación ${t.n}: ${t.a}`}); n.innerHTML=`<i>${t.n}</i>`;
+      n.onclick=e=>{ e.stopPropagation(); atlasPlay(false); atlasTramo(t.n); }; const k=new maplibregl.Marker({element:n,anchor:'bottom-right',offset:[-6,-4]}).setLngLat(lonlat(L.ll)).addTo(m); n.dataset.minz=0; ATL.mk.push(k); }); }
   if(C.arq) ATL.data.lugares.filter(l=>l.k==='arqueo').forEach(L=>{ const n=el('button',{type:'button',class:'atl-pin k-arqueo','aria-label':`${L.n}: hallazgo arqueológico`}); n.innerHTML=`<span class="atl-dot"></span><span class="atl-lab">${esc(L.n)}</span>`; n.onclick=e=>{ e.stopPropagation(); atlasPopLugar(L.id,'arq'); }; add(L.ll,n,verTodo?4.6:0); });
   if(C.hoy){ ATL.data.lugares.filter(l=>l.k==='hoy').forEach(L=>{ const n=el('button',{type:'button',class:'atl-pin k-hoy'}); n.innerHTML=`<span class="atl-dot"></span><span class="atl-lab">${esc(L.n)}</span>`; n.onclick=e=>{ e.stopPropagation(); atlasPopLugar(L.id,'hoy'); }; add(L.ll,n,0); });
     ATL.base.paises.forEach(p=>{ const n=el('div',{class:'atl-pais'}); n.textContent=p.n; const k=new maplibregl.Marker({element:n,anchor:'center'}).setLngLat(p.c).addTo(m); n.dataset.minz=0; n.dataset.maxz=8.5; ATL.mk.push(k); });
@@ -264,13 +269,17 @@ function atlasPopLugar(key,tab){ const L=datosLugar(key); if(!L) return; if(ATL.
   ATL.popup=new maplibregl.Popup(popupOpts(lonlat(L.ll),{maxWidth:'360px',focusAfterOpen:true})).setLngLat(lonlat(L.ll)).setHTML(fichaHTML(L,tab)).addTo(ATL.map);
   cablear(ATL.popup.getElement()); ajustarPopup(); }
 function atlasTramo(n,at){ const T=ATL.data.tramos, t=T[n-1]; if(!t) return; const m=ATL.map;
+  if(ATL.full&&t.hito&&cur!==t.hito) irSinSalir(t.hito);
+  ATL.host.querySelectorAll('.atl-est.camino').forEach(x=>x.classList.toggle('activa',+x.dataset.n===n));
+  ATL.host.querySelectorAll('.atl-paso b').forEach(b=>b.textContent=`${n} / ${T.length}`);
   if(ATL.tramo) m.setFeatureState({source:'ruta',id:ATL.tramo},{sel:false}); ATL.tramo=n; m.setFeatureState({source:'ruta',id:n},{sel:true});
   const b=new maplibregl.LngLatBounds(); t.pts.forEach(p=>b.extend(lonlat(p)));
-  const pad=ATL.host.clientWidth<560?{top:60,bottom:30,left:30,right:30}:{top:70,bottom:60,left:60,right:ATL.full?420:60};
+  const pad=ATL.host.clientWidth<560?{top:60,bottom:30,left:30,right:30}:{top:70,bottom:90,left:60,right:60};
   m.fitBounds(b,{padding:pad,maxZoom:t.pts.length<5?9.6:8.4,duration:matchMedia('(prefers-reduced-motion: reduce)').matches?0:1400});
   if(ATL.popup) ATL.popup.remove(); const mid=t.pts[Math.floor(t.pts.length/2)];
   if(ATL.host.clientWidth<560){ openDrawer(tramoHTML(t),'c7'); cablear($('#dbody')); document.querySelectorAll('.tramos button').forEach(x=>x.setAttribute('aria-current',+x.dataset.n===n)); return; }
-  m.once('moveend',()=>{ if(ATL.tramo!==n) return; const ll=at||lonlat(mid); ATL.popup=new maplibregl.Popup(popupOpts(ll,{maxWidth:'380px',focusAfterOpen:false})).setLngLat(ll).setHTML(tramoHTML(t)).addTo(m); cablear(ATL.popup.getElement()); ajustarPopup(); });
+  if(ATL.full){ const F=$('#atlasFull').querySelector('.af-ficha'); F.innerHTML=tramoHTML(t); F.hidden=false; cablear(F); F.scrollIntoView({block:'start',behavior:'smooth'}); }
+  else m.once('moveend',()=>{ if(ATL.tramo!==n) return; const ll=at||lonlat(mid); ATL.popup=new maplibregl.Popup(popupOpts(ll,{maxWidth:'380px',focusAfterOpen:false})).setLngLat(ll).setHTML(tramoHTML(t)).addTo(m); cablear(ATL.popup.getElement()); ajustarPopup(); });
   document.querySelectorAll('.tramos button').forEach(x=>x.setAttribute('aria-current',+x.dataset.n===n)); }
 function atlasLugar(key){ atlasAbrir(); const L=datosLugar(key); if(!L) return; const go_=()=>{ ATL.map.flyTo({center:lonlat(L.ll),zoom:Math.max(ATL.map.getZoom(),8.6),duration:1300}); atlasPopLugar(key); };
   ATL.listo?go_():ATL.map.once('load',go_); }
@@ -295,12 +304,13 @@ function mVivo(m,label){ const w=el('div',{class:'vivo'+(m.viaje?' viaje':'')});
   return w; }
 
 /* atlas completo a pantalla completa, con la lista de tramos */
-function atlasAbrir(tab){ if(ATL.full){ if(tab&&ATL.panel) ATL.panel.show(tab); return; } atlasCargar().then(()=>{ const map=atlasCrear(); ATL.full=true;
+function atlasRecorrido(){ atlasAbrir('camino'); const f=()=>{ ATL.paso.hidden=false; atlasTramo(ATL.tramo||1); }; ATL.listo?setTimeout(f,350):atlasCargar().then(()=>{ atlasCrear(); ATL.map.once('load',()=>setTimeout(f,400)); }); }
+function atlasAbrir(tab){ if(ATL.full){ if(tab&&ATL.panel) ATL.panel.show(tab); return; } atlasCargar().then(()=>{ const map=atlasCrear(); ATL.full=true; if(ATL.paso) ATL.paso.hidden=false;
     if(!ATL.panel){ ATL.panel=panelAtlas(); $('#atlasFull').querySelector('.af-lista').append(ATL.panel); }
     const ov=$('#atlasFull'); ov.hidden=false; ov.querySelector('.af-map').append(ATL.host); ATL.btnFull.innerHTML=ICO.cerrar; ATL.btnFull.setAttribute('aria-label','Cerrar el atlas'); ATL.btnFull.title='Cerrar el atlas';
     const prev=ATL.ev; ATL.ev={bbox:[29.4,37.6,30.8,47.2],viaje:1}; ATL.evPrev=prev; requestAnimationFrame(()=>{ map.resize(); atlasVista(ATL.ev,false); ATL.panel.show(tab||'camino'); }); ov.querySelector('.af-cerrar').focus(); })
   .catch(()=>{}); }
-function atlasCerrar(){ if(!ATL.full) return; ATL.full=false; atlasPlay(false); $('#atlasFull').hidden=true; ATL.btnFull.innerHTML=ICO.full; ATL.btnFull.setAttribute('aria-label','Abrir el atlas completo'); ATL.btnFull.title='Abrir el atlas completo';
+function atlasCerrar(){ if(!ATL.full) return; ATL.full=false; atlasPlay(false); if(ATL.paso) ATL.paso.hidden=true; $('#atlasFull').hidden=true; ATL.btnFull.innerHTML=ICO.full; ATL.btnFull.setAttribute('aria-label','Abrir el atlas completo'); ATL.btnFull.title='Abrir el atlas completo';
   if(ATL.popup){ ATL.popup.remove(); ATL.popup=null; } ATL.ev=ATL.evPrev||null; renderMedia(cur); }
 /* panel del atlas: pestañas Camino · Arqueología · Hoy · Rutas */
 function panelAtlas(){ const D=ATL.data, w=el('div',{class:'af-tabs-w'});
@@ -312,7 +322,7 @@ function panelAtlas(){ const D=ATL.data, w=el('div',{class:'af-tabs-w'});
       const ga=el('a',{class:'af-gm',href:GM.lugar(L),target:'_blank',rel:'noopener',title:'Visitar hoy en Google Maps'}); ga.innerHTML=`${ico('gmaps')} Google Maps`; s.append(c,sb,ga); return s; }); },
     rutas:()=>{ ATL.capas.rutas=true; atlasCapas(); return ATL.rutasL.map(r=>{ const b=el('button',{type:'button',class:'af-card k-ruta'}); b.innerHTML=`<b>${esc(r.n)}</b>${r.he?`<small lang="he" dir="rtl">${esc(r.he)}</small>`:''}<span>${esc(r.nota)}</span>`;
       b.onclick=()=>{ const bb=new maplibregl.LngLatBounds(); r.pts.forEach(p=>bb.extend(lonlat(p))); ATL.map.fitBounds(bb,{padding:{top:60,bottom:60,left:60,right:60},duration:1200}); }; return b; }); }};
-  const show=k=>{ if(ATL.popup){ ATL.popup.remove(); ATL.popup=null; } atlasPlay(false); bar.querySelectorAll('button').forEach(b=>b.setAttribute('aria-selected',b.dataset.t===k)); cuerpo.replaceChildren(...pan[k]()); cuerpo.scrollTop=0; };
+  const show=k=>{ if(ATL.popup){ ATL.popup.remove(); ATL.popup=null; } atlasPlay(false); const F=$('#atlasFull').querySelector('.af-ficha'); if(F&&k!=='camino'){ F.hidden=true; } bar.querySelectorAll('button').forEach(b=>b.setAttribute('aria-selected',b.dataset.t===k)); cuerpo.replaceChildren(...pan[k]()); cuerpo.scrollTop=0; };
   tabs.forEach(([k,t])=>{ const b=el('button',{type:'button',role:'tab','data-t':k}); b.textContent=t; b.onclick=()=>show(k); bar.append(b); });
   w.append(bar,cuerpo); w.show=show; return w; }
 function listaTramos(){ const T=ATL.data?ATL.data.tramos:[]; const ol=el('ol',{class:'tramos'});
@@ -321,5 +331,6 @@ function listaTramos(){ const T=ATL.data?ATL.data.tramos:[]; const ol=el('ol',{c
   const tot_=el('p',{class:'tramos-tot'}); tot_.innerHTML=`<b>≈ ${fmtKm(tot)} km</b> en ${T.length} tramos, a pie, en unos cien años de vida en camino.`;
   return [ol,tot_]; }
 function atlasPlay(on){ clearInterval(ATL.play); ATL.play=0; document.querySelectorAll('.af-play,.vj-play').forEach(b=>{ b.innerHTML=on?`${ico('pausa')} Pausa`:`${ico('play')} Recorrer el camino`; b.setAttribute('aria-pressed',!!on); });
+  document.querySelectorAll('.atl-play').forEach(b=>{ b.innerHTML=on?ICO.pausa:ICO.play; b.setAttribute('aria-pressed',!!on); });
   if(!on) return; let n=ATL.tramo&&ATL.tramo<ATL.data.tramos.length?ATL.tramo+1:1; atlasTramo(n);
   ATL.play=setInterval(()=>{ n++; if(n>ATL.data.tramos.length){ atlasPlay(false); return; } atlasTramo(n); },6500); }
