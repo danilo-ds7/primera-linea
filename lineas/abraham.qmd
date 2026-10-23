@@ -13,6 +13,6 @@ body-classes: serie-atributos linea-tiempo
 
 {{< include _abraham.html >}}
 
-<p class="linea-nota">Toca la línea para abrirla. Dentro, avanza con las flechas o el teclado (← →), acerca las fechas con las lupas o con <kbd>+</kbd>/<kbd>−</kbd>, toca un lugar o un tramo del camino en los mapas para leer el pasaje, la arqueología y qué hay allí hoy, y abre el <b>Atlas</b> para ver el recorrido completo de Ur a Macpela. El botón <b>⛶ Pantalla completa</b> (o la tecla <kbd>F</kbd>) agranda la línea en esta misma página; <b>✕ Cerrar</b> (o <kbd>Esc</kbd>) vuelve a esta presentación. Las fechas siguen la cronología bíblica «temprana» y son aproximadas.</p>
+<p class="linea-nota">Toca la línea para abrirla en una pestaña nueva, a pantalla completa. Dentro, avanza con las flechas o el teclado (← →), acerca las fechas con las lupas o con <kbd>+</kbd>/<kbd>−</kbd>, toca un lugar o un tramo del camino en los mapas para leer el pasaje, la arqueología y qué hay allí hoy, y abre el <b>Atlas</b> para ver el recorrido completo de Ur a Macpela. El botón <b>⛶ Pantalla completa</b> (o la tecla <kbd>F</kbd>) la lleva a toda la pantalla; <b>✕ Cerrar</b> cierra la pestaña y vuelve a esta presentación. Las fechas siguen la cronología bíblica «temprana» y son aproximadas.</p>
 
 [← Volver a las líneas de tiempo](../lineas.qmd)

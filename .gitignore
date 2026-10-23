@@ -35,5 +35,6 @@
 
 # líneas de tiempo integradas (las genera scripts/lineas.py)
 lineas/_*.html
+lineas/*-linea.html
 lineas/*/
 /.cache/

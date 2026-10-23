@@ -18,6 +18,7 @@ project:
     - "israel/img/**"
     - "predicaciones/pdf/**"
     - "predicaciones/audio/**"
+    - "lineas/*-linea.html"
     - "lineas/*/img/**"
     - "lineas/*/fonts/**"
     - "lineas/*/mapa/**"

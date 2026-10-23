@@ -246,11 +246,11 @@ Un análisis de los escritos de Pablo, en especial de aquellos pasajes «difíci
 
 [De Ur a Macpela en 48 hitos, con un atlas interactivo de relieve real: cada lugar y cada tramo del camino abre el pasaje bíblico, los hallazgos arqueológicos y lo que hay allí hoy.]{.d}
 
-[[Ver la línea de tiempo](lineas/abraham.qmd#linea){.btn .primary} [Todas las líneas de tiempo](lineas.qmd){.btn .ghost}]{.cta .cta-bf}
+[[Ver la línea de tiempo](lineas/abraham.qmd){.btn .primary} [Todas las líneas de tiempo](lineas.qmd){.btn .ghost}]{.cta .cta-bf}
 </div>
 
 ```{=html}
-<a class="window-link" href="lineas/abraham.html#linea" aria-label="Abrir la línea de tiempo de Abraham">
+<a class="window-link" href="lineas/abraham-linea.html" target="_blank" rel="noopener" aria-label="Abrir la línea de tiempo de Abraham en una pestaña nueva">
 <img class="lt-preview" src="lineas/abraham/img/portada.svg" alt="Abraham y sus cuatro altares, en hebreo: Ur, Siquem, Betel, Hebrón y Moriah" loading="lazy" style="aspect-ratio:2.857">
 </a>
 ```
