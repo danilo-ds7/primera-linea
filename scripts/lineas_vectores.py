@@ -14,7 +14,9 @@ from shapely.geometry import shape, box, mapping, LineString
 NE = Path(sys.argv[1]); SLUG = sys.argv[2] if len(sys.argv) > 2 else "abraham"
 OUT = Path(__file__).resolve().parent.parent / "estudios" / "lineas" / SLUG / "mapa"
 OUT.mkdir(parents=True, exist_ok=True)
-CAJA = box(26, 25.5, 52.5, 41.5)
+# región por línea: Abraham y Moisés (Mesopotamia, Levante, Egipto); Pablo (el Mediterráneo, de Roma a Judea)
+MEDITERRANEO = SLUG in ("pablo",)
+CAJA = box(8.5, 29.5, 41.5, 46.5) if MEDITERRANEO else box(26, 25.5, 52.5, 41.5)
 
 def rnd(o, nd=4):
     if isinstance(o, float): return round(o, nd)
@@ -36,7 +38,9 @@ def capa(nombre, filtro=lambda p: True, tol=.0015, props=lambda p: {}):
     return {"type": "FeatureCollection", "features": feats}
 
 MODERNOS = {"Suez Canal", "Ismailiya Canal", "Gharraf Canal", "Hindiyah Channel"}
-NOMBRES = {"Euphrates": "Éufrates", "Al Furat": "Éufrates", "Firat": "Éufrates", "Tigris": "Tigris", "Dicle": "Tigris",
+NOMBRES = {"Tiber": "Tíber", "Tevere": "Tíber", "Po": "Po", "Danube": "Danubio", "Vardar": "Vardar (Axios)", "Axios": "Axios", "Strymon": "Estrimón", "Struma": "Estrimón", "Maritsa": "Maritsa (Hebro)",
+           "Evros": "Hebro", "Büyük Menderes": "Meandro", "Buyuk Menderes": "Meandro", "Gediz": "Hermo (Gediz)", "Sakarya": "Sangario", "Kizil Irmak": "Halis", "Kızılırmak": "Halis", "Seyhan": "Saro (Seyhan)",
+           "Ceyhan": "Píramo (Ceyhan)", "Asi": "Orontes", "Orontes": "Orontes", "Litani": "Litani", "Volturno": "Volturno", "Arno": "Arno", "Euphrates": "Éufrates", "Al Furat": "Éufrates", "Firat": "Éufrates", "Tigris": "Tigris", "Dicle": "Tigris",
            "Nile": "Nilo", "Jordan": "Jordán", "Shatt al Arab": "Shatt al-Arab", "Karkheh": "Karjé",
            "Rosetta Branch": "Brazo de Rosetta", "Damietta Branch": "Brazo de Damieta", "Shatt al Hillah": "Shatt al-Hilla"}
 rios = capa("ne_10m_rivers_lake_centerlines", tol=.002,
@@ -54,6 +58,10 @@ EXTRA = [  # nombre, puntos (lat, lon), rango
     ("Besor", [(31.27, 34.82), (31.34, 34.68), (31.43, 34.56), (31.46, 34.50)], 8),
     ("Zered", [(30.95, 36.02), (31.03, 35.78), (31.12, 35.62), (31.17, 35.53)], 8),
 ]
+if MEDITERRANEO:
+    EXTRA = [("Cidno", [(37.10, 34.85), (36.95, 34.88), (36.80, 34.92), (36.70, 34.90)], 7), ("Cestro (Perge)", [(37.30, 30.90), (37.10, 30.86), (36.96, 30.85), (36.85, 30.82)], 8),
+             ("Caístro (Éfeso)", [(38.10, 28.10), (38.02, 27.70), (37.96, 27.45), (37.94, 27.30)], 7), ("Gangites", [(41.08, 24.35), (41.00, 24.30), (40.95, 24.25)], 9),
+             ("Lico", [(37.80, 29.35), (37.83, 29.15), (37.86, 29.00)], 8)]
 for n, pts, r in EXTRA:
     rios["features"].append({"type": "Feature", "properties": {"n": n, "hoy": 0, "r": r, "esq": 1},
                              "geometry": {"type": "LineString", "coordinates": [[lo, la] for la, lo in pts]}})
@@ -63,14 +71,17 @@ lagos = capa("ne_10m_lakes", tol=.001, props=lambda p: {"n": NATURALES.get(p.get
                                                         "hoy": int(p.get("name") not in NATURALES)})
 costa = capa("ne_10m_coastline", tol=.0012, props=lambda p: {})
 fronteras = capa("ne_10m_admin_0_boundary_lines_land", tol=.002, props=lambda p: {})
-PAISES = {"Iraq": "IRAK", "Syria": "SIRIA", "Turkey": "TURQUÍA", "Jordan": "JORDANIA", "Israel": "ISRAEL", "Lebanon": "LÍBANO",
+PAISES = {"Italy": "ITALIA", "Greece": "GRECIA", "Albania": "ALBANIA", "North Macedonia": "MACEDONIA DEL NORTE", "Bulgaria": "BULGARIA", "Malta": "MALTA", "Tunisia": "TÚNEZ", "Libya": "LIBIA",
+          "Croatia": "CROACIA", "Montenegro": "MONTENEGRO", "Romania": "RUMANIA", "Iraq": "IRAK", "Syria": "SIRIA", "Turkey": "TURQUÍA", "Jordan": "JORDANIA", "Israel": "ISRAEL", "Lebanon": "LÍBANO",
           "Egypt": "EGIPTO", "Saudi Arabia": "ARABIA SAUDITA", "Iran": "IRÁN", "Kuwait": "KUWAIT", "Palestine": "PALESTINA", "Cyprus": "CHIPRE"}
 paises = []
 for f in json.load(open(NE / "ne_10m_admin_0_countries.geojson"))["features"]:
     p = f["properties"]; n = PAISES.get(p.get("NAME_EN") or p.get("NAME"))
     if n and p.get("LABEL_X"):
         paises.append({"n": n, "c": rnd([p["LABEL_X"], p["LABEL_Y"]], 3)})
-CIUDADES = {"Baghdad": "Bagdad", "Damascus": "Damasco", "Amman": "Ammán", "Jerusalem": "Jerusalén", "Cairo": "El Cairo",
+CIUDADES = {"Rome": "Roma", "Naples": "Nápoles", "Palermo": "Palermo", "Catania": "Catania", "Bari": "Bari", "Valletta": "La Valeta", "Athens": "Atenas", "Thessaloniki": "Salónica", "Patras": "Patras", "Heraklion": "Heraclión",
+            "Istanbul": "Estambul", "Izmir": "Esmirna", "Bursa": "Bursa", "Antalya": "Antalya", "Konya": "Konya", "Ankara": "Ankara", "Mersin": "Mersin", "Tunis": "Túnez", "Tripoli": "Trípoli", "Benghazi": "Bengasi", "Tirana": "Tirana",
+            "Sofia": "Sofía", "Skopje": "Skopie", "Nicosia": "Nicosia", "Larnaca": "Lárnaca", "Rhodes": "Rodas", "Ioannina": "Ioánina", "Kavala": "Kavala", "Baghdad": "Bagdad", "Damascus": "Damasco", "Amman": "Ammán", "Jerusalem": "Jerusalén", "Cairo": "El Cairo",
             "Beirut": "Beirut", "Aleppo": "Alepo", "Mosul": "Mosul", "Basra": "Basora", "Tel Aviv-Yafo": "Tel Aviv",
             "Gaza": "Gaza", "Nablus": "Nablus", "Hebron": "Hebrón", "Beersheba": "Beerseba", "Sanliurfa": "Şanlıurfa",
             "Gaziantep": "Gaziantep", "Raqqa": "Raqqa", "Dayr az Zawr": "Deir ez-Zor", "Nasiriyah": "Nasiriya",

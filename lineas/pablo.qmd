@@ -1,0 +1,20 @@
+---
+title: "Pablo, apóstol de las naciones"
+subtitle: "De Jerusalén a Roma · 60 hitos · c. 34–67 e. c."
+description: "Saulo de Tarso, desde los mantos de Esteban hasta la espada en la Vía Ostiense: los cuatro viajes en un atlas con relieve real, a pie por las calzadas romanas y por mar en naves de carga; pasajes en griego, las cartas en su lugar, arqueología y los lugares hoy."
+date: 2026-10-23
+categories: [Líneas de tiempo]
+order: 4
+numero: "Línea 4"
+body-classes: serie-atributos linea-tiempo
+---
+
+«Por la gracia de Dios soy lo que soy» (1 Corintios 15:10). Sesenta hitos siguen a Saulo de Tarso desde que entra en el relato, a los pies de los que apedrean a Esteban, hasta su muerte en Roma: el camino de Damasco, Arabia y los años de Tarso, Antioquía, los tres viajes misioneros, el concilio de Jerusalén, el arresto en el templo, los dos años en Cesarea, el naufragio de Malta y la cárcel de Roma. Cada hito contrasta Hechos con las cartas, los comentaristas, el mundo grecorromano y la arqueología.
+
+Por primera vez en estas líneas, el viaje cambia de medio: Abraham y Moisés caminaron con sus rebaños; Pablo recorre calzadas romanas a pie y cruza el Mediterráneo en naves de carga. Los mapas lo muestran con dos pictogramas: el caminante en los tramos por tierra y la nave en los tramos por mar.
+
+{{< include _pablo.html >}}
+
+<p class="linea-nota">Toca la línea para abrirla en una pestaña nueva, a pantalla completa. Dentro, avanza con las flechas o el teclado (← →), acerca las fechas con las lupas o con <kbd>+</kbd>/<kbd>−</kbd>, toca una ciudad, una carta o un tramo del camino en los mapas para leer el pasaje, la arqueología y qué hay allí hoy, y abre el <b>Atlas</b> para ver los cuatro viajes de Jerusalén a Roma. El botón <b>⛶ Pantalla completa</b> (o la tecla <kbd>F</kbd>) la lleva a toda la pantalla; <b>✕ Cerrar</b> cierra la pestaña y vuelve a esta presentación. Las fechas siguen la cronología anclada en la inscripción de Delfos (Galión, 51–52 e. c.) y son aproximadas.</p>
+
+[← Volver a las líneas de tiempo](../lineas.qmd)

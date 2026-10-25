@@ -54,7 +54,8 @@ def mini(html: str, slug: str, nodos_json: Path) -> str:
     pts = []
     for i, nd in enumerate(nodos):
         x = 5 + i * (90 / (k - 1)) if k > 1 else 50
-        he = f'<span class="lm-he" lang="he" dir="rtl">{nd["he"]}</span>' if nd.get("he") else ""
+        he = (f'<span class="lm-he" lang="he" dir="rtl">{nd["he"]}</span>' if nd.get("he") else
+              f'<span class="lm-he lm-gr" lang="grc">{nd["gr"]}</span>' if nd.get("gr") else "")   # griego: líneas del NT (Pablo)
         y = anio(nd["y"]) if i == k - 1 else "c. " + str(abs(round(nd["y"])))
         pts.append(f'<span class="lm-nodo" style="left:{x:.2f}%;--d:{i * 0.12:.2f}s">{he}'
                    f'<span class="lm-pt"></span><span class="lm-es">{nd["es"]}</span>'
@@ -176,6 +177,7 @@ document.getElementById('tlCerrar').addEventListener('click', function(e){{
     return kMax(k => c.style.zoom = k, () => cabe(slot, c), Math.max(piso, 0.7));
   }
   const medirTexto = t => kMax(k => t.style.zoom = k, () => cabe(t), Math.max(piso, 0.7));
+  // el hito «viaje» ya tiene su texto desplazable: solo se pliegan los bloques del final si no caben
   const REPARTOS = ['1.05fr 1fr', '1.35fr 1fr', '1fr 1.35fr', '1.7fr 1fr', '1fr 1.7fr'];
   // bloques finales del texto que pueden pasar bajo la imagen; nunca la etiqueta, la fecha, el título ni el primer párrafo
   const movibles = t => [...t.children].slice(4);
@@ -294,10 +296,17 @@ document.getElementById('tlCerrar').addEventListener('click', function(e){{
     s.classList.add('pl-midiendo');   // sin la animación de entrada, que desplaza el texto unos píxeles
     try {
       piso = 1; limpiar(s); desplegar(s);
-      if (!ANCHO() || s.classList.contains('viaje')) { plegarSiempre(s); return; }
+      if (!ANCHO()) { plegarSiempre(s); return; }
       if (s.classList.contains('title')) { portada(s); return; }
-      const dos = s.querySelector(':scope>.media') && s.querySelector(':scope>.text') && s.children.length === 2;
-      if (!dos && s.querySelector('.vivo')) return;
+      const med = s.querySelector(':scope>.media');
+      if (med){ const slot = med.querySelector(':scope>.mslot'); if (slot && !slot.children.length && !slot.textContent.trim()) med.hidden = true; else med.hidden = false; }   // figura sin contenido: no cuenta como columna
+      const dos = s.querySelector(':scope>.media:not([hidden])') && s.querySelector(':scope>.text') && [...s.children].filter(c => !c.hidden && !c.matches('.tokens')).length === 2;
+      if (!dos && s.querySelector('.vivo')) { plegarSiempre(s); return; }
+      if (s.classList.contains('viaje')){   // mapa grande + lista de tramos: el mapa baja su alto y el resto se pliega
+        plegarSiempre(s); const m = s.querySelector(':scope>.media'); const t = s.querySelector(':scope>.text');
+        let n = 0; medirMedia(m);
+        while (!cabe(s, t) && n < PLIEGUES.length){ n++; limpiar(s); desplegar(s); if (plegar(s, n) < n) break; medirMedia(m); }
+        return; }
       const medir = () => dos ? dosColumnas(s) : unaColumna(s);
       // 1) sin achicar la letra: el salmo emerge siempre; los demás bloques se pliegan de a uno hasta que quepa
       plegarSiempre(s);
@@ -376,6 +385,8 @@ document.getElementById('tlCerrar').addEventListener('click', function(e){{
 .slide{padding-block:22px 22px;padding-inline:clamp(16px,6vw,96px)}
 .pl-midiendo,.pl-midiendo *{animation:none!important;transition:none!important}
 .slide.cine{overflow-y:auto}
+.slide.viaje{overflow-y:auto}
+.slide.viaje>.media>.pl-extra{display:none}
 .pl-ajustado .text>*,.pl-ajustado .pl-extra>*{animation:none!important}
 .pl-acciones{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
 .pl-boton{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--rule);border-radius:999px;
