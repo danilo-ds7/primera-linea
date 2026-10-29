@@ -1,6 +1,6 @@
 # Lector de Versículos: app para celular
 
-Esta carpeta `app/` es la app del sitio Primera Línea. Se instala en el celular como una app (PWA) y funciona sin conexión.
+Esta carpeta `app/` es la app del sitio Yada. Se instala en el celular como una app (PWA) y funciona sin conexión.
 
 ## 1. Copiar la carpeta
 
@@ -84,5 +84,5 @@ Todos son de dominio público y se ven sin clave:
 - BDB (Brown, Driver y Briggs, 1906), hebreo y arameo: `lexicos/bdb/` (inglés, solo los elementos `<def>`, por tronco y acepción) y `lexicos/bdb-es/` (traducción propia).
 - Abbott-Smith (1922), griego del NT: `lexicos/abbott/` (inglés, solo los elementos `<gloss>`, por acepción) y `lexicos/abbott-es/` (traducción propia).
 
-El inglés se genera con `scripts/lexicos_publicos.py` desde openscriptures/HebrewLexicon (CC BY 4.0) y translatable-exegetical-tools/Abbott-Smith; el script avisa si falta la traducción de algún número. Los diccionarios con derechos de autor (Strong en español de Caribe, Vine en español, Chávez, Ortiz, Barclay, Strong-PT, NCSE) ya no se muestran. También: Thayer (1889, dominio público; edición «Thayer's Greek Definitions» de e-Sword) para los números G y el Ancient Hebrew Lexicon of the Bible (Benner, 2005; copia permitida con fines educativos sin fines de lucro) para los números H, en `app/lexicos/thayer[-es]/` y `app/lexicos/ahlb[-es]/`, traducidos al español por Primera Línea. El Vine no se publica: el de e-Sword es de pago y con derechos de autor.
+El inglés se genera con `scripts/lexicos_publicos.py` desde openscriptures/HebrewLexicon (CC BY 4.0) y translatable-exegetical-tools/Abbott-Smith; el script avisa si falta la traducción de algún número. Los diccionarios con derechos de autor (Strong en español de Caribe, Vine en español, Chávez, Ortiz, Barclay, Strong-PT, NCSE) ya no se muestran. También: Thayer (1889, dominio público; edición «Thayer's Greek Definitions» de e-Sword) para los números G y el Ancient Hebrew Lexicon of the Bible (Benner, 2005; copia permitida con fines educativos sin fines de lucro) para los números H, en `app/lexicos/thayer[-es]/` y `app/lexicos/ahlb[-es]/`, traducidos al español por Yada. El Vine no se publica: el de e-Sword es de pago y con derechos de autor.
 

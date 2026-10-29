@@ -34,8 +34,9 @@ project:
     - "lineas/*.qmd"
 
 website:
-  title: "Primera Línea"
-  site-url: "https://primera-linea.cl"
+  title: "Yada"
+  description: "Conociendo al Dios de la Biblia"
+  site-url: "https://danilo-ds7.github.io/primera-linea"
   navbar:
     left:
       - href: predicaciones.qmd
@@ -72,7 +73,7 @@ website:
       - icon: instagram
         href: https://www.instagram.com/danilo_gomez_correa/
   page-footer:
-    left: "© 2026 Danilo Gómez Correa · Primera Línea"
+    left: "© 2026 Danilo Gómez Correa · Yada"
 
 format:
   html:

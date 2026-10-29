@@ -1,7 +1,7 @@
 """Atlas del Éxodo: lugares (Escritura · Arqueología · Hoy), tramos del camino y rutas antiguas.
 
 «biblia» admite claves de los pasajes de datos.py (se resuelven con su traducción) o pares [cita, texto].
-Las citas de la biblioteca de Primera Línea («bib») se agregan desde /home/claude/work/bib_atlas.json
+Las citas de la biblioteca de Yada («bib») se agregan desde /home/claude/work/bib_atlas.json
 al generar (ver datos.py), y quedan escritas en atlas.json.
 Coordenadas: [lat, lon]. Las identificaciones discutidas se señalan como tales.
 """

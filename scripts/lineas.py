@@ -104,7 +104,7 @@ def pagina(html: str, slug: str, op: dict = None) -> str:
                         "return r.dataset.theme||'light';")
     html = re.sub(r"try\{localStorage\.setItem\('[^']+-theme',r\.dataset\.theme\);\}catch\(_\)\{\}", "", html)
 
-    # «← Primera Línea» pasa a «✕ Cerrar»: cierra la pestaña y deja a la vista la presentación
+    # «← Yada» pasa a «✕ Cerrar»: cierra la pestaña y deja a la vista la presentación
     cambiar(r'<a class="volver"[^>]*>.*?</a>',
             f'<a class="volver" id="tlCerrar" href="{slug}.html" title="Cerrar la línea de tiempo" '
             'aria-label="Cerrar la línea de tiempo"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24">'
@@ -371,7 +371,7 @@ document.getElementById('tlCerrar').addEventListener('click', function(e){{
     cambiar("const axisY=h-50,", "const axisY=h-30,")
     html = html.replace("(top+38)", "(top+34)").replace("bandTop-top-38", "bandTop-top-34")
     cambiar("axisY+17", "axisY+13")
-    cambiar("</style>", """/* Primera Línea: un botón por tarea, menú en su propia franja y banda de tiempo angosta */
+    cambiar("</style>", """/* Yada: un botón por tarea, menú en su propia franja y banda de tiempo angosta */
 #arqBtn,#hoyBtn,.stage>.arrow,#zfit,.tn-filtros,.mini{display:none!important}
 /* menú arriba: franja propia (no flota sobre el mapa ni el texto); Cerrar a la izquierda */
 .stage{padding-top:54px}

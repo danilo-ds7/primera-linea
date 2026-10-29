@@ -1,4 +1,4 @@
-# Publica Primera Línea en GitHub Pages cada vez que cambia el repositorio.
+# Publica Yada en GitHub Pages cada vez que cambia el repositorio.
 # Compila los estudios LaTeX (PDF), genera sus páginas web y renderiza el sitio Quarto.
 name: Publicar sitio
 

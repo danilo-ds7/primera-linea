@@ -1,6 +1,6 @@
 // Service worker del Lector: guarda la app y los estudios para usarlos sin conexión.
 // Al agregar o cambiar estudios, sube el número de VERSION para que los celulares descarguen lo nuevo.
-const VERSION = "lector-v22";
+const VERSION = "lector-v23";
 const BASE = ["./", "index.html", "diccionarios.js", "manifest.webmanifest",
   "iconos/icono-192.png", "iconos/icono-512.png", "iconos/icono-maskable-512.png",
   "iconos/apple-touch-icon.png", "iconos/favicon-32.png", "comparaciones/notas.json",

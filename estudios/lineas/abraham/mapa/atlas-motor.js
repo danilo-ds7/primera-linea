@@ -81,7 +81,7 @@ function gmaps(L){ return `<div class="pp-gm">${gmBtn(GM.lugar(L),'Abrir en Goog
 function tramoHTML(t){ const T=ATL.data.tramos, d=kmTramo(t);
   return `<div class="pp k-tramo"><div class="pp-h"><span class="pp-k">Tramo ${t.n} de ${T.length} · ≈ ${fmtKm(d)} km</span><b>${esc(t.de)} → ${esc(t.a)}</b></div>
     <blockquote class="pp-q"><cite>${esc(t.ref)}</cite>${esc(t.txt)}</blockquote><div class="pp-sub">Camino y arqueología</div><p>${esc(t.arq)}</p>
-    ${(t.bib||[]).length?`<div class="pp-sub">Biblioteca de Primera Línea</div>${t.bib.map(([f,x])=>`<p>${esc(x)}</p><p class="pp-cit">— ${esc(f)}</p>`).join('')}`:''}
+    ${(t.bib||[]).length?`<div class="pp-sub">Biblioteca de Yada</div>${t.bib.map(([f,x])=>`<p>${esc(x)}</p><p class="pp-cit">— ${esc(f)}</p>`).join('')}`:''}
     <div class="pp-gmbar">${gmBtn(GM.dir(t.pts[0],t.pts[t.pts.length-1]),'Recorrer hoy en Google Maps (a pie)','principal')}</div>
     <div class="pp-f"><button type="button" data-tr="${t.n-1}" ${t.n>1?'':'disabled'}>← Estación ${t.n-1||''}</button><button type="button" data-lug="${esc(t.site)}">${esc(t.a)}</button>${t.hito?`<button type="button" data-goto="${t.hito}">Leer el hito ${t.hito}</button>`:''}<button type="button" data-tr="${t.n+1}" ${t.n<T.length?'':'disabled'}>Estación ${t.n<T.length?t.n+1:''} →</button></div></div>`; }
 function cablear(root){ root.querySelectorAll('.pp-tabs button').forEach(b=>b.onclick=()=>{ const pp=b.closest('.pp'); pp.querySelectorAll('.pp-tabs button').forEach(x=>x.setAttribute('aria-selected',x===b)); pp.querySelectorAll('.pp-p').forEach(p=>p.hidden=p.dataset.p!==b.dataset.t); if(root.closest('.maplibregl-popup')) ajustarPopup(); });
@@ -103,7 +103,7 @@ function abrirLugar(key,from){ const L=datosLugar(key); if(!L) return;
     ${A?`<div class="lab">Altar ${A.n} · ${esc(A.ref)}</div><p><b>${esc(A.tr)}</b> — ${esc(A.mean)}</p><p><b>Atributo de Dios:</b> ${esc(A.attr)}</p>`:''}
     <div class="lab">Arqueología</div>${(L.arq||[]).map(t=>`<p>${esc(t)}</p>`).join('')}
     <div class="lab">Hoy</div><p>${esc(L.hoy||'—')}</p>${gmaps(L)}
-    ${(L.bib||[]).length?`<div class="lab">Biblioteca de Primera Línea</div>${L.bib.map(([f,t])=>`<p>${esc(t)}</p><p class="src">${esc(f)}</p>`).join('')}`:''}${(L.fuentes||[]).length?`<div class="lab">Fuentes</div>${L.fuentes.map(f=>`<p class="src">${esc(f)}</p>`).join('')}`:''}
+    ${(L.bib||[]).length?`<div class="lab">Biblioteca de Yada</div>${L.bib.map(([f,t])=>`<p>${esc(t)}</p><p class="src">${esc(f)}</p>`).join('')}`:''}${(L.fuentes||[]).length?`<div class="lab">Fuentes</div>${L.fuentes.map(f=>`<p class="src">${esc(f)}</p>`).join('')}`:''}
     <p class="pp-gmbar">${gmBtn(GM.lugar(L),'Visitar hoy en Google Maps','principal')}${gmBtn(GM.sat(L),'Satélite')}${gmBtn(GM.street(L),'Street View')}</p>
     <p><button type="button" class="vermapa" data-lug="${esc(L.site||L.id)}">Ver en el atlas</button></p>
     ${usa.length?`<div class="lab">Aparece en</div><div class="see" style="border:0;padding:0">${usa.map(u=>`<button type="button" data-goto="${u}"><span>${u}</span>${esc(events[u-1].title)}</button>`).join('')}</div>`:''}`,

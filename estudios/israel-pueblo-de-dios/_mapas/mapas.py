@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Mapas de la serie «Israel, el pueblo de Dios» (Primera Línea) — estilo moderno.
+Mapas de la serie «Israel, el pueblo de Dios» (Yada) — estilo moderno.
 
 Datos reales:
   · Costas, lagos y ríos GSHHS/WDB en resolución completa (basemap-data-hires).

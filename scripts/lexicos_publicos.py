@@ -4,7 +4,7 @@
   app/lexicos/abbott/NNN.json  Abbott-Smith (1922), griego del NT (números G): elementos <gloss>, por acepción
 Bloques de 250 números. Cada valor es una lista de artículos [lema, texto]; el texto va una acepción por línea.
 
-Las traducciones al español (traducción propia de Primera Línea) están en app/lexicos/bdb-es/ y app/lexicos/abbott-es/,
+Las traducciones al español (traducción propia de Yada) están en app/lexicos/bdb-es/ y app/lexicos/abbott-es/,
 con las mismas claves. Si se regenera el inglés, revisar que las claves coincidan (este script avisa las que falten).
 
 Fuentes (se clonan aparte y se pasan como argumentos):

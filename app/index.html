@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Lector · Primera Línea</title>
+<title>Lector · Yada</title>
 <meta name="description" content="Estudia un pasaje en cuatro lecturas: histórica, filológica, teológica y literaria, con pasajes paralelos.">
 <meta name="theme-color" content="#2350b8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0f1422" media="(prefers-color-scheme: dark)">
@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=Noto+Serif+Hebrew:wght@500;600&family=GFS+Didot&display=swap">
 
 <style>
-/* App de una columna pensada para el pulgar: barra superior fina, contenido al centro y las cuatro lecturas en una barra inferior fija. En pantallas anchas la barra pasa arriba del panel. Sistema visual del sitio Primera Línea (acento tejélet). */
+/* App de una columna pensada para el pulgar: barra superior fina, contenido al centro y las cuatro lecturas en una barra inferior fija. En pantallas anchas la barra pasa arriba del panel. Sistema visual del sitio Yada (acento tejélet). */
 :root{
   --bg:#f6f7fa; --surface:#ffffff; --ink:#131a2c; --muted:#5b6376; --line:#e2e6ee;
   --accent:#2350b8; --accent-ink:#ffffff; --accent-soft:#e9effc; --gold:#a8771f; --tile:#1b2440; --tile-ink:#f1ece0;
@@ -531,7 +531,7 @@ details.acc > .in{padding:0 16px 16px;display:grid;gap:10px}
 </head>
 <body class="home-view">
 <header class="bar"><div class="bar-in">
-  <a class="home" href="../index.html" id="home-link"><img src="iconos/icono-192.png" alt=""><span>Primera Línea</span></a>
+  <a class="home" href="../index.html" id="home-link"><img src="iconos/icono-192.png" alt=""><span>Yada</span></a>
   <span class="sp"></span>
   <button class="ibtn acc" id="instalar" type="button" hidden>Instalar</button>
   <button class="ibtn" id="volver" type="button" hidden>Estudios</button>
@@ -652,7 +652,7 @@ details.acc > .in{padding:0 16px 16px;display:grid;gap:10px}
       <span class="label">Referencias (APA)</span>
       <ol class="apa" id="refs"></ol>
     </section>
-    <p class="foot">Primera Línea · Danilo Gómez Correa</p>
+    <p class="foot">Yada · Danilo Gómez Correa</p>
     </div>
   </section>
   <!-- Comparación filológica -->
@@ -1171,7 +1171,7 @@ details.acc > .in{padding:0 16px 16px;display:grid;gap:10px}
     $("comparar").hidden=true; document.body.classList.remove("cmp-view"); marcarVista("estudio");
     document.body.classList.add("home-view");
     $("inicio").hidden=false; $("estudio").hidden=true; $("volver").hidden=true;
-    document.title="Lector · Primera Línea";
+    document.title="Lector · Yada";
   }
   function verEstudio(d, generado){
     $("comparar").hidden=true; document.body.classList.remove("cmp-view"); marcarVista("estudio");
@@ -1262,7 +1262,7 @@ details.acc > .in{padding:0 16px 16px;display:grid;gap:10px}
   // Compartir
   function toast(t){ var e=$("toast"); e.textContent=t; e.hidden=false; clearTimeout(toast._t); toast._t=setTimeout(function(){ e.hidden=true; },2200); }
   function compartir(){
-    var d=state.data||{}, url=location.href, txt=(d.referencia||"")+" · "+(d.titulo||"Estudio")+" — Primera Línea";
+    var d=state.data||{}, url=location.href, txt=(d.referencia||"")+" · "+(d.titulo||"Estudio")+" — Yada";
     try{
       if(navigator.share){ navigator.share({title:txt,url:url}).catch(function(){}); return; }
     }catch(e){}
@@ -1510,7 +1510,7 @@ details.acc > .in{padding:0 16px 16px;display:grid;gap:10px}
     $("comparar").hidden=true; $("estudio").hidden=true; document.body.classList.remove("cmp-view"); marcarVista("estudio");
     window.scrollTo(0,0);
   }
-  verInicio=function(){ verPantalla("inicio"); document.title="Lector · Primera Línea"; pintarRecientes(); };
+  verInicio=function(){ verPantalla("inicio"); document.title="Lector · Yada"; pintarRecientes(); };
   $("p-back").addEventListener("click", function(){ history.replaceState(null,"",location.pathname+location.search); verInicio(); });
   window.addEventListener("scroll", function(){ var b=$("p-bar"); if(b) b.classList.toggle("compacta", window.scrollY>120); }, {passive:true});
   document.querySelectorAll("#p-seg button").forEach(function(b){ b.addEventListener("click", function(){ if(!state.est) return; state.est.vista=b.dataset.v; pintarTexto2(state.est); }); });

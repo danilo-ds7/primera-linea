@@ -1,4 +1,4 @@
-# Primera Línea (Quarto)
+# Yada (Quarto)
 
 1. Instala Quarto: https://quarto.org/docs/get-started/
 2. Abre esta carpeta en VS Code o en la Terminal.
@@ -59,6 +59,8 @@ Natural Earth de `scripts/lineas_vectores.py`. Línea 2: Moisés (`moises`).
 ## Publicación
 
 Cada cambio que llega a GitHub se publica solo (`.github/workflows/publicar.yml`) en
-https://primera-linea.cl (dominio propio, inscrito en NIC Chile; DNS en Cloudflare con registros A a
-GitHub Pages y `www` → danilo-ds7.github.io, sin proxy; Settings → Pages → Custom domain = primera-linea.cl).
-La dirección antigua https://danilo-ds7.github.io/primera-linea/ redirige al dominio.
+https://danilo-ds7.github.io/primera-linea/ (GitHub Pages, sin dominio propio).
+El dominio primera-linea.cl se dio de baja en NIC Chile el 29/10/2026 por un reclamo de marca
+(Comunicaciones Lanet S.A.); el sitio pasó a llamarse Yada («conocer», יָדַע) con el subtítulo
+«Conociendo al Dios de la Biblia». Si se inscribe un dominio nuevo (p. ej. yada.cl), configurarlo en
+Settings → Pages → Custom domain y actualizar `site-url` en `_quarto.yml`.

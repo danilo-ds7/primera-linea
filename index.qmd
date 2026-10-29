@@ -1,5 +1,5 @@
 ---
-title: "Primera Línea"
+title: "Yada"
 page-layout: custom
 body-classes: inicio
 ---
@@ -9,7 +9,7 @@ body-classes: inicio
 :::::: {.hero .g #inicio}
 ::::: {.wrap .hero-grid}
 :::: {.hero-text}
-[Estudios bíblicos y teológicos]{.label}
+[Yada · Conociendo al Dios de la Biblia]{.label}
 
 # Danilo Gómez Correa
 
@@ -27,7 +27,7 @@ body-classes: inicio
 <button type="button" class="badge-cerrar" aria-label="Cerrar">&times;</button>
 <span class="sobre-label">Sobre mí</span>
 <p>Soy Danilo Gómez Correa y estudio en el Israel Institute of Biblical Studies. Mi punto de partida es conocer al Dios de la Biblia, al Dios de Israel, cuyo nombre es sin igual, porque no hay Dios como Él: quién es Él y cuáles son sus atributos.</p>
-<p>Procuro, principalmente, ser guiado por el Espíritu de Dios para estudiar su Palabra. Después viene el método: histórico, filológico, teológico y literario. Primera Línea es donde ordeno y comparto lo que aprendo.</p>
+<p>Procuro, principalmente, ser guiado por el Espíritu de Dios para estudiar su Palabra. Después viene el método: histórico, filológico, teológico y literario. Yada es donde ordeno y comparto lo que aprendo.</p>
 </div></div>
 <button type="button" class="badge-head" aria-expanded="false" aria-controls="badge-body" title="Sobre mí"><img class="avatar" src="images/retrato.jpg" alt="Retrato de Danilo Gómez Correa"><span class="badge-txt"><b>Danilo Gómez Correa</b><span>Estudiante · Israel Institute of Biblical Studies</span></span></button>
 </div>

@@ -21,7 +21,7 @@ subtitle: "Busca un tema y lee el artículo de cada diccionario, en español o e
     <div id="dt-txt"></div>
     <p class="dt-fuente" id="dt-fuente"></p>
   </article>
-  <p class="dt-nota">Diccionarios de dominio público (Easton, Smith, Fausset, Hastings, Hawker, Nave, Torrey y el significado de los nombres de Hitchcock), traducidos al español por Primera Línea. Solo aparecen los artículos ya traducidos; se irán sumando más.</p>
+  <p class="dt-nota">Diccionarios de dominio público (Easton, Smith, Fausset, Hastings, Hawker, Nave, Torrey y el significado de los nombres de Hitchcock), traducidos al español por Yada. Solo aparecen los artículos ya traducidos; se irán sumando más.</p>
 </div>
 <style>
 .dt{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;margin-top:8px}.dt>*,.dt-art>*{min-width:0}
@@ -70,7 +70,7 @@ subtitle: "Busca un tema y lee el artículo de cada diccionario, en español o e
       document.getElementById("dt-tit").textContent=L==="es"?es.t:tp;
       var box=document.getElementById("dt-txt"); box.textContent="";
       (L==="es"?es.p:en).forEach(function(p){ var e=document.createElement("p"); e.lang=L; e.textContent=p; box.append(e); });
-      document.getElementById("dt-fuente").textContent=I.fuentes[d]+(L==="es"?" Traducción al español: Primera Línea.":"");
+      document.getElementById("dt-fuente").textContent=I.fuentes[d]+(L==="es"?" Traducción al español: Yada.":"");
       art.scrollIntoView({block:"start"});
     });
   }

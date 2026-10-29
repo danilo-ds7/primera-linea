@@ -404,7 +404,7 @@ def yaml_str(t):
 
 def url_sitio():
     m = re.search(r'site-url:\s*"([^"]+)"', (RAIZ / "_quarto.yml").read_text())
-    return (m.group(1) if m else "https://primera-linea.cl").rstrip("/")
+    return (m.group(1) if m else "https://danilo-ds7.github.io/primera-linea").rstrip("/")
 
 
 def boton_qr(archivo):

@@ -1,4 +1,4 @@
-/* Primera Línea · Diccionarios enlazados por número Strong.
+/* Yada · Diccionarios enlazados por número Strong.
    Lo usan el Lector (app/index.html) y las páginas del sitio (_includes/citas.html).
    Solo diccionarios de dominio público, abiertos para todos (nada privado):
      Strong (1890)        datos/strong-{h,g}-fichas.json  (inglés)  y  datos/strong-{h,g}-es.json  (español)
@@ -6,7 +6,7 @@
      Abbott-Smith (1922)  app/lexicos/abbott/  (inglés)  y  app/lexicos/abbott-es/  (español)   números G
      Thayer (1889)        app/lexicos/thayer/  (inglés)  y  app/lexicos/thayer-es/  (español)   números G
      AHLB (Benner, 2005)  app/lexicos/ahlb/    (inglés)  y  app/lexicos/ahlb-es/    (español)   números H (uso educativo sin fines de lucro)
-   De cada diccionario se muestran solo las definiciones. Las traducciones al español son de Primera Línea.
+   De cada diccionario se muestran solo las definiciones. Las traducciones al español son de Yada.
    Se elige un diccionario por pestaña y, en cada uno, el idioma (Español / Inglés). */
 (function(){
   if(window.PLDic) return;
@@ -115,7 +115,7 @@
         var v=it[L];
         if(Array.isArray(v)) v.forEach(function(a){ var art=el("div","pd-art"); if(v.length>1||it.d.id!=="strong") art.append(el("h4",null,a[0])); texto(art,a[1],opts.onStrong,L); box.append(art); });
         else texto(box, v, opts.onStrong, L);
-        fuente.textContent=it.d.fuente+(L==="es"?" Traducción al español: Primera Línea.":"");
+        fuente.textContent=it.d.fuente+(L==="es"?" Traducción al español: Yada.":"");
       }
       items.forEach(function(it){
         var b=el("button","pd-chip",it.d.n); b.type="button"; b.setAttribute("role","tab"); b.setAttribute("aria-pressed","false");

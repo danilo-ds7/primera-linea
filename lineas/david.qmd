@@ -9,7 +9,7 @@ numero: "Línea 3"
 body-classes: serie-atributos linea-tiempo
 ---
 
-«He hallado a David, el hijo de Isaí, un varón conforme a mi corazón» (Hechos 13:22). Cuarenta y ocho hitos recorren la vida de David desde Belén hasta la Ciudad de David: el pastor y la honda, las tres unciones (Belén, Hebrón y, para su hijo, Guihón), los años de fugitivo en el desierto de Judá, Hebrón, la toma de Jerusalén, el arca, el pacto de 2 Samuel 7, Betsabé y el Salmo 51, Absalón y las últimas palabras. Cada hito lleva su «salmo del camino» y contrasta el texto de Samuel con los comentaristas, la tradición judía y la arqueología de la biblioteca de Primera Línea.
+«He hallado a David, el hijo de Isaí, un varón conforme a mi corazón» (Hechos 13:22). Cuarenta y ocho hitos recorren la vida de David desde Belén hasta la Ciudad de David: el pastor y la honda, las tres unciones (Belén, Hebrón y, para su hijo, Guihón), los años de fugitivo en el desierto de Judá, Hebrón, la toma de Jerusalén, el arca, el pacto de 2 Samuel 7, Betsabé y el Salmo 51, Absalón y las últimas palabras. Cada hito lleva su «salmo del camino» y contrasta el texto de Samuel con los comentaristas, la tradición judía y la arqueología de la biblioteca de Yada.
 
 {{< include _david.html >}}
 
