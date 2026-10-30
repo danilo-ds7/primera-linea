@@ -57,6 +57,10 @@ La instalación y el modo sin conexión funcionan cuando el sitio está publicad
 | `paralelos/` | Pasajes paralelos del Treasury of Scripture Knowledge (dominio público), en paquetes por grupo de libros. |
 | `biblias/` | Textos completos de dominio público, en paquetes por grupo de libros (`g1.json` … `g8.json`): Reina-Valera 1909, Biblia del Oso (1569), Reina-Valera 1862, Versión Moderna (1929), King James, American Standard, Douay-Rheims, Vulgata Clementina, Códice de Leningrado (WLC), Textus Receptus, Texto bizantino y Peshitta. |
 
+## Diseño y modos de lectura
+
+La app abre en modo **Noche** (cielo estrellado, luna dorada y montes en la bruma, con tarjetas de vidrio y acento dorado). En la barra superior se puede cambiar a Claro, Medio u Oscuro; la elección queda guardada en el celular. La pantalla de Inicio muestra la portada de Yada, el **versículo del día** (texto de la Reina-Valera 1909 guardado en la app; cambia cada día desde la lista `VDIA` de `index.html`) y accesos rápidos a elegir pasaje, Comparación filológica, Diccionarios y el sitio.
+
 ## Versiones y textos originales
 
 Casi todo se lee desde la carpeta de la app, sin conexión. Solo el Códice de Alepo, la Septuaginta y Tischendorf se piden a getbible.net. El Nuevo Testamento griego abre por defecto en el SBL Greek New Testament, con acentos. Los códices Vaticano y Sinaítico y el Gran Rollo de Isaías se abren como imágenes en sus bibliotecas. La NVI, la Biblia de Jerusalén y La Biblia de las Américas tienen derechos de autor: la app enlaza a Biblia Paralela para leerlas.

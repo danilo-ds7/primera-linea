@@ -527,15 +527,115 @@ details.acc > .in{padding:0 16px 16px;display:grid;gap:10px}
   .vistas .lg{display:inline}
 }
 @media (min-width:761px){ .vistas button svg{display:none} }
+
+/* ===== Modo noche (por defecto): cielo estrellado, luna dorada y montes en la bruma ===== */
+:root[data-modo="noche"]{
+  --bg:#0b1024; --surface:#151b36; --ink:#f1eee6; --muted:#a9aec4; --line:rgba(255,255,255,.12);
+  --accent:#e9c37a; --accent-ink:#1a1406; --accent-soft:rgba(233,195,122,.15); --gold:#e9c37a; --tile:rgba(16,22,52,.72); --tile-ink:#f1eee6;
+  --c-hist:#8fa9f2; --c-filo:#e9c37a; --c-teo:#b49be6; --c-lit:#6cc4ae; --teo-soft:rgba(180,155,230,.14);
+  --bar:rgba(11,16,36,.55); --shadow:0 -6px 24px rgba(0,0,0,.4); --hl:rgba(233,195,122,.22); --hl-on:rgba(233,195,122,.45);
+  --glass:rgba(21,27,56,.58); color-scheme:dark}
+.cielo{display:none}
+:root[data-modo="noche"] .cielo{display:block;position:fixed;left:0;right:0;top:0;height:min(640px,80vh);z-index:0;pointer-events:none;overflow:hidden}
+.cielo svg{display:block;width:100%;height:100%}
+@media (min-width:761px){:root[data-modo="noche"] .cielo{height:100vh}}
+.cielo .tw{animation:ci-tw 3.6s ease-in-out infinite}
+.cielo .halo{animation:ci-luna 7s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.cielo .bruma{animation:ci-bruma 16s ease-in-out infinite alternate}
+.cielo .bruma.b2{animation-duration:22s}
+@keyframes ci-tw{0%,100%{opacity:.35}50%{opacity:1}}
+@keyframes ci-luna{0%,100%{opacity:.8;transform:scale(1)}50%{opacity:1;transform:scale(1.07)}}
+@keyframes ci-bruma{from{transform:translateX(-26px)}to{transform:translateX(26px)}}
+:root[data-modo="noche"] main{position:relative;z-index:1}
+@media (min-width:761px){:root[data-modo="noche"] .vistas-in{position:relative;z-index:2}}
+:root[data-modo="noche"] .bar{border-bottom-color:transparent}
+:root[data-modo="noche"] option{background:#151b36;color:#f1eee6}
+/* Superficies de vidrio sobre el cielo */
+:root[data-modo="noche"] :is(.p-texto,.panel,.drop,.cmp,.cmp-par,.ms,.chips button,.icb,.nav2,.seg,.modos,.ibtn,.vdia,.pk-f select,.bloque,details.acc){background:var(--glass);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2)}
+:root[data-modo="noche"] .ibtn.acc{background:var(--accent)}
+:root[data-modo="noche"] .p-texto,:root[data-modo="noche"] .vdia{box-shadow:0 18px 40px rgba(0,0,0,.35)}
+:root[data-modo="noche"] .rc{background:color-mix(in srgb,var(--cc) 16%,rgba(21,27,56,.6));backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+:root[data-modo="noche"] .rc .ico svg{stroke:#0b1024}
+:root[data-modo="noche"] .rc:hover{box-shadow:0 10px 30px color-mix(in srgb,var(--cc) 30%,transparent)}
+:root[data-modo="noche"] :is(.go,.btn.primary){background:linear-gradient(140deg,#f3d69c,#d7a85a);border-color:#e0b468;color:#1a1406;box-shadow:0 10px 26px rgba(233,195,122,.28)}
+:root[data-modo="noche"] .p-hero h1,:root[data-modo="noche"] .portada-t{text-shadow:0 4px 30px rgba(0,0,0,.45)}
+:root[data-modo="noche"] .p-texto .or{color:#f3d69c}
+@media (max-width:760px){:root[data-modo="noche"] .vistas-in{background:rgba(11,16,36,.7)}}
+:root[data-modo="noche"] .appbar{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
+:root[data-modo="noche"] .appbar.compacta{background:rgba(11,16,36,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+:root[data-modo="noche"] dialog.dlg{background:#0e1430}
+:root[data-modo="noche"] .dlg-h{background:#151b36}
+
+/* Portada de Inicio */
+#inicio .inicio-in{padding-top:6px}
+.portada{display:grid;justify-items:center;text-align:center;gap:2px;padding-top:min(5vh,40px)}
+.portada-t{margin:0;font:400 clamp(3.4rem,17vw,5rem)/1 var(--serif);letter-spacing:.01em}
+.portada-he{margin:0;font-family:var(--heb);font-size:1.2rem;color:var(--gold);direction:rtl}
+.portada-s{margin:6px 0 0;color:var(--muted);font-size:.98rem}
+/* Versículo del día */
+.vdia{background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:20px;display:grid;gap:8px}
+.vdia-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.vdia-top .label{color:var(--gold)}
+.vdia-top span:last-child{font-size:.8rem;color:var(--muted)}
+.vdia-tx{margin:0;font:400 clamp(1.5rem,6.6vw,1.9rem)/1.2 var(--serif);color:var(--ink)}
+.vdia-ref{margin:0;font-size:.85rem;font-weight:700;color:var(--muted)}
+.vdia-acts{display:flex;gap:8px;margin-top:8px}
+.vdia-acts .go{flex:1;min-height:50px;border-radius:999px;font-size:.98rem}
+.vdia-acts .icb{width:50px;height:50px;padding:0;flex:none}
+/* Accesos rápidos */
+.accesos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.accesos > *{all:unset;box-sizing:border-box;cursor:pointer;display:grid;justify-items:center;gap:7px;font-size:.75rem;font-weight:700;color:var(--ink);text-align:center;min-height:44px;-webkit-tap-highlight-color:transparent}
+.accesos .bub{width:58px;height:58px;border-radius:20px;display:grid;place-items:center;background:color-mix(in srgb,var(--cc) 16%,var(--surface));border:1px solid color-mix(in srgb,var(--cc) 34%,transparent);transition:transform .15s,box-shadow .2s}
+.accesos > *:active .bub{transform:scale(.93)}
+.accesos > *:hover .bub{box-shadow:0 8px 22px color-mix(in srgb,var(--cc) 30%,transparent)}
+.accesos > *:focus-visible .bub{outline:2px solid var(--cc);outline-offset:3px}
+.accesos svg{width:23px;height:23px;fill:none;stroke:var(--cc);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.accesos [data-a="elegir"]{--cc:var(--c-hist)} .accesos [data-a="comparar"]{--cc:var(--c-filo)} .accesos [data-a="dic"]{--cc:var(--c-teo)} .accesos [data-a="sitio"]{--cc:var(--c-lit)}
+/* Entrada suave */
+@keyframes sube{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+#inicio:not([hidden]) > *{animation:sube .6s cubic-bezier(.2,.8,.2,1) both}
+#inicio > *:nth-child(2){animation-delay:.08s} #inicio > *:nth-child(3){animation-delay:.16s} #inicio > *:nth-child(4){animation-delay:.24s}
+#pasaje:not([hidden]) .cuatro .rc{animation:sube .5s cubic-bezier(.2,.8,.2,1) both}
+#pasaje .cuatro .rc:nth-child(2){animation-delay:.06s} #pasaje .cuatro .rc:nth-child(3){animation-delay:.12s} #pasaje .cuatro .rc:nth-child(4){animation-delay:.18s}
+@media (prefers-reduced-motion:reduce){.cielo *,#inicio > *,#pasaje .rc{animation:none!important}}
 </style>
 </head>
 <body class="home-view">
+<div class="cielo" aria-hidden="true">
+  <svg viewBox="0 0 390 520" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <linearGradient id="ci-cielo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#050918"/><stop offset=".42" stop-color="#101838"/><stop offset=".64" stop-color="#2a2f5e"/><stop offset=".8" stop-color="#4e4668"/><stop offset="1" stop-color="#0b1024"/></linearGradient>
+      <radialGradient id="ci-halo" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffe3a3" stop-opacity=".6"/><stop offset=".35" stop-color="#e9b96a" stop-opacity=".2"/><stop offset="1" stop-color="#e9b96a" stop-opacity="0"/></radialGradient>
+      <radialGradient id="ci-luna" cx=".4" cy=".38" r=".65"><stop offset="0" stop-color="#fff6de"/><stop offset="1" stop-color="#f0c674"/></radialGradient>
+      <linearGradient id="ci-lago" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b2148"/><stop offset="1" stop-color="#0b1024"/></linearGradient>
+      <linearGradient id="ci-ref" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3d08c" stop-opacity=".7"/><stop offset="1" stop-color="#f3d08c" stop-opacity="0"/></linearGradient>
+      <linearGradient id="ci-fin" x1="0" y1="0" x2="0" y2="1"><stop offset=".62" stop-color="#0b1024" stop-opacity="0"/><stop offset="1" stop-color="#0b1024"/></linearGradient>
+      <filter id="ci-b3" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3"/></filter>
+      <filter id="ci-b12" x="-20%" y="-80%" width="140%" height="260%"><feGaussianBlur stdDeviation="12"/></filter>
+    </defs>
+    <rect width="390" height="520" fill="url(#ci-cielo)"/>
+    <path id="ci-e1" stroke="#fff" stroke-opacity=".5" stroke-width="1.2" stroke-linecap="round"/>
+    <path id="ci-e2" class="tw" stroke="#fff6dd" stroke-width="2.1" stroke-linecap="round"/>
+    <circle class="halo" cx="304" cy="150" r="130" fill="url(#ci-halo)"/>
+    <circle cx="304" cy="150" r="24" fill="url(#ci-luna)"/>
+    <path id="ci-m1" fill="#323866" opacity=".85" filter="url(#ci-b3)"/>
+    <g class="bruma"><ellipse cx="190" cy="282" rx="280" ry="18" fill="#d2cce0" opacity=".16" filter="url(#ci-b12)"/></g>
+    <path id="ci-m2" fill="#1b2148"/>
+    <g class="bruma b2"><ellipse cx="220" cy="318" rx="260" ry="14" fill="#c2bed6" opacity=".13" filter="url(#ci-b12)"/></g>
+    <path id="ci-m3" fill="#0f1432"/>
+    <rect x="0" y="352" width="390" height="168" fill="url(#ci-lago)"/>
+    <rect x="292" y="354" width="24" height="120" fill="url(#ci-ref)" filter="url(#ci-b3)"/>
+    <g stroke="#f3d08c" stroke-linecap="round" opacity=".55"><path d="M284 368h40"/><path d="M290 380h28"/><path d="M296 392h16"/></g>
+    <rect width="390" height="520" fill="url(#ci-fin)"/>
+  </svg>
+</div>
 <header class="bar"><div class="bar-in">
   <a class="home" href="../index.html" id="home-link"><img src="iconos/icono-192.png" alt=""><span>Yada</span></a>
   <span class="sp"></span>
   <button class="ibtn acc" id="instalar" type="button" hidden>Instalar</button>
   <button class="ibtn" id="volver" type="button" hidden>Estudios</button>
   <div class="modos" role="group" aria-label="Modo de lectura">
+    <button type="button" data-modo="noche" aria-pressed="false" title="Noche"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 15.5A7 7 0 0 1 8.5 5a7 7 0 1 0 7 10.5z" class="lleno"/><path d="M18 3.5v3M16.5 5h3M20.5 9.5v2M19.5 10.5h2"/></svg><span>Noche</span></button>
     <button type="button" data-modo="claro" aria-pressed="false" title="Claro"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></svg><span>Claro</span></button>
     <button type="button" data-modo="medio" aria-pressed="false" title="Medio"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" class="lleno"/></svg><span>Medio</span></button>
     <button type="button" data-modo="oscuro" aria-pressed="false" title="Oscuro"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" class="lleno"/></svg><span>Oscuro</span></button>
@@ -552,6 +652,26 @@ details.acc > .in{padding:0 16px 16px;display:grid;gap:10px}
 <main>
   <!-- Inicio -->
   <section id="inicio" class="scr">
+    <header class="portada">
+      <h1 class="portada-t">Yada</h1>
+      <p class="portada-he" lang="he">יָדַע</p>
+      <p class="portada-s">Conociendo al Dios de la Biblia</p>
+    </header>
+    <article class="vdia" id="vdia" hidden aria-labelledby="vdia-l">
+      <div class="vdia-top"><span class="label" id="vdia-l">Versículo del día</span><span id="vdia-f"></span></div>
+      <p class="vdia-tx" id="vdia-tx"></p>
+      <p class="vdia-ref" id="vdia-ref"></p>
+      <div class="vdia-acts">
+        <button type="button" class="go" id="vdia-go">Estudiar este versículo</button>
+        <button type="button" class="icb" id="vdia-sh" aria-label="Compartir el versículo del día"><svg viewBox="0 0 24 24"><path d="M12 3v13M7 8l5-5 5 5"/><path d="M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg></button>
+      </div>
+    </article>
+    <nav class="accesos" aria-label="Accesos rápidos">
+      <button type="button" data-a="elegir"><span class="bub"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></span>Elegir pasaje</button>
+      <button type="button" data-a="comparar"><span class="bub"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="2"/><rect x="14" y="4" width="7" height="16" rx="2"/></svg></span>Comparación</button>
+      <a href="../diccionarios.html" data-a="dic"><span class="bub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2z"/><path d="M9 8h5M9 12h5"/></svg></span>Diccionarios</a>
+      <a href="../index.html" data-a="sitio"><span class="bub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg></span>Sitio Yada</a>
+    </nav>
     <form class="inicio-in" id="f" autocomplete="off">
       <p class="saludo">¿Qué pasaje quieres estudiar?</p>
       <div class="pk" id="pk"></div>
@@ -1869,7 +1989,7 @@ details.acc > .in{padding:0 16px 16px;display:grid;gap:10px}
   }
 
   // ---------- Modo de lectura: claro, medio u oscuro ----------
-  var COLOR_BARRA={claro:"#2350b8",medio:"#e8e3d8",oscuro:"#0f1422"};
+  var COLOR_BARRA={claro:"#2350b8",medio:"#e8e3d8",oscuro:"#0f1422",noche:"#0b1024"};
   function aplicarModo(m, guardar){
     var root=document.documentElement;
     if(m){ root.setAttribute("data-modo",m); } else { root.removeAttribute("data-modo"); }
@@ -1878,7 +1998,44 @@ details.acc > .in{padding:0 16px 16px;display:grid;gap:10px}
     if(guardar){ try{ localStorage.setItem("lector-modo", m); }catch(e){} }
   }
   document.querySelectorAll(".modos button").forEach(function(b){ b.addEventListener("click", function(){ aplicarModo(b.dataset.modo, true); }); });
-  (function(){ var m=null; try{ m=localStorage.getItem("lector-modo"); }catch(e){} if(m==="claro"||m==="medio"||m==="oscuro"){ aplicarModo(m,false); } })();
+  (function(){ var m=null; try{ m=localStorage.getItem("lector-modo"); }catch(e){} aplicarModo((m==="claro"||m==="medio"||m==="oscuro"||m==="noche") ? m : "noche", false); })();
+
+  // Cielo del modo noche: estrellas y montes con pinos (siempre iguales, sin azar real)
+  (function(){
+    var seed=11, rnd=function(){ seed=(seed*9301+49297)%233280; return seed/233280; };
+    function estrellas(n){ var d=""; for(var i=0;i<n;i++){ d+="M"+(rnd()*390).toFixed(1)+" "+(rnd()*240).toFixed(1)+"h.01"; } return d; }
+    function monte(y0, amp, f, ph, pinos){
+      var d="M0 520 L0 "+y0;
+      for(var x=0; x<=390; x+=6){ var b=y0+amp*Math.sin(x/f+ph)+amp*.4*Math.sin(x/(f*.37)+ph*2);
+        if(pinos){ var h=6+rnd()*13; d+=" L"+x+" "+b.toFixed(1)+" L"+(x+3)+" "+(b-h).toFixed(1)+" L"+(x+6)+" "+b.toFixed(1); } else { d+=" L"+x+" "+b.toFixed(1); } }
+      return d+" L390 520 Z";
+    }
+    var p={"ci-e1":estrellas(90),"ci-e2":estrellas(18),"ci-m1":monte(250,20,70,1.2,false),"ci-m2":monte(298,11,55,2.4,true),"ci-m3":monte(340,7,40,.6,true)};
+    Object.keys(p).forEach(function(id){ var e=$(id); if(e) e.setAttribute("d", p[id]); });
+  })();
+
+  // Versículo del día (texto de la Reina-Valera 1909 guardado en la app)
+  var VDIA=["Deuteronomio 6:4","Salmos 90:2","Isaías 40:8","Juan 1:1","Lamentaciones 3:22","Malaquías 3:6","Éxodo 34:6","Números 23:19","Isaías 57:15","Salmos 145:3","Jeremías 9:24","Hebreos 13:8","Santiago 1:17","Juan 1:14","Isaías 46:9","Salmos 139:7","Romanos 11:33","Apocalipsis 4:8","Nehemías 9:6","Levítico 23:4","Deuteronomio 7:9","Salmos 19:1","Isaías 6:3","Juan 4:24","1 Juan 4:8","Miqueas 7:18","Éxodo 3:14","Salmos 33:6","Proverbios 9:10","Habacuc 2:14"];
+  (function(){
+    var hoy=new Date(), dia=Math.floor((Date.UTC(hoy.getFullYear(),hoy.getMonth(),hoy.getDate()))/864e5);
+    var ref=VDIA[dia % VDIA.length], r=parseRef(ref); if(!r) return;
+    $("vdia-f").textContent=hoy.toLocaleDateString("es-CL",{day:"numeric",month:"short"});
+    refTxt(libroNr(r), r.cap, r.ver).then(function(t){
+      if(!t) return;
+      $("vdia-tx").textContent="«"+t+"»"; $("vdia-ref").textContent=ref+" · Reina-Valera 1909"; $("vdia").hidden=false;
+    });
+    $("vdia-go").addEventListener("click", function(){ estudiar(ref); });
+    $("vdia-sh").addEventListener("click", function(){
+      var txt=$("vdia-tx").textContent+" "+ref+" (RV1909)", url=location.origin+location.pathname+"#e/"+encodeURIComponent(ref);
+      try{ if(navigator.share){ navigator.share({title:ref+" · Yada", text:txt, url:url}).catch(function(){}); return; } }catch(e){}
+      try{ navigator.clipboard.writeText(txt+" "+url).then(function(){ toast("Versículo copiado"); },function(){ toast(url); }); }catch(e){ toast(url); }
+    });
+  })();
+  // Accesos rápidos de Inicio
+  document.querySelectorAll(".accesos button").forEach(function(b){ b.addEventListener("click", function(){
+    if(b.dataset.a==="comparar"){ verComparar(); history.replaceState(null,"",location.pathname+location.search+"#comparar"); return; }
+    var s=document.querySelector("#pk select"); if(s){ s.scrollIntoView({behavior:"smooth", block:"center"}); setTimeout(function(){ s.focus(); }, 350); }
+  }); });
 
   // Alto de la barra superior, para las partes fijas en escritorio
   function medirBarra(){ var h=document.querySelector("header.bar"); if(h) document.documentElement.style.setProperty("--bar-h", h.offsetHeight+"px"); }
