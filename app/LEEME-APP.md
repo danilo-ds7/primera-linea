@@ -59,7 +59,7 @@ La instalación y el modo sin conexión funcionan cuando el sitio está publicad
 
 ## Diseño y modos de lectura
 
-La app abre en modo **Noche** (cielo estrellado, luna dorada y montes en la bruma, con tarjetas de vidrio y acento dorado). En la barra superior se puede cambiar de modo y la elección queda guardada en el celular. Cada modo tiene identidad propia: **Claro** es una mañana luminosa (cielo celeste, sol naciente, nubes, colinas verdes y lago; acento azul tejélet); **Medio** es un atardecer dorado en el desierto (montes de roca, dunas y palmeras; papel y acento terracota); **Oscuro** es el tema oscuro sencillo, sin escena. La pantalla de Inicio muestra la portada de Yada, el **versículo del día** (texto de la Reina-Valera 1909 guardado en la app; cambia cada día desde la lista `VDIA` de `index.html`) y accesos rápidos a elegir pasaje, Comparación filológica, Diccionarios y el sitio.
+La app abre en modo **Noche** (cielo estrellado, luna dorada y montes en la bruma, con tarjetas de vidrio y acento dorado). En la barra superior se puede cambiar de modo y la elección queda guardada en el celular. Cada modo tiene identidad propia: **Claro** es una mañana luminosa (cielo celeste, sol naciente, nubes, colinas verdes y lago; acento azul tejélet); **Medio** es un atardecer dorado en el desierto (montes de roca, dunas y palmeras; papel y acento terracota). Son tres modos: Noche, Claro y Medio (quien tenía guardado el antiguo modo Oscuro pasa a Noche). La pantalla de Inicio muestra la portada de Yada, el **versículo del día** (texto de la Reina-Valera 1909 guardado en la app; cambia cada día desde la lista `VDIA` de `index.html`) y accesos rápidos a elegir pasaje, Comparación filológica, Diccionarios y el sitio.
 
 ## Versiones y textos originales
 

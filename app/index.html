@@ -706,7 +706,6 @@ details.acc > .in{padding:0 16px 16px;display:grid;gap:10px}
     <button type="button" data-modo="noche" aria-pressed="false" title="Noche"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 15.5A7 7 0 0 1 8.5 5a7 7 0 1 0 7 10.5z" class="lleno"/><path d="M18 3.5v3M16.5 5h3M20.5 9.5v2M19.5 10.5h2"/></svg><span>Noche</span></button>
     <button type="button" data-modo="claro" aria-pressed="false" title="Claro"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></svg><span>Claro</span></button>
     <button type="button" data-modo="medio" aria-pressed="false" title="Medio"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" class="lleno"/></svg><span>Medio</span></button>
-    <button type="button" data-modo="oscuro" aria-pressed="false" title="Oscuro"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" class="lleno"/></svg><span>Oscuro</span></button>
   </div>
 </div>
 </header>
@@ -2066,7 +2065,7 @@ details.acc > .in{padding:0 16px 16px;display:grid;gap:10px}
     if(guardar){ try{ localStorage.setItem("lector-modo", m); }catch(e){} }
   }
   document.querySelectorAll(".modos button").forEach(function(b){ b.addEventListener("click", function(){ aplicarModo(b.dataset.modo, true); }); });
-  (function(){ var m=null; try{ m=localStorage.getItem("lector-modo"); }catch(e){} aplicarModo((m==="claro"||m==="medio"||m==="oscuro"||m==="noche") ? m : "noche", false); })();
+  (function(){ var m=null; try{ m=localStorage.getItem("lector-modo"); }catch(e){} aplicarModo((m==="claro"||m==="medio"||m==="noche") ? m : "noche", false); /* el antiguo modo "oscuro" pasa a "noche" */ })();
 
   // Cielo del modo noche: estrellas y montes con pinos (siempre iguales, sin azar real)
   (function(){
